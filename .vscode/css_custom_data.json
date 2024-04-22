@@ -1,0 +1,18 @@
+{
+    "atDirectives": [
+      {
+        "name": "@tailwind",
+        "description": "Use the @tailwind directive to insert Tailwind’s `base`, `components`, `utilities`, and `screens` styles into your CSS.",
+        "references": [
+          {
+            "name": "Tailwind’s “Functions & Directives” documentation",
+            "url": "https://tailwindcss.com/docs/functions-and-directives/#tailwind"
+          }
+        ]
+      },
+      {
+        "name": "@apply",
+        "description": "tailwind를 이용한 커스텀 css를 가능하게하는 지시자."
+      }
+    ]
+  }

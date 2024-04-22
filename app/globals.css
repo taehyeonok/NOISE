@@ -1,33 +1,345 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    font-size: 1rem;
+    font-family: LGSMHATR, sans-serif;
+    font-weight: normal;
+}
+
+/* font-weight 400 LGSMHATR */
+/* @font-face {
+    font-family: "LGSMHATR";
+    src: url(./assets/fonts/LGSMHATR.TTF) format("truetype");
+} */
+
+/* font-weight 500 LGSMHATL */
+/* @font-face {
+    font-family: "LGSMHATL";
+    src: url(./assets/fonts/LGSMHATL.TTF) format("truetype");
+} */
+
+/* font-weight 600 LGSMHATSB */
+/* @font-face {
+    font-family: "LGSMHATSB";
+    src: url(./assets/fonts/LGSMHATSB.TTF) format("truetype");
+} */
+
+/* font-weight 700 LGSMHATB */
+/* @font-face {
+    font-family: "LGSMHATB";
+    src: url(./assets/fonts/LGSMHATB.TTF) format("truetype");
+} */
+
+
+@layer base {
+    :root {
+        --lg_red_active: #83022b;
+        --primary: #a50034;
+        --secondary: #b3cfe3;
+        --deep_secondary: #5a7d96;
+        --light_primary: #fef1f4;
+        --bg_gray: #f7f8f9;
+        --error: #ff0000;
+        --gray_900: #212121;
+        --gray_800: #333333;
+        --gray_700: #1b1d1f;
+        --gray_600: #454c53;
+        --gray_500: #999999;
+        --gray_400: #72787f;
+        --gray_300: #dbdbdb;
+        --gray_200: #dadfe2;
+        --gray_100: #e8ebed;
+        --black: #191919;
+        --C9CDD2: #c9cdd2;
+        --F00000: #f00000;
+        --EEF0F2: #eef0f2;
+        --DCF4E1: #dcf4e1;
+        --0DC920: #0dc920;
+        --FFDEDE: #ffdede;
+        --FF5925: #ff5925;
+        --FFEBDE: #ffebde;
+        --popup_bg: rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    html,
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .home_screen {
+        @apply bg-[#2d2d2d]
+    }
+
+    .home_screen > div {
+        @apply text-white;
+    }
+
+    .home_screen > .page-wrap > div > a {
+        @apply bg-[#2d4c67]
+    } 
+    .page {
+        @apply w-screen h-fit bg-bg_gray relative
+    }
+
+    .container {
+        @apply max-w-[80rem] h-[calc(100%-4.375rem)] my-0 mx-auto text-center relative
+    }
+
+    .header {
+        @apply w-full h-[4.375rem] px-[3.75rem]  items-center border-b border-gray_300 bg-white top-0 z-10 justify-between;
+    } 
+    .tabletHeader {
+        @apply w-full justify-start items-center bg-white px-[1.875rem] py-3 z-10 gap-[2.25rem];
+    } 
+    .mobileHeader {
+        @apply w-full h-[3.125rem] justify-between items-center bg-white py-3 px-4 overflow-hidden z-10;
+    }
+
+    .languageBox {
+        @apply absolute bottom-[-6.25rem] right-0 bg-white z-50 shadow-[0px_0px_6px_0px_#0000001A] px-2.5 w-[35rem] flex justify-between items-center flex-wrap
+    }
+
+    .languageBox > div {
+        @apply flex justify-start items-center py-3 w-[6.25rem] gap-2.5 cursor-pointer hover:underline decoration-1;
+    }
+
+    .languageBox > div > div {
+        @apply text-gray_500 text-sm font-LGSMHATR;
+    }
+
+    .languageBox > div.active > div {
+        @apply text-black;
+    } 
+    .mobileLanguageBox {
+        @apply mobile:w-full bg-[#f5f5f5] static bottom-0 px-0 shadow-inherit
+    } 
+    .mobileLanguageBox > div {
+        @apply mobile:text-left text-sm font-LGSMHATR text-gray_500 flex justify-start gap-2.5 basis-full py-2.5 px-4;
+    }
+
+    .helpBox {
+        @apply w-[6.25rem] py-1 bg-white shadow-[0px_0px_6px_0px_#0000001A] absolute top-[2.3rem] right-[0] z-50;
+    }
+
+    .helpBox > div {
+        @apply py-2.5 text-center font-LGSMHATR text-gray_500;
+    }
+
+    .helpBox > div:hover {
+        @apply bg-[#F5F5F5] text-gray_900;
+    } 
+    .mobileHelpBox {
+        @apply mobile:w-full bg-[#f5f5f5] static bottom-0 right-0 z-0 shadow-inherit
+    } 
+    .mobileHelpBox > div {
+        @apply mobile:text-left p-4 text-sm font-LGSMHATR text-gray_500 cursor-pointer;
+    } 
+    .cPopUpBg {
+        @apply fixed top-0 bottom-0 left-0 right-0 bg-popup_bg z-[9999] mobile:bg-white;
+    }
+
+    .cPopUp {
+        @apply bg-white absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]
+        mobile:w-full mobile:h-full mobile:flex mobile:flex-col
+    } 
+    .cPopHeader {
+        @apply flex flex-col-reverse p-[0.5rem_1rem_0_1rem]
+        mobile:flex-row mobile:justify-between mobile:items-center mobile:p-[0_1rem] mobile:h-[3.125rem]
+    } 
+    .cPopHeaderTitle {
+        @apply text-center text-[1.625rem] font-LGSMHATSB text-gray_700
+        mobile:text-[1rem] mobile:leading-[1.115rem]
+    }
+
+    .blackLineRoundButton {
+        @apply border border-gray_700 rounded-full py-2 px-4 font-LGSMHATSB text-sm text-gray_700 hover:bg-gray_700 hover:text-white hover:border-white;
+    }
+
+    .primaryButton {
+        @apply bg-primary text-white rounded font-LGSMHATSB text-sm h-[2.5rem] hover:bg-lg_red_active
+    }
+
+    .blackLineButton {
+        @apply border border-gray_700 rounded font-LGSMHATSB text-sm text-gray_700 h-[2.5rem] hover:bg-black hover:text-white;
+    }
+
+    .blackLineButtonNotHover {
+        @apply border border-gray_700 rounded font-LGSMHATSB text-sm text-gray_700 h-[2.5rem]
+    }
+
+    .grayRoundFillButton {
+        @apply rounded-full w-28 h-10 bg-[#C9CDD2] text-gray_400 text-base font-LGSMHATSB leading-10 cursor-pointer
+    }
+
+    .grayRoundFillButton.active {
+        @apply bg-primary text-white
+    }
+
+    .grayRoundLineButton {
+        @apply py-2.5 px-5 rounded-full border border-[#9EA4AA] font-LGSMHATSB text-sm text-gray_700 leading-[0.875rem] cursor-pointer
+    }
+
+    .grayRoundLineButton.active {
+        @apply border-primary text-primary
+    }
+
+    .calendarIcon {
+        width: fit-content;
+        position: relative;
+        outline: none;
+    }
+
+    .calendarIcon::-webkit-datetime-edit-text {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    .calendarIcon::-webkit-datetime-edit-month-field {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    .calendarIcon::-webkit-datetime-edit-day-field {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    .calendarIcon::-webkit-datetime-edit-year-field {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    .calendarIcon::-webkit-calendar-picker-indicator {
+        background: transparent;
+        z-index: 1;
+    }
+
+    .calendarIcon::after {
+        cursor: pointer;
+        width: 1rem;
+        height: 1.031rem;
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        background: url('./assets/icons/ic_calendar.svg') no-repeat;
+    }
+
+    table {
+        @apply w-full border-collapse
+    }
+
+    table > caption {
+        @apply text-left font-LGSMHATB text-gray_700 text-base mb-5
+    } 
+    .tableTh {
+        @apply bg-gray_100 font-LGSMHATSB text-gray_700 text-center border border-gray_200 py-[0.563rem] text-[0.75rem] leading-[1.125rem]
+        mobile:py-[0.313rem] mobile:text-gray_400
+    } 
+    .tableTd {
+        @apply border-gray_200 font-LGSMHATR text-gray_700 text-center text-[0.75rem] leading-[1.125rem] p-1 border h-[2.313rem]
+        mobile:h-[1.75rem]
+    }
+
+    .tableSelectStyle {
+        @apply h-[1.75rem] p-[0_0.375rem_0_0.625rem] text-[0.75rem] mobile:w-[12.5rem]
+    }
+    
+    .mobileTableSelectStyle {
+        @apply w-[12.5rem]
+    }
+
+    .customInput {
+        @apply border rounded h-9 font-LGSMHATR text-[0.875rem] text-gray_700 placeholder:text-gray_400 flex items-center;
+    }
+
+    /* selectBox */
+    .selectBoxList {
+        @apply flex flex-col max-h-[11.25rem] overflow-y-auto absolute w-full
+        bg-white z-[3] rounded-[0_0_3px_3px] border border-l-gray_700 border-b-gray_700
+        border-r-gray_700 border-t-gray_200
+    }
+
+    .selectBoxList::-webkit-scrollbar {
+        display: none;
+    }
+
+    .selectTitleBox, .selectBoxListItem {
+        @apply flex items-center text-left
+    }
+
+    .selectBoxListItem {
+        @apply text-gray_400 flex-none
+    }
+
+    .selectBoxListItem:hover {
+        @apply text-gray_700 bg-gray_100
+    }
+
+    .selectDefaultBox .selectTitleBox {
+        @apply text-gray_700
+    }
+
+    .selectBoxSelected .selectTitleBox {
+        @apply text-black
+    }
+
+    .selectBoxDisabled {
+        @apply bg-gray_100 pointer-events-none
+    }
+
+    .selectBoxDisabled .selectTitleBox {
+        @apply text-[#757575]
+    }
+
+    .cToolTipStyle {
+        @apply relative mobile:static
+    } 
+    .cToolTipStyle .cToolTipContentBox {
+        @apply p-[0.438rem_0.688rem] bg-bg_gray border border-gray_100 rounded-[3px] absolute z-[4] top-[1.688rem] w-max text-left
+        mobile:flex mobile:flex-col mobile:items-end mobile:gap-[0.75rem] mobile:right-0 mobile:max-w-full
+
+    }
+
+    .cToolTipStyle .cToolTipTitle {
+        @apply text-gray_700 text-[0.875rem] leading-[0.976rem] whitespace-pre-line break-words
+        mobile:text-[0.75rem] mobile:leading-[0.836rem]
+    }
+
+    .noLine {
+        @apply !border-x-0
+    }
+
+    .sr_only {
+        @apply absolute left-[-9999px] w-[1px] h-[1px] hidden
+    } 
+    .hidden_scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
 }
+
+

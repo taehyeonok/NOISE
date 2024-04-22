@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  noise:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - "3004:3000"
+    restart: on-failure:3
