@@ -28,5 +28,5 @@ const CPopUp = forwardRef<HTMLDivElement, cPopUpProps>(
     );
   }
 );
-
+CPopUp.displayName = "CPopUp";
 export default CPopUp;
