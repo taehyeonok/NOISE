@@ -343,6 +343,28 @@ body {
         display: none;
     }
 
+    /* settingPageStyles */
+    /* 반응형 */
+    .settingPageStyles {
+        @apply relative mx-auto max-w-[80rem] text-center pb-[5.938rem] mobile:pb-[2.5rem];
+    }
+    /* 반응형 */
+    .settingPageStyles .grayRoundFillButton {
+        @apply rounded-full w-28 h-10 bg-[#C9CDD2] text-gray_400 text-base font-LGSMHATSB leading-10 cursor-pointer mobile:w-[5.625rem] mobile:h-9;
+    }
+    
+    .settingPageStyles .grayRoundFillButton.active {
+        @apply bg-primary text-white;
+    }
+    
+    .settingPageStyles .grayRoundLineButton {
+        @apply py-2.5 px-5 rounded-full border border-[#9EA4AA] font-LGSMHATSB text-sm text-gray_700 leading-[0.875rem] cursor-pointer;
+    }
+    
+    .settingPageStyles .grayRoundLineButton.active {
+        @apply border-primary text-primary;
+    }
+
     .loader {
         border-top-color: #3469db;
         -webkit-animation: spinner 1.5s linear infinite;

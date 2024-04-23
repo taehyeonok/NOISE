@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { browserType, howToUseDummyData } from "@/app/[lang]/constants/const";
+import {
+  browserType,
+  howToUseDummyData,
+  unitSettingDefaultData,
+  UnitStorageName,
+} from "@/app/[lang]/constants/const";
 
 import IC_LG_LOGO from "@/app/assets/icons/ic_logo.svg";
 import IC_COUNTRY from "@/app/assets/icons/ic_country.svg";
@@ -31,6 +36,7 @@ import IC_SIDE_MENU_MINUS from "@/app/assets/icons/ic_side_menu_minus.svg";
 import { useTranslation } from "@/app/i18n/client";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
+import Link from "next/link";
 
 export default function Header({ lang, selectedLanguage }: any) {
   const { t } = useTranslation(lang);
@@ -84,9 +90,22 @@ export default function Header({ lang, selectedLanguage }: any) {
       setIsShowLanguage("");
     }
   };
-  {
-    /* 반응형 */
-  }
+
+  useEffect(() => {
+    // if (localStorage.getItem(UnitStorageName_old) != null)
+    //   localStorage.removeItem(UnitStorageName_old);
+    if (localStorage.getItem(UnitStorageName) == null) {
+      const unitData = JSON.stringify({
+        unitClss: "IP",
+        ...unitSettingDefaultData,
+      });
+      localStorage.setItem(UnitStorageName, unitData);
+    }
+    // setLoginUserRegion(
+    //   `${localStorage.getItem("user_region")} / ${localStorage.getItem("user_country")}`
+    // );
+  }, []);
+
   useEffect(() => {
     if (isShowMobileSideMenu) {
       document.querySelector("body")?.style.setProperty("overflow-y", "hidden", "important");
@@ -314,7 +333,9 @@ export default function Header({ lang, selectedLanguage }: any) {
               <CHelpBox setSelectedHelpMenu={setSelectedHelpMenu} />
             )}
           </div>
-          <Image className={"cursor-pointer"} src={IC_SETTING} alt={"setting"} tabIndex={0} />
+          <Link href={"setting"}>
+            <Image className={"cursor-pointer"} src={IC_SETTING} alt={"setting"} tabIndex={0} />
+          </Link>
         </div>
       </div>
       {/* 반응형 */}
@@ -358,7 +379,14 @@ export default function Header({ lang, selectedLanguage }: any) {
                     <CHelpBox setSelectedHelpMenu={setSelectedHelpMenu} />
                   )}
                 </div>
-                <Image className={"cursor-pointer"} src={IC_SETTING} alt={"setting"} tabIndex={0} />
+                <Link href={"setting"}>
+                  <Image
+                    className={"cursor-pointer"}
+                    src={IC_SETTING}
+                    alt={"setting"}
+                    tabIndex={0}
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -467,8 +495,10 @@ export default function Header({ lang, selectedLanguage }: any) {
                 "flex justify-start items-center pt-3 px-4 pb-9 gap-2.5 bg-white my-[-1px]"
               }
             >
-              <Image src={IC_SETTING} alt={"setting"} />
-              <div className={"font-LGSMHATSB text-black"}>Setting</div>
+              <Link href={"setting"}>
+                <Image src={IC_SETTING} alt={"setting"} />
+                <div className={"font-LGSMHATSB text-black"}>Setting</div>
+              </Link>
             </div>
           </div>
         </div>

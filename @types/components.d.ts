@@ -100,3 +100,14 @@ interface cTooltipProps {
 interface cCalendarProps {
   label: string;
 }
+
+interface CTitleProps {
+  title: string;
+  children?: React.ReactNode;
+  classList?: string;
+}
+
+interface cPageContainerProps {
+  children: React.ReactNode;
+  className: string;
+}
