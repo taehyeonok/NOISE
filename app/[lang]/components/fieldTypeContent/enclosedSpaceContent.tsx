@@ -5,7 +5,7 @@ import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import React from "react";
 
-export default function EnclosedSpaceContent() {
+export default function EnclosedSpaceContent({ t }: any) {
   {
     /* 반응형 */
   }

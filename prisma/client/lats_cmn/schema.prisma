@@ -2587,10 +2587,8 @@ view V_CMN_LANGUAGE_LCC {
 
 /// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 view V_CMN_LANGUAGE {
-  CODE    String  @default("") @db.LongText
+  CODE    String  @unique
   HVAC_ID String? @db.VarChar(200)
   MESSAGE String? @db.LongText
   LOCALE  String? @db.VarChar(12)
-
-  @@ignore
 }

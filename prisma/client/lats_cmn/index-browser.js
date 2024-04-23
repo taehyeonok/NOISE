@@ -1452,6 +1452,13 @@ exports.Prisma.Error_logScalarFieldEnum = {
   log_date: 'log_date'
 };
 
+exports.Prisma.V_CMN_LANGUAGEScalarFieldEnum = {
+  CODE: 'CODE',
+  HVAC_ID: 'HVAC_ID',
+  MESSAGE: 'MESSAGE',
+  LOCALE: 'LOCALE'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1495,7 +1502,8 @@ exports.Prisma.ModelName = {
   T_MASTER_MV_ODU: 'T_MASTER_MV_ODU',
   T_MASTER_THERMAV_IDU: 'T_MASTER_THERMAV_IDU',
   T_MASTER_THERMAV_ODU: 'T_MASTER_THERMAV_ODU',
-  error_log: 'error_log'
+  error_log: 'error_log',
+  V_CMN_LANGUAGE: 'V_CMN_LANGUAGE'
 };
 
 /**

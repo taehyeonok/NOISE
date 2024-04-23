@@ -420,3 +420,85 @@ export const soundPressureReceiverDummyData = {
     { content: "31.9", noLine: true },
   ],
 };
+
+export const UnitStorageName = "latsNoise_unit";
+
+export const unitSettingData = [
+  {
+    title: "Temperature",
+    key: "temperature",
+    value: ["℃", "℉"],
+  },
+  {
+    title: "Heat Load",
+    key: "heatLoad",
+    value: ["kW", "ton", "kcal/h", "kBtu/h"],
+  },
+  {
+    title: "Water Flow Rate",
+    key: "waterFlowRate",
+    value: ["CMS", "LPM", "LPH", "GPM"],
+  },
+  {
+    title: "Weight",
+    key: "weight",
+    value: ["kg", "lbs"],
+  },
+  {
+    title: "Heat Exchanger Volume",
+    key: "heatExchangerVolume",
+    value: ["cm3", "dm3", "in3"],
+  },
+  {
+    title: "Air flow rate",
+    key: "airFlowRate",
+    value: ["CMS", "CMM", "CMH", "CFM", "LPS", "LPH"],
+  },
+  {
+    title: "Length",
+    key: "length",
+    value: ["m", "ft"],
+  },
+  {
+    title: "Pressure Drop(Air)",
+    key: "pressureDropAir",
+    value: ["kgf/cm2", "Pa", "mmAq", "bar", "lb/ft2", "inchAq"],
+  },
+  {
+    title: "Diameter",
+    key: "diameter",
+    value: ["mm", "inch"],
+  },
+  {
+    title: "Pressure Drop(Water)",
+    key: "pressureDropWater",
+    value: ["kPa", "mmAq", "inchAq"],
+  },
+];
+
+export const unitSettingDefaultData: Record<string, Record<string, string>> = {
+  SI: {
+    temperature: "℃",
+    heatLoad: "kW",
+    waterFlowRate: "LPM",
+    weight: "kg",
+    heatExchangerVolume: "cm3",
+    airFlowRate: "CMH",
+    length: "m",
+    pressureDropAir: "Pa",
+    diameter: "mm",
+    pressureDropWater: "mmAq",
+  },
+  IP: {
+    temperature: "℉",
+    heatLoad: "kBtu/h",
+    waterFlowRate: "GPM",
+    weight: "lbs",
+    heatExchangerVolume: "in3",
+    airFlowRate: "CFM",
+    length: "ft",
+    pressureDropAir: "inchAq",
+    diameter: "inch",
+    pressureDropWater: "inchAq",
+  },
+};

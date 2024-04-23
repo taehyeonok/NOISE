@@ -173,6 +173,11 @@ export type T_MASTER_THERMAV_ODU = $Result.DefaultSelection<Prisma.$T_MASTER_THE
  * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
 export type error_log = $Result.DefaultSelection<Prisma.$error_logPayload>
+/**
+ * Model V_CMN_LANGUAGE
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_CMN_LANGUAGE = $Result.DefaultSelection<Prisma.$V_CMN_LANGUAGEPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -615,6 +620,16 @@ export class PrismaClient<
     * ```
     */
   get error_log(): Prisma.error_logDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_CMN_LANGUAGE`: Exposes CRUD operations for the **V_CMN_LANGUAGE** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_CMN_LANGUAGES
+    * const v_CMN_LANGUAGES = await prisma.v_CMN_LANGUAGE.findMany()
+    * ```
+    */
+  get v_CMN_LANGUAGE(): Prisma.V_CMN_LANGUAGEDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1116,7 +1131,8 @@ export namespace Prisma {
     T_MASTER_MV_ODU: 'T_MASTER_MV_ODU',
     T_MASTER_THERMAV_IDU: 'T_MASTER_THERMAV_IDU',
     T_MASTER_THERMAV_ODU: 'T_MASTER_THERMAV_ODU',
-    error_log: 'error_log'
+    error_log: 'error_log',
+    V_CMN_LANGUAGE: 'V_CMN_LANGUAGE'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1133,7 +1149,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 't_CMN_CAPA_OUT_COOLING' | 't_CMN_CAPA_OUT_HEATING' | 't_CMN_CODE' | 't_CMN_COM_MEMBER' | 't_CMN_LANGUAGE' | 't_CMN_LOCATION' | 't_CMN_MEM_REGION_COUNTRY' | 't_CMN_MEM_TERMS' | 't_CMN_MEM_TERMS_MAPPING' | 't_CMN_SETTING' | 't_CMN_SPEC_OUT' | 't_CMN_UNIT_TABLE' | 't_CMN_USAGE' | 't_CMN_USAGE_2021' | 't_CMN_USAGE_2022' | 't_CMN_USAGE_2023_REVIT' | 't_CMN_USAGE_BACKUP' | 't_CMN_USAGE_EMP_CNTRY_ENT' | 't_CMN_USAGE_PROG_USE_CODE' | 't_MASTER_ERV_SPEC_SHEET' | 't_MASTER_ERV_SPEC_SHEET_OLD' | 't_MASTER_MS_DIAMETER' | 't_MASTER_MS_IDU' | 't_MASTER_MS_IDU_ODU_TYPE' | 't_MASTER_MS_ODU' | 't_MASTER_MV_BRANCH_NEW' | 't_MASTER_MV_DOAS' | 't_MASTER_MV_HEADER' | 't_MASTER_MV_ODU' | 't_MASTER_THERMAV_IDU' | 't_MASTER_THERMAV_ODU' | 'error_log'
+      modelProps: 't_CMN_CAPA_OUT_COOLING' | 't_CMN_CAPA_OUT_HEATING' | 't_CMN_CODE' | 't_CMN_COM_MEMBER' | 't_CMN_LANGUAGE' | 't_CMN_LOCATION' | 't_CMN_MEM_REGION_COUNTRY' | 't_CMN_MEM_TERMS' | 't_CMN_MEM_TERMS_MAPPING' | 't_CMN_SETTING' | 't_CMN_SPEC_OUT' | 't_CMN_UNIT_TABLE' | 't_CMN_USAGE' | 't_CMN_USAGE_2021' | 't_CMN_USAGE_2022' | 't_CMN_USAGE_2023_REVIT' | 't_CMN_USAGE_BACKUP' | 't_CMN_USAGE_EMP_CNTRY_ENT' | 't_CMN_USAGE_PROG_USE_CODE' | 't_MASTER_ERV_SPEC_SHEET' | 't_MASTER_ERV_SPEC_SHEET_OLD' | 't_MASTER_MS_DIAMETER' | 't_MASTER_MS_IDU' | 't_MASTER_MS_IDU_ODU_TYPE' | 't_MASTER_MS_ODU' | 't_MASTER_MV_BRANCH_NEW' | 't_MASTER_MV_DOAS' | 't_MASTER_MV_HEADER' | 't_MASTER_MV_ODU' | 't_MASTER_THERMAV_IDU' | 't_MASTER_THERMAV_ODU' | 'error_log' | 'v_CMN_LANGUAGE'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -3246,6 +3262,72 @@ export namespace Prisma {
           count: {
             args: Prisma.error_logCountArgs<ExtArgs>,
             result: $Utils.Optional<Error_logCountAggregateOutputType> | number
+          }
+        }
+      }
+      V_CMN_LANGUAGE: {
+        payload: Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>
+        fields: Prisma.V_CMN_LANGUAGEFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_CMN_LANGUAGEFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_CMN_LANGUAGEFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          findFirst: {
+            args: Prisma.V_CMN_LANGUAGEFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_CMN_LANGUAGEFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          findMany: {
+            args: Prisma.V_CMN_LANGUAGEFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>[]
+          }
+          create: {
+            args: Prisma.V_CMN_LANGUAGECreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          createMany: {
+            args: Prisma.V_CMN_LANGUAGECreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_CMN_LANGUAGEDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          update: {
+            args: Prisma.V_CMN_LANGUAGEUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_CMN_LANGUAGEDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_CMN_LANGUAGEUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_CMN_LANGUAGEUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_CMN_LANGUAGEPayload>
+          }
+          aggregate: {
+            args: Prisma.V_CMN_LANGUAGEAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_CMN_LANGUAGE>
+          }
+          groupBy: {
+            args: Prisma.V_CMN_LANGUAGEGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_CMN_LANGUAGEGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_CMN_LANGUAGECountArgs<ExtArgs>,
+            result: $Utils.Optional<V_CMN_LANGUAGECountAggregateOutputType> | number
           }
         }
       }
@@ -45464,6 +45546,865 @@ export namespace Prisma {
 
 
   /**
+   * Model V_CMN_LANGUAGE
+   */
+
+  export type AggregateV_CMN_LANGUAGE = {
+    _count: V_CMN_LANGUAGECountAggregateOutputType | null
+    _min: V_CMN_LANGUAGEMinAggregateOutputType | null
+    _max: V_CMN_LANGUAGEMaxAggregateOutputType | null
+  }
+
+  export type V_CMN_LANGUAGEMinAggregateOutputType = {
+    CODE: string | null
+    HVAC_ID: string | null
+    MESSAGE: string | null
+    LOCALE: string | null
+  }
+
+  export type V_CMN_LANGUAGEMaxAggregateOutputType = {
+    CODE: string | null
+    HVAC_ID: string | null
+    MESSAGE: string | null
+    LOCALE: string | null
+  }
+
+  export type V_CMN_LANGUAGECountAggregateOutputType = {
+    CODE: number
+    HVAC_ID: number
+    MESSAGE: number
+    LOCALE: number
+    _all: number
+  }
+
+
+  export type V_CMN_LANGUAGEMinAggregateInputType = {
+    CODE?: true
+    HVAC_ID?: true
+    MESSAGE?: true
+    LOCALE?: true
+  }
+
+  export type V_CMN_LANGUAGEMaxAggregateInputType = {
+    CODE?: true
+    HVAC_ID?: true
+    MESSAGE?: true
+    LOCALE?: true
+  }
+
+  export type V_CMN_LANGUAGECountAggregateInputType = {
+    CODE?: true
+    HVAC_ID?: true
+    MESSAGE?: true
+    LOCALE?: true
+    _all?: true
+  }
+
+  export type V_CMN_LANGUAGEAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_CMN_LANGUAGE to aggregate.
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_CMN_LANGUAGES to fetch.
+     */
+    orderBy?: V_CMN_LANGUAGEOrderByWithRelationInput | V_CMN_LANGUAGEOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_CMN_LANGUAGEWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_CMN_LANGUAGES from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_CMN_LANGUAGES.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_CMN_LANGUAGES
+    **/
+    _count?: true | V_CMN_LANGUAGECountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_CMN_LANGUAGEMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_CMN_LANGUAGEMaxAggregateInputType
+  }
+
+  export type GetV_CMN_LANGUAGEAggregateType<T extends V_CMN_LANGUAGEAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_CMN_LANGUAGE]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_CMN_LANGUAGE[P]>
+      : GetScalarType<T[P], AggregateV_CMN_LANGUAGE[P]>
+  }
+
+
+
+
+  export type V_CMN_LANGUAGEGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_CMN_LANGUAGEWhereInput
+    orderBy?: V_CMN_LANGUAGEOrderByWithAggregationInput | V_CMN_LANGUAGEOrderByWithAggregationInput[]
+    by: V_CMN_LANGUAGEScalarFieldEnum[] | V_CMN_LANGUAGEScalarFieldEnum
+    having?: V_CMN_LANGUAGEScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_CMN_LANGUAGECountAggregateInputType | true
+    _min?: V_CMN_LANGUAGEMinAggregateInputType
+    _max?: V_CMN_LANGUAGEMaxAggregateInputType
+  }
+
+  export type V_CMN_LANGUAGEGroupByOutputType = {
+    CODE: string
+    HVAC_ID: string | null
+    MESSAGE: string | null
+    LOCALE: string | null
+    _count: V_CMN_LANGUAGECountAggregateOutputType | null
+    _min: V_CMN_LANGUAGEMinAggregateOutputType | null
+    _max: V_CMN_LANGUAGEMaxAggregateOutputType | null
+  }
+
+  type GetV_CMN_LANGUAGEGroupByPayload<T extends V_CMN_LANGUAGEGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_CMN_LANGUAGEGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_CMN_LANGUAGEGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_CMN_LANGUAGEGroupByOutputType[P]>
+            : GetScalarType<T[P], V_CMN_LANGUAGEGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_CMN_LANGUAGESelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    CODE?: boolean
+    HVAC_ID?: boolean
+    MESSAGE?: boolean
+    LOCALE?: boolean
+  }, ExtArgs["result"]["v_CMN_LANGUAGE"]>
+
+  export type V_CMN_LANGUAGESelectScalar = {
+    CODE?: boolean
+    HVAC_ID?: boolean
+    MESSAGE?: boolean
+    LOCALE?: boolean
+  }
+
+
+  export type $V_CMN_LANGUAGEPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_CMN_LANGUAGE"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      CODE: string
+      HVAC_ID: string | null
+      MESSAGE: string | null
+      LOCALE: string | null
+    }, ExtArgs["result"]["v_CMN_LANGUAGE"]>
+    composites: {}
+  }
+
+
+  type V_CMN_LANGUAGEGetPayload<S extends boolean | null | undefined | V_CMN_LANGUAGEDefaultArgs> = $Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload, S>
+
+  type V_CMN_LANGUAGECountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_CMN_LANGUAGEFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_CMN_LANGUAGECountAggregateInputType | true
+    }
+
+  export interface V_CMN_LANGUAGEDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_CMN_LANGUAGE'], meta: { name: 'V_CMN_LANGUAGE' } }
+    /**
+     * Find zero or one V_CMN_LANGUAGE that matches the filter.
+     * @param {V_CMN_LANGUAGEFindUniqueArgs} args - Arguments to find a V_CMN_LANGUAGE
+     * @example
+     * // Get one V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_CMN_LANGUAGEFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGEFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_CMN_LANGUAGE that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {V_CMN_LANGUAGEFindUniqueOrThrowArgs} args - Arguments to find a V_CMN_LANGUAGE
+     * @example
+     * // Get one V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_CMN_LANGUAGEFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGEFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_CMN_LANGUAGE that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEFindFirstArgs} args - Arguments to find a V_CMN_LANGUAGE
+     * @example
+     * // Get one V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_CMN_LANGUAGEFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGEFindFirstArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_CMN_LANGUAGE that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEFindFirstOrThrowArgs} args - Arguments to find a V_CMN_LANGUAGE
+     * @example
+     * // Get one V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_CMN_LANGUAGEFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGEFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_CMN_LANGUAGES that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_CMN_LANGUAGES
+     * const v_CMN_LANGUAGES = await prisma.v_CMN_LANGUAGE.findMany()
+     * 
+     * // Get first 10 V_CMN_LANGUAGES
+     * const v_CMN_LANGUAGES = await prisma.v_CMN_LANGUAGE.findMany({ take: 10 })
+     * 
+     * // Only select the `CODE`
+     * const v_CMN_LANGUAGEWithCODEOnly = await prisma.v_CMN_LANGUAGE.findMany({ select: { CODE: true } })
+     * 
+    **/
+    findMany<T extends V_CMN_LANGUAGEFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGEFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_CMN_LANGUAGE.
+     * @param {V_CMN_LANGUAGECreateArgs} args - Arguments to create a V_CMN_LANGUAGE.
+     * @example
+     * // Create one V_CMN_LANGUAGE
+     * const V_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.create({
+     *   data: {
+     *     // ... data to create a V_CMN_LANGUAGE
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_CMN_LANGUAGECreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGECreateArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_CMN_LANGUAGES.
+     *     @param {V_CMN_LANGUAGECreateManyArgs} args - Arguments to create many V_CMN_LANGUAGES.
+     *     @example
+     *     // Create many V_CMN_LANGUAGES
+     *     const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends V_CMN_LANGUAGECreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGECreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_CMN_LANGUAGE.
+     * @param {V_CMN_LANGUAGEDeleteArgs} args - Arguments to delete one V_CMN_LANGUAGE.
+     * @example
+     * // Delete one V_CMN_LANGUAGE
+     * const V_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.delete({
+     *   where: {
+     *     // ... filter to delete one V_CMN_LANGUAGE
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_CMN_LANGUAGEDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGEDeleteArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_CMN_LANGUAGE.
+     * @param {V_CMN_LANGUAGEUpdateArgs} args - Arguments to update one V_CMN_LANGUAGE.
+     * @example
+     * // Update one V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_CMN_LANGUAGEUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGEUpdateArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_CMN_LANGUAGES.
+     * @param {V_CMN_LANGUAGEDeleteManyArgs} args - Arguments to filter V_CMN_LANGUAGES to delete.
+     * @example
+     * // Delete a few V_CMN_LANGUAGES
+     * const { count } = await prisma.v_CMN_LANGUAGE.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_CMN_LANGUAGEDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_CMN_LANGUAGEDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_CMN_LANGUAGES.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_CMN_LANGUAGES
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_CMN_LANGUAGEUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGEUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_CMN_LANGUAGE.
+     * @param {V_CMN_LANGUAGEUpsertArgs} args - Arguments to update or create a V_CMN_LANGUAGE.
+     * @example
+     * // Update or create a V_CMN_LANGUAGE
+     * const v_CMN_LANGUAGE = await prisma.v_CMN_LANGUAGE.upsert({
+     *   create: {
+     *     // ... data to create a V_CMN_LANGUAGE
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_CMN_LANGUAGE we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_CMN_LANGUAGEUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_CMN_LANGUAGEUpsertArgs<ExtArgs>>
+    ): Prisma__V_CMN_LANGUAGEClient<$Result.GetResult<Prisma.$V_CMN_LANGUAGEPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_CMN_LANGUAGES.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGECountArgs} args - Arguments to filter V_CMN_LANGUAGES to count.
+     * @example
+     * // Count the number of V_CMN_LANGUAGES
+     * const count = await prisma.v_CMN_LANGUAGE.count({
+     *   where: {
+     *     // ... the filter for the V_CMN_LANGUAGES we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_CMN_LANGUAGECountArgs>(
+      args?: Subset<T, V_CMN_LANGUAGECountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_CMN_LANGUAGECountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_CMN_LANGUAGE.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_CMN_LANGUAGEAggregateArgs>(args: Subset<T, V_CMN_LANGUAGEAggregateArgs>): Prisma.PrismaPromise<GetV_CMN_LANGUAGEAggregateType<T>>
+
+    /**
+     * Group by V_CMN_LANGUAGE.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_CMN_LANGUAGEGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_CMN_LANGUAGEGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_CMN_LANGUAGEGroupByArgs['orderBy'] }
+        : { orderBy?: V_CMN_LANGUAGEGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_CMN_LANGUAGEGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_CMN_LANGUAGEGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_CMN_LANGUAGE model
+   */
+  readonly fields: V_CMN_LANGUAGEFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_CMN_LANGUAGE.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_CMN_LANGUAGEClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_CMN_LANGUAGE model
+   */ 
+  interface V_CMN_LANGUAGEFieldRefs {
+    readonly CODE: FieldRef<"V_CMN_LANGUAGE", 'String'>
+    readonly HVAC_ID: FieldRef<"V_CMN_LANGUAGE", 'String'>
+    readonly MESSAGE: FieldRef<"V_CMN_LANGUAGE", 'String'>
+    readonly LOCALE: FieldRef<"V_CMN_LANGUAGE", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * V_CMN_LANGUAGE findUnique
+   */
+  export type V_CMN_LANGUAGEFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter, which V_CMN_LANGUAGE to fetch.
+     */
+    where: V_CMN_LANGUAGEWhereUniqueInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE findUniqueOrThrow
+   */
+  export type V_CMN_LANGUAGEFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter, which V_CMN_LANGUAGE to fetch.
+     */
+    where: V_CMN_LANGUAGEWhereUniqueInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE findFirst
+   */
+  export type V_CMN_LANGUAGEFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter, which V_CMN_LANGUAGE to fetch.
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_CMN_LANGUAGES to fetch.
+     */
+    orderBy?: V_CMN_LANGUAGEOrderByWithRelationInput | V_CMN_LANGUAGEOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_CMN_LANGUAGES.
+     */
+    cursor?: V_CMN_LANGUAGEWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_CMN_LANGUAGES from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_CMN_LANGUAGES.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_CMN_LANGUAGES.
+     */
+    distinct?: V_CMN_LANGUAGEScalarFieldEnum | V_CMN_LANGUAGEScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE findFirstOrThrow
+   */
+  export type V_CMN_LANGUAGEFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter, which V_CMN_LANGUAGE to fetch.
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_CMN_LANGUAGES to fetch.
+     */
+    orderBy?: V_CMN_LANGUAGEOrderByWithRelationInput | V_CMN_LANGUAGEOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_CMN_LANGUAGES.
+     */
+    cursor?: V_CMN_LANGUAGEWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_CMN_LANGUAGES from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_CMN_LANGUAGES.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_CMN_LANGUAGES.
+     */
+    distinct?: V_CMN_LANGUAGEScalarFieldEnum | V_CMN_LANGUAGEScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE findMany
+   */
+  export type V_CMN_LANGUAGEFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter, which V_CMN_LANGUAGES to fetch.
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_CMN_LANGUAGES to fetch.
+     */
+    orderBy?: V_CMN_LANGUAGEOrderByWithRelationInput | V_CMN_LANGUAGEOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_CMN_LANGUAGES.
+     */
+    cursor?: V_CMN_LANGUAGEWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_CMN_LANGUAGES from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_CMN_LANGUAGES.
+     */
+    skip?: number
+    distinct?: V_CMN_LANGUAGEScalarFieldEnum | V_CMN_LANGUAGEScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE create
+   */
+  export type V_CMN_LANGUAGECreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_CMN_LANGUAGE.
+     */
+    data: XOR<V_CMN_LANGUAGECreateInput, V_CMN_LANGUAGEUncheckedCreateInput>
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE createMany
+   */
+  export type V_CMN_LANGUAGECreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_CMN_LANGUAGES.
+     */
+    data: V_CMN_LANGUAGECreateManyInput | V_CMN_LANGUAGECreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE update
+   */
+  export type V_CMN_LANGUAGEUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_CMN_LANGUAGE.
+     */
+    data: XOR<V_CMN_LANGUAGEUpdateInput, V_CMN_LANGUAGEUncheckedUpdateInput>
+    /**
+     * Choose, which V_CMN_LANGUAGE to update.
+     */
+    where: V_CMN_LANGUAGEWhereUniqueInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE updateMany
+   */
+  export type V_CMN_LANGUAGEUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_CMN_LANGUAGES.
+     */
+    data: XOR<V_CMN_LANGUAGEUpdateManyMutationInput, V_CMN_LANGUAGEUncheckedUpdateManyInput>
+    /**
+     * Filter which V_CMN_LANGUAGES to update
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE upsert
+   */
+  export type V_CMN_LANGUAGEUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_CMN_LANGUAGE to update in case it exists.
+     */
+    where: V_CMN_LANGUAGEWhereUniqueInput
+    /**
+     * In case the V_CMN_LANGUAGE found by the `where` argument doesn't exist, create a new V_CMN_LANGUAGE with this data.
+     */
+    create: XOR<V_CMN_LANGUAGECreateInput, V_CMN_LANGUAGEUncheckedCreateInput>
+    /**
+     * In case the V_CMN_LANGUAGE was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_CMN_LANGUAGEUpdateInput, V_CMN_LANGUAGEUncheckedUpdateInput>
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE delete
+   */
+  export type V_CMN_LANGUAGEDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+    /**
+     * Filter which V_CMN_LANGUAGE to delete.
+     */
+    where: V_CMN_LANGUAGEWhereUniqueInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE deleteMany
+   */
+  export type V_CMN_LANGUAGEDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_CMN_LANGUAGES to delete
+     */
+    where?: V_CMN_LANGUAGEWhereInput
+  }
+
+
+  /**
+   * V_CMN_LANGUAGE without action
+   */
+  export type V_CMN_LANGUAGEDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_CMN_LANGUAGE
+     */
+    select?: V_CMN_LANGUAGESelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -46904,6 +47845,16 @@ export namespace Prisma {
   };
 
   export type Error_logScalarFieldEnum = (typeof Error_logScalarFieldEnum)[keyof typeof Error_logScalarFieldEnum]
+
+
+  export const V_CMN_LANGUAGEScalarFieldEnum: {
+    CODE: 'CODE',
+    HVAC_ID: 'HVAC_ID',
+    MESSAGE: 'MESSAGE',
+    LOCALE: 'LOCALE'
+  };
+
+  export type V_CMN_LANGUAGEScalarFieldEnum = (typeof V_CMN_LANGUAGEScalarFieldEnum)[keyof typeof V_CMN_LANGUAGEScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -54078,6 +55029,53 @@ export namespace Prisma {
     call_stack?: StringNullableWithAggregatesFilter<"error_log"> | string | null
     proc_call_date?: DateTimeWithAggregatesFilter<"error_log"> | Date | string
     log_date?: DateTimeWithAggregatesFilter<"error_log"> | Date | string
+  }
+
+  export type V_CMN_LANGUAGEWhereInput = {
+    AND?: V_CMN_LANGUAGEWhereInput | V_CMN_LANGUAGEWhereInput[]
+    OR?: V_CMN_LANGUAGEWhereInput[]
+    NOT?: V_CMN_LANGUAGEWhereInput | V_CMN_LANGUAGEWhereInput[]
+    CODE?: StringFilter<"V_CMN_LANGUAGE"> | string
+    HVAC_ID?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+    MESSAGE?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+    LOCALE?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+  }
+
+  export type V_CMN_LANGUAGEOrderByWithRelationInput = {
+    CODE?: SortOrder
+    HVAC_ID?: SortOrderInput | SortOrder
+    MESSAGE?: SortOrderInput | SortOrder
+    LOCALE?: SortOrderInput | SortOrder
+  }
+
+  export type V_CMN_LANGUAGEWhereUniqueInput = Prisma.AtLeast<{
+    CODE?: string
+    AND?: V_CMN_LANGUAGEWhereInput | V_CMN_LANGUAGEWhereInput[]
+    OR?: V_CMN_LANGUAGEWhereInput[]
+    NOT?: V_CMN_LANGUAGEWhereInput | V_CMN_LANGUAGEWhereInput[]
+    HVAC_ID?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+    MESSAGE?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+    LOCALE?: StringNullableFilter<"V_CMN_LANGUAGE"> | string | null
+  }, "CODE">
+
+  export type V_CMN_LANGUAGEOrderByWithAggregationInput = {
+    CODE?: SortOrder
+    HVAC_ID?: SortOrderInput | SortOrder
+    MESSAGE?: SortOrderInput | SortOrder
+    LOCALE?: SortOrderInput | SortOrder
+    _count?: V_CMN_LANGUAGECountOrderByAggregateInput
+    _max?: V_CMN_LANGUAGEMaxOrderByAggregateInput
+    _min?: V_CMN_LANGUAGEMinOrderByAggregateInput
+  }
+
+  export type V_CMN_LANGUAGEScalarWhereWithAggregatesInput = {
+    AND?: V_CMN_LANGUAGEScalarWhereWithAggregatesInput | V_CMN_LANGUAGEScalarWhereWithAggregatesInput[]
+    OR?: V_CMN_LANGUAGEScalarWhereWithAggregatesInput[]
+    NOT?: V_CMN_LANGUAGEScalarWhereWithAggregatesInput | V_CMN_LANGUAGEScalarWhereWithAggregatesInput[]
+    CODE?: StringWithAggregatesFilter<"V_CMN_LANGUAGE"> | string
+    HVAC_ID?: StringNullableWithAggregatesFilter<"V_CMN_LANGUAGE"> | string | null
+    MESSAGE?: StringNullableWithAggregatesFilter<"V_CMN_LANGUAGE"> | string | null
+    LOCALE?: StringNullableWithAggregatesFilter<"V_CMN_LANGUAGE"> | string | null
   }
 
   export type T_CMN_CAPA_OUT_COOLINGCreateInput = {
@@ -63406,6 +64404,55 @@ export namespace Prisma {
     log_date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type V_CMN_LANGUAGECreateInput = {
+    CODE: string
+    HVAC_ID?: string | null
+    MESSAGE?: string | null
+    LOCALE?: string | null
+  }
+
+  export type V_CMN_LANGUAGEUncheckedCreateInput = {
+    CODE: string
+    HVAC_ID?: string | null
+    MESSAGE?: string | null
+    LOCALE?: string | null
+  }
+
+  export type V_CMN_LANGUAGEUpdateInput = {
+    CODE?: StringFieldUpdateOperationsInput | string
+    HVAC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type V_CMN_LANGUAGEUncheckedUpdateInput = {
+    CODE?: StringFieldUpdateOperationsInput | string
+    HVAC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type V_CMN_LANGUAGECreateManyInput = {
+    CODE: string
+    HVAC_ID?: string | null
+    MESSAGE?: string | null
+    LOCALE?: string | null
+  }
+
+  export type V_CMN_LANGUAGEUpdateManyMutationInput = {
+    CODE?: StringFieldUpdateOperationsInput | string
+    HVAC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type V_CMN_LANGUAGEUncheckedUpdateManyInput = {
+    CODE?: StringFieldUpdateOperationsInput | string
+    HVAC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -68625,6 +69672,27 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type V_CMN_LANGUAGECountOrderByAggregateInput = {
+    CODE?: SortOrder
+    HVAC_ID?: SortOrder
+    MESSAGE?: SortOrder
+    LOCALE?: SortOrder
+  }
+
+  export type V_CMN_LANGUAGEMaxOrderByAggregateInput = {
+    CODE?: SortOrder
+    HVAC_ID?: SortOrder
+    MESSAGE?: SortOrder
+    LOCALE?: SortOrder
+  }
+
+  export type V_CMN_LANGUAGEMinOrderByAggregateInput = {
+    CODE?: SortOrder
+    HVAC_ID?: SortOrder
+    MESSAGE?: SortOrder
+    LOCALE?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -69048,6 +70116,10 @@ export namespace Prisma {
      * @deprecated Use error_logDefaultArgs instead
      */
     export type error_logArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = error_logDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_CMN_LANGUAGEDefaultArgs instead
+     */
+    export type V_CMN_LANGUAGEArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_CMN_LANGUAGEDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

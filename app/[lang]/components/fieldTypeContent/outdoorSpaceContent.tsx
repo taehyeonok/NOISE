@@ -1,3 +1,4 @@
+"use client";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
 import IC_TOOLTIP from "@/app/assets/icons/ic_tooltip.svg";
 import IG_REFERENCE_COMMON_TABLE from "@/app/assets/images/ig_reference_common_table.svg";
@@ -9,7 +10,7 @@ import BarrierInformationTable from "@/app/[lang]/components/table/barrierInform
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import { cTooltipProps } from "@/@types/components";
 
-export default function OutdoorSpaceContent() {
+export default function OutdoorSpaceContent({ t }: any) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
     { title: "O", value: "0" },
@@ -19,14 +20,9 @@ export default function OutdoorSpaceContent() {
     title: "O",
     value: "0",
   });
-  {
-    /* 반응형 */
-  }
+
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
 
-  {
-    /* 반응형 */
-  }
   const renderContainerBoxRowItem = (
     title: string,
     children: React.ReactNode,
@@ -71,9 +67,10 @@ export default function OutdoorSpaceContent() {
           "Elevation of outdoor unit",
           <CCustomInput
             type={"number"}
-            placeholder={"0"}
             classList={`${inputSelectStyle}`}
             unit={"m"}
+            required={true}
+            validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
           />,
           "Elevation from the ground to bottom of outdoor unit"
         )}
