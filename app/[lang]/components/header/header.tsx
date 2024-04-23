@@ -28,10 +28,23 @@ import IC_HAMBURGER from "@/app/assets/icons/ic_hamburger.svg";
 import IC_SIDE_MENU_CLOSE from "@/app/assets/icons/ic_side_menu_close.svg";
 import IC_SIDE_MENU_PLUS from "@/app/assets/icons/ic_side_menu_plus.svg";
 import IC_SIDE_MENU_MINUS from "@/app/assets/icons/ic_side_menu_minus.svg";
+import { useTranslation } from "@/app/i18n/client";
+import { useRouter } from "next/navigation";
+import { useCookies } from "react-cookie";
 
-export default function Header() {
+export default function Header({ lang, selectedLanguage }: any) {
+  const { t } = useTranslation(lang);
+  const router = useRouter();
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "latsNoiseLogin",
+    "latsNoiseLoginInfo",
+    "latsNoiseLogout",
+    "ssolgenet",
+    "login_success",
+  ]);
+  const [loginStatus, setLoginStatus] = useState<string | null>("nologin");
   const [isShowLanguage, setIsShowLanguage] = useState<string>("");
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("Korea");
+  // const [selectedLanguage, setSelectedLanguage] = useState<string>("Korea");
   const [loginUserName, setLoginUserName] = useState<string>("account");
   useState<boolean>(false);
   const [isShowHelpMenu, setIsShowHelpMenu] = useState<string>("");
@@ -117,6 +130,10 @@ export default function Header() {
       document.removeEventListener("keydown", clickOutside);
     };
   }, [isShowLanguage, isShowHelpMenu]);
+  useEffect(() => {
+    setLoginStatus(cookies.latsNoiseLogin);
+    setLoginUserName(cookies.latsNoiseLoginInfo);
+  }, [cookies]);
   const renderHeaderManualPop = () => {
     const headerManualItemBox = `flex flex-col gap-[1.25rem]`;
     const headerManualItemTitle = `text-gray_700 font-LGSMHATB`;
@@ -282,7 +299,7 @@ export default function Header() {
             {isShowLanguage === browserType.PC && (
               <CLanguageBox
                 selectedLanguage={selectedLanguage}
-                setSelectedLanguage={setSelectedLanguage}
+                // setSelectedLanguage={setSelectedLanguage}
               />
             )}
           </div>
@@ -326,7 +343,7 @@ export default function Header() {
                   {isShowLanguage === browserType.TABLET && (
                     <CLanguageBox
                       selectedLanguage={selectedLanguage}
-                      setSelectedLanguage={setSelectedLanguage}
+                      // setSelectedLanguage={setSelectedLanguage}
                     />
                   )}
                 </div>
@@ -418,7 +435,7 @@ export default function Header() {
             {isShowLanguage === browserType.MOBILE ? (
               <CLanguageBox
                 selectedLanguage={selectedLanguage}
-                setSelectedLanguage={setSelectedLanguage}
+                // setSelectedLanguage={setSelectedLanguage}
               />
             ) : (
               <div className={"h-2.5 bg-[#f5f5f5]"} />

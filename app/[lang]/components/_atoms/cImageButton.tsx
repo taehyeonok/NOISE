@@ -13,6 +13,7 @@ export default function CImageButton({
     <button
       className={"rounded flex justify-center items-center gap-1 " + classList}
       onClick={onClick}
+      type={"button"}
     >
       {imagePosition === "front" && <Image src={image} alt={title} />}
       {titleHidden ? <p className={"sr_only"}>{title}</p> : title}

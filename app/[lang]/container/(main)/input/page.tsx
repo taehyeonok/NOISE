@@ -26,9 +26,9 @@ import Link from "next/link";
 export default function Input() {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const [tableDummyData, setTableDummyData] = useState(productInformationTableDummyData);
-  const [selectFieldType, setSelectFieldType] = useState<{ title: string; value: number }>({
+  const [selectFieldType, setSelectFieldType] = useState<{ title: string; value: string }>({
     title: "Outdoor Space",
-    value: 1,
+    value: "1",
   });
 
   const addTableRow = () => {
@@ -61,6 +61,7 @@ export default function Input() {
           <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
             <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>Project Name</div>
             <CSelect
+              name={"project_name"}
               title={"Project Name"}
               className={"w-[18.438rem] mobile:w-[12.5rem]"}
               selected
@@ -153,6 +154,7 @@ export default function Input() {
             Field type
           </div>
           <CSelect
+            name={"outdoor_space"}
             title={"Outdoor Space"}
             selected
             className={"w-[18.438rem] mobile:w-[12.5rem]"}
@@ -165,7 +167,7 @@ export default function Input() {
         <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
           <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} />
         </div>
-        {selectFieldType?.value === 1 ? <OutdoorSpaceContent /> : <EnclosedSpaceContent />}
+        {selectFieldType?.value === "1" ? <OutdoorSpaceContent /> : <EnclosedSpaceContent />}
         {/* 반응형 */}
         <ContainerBoxRow
           justifyContent={"end"}

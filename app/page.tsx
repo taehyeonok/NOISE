@@ -14,13 +14,5 @@ export default function Home() {
     redirect(`/${locale_code ? locale_code : lang}/container/input`);
   }, []);
   // redirect(`/containers/main`);
-  return (
-    <>
-      <html>
-        <body>
-          <LoadingPage />
-        </body>
-      </html>
-    </>
-  );
+  return <LoadingPage />;
 }

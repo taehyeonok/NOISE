@@ -12,12 +12,12 @@ import { cTooltipProps } from "@/@types/components";
 export default function OutdoorSpaceContent() {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
-    { title: "O", value: 0 },
-    { title: "X", value: 1 },
+    { title: "O", value: "0" },
+    { title: "X", value: "1" },
   ];
-  const [selected, setSelected] = useState<{ title: string; value: number }>({
+  const [selected, setSelected] = useState<{ title: string; value: string }>({
     title: "O",
-    value: 0,
+    value: "0",
   });
   {
     /* 반응형 */
@@ -72,7 +72,6 @@ export default function OutdoorSpaceContent() {
           <CCustomInput
             type={"number"}
             placeholder={"0"}
-            value={7}
             classList={`${inputSelectStyle}`}
             unit={"m"}
           />,
@@ -132,7 +131,7 @@ export default function OutdoorSpaceContent() {
           />,
           undefined,
           false,
-          `${selected.value === 1 ? "bottom-[1.688rem] !top-auto mobile:bottom-[2.25rem]" : ""}`
+          `${selected.value === "1" ? "bottom-[1.688rem] !top-auto mobile:bottom-[2.25rem]" : ""}`
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
@@ -140,6 +139,7 @@ export default function OutdoorSpaceContent() {
         {renderContainerBoxRowItem(
           "Barrier in the path",
           <CSelect
+            name={"barrier_in_the_path"}
             title={"Barrier in the path"}
             select={selected}
             setSelect={setSelected}
@@ -148,10 +148,10 @@ export default function OutdoorSpaceContent() {
           />,
           "Presence of a wall between the source and the receiver",
           false,
-          `${selected.value === 1 ? "mobile:bottom-[2.25rem] mobile:!top-auto" : ""}`
+          `${selected.value === "1" ? "mobile:bottom-[2.25rem] mobile:!top-auto" : ""}`
         )}
       </ContainerBoxRow>
-      {selected.value === 0 && (
+      {selected.value === "0" && (
         // 반응형
         <div
           className={`border border-gray_200 relative w-full px-5 py-10 flex flex-col gap-[1.25rem] mt-[0.625rem]
@@ -202,6 +202,7 @@ export default function OutdoorSpaceContent() {
             {renderContainerBoxRowItem(
               "Material / Thickness",
               <CSelect
+                name={"material_thickness"}
                 title={"Concrete(Dafault) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
               />,

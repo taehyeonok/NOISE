@@ -4,14 +4,23 @@ import { StaticImageData } from "next/image";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 
 interface selectProps {
+  code?: string;
+  name: string;
   disabled?: boolean;
-  select?: { title: string; value: number };
-  setSelect?: React.Dispatch<React.SetStateAction<{ title: string; value: number }>>;
+  select?: { title: string; value: string };
+  setSelect?: React.Dispatch<React.SetStateAction<{ title: string; value: string }>>;
   title: string;
   className?: string;
   selected?: boolean;
-  selectList?: { title: string; value: number }[];
+  selectList?: { title: string; value: string }[];
   classList?: string;
+  disabled?: boolean;
+  params?: any;
+  initValue?: string | null;
+  value?: string | null;
+  required?: boolean;
+  onChange?: Function;
+  validMessage?: { message: string; format?: string[] };
 }
 
 interface containerBoxRowProps {
@@ -26,6 +35,7 @@ interface containerBoxRowProps {
 }
 
 interface customInputProps {
+  name?: string;
   type: string;
   placeholder?: any;
   label?: string | undefined;
@@ -33,6 +43,11 @@ interface customInputProps {
   unit?: React.ReactNode;
   classList?: string;
   disabled?: boolean;
+  required?: boolean;
+  isfocus?: boolean;
+  isPositive?: boolean;
+  onChange?: Function;
+  validMessage?: { message: string; format?: string[] };
 }
 
 interface buttonProps {

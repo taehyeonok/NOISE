@@ -26,6 +26,18 @@ export default function ProductInformationTable({
   removeTableRow,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1080);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setTableData(data);
@@ -67,11 +79,21 @@ export default function ProductInformationTable({
               </div>
               {renderTableItem(
                 "Product Type",
-                <CSelect title={item.productType} selected className={"mobileTableSelectStyle"} />
+                <CSelect
+                  name={`product_type_${index}`}
+                  title={item.productType}
+                  selected
+                  className={"mobileTableSelectStyle"}
+                />
               )}
               {renderTableItem(
                 "Model Name",
-                <CSelect title={item.modelName} selected className={"mobileTableSelectStyle"} />
+                <CSelect
+                  name={`model_name_${index}`}
+                  title={item.modelName}
+                  selected
+                  className={"mobileTableSelectStyle"}
+                />
               )}
               {renderTableItem(
                 "Qty(EA)",
@@ -84,11 +106,21 @@ export default function ProductInformationTable({
               )}
               {renderTableItem(
                 "Function (Noise)",
-                <CSelect title={item.function} selected className={"mobileTableSelectStyle"} />
+                <CSelect
+                  name={`function_noise_${index}`}
+                  title={item.function}
+                  selected
+                  className={"mobileTableSelectStyle"}
+                />
               )}
               {renderTableItem(
                 "Step",
-                <CSelect title={item.step} selected className={"mobileTableSelectStyle"} />
+                <CSelect
+                  name={`step_${index}`}
+                  title={item.step}
+                  selected
+                  className={"mobileTableSelectStyle"}
+                />
               )}
               {renderTableItem(
                 "Qty(EA)",
@@ -128,10 +160,20 @@ export default function ProductInformationTable({
               <tr key={index}>
                 <td className={"tableTd"}>{Number(index) + 1}</td>
                 <td className={"tableTd"}>
-                  <CSelect title={item.productType} selected classList={"tableSelectStyle"} />
+                  <CSelect
+                    name={`product_type_${index}`}
+                    title={item.productType}
+                    selected
+                    classList={"tableSelectStyle"}
+                  />
                 </td>
                 <td className={"tableTd"}>
-                  <CSelect title={item.modelName} selected classList={"tableSelectStyle"} />
+                  <CSelect
+                    name={`model_name_${index}`}
+                    title={item.modelName}
+                    selected
+                    classList={"tableSelectStyle"}
+                  />
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
@@ -142,10 +184,20 @@ export default function ProductInformationTable({
                   />
                 </td>
                 <td className={"tableTd"}>
-                  <CSelect title={item.function} selected classList={"tableSelectStyle"} />
+                  <CSelect
+                    name={`function_noise_${index}`}
+                    title={item.function}
+                    selected
+                    classList={"tableSelectStyle"}
+                  />
                 </td>
                 <td className={"tableTd"}>
-                  <CSelect title={item.step} selected classList={"tableSelectStyle"} />
+                  <CSelect
+                    name={`step_${index}`}
+                    title={item.step}
+                    selected
+                    classList={"tableSelectStyle"}
+                  />
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
@@ -176,7 +228,7 @@ export default function ProductInformationTable({
         </tbody>
       </table>
       {/* 반응형 */}
-      {renderMobileProductInformationTable()}
+      {isMobile && renderMobileProductInformationTable()}
     </>
   );
 }

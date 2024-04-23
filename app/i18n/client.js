@@ -16,6 +16,7 @@ i18next
   .use(initReactI18next)
   .use(LanguageDetector)
   .use(
+    // @ts-ignore
     resourcesToBackend((language, namespace) => import(`./locales/${language}/${namespace}.json`))
   )
   .init({
@@ -29,6 +30,7 @@ i18next
     preload: runsOnServerSide ? languages : [],
   });
 
+// @ts-ignore
 export function useTranslation(lng, ns, options) {
   const [cookies, setCookie] = useCookies([cookieName]);
   const ret = useTranslationOrg(ns, options);

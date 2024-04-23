@@ -11,8 +11,7 @@ body {
     padding: 0;
     line-height: 100%;
     font-size: 1rem;
-    font-family: LGSMHATR, sans-serif;
-    font-weight: normal;
+    @apply font-LGSMHATR
 }
 
 /* font-weight 400 LGSMHATR */
@@ -118,20 +117,24 @@ body {
     }
 
     .languageBox {
-        @apply absolute bottom-[-6.25rem] right-0 bg-white z-50 shadow-[0px_0px_6px_0px_#0000001A] px-2.5 w-[35rem] flex justify-between items-center flex-wrap
+        @apply absolute bottom-[-12.25rem] w-[33rem] right-0 bg-white z-50 shadow-[0px_0px_6px_0px_#0000001A] px-2.5 flex justify-start items-center flex-wrap tablet:bottom-[-5.9rem];
     }
 
     .languageBox > div {
-        @apply flex justify-start items-center py-3 w-[6.25rem] gap-2.5 cursor-pointer hover:underline decoration-1;
+        @apply flex justify-center items-center py-3 w-[6.25rem] gap-2.5 cursor-pointer  
     }
-
+    
     .languageBox > div > div {
-        @apply text-gray_500 text-sm font-LGSMHATR;
+        @apply text-gray_500 text-base font-LGSMHATR font-bold 
     }
-
+    
+    .languageBox > div > div:hover {
+        @apply underline text-primary decoration-1 decoration-[var(--primary)]
+    }
+    
     .languageBox > div.active > div {
-        @apply text-black;
-    } 
+        @apply text-black
+    }
     .mobileLanguageBox {
         @apply mobile:w-full bg-[#f5f5f5] static bottom-0 px-0 shadow-inherit
     } 
@@ -283,9 +286,9 @@ body {
         border-r-gray_700 border-t-gray_200
     }
 
-    .selectBoxList::-webkit-scrollbar {
+    /* .selectBoxList::-webkit-scrollbar {
         display: none;
-    }
+    } */
 
     .selectTitleBox, .selectBoxListItem {
         @apply flex items-center text-left
@@ -338,6 +341,180 @@ body {
     } 
     .hidden_scrollbar::-webkit-scrollbar {
         display: none;
+    }
+
+    .loader {
+        border-top-color: #3469db;
+        -webkit-animation: spinner 1.5s linear infinite;
+        animation: spinner 1.5s linear infinite;
+    }
+    
+    div::-webkit-scrollbar {
+      width: 5px;  /* 세로 스크롤바의 너비 */
+      height: 5px;  /* 가로 스크롤바의 너비 */
+    }
+    
+    div::-webkit-scrollbar-thumb {
+      height: 30%; /* 스크롤바의 길이 */
+      background: #d2d5dab0; /* 스크롤바의 색상 */
+      border-radius: 3px;
+    }
+    
+    div::-webkit-scrollbar-track {
+    /*     background: #fff;  스크롤바 뒷 배경 색상 */
+      border-radius: 3px;
+    }
+    
+    select::-webkit-scrollbar {
+      width: 8px;  /* 세로 스크롤바의 너비 */
+      height: 8px;  /* 가로 스크롤바의 너비 */
+    }
+    
+    select::-webkit-scrollbar-thumb {
+      height: 30%; /* 스크롤바의 길이 */
+      background: #C9CDD2; /* 스크롤바의 색상 */
+      border-radius: 3px;
+    }
+    
+    select::-webkit-scrollbar-track {
+    /*     background: #fff;  스크롤바 뒷 배경 색상 */
+      border-radius: 3px;
+    }
+    
+    @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+    }
+    
+    @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    }
+    
+    
+    @keyframes ldio-y7ynaz57uw {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+    }
+    .ldio-y7ynaz57uw div {
+    left: 47px;
+    top: 24px;
+    position: absolute;
+    animation: ldio-y7ynaz57uw linear 1s infinite;
+    background: #85a2b6;
+    width: 6px;
+    height: 12px;
+    border-radius: 1.8px / 1.8px;
+    transform-origin: 3px 26px;
+    }.ldio-y7ynaz57uw div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -0.9166666666666666s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -0.8333333333333334s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.75s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.6666666666666666s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.5833333333333334s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.5s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.4166666666666667s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.3333333333333333s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.25s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.16666666666666666s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.08333333333333333s;
+    background: #85a2b6;
+    }.ldio-y7ynaz57uw div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+    background: #85a2b6;
+    }
+    .loadingio-spinner-spinner-5fjw408229u {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+    }
+    .ldio-y7ynaz57uw {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+    }
+    .ldio-y7ynaz57uw div { box-sizing: content-box; }
+    /* generated by https://loading.io/ */
+    
+    .btnImage:hover{
+      filter: invert(14%) sepia(53%) saturate(5181%) hue-rotate(328deg) brightness(82%) contrast(114%)
+    }
+    
+    .chart{
+     position: relative; 
+     @apply  w-[54%] flex items-center p-0 flex-col mobile:w-full mobile:h-[25rem] ;
+    }
+    ul{
+      list-style-type: disc;
+    }
+    ol{
+      list-style-type: decimal;
+    }
+    ol>li{
+      margin-bottom: 0.8rem;
+      @apply text-gray_700 leading-[140%] mobile:text-[0.875rem]
+    }
+    ul>li{
+      margin-bottom: 0.2 rem;
+      @apply text-gray_700 leading-[140%] mobile:text-[0.875rem]
+    }
+    li>p{
+      @apply text-gray_700 leading-[140%] mobile:text-[0.875rem]
+    }
+    
+    /*** 연속숫자에 스타일을 추가 ***/
+    @counter-style circled-number {
+      system: fixed;
+      symbols: ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨;
+      suffix: " ";
+    }
+    ul.circle_list{
+      list-style: circled-number;
     }
 
 }
