@@ -5,9 +5,9 @@ interface estimatedSoundProps {
   content2: string;
 }
 
-export default function EstimatedSoundPowerDataTable() {
+export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any) {
   const renderTdItem = (productType: keyof estimatedSoundProps) => {
-    return estimatedSoundDummyData.map((item: estimatedSoundProps, index: number) => {
+    return estimatedSoundData.map((item: estimatedSoundProps, index: number) => {
       return (
         // 반응형
         <td
@@ -19,6 +19,20 @@ export default function EstimatedSoundPowerDataTable() {
       );
     });
   };
+  const dba =
+    10 *
+    Math.log(
+      10 ^
+        (estimatedSoundData[0].content2 - 26.2 / 10 + 10) ^
+        (estimatedSoundData[1].content2 - 16.1 / 10 + 10) ^
+        (estimatedSoundData[2].content2 - 8.6 / 10 + 10) ^
+        (estimatedSoundData[3].content2 - 3.2 / 10 + 10) ^
+        (estimatedSoundData[4].content2 / 10 + 10) ^
+        (estimatedSoundData[5].content2 + 1.2 / 10 + 10) ^
+        (estimatedSoundData[6].content2 + 1 / 10 + 10) ^
+        (estimatedSoundData[7].content2 - 1.1 / 10)
+    );
+
   return (
     <>
       {/* 반응형 */}
@@ -45,8 +59,8 @@ export default function EstimatedSoundPowerDataTable() {
           </tr>
           <tr>{renderTdItem("content2")}</tr>
           <tr>
-            <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>Overall</td>
-            <td className={"tableTd !h-[1.875rem]"}></td>
+            <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>Overall (dB(A))</td>
+            <td className={"tableTd !h-[1.875rem]"}>{Number(dba).toFixed(1)}</td>
           </tr>
         </tbody>
       </table>
@@ -72,7 +86,7 @@ export default function EstimatedSoundPowerDataTable() {
           <div className={"flex flex-col gap-[1.5rem]"}>
             <table className={"table-fixed"}>
               <tbody>
-                {estimatedSoundDummyData.map((item, index: number) => {
+                {estimatedSoundData.map((item: any, index: number) => {
                   if (index % 2 !== 0) {
                     return null;
                   }
@@ -80,14 +94,10 @@ export default function EstimatedSoundPowerDataTable() {
                     <tr key={index}>
                       <th className={`tableTh`}>{item.content1}</th>
                       <td className={`tableTd`}>{item.content2}</td>
-                      {index + 1 < estimatedSoundDummyData.length && (
+                      {index + 1 < estimatedSoundData.length && (
                         <>
-                          <th className={`tableTh`}>
-                            {estimatedSoundDummyData[index + 1]?.content1}
-                          </th>
-                          <td className={`tableTd`}>
-                            {estimatedSoundDummyData[index + 1]?.content2}
-                          </td>
+                          <th className={`tableTh`}>{estimatedSoundData[index + 1]?.content1}</th>
+                          <td className={`tableTd`}>{estimatedSoundData[index + 1]?.content2}</td>
                         </>
                       )}
                     </tr>

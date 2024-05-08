@@ -111,3 +111,14 @@ interface cPageContainerProps {
   children: React.ReactNode;
   className: string;
 }
+
+interface ProductItem {
+  id: number;
+  productType: string;
+  modelName: string;
+  qty: string;
+  function: string;
+  step: string;
+  capacity: string;
+  del: string;
+}

@@ -2,7 +2,6 @@ import {
   soundPowerLevelDummyData,
   soundPressureLevelDummyData,
 } from "@/app/[lang]/constants/const";
-import { Fragment } from "react";
 
 interface SoundLevelData {
   dataType: string;
@@ -11,7 +10,31 @@ interface SoundLevelData {
   product3?: number;
 }
 
-export default function SoundSpecDataTable() {
+export default function SoundSpecDataTable({
+  soundPressureLevel,
+  setSoundPressureLevel,
+  soundPowerLevel,
+  setSoundPowerLevel,
+}: {
+  soundPressureLevel: any;
+  setSoundPressureLevel: Function;
+  soundPowerLevel: any;
+  setSoundPowerLevel: Function;
+}) {
+  const dba =
+    10 *
+    Math.log(
+      10 ^
+        (soundPressureLevel[0].content2 - 26.2 / 10 + 10) ^
+        (soundPressureLevel[1].content2 - 16.1 / 10 + 10) ^
+        (soundPressureLevel[2].content2 - 8.6 / 10 + 10) ^
+        (soundPressureLevel[3].content2 - 3.2 / 10 + 10) ^
+        (soundPressureLevel[4].content2 / 10 + 10) ^
+        (soundPressureLevel[5].content2 + 1.2 / 10 + 10) ^
+        (soundPressureLevel[6].content2 + 1 / 10 + 10) ^
+        (soundPressureLevel[7].content2 - 1.1 / 10)
+    );
+
   const renderTableBox = (data: SoundLevelData[], title: string, children: JSX.Element) => {
     return (
       <table>
@@ -130,17 +153,17 @@ export default function SoundSpecDataTable() {
         className={"flex flex-col gap-[1.25rem] mobile:w-full mobile:gap-[0.938rem] mobile:hidden"}
       >
         {renderTableBox(
-          soundPressureLevelDummyData,
+          soundPressureLevel,
           "_Sound Pressure Level",
           <>
-            {renderTdItem("Product 1 / Type : SPL", soundPressureLevelDummyData, "product1")}
-            {renderTdItem("Product 2 / Type : SPL", soundPressureLevelDummyData, "product2")}
+            {renderTdItem("Product 1 / Type : SPL", soundPressureLevel, "product1")}
+            {renderTdItem("Product 2 / Type : SPL", soundPressureLevel, "product2")}
           </>
         )}
         {renderTableBox(
-          soundPowerLevelDummyData,
+          soundPowerLevel,
           "_Sound Power Level",
-          <>{renderTdItem("Product 3 / Type : SPL", soundPowerLevelDummyData, "product3")}</>
+          <>{renderTdItem("Product 3 / Type : PWL", soundPowerLevel, "product3")}</>
         )}
       </div>
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>

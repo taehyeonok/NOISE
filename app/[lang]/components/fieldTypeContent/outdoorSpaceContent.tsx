@@ -4,13 +4,17 @@ import IC_TOOLTIP from "@/app/assets/icons/ic_tooltip.svg";
 import IG_REFERENCE_COMMON_TABLE from "@/app/assets/images/ig_reference_common_table.svg";
 import Image from "next/image";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import BarrierInformationTable from "@/app/[lang]/components/table/barrierInformationTable";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import { cTooltipProps } from "@/@types/components";
 
-export default function OutdoorSpaceContent({ t }: any) {
+export default function OutdoorSpaceContent({
+  barrierInfoTableData,
+  setBarrierInfoTableData,
+  t,
+}: any) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
     { title: "O", value: "0" },
@@ -20,7 +24,7 @@ export default function OutdoorSpaceContent({ t }: any) {
     title: "O",
     value: "0",
   });
-
+  const [elevation, setElevation] = useState(0);
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
 
   const renderContainerBoxRowItem = (
@@ -66,10 +70,15 @@ export default function OutdoorSpaceContent({ t }: any) {
         {renderContainerBoxRowItem(
           "Elevation of outdoor unit",
           <CCustomInput
+            name="elevation_of_outdoor_unit"
             type={"number"}
             classList={`${inputSelectStyle}`}
+            value={elevation}
             unit={"m"}
             required={true}
+            onChange={(changeValue: SetStateAction<number>) => {
+              setElevation(changeValue);
+            }}
             validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
           />,
           "Elevation from the ground to bottom of outdoor unit"
@@ -79,7 +88,7 @@ export default function OutdoorSpaceContent({ t }: any) {
           <CCustomInput
             type={"number"}
             placeholder={"0"}
-            value={8}
+            value={elevation + 1}
             classList={`${inputSelectStyle}`}
             disabled={true}
           />,
@@ -95,6 +104,7 @@ export default function OutdoorSpaceContent({ t }: any) {
         {renderContainerBoxRowItem(
           "Elevation of receiver",
           <CCustomInput
+            name="elevation_of_receiver"
             type={"number"}
             placeholder={"0"}
             value={1.5}
@@ -106,6 +116,7 @@ export default function OutdoorSpaceContent({ t }: any) {
         {renderContainerBoxRowItem(
           "Horizontal distance",
           <CCustomInput
+            name="horizontal_distance"
             type={"number"}
             placeholder={"0"}
             value={8}
@@ -170,6 +181,7 @@ export default function OutdoorSpaceContent({ t }: any) {
             {renderContainerBoxRowItem(
               "Distance form ODUs",
               <CCustomInput
+                name="distance_from_ODUs"
                 type={"number"}
                 placeholder={"0"}
                 value={4}
@@ -181,6 +193,7 @@ export default function OutdoorSpaceContent({ t }: any) {
             {renderContainerBoxRowItem(
               "Barrier height",
               <CCustomInput
+                name="barrier_height"
                 type={"number"}
                 placeholder={"0"}
                 value={3}
@@ -202,6 +215,9 @@ export default function OutdoorSpaceContent({ t }: any) {
                 name={"material_thickness"}
                 title={"Concrete(Dafault) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
+                onChange={(changeValue: any) => {
+                  setBarrierInfoTableData(changeValue);
+                }}
               />,
               undefined,
               true
@@ -209,6 +225,7 @@ export default function OutdoorSpaceContent({ t }: any) {
             {renderContainerBoxRowItem(
               "Barrier Thickness",
               <CCustomInput
+                name="barrier_thickness"
                 type={"number"}
                 placeholder={"0"}
                 value={120}
@@ -220,7 +237,10 @@ export default function OutdoorSpaceContent({ t }: any) {
             )}
           </ContainerBoxRow>
           <ContainerBoxRow justifyContent={"center"} alignItems={"center"}>
-            <BarrierInformationTable />
+            <BarrierInformationTable
+              barrierInfoTableData={barrierInfoTableData}
+              setBarrierInfoTableData={setBarrierInfoTableData}
+            />
             {/* 반응형 */}
             <div
               className={"self-end font-LGSMHATR text-[0.625rem] text-gray_700 ml-1 mobile:hidden"}

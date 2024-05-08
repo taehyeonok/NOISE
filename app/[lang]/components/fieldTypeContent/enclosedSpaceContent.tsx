@@ -41,6 +41,7 @@ export default function EnclosedSpaceContent({ t }: any) {
         "Direct distance",
         "direct distance from center of source to receiver",
         <CCustomInput
+          name="direct_distance"
           type={"number"}
           placeholder={"0"}
           value={7}
@@ -52,6 +53,7 @@ export default function EnclosedSpaceContent({ t }: any) {
         "Room volume",
         "Room volume of the enclosed space",
         <CCustomInput
+          name="room_volume"
           type={"number"}
           placeholder={"0"}
           value={8}

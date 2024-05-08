@@ -1,6 +1,18 @@
+import { ProductItem } from "@/@types/components";
 import { totalCapacityTableDummyData } from "@/app/[lang]/constants/const";
-
-export default function TotalCapacityTable() {
+import { useEffect, useState } from "react";
+interface totalCapacityTableData {
+  label: string;
+  first: string;
+  second: string;
+}
+export default function TotalCapacityTable({
+  totalCapacityTableData,
+  setTotalCapacityTableData,
+}: {
+  totalCapacityTableData: totalCapacityTableData[];
+  setTotalCapacityTableData: Function;
+}) {
   return (
     //반응형
     <table className={"w-[27.5rem] mobile:w-full"}>
@@ -16,7 +28,7 @@ export default function TotalCapacityTable() {
         </tr>
       </thead>
       <tbody>
-        {totalCapacityTableDummyData.map((item, index: number) => {
+        {totalCapacityTableData.map((item, index: number) => {
           return (
             <tr key={index}>
               <td

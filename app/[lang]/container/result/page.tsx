@@ -7,7 +7,7 @@ import IG_OCTAVE_BAND from "@/app/assets/images/ig_octave_band_graph.svg";
 import Image from "next/image";
 import CAccordionBox from "@/app/[lang]/components/_atoms/cAccordionBox";
 import { accordionDummyData, pageIndex } from "@/app/[lang]/constants/const";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IG_REPORT from "@/app/assets/images/ig_report.svg";
 import IC_BUTTON_LEFT_ARROW from "@/app/assets/icons/ic_button_left_arrow.png";
 import CButton from "@/app/[lang]/components/_atoms/cButton";
@@ -16,14 +16,20 @@ import Link from "next/link";
 import CPopHeader from "@/app/[lang]/components/_atoms/cPopHeader";
 import CPopUp from "@/app/[lang]/components/_atoms/cPopup";
 
-export default function Result() {
+export default function Result({ params: { lang } }: any) {
   const [isAccordionOpen1, setIsAccordionOpen1] = useState<boolean>(true);
   const [isAccordionOpen2, setIsAccordionOpen2] = useState<boolean>(true);
   const [isActiveReportPopup, setIsActiveReportPopup] = useState<boolean>(false);
+  const [simulateData, setSimulateData] = useState([]);
   const reportPopupRef = useRef<HTMLDivElement>(null);
   {
     /* 반응형 */
   }
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("simulate")!);
+
+    setSimulateData(data);
+  }, [lang]);
   const renderReportPopup = () => {
     return (
       <CPopUp ref={reportPopupRef} isActive={isActiveReportPopup}>
@@ -75,7 +81,7 @@ export default function Result() {
             >
               Simulation Result
             </div>
-            <SimulationResultTable />
+            <SimulationResultTable simulateData={simulateData} />
           </section>
           {/* 반응형 */}
           <section>

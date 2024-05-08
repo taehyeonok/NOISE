@@ -5,24 +5,17 @@ import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import { log } from "node:util";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import CImageButton from "@/app/[lang]/components/_atoms/cImageButton";
-
-interface ProductItem {
-  productType: string;
-  modelName: string;
-  qty: string;
-  function: string;
-  step: string;
-  capacity: string;
-  del: string;
-}
+import { ProductItem } from "@/@types/components";
 
 interface ProductInformationTableProps {
   data: ProductItem[];
+  setData: Function;
   removeTableRow: Function;
 }
 
 export default function ProductInformationTable({
   data,
+  setData,
   removeTableRow,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
@@ -60,7 +53,7 @@ export default function ProductInformationTable({
       <div className={"flex flex-col gap-[1.25rem] pc:hidden tablet:hidden"}>
         {tableData.map((item, index) => {
           return (
-            <div key={index} className={"flex flex-col gap-[1rem]"}>
+            <div key={item.id} className={"flex flex-col gap-[1rem]"}>
               <div className={"bg-gray_100 flex items-center justify-between p-[0.688rem_1rem]"}>
                 <p className={"text-[0.875rem] leading-[1.125rem] font-LGSMHATSB"}>
                   No.{Number(index) + 1}
@@ -72,7 +65,7 @@ export default function ProductInformationTable({
                     title={"delete row"}
                     titleHidden
                     onClick={() => {
-                      removeTableRow(index);
+                      removeTableRow(item.id);
                     }}
                   />
                 )}
@@ -157,7 +150,7 @@ export default function ProductInformationTable({
         <tbody>
           {tableData.map((item, index) => {
             return (
-              <tr key={index}>
+              <tr key={item.id}>
                 <td className={"tableTd"}>{Number(index) + 1}</td>
                 <td className={"tableTd"}>
                   <CSelect
@@ -165,6 +158,10 @@ export default function ProductInformationTable({
                     title={item.productType}
                     selected
                     classList={"tableSelectStyle"}
+                    onChange={(changedValue: string) => {
+                      data[index]!.productType = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -173,6 +170,10 @@ export default function ProductInformationTable({
                     title={item.modelName}
                     selected
                     classList={"tableSelectStyle"}
+                    onChange={(changedValue: string) => {
+                      data[index]!.modelName = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -181,6 +182,10 @@ export default function ProductInformationTable({
                     placeholder={"0"}
                     value={item.qty}
                     classList={"w-full px-3 !h-7"}
+                    onChange={(changedValue: string) => {
+                      data[index]!.qty = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -189,6 +194,10 @@ export default function ProductInformationTable({
                     title={item.function}
                     selected
                     classList={"tableSelectStyle"}
+                    onChange={(changedValue: string) => {
+                      data[index]!.function = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -197,6 +206,10 @@ export default function ProductInformationTable({
                     title={item.step}
                     selected
                     classList={"tableSelectStyle"}
+                    onChange={(changedValue: string) => {
+                      data[index]!.step = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -206,6 +219,10 @@ export default function ProductInformationTable({
                     value={item.capacity}
                     classList={"w-full px-3 !h-7"}
                     disabled
+                    onChange={(changedValue: string) => {
+                      data[index]!.capacity = changedValue;
+                      setData([...data]);
+                    }}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -217,7 +234,7 @@ export default function ProductInformationTable({
                       title={"delete row"}
                       titleHidden
                       onClick={() => {
-                        removeTableRow(index);
+                        removeTableRow(item.id);
                       }}
                     />
                   )}

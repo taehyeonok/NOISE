@@ -40,7 +40,7 @@ export default function CCustomInput({
       inputRef.current?.reportValidity();
     }
     setInput(inputValue);
-    if (onChange) onChange(inputValue);
+    if (onChange) onChange(Number(inputValue));
   };
 
   const onBlurInput = (e: FocusEvent<HTMLInputElement, Element>) => {

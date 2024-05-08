@@ -2,12 +2,12 @@ import {
   detailInformationDummyData,
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
-import React from "react";
 
-export default function SimulationResultTable() {
+export default function SimulationResultTable({ simulateData }: any) {
   {
     /* 반응형 */
   }
+
   const renderMobileTableItem = (title: string, children: React.ReactNode) => {
     return (
       <div className={"flex flex-col gap-[1.813rem]"}>
@@ -85,12 +85,12 @@ export default function SimulationResultTable() {
               })}
             </tr>
             <tr>
-              {soundPressureReceiverDummyData.data.map((data, index) => {
+              {simulateData.map((data: any, index: any) => {
                 const cellTypeStyle = data.titleOfRow ? "bg-gray_100" : "w-[4.5rem]";
                 const noLineStyle = data.noLine ? "noLine" : "";
                 return (
                   <td key={index} className={`tableTd ${cellTypeStyle} ${noLineStyle}`}>
-                    {data.content}
+                    {data}
                   </td>
                 );
               })}

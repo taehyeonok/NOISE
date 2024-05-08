@@ -111,6 +111,7 @@ export const selectListDummyData = [
 ];
 export const productInformationTableDummyData = [
   {
+    id: 1,
     productType: "MultiV i",
     modelName: "ARUM220LTE6",
     qty: "1",
@@ -120,6 +121,7 @@ export const productInformationTableDummyData = [
     del: "",
   },
   {
+    id: 2,
     productType: "MultiV i",
     modelName: "ARUM220LTE6",
     qty: "1",
@@ -129,6 +131,7 @@ export const productInformationTableDummyData = [
     del: "",
   },
   {
+    id: 3,
     productType: "AWHP",
     modelName: "HU071MR",
     qty: "1",
