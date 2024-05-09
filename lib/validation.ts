@@ -1,3 +1,4 @@
+import { ProductItem } from "@/@types/components";
 import "@/lib/utils";
 
 /**
@@ -29,7 +30,11 @@ export const validateMsg = ({
  * @param trans 다국어 객체
  * @returns
  */
-export const validateFormData = (form: React.RefObject<HTMLFormElement>, trans: any) => {
+export const validateFormData = (
+  form: React.RefObject<HTMLFormElement>,
+  productTableData: ProductItem[],
+  trans: any
+) => {
   let result = true;
   const elements = form.current!.elements;
   const checkDataObj = Object.create(null);
@@ -48,6 +53,16 @@ export const validateFormData = (form: React.RefObject<HTMLFormElement>, trans: 
       ) as HTMLInputElement;
       installation_height_input.setCustomValidity(trans("RC_0062"));
       installation_height_input.reportValidity();
+      result = false;
+    }
+  }
+  if (checkDataObj.outdoor_space_text === "Enclosed Space (Machine Room)") {
+    if (Number(productTableData.length) > 4) {
+      const number_of_point_sound_sources_input = elements.namedItem(
+        "product_type_4_text"
+      ) as HTMLInputElement;
+      number_of_point_sound_sources_input.setCustomValidity(trans("NOISE_0001"));
+      number_of_point_sound_sources_input.reportValidity();
       result = false;
     }
   }

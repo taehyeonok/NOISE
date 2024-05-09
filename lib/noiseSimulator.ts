@@ -480,7 +480,7 @@ export async function noiseSimulator(
           3 * Math.log(hz[i]!) -
           10 * Math.log(count) -
           12;
-        result[i] = Number(Number(attenuation).toFixed(1));
+        result[i] = Number(Number(estimatedSoundData[i].content2 - attenuation).toFixed(1));
       }
     }
     return result;

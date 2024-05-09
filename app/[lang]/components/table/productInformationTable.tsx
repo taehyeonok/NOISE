@@ -11,12 +11,14 @@ interface ProductInformationTableProps {
   data: ProductItem[];
   setData: Function;
   removeTableRow: Function;
+  t: any;
 }
 
 export default function ProductInformationTable({
   data,
   setData,
   removeTableRow,
+  t,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
   const [isMobile, setIsMobile] = useState(false);
@@ -162,6 +164,7 @@ export default function ProductInformationTable({
                       data[index]!.productType = changedValue;
                       setData([...data]);
                     }}
+                    validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
                   />
                 </td>
                 <td className={"tableTd"}>
