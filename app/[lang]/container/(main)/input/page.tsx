@@ -111,6 +111,9 @@ export default function Input() {
    * Noise 계산 로직 실행 후 결과창 이동
    * @param formData
    */
+  useEffect(() => {
+    localStorage.setItem("outdoor_space", JSON.stringify(selectFieldType));
+  }, [selectFieldType]);
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
@@ -266,6 +269,9 @@ export default function Input() {
               selectList={fieldTypeSelectBoxData}
               select={selectFieldType}
               setSelect={setSelectFieldType}
+              onChange={(changeValue: any) => {
+                setSelectFieldType(changeValue);
+              }}
             />
           </ContainerBoxRow>
           {/* 반응형 */}

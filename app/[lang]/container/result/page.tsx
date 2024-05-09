@@ -6,7 +6,11 @@ import SimulationResultTable from "@/app/[lang]/components/table/simulationResul
 import IG_OCTAVE_BAND from "@/app/assets/images/ig_octave_band_graph.svg";
 import Image from "next/image";
 import CAccordionBox from "@/app/[lang]/components/_atoms/cAccordionBox";
-import { accordionDummyData, pageIndex } from "@/app/[lang]/constants/const";
+import {
+  accordionDummyData,
+  detailInformationDummyData,
+  pageIndex,
+} from "@/app/[lang]/constants/const";
 import { useEffect, useRef, useState } from "react";
 import IG_REPORT from "@/app/assets/images/ig_report.svg";
 import IC_BUTTON_LEFT_ARROW from "@/app/assets/icons/ic_button_left_arrow.png";
@@ -15,6 +19,7 @@ import CImageButton from "@/app/[lang]/components/_atoms/cImageButton";
 import Link from "next/link";
 import CPopHeader from "@/app/[lang]/components/_atoms/cPopHeader";
 import CPopUp from "@/app/[lang]/components/_atoms/cPopup";
+import { cloneObject } from "@/app/utils/utils";
 
 export default function Result({ params: { lang } }: any) {
   const [isAccordionOpen1, setIsAccordionOpen1] = useState<boolean>(true);
@@ -22,14 +27,36 @@ export default function Result({ params: { lang } }: any) {
   const [isActiveReportPopup, setIsActiveReportPopup] = useState<boolean>(false);
   const [simulateData, setSimulateData] = useState([]);
   const reportPopupRef = useRef<HTMLDivElement>(null);
+  const [detailData, setDetailData] = useState(detailInformationDummyData);
   {
     /* 반응형 */
   }
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("simulate")!);
+    setSimulateData(data.data);
 
-    setSimulateData(data);
+    const outdoor_space = JSON.parse(localStorage.getItem("outdoor_space")!);
+    const copyDetailData = cloneObject(detailData);
+    if (outdoor_space.title === "Enclosed Space (Machine Room)") {
+      for (let i = 0; i < detailData.data[0]?.content.length!; i++) {
+        copyDetailData.data[0].content[i].content = "-";
+        copyDetailData.data[1].content[i].content = 28;
+        copyDetailData.data[2].content[i].content = "-";
+        setDetailData(copyDetailData);
+      }
+    } else {
+      for (let i = 0; i < detailData.data[0]?.content.length!; i++) {
+        copyDetailData.data[0].content[i].content = data.DI;
+        copyDetailData.data[1].content[i].content = data.distance;
+        copyDetailData.data[2].content[i].content = Number(
+          data.estimatedSoundData[i].content2 + data.DI - data.distance - data.data[i]
+        ).toFixed(1);
+        setDetailData(copyDetailData);
+      }
+    }
   }, [lang]);
+
   const renderReportPopup = () => {
     return (
       <CPopUp ref={reportPopupRef} isActive={isActiveReportPopup}>
@@ -81,7 +108,7 @@ export default function Result({ params: { lang } }: any) {
             >
               Simulation Result
             </div>
-            <SimulationResultTable simulateData={simulateData} />
+            <SimulationResultTable simulateData={simulateData} detailData={detailData} />
           </section>
           {/* 반응형 */}
           <section>

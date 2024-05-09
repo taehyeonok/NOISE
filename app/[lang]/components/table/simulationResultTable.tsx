@@ -3,7 +3,7 @@ import {
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
 
-export default function SimulationResultTable({ simulateData }: any) {
+export default function SimulationResultTable({ simulateData, detailData }: any) {
   {
     /* 반응형 */
   }
@@ -47,10 +47,10 @@ export default function SimulationResultTable({ simulateData }: any) {
             </tr>
           </thead>
           <tbody>
-            {detailInformationDummyData.data.map((row, index) => (
+            {detailData.data.map((row: any, index: number) => (
               <tr key={index}>
                 <td className={"tableTd noLine bg-gray_100"}>{row.title}</td>
-                {row.content.map((item, idx) => (
+                {row.content.map((item: any, idx: number) => (
                   <td key={idx} className={`tableTd ${item.noLine ? "noLine" : ""}`}>
                     {item.content}
                   </td>

@@ -19,34 +19,36 @@ export async function noiseSimulator(
     editUnit.setUnitData_useServer(unitData);
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
     const ratio = [0.9333333, 0.9333333, 0.9, 0.8666667, 0.8, 0.75, 0.7, 0.6666667];
-    let result: Number[] = [];
+    let result = { data: [] } as any;
     const field_type = formData.get("outdoor_space_text");
-
+    const outdoor_unit = Number(formData.get("elevation_of_outdoor_unit"));
+    const height_of_sound_source = outdoor_unit + 1;
+    const elevation_of_receiver = Number(formData.get("elevation_of_receiver"));
+    const horizontal_distance = Number(formData.get("horizontal_distance"));
+    //Source와 Reciver 간 직선거리
+    const sLineDistance = Math.sqrt(
+      (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
+    );
+    //거리감쇠량
+    const distanceAttenuation = 20 * Math.log(sLineDistance) + 11;
+    const wallQuantity = Number(); //TODO: 지향성 보정(DI)
+    const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {
       const isBarrier = formData.get("barrier_in_the_path_text");
-      const outdoor_unit = Number(formData.get("elevation_of_outdoor_unit"));
-      const height_of_sound_source = outdoor_unit + 1;
-      const elevation_of_receiver = Number(formData.get("elevation_of_receiver"));
-      const horizontal_distance = Number(formData.get("horizontal_distance"));
-      const wallQuantity = Number(); //TODO: 지향성 보정(DI)
+
       const distance_from_ODUs = Number(formData.get("distance_from_ODUs"));
       const barrier_height = Number(formData.get("barrier_height"));
       const barrier_thickness = Number(formData.get("barrier_thickness"));
       const material_thickness = Number(formData.get("material_thickness"));
-      const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
       const background_noise = Number(formData.get("background_noise"));
+
       //Scene 1: Only propagation
       if (isBarrier === "X") {
         for (let i = 0; i < hz.length; i++) {
-          const sLineDistance = Math.sqrt(
-            (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
-          ); //Source와 Reciver 간 직선거리
-          const distanceAttenuation = 20 * Math.log(sLineDistance) + 11; //거리감쇠량
-
           let data = estimatedSoundData[i].content2 + DI - distanceAttenuation;
 
-          result[i] = Number(
+          result.data[i] = Number(
             Number(
               10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
             ).toFixed(1)
@@ -246,7 +248,7 @@ export async function noiseSimulator(
 
             let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10));
 
-            result[i] = Number(
+            result.data[i] = Number(
               Number(
                 10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
               ).toFixed(1)
@@ -382,7 +384,7 @@ export async function noiseSimulator(
             //   Number(10 * Math.log(10 ** (first / 10) + 10 ** (second / 10))).toFixed(1)
             // );
             let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10));
-            result[i] = Number(
+            result.data[i] = Number(
               Number(
                 10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
               ).toFixed(1)
@@ -477,7 +479,7 @@ export async function noiseSimulator(
               11 -
               diffractionAttenuation_total;
 
-            result[i] = Number(
+            result.data[i] = Number(
               Number(
                 10 * Math.log10(10 ** (first / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
               ).toFixed(1)
@@ -498,10 +500,12 @@ export async function noiseSimulator(
           3 * Math.log(hz[i]!) -
           10 * Math.log(count) -
           12;
-        result[i] = Number(Number(estimatedSoundData[i].content2 - attenuation).toFixed(1));
+        result.data[i] = Number(Number(estimatedSoundData[i].content2 - attenuation).toFixed(1));
       }
     }
-    console.log("result = ", result);
+    result.estimatedSoundData = estimatedSoundData;
+    result.DI = DI;
+    result.distance = Number(Number(distanceAttenuation).toFixed(1));
     return result;
   } catch (e) {
     console.log(e);

@@ -55,7 +55,13 @@ export default function CSelect({
     setSelectValue(valObj?.value);
     setSelectText(valObj?.title);
     inputTextRef.current?.setCustomValidity("");
-    if (onChange) onChange(valObj.title);
+    if (onChange) {
+      if (title == "Outdoor Space") {
+        onChange(valObj);
+      } else {
+        onChange(valObj.title);
+      }
+    }
     setActive(false);
   };
   const handleSelectItemDown = (
