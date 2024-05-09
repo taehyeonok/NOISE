@@ -16,6 +16,7 @@ import {
   fieldTypeSelectBoxData,
   productInformationTableDummyData,
   soundPowerLevelDummyData,
+  soundPressureLevelDummy,
   soundPressureLevelDummyData,
   totalCapacityTableDummyData,
 } from "@/app/[lang]/constants/const";
@@ -57,7 +58,7 @@ export default function Input() {
   const [estimatedSoundData, setEstimatedSoundData] = useState(estimatedSoundDummyData);
   const [totalCapacityTableData, setTotalCapacityTableData] = useState(totalCapacityTableDummyData);
   const [barrierInfoTableData, setBarrierInfoTableData] = useState(barrierInfoTableDummyData);
-
+  const [soundPresureLevelData, setSoundPresureLevelData] = useState(soundPressureLevelDummy);
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
     let newId = 1;
@@ -111,7 +112,7 @@ export default function Input() {
    * @param formData
    */
   async function actionSimulate(formData: FormData) {
-    if (!validateFormData(formRef, t)) return;
+    if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
     const unitData = editUnit.getUnitSetting();
     const result = await noiseSimulator(
@@ -193,6 +194,7 @@ export default function Input() {
             data={productTableData}
             setData={setProductTableData}
             removeTableRow={removeTableRow}
+            t={t}
           />
           {/* 반응형 */}
           <ContainerBoxRow
@@ -229,6 +231,7 @@ export default function Input() {
             setSoundPressureLevel={setSoundPressureLevel}
             soundPowerLevel={soundPowerLevel}
             setSoundPowerLevel={setSoundPowerLevel}
+            soundPresureLevelData={soundPresureLevelData}
           />
           {/* 반응형 */}
           <div

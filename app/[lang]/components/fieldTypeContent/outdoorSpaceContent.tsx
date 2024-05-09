@@ -131,6 +131,7 @@ export default function OutdoorSpaceContent({
         {renderContainerBoxRowItem(
           "Background Noise",
           <CCustomInput
+            name="background_noise"
             type={"number"}
             placeholder={"0"}
             value={30}

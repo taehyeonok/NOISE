@@ -18,6 +18,7 @@ export async function noiseSimulator(
     const editUnit = new EditUnit();
     editUnit.setUnitData_useServer(unitData);
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
+    const ratio = [0.9333333, 0.9333333, 0.9, 0.8666667, 0.8, 0.75, 0.7, 0.6666667];
     let result: Number[] = [];
     const field_type = formData.get("outdoor_space_text");
 
@@ -34,7 +35,7 @@ export async function noiseSimulator(
       const barrier_thickness = Number(formData.get("barrier_thickness"));
       const material_thickness = Number(formData.get("material_thickness"));
       const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
-
+      const background_noise = Number(formData.get("background_noise"));
       //Scene 1: Only propagation
       if (isBarrier === "X") {
         for (let i = 0; i < hz.length; i++) {
@@ -42,8 +43,13 @@ export async function noiseSimulator(
             (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
           ); //Source와 Reciver 간 직선거리
           const distanceAttenuation = 20 * Math.log(sLineDistance) + 11; //거리감쇠량
+
+          let data = estimatedSoundData[i].content2 + DI - distanceAttenuation;
+
           result[i] = Number(
-            Number(estimatedSoundData[i].content2 + DI - distanceAttenuation).toFixed(1)
+            Number(
+              10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
+            ).toFixed(1)
           );
           //Total Summation Result 데이터 + DI - 거리감쇠량
         }
@@ -238,9 +244,11 @@ export async function noiseSimulator(
                   relect_distance_attenuation -
                   transmission_attenuation;
 
+            let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10));
+
             result[i] = Number(
               Number(
-                10 * Math.log(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10))
+                10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
               ).toFixed(1)
             );
           }
@@ -311,7 +319,7 @@ export async function noiseSimulator(
                 ? 3.5
                 : distanceAttenuation_reflectionDistance_increment + diffractionAttenuation_pathC;
 
-            //Scene 4 : Propagation, Diffraction
+            //Path (d)
             const d_height =
               -height_of_sound_source < elevation_of_receiver
                 ? -height_of_sound_source -
@@ -370,8 +378,14 @@ export async function noiseSimulator(
                   DI -
                   distance_attenuation -
                   transmission_attenuation;
+            // result[i] = Number(
+            //   Number(10 * Math.log(10 ** (first / 10) + 10 ** (second / 10))).toFixed(1)
+            // );
+            let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10));
             result[i] = Number(
-              Number(10 * Math.log(10 ** (first / 10) + 10 ** (second / 10))).toFixed(1)
+              Number(
+                10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
+              ).toFixed(1)
             );
           }
           //Scene 4
@@ -463,7 +477,11 @@ export async function noiseSimulator(
               11 -
               diffractionAttenuation_total;
 
-            result[i] = Number(Number(first).toFixed(1));
+            result[i] = Number(
+              Number(
+                10 * Math.log10(10 ** (first / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
+              ).toFixed(1)
+            );
           }
         }
       }
@@ -483,6 +501,7 @@ export async function noiseSimulator(
         result[i] = Number(Number(estimatedSoundData[i].content2 - attenuation).toFixed(1));
       }
     }
+    console.log("result = ", result);
     return result;
   } catch (e) {
     console.log(e);

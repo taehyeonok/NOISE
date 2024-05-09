@@ -505,3 +505,42 @@ export const unitSettingDefaultData: Record<string, Record<string, string>> = {
     pressureDropWater: "inchAq",
   },
 };
+
+export const soundPressureLevelDummy = [
+  {
+    product1: 61.8,
+    product2: 62.5,
+  },
+  {
+    product1: 64.7,
+    product2: 58.5,
+  },
+  {
+    product1: 61.7,
+    product2: 60.1,
+  },
+  {
+    product1: 63.6,
+    product2: 58.6,
+  },
+  {
+    product1: 61.9,
+    product2: 54.3,
+  },
+  {
+    product1: 57.2,
+    product2: 51.6,
+  },
+  {
+    product1: 53.6,
+    product2: 53.0,
+  },
+  {
+    product1: 50.6,
+    product2: 46.7,
+  },
+  {
+    product1: 222,
+    product2: 111,
+  },
+];

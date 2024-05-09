@@ -15,11 +15,13 @@ export default function SoundSpecDataTable({
   setSoundPressureLevel,
   soundPowerLevel,
   setSoundPowerLevel,
+  soundPresureLevelData,
 }: {
   soundPressureLevel: any;
   setSoundPressureLevel: Function;
   soundPowerLevel: any;
   setSoundPowerLevel: Function;
+  soundPresureLevelData: any;
 }) {
   const dba =
     10 *
@@ -35,7 +37,7 @@ export default function SoundSpecDataTable({
         (soundPressureLevel[7].content2 - 1.1 / 10)
     );
 
-  const renderTableBox = (data: SoundLevelData[], title: string, children: JSX.Element) => {
+  const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
       <table>
         <thead>
@@ -58,11 +60,7 @@ export default function SoundSpecDataTable({
       </table>
     );
   };
-  const renderTdItem = (
-    title: string,
-    data: SoundLevelData[],
-    productType: keyof SoundLevelData
-  ) => {
+  const renderTdItem = (title: string, data: any[], productType: keyof any) => {
     return (
       <tr className={"mobile:hidden"}>
         <td className={`tableTd bg-gray_100`}>{title}</td>
@@ -156,8 +154,8 @@ export default function SoundSpecDataTable({
           soundPressureLevel,
           "_Sound Pressure Level",
           <>
-            {renderTdItem("Product 1 / Type : SPL", soundPressureLevel, "product1")}
-            {renderTdItem("Product 2 / Type : SPL", soundPressureLevel, "product2")}
+            {renderTdItem("Product 1 / Type : SPL", soundPresureLevelData, "product1")}
+            {renderTdItem("Product 2 / Type : SPL", soundPresureLevelData, "product2")}
           </>
         )}
         {renderTableBox(
