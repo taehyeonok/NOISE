@@ -284,29 +284,62 @@ export default function Header({ lang, selectedLanguage }: any) {
       </CPopUp>
     );
   };
+
+  const fnLatsMain = () => {
+    removeCookie("latsNoiseLogin");
+    removeCookie("latsNoiseLoginInfo");
+    router.push(window.location.protocol + "//" + window.location.host + "/");
+  };
+
+  const fnLogout = () => {
+    sessionStorage.clear();
+    removeCookie("latsNoiseLogin");
+    removeCookie("latsNoiseLoginInfo");
+    router.push(window.location.protocol + "//" + window.location.host + "/login/logout.lge");
+  };
+
   return (
     <>
       {/* 반응형 */}
       <div className="header pc:flex tablet:hidden mobile:hidden">
-        <div className="flex items-center gap-[2.25rem]">
-          <Image src={IC_LG_LOGO} alt={"lg"} tabIndex={0} />
+        <div className="flex items-center gap-[2.25rem] cursor-pointer">
+          <Image src={IC_LG_LOGO} alt={"lg"} tabIndex={0} onClick={fnLatsMain} />
           <div className="flex items-center gap-[6.25rem]" tabIndex={0}>
-            <div className="font-LGSMHATB text-2xl text-primary flex-none">LATS Noise</div>
+            <Link href={"input"}>
+              <div className="font-LGSMHATB text-2xl text-primary flex-none">LATS Noise</div>
+            </Link>
           </div>
         </div>
         <div className="flex items-center gap-5">
           <div className="flex justify-start items-center gap-1.5 cursor-pointer" tabIndex={0}>
-            <Image src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER} alt={"user"} />
+            <Image
+              src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER}
+              alt={"user"}
+              onClick={() => {
+                if (isNull(loginUserName)) fnLogout();
+              }}
+            />
             {!isNull(loginUserName) ? (
               <div className={"font-LGSMHATR text-gray_900"}>{loginUserName}</div>
             ) : (
-              <div className="font-LGSMHATSB text-gray_500">Login</div>
+              <div className="font-LGSMHATSB text-gray_500" onClick={fnLogout}>
+                {t("THERMAV_5")}
+              </div>
             )}
           </div>
-          <div className="w-px bg-[rgba(0,0,0,0.2)] h-4 cursor-pointer" />
-          {!isNull(loginUserName) && (
-            <Image src={IC_LOGOUT} alt={"logout"} className={"cursor-pointer"} tabIndex={0} />
-          )}
+          <div className="w-px bg-[rgba(0,0,0,0.2)] h-4" />
+          {!isNull(loginUserName) &&
+            (cookies.ssolgenet == null ||
+              cookies.login_success == null ||
+              cookies.login_success !== "T") && (
+              <Image
+                src={IC_LOGOUT}
+                alt={"logout"}
+                className={"cursor-pointer"}
+                tabIndex={0}
+                onClick={fnLogout}
+              />
+            )}
           <div
             className="flex justify-start items-center gap-1.5 relative cursor-pointer"
             onClick={(e) => handleLanguageClick(e, browserType.PC)}
@@ -340,19 +373,30 @@ export default function Header({ lang, selectedLanguage }: any) {
       </div>
       {/* 반응형 */}
       <div className="tabletHeader pc:hidden tablet:flex mobile:hidden">
-        <Image src={IC_LG_LOGO} alt={"lg"} tabIndex={0} />
+        <Image src={IC_LG_LOGO} alt={"lg"} tabIndex={0} onClick={fnLatsMain} />
         <div className={"w-full"}>
           <div
             className={"flex justify-between items-center border-b border-[#EEEEEE] pb-2 relative"}
           >
-            <div className={"font-LGSMHATB text-primary text-xl leading-5"} tabIndex={0}>
-              LATS Noise
-            </div>
+            <Link href={"input"}>
+              <div className={"font-LGSMHATB text-primary text-xl leading-5"} tabIndex={0}>
+                LATS Noise
+              </div>
+            </Link>
             <div className={"flex justify-start items-center"}>
               <div className="flex items-center gap-5">
-                {!isNull(loginUserName) && (
-                  <Image src={IC_LOGOUT} alt={"logout"} tabIndex={0} className={"cursor-pointer"} />
-                )}
+                {!isNull(loginUserName) &&
+                  (cookies.ssolgenet == null ||
+                    cookies.login_success == null ||
+                    cookies.login_success !== "T") && (
+                    <Image
+                      src={IC_LOGOUT}
+                      alt={"logout"}
+                      className={"cursor-pointer"}
+                      tabIndex={0}
+                      onClick={fnLogout}
+                    />
+                  )}
                 <div
                   ref={languageBoxTabletRef}
                   tabIndex={0}
@@ -393,11 +437,19 @@ export default function Header({ lang, selectedLanguage }: any) {
 
           <div className={"flex items-center pt-2 justify-end"}>
             <div className={"flex justify-start items-center gap-1.5 cursor-pointer"} tabIndex={0}>
-              <Image src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER} alt={"user"} />
+              <Image
+                src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER}
+                alt={"user"}
+                onClick={() => {
+                  if (isNull(loginUserName)) fnLogout();
+                }}
+              />
               {!isNull(loginUserName) ? (
                 <div className={"font-LGSMHATR text-gray_900"}>{loginUserName}</div>
               ) : (
-                <div className={"font-LGSMHATSB text-gray_500"}>Login</div>
+                <div className={"font-LGSMHATSB text-gray_500"} onClick={fnLogout}>
+                  {t("THERMAV_5")}
+                </div>
               )}
             </div>
           </div>
@@ -405,9 +457,11 @@ export default function Header({ lang, selectedLanguage }: any) {
       </div>
       {/* 반응형 */}
       <div className={"mobileHeader hidden mobile:flex"}>
-        <Image src={IC_LG_LOGO} alt={"lg"} className="w-[3.75rem]" />
+        <Image src={IC_LG_LOGO} alt={"lg"} className="w-[3.75rem]" onClick={fnLatsMain} />
         <div className={"flex justify-start items-center gap-5"}>
-          <div className={"font-LGSMHATB text-primary mobile:text-[0.875rem]"}>LATS Noise</div>
+          <Link href={"input"}>
+            <div className={"font-LGSMHATB text-primary mobile:text-[0.875rem]"}>LATS Noise</div>
+          </Link>
           <Image
             src={IC_HAMBURGER}
             alt={"menu"}
@@ -432,15 +486,32 @@ export default function Header({ lang, selectedLanguage }: any) {
               />
             </div>
             <div className={"flex justify-start items-center gap-2.5 py-3 px-4 cursor-pointer"}>
-              <Image src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER} alt={"user"} />
+              <Image
+                src={!isNull(loginUserName) ? IC_LOGIN_USER : IC_USER}
+                alt={"user"}
+                onClick={() => {
+                  if (isNull(loginUserName)) fnLogout();
+                }}
+              />
               {!isNull(loginUserName) ? (
                 <>
                   <div className={"font-LGSMHATR text-gray_900"}>{loginUserName}</div>
                   <div className="w-px bg-[rgba(0,0,0,0.2)] h-4 mx-2.5" />
-                  <Image src={IC_LOGOUT} alt={"logout"} />
+                  {(cookies.ssolgenet == null ||
+                    cookies.login_success == null ||
+                    cookies.login_success !== "T") && (
+                    <Image
+                      src={IC_LOGOUT}
+                      alt={"logout"}
+                      className={"cursor-pointer"}
+                      onClick={fnLogout}
+                    />
+                  )}
                 </>
               ) : (
-                <div className={"font-LGSMHATSB text-gray_500"}>Login</div>
+                <div className={"font-LGSMHATSB text-gray_500 cursor-pointer"} onClick={fnLogout}>
+                  {t("THERMAV_5")}
+                </div>
               )}
             </div>
             <div className={"h-2.5 bg-[#f5f5f5]"} />
