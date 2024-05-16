@@ -15,28 +15,18 @@ export default function SoundSpecDataTable({
   setSoundPressureLevel,
   soundPowerLevel,
   setSoundPowerLevel,
-  soundPresureLevelData,
+  soundPressureLevelData,
+  soundPowerLevelData,
+  setSoundPowerLevelData,
 }: {
   soundPressureLevel: any;
   setSoundPressureLevel: Function;
   soundPowerLevel: any;
   setSoundPowerLevel: Function;
-  soundPresureLevelData: any;
+  soundPressureLevelData: any;
+  soundPowerLevelData: any;
+  setSoundPowerLevelData: Function;
 }) {
-  const dba =
-    10 *
-    Math.log(
-      10 ^
-        (soundPressureLevel[0].content2 - 26.2 / 10 + 10) ^
-        (soundPressureLevel[1].content2 - 16.1 / 10 + 10) ^
-        (soundPressureLevel[2].content2 - 8.6 / 10 + 10) ^
-        (soundPressureLevel[3].content2 - 3.2 / 10 + 10) ^
-        (soundPressureLevel[4].content2 / 10 + 10) ^
-        (soundPressureLevel[5].content2 + 1.2 / 10 + 10) ^
-        (soundPressureLevel[6].content2 + 1 / 10 + 10) ^
-        (soundPressureLevel[7].content2 - 1.1 / 10)
-    );
-
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
       <table>
@@ -62,7 +52,7 @@ export default function SoundSpecDataTable({
   };
   const renderTdItem = (title: string, data: any[], productType: keyof any) => {
     return (
-      <tr className={"mobile:hidden"}>
+      <tr className={"mobile:hidden"} key={title}>
         <td className={`tableTd bg-gray_100`}>{title}</td>
         {data.map((item, index: number) => (
           <td className={"tableTd"} key={`${item.dataType}-${index}`}>
@@ -154,14 +144,29 @@ export default function SoundSpecDataTable({
           soundPressureLevel,
           "_Sound Pressure Level",
           <>
-            {renderTdItem("Product 1 / Type : SPL", soundPresureLevelData, "product1")}
-            {renderTdItem("Product 2 / Type : SPL", soundPresureLevelData, "product2")}
+            {soundPressureLevelData.map((item: any, index: number) => {
+              if (index < Object.keys(soundPressureLevelData[0]).length)
+                return renderTdItem(
+                  `Product ${index + 1} / Type : SPL`,
+                  soundPressureLevelData,
+                  "product" + (index + 1)
+                );
+            })}
           </>
         )}
         {renderTableBox(
           soundPowerLevel,
           "_Sound Power Level",
-          <>{renderTdItem("Product 3 / Type : PWL", soundPowerLevel, "product3")}</>
+          <>
+            {soundPowerLevelData.map((item: any, index: number) => {
+              if (index < Object.keys(soundPowerLevelData[0]).length)
+                return renderTdItem(
+                  `Product ${index + 1} / Type : PWL`,
+                  soundPowerLevelData,
+                  "product" + (index + 1)
+                );
+            })}
+          </>
         )}
       </div>
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>

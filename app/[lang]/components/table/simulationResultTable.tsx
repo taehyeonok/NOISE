@@ -2,11 +2,39 @@ import {
   detailInformationDummyData,
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
+import { cloneObject } from "@/app/utils/utils";
+import { useEffect, useState } from "react";
 
 export default function SimulationResultTable({ simulateData, detailData }: any) {
   {
     /* 반응형 */
   }
+  const [simulateOverallData, setSimulateOverallData] = useState(0);
+  const [mSoundPressureReceiver, setMSoundPressureReceiver] = useState(
+    soundPressureReceiverDummyData
+  );
+  useEffect(() => {
+    const dBA =
+      10 *
+      Math.log10(
+        10 ** ((simulateData[0] - 26.2) / 10) +
+          10 ** ((simulateData[1] - 16.1) / 10) +
+          10 ** ((simulateData[2] - 8.6) / 10) +
+          10 ** ((simulateData[3] - 3.2) / 10) +
+          10 ** (simulateData[4] / 10) +
+          10 ** ((simulateData[5] + 1.2) / 10) +
+          10 ** ((simulateData[6] + 1) / 10) +
+          10 ** ((simulateData[7] - 1.1) / 10)
+      );
+    setSimulateOverallData(dBA);
+
+    const copyMSoundPressure = cloneObject(mSoundPressureReceiver);
+
+    copyMSoundPressure.data.map((item: any, index: number) => {
+      item.content = simulateData[index];
+    });
+    setMSoundPressureReceiver(copyMSoundPressure);
+  }, [simulateData]);
 
   const renderMobileTableItem = (title: string, children: React.ReactNode) => {
     return (
@@ -90,14 +118,14 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
                 const noLineStyle = data.noLine ? "noLine" : "";
                 return (
                   <td key={index} className={`tableTd ${cellTypeStyle} ${noLineStyle}`}>
-                    {data}
+                    {Number(data).toFixed(1)}
                   </td>
                 );
               })}
             </tr>
             <tr>
               <td className={"tableTd bg-gray_100 noLine"}>Overall</td>
-              <td className={"tableTd"}>46.1</td>
+              <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
               <td className={"!pt-3 !pb-0 !pl-1 !border-0 !text-[0.625rem] !text-left"}>
                 Unit : dB(A)
               </td>
@@ -147,19 +175,23 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
               </p>
               <table className={"table-fixed"}>
                 <tbody>
-                  {soundPressureReceiverDummyData.headings.map((contentItem, contentIndex) => {
+                  {mSoundPressureReceiver.headings.map((contentItem, contentIndex) => {
                     if (contentIndex % 2 === 0) {
                       return (
                         <tr key={contentIndex}>
                           <td className={"tableTh"}>
-                            {soundPressureReceiverDummyData.headings[contentIndex]?.content}
-                          </td>
-                          <td className={"tableTd"}>{contentItem.content}</td>
-                          <td className={"tableTh"}>
-                            {soundPressureReceiverDummyData.headings[contentIndex + 1]?.content}
+                            {mSoundPressureReceiver.headings[contentIndex]?.content}
                           </td>
                           <td className={"tableTd"}>
-                            {soundPressureReceiverDummyData.data[contentIndex + 1]?.content}
+                            {Number(mSoundPressureReceiver.data[contentIndex]?.content).toFixed(1)}
+                          </td>
+                          <td className={"tableTh"}>
+                            {mSoundPressureReceiver.headings[contentIndex + 1]?.content}
+                          </td>
+                          <td className={"tableTd"}>
+                            {Number(mSoundPressureReceiver.data[contentIndex + 1]?.content).toFixed(
+                              1
+                            )}
                           </td>
                         </tr>
                       );
@@ -173,7 +205,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
               <tbody>
                 <tr>
                   <td className={"tableTh !font-LGSMHATR !text-[#000]"}>Overall</td>
-                  <td className={"tableTd"}>46.1</td>
+                  <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
                 </tr>
               </tbody>
             </table>

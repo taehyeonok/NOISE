@@ -15,6 +15,7 @@ import {
   estimatedSoundDummyData,
   fieldTypeSelectBoxData,
   productInformationTableDummyData,
+  soundPowerLevelDummy,
   soundPowerLevelDummyData,
   soundPressureLevelDummy,
   soundPressureLevelDummyData,
@@ -58,7 +59,10 @@ export default function Input() {
   const [estimatedSoundData, setEstimatedSoundData] = useState(estimatedSoundDummyData);
   const [totalCapacityTableData, setTotalCapacityTableData] = useState(totalCapacityTableDummyData);
   const [barrierInfoTableData, setBarrierInfoTableData] = useState(barrierInfoTableDummyData);
-  const [soundPresureLevelData, setSoundPresureLevelData] = useState(soundPressureLevelDummy);
+  const [soundPressureLevelData, setSoundPressureLevelData] =
+    useState<any>(soundPressureLevelDummy);
+  const [soundPowerLevelData, setSoundPowerLevelData] = useState<any>(soundPowerLevelDummy);
+
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
     let newId = 1;
@@ -77,12 +81,14 @@ export default function Input() {
     };
     setProductTableData([...productTableData, newRow]);
   };
+
   const removeTableRow = (rowId: number) => {
     if (productTableData.length > MIN_ROWS) {
       const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
       setProductTableData(updatedTableRows);
     }
   };
+
   useEffect(() => {
     //모델 선택에 따른 DB에서 불러온값
     const a = 0;
@@ -93,20 +99,58 @@ export default function Input() {
       ⓓ : Rated ⓑ의 총 합산 값
       ⓔ : Reduced ⓑ의 총 합산 값
       ⓕ : ⓔ에서의 kW 값 / ⓓ에서의 kW 값 */
-    let copy = cloneObject(totalCapacityTableData);
-    copy[0].first;
-    copy[1].first;
-    copy[1].second;
-    setTotalCapacityTableData(copy);
+    const copyTotal = cloneObject(totalCapacityTableData);
+    copyTotal[0].first;
+    copyTotal[1].first;
+    copyTotal[1].second;
+    setTotalCapacityTableData(copyTotal);
   }, [productTableData]);
 
+  //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
-    let copy = cloneObject(estimatedSoundData);
-    for (let i = 0; i < estimatedSoundData.length; i++) {
-      copy[i].content2 = 55 - i;
-      setEstimatedSoundData(copy);
-    }
-  }, [soundPressureLevel]);
+    const copyEstimated = cloneObject(estimatedSoundData);
+
+    const distance_attenuation = 11.0; //거리감쇠
+    const correction = [0.8, 0.8, 0.8, 0.8, 0.8, 1.8, 1.8, 1.8]; // 제품특성 별 측정환경
+
+    let array: any = [];
+    let number = 0;
+    soundPressureLevelData.slice(0, 8).forEach((data: any, i: number) => {
+      let newItem: any = {};
+      Object.values(data).map((item: any, index) => {
+        if (index !== 2) {
+          newItem[number] = Number(Number(item + distance_attenuation + correction[i]).toFixed(1));
+        } else {
+          newItem[number] = item;
+        }
+        number++;
+      });
+
+      array.push(newItem);
+    });
+
+    const columnSum: any[] = [];
+    let num = 0;
+    array.forEach((data: any, index: number) => {
+      Object.entries(data).forEach((key: any) => {
+        if (columnSum[num] === undefined) {
+          columnSum[num] = Number(Number(key[1]).toFixed(1));
+        } else {
+          console.log(columnSum[num]);
+          columnSum[num] = Number(
+            Number(
+              10 * Math.log10(10 ** Number(columnSum[num] / 10) + 10 ** Number(key[1] / 10))
+            ).toFixed(1)
+          );
+        }
+      });
+      num++;
+    });
+    columnSum.map((item, index) => {
+      copyEstimated[index].content2 = item;
+    });
+    setEstimatedSoundData(copyEstimated);
+  }, [soundPressureLevelData]);
   /**
    * Noise 계산 로직 실행 후 결과창 이동
    * @param formData
@@ -129,6 +173,7 @@ export default function Input() {
     setIsLoading(false);
     router.push("/container/result");
   }
+
   return (
     <form ref={formRef} action={actionSimulate} className={"w-full h-full"}>
       {isLoading && <LoadingPage />}
@@ -234,7 +279,9 @@ export default function Input() {
             setSoundPressureLevel={setSoundPressureLevel}
             soundPowerLevel={soundPowerLevel}
             setSoundPowerLevel={setSoundPowerLevel}
-            soundPresureLevelData={soundPresureLevelData}
+            soundPressureLevelData={soundPressureLevelData}
+            soundPowerLevelData={soundPowerLevelData}
+            setSoundPowerLevelData={setSoundPowerLevelData}
           />
           {/* 반응형 */}
           <div

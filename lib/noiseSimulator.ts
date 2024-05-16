@@ -25,14 +25,16 @@ export async function noiseSimulator(
     const height_of_sound_source = outdoor_unit + 1;
     const elevation_of_receiver = Number(formData.get("elevation_of_receiver"));
     const horizontal_distance = Number(formData.get("horizontal_distance"));
+
     //Source와 Reciver 간 직선거리
     const sLineDistance = Math.sqrt(
       (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
     );
     //거리감쇠량
-    const distanceAttenuation = 20 * Math.log(sLineDistance) + 11;
-    const wallQuantity = Number(); //TODO: 지향성 보정(DI)
+    const distanceAttenuation = 20 * Math.log10(sLineDistance) + 11;
+    const wallQuantity = Number(1); //TODO: 지향성 보정(DI)
     const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
+
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {
       const isBarrier = formData.get("barrier_in_the_path_text");
@@ -46,13 +48,11 @@ export async function noiseSimulator(
       //Scene 1: Only propagation
       if (isBarrier === "X") {
         for (let i = 0; i < hz.length; i++) {
-          let data = estimatedSoundData[i].content2 + DI - distanceAttenuation;
+          const scene1 = estimatedSoundData[i].content2 + DI - distanceAttenuation;
 
-          result.data[i] = Number(
-            Number(
-              10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
-            ).toFixed(1)
-          );
+          result.data[i] =
+            10 * Math.log10(10 ** (scene1 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
+
           //Total Summation Result 데이터 + DI - 거리감쇠량
         }
       } else if (isBarrier === "O") {
@@ -70,6 +70,13 @@ export async function noiseSimulator(
         const distanceAttenuation_reflectionDistance_increment =
           20 * Math.log10(reflectionPath / sLineDistance);
 
+        /*TODO:
+        * 1) Sound Source와 Receiver 간 직선을 긋고 Barrier 위치에서의 수직선과의 교차점을 구함.
+          2) 해당 교차점의 높이가 Barrier의 높이보다 낮거나 같을 경우 Scene 2
+          3) 교차점의 높이가 Barrier의 높이보다 높을 경우 Sound Source와 Receiver 중 높이가 낮은 점을 땅을 기준으로 대칭 시켜 해당 포인트와 다른 한 포인트를 기준으로 1)번과 동일하게 교차점을 구함.
+          4) 해당 교차점이 Barrier 높이보다 낮을 경우 Scene 3
+          5) 해당 교차점이 Barrier 높이보다 높을 경우 Scene 4
+        */
         /*Scene 2 : Propagation, Diffraction Transmission(Direct, Reflect)*/
         if (height_of_sound_source > barrier_height && elevation_of_receiver > barrier_height) {
           // Path (a)
@@ -81,7 +88,7 @@ export async function noiseSimulator(
                   (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
                     horizontal_distance
                 : elevation_of_receiver +
-                  ((height_of_sound_source - distance_from_ODUs) *
+                  ((horizontal_distance - distance_from_ODUs) *
                     (height_of_sound_source - elevation_of_receiver)) /
                     horizontal_distance;
             //회절경로 1 ( 소음원 - 벽 )
@@ -124,14 +131,14 @@ export async function noiseSimulator(
             );
             const b_diffractionPathDifference =
               b_diffractionPath1 + b_diffractionPath2 + barrier_thickness * 0.001 - reflectionPath;
-            const nValue = (2 * b_diffractionPathDifference * hz[i]!) / 341;
+            const b_nValue = (2 * b_diffractionPathDifference * hz[i]!) / 341;
 
             const diffractionAttenuation_pathB =
-              0.2 < nValue && nValue < 12.5
+              0.2 < b_nValue && b_nValue < 12.5
                 ? 5 +
                   20 *
                     Math.log10(
-                      (2 * Math.PI * nValue) ** 0.5 / Math.tanh((2 * Math.PI * nValue) ** 0.5)
+                      (2 * Math.PI * b_nValue) ** 0.5 / Math.tanh((2 * Math.PI * b_nValue) ** 0.5)
                     )
                 : 24;
             //회절감쇠 + 거리증분 감쇠량
@@ -210,26 +217,27 @@ export async function noiseSimulator(
                 10 ** (-diffractionAttenuation_pathA / 10) +
                   10 ** (-b_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
                   10 ** (-c_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
-                  10 ** (diffractionAttenuation_pathD / 10)
+                  10 ** (-diffractionAttenuation_pathD / 10)
               );
+
+            const sLinedistance_attenuation = 20 * Math.log10(sLineDistance) + 11; //거리감쇠량
             // (ㄱ) PWL+DI-거리-회절
             const first =
               estimatedSoundData[i].content2 +
               DI -
-              20 * Math.log(sLineDistance) +
-              11 -
+              sLinedistance_attenuation -
               diffractionAttenuation_total;
             //Direct Transmission
             const texture_transmission_attenuation =
               barrier_height <= a_height ? 0 : barrierInfoTableData[i].content2; //'우측테이블 Hz 별 데이터'//재질에 따른 투과 감쇠량
-            const distance_attenuation = 20 * Math.log(sLineDistance) + 11;
+
             //(ㄴ) 최종 PWL + DI - 거리 - 투과
             const second =
               texture_transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
                   DI -
-                  distance_attenuation -
+                  sLinedistance_attenuation -
                   texture_transmission_attenuation;
 
             //Relect Transmission
@@ -237,22 +245,20 @@ export async function noiseSimulator(
               barrier_height <= b_height || barrier_height <= c_height
                 ? 0
                 : barrierInfoTableData[i].content2; // direct Transmission 값 동일
-            const relect_distance_attenuation = 20 * Math.log(reflectionPath) + 11;
+            const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
             const third =
               transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
                   DI -
-                  relect_distance_attenuation -
+                  reflect_distance_attenuation -
                   transmission_attenuation;
 
-            let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10));
+            const scene2 =
+              10 * Math.log10(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10));
 
-            result.data[i] = Number(
-              Number(
-                10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
-              ).toFixed(1)
-            );
+            result.data[i] =
+              10 * Math.log10(10 ** (scene2 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
           }
           //Scene 3 : Propagation, Diffraction Transmission(Reflect)
         } else if (
@@ -362,38 +368,39 @@ export async function noiseSimulator(
               Math.log10(
                 10 ** (-diffractionAttenuation_pathA / 10) +
                   10 ** (-b_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
-                  10 ** (c_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
-                  10 ** (diffractionAttenuation_pathD / 10)
+                  10 ** (-c_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
+                  10 ** (-diffractionAttenuation_pathD / 10)
               );
-            const first = DI - 20 * Math.log(sLineDistance) + 11 - diffractionAttenuation_total;
+            const first =
+              estimatedSoundData[i].content2 +
+              DI -
+              (20 * Math.log10(sLineDistance) + 11) -
+              diffractionAttenuation_total;
             //Relect Transmission
             const transmission_attenuation =
               barrier_height <= b_height || barrier_height <= c_height
                 ? 0
-                : barrierInfoTableData[i].content2; //TODO: :0 <-- Hz별데이터
+                : barrierInfoTableData[i].content2;
 
-            const distance_attenuation = 20 * Math.log(reflectionPath) + 11;
+            const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
+
             const second =
               transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
                   DI -
-                  distance_attenuation -
+                  reflect_distance_attenuation -
                   transmission_attenuation;
-            // result[i] = Number(
-            //   Number(10 * Math.log(10 ** (first / 10) + 10 ** (second / 10))).toFixed(1)
-            // );
-            let data = 10 * Math.log(10 ** (first / 10) + 10 ** (second / 10));
-            result.data[i] = Number(
-              Number(
-                10 * Math.log10(10 ** (data / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
-              ).toFixed(1)
-            );
+            const scene3 = 10 * Math.log10(10 ** (first / 10) + 10 ** (second / 10));
+            result.data[i] =
+              10 * Math.log10(10 ** (scene3 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
+
+            console.log("diffractionAttenuation_total", diffractionAttenuation_total);
           }
           //Scene 4
         } else {
-          // Path (a) 회절감쇠량_Path (a)
           for (let i = 0; i < hz.length; i++) {
+            // Path (a) 회절감쇠량_Path (a)
             const diffractionAttenuation_pathA = 4.7;
 
             // Path (b)
@@ -440,7 +447,7 @@ export async function noiseSimulator(
                     (height_of_sound_source - elevation_of_receiver)) /
                     horizontal_distance;
             const d_diffractionPath1 = Math.sqrt(
-              (height_of_sound_source - elevation_of_receiver) ** 2 + distance_from_ODUs ** 2
+              (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
             const d_diffractionPath2 = Math.sqrt(
               (barrier_height + elevation_of_receiver) ** 2 +
@@ -469,21 +476,17 @@ export async function noiseSimulator(
               Math.log10(
                 10 ** (-diffractionAttenuation_pathA / 10) +
                   10 ** (-b_diffractionAttenuation_distanceIncrementalAttenuation / 10) +
-                  10 ** (diffractionAttenuation_pathC / 10) +
-                  10 ** (diffractionAttenuation_pathD / 10)
+                  10 ** (-diffractionAttenuation_pathC / 10) +
+                  10 ** (-diffractionAttenuation_pathD / 10)
               );
-            const first =
+            const scene4 =
               estimatedSoundData[i].content2 +
               DI -
-              20 * Math.log(sLineDistance) +
-              11 -
+              (20 * Math.log10(sLineDistance) + 11) -
               diffractionAttenuation_total;
 
-            result.data[i] = Number(
-              Number(
-                10 * Math.log10(10 ** (first / 10) + 10 ** ((background_noise * ratio[i]!) / 10))
-              ).toFixed(1)
-            );
+            result.data[i] =
+              10 * Math.log10(10 ** (scene4 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
           }
         }
       }
@@ -500,7 +503,7 @@ export async function noiseSimulator(
           3 * Math.log(hz[i]!) -
           10 * Math.log(count) -
           12;
-        result.data[i] = Number(Number(estimatedSoundData[i].content2 - attenuation).toFixed(1));
+        result.data[i] = estimatedSoundData[i].content2 - attenuation;
       }
     }
     result.estimatedSoundData = estimatedSoundData;

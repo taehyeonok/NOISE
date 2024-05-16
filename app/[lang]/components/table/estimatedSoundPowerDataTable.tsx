@@ -1,4 +1,4 @@
-import { estimatedSoundDummyData, soundPowerLevelDummyData } from "@/app/[lang]/constants/const";
+import { useEffect, useState } from "react";
 
 interface estimatedSoundProps {
   content1: string;
@@ -6,6 +6,24 @@ interface estimatedSoundProps {
 }
 
 export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any) {
+  const [estimatedSoundDBA, setEstimatedSoundDBA] = useState(0);
+
+  useEffect(() => {
+    const dBA =
+      10 *
+      Math.log10(
+        10 ** ((estimatedSoundData[0].content2 - 26.2) / 10) +
+          10 ** ((estimatedSoundData[1].content2 - 16.1) / 10) +
+          10 ** ((estimatedSoundData[2].content2 - 8.6) / 10) +
+          10 ** ((estimatedSoundData[3].content2 - 3.2) / 10) +
+          10 ** (estimatedSoundData[4].content2 / 10) +
+          10 ** ((estimatedSoundData[5].content2 + 1.2) / 10) +
+          10 ** ((estimatedSoundData[6].content2 + 1) / 10) +
+          10 ** ((estimatedSoundData[7].content2 - 1.1) / 10)
+      );
+    setEstimatedSoundDBA(dBA);
+  }, [estimatedSoundData]);
+
   const renderTdItem = (productType: keyof estimatedSoundProps) => {
     return estimatedSoundData.map((item: estimatedSoundProps, index: number) => {
       return (
@@ -14,24 +32,11 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
           key={"estimatedSoundDummyData-" + index}
           className={`tableTd w-[7.813rem] !h-[1.875rem] ${item.content1 ? "!font-LGSMHATSB" : ""}`}
         >
-          {productType === "content1" ? item.content1 : item.content2}
+          {productType === "content1" ? item.content1 : Number(item.content2).toFixed(1)}
         </td>
       );
     });
   };
-  const dba =
-    10 *
-    Math.log(
-      10 ^
-        (estimatedSoundData[0].content2 - 26.2 / 10 + 10) ^
-        (estimatedSoundData[1].content2 - 16.1 / 10 + 10) ^
-        (estimatedSoundData[2].content2 - 8.6 / 10 + 10) ^
-        (estimatedSoundData[3].content2 - 3.2 / 10 + 10) ^
-        (estimatedSoundData[4].content2 / 10 + 10) ^
-        (estimatedSoundData[5].content2 + 1.2 / 10 + 10) ^
-        (estimatedSoundData[6].content2 + 1 / 10 + 10) ^
-        (estimatedSoundData[7].content2 - 1.1 / 10)
-    );
 
   return (
     <>
@@ -60,7 +65,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
           <tr>{renderTdItem("content2")}</tr>
           <tr>
             <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>Overall (dB(A))</td>
-            <td className={"tableTd !h-[1.875rem]"}>{Number(dba).toFixed(1)}</td>
+            <td className={"tableTd !h-[1.875rem]"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
           </tr>
         </tbody>
       </table>
@@ -97,7 +102,9 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
                       {index + 1 < estimatedSoundData.length && (
                         <>
                           <th className={`tableTh`}>{estimatedSoundData[index + 1]?.content1}</th>
-                          <td className={`tableTd`}>{estimatedSoundData[index + 1]?.content2}</td>
+                          <td className={`tableTd`}>
+                            {Number(estimatedSoundData[index + 1]?.content2).toFixed(1)}
+                          </td>
                         </>
                       )}
                     </tr>
@@ -109,7 +116,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
               <tbody>
                 <tr>
                   <th className={"tableTh !font-LGSMHATR !text-[#000]"}>Overall (dB(A))</th>
-                  <td className={"tableTd"}></td>
+                  <td className={"tableTd"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
                 </tr>
               </tbody>
             </table>
