@@ -113,30 +113,31 @@ export default function Input() {
     const distance_attenuation = 11.0; //거리감쇠
     const correction = [0.8, 0.8, 0.8, 0.8, 0.8, 1.8, 1.8, 1.8]; // 제품특성 별 측정환경
 
-    let array: any = [];
+    const soundSpecData: any[] = [];
     let number = 0;
     soundPressureLevelData.slice(0, 8).forEach((data: any, i: number) => {
       let newItem: any = {};
+
       Object.values(data).map((item: any, index) => {
-        if (index !== 2) {
-          newItem[number] = Number(Number(item + distance_attenuation + correction[i]).toFixed(1));
-        } else {
-          newItem[number] = item;
-        }
+        newItem[number] = Number(Number(item + distance_attenuation + correction[i]).toFixed(1));
         number++;
       });
+      soundSpecData.push(newItem);
+    });
 
-      array.push(newItem);
+    soundPowerLevelData.slice(0, 8).forEach((data: any, i: number) => {
+      Object.values(data).map((item: any, index) => {
+        soundSpecData[i] = { ...soundSpecData[i], item };
+      });
     });
 
     const columnSum: any[] = [];
     let num = 0;
-    array.forEach((data: any, index: number) => {
+    soundSpecData.forEach((data: any, index: number) => {
       Object.entries(data).forEach((key: any) => {
         if (columnSum[num] === undefined) {
           columnSum[num] = Number(Number(key[1]).toFixed(1));
         } else {
-          console.log(columnSum[num]);
           columnSum[num] = Number(
             Number(
               10 * Math.log10(10 ** Number(columnSum[num] / 10) + 10 ** Number(key[1] / 10))
@@ -146,11 +147,12 @@ export default function Input() {
       });
       num++;
     });
+
     columnSum.map((item, index) => {
       copyEstimated[index].content2 = item;
     });
     setEstimatedSoundData(copyEstimated);
-  }, [soundPressureLevelData]);
+  }, [soundPressureLevelData, soundPowerLevelData]);
   /**
    * Noise 계산 로직 실행 후 결과창 이동
    * @param formData

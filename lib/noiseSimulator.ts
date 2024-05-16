@@ -394,8 +394,6 @@ export async function noiseSimulator(
             const scene3 = 10 * Math.log10(10 ** (first / 10) + 10 ** (second / 10));
             result.data[i] =
               10 * Math.log10(10 ** (scene3 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
-
-            console.log("diffractionAttenuation_total", diffractionAttenuation_total);
           }
           //Scene 4
         } else {
