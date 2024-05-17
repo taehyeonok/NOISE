@@ -539,10 +539,7 @@ export const soundPressureLevelDummy = [
     product1: 50.6,
     product2: 46.7,
   },
-  {
-    product1: 222,
-    product2: 111,
-  },
+  {},
 ];
 
 export const soundPowerLevelDummy = [
@@ -570,7 +567,5 @@ export const soundPowerLevelDummy = [
   {
     product1: 41.9,
   },
-  {
-    product1: 333,
-  },
+  {},
 ];

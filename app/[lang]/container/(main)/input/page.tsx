@@ -118,7 +118,7 @@ export default function Input() {
     soundPressureLevelData.slice(0, 8).forEach((data: any, i: number) => {
       let newItem: any = {};
 
-      Object.values(data).map((item: any, index) => {
+      Object.values(data).map((item: any) => {
         newItem[number] = Number(Number(item + distance_attenuation + correction[i]).toFixed(1));
         number++;
       });
@@ -126,14 +126,14 @@ export default function Input() {
     });
 
     soundPowerLevelData.slice(0, 8).forEach((data: any, i: number) => {
-      Object.values(data).map((item: any, index) => {
+      Object.values(data).map((item: any) => {
         soundSpecData[i] = { ...soundSpecData[i], item };
       });
     });
 
     const columnSum: any[] = [];
     let num = 0;
-    soundSpecData.forEach((data: any, index: number) => {
+    soundSpecData.forEach((data: any) => {
       Object.entries(data).forEach((key: any) => {
         if (columnSum[num] === undefined) {
           columnSum[num] = Number(Number(key[1]).toFixed(1));

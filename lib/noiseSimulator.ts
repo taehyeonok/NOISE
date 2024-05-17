@@ -70,27 +70,41 @@ export async function noiseSimulator(
         const distanceAttenuation_reflectionDistance_increment =
           20 * Math.log10(reflectionPath / sLineDistance);
 
-        /*TODO:
-        * 1) Sound Source와 Receiver 간 직선을 긋고 Barrier 위치에서의 수직선과의 교차점을 구함.
-          2) 해당 교차점의 높이가 Barrier의 높이보다 낮거나 같을 경우 Scene 2
-          3) 교차점의 높이가 Barrier의 높이보다 높을 경우 Sound Source와 Receiver 중 높이가 낮은 점을 땅을 기준으로 대칭 시켜 해당 포인트와 다른 한 포인트를 기준으로 1)번과 동일하게 교차점을 구함.
-          4) 해당 교차점이 Barrier 높이보다 낮을 경우 Scene 3
-          5) 해당 교차점이 Barrier 높이보다 높을 경우 Scene 4
-        */
+        // 전파 경로 & 벽 교점 높이 구하기  (교차점)
+        const a_height =
+          height_of_sound_source < elevation_of_receiver
+            ? height_of_sound_source +
+              (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
+                horizontal_distance
+            : elevation_of_receiver +
+              ((horizontal_distance - distance_from_ODUs) *
+                (height_of_sound_source - elevation_of_receiver)) /
+                horizontal_distance;
+
+        const b_height =
+          ((height_of_sound_source + elevation_of_receiver) *
+            (horizontal_distance - distance_from_ODUs)) /
+            horizontal_distance -
+          elevation_of_receiver;
+
+        const c_height =
+          ((height_of_sound_source + elevation_of_receiver) * distance_from_ODUs) /
+            horizontal_distance -
+          height_of_sound_source;
+
+        const d_height =
+          -height_of_sound_source < elevation_of_receiver
+            ? -height_of_sound_source -
+              (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
+                horizontal_distance
+            : -elevation_of_receiver -
+              ((horizontal_distance - distance_from_ODUs) *
+                (height_of_sound_source - elevation_of_receiver)) /
+                horizontal_distance;
         /*Scene 2 : Propagation, Diffraction Transmission(Direct, Reflect)*/
-        if (height_of_sound_source > barrier_height && elevation_of_receiver > barrier_height) {
+        if (barrier_height > a_height && barrier_height > c_height) {
           // Path (a)
-          //전파 경로 & 벽 교점 높이 구하기
           for (let i = 0; i < hz.length; i++) {
-            const a_height =
-              height_of_sound_source < elevation_of_receiver
-                ? height_of_sound_source +
-                  (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
-                    horizontal_distance
-                : elevation_of_receiver +
-                  ((horizontal_distance - distance_from_ODUs) *
-                    (height_of_sound_source - elevation_of_receiver)) /
-                    horizontal_distance;
             //회절경로 1 ( 소음원 - 벽 )
             const a_diffractionPath1 = Math.sqrt(
               (height_of_sound_source - barrier_height) ** 2 + distance_from_ODUs ** 2
@@ -116,12 +130,6 @@ export async function noiseSimulator(
                 : 24;
 
             //Pass (b)
-            const b_height =
-              ((height_of_sound_source + elevation_of_receiver) *
-                (horizontal_distance - distance_from_ODUs)) /
-                horizontal_distance -
-              elevation_of_receiver;
-
             const b_diffractionPath1 = Math.sqrt(
               (height_of_sound_source - barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -148,10 +156,6 @@ export async function noiseSimulator(
                 : distanceAttenuation_reflectionDistance_increment + diffractionAttenuation_pathB;
 
             //Pass (c)
-            const c_height =
-              ((height_of_sound_source + elevation_of_receiver) * distance_from_ODUs) /
-                horizontal_distance -
-              height_of_sound_source;
             const c_diffractionPath1 = Math.sqrt(
               (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -177,15 +181,6 @@ export async function noiseSimulator(
                 : distanceAttenuation_reflectionDistance_increment + diffractionAttenuation_pathC;
 
             //Path (d)
-            const d_height =
-              height_of_sound_source < elevation_of_receiver
-                ? -height_of_sound_source -
-                  (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
-                    horizontal_distance
-                : -elevation_of_receiver -
-                  ((horizontal_distance - distance_from_ODUs) *
-                    (height_of_sound_source - elevation_of_receiver)) /
-                    horizontal_distance;
             const d_diffractionPath1 = Math.sqrt(
               (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -232,7 +227,7 @@ export async function noiseSimulator(
               barrier_height <= a_height ? 0 : barrierInfoTableData[i].content2; //'우측테이블 Hz 별 데이터'//재질에 따른 투과 감쇠량
 
             //(ㄴ) 최종 PWL + DI - 거리 - 투과
-            const second =
+            const directTransmission =
               texture_transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
@@ -246,7 +241,7 @@ export async function noiseSimulator(
                 ? 0
                 : barrierInfoTableData[i].content2; // direct Transmission 값 동일
             const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
-            const third =
+            const relectTransmission =
               transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
@@ -255,27 +250,23 @@ export async function noiseSimulator(
                   transmission_attenuation;
 
             const scene2 =
-              10 * Math.log10(10 ** (first / 10) + 10 ** (second / 10) + 10 ** (third / 10));
+              10 *
+              Math.log10(
+                10 ** (first / 10) +
+                  10 ** (directTransmission / 10) +
+                  10 ** (relectTransmission / 10)
+              );
 
             result.data[i] =
               10 * Math.log10(10 ** (scene2 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
           }
           //Scene 3 : Propagation, Diffraction Transmission(Reflect)
-        } else if (
-          height_of_sound_source < barrier_height &&
-          elevation_of_receiver < barrier_height
-        ) {
+        } else if (barrier_height <= a_height && barrier_height > c_height) {
           //Path (a) 고정값
           for (let i = 0; i < hz.length; i++) {
             const diffractionAttenuation_pathA = 4.7;
 
             //path (b)
-            //전파경로 & 벽 교점 높이
-            const b_height =
-              ((height_of_sound_source + elevation_of_receiver) *
-                (horizontal_distance - distance_from_ODUs)) /
-                horizontal_distance -
-              elevation_of_receiver;
             const b_diffractionPath1 = Math.sqrt(
               (height_of_sound_source - barrier_height) ** 2 + horizontal_distance ** 2
             );
@@ -300,10 +291,6 @@ export async function noiseSimulator(
                 : distanceAttenuation_reflectionDistance_increment + diffractionAttenuation_pathB;
 
             //Path (c)
-            const c_height =
-              ((height_of_sound_source + elevation_of_receiver) * distance_from_ODUs) /
-                horizontal_distance -
-              height_of_sound_source;
             const c_diffractionPath1 = Math.sqrt(
               (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -328,16 +315,6 @@ export async function noiseSimulator(
                 : distanceAttenuation_reflectionDistance_increment + diffractionAttenuation_pathC;
 
             //Path (d)
-            const d_height =
-              -height_of_sound_source < elevation_of_receiver
-                ? -height_of_sound_source -
-                  (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
-                    horizontal_distance
-                : -elevation_of_receiver -
-                  ((horizontal_distance - distance_from_ODUs) *
-                    (height_of_sound_source - elevation_of_receiver)) /
-                    horizontal_distance;
-
             const d_diffractionPath1 = Math.sqrt(
               (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -402,11 +379,6 @@ export async function noiseSimulator(
             const diffractionAttenuation_pathA = 4.7;
 
             // Path (b)
-            const b_height =
-              ((height_of_sound_source + elevation_of_receiver) *
-                (horizontal_distance - distance_from_ODUs)) /
-                horizontal_distance -
-              elevation_of_receiver;
             const b_diffractionPath1 = Math.sqrt(
               (height_of_sound_source - barrier_height) ** 2 + distance_from_ODUs ** 2
             );
@@ -435,15 +407,6 @@ export async function noiseSimulator(
             const diffractionAttenuation_pathC = 3.5;
 
             //Path (d)
-            const d_height =
-              height_of_sound_source < elevation_of_receiver
-                ? -height_of_sound_source -
-                  (distance_from_ODUs * (elevation_of_receiver - height_of_sound_source)) /
-                    horizontal_distance
-                : -elevation_of_receiver -
-                  ((horizontal_distance - distance_from_ODUs) *
-                    (height_of_sound_source - elevation_of_receiver)) /
-                    horizontal_distance;
             const d_diffractionPath1 = Math.sqrt(
               (height_of_sound_source + barrier_height) ** 2 + distance_from_ODUs ** 2
             );
