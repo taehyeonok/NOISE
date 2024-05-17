@@ -361,14 +361,14 @@ export async function noiseSimulator(
 
             const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
 
-            const second =
+            const relectTransmission =
               transmission_attenuation === 0
                 ? -9999
                 : estimatedSoundData[i].content2 +
                   DI -
                   reflect_distance_attenuation -
                   transmission_attenuation;
-            const scene3 = 10 * Math.log10(10 ** (first / 10) + 10 ** (second / 10));
+            const scene3 = 10 * Math.log10(10 ** (first / 10) + 10 ** (relectTransmission / 10));
             result.data[i] =
               10 * Math.log10(10 ** (scene3 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
           }
@@ -459,10 +459,10 @@ export async function noiseSimulator(
       const direct_distance = Number(formData.get("direct_distance"));
       for (let i = 0; i < hz.length; i++) {
         const attenuation =
-          10 * Math.log(direct_distance) +
-          5 * Math.log(room_volume) +
-          3 * Math.log(hz[i]!) -
-          10 * Math.log(count) -
+          10 * Math.log10(direct_distance) +
+          5 * Math.log10(room_volume) +
+          3 * Math.log10(hz[i]!) -
+          10 * Math.log10(count) -
           12;
         result.data[i] = estimatedSoundData[i].content2 - attenuation;
       }
