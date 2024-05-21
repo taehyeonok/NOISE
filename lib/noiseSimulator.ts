@@ -19,7 +19,7 @@ export async function noiseSimulator(
     editUnit.setUnitData_useServer(unitData);
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
     const ratio = [0.9333333, 0.9333333, 0.9, 0.8666667, 0.8, 0.75, 0.7, 0.6666667];
-    let result = { data: [] } as any;
+    let result = { data: [], attenuation: [] } as any;
     const field_type = formData.get("outdoor_space_text");
     const outdoor_unit = Number(formData.get("elevation_of_outdoor_unit"));
     const height_of_sound_source = outdoor_unit + 1;
@@ -52,8 +52,6 @@ export async function noiseSimulator(
 
           result.data[i] =
             10 * Math.log10(10 ** (scene1 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
-
-          //Total Summation Result 데이터 + DI - 거리감쇠량
         }
       } else if (isBarrier === "O") {
         //직선경로 //source와 receiver 직선경로 길이 구하기
@@ -454,7 +452,7 @@ export async function noiseSimulator(
     }
     //Enclosed Space : 실내 케이스로, Direct distance, Room Volume, Number of Sound Sources로 계산
     else if (field_type === "Enclosed Space (Machine Room)") {
-      const count = productTableData.length; // Number of sound sources 값
+      const number_of_sound_sources = productTableData.length; // Number of sound sources 값
       const room_volume = Number(formData.get("room_volume"));
       const direct_distance = Number(formData.get("direct_distance"));
       for (let i = 0; i < hz.length; i++) {
@@ -462,8 +460,9 @@ export async function noiseSimulator(
           10 * Math.log10(direct_distance) +
           5 * Math.log10(room_volume) +
           3 * Math.log10(hz[i]!) -
-          10 * Math.log10(count) -
+          10 * Math.log10(number_of_sound_sources) -
           12;
+        result.attenuation[i] = attenuation;
         result.data[i] = estimatedSoundData[i].content2 - attenuation;
       }
     }

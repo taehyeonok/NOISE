@@ -41,7 +41,7 @@ export default function Result({ params: { lang } }: any) {
     if (outdoor_space.title === "Enclosed Space (Machine Room)") {
       for (let i = 0; i < detailData.data[0]?.content.length!; i++) {
         copyDetailData.data[0].content[i].content = "-";
-        copyDetailData.data[1].content[i].content = 28;
+        copyDetailData.data[1].content[i].content = Number(data.attenuation[i]).toFixed(1);
         copyDetailData.data[2].content[i].content = "-";
         setDetailData(copyDetailData);
       }
