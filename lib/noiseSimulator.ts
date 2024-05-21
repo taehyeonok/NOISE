@@ -31,7 +31,7 @@ export async function noiseSimulator(
       (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
     );
     //거리감쇠량
-    const distanceAttenuation = 20 * Math.log10(sLineDistance) + 11;
+    const sLine_distance_attenuation = 20 * Math.log10(sLineDistance) + 11;
     const wallQuantity = Number(1); //TODO: 지향성 보정(DI)
     const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
 
@@ -48,17 +48,12 @@ export async function noiseSimulator(
       //Scene 1: Only propagation
       if (isBarrier === "X") {
         for (let i = 0; i < hz.length; i++) {
-          const scene1 = estimatedSoundData[i].content2 + DI - distanceAttenuation;
+          const scene1 = estimatedSoundData[i].content2 + DI - sLine_distance_attenuation;
 
           result.data[i] =
             10 * Math.log10(10 ** (scene1 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
         }
       } else if (isBarrier === "O") {
-        //직선경로 //source와 receiver 직선경로 길이 구하기
-        const sLineDistance = Math.sqrt(
-          (height_of_sound_source - elevation_of_receiver) ** 2 + horizontal_distance ** 2
-        );
-
         //반사경로
         const reflectionPath = Math.sqrt(
           (height_of_sound_source + elevation_of_receiver) ** 2 + horizontal_distance ** 2
@@ -68,6 +63,7 @@ export async function noiseSimulator(
         const distanceAttenuation_reflectionDistance_increment =
           20 * Math.log10(reflectionPath / sLineDistance);
 
+        const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
         // 전파 경로 & 벽 교점 높이 구하기  (교차점)
         const a_height =
           height_of_sound_source < elevation_of_receiver
@@ -213,12 +209,11 @@ export async function noiseSimulator(
                   10 ** (-diffractionAttenuation_pathD / 10)
               );
 
-            const sLinedistance_attenuation = 20 * Math.log10(sLineDistance) + 11; //거리감쇠량
             // (ㄱ) PWL+DI-거리-회절
             const first =
               estimatedSoundData[i].content2 +
               DI -
-              sLinedistance_attenuation -
+              sLine_distance_attenuation -
               diffractionAttenuation_total;
             //Direct Transmission
             const texture_transmission_attenuation =
@@ -230,7 +225,7 @@ export async function noiseSimulator(
                 ? -9999
                 : estimatedSoundData[i].content2 +
                   DI -
-                  sLinedistance_attenuation -
+                  sLine_distance_attenuation -
                   texture_transmission_attenuation;
 
             //Relect Transmission
@@ -238,7 +233,7 @@ export async function noiseSimulator(
               barrier_height <= b_height || barrier_height <= c_height
                 ? 0
                 : barrierInfoTableData[i].content2; // direct Transmission 값 동일
-            const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
+
             const relectTransmission =
               transmission_attenuation === 0
                 ? -9999
@@ -349,15 +344,13 @@ export async function noiseSimulator(
             const first =
               estimatedSoundData[i].content2 +
               DI -
-              (20 * Math.log10(sLineDistance) + 11) -
+              sLine_distance_attenuation -
               diffractionAttenuation_total;
             //Relect Transmission
             const transmission_attenuation =
               barrier_height <= b_height || barrier_height <= c_height
                 ? 0
                 : barrierInfoTableData[i].content2;
-
-            const reflect_distance_attenuation = 20 * Math.log10(reflectionPath) + 11;
 
             const relectTransmission =
               transmission_attenuation === 0
@@ -441,7 +434,7 @@ export async function noiseSimulator(
             const scene4 =
               estimatedSoundData[i].content2 +
               DI -
-              (20 * Math.log10(sLineDistance) + 11) -
+              sLine_distance_attenuation -
               diffractionAttenuation_total;
 
             result.data[i] =
@@ -452,7 +445,7 @@ export async function noiseSimulator(
     }
     //Enclosed Space : 실내 케이스로, Direct distance, Room Volume, Number of Sound Sources로 계산
     else if (field_type === "Enclosed Space (Machine Room)") {
-      const number_of_sound_sources = productTableData.length; // Number of sound sources 값
+      const number_of_sound_sources = productTableData.length;
       const room_volume = Number(formData.get("room_volume"));
       const direct_distance = Number(formData.get("direct_distance"));
       for (let i = 0; i < hz.length; i++) {
@@ -468,7 +461,7 @@ export async function noiseSimulator(
     }
     result.estimatedSoundData = estimatedSoundData;
     result.DI = DI;
-    result.distance = Number(Number(distanceAttenuation).toFixed(1));
+    result.distance = Number(Number(sLine_distance_attenuation).toFixed(1));
     return result;
   } catch (e) {
     console.log(e);
