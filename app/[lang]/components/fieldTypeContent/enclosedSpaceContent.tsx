@@ -5,7 +5,7 @@ import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import React from "react";
 
-export default function EnclosedSpaceContent({ t }: any) {
+export default function EnclosedSpaceContent({ t, unitData }: any) {
   {
     /* 반응형 */
   }
@@ -46,7 +46,7 @@ export default function EnclosedSpaceContent({ t }: any) {
           placeholder={"0"}
           value={7}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
-          unit={"m"}
+          unit={unitData?.length}
         />
       )}
       {renderContainerBoxRowItem(
@@ -58,7 +58,7 @@ export default function EnclosedSpaceContent({ t }: any) {
           placeholder={"0"}
           value={8}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
-          unit={"m"}
+          unit={unitData?.length}
         />
       )}
     </ContainerBoxRow>

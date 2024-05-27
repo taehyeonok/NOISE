@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { dBAF } from "../../constants/const";
 
 interface estimatedSoundProps {
   content1: string;
@@ -9,18 +10,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
   const [estimatedSoundDBA, setEstimatedSoundDBA] = useState(0);
 
   useEffect(() => {
-    const dBA =
-      10 *
-      Math.log10(
-        10 ** ((estimatedSoundData[0].content2 - 26.2) / 10) +
-          10 ** ((estimatedSoundData[1].content2 - 16.1) / 10) +
-          10 ** ((estimatedSoundData[2].content2 - 8.6) / 10) +
-          10 ** ((estimatedSoundData[3].content2 - 3.2) / 10) +
-          10 ** (estimatedSoundData[4].content2 / 10) +
-          10 ** ((estimatedSoundData[5].content2 + 1.2) / 10) +
-          10 ** ((estimatedSoundData[6].content2 + 1) / 10) +
-          10 ** ((estimatedSoundData[7].content2 - 1.1) / 10)
-      );
+    const dBA = dBAF(estimatedSoundData, "content2");
     setEstimatedSoundDBA(dBA);
   }, [estimatedSoundData]);
 

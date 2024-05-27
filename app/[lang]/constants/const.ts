@@ -569,3 +569,19 @@ export const soundPowerLevelDummy = [
   },
   {},
 ];
+
+export const dBAF = (data: any[], objProps: string) => {
+  return (
+    10 *
+    Math.log10(
+      10 ** ((data[0][objProps] - 26.2) / 10) +
+        10 ** ((data[1][objProps] - 16.1) / 10) +
+        10 ** ((data[2][objProps] - 8.6) / 10) +
+        10 ** ((data[3][objProps] - 3.2) / 10) +
+        10 ** (data[4][objProps] / 10) +
+        10 ** ((data[5][objProps] + 1.2) / 10) +
+        10 ** ((data[6][objProps] + 1) / 10) +
+        10 ** ((data[7][objProps] - 1.1) / 10)
+    )
+  );
+};

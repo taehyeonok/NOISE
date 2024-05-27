@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import EditUnit from "./editUnit";
+import EditUnit, { EditUnitType } from "./editUnit";
 
 export async function noiseSimulator(
   formData: FormData,
@@ -21,10 +21,22 @@ export async function noiseSimulator(
     const ratio = [0.9333333, 0.9333333, 0.9, 0.8666667, 0.8, 0.75, 0.7, 0.6666667];
     let result = { data: [], attenuation: [] } as any;
     const field_type = formData.get("outdoor_space_text");
-    const outdoor_unit = Number(formData.get("elevation_of_outdoor_unit"));
+    const outdoor_unit = editUnit.GetTrans(
+      EditUnitType.TYPE_UNIT_ELEVATION,
+      Number(formData.get("elevation_of_outdoor_unit")),
+      true
+    );
     const height_of_sound_source = outdoor_unit + 1;
-    const elevation_of_receiver = Number(formData.get("elevation_of_receiver"));
-    const horizontal_distance = Number(formData.get("horizontal_distance"));
+    const elevation_of_receiver = editUnit.GetTrans(
+      EditUnitType.TYPE_UNIT_ELEVATION,
+      Number(formData.get("elevation_of_receiver")),
+      true
+    );
+    const horizontal_distance = editUnit.GetTrans(
+      EditUnitType.TYPE_UNIT_ELEVATION,
+      Number(formData.get("horizontal_distance")),
+      true
+    );
 
     //Source와 Reciver 간 직선거리
     const sLineDistance = Math.sqrt(
@@ -39,10 +51,18 @@ export async function noiseSimulator(
     if (field_type === "Outdoor Space") {
       const isBarrier = formData.get("barrier_in_the_path_text");
 
-      const distance_from_ODUs = Number(formData.get("distance_from_ODUs"));
-      const barrier_height = Number(formData.get("barrier_height"));
+      const distance_from_ODUs = editUnit.GetTrans(
+        EditUnitType.TYPE_UNIT_ELEVATION,
+        Number(formData.get("distance_from_ODUs")),
+        true
+      );
+      const barrier_height = editUnit.GetTrans(
+        EditUnitType.TYPE_UNIT_ELEVATION,
+        Number(formData.get("barrier_height")),
+        true
+      );
       const barrier_thickness = Number(formData.get("barrier_thickness"));
-      const material_thickness = Number(formData.get("material_thickness"));
+      const material_thickness = formData.get("material_thickness");
       const background_noise = Number(formData.get("background_noise"));
 
       //Scene 1: Only propagation
@@ -261,7 +281,7 @@ export async function noiseSimulator(
 
             //path (b)
             const b_diffractionPath1 = Math.sqrt(
-              (height_of_sound_source - barrier_height) ** 2 + horizontal_distance ** 2
+              (height_of_sound_source - barrier_height) ** 2 + distance_from_ODUs ** 2
             );
             const b_diffractionPath2 = Math.sqrt(
               (barrier_height + elevation_of_receiver) ** 2 +
@@ -446,8 +466,16 @@ export async function noiseSimulator(
     //Enclosed Space : 실내 케이스로, Direct distance, Room Volume, Number of Sound Sources로 계산
     else if (field_type === "Enclosed Space (Machine Room)") {
       const number_of_sound_sources = productTableData.length;
-      const room_volume = Number(formData.get("room_volume"));
-      const direct_distance = Number(formData.get("direct_distance"));
+      const room_volume = editUnit.GetTrans(
+        EditUnitType.TYPE_UNIT_ELEVATION,
+        Number(formData.get("room_volume")),
+        true
+      );
+      const direct_distance = editUnit.GetTrans(
+        EditUnitType.TYPE_UNIT_ELEVATION,
+        Number(formData.get("direct_distance")),
+        true
+      );
       for (let i = 0; i < hz.length; i++) {
         const attenuation =
           10 * Math.log10(direct_distance) +

@@ -14,6 +14,7 @@ export default function OutdoorSpaceContent({
   barrierInfoTableData,
   setBarrierInfoTableData,
   t,
+  unitData,
 }: any) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
@@ -74,7 +75,7 @@ export default function OutdoorSpaceContent({
             type={"number"}
             classList={`${inputSelectStyle}`}
             value={elevation}
-            unit={"m"}
+            unit={unitData?.length}
             required={true}
             onChange={(changeValue: SetStateAction<number>) => {
               setElevation(changeValue);
@@ -109,7 +110,7 @@ export default function OutdoorSpaceContent({
             placeholder={"0"}
             value={1.5}
             classList={`${inputSelectStyle}`}
-            unit={"m"}
+            unit={unitData?.length}
           />,
           "Elevation from the ground to receiver"
         )}
@@ -121,7 +122,7 @@ export default function OutdoorSpaceContent({
             placeholder={"0"}
             value={8}
             classList={`${inputSelectStyle}`}
-            unit={"m"}
+            unit={unitData?.length}
           />,
           "Horizontal distance from center of source to receiver"
         )}
@@ -187,7 +188,7 @@ export default function OutdoorSpaceContent({
                 placeholder={"0"}
                 value={4}
                 classList={`${inputSelectStyle}`}
-                unit={"m"}
+                unit={unitData?.length}
               />,
               "Short distance may result in extra reflections"
             )}
@@ -199,7 +200,7 @@ export default function OutdoorSpaceContent({
                 placeholder={"0"}
                 value={3}
                 classList={`${inputSelectStyle}`}
-                unit={"m"}
+                unit={unitData?.length}
               />,
               "The barrier effect is incomplete due to the low height"
             )}
@@ -216,9 +217,6 @@ export default function OutdoorSpaceContent({
                 name={"material_thickness"}
                 title={"Concrete(Dafault) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
-                onChange={(changeValue: any) => {
-                  setBarrierInfoTableData(changeValue);
-                }}
               />,
               undefined,
               true

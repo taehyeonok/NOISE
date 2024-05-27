@@ -12,6 +12,7 @@ import Image from "next/image";
 import ProductInformationTable from "@/app/[lang]/components/table/productInformationTable";
 import {
   barrierInfoTableDummyData,
+  dBAF,
   estimatedSoundDummyData,
   fieldTypeSelectBoxData,
   productInformationTableDummyData,
@@ -62,6 +63,7 @@ export default function Input() {
   const [soundPressureLevelData, setSoundPressureLevelData] =
     useState<any>(soundPressureLevelDummy);
   const [soundPowerLevelData, setSoundPowerLevelData] = useState<any>(soundPowerLevelDummy);
+  const [unitData, setUnitData] = useState<any>(null);
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -90,6 +92,11 @@ export default function Input() {
   };
 
   useEffect(() => {
+    const lats_unit = editUnit.getUnitSetting();
+    setUnitData(lats_unit[lats_unit.unitClss]);
+  }, []);
+
+  useEffect(() => {
     //모델 선택에 따른 DB에서 불러온값
     const a = 0;
     //a값을 모델 개수에 따라 곱해준 값.
@@ -104,6 +111,21 @@ export default function Input() {
     copyTotal[1].first;
     copyTotal[1].second;
     setTotalCapacityTableData(copyTotal);
+
+    // Sound Spec Data  Overall (dB(A))
+    const copySoundPressure = cloneObject(soundPressureLevelData);
+    Object.keys(soundPressureLevelData[0]).map((key: string) => {
+      const dBA = dBAF(soundPressureLevelData, key);
+      copySoundPressure[8][key] = Number(dBA).toFixed(1);
+    });
+    setSoundPressureLevelData(copySoundPressure);
+
+    const copySoundPower = cloneObject(soundPowerLevelData);
+    Object.keys(copySoundPower[0]).map((key: string) => {
+      const dBA = dBAF(copySoundPower, key);
+      copySoundPower[8][key] = Number(dBA).toFixed(1);
+    });
+    setSoundPowerLevelData(copySoundPower);
   }, [productTableData]);
 
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
@@ -332,9 +354,10 @@ export default function Input() {
               barrierInfoTableData={barrierInfoTableData}
               setBarrierInfoTableData={setBarrierInfoTableData}
               t={t}
+              unitData={unitData}
             />
           ) : (
-            <EnclosedSpaceContent t={t} />
+            <EnclosedSpaceContent t={t} unitData={unitData} />
           )}
           {/* 반응형 */}
           <ContainerBoxRow
