@@ -1,0 +1,62 @@
+generator client {
+    provider      = "prisma-client-js"
+    output        = "./client/lats_noise"
+    binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+    provider     = "mysql"
+    url          = env("DATABASE_URL_NOISE")
+    relationMode = "prisma"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model T_NOISE_FUNCNAME {
+    ID              Int     @id
+    NAME            String  @db.Text
+    SELECTABLE_STEP String? @db.Text
+
+    @@index([ID], map: "ID")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model T_NOISE_FUNCSTEP {
+    ID   Int    @id
+    STEP String @db.Text
+
+    @@index([ID], map: "ID")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model T_NOISE_MODELSPEC {
+    ID                 Int      @id
+    PRODUCT_TYPE       String   @db.Text
+    FUNCTION_NAME      String   @db.Text
+    FUNCTION_STEP      String?  @db.Text
+    MODEL_NAME         String   @db.Text
+    DATA_TYPE          String   @db.Text
+    NOISE_63HZ         Decimal? @db.Decimal(20, 1)
+    NOISE_125HZ        Decimal? @db.Decimal(20, 1)
+    NOISE_250HZ        Decimal? @db.Decimal(20, 1)
+    NOISE_500HZ        Decimal? @db.Decimal(20, 1)
+    NOISE_1KHZ         Decimal? @db.Decimal(20, 1)
+    NOISE_2KHZ         Decimal? @db.Decimal(20, 1)
+    NOISE_4KHZ         Decimal? @db.Decimal(20, 1)
+    NOISE_8KHZ         Decimal? @db.Decimal(20, 1)
+    NOISE_OVERALL      Decimal? @db.Decimal(20, 1)
+    REDUCED_CAPA_RATIO Int?
+    DISCHARGE          String?  @db.Text
+
+    @@index([ID], map: "ID")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model T_NOISE_PRODUCTTYPE {
+    ID            Int
+    PRODUCT_TYPE  String
+    VISIBLE       Int
+    FUNCNAME_LIST String? @db.Text
+
+    @@id([PRODUCT_TYPE])
+    @@index([PRODUCT_TYPE(length: 1024)], map: "PRODUCT_TYPE")
+}
