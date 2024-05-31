@@ -9,6 +9,7 @@ import { getSelectItemData } from "@/lib/common";
 import { validateMsg } from "@/lib/validation";
 
 export default function CSelect({
+  id,
   code,
   name,
   disabled,
@@ -24,6 +25,8 @@ export default function CSelect({
   required,
   onChange,
   validMessage,
+  data,
+  number,
 }: selectProps) {
   const [active, setActive] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -35,11 +38,52 @@ export default function CSelect({
   const [selectBoxData, setSelectBoxData] = useState([{ title: "", value: "" }]);
 
   useEffect(() => {
-    if (code) getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
-    else {
+    if (code === "productType") {
+      getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
+    } else if (code === "modelName") {
+      const productType_val = document
+        .querySelector("#productType")
+        ?.getAttribute("data-sel-value");
+      if (!productType_val) setSelectBoxData([{ title: "- Select Product Type -", value: "" }]);
+      else {
+        getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
+      }
+    } else if (code === "functionNoise") {
+      const productType_val = document
+        .querySelector("#productType")
+        ?.getAttribute("data-sel-value");
+      if (!productType_val) setSelectBoxData([{ title: "- Select Product Type -", value: "" }]);
+      else {
+        getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
+      }
+    } else if (code === "step") {
+      const productType_val = document
+        .querySelector("#functionNoise")
+        ?.getAttribute("data-sel-value");
+      if (!productType_val) setSelectBoxData([{ title: "- Select Function (Noise) -", value: "" }]);
+      else {
+        getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
+      }
+    } else {
       setSelectBoxData(selectListDummyData);
     }
-  }, [code]);
+  }, [code, params]);
+  // Product Type 변경 시 selectBox 초기화
+  useEffect(() => {
+    if (data && code) {
+      setSelectText(data);
+    } else {
+      if (code == "modelName") {
+        setSelectText(data);
+      }
+      if (code == "functionNoise") {
+        setSelectText(data);
+      }
+      if (code == "step") {
+        setSelectText(data);
+      }
+    }
+  }, [data]);
 
   const handleSelectClick = () => {
     setActive(!active);
@@ -56,7 +100,7 @@ export default function CSelect({
     setSelectText(valObj?.title);
     inputTextRef.current?.setCustomValidity("");
     if (onChange) {
-      if (title == "Outdoor Space") {
+      if (title == "Outdoor Space" || code === "productType" || code === "functionNoise") {
         onChange(valObj);
       } else {
         onChange(valObj.title);
@@ -74,7 +118,13 @@ export default function CSelect({
       setSelectValue(valObj?.value);
       setSelectText(valObj?.title);
       inputTextRef.current?.setCustomValidity("");
-      if (onChange) onChange(valObj.title);
+      if (onChange) {
+        if (title == "Outdoor Space" || code === "productType" || code === "functionNoise") {
+          onChange(valObj);
+        } else {
+          onChange(valObj.title);
+        }
+      }
       setActive(false);
     }
   };
@@ -141,6 +191,7 @@ export default function CSelect({
     >
       <input ref={inputRef} type={"hidden"} name={name} value={selectValue ? selectValue : ""} />
       <div
+        id={id}
         className={`selectTitleBox 
             ${
               active
@@ -148,6 +199,7 @@ export default function CSelect({
                 : "border border-gray_200 rounded-[3px]"
             }
                 ${title === "" && !isSelect ? "justify-end" : "justify-between"} ${commonStyle}`}
+        data-sel-value={data}
       >
         {/* 반응형 */}
         {/* <p className={"text-[1em] overflow-hidden text-ellipsis whitespace-nowrap"}>
@@ -186,6 +238,7 @@ export default function CSelect({
                 className={`selectBoxListItem  ${commonStyle}`}
                 onClick={() => handleSelectItemClick(item)}
                 onKeyDown={(e) => handleSelectItemDown(item, e)}
+                data-sel-value={item.title}
               >
                 <p className={"text-[1em] overflow-hidden text-ellipsis whitespace-nowrap"}>
                   {item.title}

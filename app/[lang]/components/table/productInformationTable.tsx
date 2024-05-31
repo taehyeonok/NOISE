@@ -6,12 +6,21 @@ import { log } from "node:util";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import CImageButton from "@/app/[lang]/components/_atoms/cImageButton";
 import { ProductItem } from "@/@types/components";
+import { cloneObject } from "@/app/utils/utils";
 
 interface ProductInformationTableProps {
   data: ProductItem[];
   setData: Function;
   removeTableRow: Function;
   t: any;
+  productTypeData: any;
+  setProductTypeData: Function;
+  functionNoiseData: any;
+  setFunctionNoiseData: Function;
+  setSoundPressureLevelData: Function;
+  setSoundPowerLevelData: Function;
+  soundPressureLevelData: any;
+  soundPowerLevelData: any;
 }
 
 export default function ProductInformationTable({
@@ -19,9 +28,18 @@ export default function ProductInformationTable({
   setData,
   removeTableRow,
   t,
+  productTypeData,
+  setProductTypeData,
+  functionNoiseData,
+  setFunctionNoiseData,
+  setSoundPressureLevelData,
+  setSoundPowerLevelData,
+  soundPressureLevelData,
+  soundPowerLevelData,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
   const [isMobile, setIsMobile] = useState(false);
+  const [stepData, setStepData] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -75,6 +93,8 @@ export default function ProductInformationTable({
               {renderTableItem(
                 "Product Type",
                 <CSelect
+                  id="productType"
+                  code="productType"
                   name={`product_type_${index}`}
                   title={item.productType}
                   selected
@@ -84,6 +104,7 @@ export default function ProductInformationTable({
               {renderTableItem(
                 "Model Name",
                 <CSelect
+                  code="modelName"
                   name={`model_name_${index}`}
                   title={item.modelName}
                   selected
@@ -102,6 +123,7 @@ export default function ProductInformationTable({
               {renderTableItem(
                 "Function (Noise)",
                 <CSelect
+                  code="functionNoise"
                   name={`function_noise_${index}`}
                   title={item.function}
                   selected
@@ -111,6 +133,7 @@ export default function ProductInformationTable({
               {renderTableItem(
                 "Step",
                 <CSelect
+                  code="step"
                   name={`step_${index}`}
                   title={item.step}
                   selected
@@ -153,22 +176,50 @@ export default function ProductInformationTable({
           {tableData.map((item, index) => {
             return (
               <tr key={item.id}>
-                <td className={"tableTd"}>{Number(index) + 1}</td>
+                <td className={"tableTd"}>{item.id}</td>
                 <td className={"tableTd"}>
                   <CSelect
+                    key={`product_type_${index}`}
+                    id={"productType"}
+                    code="productType"
                     name={`product_type_${index}`}
                     title={item.productType}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.productType = changedValue;
+                    onChange={(changedValue: any) => {
+                      data[index]!.productType = changedValue.title;
+                      data[index]!.modelName = "";
+                      data[index]!.qty = "1";
+                      data[index]!.function = "";
+                      data[index]!.step = "";
+                      data[index]!.capacity = "%";
                       setData([...data]);
+                      const deleteSoundPressure = cloneObject(soundPressureLevelData);
+                      deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                      const deleteSoundPower = cloneObject(soundPowerLevelData);
+                      deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                      setSoundPressureLevelData(deleteSoundPressure);
+                      setSoundPowerLevelData(deleteSoundPower);
+
+                      const copyProduct = cloneObject(productTypeData);
+                      copyProduct[index] = changedValue.title;
+                      setProductTypeData(copyProduct);
+
+                      const copyFunction = cloneObject(functionNoiseData);
+                      copyFunction[index] = changedValue.value.slice(1).split("/");
+                      setFunctionNoiseData(copyFunction);
                     }}
                     validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
+                    data={item.productType}
+                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
+                    key={`model_name_${index}`}
+                    code="modelName"
                     name={`model_name_${index}`}
                     title={item.modelName}
                     selected
@@ -177,10 +228,14 @@ export default function ProductInformationTable({
                       data[index]!.modelName = changedValue;
                       setData([...data]);
                     }}
+                    params={{ productTypeData: productTypeData[index] }}
+                    data={item.modelName}
                   />
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
+                    key={`qty_${index}`}
+                    name={`qty_${index}`}
                     type={"number"}
                     placeholder={"0"}
                     value={item.qty}
@@ -193,18 +248,28 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
+                    id="functionNoise"
+                    key={`function_noise_${index}`}
+                    code="functionNoise"
                     name={`function_noise_${index}`}
                     title={item.function}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.function = changedValue;
+                    onChange={(changedValue: any) => {
+                      data[index]!.function = changedValue.title;
                       setData([...data]);
+                      const copyStep = cloneObject(stepData);
+                      copyStep[index] = changedValue.value.slice(1).split("/");
+                      setStepData(copyStep);
                     }}
+                    data={item.function}
+                    params={{ functionData: functionNoiseData[index] }}
                   />
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
+                    key={`step_${index}`}
+                    code="step"
                     name={`step_${index}`}
                     title={item.step}
                     selected
@@ -213,11 +278,15 @@ export default function ProductInformationTable({
                       data[index]!.step = changedValue;
                       setData([...data]);
                     }}
+                    params={{ stepData: stepData[index] }}
+                    data={item.step}
                   />
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
+                    key={`capacity_${index}`}
                     type={"text"}
+                    name={`capacity_${index}`}
                     placeholder={"0"}
                     value={item.capacity}
                     classList={"w-full px-3 !h-7"}

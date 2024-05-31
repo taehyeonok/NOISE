@@ -64,6 +64,9 @@ export default function Input() {
     useState<any>(soundPressureLevelDummy);
   const [soundPowerLevelData, setSoundPowerLevelData] = useState<any>(soundPowerLevelDummy);
   const [unitData, setUnitData] = useState<any>(null);
+  const [productTypeData, setProductTypeData] = useState([]);
+  const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -73,12 +76,12 @@ export default function Input() {
     }
     const newRow: ProductItem = {
       id: newId,
-      productType: "MultiV i",
-      modelName: "ARUM220LTE6",
+      productType: "",
+      modelName: "",
       qty: "1",
-      function: "N/A",
+      function: "",
       step: "",
-      capacity: "100%",
+      capacity: "%",
       del: "",
     };
     setProductTableData([...productTableData, newRow]);
@@ -87,7 +90,16 @@ export default function Input() {
   const removeTableRow = (rowId: number) => {
     if (productTableData.length > MIN_ROWS) {
       const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
+
+      const deleteSoundPressure = cloneObject(soundPressureLevelData);
+      deleteSoundPressure.map((item: any) => delete item[rowId]);
+
+      const deleteSoundPower = cloneObject(soundPowerLevelData);
+      deleteSoundPower.map((item: any) => delete item[rowId]);
+
       setProductTableData(updatedTableRows);
+      setSoundPressureLevelData(deleteSoundPressure);
+      setSoundPowerLevelData(deleteSoundPower);
     }
   };
 
@@ -97,39 +109,88 @@ export default function Input() {
   }, []);
 
   useEffect(() => {
-    //모델 선택에 따른 DB에서 불러온값
-    const a = 0;
-    //a값을 모델 개수에 따라 곱해준 값.
-    /**ⓐ : 모델 선택에 따른 DB에서 불러온 값.
-      ⓑ : ⓐ 값을 모델 개수에 따라 곱해준 값. (4번째 ⓐ kW값 : 7, 좌측 4번째 AWHP 모델 수 2, 따라서 ⓑ kW 값 14) 
-      ⓒ : Reduced의 ⓑ kW 값 / Rated의 ⓑ kW 값
-      ⓓ : Rated ⓑ의 총 합산 값
-      ⓔ : Reduced ⓑ의 총 합산 값
-      ⓕ : ⓔ에서의 kW 값 / ⓓ에서의 kW 값 */
-    const copyTotal = cloneObject(totalCapacityTableData);
-    copyTotal[0].first;
-    copyTotal[1].first;
-    copyTotal[1].second;
-    setTotalCapacityTableData(copyTotal);
-
-    // Sound Spec Data  Overall (dB(A))
+    const copyProductTable = cloneObject(productTableData);
     const copySoundPressure = cloneObject(soundPressureLevelData);
-    Object.keys(soundPressureLevelData[0]).map((key: string) => {
-      const dBA = dBAF(soundPressureLevelData, key);
-      copySoundPressure[8][key] = Number(dBA).toFixed(1);
+    const copySoundPower = cloneObject(soundPowerLevelData);
+    const copyTotal = cloneObject(totalCapacityTableData);
+
+    let sumCool: number = 0;
+    let sumCapacity: number = 0;
+    productTableData.map(async (data) => {
+      const res = await fetch(`${basePath}/api/common-select-modelspec`, {
+        method: "post",
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      result.data.map((item: any) => {
+        data.capacity = item.capacity + "%";
+        if (item.dataType === "SPL") {
+          copySoundPressure[0][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
+          copySoundPressure[1][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
+          copySoundPressure[2][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
+          copySoundPressure[3][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
+          copySoundPressure[4][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
+          copySoundPressure[5][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
+          copySoundPressure[6][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
+          copySoundPressure[7][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
+          copySoundPressure[8][item.id] =
+            10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+        } else {
+          copySoundPower[0][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
+          copySoundPower[1][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
+          copySoundPower[2][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
+          copySoundPower[3][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
+          copySoundPower[4][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
+          copySoundPower[5][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
+          copySoundPower[6][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
+          copySoundPower[7][item.id] =
+            10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
+          copySoundPower[8][item.id] =
+            10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+        }
+      });
+      const capacity = Number(data.capacity.replace("%", ""));
+
+      const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
+        method: "post",
+        body: JSON.stringify(data),
+      });
+      const resultData = await response.json();
+      resultData.data.map((item: any) => {
+        sumCool += Number(item.t_cool_w) * Number(data.qty);
+        sumCapacity += item.t_cool_w * 0.001 * capacity * Number(data.qty);
+      });
+      copyTotal[0].first = Number(sumCool * 0.001).toFixed(1);
+      copyTotal[1].first = Number(sumCapacity * 0.01).toFixed(2);
+      copyTotal[1].second =
+        sumCapacity == 0
+          ? "0%"
+          : Number(((sumCapacity * 0.01) / (sumCool * 0.001)) * 100).toFixed(0) + "%";
     });
     setSoundPressureLevelData(copySoundPressure);
-
-    const copySoundPower = cloneObject(soundPowerLevelData);
-    Object.keys(copySoundPower[0]).map((key: string) => {
-      const dBA = dBAF(copySoundPower, key);
-      copySoundPower[8][key] = Number(dBA).toFixed(1);
-    });
     setSoundPowerLevelData(copySoundPower);
+    setTotalCapacityTableData(copyTotal);
   }, [productTableData]);
 
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
+    console.log("productTableData = ", productTableData);
     const copyEstimated = cloneObject(estimatedSoundData);
 
     const distance_attenuation = 11.0; //거리감쇠
@@ -169,10 +230,9 @@ export default function Input() {
       });
       num++;
     });
+    if (columnSum.length == 0) copyEstimated.map((item: any) => (item.content2 = 0));
+    else columnSum.map((item, index) => (copyEstimated[index].content2 = item));
 
-    columnSum.map((item, index) => {
-      copyEstimated[index].content2 = item;
-    });
     setEstimatedSoundData(copyEstimated);
   }, [soundPressureLevelData, soundPowerLevelData]);
   /**
@@ -267,6 +327,14 @@ export default function Input() {
             setData={setProductTableData}
             removeTableRow={removeTableRow}
             t={t}
+            productTypeData={productTypeData}
+            setProductTypeData={setProductTypeData}
+            functionNoiseData={functionNoiseData}
+            setFunctionNoiseData={setFunctionNoiseData}
+            setSoundPressureLevelData={setSoundPressureLevelData}
+            setSoundPowerLevelData={setSoundPowerLevelData}
+            soundPressureLevelData={soundPressureLevelData}
+            soundPowerLevelData={soundPowerLevelData}
           />
           {/* 반응형 */}
           <ContainerBoxRow
@@ -300,12 +368,9 @@ export default function Input() {
           </div>
           <SoundSpecDataTable
             soundPressureLevel={soundPressureLevel}
-            setSoundPressureLevel={setSoundPressureLevel}
             soundPowerLevel={soundPowerLevel}
-            setSoundPowerLevel={setSoundPowerLevel}
             soundPressureLevelData={soundPressureLevelData}
             soundPowerLevelData={soundPowerLevelData}
-            setSoundPowerLevelData={setSoundPowerLevelData}
           />
           {/* 반응형 */}
           <div

@@ -4,6 +4,7 @@ import { StaticImageData } from "next/image";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 
 interface selectProps {
+  id?: string;
   code?: string;
   name: string;
   disabled?: boolean;
@@ -21,6 +22,8 @@ interface selectProps {
   required?: boolean;
   onChange?: Function;
   validMessage?: { message: string; format?: string[] };
+  data?: any;
+  number?: number;
 }
 
 interface containerBoxRowProps {

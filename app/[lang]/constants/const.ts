@@ -112,32 +112,12 @@ export const selectListDummyData = [
 export const productInformationTableDummyData = [
   {
     id: 1,
-    productType: "MultiV i",
-    modelName: "ARUM220LTE6",
+    productType: "",
+    modelName: "",
     qty: "1",
-    function: "N/A",
+    function: "",
     step: "",
-    capacity: "100%",
-    del: "",
-  },
-  {
-    id: 2,
-    productType: "MultiV i",
-    modelName: "ARUM220LTE6",
-    qty: "1",
-    function: "Target_Control",
-    step: "65dB(A)",
-    capacity: "100%",
-    del: "",
-  },
-  {
-    id: 3,
-    productType: "AWHP",
-    modelName: "HU071MR",
-    qty: "1",
-    function: "Low_Noise",
-    step: "On",
-    capacity: "94%",
+    capacity: "%",
     del: "",
   },
 ];
@@ -506,69 +486,9 @@ export const unitSettingDefaultData: Record<string, Record<string, string>> = {
   },
 };
 
-export const soundPressureLevelDummy = [
-  {
-    product1: 61.8,
-    product2: 62.5,
-  },
-  {
-    product1: 64.7,
-    product2: 58.5,
-  },
-  {
-    product1: 61.7,
-    product2: 60.1,
-  },
-  {
-    product1: 63.6,
-    product2: 58.6,
-  },
-  {
-    product1: 61.9,
-    product2: 54.3,
-  },
-  {
-    product1: 57.2,
-    product2: 51.6,
-  },
-  {
-    product1: 53.6,
-    product2: 53.0,
-  },
-  {
-    product1: 50.6,
-    product2: 46.7,
-  },
-  {},
-];
+export const soundPressureLevelDummy = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
 
-export const soundPowerLevelDummy = [
-  {
-    product1: 57.9,
-  },
-  {
-    product1: 57.9,
-  },
-  {
-    product1: 57.4,
-  },
-  {
-    product1: 57.9,
-  },
-  {
-    product1: 51.9,
-  },
-  {
-    product1: 46.9,
-  },
-  {
-    product1: 40.4,
-  },
-  {
-    product1: 41.9,
-  },
-  {},
-];
+export const soundPowerLevelDummy = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
 
 export const dBAF = (data: any[], objProps: string) => {
   return (

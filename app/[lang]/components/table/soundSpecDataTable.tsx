@@ -12,20 +12,14 @@ interface SoundLevelData {
 
 export default function SoundSpecDataTable({
   soundPressureLevel,
-  setSoundPressureLevel,
   soundPowerLevel,
-  setSoundPowerLevel,
   soundPressureLevelData,
   soundPowerLevelData,
-  setSoundPowerLevelData,
 }: {
   soundPressureLevel: any;
-  setSoundPressureLevel: Function;
   soundPowerLevel: any;
-  setSoundPowerLevel: Function;
   soundPressureLevelData: any;
   soundPowerLevelData: any;
-  setSoundPowerLevelData: Function;
 }) {
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
@@ -56,7 +50,7 @@ export default function SoundSpecDataTable({
         <td className={`tableTd bg-gray_100`}>{title}</td>
         {data.map((item, index: number) => (
           <td className={"tableTd"} key={`${item.dataType}-${index}`}>
-            {item[productType]}
+            {Number(item[productType]).toFixed(1)}
           </td>
         ))}
       </tr>
@@ -144,13 +138,10 @@ export default function SoundSpecDataTable({
           soundPressureLevel,
           "_Sound Pressure Level",
           <>
-            {soundPressureLevelData.map((item: any, index: number) => {
-              if (index < Object.keys(soundPressureLevelData[0]).length)
-                return renderTdItem(
-                  `Product ${index + 1} / Type : SPL`,
-                  soundPressureLevelData,
-                  "product" + (index + 1)
-                );
+            {Object.keys(soundPressureLevelData[0]).map((key, index) => {
+              if (index < Object.keys(soundPressureLevelData[0]).length) {
+                return renderTdItem(`Product ${key} / Type : SPL`, soundPressureLevelData, key);
+              }
             })}
           </>
         )}
@@ -158,13 +149,10 @@ export default function SoundSpecDataTable({
           soundPowerLevel,
           "_Sound Power Level",
           <>
-            {soundPowerLevelData.map((item: any, index: number) => {
-              if (index < Object.keys(soundPowerLevelData[0]).length)
-                return renderTdItem(
-                  `Product ${index + 1} / Type : PWL`,
-                  soundPowerLevelData,
-                  "product" + (index + 1)
-                );
+            {Object.keys(soundPowerLevelData[0]).map((key, index) => {
+              if (index < Object.keys(soundPowerLevelData[0]).length) {
+                return renderTdItem(`Product ${key} / Type : SPL`, soundPowerLevelData, key);
+              }
             })}
           </>
         )}
