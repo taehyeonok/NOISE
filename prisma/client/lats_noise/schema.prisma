@@ -1,7 +1,8 @@
 generator client {
-  provider      = "prisma-client-js"
-  output        = "./client/lats_noise"
-  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
+  provider        = "prisma-client-js"
+  output          = "./client/lats_noise"
+  previewFeatures = ["views"]
+  binaryTargets   = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -59,4 +60,53 @@ model T_NOISE_PRODUCTTYPE {
 
   @@id([PRODUCT_TYPE])
   @@index([PRODUCT_TYPE(length: 1024)], map: "PRODUCT_TYPE")
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_MULTIV_I {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(30, 10)
+  T_COOL_W         Decimal? @db.Decimal(30, 10)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_RAC {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(20, 5)
+  T_COOL_W         Decimal? @db.Decimal(20, 5)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_MULTIV_S {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(30, 10)
+  T_COOL_W         Decimal? @db.Decimal(30, 10)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_SCAC {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(20, 5)
+  T_COOL_W         Decimal? @db.Decimal(20, 5)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_MULTIV_5 {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(30, 10)
+  T_COOL_W         Decimal? @db.Decimal(30, 10)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_MULTI {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(20, 5)
+  T_COOL_W         Decimal? @db.Decimal(20, 5)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_AWHP {
+  BUYER_MODEL_NAME String   @unique
+  T_HEAT_W         Decimal? @db.Decimal(30, 10)
+  T_COOL_W         Decimal? @db.Decimal(30, 10)
 }

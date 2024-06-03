@@ -157,6 +157,48 @@ exports.Prisma.T_NOISE_PRODUCTTYPEScalarFieldEnum = {
   FUNCNAME_LIST: 'FUNCNAME_LIST'
 };
 
+exports.Prisma.V_NOISE_MULTIV_IScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_RACScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_MULTIV_SScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_SCACScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_MULTIV_5ScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_MULTIScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
+exports.Prisma.V_NOISE_AWHPScalarFieldEnum = {
+  BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+  T_HEAT_W: 'T_HEAT_W',
+  T_COOL_W: 'T_COOL_W'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -172,7 +214,14 @@ exports.Prisma.ModelName = {
   T_NOISE_FUNCNAME: 'T_NOISE_FUNCNAME',
   T_NOISE_FUNCSTEP: 'T_NOISE_FUNCSTEP',
   T_NOISE_MODELSPEC: 'T_NOISE_MODELSPEC',
-  T_NOISE_PRODUCTTYPE: 'T_NOISE_PRODUCTTYPE'
+  T_NOISE_PRODUCTTYPE: 'T_NOISE_PRODUCTTYPE',
+  V_NOISE_MULTIV_I: 'V_NOISE_MULTIV_I',
+  V_NOISE_RAC: 'V_NOISE_RAC',
+  V_NOISE_MULTIV_S: 'V_NOISE_MULTIV_S',
+  V_NOISE_SCAC: 'V_NOISE_SCAC',
+  V_NOISE_MULTIV_5: 'V_NOISE_MULTIV_5',
+  V_NOISE_MULTI: 'V_NOISE_MULTI',
+  V_NOISE_AWHP: 'V_NOISE_AWHP'
 };
 
 /**

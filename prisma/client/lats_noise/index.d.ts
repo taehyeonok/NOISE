@@ -33,6 +33,41 @@ export type T_NOISE_MODELSPEC = $Result.DefaultSelection<Prisma.$T_NOISE_MODELSP
  * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
  */
 export type T_NOISE_PRODUCTTYPE = $Result.DefaultSelection<Prisma.$T_NOISE_PRODUCTTYPEPayload>
+/**
+ * Model V_NOISE_MULTIV_I
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_MULTIV_I = $Result.DefaultSelection<Prisma.$V_NOISE_MULTIV_IPayload>
+/**
+ * Model V_NOISE_RAC
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_RAC = $Result.DefaultSelection<Prisma.$V_NOISE_RACPayload>
+/**
+ * Model V_NOISE_MULTIV_S
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_MULTIV_S = $Result.DefaultSelection<Prisma.$V_NOISE_MULTIV_SPayload>
+/**
+ * Model V_NOISE_SCAC
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_SCAC = $Result.DefaultSelection<Prisma.$V_NOISE_SCACPayload>
+/**
+ * Model V_NOISE_MULTIV_5
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_MULTIV_5 = $Result.DefaultSelection<Prisma.$V_NOISE_MULTIV_5Payload>
+/**
+ * Model V_NOISE_MULTI
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_MULTI = $Result.DefaultSelection<Prisma.$V_NOISE_MULTIPayload>
+/**
+ * Model V_NOISE_AWHP
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_AWHP = $Result.DefaultSelection<Prisma.$V_NOISE_AWHPPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -195,6 +230,76 @@ export class PrismaClient<
     * ```
     */
   get t_NOISE_PRODUCTTYPE(): Prisma.T_NOISE_PRODUCTTYPEDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_MULTIV_I`: Exposes CRUD operations for the **V_NOISE_MULTIV_I** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_MULTIV_IS
+    * const v_NOISE_MULTIV_IS = await prisma.v_NOISE_MULTIV_I.findMany()
+    * ```
+    */
+  get v_NOISE_MULTIV_I(): Prisma.V_NOISE_MULTIV_IDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_RAC`: Exposes CRUD operations for the **V_NOISE_RAC** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_RACS
+    * const v_NOISE_RACS = await prisma.v_NOISE_RAC.findMany()
+    * ```
+    */
+  get v_NOISE_RAC(): Prisma.V_NOISE_RACDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_MULTIV_S`: Exposes CRUD operations for the **V_NOISE_MULTIV_S** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_MULTIV_S
+    * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findMany()
+    * ```
+    */
+  get v_NOISE_MULTIV_S(): Prisma.V_NOISE_MULTIV_SDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_SCAC`: Exposes CRUD operations for the **V_NOISE_SCAC** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_SCACS
+    * const v_NOISE_SCACS = await prisma.v_NOISE_SCAC.findMany()
+    * ```
+    */
+  get v_NOISE_SCAC(): Prisma.V_NOISE_SCACDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_MULTIV_5`: Exposes CRUD operations for the **V_NOISE_MULTIV_5** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_MULTIV_5s
+    * const v_NOISE_MULTIV_5s = await prisma.v_NOISE_MULTIV_5.findMany()
+    * ```
+    */
+  get v_NOISE_MULTIV_5(): Prisma.V_NOISE_MULTIV_5Delegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_MULTI`: Exposes CRUD operations for the **V_NOISE_MULTI** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_MULTIS
+    * const v_NOISE_MULTIS = await prisma.v_NOISE_MULTI.findMany()
+    * ```
+    */
+  get v_NOISE_MULTI(): Prisma.V_NOISE_MULTIDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_AWHP`: Exposes CRUD operations for the **V_NOISE_AWHP** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_AWHPS
+    * const v_NOISE_AWHPS = await prisma.v_NOISE_AWHP.findMany()
+    * ```
+    */
+  get v_NOISE_AWHP(): Prisma.V_NOISE_AWHPDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -675,7 +780,14 @@ export namespace Prisma {
     T_NOISE_FUNCNAME: 'T_NOISE_FUNCNAME',
     T_NOISE_FUNCSTEP: 'T_NOISE_FUNCSTEP',
     T_NOISE_MODELSPEC: 'T_NOISE_MODELSPEC',
-    T_NOISE_PRODUCTTYPE: 'T_NOISE_PRODUCTTYPE'
+    T_NOISE_PRODUCTTYPE: 'T_NOISE_PRODUCTTYPE',
+    V_NOISE_MULTIV_I: 'V_NOISE_MULTIV_I',
+    V_NOISE_RAC: 'V_NOISE_RAC',
+    V_NOISE_MULTIV_S: 'V_NOISE_MULTIV_S',
+    V_NOISE_SCAC: 'V_NOISE_SCAC',
+    V_NOISE_MULTIV_5: 'V_NOISE_MULTIV_5',
+    V_NOISE_MULTI: 'V_NOISE_MULTI',
+    V_NOISE_AWHP: 'V_NOISE_AWHP'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -692,7 +804,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 't_NOISE_FUNCNAME' | 't_NOISE_FUNCSTEP' | 't_NOISE_MODELSPEC' | 't_NOISE_PRODUCTTYPE'
+      modelProps: 't_NOISE_FUNCNAME' | 't_NOISE_FUNCSTEP' | 't_NOISE_MODELSPEC' | 't_NOISE_PRODUCTTYPE' | 'v_NOISE_MULTIV_I' | 'v_NOISE_RAC' | 'v_NOISE_MULTIV_S' | 'v_NOISE_SCAC' | 'v_NOISE_MULTIV_5' | 'v_NOISE_MULTI' | 'v_NOISE_AWHP'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -957,6 +1069,468 @@ export namespace Prisma {
           count: {
             args: Prisma.T_NOISE_PRODUCTTYPECountArgs<ExtArgs>,
             result: $Utils.Optional<T_NOISE_PRODUCTTYPECountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_MULTIV_I: {
+        payload: Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>
+        fields: Prisma.V_NOISE_MULTIV_IFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_MULTIV_IFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_IFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_MULTIV_IFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_IFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_MULTIV_IFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_MULTIV_ICreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_MULTIV_ICreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_MULTIV_IDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_MULTIV_IUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_MULTIV_IDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_MULTIV_IUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_MULTIV_IUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_IPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_MULTIV_IAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_MULTIV_I>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_MULTIV_IGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_IGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_MULTIV_ICountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_ICountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_RAC: {
+        payload: Prisma.$V_NOISE_RACPayload<ExtArgs>
+        fields: Prisma.V_NOISE_RACFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_RACFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_RACFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_RACFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_RACFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_RACFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_RACCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_RACCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_RACDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_RACUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_RACDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_RACUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_RACUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_RACPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_RACAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_RAC>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_RACGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_RACGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_RACCountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_RACCountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_MULTIV_S: {
+        payload: Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>
+        fields: Prisma.V_NOISE_MULTIV_SFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_MULTIV_SFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_SFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_MULTIV_SFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_SFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_MULTIV_SFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_MULTIV_SCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_MULTIV_SCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_MULTIV_SDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_MULTIV_SUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_MULTIV_SDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_MULTIV_SUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_MULTIV_SUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_SPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_MULTIV_SAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_MULTIV_S>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_MULTIV_SGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_SGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_MULTIV_SCountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_SCountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_SCAC: {
+        payload: Prisma.$V_NOISE_SCACPayload<ExtArgs>
+        fields: Prisma.V_NOISE_SCACFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_SCACFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_SCACFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_SCACFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_SCACFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_SCACFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_SCACCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_SCACCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_SCACDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_SCACUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_SCACDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_SCACUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_SCACUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_SCACPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_SCACAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_SCAC>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_SCACGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_SCACGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_SCACCountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_SCACCountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_MULTIV_5: {
+        payload: Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>
+        fields: Prisma.V_NOISE_MULTIV_5FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_MULTIV_5FindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_5FindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_MULTIV_5FindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_MULTIV_5FindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_MULTIV_5FindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_MULTIV_5CreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_MULTIV_5CreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_MULTIV_5DeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          update: {
+            args: Prisma.V_NOISE_MULTIV_5UpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_MULTIV_5DeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_MULTIV_5UpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_MULTIV_5UpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIV_5Payload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_MULTIV_5AggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_MULTIV_5>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_MULTIV_5GroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_5GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_MULTIV_5CountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIV_5CountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_MULTI: {
+        payload: Prisma.$V_NOISE_MULTIPayload<ExtArgs>
+        fields: Prisma.V_NOISE_MULTIFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_MULTIFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_MULTIFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_MULTIFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_MULTIFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_MULTIFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_MULTICreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_MULTICreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_MULTIDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_MULTIUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_MULTIDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_MULTIUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_MULTIUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_MULTIPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_MULTIAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_MULTI>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_MULTIGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTIGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_MULTICountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_MULTICountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_AWHP: {
+        payload: Prisma.$V_NOISE_AWHPPayload<ExtArgs>
+        fields: Prisma.V_NOISE_AWHPFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_AWHPFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_AWHPFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_AWHPFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_AWHPFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_AWHPFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_AWHPCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_AWHPCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_AWHPDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_AWHPUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_AWHPDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_AWHPUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_AWHPUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_AWHPPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_AWHPAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_AWHP>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_AWHPGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_AWHPGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_AWHPCountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_AWHPCountAggregateOutputType> | number
           }
         }
       }
@@ -4795,6 +5369,6117 @@ export namespace Prisma {
 
 
   /**
+   * Model V_NOISE_MULTIV_I
+   */
+
+  export type AggregateV_NOISE_MULTIV_I = {
+    _count: V_NOISE_MULTIV_ICountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_IAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_ISumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_IMinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_IMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_MULTIV_IAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_ISumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_IMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_IMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_ICountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_MULTIV_IAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_ISumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_IMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_IMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_ICountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_MULTIV_IAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_I to aggregate.
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_IS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_IOrderByWithRelationInput | V_NOISE_MULTIV_IOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_MULTIV_IWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_IS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_IS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_MULTIV_IS
+    **/
+    _count?: true | V_NOISE_MULTIV_ICountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_MULTIV_IAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_MULTIV_ISumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_MULTIV_IMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_MULTIV_IMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_MULTIV_IAggregateType<T extends V_NOISE_MULTIV_IAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_MULTIV_I]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_MULTIV_I[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_MULTIV_I[P]>
+  }
+
+
+
+
+  export type V_NOISE_MULTIV_IGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_MULTIV_IWhereInput
+    orderBy?: V_NOISE_MULTIV_IOrderByWithAggregationInput | V_NOISE_MULTIV_IOrderByWithAggregationInput[]
+    by: V_NOISE_MULTIV_IScalarFieldEnum[] | V_NOISE_MULTIV_IScalarFieldEnum
+    having?: V_NOISE_MULTIV_IScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_MULTIV_ICountAggregateInputType | true
+    _avg?: V_NOISE_MULTIV_IAvgAggregateInputType
+    _sum?: V_NOISE_MULTIV_ISumAggregateInputType
+    _min?: V_NOISE_MULTIV_IMinAggregateInputType
+    _max?: V_NOISE_MULTIV_IMaxAggregateInputType
+  }
+
+  export type V_NOISE_MULTIV_IGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_MULTIV_ICountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_IAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_ISumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_IMinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_IMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_MULTIV_IGroupByPayload<T extends V_NOISE_MULTIV_IGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_MULTIV_IGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_MULTIV_IGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_MULTIV_IGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_MULTIV_IGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_MULTIV_ISelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_MULTIV_I"]>
+
+  export type V_NOISE_MULTIV_ISelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_MULTIV_IPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_MULTIV_I"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_MULTIV_I"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_MULTIV_IGetPayload<S extends boolean | null | undefined | V_NOISE_MULTIV_IDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload, S>
+
+  type V_NOISE_MULTIV_ICountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_MULTIV_IFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_MULTIV_ICountAggregateInputType | true
+    }
+
+  export interface V_NOISE_MULTIV_IDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_MULTIV_I'], meta: { name: 'V_NOISE_MULTIV_I' } }
+    /**
+     * Find zero or one V_NOISE_MULTIV_I that matches the filter.
+     * @param {V_NOISE_MULTIV_IFindUniqueArgs} args - Arguments to find a V_NOISE_MULTIV_I
+     * @example
+     * // Get one V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_MULTIV_IFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_IFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_MULTIV_I that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_MULTIV_IFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_I
+     * @example
+     * // Get one V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_MULTIV_IFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_IFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_I that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IFindFirstArgs} args - Arguments to find a V_NOISE_MULTIV_I
+     * @example
+     * // Get one V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_MULTIV_IFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_IFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_I that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_I
+     * @example
+     * // Get one V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_MULTIV_IFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_IFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_MULTIV_IS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_MULTIV_IS
+     * const v_NOISE_MULTIV_IS = await prisma.v_NOISE_MULTIV_I.findMany()
+     * 
+     * // Get first 10 V_NOISE_MULTIV_IS
+     * const v_NOISE_MULTIV_IS = await prisma.v_NOISE_MULTIV_I.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_MULTIV_IWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_MULTIV_I.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_MULTIV_IFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_IFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_MULTIV_I.
+     * @param {V_NOISE_MULTIV_ICreateArgs} args - Arguments to create a V_NOISE_MULTIV_I.
+     * @example
+     * // Create one V_NOISE_MULTIV_I
+     * const V_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_MULTIV_I
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_MULTIV_ICreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_ICreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_MULTIV_IS.
+     * @param {V_NOISE_MULTIV_ICreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_IS.
+     * @example
+     * // Create many V_NOISE_MULTIV_IS
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_MULTIV_ICreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_ICreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_MULTIV_I.
+     * @param {V_NOISE_MULTIV_IDeleteArgs} args - Arguments to delete one V_NOISE_MULTIV_I.
+     * @example
+     * // Delete one V_NOISE_MULTIV_I
+     * const V_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_MULTIV_I
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_MULTIV_IDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_IDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_MULTIV_I.
+     * @param {V_NOISE_MULTIV_IUpdateArgs} args - Arguments to update one V_NOISE_MULTIV_I.
+     * @example
+     * // Update one V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_MULTIV_IUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_IUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_MULTIV_IS.
+     * @param {V_NOISE_MULTIV_IDeleteManyArgs} args - Arguments to filter V_NOISE_MULTIV_IS to delete.
+     * @example
+     * // Delete a few V_NOISE_MULTIV_IS
+     * const { count } = await prisma.v_NOISE_MULTIV_I.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_MULTIV_IDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_IDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_MULTIV_IS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_MULTIV_IS
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_MULTIV_IUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_IUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_MULTIV_I.
+     * @param {V_NOISE_MULTIV_IUpsertArgs} args - Arguments to update or create a V_NOISE_MULTIV_I.
+     * @example
+     * // Update or create a V_NOISE_MULTIV_I
+     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_MULTIV_I
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_I we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_MULTIV_IUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_IUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_MULTIV_IS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_ICountArgs} args - Arguments to filter V_NOISE_MULTIV_IS to count.
+     * @example
+     * // Count the number of V_NOISE_MULTIV_IS
+     * const count = await prisma.v_NOISE_MULTIV_I.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_IS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_MULTIV_ICountArgs>(
+      args?: Subset<T, V_NOISE_MULTIV_ICountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_MULTIV_ICountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_MULTIV_I.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_MULTIV_IAggregateArgs>(args: Subset<T, V_NOISE_MULTIV_IAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_MULTIV_IAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_MULTIV_I.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_IGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_MULTIV_IGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_MULTIV_IGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_MULTIV_IGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_MULTIV_IGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_MULTIV_IGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_MULTIV_I model
+   */
+  readonly fields: V_NOISE_MULTIV_IFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_MULTIV_I.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_MULTIV_IClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_MULTIV_I model
+   */ 
+  interface V_NOISE_MULTIV_IFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_MULTIV_I", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_MULTIV_I", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_MULTIV_I", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_MULTIV_I findUnique
+   */
+  export type V_NOISE_MULTIV_IFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_I to fetch.
+     */
+    where: V_NOISE_MULTIV_IWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I findUniqueOrThrow
+   */
+  export type V_NOISE_MULTIV_IFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_I to fetch.
+     */
+    where: V_NOISE_MULTIV_IWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I findFirst
+   */
+  export type V_NOISE_MULTIV_IFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_I to fetch.
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_IS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_IOrderByWithRelationInput | V_NOISE_MULTIV_IOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_IS.
+     */
+    cursor?: V_NOISE_MULTIV_IWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_IS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_IS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_IS.
+     */
+    distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_I findFirstOrThrow
+   */
+  export type V_NOISE_MULTIV_IFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_I to fetch.
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_IS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_IOrderByWithRelationInput | V_NOISE_MULTIV_IOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_IS.
+     */
+    cursor?: V_NOISE_MULTIV_IWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_IS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_IS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_IS.
+     */
+    distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_I findMany
+   */
+  export type V_NOISE_MULTIV_IFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_IS to fetch.
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_IS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_IOrderByWithRelationInput | V_NOISE_MULTIV_IOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_MULTIV_IS.
+     */
+    cursor?: V_NOISE_MULTIV_IWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_IS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_IS.
+     */
+    skip?: number
+    distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_I create
+   */
+  export type V_NOISE_MULTIV_ICreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_MULTIV_I.
+     */
+    data: XOR<V_NOISE_MULTIV_ICreateInput, V_NOISE_MULTIV_IUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_I createMany
+   */
+  export type V_NOISE_MULTIV_ICreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_MULTIV_IS.
+     */
+    data: V_NOISE_MULTIV_ICreateManyInput | V_NOISE_MULTIV_ICreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_MULTIV_I update
+   */
+  export type V_NOISE_MULTIV_IUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_MULTIV_I.
+     */
+    data: XOR<V_NOISE_MULTIV_IUpdateInput, V_NOISE_MULTIV_IUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_MULTIV_I to update.
+     */
+    where: V_NOISE_MULTIV_IWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I updateMany
+   */
+  export type V_NOISE_MULTIV_IUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_MULTIV_IS.
+     */
+    data: XOR<V_NOISE_MULTIV_IUpdateManyMutationInput, V_NOISE_MULTIV_IUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_MULTIV_IS to update
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I upsert
+   */
+  export type V_NOISE_MULTIV_IUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_MULTIV_I to update in case it exists.
+     */
+    where: V_NOISE_MULTIV_IWhereUniqueInput
+    /**
+     * In case the V_NOISE_MULTIV_I found by the `where` argument doesn't exist, create a new V_NOISE_MULTIV_I with this data.
+     */
+    create: XOR<V_NOISE_MULTIV_ICreateInput, V_NOISE_MULTIV_IUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_MULTIV_I was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_MULTIV_IUpdateInput, V_NOISE_MULTIV_IUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_I delete
+   */
+  export type V_NOISE_MULTIV_IDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_MULTIV_I to delete.
+     */
+    where: V_NOISE_MULTIV_IWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I deleteMany
+   */
+  export type V_NOISE_MULTIV_IDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_IS to delete
+     */
+    where?: V_NOISE_MULTIV_IWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_I without action
+   */
+  export type V_NOISE_MULTIV_IDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_I
+     */
+    select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_RAC
+   */
+
+  export type AggregateV_NOISE_RAC = {
+    _count: V_NOISE_RACCountAggregateOutputType | null
+    _avg: V_NOISE_RACAvgAggregateOutputType | null
+    _sum: V_NOISE_RACSumAggregateOutputType | null
+    _min: V_NOISE_RACMinAggregateOutputType | null
+    _max: V_NOISE_RACMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_RACAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_RACSumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_RACMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_RACMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_RACCountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_RACAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_RACSumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_RACMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_RACMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_RACCountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_RACAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_RAC to aggregate.
+     */
+    where?: V_NOISE_RACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_RACS to fetch.
+     */
+    orderBy?: V_NOISE_RACOrderByWithRelationInput | V_NOISE_RACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_RACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_RACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_RACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_RACS
+    **/
+    _count?: true | V_NOISE_RACCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_RACAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_RACSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_RACMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_RACMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_RACAggregateType<T extends V_NOISE_RACAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_RAC]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_RAC[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_RAC[P]>
+  }
+
+
+
+
+  export type V_NOISE_RACGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_RACWhereInput
+    orderBy?: V_NOISE_RACOrderByWithAggregationInput | V_NOISE_RACOrderByWithAggregationInput[]
+    by: V_NOISE_RACScalarFieldEnum[] | V_NOISE_RACScalarFieldEnum
+    having?: V_NOISE_RACScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_RACCountAggregateInputType | true
+    _avg?: V_NOISE_RACAvgAggregateInputType
+    _sum?: V_NOISE_RACSumAggregateInputType
+    _min?: V_NOISE_RACMinAggregateInputType
+    _max?: V_NOISE_RACMaxAggregateInputType
+  }
+
+  export type V_NOISE_RACGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_RACCountAggregateOutputType | null
+    _avg: V_NOISE_RACAvgAggregateOutputType | null
+    _sum: V_NOISE_RACSumAggregateOutputType | null
+    _min: V_NOISE_RACMinAggregateOutputType | null
+    _max: V_NOISE_RACMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_RACGroupByPayload<T extends V_NOISE_RACGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_RACGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_RACGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_RACGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_RACGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_RACSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_RAC"]>
+
+  export type V_NOISE_RACSelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_RACPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_RAC"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_RAC"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_RACGetPayload<S extends boolean | null | undefined | V_NOISE_RACDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_RACPayload, S>
+
+  type V_NOISE_RACCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_RACFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_RACCountAggregateInputType | true
+    }
+
+  export interface V_NOISE_RACDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_RAC'], meta: { name: 'V_NOISE_RAC' } }
+    /**
+     * Find zero or one V_NOISE_RAC that matches the filter.
+     * @param {V_NOISE_RACFindUniqueArgs} args - Arguments to find a V_NOISE_RAC
+     * @example
+     * // Get one V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_RACFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_RAC that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_RACFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_RAC
+     * @example
+     * // Get one V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_RACFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_RAC that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACFindFirstArgs} args - Arguments to find a V_NOISE_RAC
+     * @example
+     * // Get one V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_RACFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_RAC that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_RAC
+     * @example
+     * // Get one V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_RACFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_RACS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_RACS
+     * const v_NOISE_RACS = await prisma.v_NOISE_RAC.findMany()
+     * 
+     * // Get first 10 V_NOISE_RACS
+     * const v_NOISE_RACS = await prisma.v_NOISE_RAC.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_RACWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_RAC.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_RACFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_RAC.
+     * @param {V_NOISE_RACCreateArgs} args - Arguments to create a V_NOISE_RAC.
+     * @example
+     * // Create one V_NOISE_RAC
+     * const V_NOISE_RAC = await prisma.v_NOISE_RAC.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_RAC
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_RACCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACCreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_RACS.
+     * @param {V_NOISE_RACCreateManyArgs} args - Arguments to create many V_NOISE_RACS.
+     * @example
+     * // Create many V_NOISE_RACS
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_RACCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_RAC.
+     * @param {V_NOISE_RACDeleteArgs} args - Arguments to delete one V_NOISE_RAC.
+     * @example
+     * // Delete one V_NOISE_RAC
+     * const V_NOISE_RAC = await prisma.v_NOISE_RAC.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_RAC
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_RACDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_RAC.
+     * @param {V_NOISE_RACUpdateArgs} args - Arguments to update one V_NOISE_RAC.
+     * @example
+     * // Update one V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_RACUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_RACS.
+     * @param {V_NOISE_RACDeleteManyArgs} args - Arguments to filter V_NOISE_RACS to delete.
+     * @example
+     * // Delete a few V_NOISE_RACS
+     * const { count } = await prisma.v_NOISE_RAC.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_RACDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_RACDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_RACS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_RACS
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_RACUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_RAC.
+     * @param {V_NOISE_RACUpsertArgs} args - Arguments to update or create a V_NOISE_RAC.
+     * @example
+     * // Update or create a V_NOISE_RAC
+     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_RAC
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_RAC we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_RACUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_RACUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_RACS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACCountArgs} args - Arguments to filter V_NOISE_RACS to count.
+     * @example
+     * // Count the number of V_NOISE_RACS
+     * const count = await prisma.v_NOISE_RAC.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_RACS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_RACCountArgs>(
+      args?: Subset<T, V_NOISE_RACCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_RACCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_RAC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_RACAggregateArgs>(args: Subset<T, V_NOISE_RACAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_RACAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_RAC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_RACGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_RACGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_RACGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_RACGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_RACGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_RACGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_RAC model
+   */
+  readonly fields: V_NOISE_RACFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_RAC.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_RACClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_RAC model
+   */ 
+  interface V_NOISE_RACFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_RAC", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_RAC", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_RAC", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_RAC findUnique
+   */
+  export type V_NOISE_RACFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_RAC to fetch.
+     */
+    where: V_NOISE_RACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_RAC findUniqueOrThrow
+   */
+  export type V_NOISE_RACFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_RAC to fetch.
+     */
+    where: V_NOISE_RACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_RAC findFirst
+   */
+  export type V_NOISE_RACFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_RAC to fetch.
+     */
+    where?: V_NOISE_RACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_RACS to fetch.
+     */
+    orderBy?: V_NOISE_RACOrderByWithRelationInput | V_NOISE_RACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_RACS.
+     */
+    cursor?: V_NOISE_RACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_RACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_RACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_RACS.
+     */
+    distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_RAC findFirstOrThrow
+   */
+  export type V_NOISE_RACFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_RAC to fetch.
+     */
+    where?: V_NOISE_RACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_RACS to fetch.
+     */
+    orderBy?: V_NOISE_RACOrderByWithRelationInput | V_NOISE_RACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_RACS.
+     */
+    cursor?: V_NOISE_RACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_RACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_RACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_RACS.
+     */
+    distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_RAC findMany
+   */
+  export type V_NOISE_RACFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_RACS to fetch.
+     */
+    where?: V_NOISE_RACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_RACS to fetch.
+     */
+    orderBy?: V_NOISE_RACOrderByWithRelationInput | V_NOISE_RACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_RACS.
+     */
+    cursor?: V_NOISE_RACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_RACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_RACS.
+     */
+    skip?: number
+    distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_RAC create
+   */
+  export type V_NOISE_RACCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_RAC.
+     */
+    data: XOR<V_NOISE_RACCreateInput, V_NOISE_RACUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_RAC createMany
+   */
+  export type V_NOISE_RACCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_RACS.
+     */
+    data: V_NOISE_RACCreateManyInput | V_NOISE_RACCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_RAC update
+   */
+  export type V_NOISE_RACUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_RAC.
+     */
+    data: XOR<V_NOISE_RACUpdateInput, V_NOISE_RACUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_RAC to update.
+     */
+    where: V_NOISE_RACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_RAC updateMany
+   */
+  export type V_NOISE_RACUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_RACS.
+     */
+    data: XOR<V_NOISE_RACUpdateManyMutationInput, V_NOISE_RACUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_RACS to update
+     */
+    where?: V_NOISE_RACWhereInput
+  }
+
+  /**
+   * V_NOISE_RAC upsert
+   */
+  export type V_NOISE_RACUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_RAC to update in case it exists.
+     */
+    where: V_NOISE_RACWhereUniqueInput
+    /**
+     * In case the V_NOISE_RAC found by the `where` argument doesn't exist, create a new V_NOISE_RAC with this data.
+     */
+    create: XOR<V_NOISE_RACCreateInput, V_NOISE_RACUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_RAC was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_RACUpdateInput, V_NOISE_RACUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_RAC delete
+   */
+  export type V_NOISE_RACDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_RAC to delete.
+     */
+    where: V_NOISE_RACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_RAC deleteMany
+   */
+  export type V_NOISE_RACDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_RACS to delete
+     */
+    where?: V_NOISE_RACWhereInput
+  }
+
+  /**
+   * V_NOISE_RAC without action
+   */
+  export type V_NOISE_RACDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_RAC
+     */
+    select?: V_NOISE_RACSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_MULTIV_S
+   */
+
+  export type AggregateV_NOISE_MULTIV_S = {
+    _count: V_NOISE_MULTIV_SCountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_SAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_SSumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_SMinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_SMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_MULTIV_SAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_SSumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_SMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_SMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_SCountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_MULTIV_SAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_SSumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_SMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_SMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_SCountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_MULTIV_SAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_S to aggregate.
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_S to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_SOrderByWithRelationInput | V_NOISE_MULTIV_SOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_MULTIV_SWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_S from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_S.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_MULTIV_S
+    **/
+    _count?: true | V_NOISE_MULTIV_SCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_MULTIV_SAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_MULTIV_SSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_MULTIV_SMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_MULTIV_SMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_MULTIV_SAggregateType<T extends V_NOISE_MULTIV_SAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_MULTIV_S]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_MULTIV_S[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_MULTIV_S[P]>
+  }
+
+
+
+
+  export type V_NOISE_MULTIV_SGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_MULTIV_SWhereInput
+    orderBy?: V_NOISE_MULTIV_SOrderByWithAggregationInput | V_NOISE_MULTIV_SOrderByWithAggregationInput[]
+    by: V_NOISE_MULTIV_SScalarFieldEnum[] | V_NOISE_MULTIV_SScalarFieldEnum
+    having?: V_NOISE_MULTIV_SScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_MULTIV_SCountAggregateInputType | true
+    _avg?: V_NOISE_MULTIV_SAvgAggregateInputType
+    _sum?: V_NOISE_MULTIV_SSumAggregateInputType
+    _min?: V_NOISE_MULTIV_SMinAggregateInputType
+    _max?: V_NOISE_MULTIV_SMaxAggregateInputType
+  }
+
+  export type V_NOISE_MULTIV_SGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_MULTIV_SCountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_SAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_SSumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_SMinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_SMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_MULTIV_SGroupByPayload<T extends V_NOISE_MULTIV_SGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_MULTIV_SGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_MULTIV_SGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_MULTIV_SGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_MULTIV_SGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_MULTIV_SSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_MULTIV_S"]>
+
+  export type V_NOISE_MULTIV_SSelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_MULTIV_SPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_MULTIV_S"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_MULTIV_S"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_MULTIV_SGetPayload<S extends boolean | null | undefined | V_NOISE_MULTIV_SDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload, S>
+
+  type V_NOISE_MULTIV_SCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_MULTIV_SFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_MULTIV_SCountAggregateInputType | true
+    }
+
+  export interface V_NOISE_MULTIV_SDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_MULTIV_S'], meta: { name: 'V_NOISE_MULTIV_S' } }
+    /**
+     * Find zero or one V_NOISE_MULTIV_S that matches the filter.
+     * @param {V_NOISE_MULTIV_SFindUniqueArgs} args - Arguments to find a V_NOISE_MULTIV_S
+     * @example
+     * // Get one V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_MULTIV_SFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_MULTIV_S that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_MULTIV_SFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_S
+     * @example
+     * // Get one V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_MULTIV_SFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_S that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SFindFirstArgs} args - Arguments to find a V_NOISE_MULTIV_S
+     * @example
+     * // Get one V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_MULTIV_SFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_S that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_S
+     * @example
+     * // Get one V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_MULTIV_SFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_MULTIV_S that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findMany()
+     * 
+     * // Get first 10 V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_MULTIV_SWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_MULTIV_S.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_MULTIV_SFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SCreateArgs} args - Arguments to create a V_NOISE_MULTIV_S.
+     * @example
+     * // Create one V_NOISE_MULTIV_S
+     * const V_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_MULTIV_S
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_MULTIV_SCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SCreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SCreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_S.
+     * @example
+     * // Create many V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_MULTIV_SCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SDeleteArgs} args - Arguments to delete one V_NOISE_MULTIV_S.
+     * @example
+     * // Delete one V_NOISE_MULTIV_S
+     * const V_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_MULTIV_S
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_MULTIV_SDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SUpdateArgs} args - Arguments to update one V_NOISE_MULTIV_S.
+     * @example
+     * // Update one V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_MULTIV_SUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SDeleteManyArgs} args - Arguments to filter V_NOISE_MULTIV_S to delete.
+     * @example
+     * // Delete a few V_NOISE_MULTIV_S
+     * const { count } = await prisma.v_NOISE_MULTIV_S.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_MULTIV_SDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_SDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_MULTIV_S.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_MULTIV_SUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_MULTIV_S.
+     * @param {V_NOISE_MULTIV_SUpsertArgs} args - Arguments to update or create a V_NOISE_MULTIV_S.
+     * @example
+     * // Update or create a V_NOISE_MULTIV_S
+     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_MULTIV_S
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_S we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_MULTIV_SUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_SUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_MULTIV_S.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SCountArgs} args - Arguments to filter V_NOISE_MULTIV_S to count.
+     * @example
+     * // Count the number of V_NOISE_MULTIV_S
+     * const count = await prisma.v_NOISE_MULTIV_S.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_S we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_MULTIV_SCountArgs>(
+      args?: Subset<T, V_NOISE_MULTIV_SCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_MULTIV_SCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_MULTIV_S.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_MULTIV_SAggregateArgs>(args: Subset<T, V_NOISE_MULTIV_SAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_MULTIV_SAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_MULTIV_S.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_SGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_MULTIV_SGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_MULTIV_SGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_MULTIV_SGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_MULTIV_SGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_MULTIV_SGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_MULTIV_S model
+   */
+  readonly fields: V_NOISE_MULTIV_SFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_MULTIV_S.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_MULTIV_SClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_MULTIV_S model
+   */ 
+  interface V_NOISE_MULTIV_SFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_MULTIV_S", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_MULTIV_S", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_MULTIV_S", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_MULTIV_S findUnique
+   */
+  export type V_NOISE_MULTIV_SFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_S to fetch.
+     */
+    where: V_NOISE_MULTIV_SWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S findUniqueOrThrow
+   */
+  export type V_NOISE_MULTIV_SFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_S to fetch.
+     */
+    where: V_NOISE_MULTIV_SWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S findFirst
+   */
+  export type V_NOISE_MULTIV_SFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_S to fetch.
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_S to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_SOrderByWithRelationInput | V_NOISE_MULTIV_SOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_S.
+     */
+    cursor?: V_NOISE_MULTIV_SWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_S from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_S.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_S.
+     */
+    distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_S findFirstOrThrow
+   */
+  export type V_NOISE_MULTIV_SFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_S to fetch.
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_S to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_SOrderByWithRelationInput | V_NOISE_MULTIV_SOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_S.
+     */
+    cursor?: V_NOISE_MULTIV_SWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_S from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_S.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_S.
+     */
+    distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_S findMany
+   */
+  export type V_NOISE_MULTIV_SFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_S to fetch.
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_S to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_SOrderByWithRelationInput | V_NOISE_MULTIV_SOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_MULTIV_S.
+     */
+    cursor?: V_NOISE_MULTIV_SWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_S from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_S.
+     */
+    skip?: number
+    distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_S create
+   */
+  export type V_NOISE_MULTIV_SCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_MULTIV_S.
+     */
+    data: XOR<V_NOISE_MULTIV_SCreateInput, V_NOISE_MULTIV_SUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_S createMany
+   */
+  export type V_NOISE_MULTIV_SCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_MULTIV_S.
+     */
+    data: V_NOISE_MULTIV_SCreateManyInput | V_NOISE_MULTIV_SCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_MULTIV_S update
+   */
+  export type V_NOISE_MULTIV_SUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_MULTIV_S.
+     */
+    data: XOR<V_NOISE_MULTIV_SUpdateInput, V_NOISE_MULTIV_SUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_MULTIV_S to update.
+     */
+    where: V_NOISE_MULTIV_SWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S updateMany
+   */
+  export type V_NOISE_MULTIV_SUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_MULTIV_S.
+     */
+    data: XOR<V_NOISE_MULTIV_SUpdateManyMutationInput, V_NOISE_MULTIV_SUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_MULTIV_S to update
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S upsert
+   */
+  export type V_NOISE_MULTIV_SUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_MULTIV_S to update in case it exists.
+     */
+    where: V_NOISE_MULTIV_SWhereUniqueInput
+    /**
+     * In case the V_NOISE_MULTIV_S found by the `where` argument doesn't exist, create a new V_NOISE_MULTIV_S with this data.
+     */
+    create: XOR<V_NOISE_MULTIV_SCreateInput, V_NOISE_MULTIV_SUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_MULTIV_S was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_MULTIV_SUpdateInput, V_NOISE_MULTIV_SUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_S delete
+   */
+  export type V_NOISE_MULTIV_SDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_MULTIV_S to delete.
+     */
+    where: V_NOISE_MULTIV_SWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S deleteMany
+   */
+  export type V_NOISE_MULTIV_SDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_S to delete
+     */
+    where?: V_NOISE_MULTIV_SWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_S without action
+   */
+  export type V_NOISE_MULTIV_SDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_S
+     */
+    select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_SCAC
+   */
+
+  export type AggregateV_NOISE_SCAC = {
+    _count: V_NOISE_SCACCountAggregateOutputType | null
+    _avg: V_NOISE_SCACAvgAggregateOutputType | null
+    _sum: V_NOISE_SCACSumAggregateOutputType | null
+    _min: V_NOISE_SCACMinAggregateOutputType | null
+    _max: V_NOISE_SCACMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_SCACAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_SCACSumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_SCACMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_SCACMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_SCACCountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_SCACAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_SCACSumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_SCACMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_SCACMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_SCACCountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_SCACAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_SCAC to aggregate.
+     */
+    where?: V_NOISE_SCACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_SCACS to fetch.
+     */
+    orderBy?: V_NOISE_SCACOrderByWithRelationInput | V_NOISE_SCACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_SCACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_SCACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_SCACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_SCACS
+    **/
+    _count?: true | V_NOISE_SCACCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_SCACAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_SCACSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_SCACMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_SCACMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_SCACAggregateType<T extends V_NOISE_SCACAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_SCAC]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_SCAC[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_SCAC[P]>
+  }
+
+
+
+
+  export type V_NOISE_SCACGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_SCACWhereInput
+    orderBy?: V_NOISE_SCACOrderByWithAggregationInput | V_NOISE_SCACOrderByWithAggregationInput[]
+    by: V_NOISE_SCACScalarFieldEnum[] | V_NOISE_SCACScalarFieldEnum
+    having?: V_NOISE_SCACScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_SCACCountAggregateInputType | true
+    _avg?: V_NOISE_SCACAvgAggregateInputType
+    _sum?: V_NOISE_SCACSumAggregateInputType
+    _min?: V_NOISE_SCACMinAggregateInputType
+    _max?: V_NOISE_SCACMaxAggregateInputType
+  }
+
+  export type V_NOISE_SCACGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_SCACCountAggregateOutputType | null
+    _avg: V_NOISE_SCACAvgAggregateOutputType | null
+    _sum: V_NOISE_SCACSumAggregateOutputType | null
+    _min: V_NOISE_SCACMinAggregateOutputType | null
+    _max: V_NOISE_SCACMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_SCACGroupByPayload<T extends V_NOISE_SCACGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_SCACGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_SCACGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_SCACGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_SCACGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_SCACSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_SCAC"]>
+
+  export type V_NOISE_SCACSelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_SCACPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_SCAC"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_SCAC"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_SCACGetPayload<S extends boolean | null | undefined | V_NOISE_SCACDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_SCACPayload, S>
+
+  type V_NOISE_SCACCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_SCACFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_SCACCountAggregateInputType | true
+    }
+
+  export interface V_NOISE_SCACDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_SCAC'], meta: { name: 'V_NOISE_SCAC' } }
+    /**
+     * Find zero or one V_NOISE_SCAC that matches the filter.
+     * @param {V_NOISE_SCACFindUniqueArgs} args - Arguments to find a V_NOISE_SCAC
+     * @example
+     * // Get one V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_SCACFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_SCAC that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_SCACFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_SCAC
+     * @example
+     * // Get one V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_SCACFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_SCAC that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACFindFirstArgs} args - Arguments to find a V_NOISE_SCAC
+     * @example
+     * // Get one V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_SCACFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_SCAC that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_SCAC
+     * @example
+     * // Get one V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_SCACFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_SCACS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_SCACS
+     * const v_NOISE_SCACS = await prisma.v_NOISE_SCAC.findMany()
+     * 
+     * // Get first 10 V_NOISE_SCACS
+     * const v_NOISE_SCACS = await prisma.v_NOISE_SCAC.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_SCACWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_SCAC.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_SCACFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_SCAC.
+     * @param {V_NOISE_SCACCreateArgs} args - Arguments to create a V_NOISE_SCAC.
+     * @example
+     * // Create one V_NOISE_SCAC
+     * const V_NOISE_SCAC = await prisma.v_NOISE_SCAC.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_SCAC
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_SCACCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACCreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_SCACS.
+     * @param {V_NOISE_SCACCreateManyArgs} args - Arguments to create many V_NOISE_SCACS.
+     * @example
+     * // Create many V_NOISE_SCACS
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_SCACCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_SCAC.
+     * @param {V_NOISE_SCACDeleteArgs} args - Arguments to delete one V_NOISE_SCAC.
+     * @example
+     * // Delete one V_NOISE_SCAC
+     * const V_NOISE_SCAC = await prisma.v_NOISE_SCAC.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_SCAC
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_SCACDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_SCAC.
+     * @param {V_NOISE_SCACUpdateArgs} args - Arguments to update one V_NOISE_SCAC.
+     * @example
+     * // Update one V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_SCACUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_SCACS.
+     * @param {V_NOISE_SCACDeleteManyArgs} args - Arguments to filter V_NOISE_SCACS to delete.
+     * @example
+     * // Delete a few V_NOISE_SCACS
+     * const { count } = await prisma.v_NOISE_SCAC.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_SCACDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_SCACDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_SCACS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_SCACS
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_SCACUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_SCAC.
+     * @param {V_NOISE_SCACUpsertArgs} args - Arguments to update or create a V_NOISE_SCAC.
+     * @example
+     * // Update or create a V_NOISE_SCAC
+     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_SCAC
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_SCAC we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_SCACUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_SCACUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_SCACS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACCountArgs} args - Arguments to filter V_NOISE_SCACS to count.
+     * @example
+     * // Count the number of V_NOISE_SCACS
+     * const count = await prisma.v_NOISE_SCAC.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_SCACS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_SCACCountArgs>(
+      args?: Subset<T, V_NOISE_SCACCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_SCACCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_SCAC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_SCACAggregateArgs>(args: Subset<T, V_NOISE_SCACAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_SCACAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_SCAC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_SCACGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_SCACGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_SCACGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_SCACGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_SCACGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_SCACGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_SCAC model
+   */
+  readonly fields: V_NOISE_SCACFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_SCAC.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_SCACClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_SCAC model
+   */ 
+  interface V_NOISE_SCACFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_SCAC", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_SCAC", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_SCAC", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_SCAC findUnique
+   */
+  export type V_NOISE_SCACFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_SCAC to fetch.
+     */
+    where: V_NOISE_SCACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_SCAC findUniqueOrThrow
+   */
+  export type V_NOISE_SCACFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_SCAC to fetch.
+     */
+    where: V_NOISE_SCACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_SCAC findFirst
+   */
+  export type V_NOISE_SCACFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_SCAC to fetch.
+     */
+    where?: V_NOISE_SCACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_SCACS to fetch.
+     */
+    orderBy?: V_NOISE_SCACOrderByWithRelationInput | V_NOISE_SCACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_SCACS.
+     */
+    cursor?: V_NOISE_SCACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_SCACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_SCACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_SCACS.
+     */
+    distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_SCAC findFirstOrThrow
+   */
+  export type V_NOISE_SCACFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_SCAC to fetch.
+     */
+    where?: V_NOISE_SCACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_SCACS to fetch.
+     */
+    orderBy?: V_NOISE_SCACOrderByWithRelationInput | V_NOISE_SCACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_SCACS.
+     */
+    cursor?: V_NOISE_SCACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_SCACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_SCACS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_SCACS.
+     */
+    distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_SCAC findMany
+   */
+  export type V_NOISE_SCACFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_SCACS to fetch.
+     */
+    where?: V_NOISE_SCACWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_SCACS to fetch.
+     */
+    orderBy?: V_NOISE_SCACOrderByWithRelationInput | V_NOISE_SCACOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_SCACS.
+     */
+    cursor?: V_NOISE_SCACWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_SCACS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_SCACS.
+     */
+    skip?: number
+    distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_SCAC create
+   */
+  export type V_NOISE_SCACCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_SCAC.
+     */
+    data: XOR<V_NOISE_SCACCreateInput, V_NOISE_SCACUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_SCAC createMany
+   */
+  export type V_NOISE_SCACCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_SCACS.
+     */
+    data: V_NOISE_SCACCreateManyInput | V_NOISE_SCACCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_SCAC update
+   */
+  export type V_NOISE_SCACUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_SCAC.
+     */
+    data: XOR<V_NOISE_SCACUpdateInput, V_NOISE_SCACUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_SCAC to update.
+     */
+    where: V_NOISE_SCACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_SCAC updateMany
+   */
+  export type V_NOISE_SCACUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_SCACS.
+     */
+    data: XOR<V_NOISE_SCACUpdateManyMutationInput, V_NOISE_SCACUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_SCACS to update
+     */
+    where?: V_NOISE_SCACWhereInput
+  }
+
+  /**
+   * V_NOISE_SCAC upsert
+   */
+  export type V_NOISE_SCACUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_SCAC to update in case it exists.
+     */
+    where: V_NOISE_SCACWhereUniqueInput
+    /**
+     * In case the V_NOISE_SCAC found by the `where` argument doesn't exist, create a new V_NOISE_SCAC with this data.
+     */
+    create: XOR<V_NOISE_SCACCreateInput, V_NOISE_SCACUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_SCAC was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_SCACUpdateInput, V_NOISE_SCACUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_SCAC delete
+   */
+  export type V_NOISE_SCACDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_SCAC to delete.
+     */
+    where: V_NOISE_SCACWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_SCAC deleteMany
+   */
+  export type V_NOISE_SCACDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_SCACS to delete
+     */
+    where?: V_NOISE_SCACWhereInput
+  }
+
+  /**
+   * V_NOISE_SCAC without action
+   */
+  export type V_NOISE_SCACDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_SCAC
+     */
+    select?: V_NOISE_SCACSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_MULTIV_5
+   */
+
+  export type AggregateV_NOISE_MULTIV_5 = {
+    _count: V_NOISE_MULTIV_5CountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_5AvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_5SumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_5MinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_5MaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_MULTIV_5AvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_5SumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_5MinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_5MaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIV_5CountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_MULTIV_5AvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_5SumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_5MinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_5MaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIV_5CountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_MULTIV_5AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_5 to aggregate.
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_5s to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_5OrderByWithRelationInput | V_NOISE_MULTIV_5OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_MULTIV_5WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_5s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_5s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_MULTIV_5s
+    **/
+    _count?: true | V_NOISE_MULTIV_5CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_MULTIV_5AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_MULTIV_5SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_MULTIV_5MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_MULTIV_5MaxAggregateInputType
+  }
+
+  export type GetV_NOISE_MULTIV_5AggregateType<T extends V_NOISE_MULTIV_5AggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_MULTIV_5]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_MULTIV_5[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_MULTIV_5[P]>
+  }
+
+
+
+
+  export type V_NOISE_MULTIV_5GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_MULTIV_5WhereInput
+    orderBy?: V_NOISE_MULTIV_5OrderByWithAggregationInput | V_NOISE_MULTIV_5OrderByWithAggregationInput[]
+    by: V_NOISE_MULTIV_5ScalarFieldEnum[] | V_NOISE_MULTIV_5ScalarFieldEnum
+    having?: V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_MULTIV_5CountAggregateInputType | true
+    _avg?: V_NOISE_MULTIV_5AvgAggregateInputType
+    _sum?: V_NOISE_MULTIV_5SumAggregateInputType
+    _min?: V_NOISE_MULTIV_5MinAggregateInputType
+    _max?: V_NOISE_MULTIV_5MaxAggregateInputType
+  }
+
+  export type V_NOISE_MULTIV_5GroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_MULTIV_5CountAggregateOutputType | null
+    _avg: V_NOISE_MULTIV_5AvgAggregateOutputType | null
+    _sum: V_NOISE_MULTIV_5SumAggregateOutputType | null
+    _min: V_NOISE_MULTIV_5MinAggregateOutputType | null
+    _max: V_NOISE_MULTIV_5MaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_MULTIV_5GroupByPayload<T extends V_NOISE_MULTIV_5GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_MULTIV_5GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_MULTIV_5GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_MULTIV_5GroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_MULTIV_5GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_MULTIV_5Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_MULTIV_5"]>
+
+  export type V_NOISE_MULTIV_5SelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_MULTIV_5Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_MULTIV_5"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_MULTIV_5"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_MULTIV_5GetPayload<S extends boolean | null | undefined | V_NOISE_MULTIV_5DefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload, S>
+
+  type V_NOISE_MULTIV_5CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_MULTIV_5FindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_MULTIV_5CountAggregateInputType | true
+    }
+
+  export interface V_NOISE_MULTIV_5Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_MULTIV_5'], meta: { name: 'V_NOISE_MULTIV_5' } }
+    /**
+     * Find zero or one V_NOISE_MULTIV_5 that matches the filter.
+     * @param {V_NOISE_MULTIV_5FindUniqueArgs} args - Arguments to find a V_NOISE_MULTIV_5
+     * @example
+     * // Get one V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_MULTIV_5FindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5FindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_MULTIV_5 that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_MULTIV_5FindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_5
+     * @example
+     * // Get one V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_MULTIV_5FindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5FindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_5 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5FindFirstArgs} args - Arguments to find a V_NOISE_MULTIV_5
+     * @example
+     * // Get one V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_MULTIV_5FindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5FindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTIV_5 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5FindFirstOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_5
+     * @example
+     * // Get one V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_MULTIV_5FindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5FindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_MULTIV_5s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_MULTIV_5s
+     * const v_NOISE_MULTIV_5s = await prisma.v_NOISE_MULTIV_5.findMany()
+     * 
+     * // Get first 10 V_NOISE_MULTIV_5s
+     * const v_NOISE_MULTIV_5s = await prisma.v_NOISE_MULTIV_5.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_MULTIV_5WithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_MULTIV_5.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_MULTIV_5FindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5FindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_MULTIV_5.
+     * @param {V_NOISE_MULTIV_5CreateArgs} args - Arguments to create a V_NOISE_MULTIV_5.
+     * @example
+     * // Create one V_NOISE_MULTIV_5
+     * const V_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_MULTIV_5
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_MULTIV_5CreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5CreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_MULTIV_5s.
+     * @param {V_NOISE_MULTIV_5CreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_5s.
+     * @example
+     * // Create many V_NOISE_MULTIV_5s
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_MULTIV_5CreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5CreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_MULTIV_5.
+     * @param {V_NOISE_MULTIV_5DeleteArgs} args - Arguments to delete one V_NOISE_MULTIV_5.
+     * @example
+     * // Delete one V_NOISE_MULTIV_5
+     * const V_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_MULTIV_5
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_MULTIV_5DeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5DeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_MULTIV_5.
+     * @param {V_NOISE_MULTIV_5UpdateArgs} args - Arguments to update one V_NOISE_MULTIV_5.
+     * @example
+     * // Update one V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_MULTIV_5UpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5UpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_MULTIV_5s.
+     * @param {V_NOISE_MULTIV_5DeleteManyArgs} args - Arguments to filter V_NOISE_MULTIV_5s to delete.
+     * @example
+     * // Delete a few V_NOISE_MULTIV_5s
+     * const { count } = await prisma.v_NOISE_MULTIV_5.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_MULTIV_5DeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIV_5DeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_MULTIV_5s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_MULTIV_5s
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_MULTIV_5UpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5UpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_MULTIV_5.
+     * @param {V_NOISE_MULTIV_5UpsertArgs} args - Arguments to update or create a V_NOISE_MULTIV_5.
+     * @example
+     * // Update or create a V_NOISE_MULTIV_5
+     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_MULTIV_5
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_5 we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_MULTIV_5UpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIV_5UpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_MULTIV_5s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5CountArgs} args - Arguments to filter V_NOISE_MULTIV_5s to count.
+     * @example
+     * // Count the number of V_NOISE_MULTIV_5s
+     * const count = await prisma.v_NOISE_MULTIV_5.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIV_5s we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_MULTIV_5CountArgs>(
+      args?: Subset<T, V_NOISE_MULTIV_5CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_MULTIV_5CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_MULTIV_5.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_MULTIV_5AggregateArgs>(args: Subset<T, V_NOISE_MULTIV_5AggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_MULTIV_5AggregateType<T>>
+
+    /**
+     * Group by V_NOISE_MULTIV_5.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIV_5GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_MULTIV_5GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_MULTIV_5GroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_MULTIV_5GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_MULTIV_5GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_MULTIV_5GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_MULTIV_5 model
+   */
+  readonly fields: V_NOISE_MULTIV_5FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_MULTIV_5.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_MULTIV_5Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_MULTIV_5 model
+   */ 
+  interface V_NOISE_MULTIV_5FieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_MULTIV_5", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_MULTIV_5", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_MULTIV_5", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_MULTIV_5 findUnique
+   */
+  export type V_NOISE_MULTIV_5FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_5 to fetch.
+     */
+    where: V_NOISE_MULTIV_5WhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 findUniqueOrThrow
+   */
+  export type V_NOISE_MULTIV_5FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_5 to fetch.
+     */
+    where: V_NOISE_MULTIV_5WhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 findFirst
+   */
+  export type V_NOISE_MULTIV_5FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_5 to fetch.
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_5s to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_5OrderByWithRelationInput | V_NOISE_MULTIV_5OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_5s.
+     */
+    cursor?: V_NOISE_MULTIV_5WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_5s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_5s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_5s.
+     */
+    distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 findFirstOrThrow
+   */
+  export type V_NOISE_MULTIV_5FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_5 to fetch.
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_5s to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_5OrderByWithRelationInput | V_NOISE_MULTIV_5OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIV_5s.
+     */
+    cursor?: V_NOISE_MULTIV_5WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_5s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_5s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIV_5s.
+     */
+    distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 findMany
+   */
+  export type V_NOISE_MULTIV_5FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIV_5s to fetch.
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIV_5s to fetch.
+     */
+    orderBy?: V_NOISE_MULTIV_5OrderByWithRelationInput | V_NOISE_MULTIV_5OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_MULTIV_5s.
+     */
+    cursor?: V_NOISE_MULTIV_5WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIV_5s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIV_5s.
+     */
+    skip?: number
+    distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 create
+   */
+  export type V_NOISE_MULTIV_5CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_MULTIV_5.
+     */
+    data: XOR<V_NOISE_MULTIV_5CreateInput, V_NOISE_MULTIV_5UncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 createMany
+   */
+  export type V_NOISE_MULTIV_5CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_MULTIV_5s.
+     */
+    data: V_NOISE_MULTIV_5CreateManyInput | V_NOISE_MULTIV_5CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 update
+   */
+  export type V_NOISE_MULTIV_5UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_MULTIV_5.
+     */
+    data: XOR<V_NOISE_MULTIV_5UpdateInput, V_NOISE_MULTIV_5UncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_MULTIV_5 to update.
+     */
+    where: V_NOISE_MULTIV_5WhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 updateMany
+   */
+  export type V_NOISE_MULTIV_5UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_MULTIV_5s.
+     */
+    data: XOR<V_NOISE_MULTIV_5UpdateManyMutationInput, V_NOISE_MULTIV_5UncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_MULTIV_5s to update
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 upsert
+   */
+  export type V_NOISE_MULTIV_5UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_MULTIV_5 to update in case it exists.
+     */
+    where: V_NOISE_MULTIV_5WhereUniqueInput
+    /**
+     * In case the V_NOISE_MULTIV_5 found by the `where` argument doesn't exist, create a new V_NOISE_MULTIV_5 with this data.
+     */
+    create: XOR<V_NOISE_MULTIV_5CreateInput, V_NOISE_MULTIV_5UncheckedCreateInput>
+    /**
+     * In case the V_NOISE_MULTIV_5 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_MULTIV_5UpdateInput, V_NOISE_MULTIV_5UncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 delete
+   */
+  export type V_NOISE_MULTIV_5DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_MULTIV_5 to delete.
+     */
+    where: V_NOISE_MULTIV_5WhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 deleteMany
+   */
+  export type V_NOISE_MULTIV_5DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIV_5s to delete
+     */
+    where?: V_NOISE_MULTIV_5WhereInput
+  }
+
+  /**
+   * V_NOISE_MULTIV_5 without action
+   */
+  export type V_NOISE_MULTIV_5DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTIV_5
+     */
+    select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_MULTI
+   */
+
+  export type AggregateV_NOISE_MULTI = {
+    _count: V_NOISE_MULTICountAggregateOutputType | null
+    _avg: V_NOISE_MULTIAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTISumAggregateOutputType | null
+    _min: V_NOISE_MULTIMinAggregateOutputType | null
+    _max: V_NOISE_MULTIMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_MULTIAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTISumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTIMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_MULTICountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_MULTIAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTISumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTIMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_MULTICountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_MULTIAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTI to aggregate.
+     */
+    where?: V_NOISE_MULTIWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIOrderByWithRelationInput | V_NOISE_MULTIOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_MULTIWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_MULTIS
+    **/
+    _count?: true | V_NOISE_MULTICountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_MULTIAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_MULTISumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_MULTIMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_MULTIMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_MULTIAggregateType<T extends V_NOISE_MULTIAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_MULTI]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_MULTI[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_MULTI[P]>
+  }
+
+
+
+
+  export type V_NOISE_MULTIGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_MULTIWhereInput
+    orderBy?: V_NOISE_MULTIOrderByWithAggregationInput | V_NOISE_MULTIOrderByWithAggregationInput[]
+    by: V_NOISE_MULTIScalarFieldEnum[] | V_NOISE_MULTIScalarFieldEnum
+    having?: V_NOISE_MULTIScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_MULTICountAggregateInputType | true
+    _avg?: V_NOISE_MULTIAvgAggregateInputType
+    _sum?: V_NOISE_MULTISumAggregateInputType
+    _min?: V_NOISE_MULTIMinAggregateInputType
+    _max?: V_NOISE_MULTIMaxAggregateInputType
+  }
+
+  export type V_NOISE_MULTIGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_MULTICountAggregateOutputType | null
+    _avg: V_NOISE_MULTIAvgAggregateOutputType | null
+    _sum: V_NOISE_MULTISumAggregateOutputType | null
+    _min: V_NOISE_MULTIMinAggregateOutputType | null
+    _max: V_NOISE_MULTIMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_MULTIGroupByPayload<T extends V_NOISE_MULTIGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_MULTIGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_MULTIGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_MULTIGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_MULTIGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_MULTISelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_MULTI"]>
+
+  export type V_NOISE_MULTISelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_MULTIPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_MULTI"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_MULTI"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_MULTIGetPayload<S extends boolean | null | undefined | V_NOISE_MULTIDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_MULTIPayload, S>
+
+  type V_NOISE_MULTICountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_MULTIFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_MULTICountAggregateInputType | true
+    }
+
+  export interface V_NOISE_MULTIDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_MULTI'], meta: { name: 'V_NOISE_MULTI' } }
+    /**
+     * Find zero or one V_NOISE_MULTI that matches the filter.
+     * @param {V_NOISE_MULTIFindUniqueArgs} args - Arguments to find a V_NOISE_MULTI
+     * @example
+     * // Get one V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_MULTIFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_MULTI that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_MULTIFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTI
+     * @example
+     * // Get one V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_MULTIFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTI that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIFindFirstArgs} args - Arguments to find a V_NOISE_MULTI
+     * @example
+     * // Get one V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_MULTIFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_MULTI that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_MULTI
+     * @example
+     * // Get one V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_MULTIFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_MULTIS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_MULTIS
+     * const v_NOISE_MULTIS = await prisma.v_NOISE_MULTI.findMany()
+     * 
+     * // Get first 10 V_NOISE_MULTIS
+     * const v_NOISE_MULTIS = await prisma.v_NOISE_MULTI.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_MULTIWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_MULTI.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_MULTIFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_MULTI.
+     * @param {V_NOISE_MULTICreateArgs} args - Arguments to create a V_NOISE_MULTI.
+     * @example
+     * // Create one V_NOISE_MULTI
+     * const V_NOISE_MULTI = await prisma.v_NOISE_MULTI.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_MULTI
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_MULTICreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTICreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_MULTIS.
+     * @param {V_NOISE_MULTICreateManyArgs} args - Arguments to create many V_NOISE_MULTIS.
+     * @example
+     * // Create many V_NOISE_MULTIS
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_MULTICreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTICreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_MULTI.
+     * @param {V_NOISE_MULTIDeleteArgs} args - Arguments to delete one V_NOISE_MULTI.
+     * @example
+     * // Delete one V_NOISE_MULTI
+     * const V_NOISE_MULTI = await prisma.v_NOISE_MULTI.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_MULTI
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_MULTIDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_MULTI.
+     * @param {V_NOISE_MULTIUpdateArgs} args - Arguments to update one V_NOISE_MULTI.
+     * @example
+     * // Update one V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_MULTIUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_MULTIS.
+     * @param {V_NOISE_MULTIDeleteManyArgs} args - Arguments to filter V_NOISE_MULTIS to delete.
+     * @example
+     * // Delete a few V_NOISE_MULTIS
+     * const { count } = await prisma.v_NOISE_MULTI.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_MULTIDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_MULTIDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_MULTIS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_MULTIS
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_MULTIUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_MULTI.
+     * @param {V_NOISE_MULTIUpsertArgs} args - Arguments to update or create a V_NOISE_MULTI.
+     * @example
+     * // Update or create a V_NOISE_MULTI
+     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_MULTI
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTI we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_MULTIUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_MULTIUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_MULTIS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTICountArgs} args - Arguments to filter V_NOISE_MULTIS to count.
+     * @example
+     * // Count the number of V_NOISE_MULTIS
+     * const count = await prisma.v_NOISE_MULTI.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_MULTIS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_MULTICountArgs>(
+      args?: Subset<T, V_NOISE_MULTICountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_MULTICountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_MULTI.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_MULTIAggregateArgs>(args: Subset<T, V_NOISE_MULTIAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_MULTIAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_MULTI.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_MULTIGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_MULTIGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_MULTIGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_MULTIGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_MULTIGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_MULTIGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_MULTI model
+   */
+  readonly fields: V_NOISE_MULTIFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_MULTI.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_MULTIClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_MULTI model
+   */ 
+  interface V_NOISE_MULTIFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_MULTI", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_MULTI", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_MULTI", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_MULTI findUnique
+   */
+  export type V_NOISE_MULTIFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTI to fetch.
+     */
+    where: V_NOISE_MULTIWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTI findUniqueOrThrow
+   */
+  export type V_NOISE_MULTIFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTI to fetch.
+     */
+    where: V_NOISE_MULTIWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTI findFirst
+   */
+  export type V_NOISE_MULTIFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTI to fetch.
+     */
+    where?: V_NOISE_MULTIWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIOrderByWithRelationInput | V_NOISE_MULTIOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIS.
+     */
+    cursor?: V_NOISE_MULTIWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIS.
+     */
+    distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTI findFirstOrThrow
+   */
+  export type V_NOISE_MULTIFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTI to fetch.
+     */
+    where?: V_NOISE_MULTIWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIOrderByWithRelationInput | V_NOISE_MULTIOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_MULTIS.
+     */
+    cursor?: V_NOISE_MULTIWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_MULTIS.
+     */
+    distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTI findMany
+   */
+  export type V_NOISE_MULTIFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_MULTIS to fetch.
+     */
+    where?: V_NOISE_MULTIWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_MULTIS to fetch.
+     */
+    orderBy?: V_NOISE_MULTIOrderByWithRelationInput | V_NOISE_MULTIOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_MULTIS.
+     */
+    cursor?: V_NOISE_MULTIWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_MULTIS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_MULTIS.
+     */
+    skip?: number
+    distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_MULTI create
+   */
+  export type V_NOISE_MULTICreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_MULTI.
+     */
+    data: XOR<V_NOISE_MULTICreateInput, V_NOISE_MULTIUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_MULTI createMany
+   */
+  export type V_NOISE_MULTICreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_MULTIS.
+     */
+    data: V_NOISE_MULTICreateManyInput | V_NOISE_MULTICreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_MULTI update
+   */
+  export type V_NOISE_MULTIUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_MULTI.
+     */
+    data: XOR<V_NOISE_MULTIUpdateInput, V_NOISE_MULTIUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_MULTI to update.
+     */
+    where: V_NOISE_MULTIWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTI updateMany
+   */
+  export type V_NOISE_MULTIUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_MULTIS.
+     */
+    data: XOR<V_NOISE_MULTIUpdateManyMutationInput, V_NOISE_MULTIUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_MULTIS to update
+     */
+    where?: V_NOISE_MULTIWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTI upsert
+   */
+  export type V_NOISE_MULTIUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_MULTI to update in case it exists.
+     */
+    where: V_NOISE_MULTIWhereUniqueInput
+    /**
+     * In case the V_NOISE_MULTI found by the `where` argument doesn't exist, create a new V_NOISE_MULTI with this data.
+     */
+    create: XOR<V_NOISE_MULTICreateInput, V_NOISE_MULTIUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_MULTI was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_MULTIUpdateInput, V_NOISE_MULTIUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_MULTI delete
+   */
+  export type V_NOISE_MULTIDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_MULTI to delete.
+     */
+    where: V_NOISE_MULTIWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_MULTI deleteMany
+   */
+  export type V_NOISE_MULTIDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_MULTIS to delete
+     */
+    where?: V_NOISE_MULTIWhereInput
+  }
+
+  /**
+   * V_NOISE_MULTI without action
+   */
+  export type V_NOISE_MULTIDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_MULTI
+     */
+    select?: V_NOISE_MULTISelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model V_NOISE_AWHP
+   */
+
+  export type AggregateV_NOISE_AWHP = {
+    _count: V_NOISE_AWHPCountAggregateOutputType | null
+    _avg: V_NOISE_AWHPAvgAggregateOutputType | null
+    _sum: V_NOISE_AWHPSumAggregateOutputType | null
+    _min: V_NOISE_AWHPMinAggregateOutputType | null
+    _max: V_NOISE_AWHPMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_AWHPAvgAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_AWHPSumAggregateOutputType = {
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_AWHPMinAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_AWHPMaxAggregateOutputType = {
+    BUYER_MODEL_NAME: string | null
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+  }
+
+  export type V_NOISE_AWHPCountAggregateOutputType = {
+    BUYER_MODEL_NAME: number
+    T_HEAT_W: number
+    T_COOL_W: number
+    _all: number
+  }
+
+
+  export type V_NOISE_AWHPAvgAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_AWHPSumAggregateInputType = {
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_AWHPMinAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_AWHPMaxAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+  }
+
+  export type V_NOISE_AWHPCountAggregateInputType = {
+    BUYER_MODEL_NAME?: true
+    T_HEAT_W?: true
+    T_COOL_W?: true
+    _all?: true
+  }
+
+  export type V_NOISE_AWHPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_AWHP to aggregate.
+     */
+    where?: V_NOISE_AWHPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_AWHPS to fetch.
+     */
+    orderBy?: V_NOISE_AWHPOrderByWithRelationInput | V_NOISE_AWHPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_AWHPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_AWHPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_AWHPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_AWHPS
+    **/
+    _count?: true | V_NOISE_AWHPCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_AWHPAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_AWHPSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_AWHPMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_AWHPMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_AWHPAggregateType<T extends V_NOISE_AWHPAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_AWHP]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_AWHP[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_AWHP[P]>
+  }
+
+
+
+
+  export type V_NOISE_AWHPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_AWHPWhereInput
+    orderBy?: V_NOISE_AWHPOrderByWithAggregationInput | V_NOISE_AWHPOrderByWithAggregationInput[]
+    by: V_NOISE_AWHPScalarFieldEnum[] | V_NOISE_AWHPScalarFieldEnum
+    having?: V_NOISE_AWHPScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_AWHPCountAggregateInputType | true
+    _avg?: V_NOISE_AWHPAvgAggregateInputType
+    _sum?: V_NOISE_AWHPSumAggregateInputType
+    _min?: V_NOISE_AWHPMinAggregateInputType
+    _max?: V_NOISE_AWHPMaxAggregateInputType
+  }
+
+  export type V_NOISE_AWHPGroupByOutputType = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    _count: V_NOISE_AWHPCountAggregateOutputType | null
+    _avg: V_NOISE_AWHPAvgAggregateOutputType | null
+    _sum: V_NOISE_AWHPSumAggregateOutputType | null
+    _min: V_NOISE_AWHPMinAggregateOutputType | null
+    _max: V_NOISE_AWHPMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_AWHPGroupByPayload<T extends V_NOISE_AWHPGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_AWHPGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_AWHPGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_AWHPGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_AWHPGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_AWHPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }, ExtArgs["result"]["v_NOISE_AWHP"]>
+
+  export type V_NOISE_AWHPSelectScalar = {
+    BUYER_MODEL_NAME?: boolean
+    T_HEAT_W?: boolean
+    T_COOL_W?: boolean
+  }
+
+
+
+  export type $V_NOISE_AWHPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_AWHP"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BUYER_MODEL_NAME: string
+      T_HEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_AWHP"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_AWHPGetPayload<S extends boolean | null | undefined | V_NOISE_AWHPDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_AWHPPayload, S>
+
+  type V_NOISE_AWHPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_AWHPFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_AWHPCountAggregateInputType | true
+    }
+
+  export interface V_NOISE_AWHPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_AWHP'], meta: { name: 'V_NOISE_AWHP' } }
+    /**
+     * Find zero or one V_NOISE_AWHP that matches the filter.
+     * @param {V_NOISE_AWHPFindUniqueArgs} args - Arguments to find a V_NOISE_AWHP
+     * @example
+     * // Get one V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_AWHPFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_AWHP that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {V_NOISE_AWHPFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_AWHP
+     * @example
+     * // Get one V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_AWHPFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_AWHP that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPFindFirstArgs} args - Arguments to find a V_NOISE_AWHP
+     * @example
+     * // Get one V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_AWHPFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_AWHP that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_AWHP
+     * @example
+     * // Get one V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_AWHPFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_AWHPS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_AWHPS
+     * const v_NOISE_AWHPS = await prisma.v_NOISE_AWHP.findMany()
+     * 
+     * // Get first 10 V_NOISE_AWHPS
+     * const v_NOISE_AWHPS = await prisma.v_NOISE_AWHP.findMany({ take: 10 })
+     * 
+     * // Only select the `BUYER_MODEL_NAME`
+     * const v_NOISE_AWHPWithBUYER_MODEL_NAMEOnly = await prisma.v_NOISE_AWHP.findMany({ select: { BUYER_MODEL_NAME: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_AWHPFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_AWHP.
+     * @param {V_NOISE_AWHPCreateArgs} args - Arguments to create a V_NOISE_AWHP.
+     * @example
+     * // Create one V_NOISE_AWHP
+     * const V_NOISE_AWHP = await prisma.v_NOISE_AWHP.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_AWHP
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_AWHPCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPCreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_AWHPS.
+     * @param {V_NOISE_AWHPCreateManyArgs} args - Arguments to create many V_NOISE_AWHPS.
+     * @example
+     * // Create many V_NOISE_AWHPS
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends V_NOISE_AWHPCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_AWHP.
+     * @param {V_NOISE_AWHPDeleteArgs} args - Arguments to delete one V_NOISE_AWHP.
+     * @example
+     * // Delete one V_NOISE_AWHP
+     * const V_NOISE_AWHP = await prisma.v_NOISE_AWHP.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_AWHP
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_AWHPDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_AWHP.
+     * @param {V_NOISE_AWHPUpdateArgs} args - Arguments to update one V_NOISE_AWHP.
+     * @example
+     * // Update one V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_AWHPUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_AWHPS.
+     * @param {V_NOISE_AWHPDeleteManyArgs} args - Arguments to filter V_NOISE_AWHPS to delete.
+     * @example
+     * // Delete a few V_NOISE_AWHPS
+     * const { count } = await prisma.v_NOISE_AWHP.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_AWHPDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_AWHPDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_AWHPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_AWHPS
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_AWHPUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_AWHP.
+     * @param {V_NOISE_AWHPUpsertArgs} args - Arguments to update or create a V_NOISE_AWHP.
+     * @example
+     * // Update or create a V_NOISE_AWHP
+     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_AWHP
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_AWHP we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_AWHPUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_AWHPUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_AWHPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPCountArgs} args - Arguments to filter V_NOISE_AWHPS to count.
+     * @example
+     * // Count the number of V_NOISE_AWHPS
+     * const count = await prisma.v_NOISE_AWHP.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_AWHPS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_AWHPCountArgs>(
+      args?: Subset<T, V_NOISE_AWHPCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_AWHPCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_AWHP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_AWHPAggregateArgs>(args: Subset<T, V_NOISE_AWHPAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_AWHPAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_AWHP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_AWHPGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_AWHPGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_AWHPGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_AWHPGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_AWHPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_AWHPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_AWHP model
+   */
+  readonly fields: V_NOISE_AWHPFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_AWHP.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_AWHPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_AWHP model
+   */ 
+  interface V_NOISE_AWHPFieldRefs {
+    readonly BUYER_MODEL_NAME: FieldRef<"V_NOISE_AWHP", 'String'>
+    readonly T_HEAT_W: FieldRef<"V_NOISE_AWHP", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"V_NOISE_AWHP", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * V_NOISE_AWHP findUnique
+   */
+  export type V_NOISE_AWHPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_AWHP to fetch.
+     */
+    where: V_NOISE_AWHPWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_AWHP findUniqueOrThrow
+   */
+  export type V_NOISE_AWHPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_AWHP to fetch.
+     */
+    where: V_NOISE_AWHPWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_AWHP findFirst
+   */
+  export type V_NOISE_AWHPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_AWHP to fetch.
+     */
+    where?: V_NOISE_AWHPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_AWHPS to fetch.
+     */
+    orderBy?: V_NOISE_AWHPOrderByWithRelationInput | V_NOISE_AWHPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_AWHPS.
+     */
+    cursor?: V_NOISE_AWHPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_AWHPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_AWHPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_AWHPS.
+     */
+    distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_AWHP findFirstOrThrow
+   */
+  export type V_NOISE_AWHPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_AWHP to fetch.
+     */
+    where?: V_NOISE_AWHPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_AWHPS to fetch.
+     */
+    orderBy?: V_NOISE_AWHPOrderByWithRelationInput | V_NOISE_AWHPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_AWHPS.
+     */
+    cursor?: V_NOISE_AWHPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_AWHPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_AWHPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_AWHPS.
+     */
+    distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_AWHP findMany
+   */
+  export type V_NOISE_AWHPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_AWHPS to fetch.
+     */
+    where?: V_NOISE_AWHPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_AWHPS to fetch.
+     */
+    orderBy?: V_NOISE_AWHPOrderByWithRelationInput | V_NOISE_AWHPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_AWHPS.
+     */
+    cursor?: V_NOISE_AWHPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_AWHPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_AWHPS.
+     */
+    skip?: number
+    distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
+  }
+
+  /**
+   * V_NOISE_AWHP create
+   */
+  export type V_NOISE_AWHPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_AWHP.
+     */
+    data: XOR<V_NOISE_AWHPCreateInput, V_NOISE_AWHPUncheckedCreateInput>
+  }
+
+  /**
+   * V_NOISE_AWHP createMany
+   */
+  export type V_NOISE_AWHPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_AWHPS.
+     */
+    data: V_NOISE_AWHPCreateManyInput | V_NOISE_AWHPCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * V_NOISE_AWHP update
+   */
+  export type V_NOISE_AWHPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_AWHP.
+     */
+    data: XOR<V_NOISE_AWHPUpdateInput, V_NOISE_AWHPUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_AWHP to update.
+     */
+    where: V_NOISE_AWHPWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_AWHP updateMany
+   */
+  export type V_NOISE_AWHPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_AWHPS.
+     */
+    data: XOR<V_NOISE_AWHPUpdateManyMutationInput, V_NOISE_AWHPUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_AWHPS to update
+     */
+    where?: V_NOISE_AWHPWhereInput
+  }
+
+  /**
+   * V_NOISE_AWHP upsert
+   */
+  export type V_NOISE_AWHPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_AWHP to update in case it exists.
+     */
+    where: V_NOISE_AWHPWhereUniqueInput
+    /**
+     * In case the V_NOISE_AWHP found by the `where` argument doesn't exist, create a new V_NOISE_AWHP with this data.
+     */
+    create: XOR<V_NOISE_AWHPCreateInput, V_NOISE_AWHPUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_AWHP was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_AWHPUpdateInput, V_NOISE_AWHPUncheckedUpdateInput>
+  }
+
+  /**
+   * V_NOISE_AWHP delete
+   */
+  export type V_NOISE_AWHPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_AWHP to delete.
+     */
+    where: V_NOISE_AWHPWhereUniqueInput
+  }
+
+  /**
+   * V_NOISE_AWHP deleteMany
+   */
+  export type V_NOISE_AWHPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_AWHPS to delete
+     */
+    where?: V_NOISE_AWHPWhereInput
+  }
+
+  /**
+   * V_NOISE_AWHP without action
+   */
+  export type V_NOISE_AWHPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_AWHP
+     */
+    select?: V_NOISE_AWHPSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4856,6 +11541,69 @@ export namespace Prisma {
   };
 
   export type T_NOISE_PRODUCTTYPEScalarFieldEnum = (typeof T_NOISE_PRODUCTTYPEScalarFieldEnum)[keyof typeof T_NOISE_PRODUCTTYPEScalarFieldEnum]
+
+
+  export const V_NOISE_MULTIV_IScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_MULTIV_IScalarFieldEnum = (typeof V_NOISE_MULTIV_IScalarFieldEnum)[keyof typeof V_NOISE_MULTIV_IScalarFieldEnum]
+
+
+  export const V_NOISE_RACScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_RACScalarFieldEnum = (typeof V_NOISE_RACScalarFieldEnum)[keyof typeof V_NOISE_RACScalarFieldEnum]
+
+
+  export const V_NOISE_MULTIV_SScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_MULTIV_SScalarFieldEnum = (typeof V_NOISE_MULTIV_SScalarFieldEnum)[keyof typeof V_NOISE_MULTIV_SScalarFieldEnum]
+
+
+  export const V_NOISE_SCACScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_SCACScalarFieldEnum = (typeof V_NOISE_SCACScalarFieldEnum)[keyof typeof V_NOISE_SCACScalarFieldEnum]
+
+
+  export const V_NOISE_MULTIV_5ScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_MULTIV_5ScalarFieldEnum = (typeof V_NOISE_MULTIV_5ScalarFieldEnum)[keyof typeof V_NOISE_MULTIV_5ScalarFieldEnum]
+
+
+  export const V_NOISE_MULTIScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_MULTIScalarFieldEnum = (typeof V_NOISE_MULTIScalarFieldEnum)[keyof typeof V_NOISE_MULTIScalarFieldEnum]
+
+
+  export const V_NOISE_AWHPScalarFieldEnum: {
+    BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
+    T_HEAT_W: 'T_HEAT_W',
+    T_COOL_W: 'T_COOL_W'
+  };
+
+  export type V_NOISE_AWHPScalarFieldEnum = (typeof V_NOISE_AWHPScalarFieldEnum)[keyof typeof V_NOISE_AWHPScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5156,6 +11904,314 @@ export namespace Prisma {
     FUNCNAME_LIST?: StringNullableWithAggregatesFilter<"T_NOISE_PRODUCTTYPE"> | string | null
   }
 
+  export type V_NOISE_MULTIV_IWhereInput = {
+    AND?: V_NOISE_MULTIV_IWhereInput | V_NOISE_MULTIV_IWhereInput[]
+    OR?: V_NOISE_MULTIV_IWhereInput[]
+    NOT?: V_NOISE_MULTIV_IWhereInput | V_NOISE_MULTIV_IWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_MULTIV_I"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_MULTIV_IWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_MULTIV_IWhereInput | V_NOISE_MULTIV_IWhereInput[]
+    OR?: V_NOISE_MULTIV_IWhereInput[]
+    NOT?: V_NOISE_MULTIV_IWhereInput | V_NOISE_MULTIV_IWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_MULTIV_IOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_MULTIV_ICountOrderByAggregateInput
+    _avg?: V_NOISE_MULTIV_IAvgOrderByAggregateInput
+    _max?: V_NOISE_MULTIV_IMaxOrderByAggregateInput
+    _min?: V_NOISE_MULTIV_IMinOrderByAggregateInput
+    _sum?: V_NOISE_MULTIV_ISumOrderByAggregateInput
+  }
+
+  export type V_NOISE_MULTIV_IScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_MULTIV_IScalarWhereWithAggregatesInput | V_NOISE_MULTIV_IScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_MULTIV_IScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_MULTIV_IScalarWhereWithAggregatesInput | V_NOISE_MULTIV_IScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_MULTIV_I"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_I"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACWhereInput = {
+    AND?: V_NOISE_RACWhereInput | V_NOISE_RACWhereInput[]
+    OR?: V_NOISE_RACWhereInput[]
+    NOT?: V_NOISE_RACWhereInput | V_NOISE_RACWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_RAC"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_RACWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_RACWhereInput | V_NOISE_RACWhereInput[]
+    OR?: V_NOISE_RACWhereInput[]
+    NOT?: V_NOISE_RACWhereInput | V_NOISE_RACWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_RACOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_RACCountOrderByAggregateInput
+    _avg?: V_NOISE_RACAvgOrderByAggregateInput
+    _max?: V_NOISE_RACMaxOrderByAggregateInput
+    _min?: V_NOISE_RACMinOrderByAggregateInput
+    _sum?: V_NOISE_RACSumOrderByAggregateInput
+  }
+
+  export type V_NOISE_RACScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_RACScalarWhereWithAggregatesInput | V_NOISE_RACScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_RACScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_RACScalarWhereWithAggregatesInput | V_NOISE_RACScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_RAC"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_RAC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SWhereInput = {
+    AND?: V_NOISE_MULTIV_SWhereInput | V_NOISE_MULTIV_SWhereInput[]
+    OR?: V_NOISE_MULTIV_SWhereInput[]
+    NOT?: V_NOISE_MULTIV_SWhereInput | V_NOISE_MULTIV_SWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_MULTIV_S"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_MULTIV_SWhereInput | V_NOISE_MULTIV_SWhereInput[]
+    OR?: V_NOISE_MULTIV_SWhereInput[]
+    NOT?: V_NOISE_MULTIV_SWhereInput | V_NOISE_MULTIV_SWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_MULTIV_SOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_MULTIV_SCountOrderByAggregateInput
+    _avg?: V_NOISE_MULTIV_SAvgOrderByAggregateInput
+    _max?: V_NOISE_MULTIV_SMaxOrderByAggregateInput
+    _min?: V_NOISE_MULTIV_SMinOrderByAggregateInput
+    _sum?: V_NOISE_MULTIV_SSumOrderByAggregateInput
+  }
+
+  export type V_NOISE_MULTIV_SScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_MULTIV_SScalarWhereWithAggregatesInput | V_NOISE_MULTIV_SScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_MULTIV_SScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_MULTIV_SScalarWhereWithAggregatesInput | V_NOISE_MULTIV_SScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_MULTIV_S"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_S"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACWhereInput = {
+    AND?: V_NOISE_SCACWhereInput | V_NOISE_SCACWhereInput[]
+    OR?: V_NOISE_SCACWhereInput[]
+    NOT?: V_NOISE_SCACWhereInput | V_NOISE_SCACWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_SCAC"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_SCACWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_SCACWhereInput | V_NOISE_SCACWhereInput[]
+    OR?: V_NOISE_SCACWhereInput[]
+    NOT?: V_NOISE_SCACWhereInput | V_NOISE_SCACWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_SCACOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_SCACCountOrderByAggregateInput
+    _avg?: V_NOISE_SCACAvgOrderByAggregateInput
+    _max?: V_NOISE_SCACMaxOrderByAggregateInput
+    _min?: V_NOISE_SCACMinOrderByAggregateInput
+    _sum?: V_NOISE_SCACSumOrderByAggregateInput
+  }
+
+  export type V_NOISE_SCACScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_SCACScalarWhereWithAggregatesInput | V_NOISE_SCACScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_SCACScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_SCACScalarWhereWithAggregatesInput | V_NOISE_SCACScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_SCAC"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_SCAC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5WhereInput = {
+    AND?: V_NOISE_MULTIV_5WhereInput | V_NOISE_MULTIV_5WhereInput[]
+    OR?: V_NOISE_MULTIV_5WhereInput[]
+    NOT?: V_NOISE_MULTIV_5WhereInput | V_NOISE_MULTIV_5WhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_MULTIV_5"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5OrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5WhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_MULTIV_5WhereInput | V_NOISE_MULTIV_5WhereInput[]
+    OR?: V_NOISE_MULTIV_5WhereInput[]
+    NOT?: V_NOISE_MULTIV_5WhereInput | V_NOISE_MULTIV_5WhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_MULTIV_5OrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_MULTIV_5CountOrderByAggregateInput
+    _avg?: V_NOISE_MULTIV_5AvgOrderByAggregateInput
+    _max?: V_NOISE_MULTIV_5MaxOrderByAggregateInput
+    _min?: V_NOISE_MULTIV_5MinOrderByAggregateInput
+    _sum?: V_NOISE_MULTIV_5SumOrderByAggregateInput
+  }
+
+  export type V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput | V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput | V_NOISE_MULTIV_5ScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_MULTIV_5"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTIV_5"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIWhereInput = {
+    AND?: V_NOISE_MULTIWhereInput | V_NOISE_MULTIWhereInput[]
+    OR?: V_NOISE_MULTIWhereInput[]
+    NOT?: V_NOISE_MULTIWhereInput | V_NOISE_MULTIWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_MULTI"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_MULTIWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_MULTIWhereInput | V_NOISE_MULTIWhereInput[]
+    OR?: V_NOISE_MULTIWhereInput[]
+    NOT?: V_NOISE_MULTIWhereInput | V_NOISE_MULTIWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_MULTIOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_MULTICountOrderByAggregateInput
+    _avg?: V_NOISE_MULTIAvgOrderByAggregateInput
+    _max?: V_NOISE_MULTIMaxOrderByAggregateInput
+    _min?: V_NOISE_MULTIMinOrderByAggregateInput
+    _sum?: V_NOISE_MULTISumOrderByAggregateInput
+  }
+
+  export type V_NOISE_MULTIScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_MULTIScalarWhereWithAggregatesInput | V_NOISE_MULTIScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_MULTIScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_MULTIScalarWhereWithAggregatesInput | V_NOISE_MULTIScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_MULTI"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_MULTI"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPWhereInput = {
+    AND?: V_NOISE_AWHPWhereInput | V_NOISE_AWHPWhereInput[]
+    OR?: V_NOISE_AWHPWhereInput[]
+    NOT?: V_NOISE_AWHPWhereInput | V_NOISE_AWHPWhereInput[]
+    BUYER_MODEL_NAME?: StringFilter<"V_NOISE_AWHP"> | string
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPOrderByWithRelationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_AWHPWhereUniqueInput = Prisma.AtLeast<{
+    BUYER_MODEL_NAME?: string
+    AND?: V_NOISE_AWHPWhereInput | V_NOISE_AWHPWhereInput[]
+    OR?: V_NOISE_AWHPWhereInput[]
+    NOT?: V_NOISE_AWHPWhereInput | V_NOISE_AWHPWhereInput[]
+    T_HEAT_W?: DecimalNullableFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+  }, "BUYER_MODEL_NAME">
+
+  export type V_NOISE_AWHPOrderByWithAggregationInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    _count?: V_NOISE_AWHPCountOrderByAggregateInput
+    _avg?: V_NOISE_AWHPAvgOrderByAggregateInput
+    _max?: V_NOISE_AWHPMaxOrderByAggregateInput
+    _min?: V_NOISE_AWHPMinOrderByAggregateInput
+    _sum?: V_NOISE_AWHPSumOrderByAggregateInput
+  }
+
+  export type V_NOISE_AWHPScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_AWHPScalarWhereWithAggregatesInput | V_NOISE_AWHPScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_AWHPScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_AWHPScalarWhereWithAggregatesInput | V_NOISE_AWHPScalarWhereWithAggregatesInput[]
+    BUYER_MODEL_NAME?: StringWithAggregatesFilter<"V_NOISE_AWHP"> | string
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
+  }
+
   export type T_NOISE_FUNCNAMECreateInput = {
     ID: number
     NAME: string
@@ -5420,6 +12476,300 @@ export namespace Prisma {
     PRODUCT_TYPE?: StringFieldUpdateOperationsInput | string
     VISIBLE?: IntFieldUpdateOperationsInput | number
     FUNCNAME_LIST?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type V_NOISE_MULTIV_ICreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_ICreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_IUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACCreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_RACUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SCreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_SUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACCreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_SCACUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5CreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5UncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5UpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5UncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5CreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5UpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIV_5UncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTICreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTICreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_MULTIUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPUncheckedCreateInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPUncheckedUpdateInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPCreateManyInput = {
+    BUYER_MODEL_NAME: string
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPUpdateManyMutationInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_AWHPUncheckedUpdateManyInput = {
+    BUYER_MODEL_NAME?: StringFieldUpdateOperationsInput | string
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5738,6 +13088,202 @@ export namespace Prisma {
     VISIBLE?: SortOrder
   }
 
+  export type V_NOISE_MULTIV_ICountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_IAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_IMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_IMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_ISumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_RACCountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_RACAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_RACMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_RACMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_RACSumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SCountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_SSumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_SCACCountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_SCACAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_SCACMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_SCACMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_SCACSumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5CountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5AvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5MaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5MinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIV_5SumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTICountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTIMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_MULTISumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_AWHPCountOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_AWHPAvgOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_AWHPMaxOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_AWHPMinOrderByAggregateInput = {
+    BUYER_MODEL_NAME?: SortOrder
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
+  export type V_NOISE_AWHPSumOrderByAggregateInput = {
+    T_HEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -5956,6 +13502,34 @@ export namespace Prisma {
      * @deprecated Use T_NOISE_PRODUCTTYPEDefaultArgs instead
      */
     export type T_NOISE_PRODUCTTYPEArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_NOISE_PRODUCTTYPEDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_MULTIV_IDefaultArgs instead
+     */
+    export type V_NOISE_MULTIV_IArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_MULTIV_IDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_RACDefaultArgs instead
+     */
+    export type V_NOISE_RACArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_RACDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_MULTIV_SDefaultArgs instead
+     */
+    export type V_NOISE_MULTIV_SArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_MULTIV_SDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_SCACDefaultArgs instead
+     */
+    export type V_NOISE_SCACArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_SCACDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_MULTIV_5DefaultArgs instead
+     */
+    export type V_NOISE_MULTIV_5Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_MULTIV_5DefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_MULTIDefaultArgs instead
+     */
+    export type V_NOISE_MULTIArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_MULTIDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_AWHPDefaultArgs instead
+     */
+    export type V_NOISE_AWHPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_AWHPDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
