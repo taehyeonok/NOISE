@@ -150,7 +150,7 @@ export default function OutdoorSpaceContent({
           "Barrier in the path",
           <CSelect
             name={"barrier_in_the_path"}
-            title={"Barrier in the path"}
+            title={"O"}
             select={selected}
             setSelect={setSelected}
             className={`${inputSelectStyle} h-[2.25rem]`}
