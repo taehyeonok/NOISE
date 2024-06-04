@@ -27,20 +27,25 @@ export default function CCustomInput({
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value;
-    if (isPositive) {
-      // 입력된 문자가 정규 표현식과 일치하는 경우, 입력을 방지합니다.
-      inputValue = inputValue.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
+    if (name === "Project Name") {
+      setInput(inputValue);
+      if (onChange) onChange(inputValue);
+    } else {
+      if (isPositive) {
+        // 입력된 문자가 정규 표현식과 일치하는 경우, 입력을 방지합니다.
+        inputValue = inputValue.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
 
-      if (Number(inputValue) < 0) {
-        inputValue = "0";
+        if (Number(inputValue) < 0) {
+          inputValue = "0";
+        }
       }
+      if (inputValue) {
+        inputRef.current?.setCustomValidity("");
+        inputRef.current?.reportValidity();
+      }
+      setInput(inputValue);
+      if (onChange) onChange(Number(inputValue));
     }
-    if (inputValue) {
-      inputRef.current?.setCustomValidity("");
-      inputRef.current?.reportValidity();
-    }
-    setInput(inputValue);
-    if (onChange) onChange(Number(inputValue));
   };
 
   const onBlurInput = (e: FocusEvent<HTMLInputElement, Element>) => {

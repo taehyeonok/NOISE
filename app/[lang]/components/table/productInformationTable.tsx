@@ -141,7 +141,7 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Qty(EA)",
+                "Capacity (%)",
                 <CCustomInput
                   type={"text"}
                   placeholder={"0"}

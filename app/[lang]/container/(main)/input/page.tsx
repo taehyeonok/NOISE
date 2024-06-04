@@ -37,6 +37,7 @@ import { useTranslation } from "@/app/i18n/client";
 import LoadingPage from "@/app/[lang]/components/loadingSkeleton/loadingPage";
 import { ProductItem } from "@/@types/components";
 import { cloneObject } from "@/app/utils/utils";
+import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 
 export default function Input() {
   const param = useParams<{ lang: string }>();
@@ -278,15 +279,15 @@ export default function Input() {
             {/* 반응형 */}
             <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
               <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>Project Name</div>
-              <CSelect
-                name={"project_name"}
-                title={"Project Name"}
-                className={"w-[18.438rem] mobile:w-[12.5rem]"}
-                selected
-                onChange={(changeValue: any) => {
+              <CCustomInput
+                name={`Project Name`}
+                type={"text"}
+                placeholder={"Project Name"}
+                value={projectName}
+                classList={"w-[18.438rem] mobile:w-[12.5rem]"}
+                onChange={(changeValue: string) => {
                   setProjectName(changeValue);
                 }}
-                value={projectName}
               />
             </div>
             {/* 반응형 */}

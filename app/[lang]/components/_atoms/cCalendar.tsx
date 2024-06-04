@@ -2,7 +2,11 @@ import { useRef, useState } from "react";
 import { cCalendarProps } from "@/@types/components";
 
 export default function CCalendar({ label }: cCalendarProps) {
-  const [date, setDate] = useState<string>("");
+  const newDate = new Date();
+  const nowMonth = newDate.toLocaleDateString("en-US", { month: "long" });
+  const nowDay = ("00" + newDate.getUTCDate().toString()).slice(-2);
+  const nowYear = newDate.getUTCFullYear();
+  const [date, setDate] = useState<string>(`${nowMonth} ${nowDay} ${nowYear}`);
 
   const onChangeDate = (date: string) => {
     const _newDate = new Date(date);
