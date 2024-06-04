@@ -10,6 +10,7 @@ import BarrierInformationTable from "@/app/[lang]/components/table/barrierInform
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import { cTooltipProps } from "@/@types/components";
 import { selectMaterialDummyData } from "../../constants/const";
+import { cloneObject } from "@/app/utils/utils";
 
 export default function OutdoorSpaceContent({
   barrierInfoTableData,
@@ -28,7 +29,16 @@ export default function OutdoorSpaceContent({
   });
   const [elevation, setElevation] = useState(0);
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
-  const [barrierThickness, setBarrierThickness] = useState(0);
+  const [barrierThickness, setBarrierThickness] = useState<{ title: string; value: string }>({
+    title: "Concrete(Default) / 120mm",
+    value: "120",
+  });
+  const transmissionLoss = [
+    [32, 32, 40, 46, 53, 59, 64, 64],
+    [24, 24, 27, 26, 27, 24, 33, 33],
+    [18, 18, 20, 24, 24, 25, 30, 30],
+    [15, 15, 18, 22, 28, 32, 24, 24],
+  ];
   const renderContainerBoxRowItem = (
     title: string,
     children: React.ReactNode,
@@ -220,8 +230,20 @@ export default function OutdoorSpaceContent({
                 className={`${inputSelectStyle} h-[2.25rem]`}
                 selectList={selectMaterialDummyData}
                 onChange={(changeValue: any) => {
-                  console.log(changeValue);
                   setBarrierThickness(changeValue);
+                  const copyBarierInfo = cloneObject(barrierInfoTableData);
+                  for (let i = 0; i < transmissionLoss[0]!.length; i++) {
+                    if (changeValue.value == "120") {
+                      copyBarierInfo[i].content2 = transmissionLoss[0]![i];
+                    } else if (changeValue.value == "20") {
+                      copyBarierInfo[i].content2 = transmissionLoss[1]![i];
+                    } else if (changeValue.value == "12") {
+                      copyBarierInfo[i].content2 = transmissionLoss[2]![i];
+                    } else if (changeValue.value == "3") {
+                      copyBarierInfo[i].content2 = transmissionLoss[3]![i];
+                    }
+                  }
+                  setBarrierInfoTableData(copyBarierInfo);
                 }}
               />,
               undefined,
@@ -233,7 +255,7 @@ export default function OutdoorSpaceContent({
                 name="barrier_thickness"
                 type={"number"}
                 placeholder={"0"}
-                value={120}
+                value={barrierThickness.value}
                 classList={`${inputSelectStyle}`}
                 disabled={true}
               />,
