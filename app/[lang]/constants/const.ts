@@ -109,6 +109,12 @@ export const selectListDummyData = [
   { title: "item10", value: "10" },
   { title: "item11", value: "11" },
 ];
+export const selectMaterialDummyData = [
+  { title: "Concrete(Default) / 120mm", value: "120" },
+  { title: "Wood / 20mm", value: "20" },
+  { title: "Plywood / 12mm", value: "12" },
+  { title: "Glass / 3mm", value: "3" },
+];
 export const productInformationTableDummyData = [
   {
     id: 1,

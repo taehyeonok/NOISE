@@ -26,7 +26,6 @@ export default function CSelect({
   onChange,
   validMessage,
   data,
-  number,
 }: selectProps) {
   const [active, setActive] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -100,7 +99,12 @@ export default function CSelect({
     setSelectText(valObj?.title);
     inputTextRef.current?.setCustomValidity("");
     if (onChange) {
-      if (title == "Outdoor Space" || code === "productType" || code === "functionNoise") {
+      if (
+        title == "Outdoor Space" ||
+        code === "productType" ||
+        code === "functionNoise" ||
+        name == "material_thickness"
+      ) {
         onChange(valObj);
       } else {
         onChange(valObj.title);
@@ -119,7 +123,12 @@ export default function CSelect({
       setSelectText(valObj?.title);
       inputTextRef.current?.setCustomValidity("");
       if (onChange) {
-        if (title == "Outdoor Space" || code === "productType" || code === "functionNoise") {
+        if (
+          title == "Outdoor Space" ||
+          code === "productType" ||
+          code === "functionNoise" ||
+          name == "material_thickness"
+        ) {
           onChange(valObj);
         } else {
           onChange(valObj.title);

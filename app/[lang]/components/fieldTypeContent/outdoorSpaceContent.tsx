@@ -9,6 +9,7 @@ import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import BarrierInformationTable from "@/app/[lang]/components/table/barrierInformationTable";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import { cTooltipProps } from "@/@types/components";
+import { selectMaterialDummyData } from "../../constants/const";
 
 export default function OutdoorSpaceContent({
   barrierInfoTableData,
@@ -27,7 +28,7 @@ export default function OutdoorSpaceContent({
   });
   const [elevation, setElevation] = useState(0);
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
-
+  const [barrierThickness, setBarrierThickness] = useState(0);
   const renderContainerBoxRowItem = (
     title: string,
     children: React.ReactNode,
@@ -217,6 +218,11 @@ export default function OutdoorSpaceContent({
                 name={"material_thickness"}
                 title={"Concrete(Dafault) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
+                selectList={selectMaterialDummyData}
+                onChange={(changeValue: any) => {
+                  console.log(changeValue);
+                  setBarrierThickness(changeValue);
+                }}
               />,
               undefined,
               true

@@ -23,7 +23,6 @@ interface selectProps {
   onChange?: Function;
   validMessage?: { message: string; format?: string[] };
   data?: any;
-  number?: number;
 }
 
 interface containerBoxRowProps {

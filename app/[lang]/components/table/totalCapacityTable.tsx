@@ -1,6 +1,3 @@
-import { ProductItem } from "@/@types/components";
-import { totalCapacityTableDummyData } from "@/app/[lang]/constants/const";
-import { useEffect, useState } from "react";
 interface totalCapacityTableData {
   label: string;
   first: string;

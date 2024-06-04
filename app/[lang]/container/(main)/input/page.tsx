@@ -109,13 +109,13 @@ export default function Input() {
   }, []);
 
   useEffect(() => {
-    const copyProductTable = cloneObject(productTableData);
     const copySoundPressure = cloneObject(soundPressureLevelData);
     const copySoundPower = cloneObject(soundPowerLevelData);
     const copyTotal = cloneObject(totalCapacityTableData);
 
-    let sumCool: number = 0;
-    let sumCapacity: number = 0;
+    let totalCool: number = 0;
+    let totalCapacity: number = 0;
+
     productTableData.map(async (data) => {
       const res = await fetch(`${basePath}/api/common-select-modelspec`, {
         method: "post",
@@ -164,33 +164,32 @@ export default function Input() {
           copySoundPower[8][item.id] =
             10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
         }
+        setSoundPressureLevelData(copySoundPressure);
+        setSoundPowerLevelData(copySoundPower);
       });
       const capacity = Number(data.capacity.replace("%", ""));
-
       const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
         method: "post",
         body: JSON.stringify(data),
       });
       const resultData = await response.json();
       resultData.data.map((item: any) => {
-        sumCool += Number(item.t_cool_w) * Number(data.qty);
-        sumCapacity += item.t_cool_w * 0.001 * capacity * Number(data.qty);
+        const coolData = item.t_cool_w == null ? 0 : item.t_cool_w;
+        totalCool += Number(coolData) * Number(data.qty);
+        totalCapacity += coolData * 0.001 * capacity * Number(data.qty);
       });
-      copyTotal[0].first = Number(sumCool * 0.001).toFixed(1);
-      copyTotal[1].first = Number(sumCapacity * 0.01).toFixed(2);
+      copyTotal[0].first = Number(totalCool * 0.001).toFixed(1) + "kW";
+      copyTotal[1].first = Number(totalCapacity * 0.01).toFixed(1) + "kW";
       copyTotal[1].second =
-        sumCapacity == 0
+        totalCapacity == 0
           ? "0%"
-          : Number(((sumCapacity * 0.01) / (sumCool * 0.001)) * 100).toFixed(0) + "%";
+          : Number(((totalCapacity * 0.01) / (totalCool * 0.001)) * 100).toFixed(0) + "%";
+      setTotalCapacityTableData(copyTotal);
     });
-    setSoundPressureLevelData(copySoundPressure);
-    setSoundPowerLevelData(copySoundPower);
-    setTotalCapacityTableData(copyTotal);
-  }, [productTableData]);
+  }, [productTableData, productTypeData]);
 
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
-    console.log("productTableData = ", productTableData);
     const copyEstimated = cloneObject(estimatedSoundData);
 
     const distance_attenuation = 11.0; //거리감쇠

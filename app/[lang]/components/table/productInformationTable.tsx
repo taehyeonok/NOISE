@@ -213,7 +213,6 @@ export default function ProductInformationTable({
                     }}
                     validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
                     data={item.productType}
-                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>

@@ -1,7 +1,5 @@
 import client from "@/lib/client-noise";
-import client2 from "@/lib/client-cmn";
 import { NextRequest, NextResponse } from "next/server";
-import { T_MASTER_MV_ODU } from "@/prisma/client/lats_cmn";
 
 export async function POST(req: NextRequest) {
   const data = await req.json();
@@ -27,31 +25,98 @@ export async function POST(req: NextRequest) {
     });
   } else if (data.clss == "modelName") {
     if (data?.param.productTypeData === "MultiV_i") {
-      const dataList = await client2.$queryRaw<
-        T_MASTER_MV_ODU[]
-      >`SELECT BUYER_MODEL_NAME, T_COOL_W,T_HEAT_W FROM T_MASTER_MV_ODU T  WHERE DESCRIPTION='MULTI V i' AND (NOTUSEDCOUNTRY NOT LIKE ('%/7/%') OR NOTUSEDCOUNTRY IS NULL) AND LOCATION LIKE '%/7/%' AND VISIBLE=1 AND COMBINATION NOT LIKE '%,%' AND CODE_MULTILINK=1`;
+      const dataList = await client.v_NOISE_MULTIV_I.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
       const result = dataList.map((d: any) => {
         return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
       });
       return NextResponse.json({
         data: result,
       });
+    } else if (data?.param.productTypeData === "MultiV_5") {
+      const dataList = await client.v_NOISE_MULTIV_5.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else if (data?.param.productTypeData === "MultiV_S") {
+      const dataList = await client.v_NOISE_MULTIV_S.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return {
+          title: d.BUYER_MODEL_NAME,
+          value: d.BUYER_MODEL_NAME,
+        };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else if (data?.param.productTypeData === "SCAC") {
+      const dataList = await client.v_NOISE_SCAC.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else if (data?.param.productTypeData === "Multi") {
+      const dataList = await client.v_NOISE_MULTI.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else if (data?.param.productTypeData === "AWHP") {
+      const dataList = await client.v_NOISE_AWHP.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else if (data?.param.productTypeData === "RAC") {
+      const dataList = await client.v_NOISE_RAC.findMany({
+        select: {
+          BUYER_MODEL_NAME: true,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { title: d.BUYER_MODEL_NAME, value: d.BUYER_MODEL_NAME };
+      });
+      return NextResponse.json({
+        data: result,
+      });
+    } else {
+      const result = [{ title: "- Select Product Type -", value: "" }];
+      return NextResponse.json({
+        data: result,
+      });
     }
-    const dataList = await client.t_NOISE_MODELSPEC.findMany({
-      select: {
-        MODEL_NAME: true,
-      },
-      where: {
-        PRODUCT_TYPE: data?.param.productTypeData,
-      },
-      distinct: ["MODEL_NAME"],
-    });
-    const result = dataList.map((d) => {
-      return { title: d.MODEL_NAME, value: d.MODEL_NAME };
-    });
-    return NextResponse.json({
-      data: result,
-    });
   } else if (data.clss == "functionNoise") {
     const dataList = await client.t_NOISE_FUNCNAME.findMany({
       select: {
