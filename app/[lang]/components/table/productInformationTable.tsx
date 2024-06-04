@@ -93,12 +93,40 @@ export default function ProductInformationTable({
               {renderTableItem(
                 "Product Type",
                 <CSelect
-                  id="productType"
+                  key={`product_type_${index}`}
+                  id={`productType_${item.id}`}
                   code="productType"
                   name={`product_type_${index}`}
                   title={item.productType}
                   selected
                   className={"mobileTableSelectStyle"}
+                  onChange={(changedValue: any) => {
+                    data[index]!.productType = changedValue.title;
+                    data[index]!.modelName = "";
+                    data[index]!.qty = "1";
+                    data[index]!.function = "";
+                    data[index]!.step = "";
+                    data[index]!.capacity = "%";
+                    setData([...data]);
+                    const deleteSoundPressure = cloneObject(soundPressureLevelData);
+                    deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                    const deleteSoundPower = cloneObject(soundPowerLevelData);
+                    deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                    setSoundPressureLevelData(deleteSoundPressure);
+                    setSoundPowerLevelData(deleteSoundPower);
+
+                    const copyProduct = cloneObject(productTypeData);
+                    copyProduct[index] = changedValue.title;
+                    setProductTypeData(copyProduct);
+
+                    const copyFunction = cloneObject(functionNoiseData);
+                    copyFunction[index] = changedValue.value.slice(1).split("/");
+                    setFunctionNoiseData(copyFunction);
+                  }}
+                  data={item.productType}
+                  number={item.id}
                 />
               )}
               {renderTableItem(
@@ -109,6 +137,13 @@ export default function ProductInformationTable({
                   title={item.modelName}
                   selected
                   className={"mobileTableSelectStyle"}
+                  onChange={(changedValue: string) => {
+                    data[index]!.modelName = changedValue;
+                    setData([...data]);
+                  }}
+                  params={{ productTypeData: productTypeData[index] }}
+                  data={item.modelName}
+                  number={item.id}
                 />
               )}
               {renderTableItem(
@@ -118,16 +153,32 @@ export default function ProductInformationTable({
                   placeholder={"0"}
                   value={item.qty}
                   classList={"w-[12.5rem]"}
+                  onChange={(changedValue: string) => {
+                    data[index]!.qty = changedValue;
+                    setData([...data]);
+                  }}
                 />
               )}
               {renderTableItem(
                 "Function (Noise)",
                 <CSelect
+                  id={`functionNoise_${item.id}`}
+                  key={`function_noise_${index}`}
                   code="functionNoise"
                   name={`function_noise_${index}`}
                   title={item.function}
                   selected
                   className={"mobileTableSelectStyle"}
+                  onChange={(changedValue: any) => {
+                    data[index]!.function = changedValue.title;
+                    setData([...data]);
+                    const copyStep = cloneObject(stepData);
+                    copyStep[index] = changedValue.value.slice(1).split("/");
+                    setStepData(copyStep);
+                  }}
+                  data={item.function}
+                  params={{ functionData: functionNoiseData[index] }}
+                  number={item.id}
                 />
               )}
               {renderTableItem(
@@ -138,6 +189,13 @@ export default function ProductInformationTable({
                   title={item.step}
                   selected
                   className={"mobileTableSelectStyle"}
+                  onChange={(changedValue: string) => {
+                    data[index]!.step = changedValue;
+                    setData([...data]);
+                  }}
+                  params={{ stepData: stepData[index] }}
+                  data={item.step}
+                  number={item.id}
                 />
               )}
               {renderTableItem(
@@ -180,7 +238,7 @@ export default function ProductInformationTable({
                 <td className={"tableTd"}>
                   <CSelect
                     key={`product_type_${index}`}
-                    id={"productType"}
+                    id={`productType_${item.id}`}
                     code="productType"
                     name={`product_type_${index}`}
                     title={item.productType}
@@ -213,6 +271,7 @@ export default function ProductInformationTable({
                     }}
                     validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
                     data={item.productType}
+                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -229,6 +288,7 @@ export default function ProductInformationTable({
                     }}
                     params={{ productTypeData: productTypeData[index] }}
                     data={item.modelName}
+                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -247,7 +307,7 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
-                    id="functionNoise"
+                    id={`functionNoise_${item.id}`}
                     key={`function_noise_${index}`}
                     code="functionNoise"
                     name={`function_noise_${index}`}
@@ -263,6 +323,7 @@ export default function ProductInformationTable({
                     }}
                     data={item.function}
                     params={{ functionData: functionNoiseData[index] }}
+                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -279,6 +340,7 @@ export default function ProductInformationTable({
                     }}
                     params={{ stepData: stepData[index] }}
                     data={item.step}
+                    number={item.id}
                   />
                 </td>
                 <td className={"tableTd"}>

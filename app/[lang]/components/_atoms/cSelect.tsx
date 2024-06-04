@@ -26,6 +26,7 @@ export default function CSelect({
   onChange,
   validMessage,
   data,
+  number,
 }: selectProps) {
   const [active, setActive] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ export default function CSelect({
       getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
     } else if (code === "modelName") {
       const productType_val = document
-        .querySelector("#productType")
+        .querySelector(`#productType_${number}`)
         ?.getAttribute("data-sel-value");
       if (!productType_val) setSelectBoxData([{ title: "- Select Product Type -", value: "" }]);
       else {
@@ -49,7 +50,7 @@ export default function CSelect({
       }
     } else if (code === "functionNoise") {
       const productType_val = document
-        .querySelector("#productType")
+        .querySelector(`#productType_${number}`)
         ?.getAttribute("data-sel-value");
       if (!productType_val) setSelectBoxData([{ title: "- Select Product Type -", value: "" }]);
       else {
@@ -57,7 +58,7 @@ export default function CSelect({
       }
     } else if (code === "step") {
       const productType_val = document
-        .querySelector("#functionNoise")
+        .querySelector(`#functionNoise_${number}`)
         ?.getAttribute("data-sel-value");
       if (!productType_val) setSelectBoxData([{ title: "- Select Function (Noise) -", value: "" }]);
       else {
