@@ -150,7 +150,7 @@ export async function POST(req: NextRequest) {
     });
   } else {
     return NextResponse.json({
-      data: "",
+      data: {},
     });
   }
 }

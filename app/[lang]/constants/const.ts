@@ -131,13 +131,13 @@ export const productInformationTableDummyData = [
 export const totalCapacityTableDummyData = [
   {
     label: "Rated",
-    first: "107.8kW",
+    first: "0.0kW",
     second: "",
   },
   {
     label: "Simulated",
-    first: "107.4",
-    second: "100%",
+    first: "0.0kW",
+    second: "0%",
   },
 ];
 export const fieldTypeSelectBoxData = [
