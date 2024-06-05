@@ -10,8 +10,12 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
   const [estimatedSoundDBA, setEstimatedSoundDBA] = useState(0);
 
   useEffect(() => {
-    const dBA = dBAF(estimatedSoundData, "content2");
-    setEstimatedSoundDBA(dBA);
+    if (estimatedSoundData[0].content2 === 0) {
+      setEstimatedSoundDBA(0);
+    } else {
+      const dBA = dBAF(estimatedSoundData, "content2");
+      setEstimatedSoundDBA(dBA);
+    }
   }, [estimatedSoundData]);
 
   const renderTdItem = (productType: keyof estimatedSoundProps) => {
