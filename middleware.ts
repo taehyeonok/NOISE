@@ -91,6 +91,8 @@ export async function middleware(req: NextRequest) {
       // 로그인 jwt invalid 처리
       const url = req.nextUrl.clone();
       url.pathname = "/";
+      const protocol = url.protocol;
+      const host = url.host;
 
       response.cookies.set("lats_sso_token", "", {
         expires: new Date(0),
@@ -116,6 +118,7 @@ export async function middleware(req: NextRequest) {
         secure: true,
       });
       isLogout = true;
+      return NextResponse.redirect(protocol + "//" + host + "/login/logout.lge");
     }
   }
 
