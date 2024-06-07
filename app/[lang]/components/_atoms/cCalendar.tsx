@@ -12,7 +12,7 @@ export default function CCalendar({ label }: cCalendarProps) {
     const _newDate = new Date(date);
     const _newMonth = _newDate.toLocaleDateString("en-US", { month: "long" });
     const _dateArr = date.split("-");
-    setDate(`${_newMonth} ${_dateArr[2]}, ${_dateArr[0]}`);
+    setDate(`${_newMonth} ${_dateArr[2]} ${_dateArr[0]}`);
   };
   return (
     //반응형

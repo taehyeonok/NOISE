@@ -66,6 +66,7 @@ export default function Input() {
   const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+  const [totalData, setTotalData] = useState(0);
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -107,7 +108,6 @@ export default function Input() {
     setUnitData(lats_unit[lats_unit.unitClss]);
     setProductTableData(productInformationTableDummyData);
   }, []);
-
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
     const copySoundPressure = cloneObject(soundPressureLevelData);
@@ -118,74 +118,76 @@ export default function Input() {
     let totalCapacity: number = 0;
 
     productTableData.map(async (data) => {
-      const res = await fetch(`${basePath}/api/common-select-modelspec`, {
-        method: "post",
-        body: JSON.stringify(data),
-      });
-      const result = await res.json();
-
-      result.data.map((item: any) => {
-        data.capacity = item.capacity + "%";
-        if (item.dataType === "SPL") {
-          copySoundPressure[0][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
-          copySoundPressure[1][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
-          copySoundPressure[2][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
-          copySoundPressure[3][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
-          copySoundPressure[4][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
-          copySoundPressure[5][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
-          copySoundPressure[6][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
-          copySoundPressure[7][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
-          copySoundPressure[8][item.id] =
-            10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
-        } else {
-          copySoundPower[0][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
-          copySoundPower[1][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
-          copySoundPower[2][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
-          copySoundPower[3][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
-          copySoundPower[4][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
-          copySoundPower[5][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
-          copySoundPower[6][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
-          copySoundPower[7][item.id] =
-            10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
-          copySoundPower[8][item.id] =
-            10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
-        }
-        setSoundPressureLevelData(copySoundPressure);
-        setSoundPowerLevelData(copySoundPower);
-      });
-      const capacity = Number(data.capacity.replace("%", ""));
-      const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
-        method: "post",
-        body: JSON.stringify(data),
-      });
-      const resultData = await response.json();
-      resultData.data.map((item: any) => {
-        const coolData = item.t_cool_w == null ? 0 : item.t_cool_w;
+      if (data.productType !== "") {
+        const res = await fetch(`${basePath}/api/common-select-modelspec`, {
+          method: "post",
+          body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        result.data.map((item: any) => {
+          data.capacity = item.capacity + "%";
+          if (item.dataType === "SPL") {
+            copySoundPressure[0][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
+            copySoundPressure[1][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
+            copySoundPressure[2][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
+            copySoundPressure[3][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
+            copySoundPressure[4][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
+            copySoundPressure[5][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
+            copySoundPressure[6][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
+            copySoundPressure[7][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
+            copySoundPressure[8][item.id] =
+              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+          } else {
+            copySoundPower[0][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
+            copySoundPower[1][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
+            copySoundPower[2][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
+            copySoundPower[3][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
+            copySoundPower[4][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
+            copySoundPower[5][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
+            copySoundPower[6][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
+            copySoundPower[7][item.id] =
+              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
+            copySoundPower[8][item.id] =
+              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+          }
+          setSoundPressureLevelData(copySoundPressure);
+          setSoundPowerLevelData(copySoundPower);
+        });
+        const capacity = Number(data.capacity.replace("%", ""));
+        const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
+          method: "post",
+          body: JSON.stringify(data),
+        });
+        const resultData = await response.json();
+        const coolData = resultData.data.map((item: any) =>
+          item.t_cool_w == null ? 0 : item.t_cool_w
+        );
+        setTotalData(coolData);
         totalCool += Number(coolData) * Number(data.qty);
         totalCapacity += coolData * 0.001 * capacity * Number(data.qty);
-      });
-      copyTotal[0].first = Number(totalCool * 0.001).toFixed(1) + "kW";
-      copyTotal[1].first = Number(totalCapacity * 0.01).toFixed(1) + "kW";
-      copyTotal[1].second =
-        totalCapacity == 0
-          ? "0%"
-          : Number(((totalCapacity * 0.01) / (totalCool * 0.001)) * 100).toFixed(0) + "%";
-      setTotalCapacityTableData(copyTotal);
+        copyTotal[0].first = Number(totalCool * 0.001).toFixed(1) + "kW";
+        copyTotal[1].first = Number(totalCapacity * 0.01).toFixed(1) + "kW";
+        copyTotal[1].second =
+          totalCapacity == 0
+            ? "0%"
+            : Number(((totalCapacity * 0.01) / (totalCool * 0.001)) * 100).toFixed(0) + "%";
+        setTotalCapacityTableData(copyTotal);
+      }
     });
   }, [productTableData, productTypeData]);
 
