@@ -3,7 +3,7 @@
 import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 import IC_ROUND_PLUS from "@/app/assets/icons/ic_round_plus.svg";
 import IG_OUTDOOR_SPACE from "@/app/assets/images/ig_outdoor_space.svg";
@@ -12,7 +12,6 @@ import Image from "next/image";
 import ProductInformationTable from "@/app/[lang]/components/table/productInformationTable";
 import {
   barrierInfoTableDummyData,
-  dBAF,
   estimatedSoundDummyData,
   fieldTypeSelectBoxData,
   productInformationTableDummyData,
@@ -28,7 +27,6 @@ import EstimatedSoundPowerDataTable from "@/app/[lang]/components/table/estimate
 import OutdoorSpaceContent from "@/app/[lang]/components/fieldTypeContent/outdoorSpaceContent";
 import EnclosedSpaceContent from "@/app/[lang]/components/fieldTypeContent/enclosedSpaceContent";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
-import Link from "next/link";
 import EditUnit from "@/lib/editUnit";
 import { noiseSimulator } from "@/lib/noiseSimulator";
 import { validateFormData } from "@/lib/validation";
@@ -107,8 +105,10 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
+    setProductTableData(productInformationTableDummyData);
   }, []);
 
+  //Total Capacity Data & Sound Spec Data
   useEffect(() => {
     const copySoundPressure = cloneObject(soundPressureLevelData);
     const copySoundPower = cloneObject(soundPowerLevelData);
