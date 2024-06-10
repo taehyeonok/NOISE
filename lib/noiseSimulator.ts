@@ -156,7 +156,7 @@ export async function noiseSimulator(
             const b_nValue = (2 * b_diffractionPathDifference * hz[i]!) / 341;
 
             const diffractionAttenuation_pathB =
-              0.2 < b_nValue && b_nValue < 12.5
+              -0.2 < b_nValue && b_nValue < 12.5
                 ? 5 +
                   20 *
                     Math.log10(
@@ -182,7 +182,7 @@ export async function noiseSimulator(
             const c_nValue = (2 * c_diffractionPathDifference * hz[i]!) / 341;
 
             const diffractionAttenuation_pathC =
-              0.2 < c_nValue && c_nValue < 12.5
+              -0.2 < c_nValue && c_nValue < 12.5
                 ? 5 +
                   20 *
                     Math.log10(
