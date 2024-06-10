@@ -256,7 +256,7 @@ export default function OutdoorSpaceContent({
                 type={"number"}
                 placeholder={"0"}
                 value={barrierThickness.value}
-                classList={`${inputSelectStyle} bg-gray-200`}
+                classList={`${inputSelectStyle} md:text-gray_400 bg-gray_100`}
                 readOnly={true}
               />,
               undefined,
