@@ -225,8 +225,8 @@ export default function OutdoorSpaceContent({
             {renderContainerBoxRowItem(
               "Material / Thickness",
               <CSelect
-                name={"material_thickness"}
-                title={"Concrete(Dafault) / 120mm"}
+                name="material_thickness"
+                title={"Concrete(Default) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
                 selectList={selectMaterialDummyData}
                 onChange={(changeValue: any) => {
@@ -256,8 +256,8 @@ export default function OutdoorSpaceContent({
                 type={"number"}
                 placeholder={"0"}
                 value={barrierThickness.value}
-                classList={`${inputSelectStyle}`}
-                disabled={true}
+                classList={`${inputSelectStyle} bg-gray-200`}
+                readOnly={true}
               />,
               undefined,
               true

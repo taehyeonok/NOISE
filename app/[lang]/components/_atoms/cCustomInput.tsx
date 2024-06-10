@@ -18,6 +18,7 @@ export default function CCustomInput({
   isPositive = false,
   onChange,
   validMessage,
+  readOnly,
 }: customInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const unitRef = useRef<HTMLSpanElement | null>(null);
@@ -118,6 +119,7 @@ export default function CCustomInput({
         onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
           validateMsg({ event: e, validMessage: validMessage })
         }
+        readOnly={readOnly}
       />
       <label htmlFor={label} className={"sr_only"}>
         {label ? label : ""}
@@ -150,6 +152,7 @@ export default function CCustomInput({
         onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
           validateMsg({ event: e, validMessage: validMessage })
         }
+        readOnly={readOnly}
       />
       <label htmlFor={label} className={"sr_only"}>
         {label ? label : ""}

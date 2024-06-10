@@ -62,7 +62,7 @@ export async function noiseSimulator(
         true
       );
       const barrier_thickness = Number(formData.get("barrier_thickness"));
-      const material_thickness = formData.get("material_thickness");
+      // const material_thickness = formData.get("material_thickness_text");
       const background_noise = Number(formData.get("background_noise"));
 
       //Scene 1: Only propagation

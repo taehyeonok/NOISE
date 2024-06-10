@@ -51,6 +51,7 @@ interface customInputProps {
   isPositive?: boolean;
   onChange?: Function;
   validMessage?: { message: string; format?: string[] };
+  readOnly?: boolean;
 }
 
 interface buttonProps {
