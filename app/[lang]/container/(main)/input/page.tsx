@@ -106,8 +106,15 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
-    setProductTableData(productInformationTableDummyData);
+    const copyProduct = cloneObject(productTableData);
+    copyProduct[0].productType = "";
+    copyProduct[0].modelName = "";
+    copyProduct[0].function = "";
+    copyProduct[0].step = "";
+    copyProduct[0].capacity = "%";
+    setProductTableData(copyProduct);
   }, []);
+
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
     const copySoundPressure = cloneObject(soundPressureLevelData);
@@ -178,7 +185,7 @@ export default function Input() {
           item.t_cool_w == null ? 0 : item.t_cool_w
         );
         setTotalData(coolData);
-        totalCool += Number(coolData) * Number(data.qty);
+        totalCool += coolData * Number(data.qty);
         totalCapacity += coolData * 0.001 * capacity * Number(data.qty);
         copyTotal[0].first = Number(totalCool * 0.001).toFixed(1) + "kW";
         copyTotal[1].first = Number(totalCapacity * 0.01).toFixed(1) + "kW";
@@ -196,7 +203,37 @@ export default function Input() {
     const copyEstimated = cloneObject(estimatedSoundData);
 
     const distance_attenuation = 11.0; //거리감쇠
-    const correction = [0.8, 0.8, 0.8, 0.8, 0.8, 1.8, 1.8, 1.8]; // 제품특성 별 측정환경
+    let totalQty: number = 0;
+    let adjustment: number = 0;
+    productTableData
+      .filter(
+        (arr, index, callback) =>
+          index ===
+          callback.findIndex((loc) => {
+            return loc.productType === arr.productType;
+          })
+      )
+      .map((item) => {
+        if (item.productType == "AWHP") {
+          adjustment += Number(item.qty) * 0;
+          totalQty += Number(item.qty);
+        } else {
+          adjustment += Number(item.qty) * 2.5;
+          totalQty += Number(item.qty);
+        }
+      });
+    const adjustmentData = adjustment / totalQty; //제품특성별 측정환경 보정
+
+    const correction = [
+      adjustmentData - 0.5,
+      adjustmentData - 0.5,
+      adjustmentData - 0.5,
+      adjustmentData - 0.5,
+      adjustmentData - 0.5,
+      adjustmentData + 0.5,
+      adjustmentData + 0.5,
+      adjustmentData + 0.5,
+    ]; // 제품특성별 측정환경
 
     const soundSpecData: any[] = [];
     let number = 0;
