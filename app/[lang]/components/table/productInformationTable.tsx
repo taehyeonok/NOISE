@@ -153,8 +153,8 @@ export default function ProductInformationTable({
                   placeholder={"0"}
                   value={item.qty}
                   classList={"w-[12.5rem]"}
-                  onChange={(changedValue: { title: string; value: string }) => {
-                    data[index]!.qty = changedValue.title;
+                  onChange={(changedValue: string) => {
+                    data[index]!.qty = changedValue;
                     setData([...data]);
                   }}
                 />
@@ -299,8 +299,8 @@ export default function ProductInformationTable({
                     placeholder={"0"}
                     value={item.qty}
                     classList={"w-full px-3 !h-7"}
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      data[index]!.qty = changedValue.title;
+                    onChange={(changedValue: string) => {
+                      data[index]!.qty = changedValue;
                       setData([...data]);
                     }}
                   />
