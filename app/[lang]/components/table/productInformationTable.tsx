@@ -150,11 +150,14 @@ export default function ProductInformationTable({
                 "Qty(EA)",
                 <CCustomInput
                   type={"number"}
-                  placeholder={"0"}
-                  value={item.qty}
+                  placeholder={"1"}
                   classList={"w-[12.5rem]"}
                   onChange={(changedValue: string) => {
-                    data[index]!.qty = changedValue;
+                    if (changedValue == "0") {
+                      data[index]!.qty = "1";
+                    } else {
+                      data[index]!.qty = changedValue;
+                    }
                     setData([...data]);
                   }}
                 />
@@ -296,11 +299,14 @@ export default function ProductInformationTable({
                     key={`qty_${index}`}
                     name={`qty_${index}`}
                     type={"number"}
-                    placeholder={"0"}
-                    value={item.qty}
+                    placeholder={"1"}
                     classList={"w-full px-3 !h-7"}
                     onChange={(changedValue: string) => {
-                      data[index]!.qty = changedValue;
+                      if (changedValue == "0") {
+                        data[index]!.qty = "1";
+                      } else {
+                        data[index]!.qty = changedValue;
+                      }
                       setData([...data]);
                     }}
                   />

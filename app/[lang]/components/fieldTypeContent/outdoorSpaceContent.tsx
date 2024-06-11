@@ -85,13 +85,12 @@ export default function OutdoorSpaceContent({
             name="elevation_of_outdoor_unit"
             type={"number"}
             classList={`${inputSelectStyle}`}
-            value={elevation}
             unit={unitData?.length}
             required={true}
             onChange={(changeValue: SetStateAction<number>) => {
               setElevation(changeValue);
             }}
-            validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
+            validMessage={{ message: t("RC_0061"), format: [t("THERMAV_209")] }}
           />,
           "Elevation from the ground to bottom of outdoor unit"
         )}
