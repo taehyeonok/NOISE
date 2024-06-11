@@ -444,7 +444,7 @@ export default function Input() {
               selectList={fieldTypeSelectBoxData}
               select={selectFieldType}
               setSelect={setSelectFieldType}
-              onChange={(changeValue: any) => {
+              onChange={(changeValue: { title: string; value: string }) => {
                 setSelectFieldType(changeValue);
               }}
             />

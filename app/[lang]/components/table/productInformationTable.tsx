@@ -100,7 +100,7 @@ export default function ProductInformationTable({
                   title={item.productType}
                   selected
                   className={"mobileTableSelectStyle"}
-                  onChange={(changedValue: any) => {
+                  onChange={(changedValue: { title: string; value: string }) => {
                     data[index]!.productType = changedValue.title;
                     data[index]!.modelName = "";
                     data[index]!.qty = "1";
@@ -137,8 +137,8 @@ export default function ProductInformationTable({
                   title={item.modelName}
                   selected
                   className={"mobileTableSelectStyle"}
-                  onChange={(changedValue: string) => {
-                    data[index]!.modelName = changedValue;
+                  onChange={(changedValue: { title: string; value: string }) => {
+                    data[index]!.modelName = changedValue.title;
                     setData([...data]);
                   }}
                   params={{ productTypeData: productTypeData[index] }}
@@ -153,8 +153,8 @@ export default function ProductInformationTable({
                   placeholder={"0"}
                   value={item.qty}
                   classList={"w-[12.5rem]"}
-                  onChange={(changedValue: string) => {
-                    data[index]!.qty = changedValue;
+                  onChange={(changedValue: { title: string; value: string }) => {
+                    data[index]!.qty = changedValue.title;
                     setData([...data]);
                   }}
                 />
@@ -169,7 +169,7 @@ export default function ProductInformationTable({
                   title={item.function}
                   selected
                   className={"mobileTableSelectStyle"}
-                  onChange={(changedValue: any) => {
+                  onChange={(changedValue: { title: string; value: string }) => {
                     data[index]!.function = changedValue.title;
                     setData([...data]);
                     const copyStep = cloneObject(stepData);
@@ -189,8 +189,8 @@ export default function ProductInformationTable({
                   title={item.step}
                   selected
                   className={"mobileTableSelectStyle"}
-                  onChange={(changedValue: string) => {
-                    data[index]!.step = changedValue;
+                  onChange={(changedValue: { title: string; value: string }) => {
+                    data[index]!.step = changedValue.title;
                     setData([...data]);
                   }}
                   params={{ stepData: stepData[index] }}
@@ -244,7 +244,7 @@ export default function ProductInformationTable({
                     title={item.productType}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: any) => {
+                    onChange={(changedValue: { title: string; value: string }) => {
                       data[index]!.productType = changedValue.title;
                       data[index]!.modelName = "";
                       data[index]!.qty = "1";
@@ -282,8 +282,8 @@ export default function ProductInformationTable({
                     title={item.modelName}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.modelName = changedValue;
+                    onChange={(changedValue: { title: string; value: string }) => {
+                      data[index]!.modelName = changedValue.title;
                       setData([...data]);
                     }}
                     params={{ productTypeData: productTypeData[index] }}
@@ -299,8 +299,8 @@ export default function ProductInformationTable({
                     placeholder={"0"}
                     value={item.qty}
                     classList={"w-full px-3 !h-7"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.qty = changedValue;
+                    onChange={(changedValue: { title: string; value: string }) => {
+                      data[index]!.qty = changedValue.title;
                       setData([...data]);
                     }}
                   />
@@ -314,7 +314,7 @@ export default function ProductInformationTable({
                     title={item.function}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: any) => {
+                    onChange={(changedValue: { title: string; value: string }) => {
                       data[index]!.function = changedValue.title;
                       setData([...data]);
                       const copyStep = cloneObject(stepData);
@@ -334,8 +334,8 @@ export default function ProductInformationTable({
                     title={item.step}
                     selected
                     classList={"tableSelectStyle"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.step = changedValue;
+                    onChange={(changedValue: { title: string; value: string }) => {
+                      data[index]!.step = changedValue.title;
                       setData([...data]);
                     }}
                     params={{ stepData: stepData[index] }}
@@ -352,8 +352,8 @@ export default function ProductInformationTable({
                     value={item.capacity}
                     classList={"w-full px-3 !h-7"}
                     disabled
-                    onChange={(changedValue: string) => {
-                      data[index]!.capacity = changedValue;
+                    onChange={(changedValue: { title: string; value: string }) => {
+                      data[index]!.capacity = changedValue.title;
                       setData([...data]);
                     }}
                   />

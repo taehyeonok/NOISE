@@ -229,7 +229,7 @@ export default function OutdoorSpaceContent({
                 title={"Concrete(Default) / 120mm"}
                 className={`${inputSelectStyle} h-[2.25rem]`}
                 selectList={selectMaterialDummyData}
-                onChange={(changeValue: any) => {
+                onChange={(changeValue: { title: string; value: string }) => {
                   setBarrierThickness(changeValue);
                   const copyBarierInfo = cloneObject(barrierInfoTableData);
                   for (let i = 0; i < transmissionLoss[0]!.length; i++) {

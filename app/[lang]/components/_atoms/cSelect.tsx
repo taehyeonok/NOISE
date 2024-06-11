@@ -99,18 +99,8 @@ export default function CSelect({
     setSelectValue(valObj?.value);
     setSelectText(valObj?.title);
     inputTextRef.current?.setCustomValidity("");
-    if (onChange) {
-      if (
-        title == "Outdoor Space" ||
-        code === "productType" ||
-        code === "functionNoise" ||
-        name == "material_thickness"
-      ) {
-        onChange(valObj);
-      } else {
-        onChange(valObj.title);
-      }
-    }
+    if (onChange) onChange(valObj);
+
     setActive(false);
   };
   const handleSelectItemDown = (
@@ -123,18 +113,8 @@ export default function CSelect({
       setSelectValue(valObj?.value);
       setSelectText(valObj?.title);
       inputTextRef.current?.setCustomValidity("");
-      if (onChange) {
-        if (
-          title == "Outdoor Space" ||
-          code === "productType" ||
-          code === "functionNoise" ||
-          name == "material_thickness"
-        ) {
-          onChange(valObj);
-        } else {
-          onChange(valObj.title);
-        }
-      }
+      if (onChange) onChange(valObj);
+
       setActive(false);
     }
   };
