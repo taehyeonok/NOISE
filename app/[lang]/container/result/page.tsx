@@ -38,15 +38,16 @@ export default function Result({ params: { lang } }: any) {
 
     const outdoor_space = JSON.parse(localStorage.getItem("outdoor_space")!);
     const copyDetailData = cloneObject(detailData);
+    const detailLength = detailData.data[0]?.content.length!;
     if (outdoor_space.title === "Enclosed Space (Machine Room)") {
-      for (let i = 0; i < detailData.data[0]?.content.length!; i++) {
+      for (let i = 0; i < detailLength; i++) {
         copyDetailData.data[0].content[i].content = "-";
         copyDetailData.data[1].content[i].content = Number(data.attenuation[i]).toFixed(1);
         copyDetailData.data[2].content[i].content = "-";
         setDetailData(copyDetailData);
       }
     } else {
-      for (let i = 0; i < detailData.data[0]?.content.length!; i++) {
+      for (let i = 0; i < detailLength; i++) {
         copyDetailData.data[0].content[i].content = data.DI;
         copyDetailData.data[1].content[i].content = data.distance;
         copyDetailData.data[2].content[i].content = Number(
