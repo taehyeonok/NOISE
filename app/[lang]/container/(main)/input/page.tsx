@@ -36,6 +36,7 @@ import LoadingPage from "@/app/[lang]/components/loadingSkeleton/loadingPage";
 import { ProductItem } from "@/@types/components";
 import { cloneObject } from "@/app/utils/utils";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
+import Noisetools from "@/app/[lang]/components/noisetools/noisetools";
 
 export default function Input() {
   const param = useParams<{ lang: string }>();
@@ -101,6 +102,62 @@ export default function Input() {
       setSoundPressureLevelData(deleteSoundPressure);
       setSoundPowerLevelData(deleteSoundPower);
     }
+  };
+
+  ////////////////////// Noisetools Component Test Code From //////////////////////
+  //noisetools add
+  const ntRef = useRef<NoisetoolsForwardRef>(null);
+
+  let horizontalDist = 15;
+  let barrierFromSource = 10;
+  let barrierHeight = 5;
+  let sourceHeight = 5;
+  let receiverHeight = 3;
+
+  interface NoisetoolsForwardRef {
+    setHorizontalDistance(dist: number): void;
+    setBarrierFromSource(dist: number): void;
+    setBarrierHeight(hegiht: number): void;
+    setSourceHeight(hegiht: number): void;
+    setReceiverHeight(hegiht: number): void;
+  }
+
+  const setHorizontalDistance = (dist: number) => {
+    if (horizontalDist > 30) horizontalDist = 20;
+    else horizontalDist += 5;
+    ntRef.current?.setHorizontalDistance(horizontalDist);
+  };
+
+  const setBarrierFromSource = () => {
+    if (barrierFromSource > horizontalDist) barrierFromSource = 3;
+    else barrierFromSource += 2;
+    ntRef.current?.setBarrierFromSource(barrierFromSource);
+  };
+
+  const setBarrierHeight = () => {
+    if (barrierHeight > 10) barrierHeight = 2;
+    else barrierHeight += 1;
+    ntRef.current?.setBarrierHeight(barrierHeight);
+  };
+
+  const setSourceHeight = () => {
+    if (sourceHeight > 10) sourceHeight = 2;
+    else sourceHeight += 1;
+    ntRef.current?.setSourceHeight(sourceHeight);
+  };
+
+  const setReceiverHeight = () => {
+    if (receiverHeight > 10) receiverHeight = 2;
+    else receiverHeight += 1;
+    ntRef.current?.setReceiverHeight(receiverHeight);
+  };
+
+  const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
+    console.log(
+      `factorType: ${factorType} value1:${value1} ${
+        value2 !== undefined ? "value2: " + value2.toString() : ""
+      }`
+    );
   };
 
   useEffect(() => {
@@ -451,7 +508,8 @@ export default function Input() {
           </ContainerBoxRow>
           {/* 반응형 */}
           <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
-            <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} />
+            {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
+            <Noisetools ref={ntRef} factorChangedCallback={notifyNtFactorChanged} />
           </div>
           {selectFieldType?.value === "1" ? (
             <OutdoorSpaceContent
