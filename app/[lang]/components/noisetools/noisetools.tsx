@@ -359,7 +359,7 @@ const Noisetools = forwardRef((props: any, ref) => {
           <rect
             key={"swave_dist_box_up" + (i + 1).toString()}
             id={"swave_dist_box" + (i + 1).toString()}
-            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1] * -0.5}
+            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
             y={0 + (i + 1) * pxPerMeter() - 6}
             width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
             height={12}
@@ -379,7 +379,7 @@ const Noisetools = forwardRef((props: any, ref) => {
           <rect
             key={"swave_dist_box_dn" + (i + 1).toString()}
             id={"swave_dist_box" + (i + 1).toString()}
-            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1] * -0.5}
+            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
             y={0 + -1 * (i + 1) * pxPerMeter() - 6}
             width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
             height={12}
@@ -411,8 +411,8 @@ const Noisetools = forwardRef((props: any, ref) => {
       if (parentRef.current) {
         let sz = parentRef.current.getClientRects()[0];
 
-        fieldData.current.width = sz.width;
-        fieldData.current.height = sz.height;
+        fieldData.current.width = sz!.width;
+        fieldData.current.height = sz!.height;
 
         setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
         setRulerAreaMatrix(`matrix(1 0 0 1 0 ${getObjectCoord("RULER-BACKGROUND", "Y")})`);
@@ -731,8 +731,8 @@ const Noisetools = forwardRef((props: any, ref) => {
   //function onSourcePickerMouseDown(e: MouseEventHandler<SVGGElement>) {
   const onSourcePickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
     let svg = document.querySelector("svg#test-svg") as SVGSVGElement;
-    let svgX = svg.getClientRects()[0]["x"];
-    let svgY = svg.getClientRects()[0]["y"];
+    let svgX = svg.getClientRects()[0]!["x"];
+    let svgY = svg.getClientRects()[0]!["y"];
 
     const ev: unknown = e as unknown as MouseEvent;
 
@@ -747,8 +747,8 @@ const Noisetools = forwardRef((props: any, ref) => {
   const onReceiverPickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
     let svg = document.querySelector("svg#test-svg");
     if (svg !== null && svg !== undefined) {
-      let svgX = svg.getClientRects()[0]["x"];
-      let svgY = svg.getClientRects()[0]["y"];
+      let svgX = svg.getClientRects()[0]!["x"];
+      let svgY = svg.getClientRects()[0]!["y"];
 
       captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Receiver, "X") - e.clientX;
       captuerPos.current.y = svgX + getObjectCoord(FIELD_OBJECT.Receiver, "Y") - e.clientY;
@@ -760,9 +760,9 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   //function onBarrier1PickerMouseDown(e: MouseEventHandler<SVGSVGElement>) {
   const onBarrier1PickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
-    let svg = document.querySelector("svg#test-svg");
-    let svgX = svg.getClientRects()[0]["x"];
-    let svgY = svg.getClientRects()[0]["y"];
+    let svg = document.querySelector("svg#test-svg")!;
+    let svgX = svg.getClientRects()[0]!["x"];
+    let svgY = svg.getClientRects()[0]!["y"];
 
     captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Barrier1, "X") - e.clientX;
     captuerPos.current.y = svgX + getObjectCoord(FIELD_OBJECT.Barrier1, "Y") - e.clientY;
@@ -795,8 +795,8 @@ const Noisetools = forwardRef((props: any, ref) => {
     let svg = document.querySelector("svg#test-svg");
     if (svg == null) return;
 
-    let svgX = svg.getClientRects()[0]["x"];
-    let svgY = svg.getClientRects()[0]["y"];
+    let svgX = svg.getClientRects()[0]!["x"];
+    let svgY = svg.getClientRects()[0]!["y"];
 
     if (cap === PICKERS.Source) {
       if (svg !== null && e.movementY !== 0) {
@@ -864,7 +864,7 @@ const Noisetools = forwardRef((props: any, ref) => {
         ) {
           newD =
             Math.round(
-              ((e.clientX - svg?.getClientRects()[0]["x"] - sourceData.fromLeft * pxPerMeter()) /
+              ((e.clientX - svg?.getClientRects()[0]!["x"] - sourceData.fromLeft * pxPerMeter()) /
                 pxPerMeter()) *
                 10
             ) / 10;
@@ -1017,7 +1017,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                   x={
                     barrierEffectAreaPts.leftRulerStart +
                     (barrierEffectAreaPts.leftRulerEnd - barrierEffectAreaPts.leftRulerStart) / 2 +
-                    rulerWidthDistLables.current[0] * -0.5
+                    rulerWidthDistLables.current[0]! * -0.5
                   }
                   y={-4}
                   width={rulerWidthDistLables.current[0]}
@@ -1065,7 +1065,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                     barrierEffectAreaPts.rightRulerStart +
                     (barrierEffectAreaPts.rightRulerEnd - barrierEffectAreaPts.rightRulerStart) /
                       2 +
-                    rulerWidthDistLables.current[0] * -0.5
+                    rulerWidthDistLables.current[0]! * -0.5
                   }
                   y={-4}
                   width={rulerWidthDistLables.current[0]}
