@@ -89,6 +89,8 @@ const Noisetools = forwardRef((props: any, ref) => {
     Source: "SOURCE",
     Receiver: "RECEIVER",
     Barrier1: "BARRIER1",
+    LeftWall: "LEFT_WALL",
+    RightWall: "RIGHT_WALL",
   } as const;
   type FIELD_OBJECT = (typeof FIELD_OBJECT)[keyof typeof FIELD_OBJECT];
 
@@ -116,6 +118,8 @@ const Noisetools = forwardRef((props: any, ref) => {
         sourceDataRef.current.fromLeft +
         receiverDataRef.current.fromRight)
   );
+
+  let wallState = useRef({ leftWall: 1, rightWall: 1 });
 
   function pxPerMeter() {
     return pxPerMeterValue.current;
@@ -704,27 +708,39 @@ const Noisetools = forwardRef((props: any, ref) => {
     captured.current = v;
   }
 
-  function notifyNtFactorChanged() {
+  function notifyNtFactorChanged(objectName: string) {
     if (props.factorChangedCallback) {
-      switch (captured.current) {
-        case PICKERS.Source:
+      switch (objectName) {
+        case FIELD_OBJECT.Source:
           props.factorChangedCallback("Source", sourceDataRef.current.height);
           break;
-        case PICKERS.Receiver:
-          props.factorChangedCallback("SouReceiverce", receiverDataRef.current.height);
+        case FIELD_OBJECT.Receiver:
+          props.factorChangedCallback("Receiverce", receiverDataRef.current.height);
           break;
-        case PICKERS.Barrier1:
+        case FIELD_OBJECT.Barrier1:
           props.factorChangedCallback(
             "Barrier",
             barrier1DataRef.current.height,
             barrier1DataRef.current.distFromSource
           );
           break;
+        case FIELD_OBJECT.LeftWall:
+          props.factorChangedCallback("LEFT_WALL", wallState.current.leftWall);
+          break;
+        case FIELD_OBJECT.RightWall:
+          props.factorChangedCallback("RIGHT_WALL", wallState.current.rightWall);
+          break;
       }
     }
   }
 
   function windowMouseUp(e: MouseEvent) {
+    let objName = "";
+    if (captured.current == PICKERS.Source) objName = FIELD_OBJECT.Source;
+    if (captured.current == PICKERS.Receiver) objName = FIELD_OBJECT.Receiver;
+    if (captured.current == PICKERS.Barrier1) objName = FIELD_OBJECT.Barrier1;
+
+    notifyNtFactorChanged(objName);
     setCapturedPicker(PICKERS.None);
   }
 
@@ -773,7 +789,14 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   //function onSvgMouseUp(e: MouseEventHandler<SVGSVGElement>) {
   const onSvgMouseUp = (e: React.MouseEvent<SVGSVGElement>) => {
-    notifyNtFactorChanged();
+    let objName = "";
+
+    if (captured.current == PICKERS.Source) objName = FIELD_OBJECT.Source;
+    if (captured.current == PICKERS.Receiver) objName = FIELD_OBJECT.Receiver;
+    if (captured.current == PICKERS.Barrier1) objName = FIELD_OBJECT.Barrier1;
+
+    notifyNtFactorChanged(objName);
+
     setCapturedPicker(PICKERS.None);
   };
 
@@ -895,24 +918,29 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
   }
 
-  //function onLeftWallMouseDown( e: MouseEvent<SVGGElement, MouseEvent>){
-  //function onLeftWallMouseDown(e: MouseEventHandler<SVGElement>) {
   const onLeftWallMouseDown: React.MouseEventHandler<SVGElement> = (e) => {
     if (leftWallRef.current) {
       leftWallRef.current.style.setProperty(
         "display",
         leftWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
       );
+      wallState.current.leftWall =
+        leftWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1;
+
+      notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
     }
   };
 
-  const onRightWallMouseDown: //function onRightWallMouseDown(e: MouseEventHandler<SVGGElement>) {
-  React.MouseEventHandler<SVGElement> = (e) => {
+  const onRightWallMouseDown: React.MouseEventHandler<SVGElement> = (e) => {
     if (rightWallRef.current) {
       rightWallRef.current.style.setProperty(
         "display",
         rightWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
       );
+      wallState.current.rightWall =
+        rightWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1;
+
+      notifyNtFactorChanged(FIELD_OBJECT.RightWall);
     }
   };
 
