@@ -30,6 +30,7 @@ const Noisetools = forwardRef((props: any, ref) => {
           setBarrier1Data({
             distFromSource: barrier1DataRef.current.distFromSource,
             height: barrier1DataRef.current.height,
+            enabled: barrier1DataRef.current.enabled,
           });
 
           setLinePathSToR(
@@ -46,16 +47,22 @@ const Noisetools = forwardRef((props: any, ref) => {
           setBarrier1Data({
             distFromSource: val,
             height: barrier1DataRef.current.height,
+            enabled: barrier1DataRef.current.enabled,
           });
         },
         setBarrierHeight(val: number) {
           setBarrier1Data({
             distFromSource: barrier1DataRef.current.distFromSource,
             height: val,
+            enabled: barrier1DataRef.current.enabled,
           });
         },
         setBarrierEnable(val: boolean) {
-          console.log(`setBarrierEnable called`);
+          setBarrier1Data({
+            distFromSource: barrier1DataRef.current.distFromSource,
+            height: barrier1DataRef.current.height,
+            enabled: val,
+          });
         },
         setSourceHeight(val: number) {
           setSourceData({
@@ -113,15 +120,24 @@ const Noisetools = forwardRef((props: any, ref) => {
   const [barrier1Data, setBarrier1Data] = useState({
     distFromSource: props.barrierFromSource,
     height: props.barrierHeight,
+    enabled: true,
   });
   const [fieldRect, setFieldRect] = useState(`0 0 1100 500`);
 
   let captured = useRef<number>(PICKERS.None);
   let fieldData = useRef({ width: 1100, height: 500 });
   let captuerPos = useRef({ x: 0, y: 0, fromBottom: 0 });
-  let sourceDataRef = useRef({ fromLeft: 4.5, height: 5 });
-  let receiverDataRef = useRef({ distFromSource: 20, height: 2, fromRight: 4.5 });
-  let barrier1DataRef = useRef({ distFromSource: 10, height: 5 });
+  let sourceDataRef = useRef({ fromLeft: 4.5, height: props.sourceHeight });
+  let receiverDataRef = useRef({
+    distFromSource: props.horizontalDistance,
+    height: props.receiverHeight,
+    fromRight: 4.5,
+  });
+  let barrier1DataRef = useRef({
+    distFromSource: props.barrierFromSource,
+    height: props.barrierHeight,
+    enabled: true,
+  });
   let pxPerMeterValue = useRef(
     fieldData.current.width /
       (receiverDataRef.current.distFromSource +
@@ -130,10 +146,14 @@ const Noisetools = forwardRef((props: any, ref) => {
   );
 
   let wallState = useRef({ leftWall: 1, rightWall: 1 });
-  let distanceUnit = useRef(props.distanceUnit);
+  let distanceUnit = useRef(props.distanceUnit === undefined ? "m" : props.distanceUnit);
 
   function pxPerMeter() {
     return pxPerMeterValue.current;
+  }
+
+  function getBarrierHeight(): number {
+    return barrier1DataRef.current.enabled === true ? barrier1DataRef.current.height : 0;
   }
 
   function updateGroup1() {
@@ -423,7 +443,9 @@ const Noisetools = forwardRef((props: any, ref) => {
   // onload
   useEffect(() => {
     const handleResize = () => {
+      console.log(`handleResize pos 1`);
       if (parentRef.current) {
+        console.log(`handleResize pos 2`);
         let sz = parentRef.current.getClientRects()[0];
 
         fieldData.current.width = sz!.width;
@@ -459,6 +481,7 @@ const Noisetools = forwardRef((props: any, ref) => {
         setBarrier1Data({
           distFromSource: barrier1DataRef.current.distFromSource,
           height: barrier1DataRef.current.height,
+          enabled: barrier1DataRef.current.enabled,
         });
 
         recvTransform.current = updateRecvTransform();
@@ -707,7 +730,11 @@ const Noisetools = forwardRef((props: any, ref) => {
           barrier1DataRef.current.distFromSource * pxPerMeter()
         );
       case "BARRIER1-Y":
-        return fieldData.current.height - rulerAreaHight - barrier1Data.height * pxPerMeter();
+        return (
+          fieldData.current.height -
+          rulerAreaHight -
+          /*barrier1Data.height*/ getBarrierHeight() * pxPerMeter()
+        );
       case "RULER-BACKGROUND-Y":
         return fieldData.current.height - rulerAreaHight;
     }
@@ -886,10 +913,8 @@ const Noisetools = forwardRef((props: any, ref) => {
           height: newH,
         });
       }
-    } else if (cap === PICKERS.Barrier1) {
+    } else if (cap === PICKERS.Barrier1 && barrier1DataRef.current.enabled) {
       if (svg !== null && (e.movementY !== 0 || e.movementX !== 0)) {
-        let ba1_picker = svg.querySelector("#ba1_picker");
-
         let newH: number = barrier1DataRef.current.height; // - (e.movementY / pxPerMeter());
         let newD: number = barrier1DataRef.current.distFromSource;
 
@@ -926,7 +951,11 @@ const Noisetools = forwardRef((props: any, ref) => {
         }
         newH = newH >= 0 ? newH : 0;
         console.log(`newD:${newD} newH:${newH}`);
-        setBarrier1Data({ distFromSource: newD, height: newH });
+        setBarrier1Data({
+          distFromSource: newD,
+          height: newH,
+          enabled: barrier1DataRef.current.enabled,
+        });
       }
     }
   }
@@ -988,6 +1017,7 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   let toolPopupRef: React.RefObject<HTMLDivElement> = useRef(null);
   let sToRTextRef: React.RefObject<SVGTextElement> = useRef(null);
+  let ba1PickerRef: React.RefObject<SVGGElement> = useRef(null);
 
   // https://noisetools.net/barriercalculator?source=[5.5]&receiver=[5.4,20]&barrier=[1,2.9,8.8]&walls=[1,1]&display=2
   // https://github.com/svgcamp/svg-arc/blob/master/index.js
@@ -1355,7 +1385,11 @@ const Noisetools = forwardRef((props: any, ref) => {
               <line
                 id="ba1_line"
                 x1={getObjectCoord(FIELD_OBJECT.Barrier1, "X")}
-                y1={fieldData.current.height - rulerAreaHight - barrier1Data.height * pxPerMeter()}
+                y1={
+                  fieldData.current.height -
+                  rulerAreaHight -
+                  /*barrier1Data.height*/ getBarrierHeight() * pxPerMeter()
+                }
                 x2={getObjectCoord(FIELD_OBJECT.Barrier1, "X")}
                 y2={fieldData.current.height - rulerAreaHight}
                 strokeWidth="4"
@@ -1387,7 +1421,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y={
                   fieldData.current.height -
                   rulerAreaHight -
-                  (barrier1Data.height / 2) * pxPerMeter() -
+                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeter() -
                   10
                 }
                 width={40}
@@ -1400,18 +1434,19 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y={
                   fieldData.current.height -
                   rulerAreaHight -
-                  (barrier1Data.height / 2) * pxPerMeter() +
+                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeter() +
                   2
                 }
                 textAnchor="middle"
                 alignmentBaseline="middle"
               >
-                {barrier1Data.height.toString() + distanceUnit.current}
+                {/*barrier1Data.height*/ getBarrierHeight().toString() + distanceUnit.current}
               </text>
             </g>
             <g
               id="ba1_picker"
-              className={"nts_ruler_line"}
+              ref={ba1PickerRef}
+              className={`nts_ruler_line ${barrier1Data.enabled ? "" : "disabled"}`}
               stroke="#000000"
               fill="#000000"
               strokeWidth="0"
