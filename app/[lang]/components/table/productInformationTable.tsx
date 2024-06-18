@@ -127,6 +127,8 @@ export default function ProductInformationTable({
                   }}
                   data={item.productType}
                   number={item.id}
+                  validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
+                  required
                 />
               )}
               {renderTableItem(
@@ -144,6 +146,8 @@ export default function ProductInformationTable({
                   params={{ productTypeData: productTypeData[index] }}
                   data={item.modelName}
                   number={item.id}
+                  validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                  required
                 />
               )}
               {renderTableItem(
@@ -160,6 +164,8 @@ export default function ProductInformationTable({
                     }
                     setData([...data]);
                   }}
+                  validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
+                  required
                 />
               )}
               {renderTableItem(
@@ -182,6 +188,8 @@ export default function ProductInformationTable({
                   data={item.function}
                   params={{ functionData: functionNoiseData[index] }}
                   number={item.id}
+                  validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
+                  required
                 />
               )}
               {renderTableItem(
@@ -199,6 +207,8 @@ export default function ProductInformationTable({
                   params={{ stepData: stepData[index] }}
                   data={item.step}
                   number={item.id}
+                  validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
+                  required
                 />
               )}
               {renderTableItem(
@@ -272,9 +282,10 @@ export default function ProductInformationTable({
                       copyFunction[index] = changedValue.value.slice(1).split("/");
                       setFunctionNoiseData(copyFunction);
                     }}
-                    validMessage={{ message: t("RC_0061"), format: [t("RC_0022")] }}
                     data={item.productType}
                     number={item.id}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
+                    required
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -292,6 +303,8 @@ export default function ProductInformationTable({
                     params={{ productTypeData: productTypeData[index] }}
                     data={item.modelName}
                     number={item.id}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                    required
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -309,6 +322,8 @@ export default function ProductInformationTable({
                       }
                       setData([...data]);
                     }}
+                    validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
+                    required
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -330,6 +345,8 @@ export default function ProductInformationTable({
                     data={item.function}
                     params={{ functionData: functionNoiseData[index] }}
                     number={item.id}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
+                    required
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -347,6 +364,8 @@ export default function ProductInformationTable({
                     params={{ stepData: stepData[index] }}
                     data={item.step}
                     number={item.id}
+                    validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
+                    required
                   />
                 </td>
                 <td className={"tableTd"}>
