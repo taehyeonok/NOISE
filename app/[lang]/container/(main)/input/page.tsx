@@ -118,6 +118,7 @@ export default function Input() {
     setSourceHeight(hegiht: number): void;
     setReceiverHeight(hegiht: number): void;
     setBarrierEnable(dist: boolean): void;
+    setUnit(unit: string): void;
   }
 
   const setHorizontalDistance = (horizontalDist: number) => {
@@ -142,6 +143,10 @@ export default function Input() {
   const setBarrierEnable = (barrierEnable: boolean) => {
     ntRef.current?.setBarrierEnable(barrierEnable);
   };
+  const setUnit = (unit: string) => {
+    ntRef.current?.setUnit(unit);
+  };
+
   const [outdoorUnit, setOutdoorUnit] = useState<number>(4);
   const [receiver, setReceiver] = useState<number>(2);
   const [horizontal, setHorizontal] = useState<number>(20);
@@ -163,12 +168,15 @@ export default function Input() {
         setOdus(value2!);
         break;
     }
-    console.log(
-      `factorType: ${factorType} value1:${value1} ${
-        value2 !== undefined ? "value2: " + value2.toString() : ""
-      }`
-    );
+    // console.log(
+    //   `factorType: ${factorType} value1:${value1} ${
+    //     value2 !== undefined ? "value2: " + value2.toString() : ""
+    //   }`
+    // );
   };
+  useEffect(() => {
+    setUnit(unitData?.length);
+  }, [unitData]);
 
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
