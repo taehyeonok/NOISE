@@ -70,6 +70,10 @@ const Noisetools = forwardRef((props: any, ref) => {
             height: val,
           });
         },
+        setUnit(val: string) {
+          distanceUnit.current = val;
+          drawSoundWaves();
+        },
         scrollIntoView(val: number) {
           console.log("scrollIntoView");
         },
@@ -549,14 +553,6 @@ const Noisetools = forwardRef((props: any, ref) => {
     drawSoundWaves();
   }, [receiverData]);
 
-  useEffect(() => {
-    console.log(`1 : ${barrierEffectAreaPts.Ba1}`);
-    console.log(`2 : ${barrierEffectAreaPts.leftRulerEndArrowPts}`);
-    console.log(`3 : ${barrierEffectAreaPts.leftRulerStartArrowPts}`);
-    console.log(`4 : ${barrierEffectAreaPts.rightRulerEndArrowPts}`);
-    console.log(`5 : ${barrierEffectAreaPts.rightRulerStartArrowPts}`);
-  }, [barrierEffectAreaPts]);
-
   function setLineSourceToReceiver() {
     let sTorEq = getLineEquation(FIELD_OBJECT.Source, FIELD_OBJECT.Receiver);
     let leftBarrier = FIELD_OBJECT.Barrier1;
@@ -585,29 +581,18 @@ const Noisetools = forwardRef((props: any, ref) => {
     let leftBarrier = barrier1Data;
     let leftBarrierName = FIELD_OBJECT.Barrier1;
 
-    console.log(
-      "leftRulerStartArrowPts: " +
-        `${sourceData.fromLeft * pxPerMeter() + 5}, 2, ${sourceData.fromLeft * pxPerMeter()}, 5, ${
-          sourceData.fromLeft * pxPerMeter() + 5
-        }, 8` +
-        "leftRulerEndArrowPts: " +
-        `${getObjectCoord(leftBarrierName, "X") - 5}, 2, ${getObjectCoord(
-          leftBarrierName,
-          "X"
-        )}, 5, ${getObjectCoord(leftBarrierName, "X") - 5}, 8`
-    );
-
+    let ba1Pts =
+      ba1NewArea.newAreaY.toString() === "NaN"
+        ? ""
+        : `${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord(
+            FIELD_OBJECT.Barrier1,
+            "Y"
+          )},
+        ${ba1NewArea.newAreaX}, ${ba1NewArea.newAreaY},
+        ${fieldData.current.width}, ${getObjectCoord("RULER-BACKGROUND", "Y")},
+        ${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord("RULER-BACKGROUND", "Y")}`;
     setBarrierEffectAreaPts({
-      Ba1: `${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord(
-        FIELD_OBJECT.Barrier1,
-        "Y"
-      )},
-            ${ba1NewArea.newAreaX}, ${ba1NewArea.newAreaY},
-            ${fieldData.current.width}, ${getObjectCoord("RULER-BACKGROUND", "Y")},
-            ${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord(
-        "RULER-BACKGROUND",
-        "Y"
-      )}`,
+      Ba1: ba1Pts,
       leftRulerStart: sourceData.fromLeft * pxPerMeter(),
       leftRulerEnd: getObjectCoord(leftBarrierName, "X"),
       leftRulerLength: leftBarrier.distFromSource,
