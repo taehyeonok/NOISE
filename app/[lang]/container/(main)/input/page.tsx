@@ -534,16 +534,18 @@ export default function Input() {
           {/* 반응형 */}
           <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
             {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
-            <Noisetools
-              ref={ntRef}
-              factorChangedCallback={notifyNtFactorChanged}
-              horizontalDistance={horizontal}
-              sourceHeight={outdoorUnit + 1}
-              receiverHeight={receiver}
-              barrierFromSource={odus}
-              barrierHeight={barrier}
-              distanceUnit={unitData?.length}
-            />
+            {selectFieldType.value === "1" && (
+              <Noisetools
+                ref={ntRef}
+                factorChangedCallback={notifyNtFactorChanged}
+                horizontalDistance={horizontal}
+                sourceHeight={outdoorUnit + 1}
+                receiverHeight={receiver}
+                barrierFromSource={odus}
+                barrierHeight={barrier}
+                distanceUnit={unitData?.length}
+              />
+            )}
           </div>
           {selectFieldType?.value === "1" ? (
             <OutdoorSpaceContent

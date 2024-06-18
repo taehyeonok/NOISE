@@ -573,7 +573,9 @@ body {
     stroke: rgb(39, 132, 193);
     cursor: pointer;
 }
-
+.disabled:hover{
+    cursor: not-allowed;
+}
 .wall_btn{
     fill: #CCCCCC;
     stroke: #000000;

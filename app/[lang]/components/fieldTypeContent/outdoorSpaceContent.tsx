@@ -212,10 +212,8 @@ export default function OutdoorSpaceContent({
             onChange={(changeValue: { title: string; value: string }) => {
               // setSelected(changeValue);
               if (changeValue.title === "X") {
-                setBarrierHeight(0);
                 setBarrierEnable(false);
               } else {
-                setBarrierHeight(5);
                 setBarrierEnable(true);
               }
             }}
