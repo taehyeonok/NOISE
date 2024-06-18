@@ -527,7 +527,7 @@ export default function Input() {
               receiverHeight={receiver}
               barrierFromSource={odus}
               barrierHeight={barrier}
-              distanceUnit={unitData}
+              distanceUnit={unitData?.length}
             />
           </div>
           {selectFieldType?.value === "1" ? (
