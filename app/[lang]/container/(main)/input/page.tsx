@@ -68,6 +68,10 @@ export default function Input() {
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [totalData, setTotalData] = useState(0);
+  const [barrierSelected, setBarrierSelected] = useState<{ title: string; value: string }>({
+    title: "O",
+    value: "0",
+  });
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -107,52 +111,58 @@ export default function Input() {
   ////////////////////// Noisetools Component Test Code From //////////////////////
   //noisetools add
   const ntRef = useRef<NoisetoolsForwardRef>(null);
-
-  let horizontalDist = 15;
-  let barrierFromSource = 10;
-  let barrierHeight = 5;
-  let sourceHeight = 5;
-  let receiverHeight = 3;
-
   interface NoisetoolsForwardRef {
     setHorizontalDistance(dist: number): void;
     setBarrierFromSource(dist: number): void;
     setBarrierHeight(hegiht: number): void;
     setSourceHeight(hegiht: number): void;
     setReceiverHeight(hegiht: number): void;
+    setBarrierEnable(dist: boolean): void;
   }
 
-  const setHorizontalDistance = (dist: number) => {
-    if (horizontalDist > 30) horizontalDist = 20;
-    else horizontalDist += 5;
+  const setHorizontalDistance = (horizontalDist: number) => {
     ntRef.current?.setHorizontalDistance(horizontalDist);
   };
 
-  const setBarrierFromSource = () => {
-    if (barrierFromSource > horizontalDist) barrierFromSource = 3;
-    else barrierFromSource += 2;
+  const setBarrierFromSource = (barrierFromSource: number) => {
     ntRef.current?.setBarrierFromSource(barrierFromSource);
   };
 
-  const setBarrierHeight = () => {
-    if (barrierHeight > 10) barrierHeight = 2;
-    else barrierHeight += 1;
+  const setBarrierHeight = (barrierHeight: number) => {
     ntRef.current?.setBarrierHeight(barrierHeight);
   };
 
-  const setSourceHeight = () => {
-    if (sourceHeight > 10) sourceHeight = 2;
-    else sourceHeight += 1;
+  const setSourceHeight = (sourceHeight: number) => {
     ntRef.current?.setSourceHeight(sourceHeight);
   };
 
-  const setReceiverHeight = () => {
-    if (receiverHeight > 10) receiverHeight = 2;
-    else receiverHeight += 1;
+  const setReceiverHeight = (receiverHeight: number) => {
     ntRef.current?.setReceiverHeight(receiverHeight);
   };
+  const setBarrierEnable = (barrierEnable: boolean) => {
+    ntRef.current?.setBarrierEnable(barrierEnable);
+  };
+  const [outdoorUnit, setOutdoorUnit] = useState<number>(4);
+  const [receiver, setReceiver] = useState<number>(2);
+  const [horizontal, setHorizontal] = useState<number>(20);
+  const [odus, setOdus] = useState<number>(10);
+  const [barrier, setBarrier] = useState<number>(5);
 
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
+    if (selectFieldType) {
+    }
+    switch (factorType) {
+      case "Source":
+        setOutdoorUnit(Number(Number(value1 - 1).toFixed(1)));
+        break;
+      case "Receiverce":
+        setReceiver(value1);
+        break;
+      case "Barrier":
+        setBarrier(value1);
+        setOdus(value2!);
+        break;
+    }
     console.log(
       `factorType: ${factorType} value1:${value1} ${
         value2 !== undefined ? "value2: " + value2.toString() : ""
@@ -509,7 +519,16 @@ export default function Input() {
           {/* 반응형 */}
           <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
             {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
-            <Noisetools ref={ntRef} factorChangedCallback={notifyNtFactorChanged} />
+            <Noisetools
+              ref={ntRef}
+              factorChangedCallback={notifyNtFactorChanged}
+              horizontalDistance={horizontal}
+              sourceHeight={outdoorUnit + 1}
+              receiverHeight={receiver}
+              barrierFromSource={odus}
+              barrierHeight={barrier}
+              distanceUnit={unitData}
+            />
           </div>
           {selectFieldType?.value === "1" ? (
             <OutdoorSpaceContent
@@ -517,6 +536,22 @@ export default function Input() {
               setBarrierInfoTableData={setBarrierInfoTableData}
               t={t}
               unitData={unitData}
+              outdoorUnit={outdoorUnit}
+              setOutdoorUnit={setOutdoorUnit}
+              setSourceHeight={setSourceHeight}
+              receiver={receiver}
+              setReceiver={setReceiver}
+              setReceiverHeight={setReceiverHeight}
+              odus={odus}
+              barrierHeight={barrier}
+              setBarrierHeight={setBarrierHeight}
+              setBarrierFromSource={setBarrierFromSource}
+              horizontal={horizontal}
+              setHorizontalDistance={setHorizontalDistance}
+              setHorizontal={setHorizontal}
+              selected={barrierSelected}
+              setSelected={setBarrierSelected}
+              setBarrierEnable={setBarrierEnable}
             />
           ) : (
             <EnclosedSpaceContent t={t} unitData={unitData} />

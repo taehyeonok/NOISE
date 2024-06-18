@@ -4,7 +4,7 @@ import IC_TOOLTIP from "@/app/assets/icons/ic_tooltip.svg";
 import IG_REFERENCE_COMMON_TABLE from "@/app/assets/images/ig_reference_common_table.svg";
 import Image from "next/image";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
-import React, { SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import BarrierInformationTable from "@/app/[lang]/components/table/barrierInformationTable";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
@@ -12,22 +12,56 @@ import { cTooltipProps } from "@/@types/components";
 import { selectMaterialDummyData } from "../../constants/const";
 import { cloneObject } from "@/app/utils/utils";
 
+interface OutdoorSpaceItem {
+  barrierInfoTableData: any;
+  setBarrierInfoTableData: Function;
+  t: any;
+  unitData: any;
+  outdoorUnit: number;
+  setOutdoorUnit: Function;
+  setSourceHeight: Function;
+  receiver: number;
+  setReceiver: Function;
+  setReceiverHeight: Function;
+  odus: number;
+  barrierHeight: number;
+  setBarrierHeight: Function;
+  setBarrierFromSource: Function;
+  horizontal: number;
+  setHorizontalDistance: Function;
+  setHorizontal: Function;
+  selected: { title: string; value: string };
+  setSelected: Dispatch<SetStateAction<{ title: string; value: string }>>;
+  setBarrierEnable: Function;
+}
 export default function OutdoorSpaceContent({
   barrierInfoTableData,
   setBarrierInfoTableData,
   t,
   unitData,
-}: any) {
+  setSourceHeight,
+  outdoorUnit,
+  setOutdoorUnit,
+  receiver,
+  setReceiver,
+  setReceiverHeight,
+  barrierHeight,
+  odus,
+  setBarrierHeight,
+  setBarrierFromSource,
+  horizontal,
+  setHorizontalDistance,
+  setHorizontal,
+  selected,
+  setSelected,
+  setBarrierEnable,
+}: OutdoorSpaceItem) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
     { title: "O", value: "0" },
     { title: "X", value: "1" },
   ];
-  const [selected, setSelected] = useState<{ title: string; value: string }>({
-    title: "O",
-    value: "0",
-  });
-  const [elevation, setElevation] = useState(0);
+
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
   const [barrierThickness, setBarrierThickness] = useState<{ title: string; value: string }>({
     title: "Concrete(Default) / 120mm",
@@ -85,10 +119,12 @@ export default function OutdoorSpaceContent({
             name="elevation_of_outdoor_unit"
             type={"number"}
             classList={`${inputSelectStyle}`}
+            value={outdoorUnit || ""}
             unit={unitData?.length}
             required={true}
             onChange={(changeValue: SetStateAction<number>) => {
-              setElevation(changeValue);
+              setOutdoorUnit(changeValue);
+              setSourceHeight(Number(changeValue) + 1);
             }}
             validMessage={{ message: t("RC_0061"), format: [t("THERMAV_209")] }}
           />,
@@ -99,7 +135,7 @@ export default function OutdoorSpaceContent({
           <CCustomInput
             type={"number"}
             placeholder={"0"}
-            value={elevation + 1}
+            value={outdoorUnit + 1}
             classList={`${inputSelectStyle}`}
             disabled={true}
           />,
@@ -118,9 +154,13 @@ export default function OutdoorSpaceContent({
             name="elevation_of_receiver"
             type={"number"}
             placeholder={"0"}
-            value={1.5}
+            value={receiver || ""}
             classList={`${inputSelectStyle}`}
             unit={unitData?.length}
+            onChange={(changeValue: SetStateAction<number>) => {
+              setReceiverHeight(changeValue);
+              setReceiver(changeValue);
+            }}
           />,
           "Elevation from the ground to receiver"
         )}
@@ -130,9 +170,13 @@ export default function OutdoorSpaceContent({
             name="horizontal_distance"
             type={"number"}
             placeholder={"0"}
-            value={8}
+            value={horizontal || ""}
             classList={`${inputSelectStyle}`}
             unit={unitData?.length}
+            onChange={(changeValue: SetStateAction<number>) => {
+              setHorizontalDistance(changeValue);
+              setHorizontal(changeValue);
+            }}
           />,
           "Horizontal distance from center of source to receiver"
         )}
@@ -165,6 +209,16 @@ export default function OutdoorSpaceContent({
             setSelect={setSelected}
             className={`${inputSelectStyle} h-[2.25rem]`}
             selectList={barrierInThePath}
+            onChange={(changeValue: { title: string; value: string }) => {
+              // setSelected(changeValue);
+              if (changeValue.title === "X") {
+                setBarrierHeight(0);
+                setBarrierEnable(false);
+              } else {
+                setBarrierHeight(5);
+                setBarrierEnable(true);
+              }
+            }}
           />,
           "Presence of a wall between the source and the receiver",
           false,
@@ -196,9 +250,12 @@ export default function OutdoorSpaceContent({
                 name="distance_from_ODUs"
                 type={"number"}
                 placeholder={"0"}
-                value={4}
+                value={odus}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
+                onChange={(changeValue: SetStateAction<number>) => {
+                  setBarrierFromSource(changeValue);
+                }}
               />,
               "Short distance may result in extra reflections"
             )}
@@ -208,9 +265,12 @@ export default function OutdoorSpaceContent({
                 name="barrier_height"
                 type={"number"}
                 placeholder={"0"}
-                value={3}
+                value={barrierHeight}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
+                onChange={(changeValue: SetStateAction<number>) => {
+                  setBarrierHeight(changeValue);
+                }}
               />,
               "The barrier effect is incomplete due to the low height"
             )}
