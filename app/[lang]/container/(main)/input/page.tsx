@@ -118,6 +118,7 @@ export default function Input() {
     setSourceHeight(hegiht: number): void;
     setReceiverHeight(hegiht: number): void;
     setBarrierEnable(dist: boolean): void;
+    setUnit(unit: string): void;
   }
 
   const setHorizontalDistance = (horizontalDist: number) => {
@@ -142,15 +143,18 @@ export default function Input() {
   const setBarrierEnable = (barrierEnable: boolean) => {
     ntRef.current?.setBarrierEnable(barrierEnable);
   };
+  const setUnit = (unit: string) => {
+    ntRef.current?.setUnit(unit);
+  };
+
   const [outdoorUnit, setOutdoorUnit] = useState<number>(4);
   const [receiver, setReceiver] = useState<number>(2);
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
   const [barrier, setBarrier] = useState<number>(5);
-
+  const [leftBarrier, setLeftBarrier] = useState(1);
+  const [rightBarrier, setRightBarrier] = useState(1);
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
-    if (selectFieldType) {
-    }
     switch (factorType) {
       case "Source":
         setOutdoorUnit(Number(Number(value1 - 1).toFixed(1)));
@@ -162,13 +166,22 @@ export default function Input() {
         setBarrier(value1);
         setOdus(value2!);
         break;
+      case "LEFT_WALL":
+        setLeftBarrier(value1);
+        break;
+      case "RIGHT_WALL":
+        setRightBarrier(value1);
+        break;
     }
-    console.log(
-      `factorType: ${factorType} value1:${value1} ${
-        value2 !== undefined ? "value2: " + value2.toString() : ""
-      }`
-    );
+    // console.log(
+    //   `factorType: ${factorType} value1:${value1} ${
+    //     value2 !== undefined ? "value2: " + value2.toString() : ""
+    //   }`
+    // );
   };
+  useEffect(() => {
+    setUnit(unitData?.length);
+  }, [unitData]);
 
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
@@ -351,13 +364,15 @@ export default function Input() {
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
+    const wallCount = 1 + leftBarrier + rightBarrier;
     const unitData = editUnit.getUnitSetting();
     const result = await noiseSimulator(
       formData,
       estimatedSoundData,
       productTableData,
       barrierInfoTableData,
-      unitData
+      unitData,
+      wallCount
     );
     localStorage.setItem("simulate", JSON.stringify(result));
     setIsLoading(false);

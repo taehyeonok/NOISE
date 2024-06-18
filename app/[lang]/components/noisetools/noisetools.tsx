@@ -1620,12 +1620,6 @@ const Noisetools = forwardRef((props: any, ref) => {
           </text>
         </g>
       </svg>
-      <div ref={toolPopupRef} id="tool_popup" className="nts_inupt_popup">
-        <div id="tool_popup_content">
-          <input type="number" />
-          <button>Apply</button>
-        </div>
-      </div>
     </div>
   );
 });
