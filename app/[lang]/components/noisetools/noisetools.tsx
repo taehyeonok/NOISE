@@ -54,6 +54,9 @@ const Noisetools = forwardRef((props: any, ref) => {
             height: val,
           });
         },
+        setBarrierEnable(val: boolean) {
+          console.log(`setBarrierEnable called`);
+        },
         setSourceHeight(val: number) {
           setSourceData({
             fromLeft: sourceDataRef.current.fromLeft,
