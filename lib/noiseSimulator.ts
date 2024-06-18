@@ -8,7 +8,8 @@ export async function noiseSimulator(
   estimatedSoundData: any,
   productTableData: any,
   barrierInfoTableData: any,
-  unitData: any
+  unitData: any,
+  wallCount: number
 ) {
   revalidatePath("/"); // 경로 재검증
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
@@ -44,8 +45,8 @@ export async function noiseSimulator(
     );
     //거리감쇠량
     const sLine_distance_attenuation = 20 * Math.log10(sLineDistance) + 11;
-    const wallQuantity = Number(1); //TODO: 지향성 보정(DI)
-    const DI = wallQuantity === 0 ? 0 : wallQuantity === 1 ? 3 : wallQuantity === 2 ? 6 : 9; //TODO: 지향성 보정(DI)
+
+    const DI = wallCount === 0 ? 0 : wallCount === 1 ? 3 : wallCount === 2 ? 6 : 9; // 지향성 보정(DI)
 
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {

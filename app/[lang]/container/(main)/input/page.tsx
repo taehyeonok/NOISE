@@ -152,10 +152,9 @@ export default function Input() {
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
   const [barrier, setBarrier] = useState<number>(5);
-
+  const [leftBarrier, setLeftBarrier] = useState(1);
+  const [rightBarrier, setRightBarrier] = useState(1);
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
-    if (selectFieldType) {
-    }
     switch (factorType) {
       case "Source":
         setOutdoorUnit(Number(Number(value1 - 1).toFixed(1)));
@@ -166,6 +165,12 @@ export default function Input() {
       case "Barrier":
         setBarrier(value1);
         setOdus(value2!);
+        break;
+      case "LEFT_WALL":
+        setLeftBarrier(value1);
+        break;
+      case "RIGHT_WALL":
+        setRightBarrier(value1);
         break;
     }
     // console.log(
@@ -359,13 +364,15 @@ export default function Input() {
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
+    const wallCount = 1 + leftBarrier + rightBarrier;
     const unitData = editUnit.getUnitSetting();
     const result = await noiseSimulator(
       formData,
       estimatedSoundData,
       productTableData,
       barrierInfoTableData,
-      unitData
+      unitData,
+      wallCount
     );
     localStorage.setItem("simulate", JSON.stringify(result));
     setIsLoading(false);
