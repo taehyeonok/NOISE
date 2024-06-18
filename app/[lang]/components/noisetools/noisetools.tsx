@@ -97,13 +97,16 @@ const Noisetools = forwardRef((props: any, ref) => {
   const [isLoading, setIsLoading] = useState(true);
   const [soundWaves, setSoundWaves] = useState<any[]>([]);
   const [rulerAreaHight, setRulerAreaHight] = useState(55);
-  const [sourceData, setSourceData] = useState({ fromLeft: 4.5, height: 5 });
+  const [sourceData, setSourceData] = useState({ fromLeft: 4.5, height: props.sourceHeight });
   const [receiverData, setReceiverData] = useState({
-    distFromSource: 20,
-    height: 2,
+    distFromSource: props.horizontalDistance,
+    height: props.receiverHeight,
     fromRight: 4.5,
   });
-  const [barrier1Data, setBarrier1Data] = useState({ distFromSource: 10, height: 5 });
+  const [barrier1Data, setBarrier1Data] = useState({
+    distFromSource: props.barrierFromSource,
+    height: props.barrierHeight,
+  });
   const [fieldRect, setFieldRect] = useState(`0 0 1100 500`);
 
   let captured = useRef<number>(PICKERS.None);
@@ -120,6 +123,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   );
 
   let wallState = useRef({ leftWall: 1, rightWall: 1 });
+  let distanceUnit = useRef(props.distanceUnit);
 
   function pxPerMeter() {
     return pxPerMeterValue.current;
@@ -378,7 +382,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             textAnchor="middle"
             alignmentBaseline="middle"
           >
-            {(i + 1).toString() + "m"}
+            {(i + 1).toString() + distanceUnit.current}
           </text>
           <rect
             key={"swave_dist_box_dn" + (i + 1).toString()}
@@ -400,7 +404,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             textAnchor="middle"
             alignmentBaseline="middle"
           >
-            {(i + 1).toString() + "m"}
+            {(i + 1).toString() + distanceUnit.current}
           </text>
         </g>
       );
@@ -542,6 +546,14 @@ const Noisetools = forwardRef((props: any, ref) => {
     drawSoundWaves();
   }, [receiverData]);
 
+  useEffect(() => {
+    console.log(`1 : ${barrierEffectAreaPts.Ba1}`);
+    console.log(`2 : ${barrierEffectAreaPts.leftRulerEndArrowPts}`);
+    console.log(`3 : ${barrierEffectAreaPts.leftRulerStartArrowPts}`);
+    console.log(`4 : ${barrierEffectAreaPts.rightRulerEndArrowPts}`);
+    console.log(`5 : ${barrierEffectAreaPts.rightRulerStartArrowPts}`);
+  }, [barrierEffectAreaPts]);
+
   function setLineSourceToReceiver() {
     let sTorEq = getLineEquation(FIELD_OBJECT.Source, FIELD_OBJECT.Receiver);
     let leftBarrier = FIELD_OBJECT.Barrier1;
@@ -569,6 +581,18 @@ const Noisetools = forwardRef((props: any, ref) => {
 
     let leftBarrier = barrier1Data;
     let leftBarrierName = FIELD_OBJECT.Barrier1;
+
+    console.log(
+      "leftRulerStartArrowPts: " +
+        `${sourceData.fromLeft * pxPerMeter() + 5}, 2, ${sourceData.fromLeft * pxPerMeter()}, 5, ${
+          sourceData.fromLeft * pxPerMeter() + 5
+        }, 8` +
+        "leftRulerEndArrowPts: " +
+        `${getObjectCoord(leftBarrierName, "X") - 5}, 2, ${getObjectCoord(
+          leftBarrierName,
+          "X"
+        )}, 5, ${getObjectCoord(leftBarrierName, "X") - 5}, 8`
+    );
 
     setBarrierEffectAreaPts({
       Ba1: `${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord(
@@ -746,14 +770,14 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   //function onSourcePickerMouseDown(e: MouseEventHandler<SVGGElement>) {
   const onSourcePickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
-    let svg = document.querySelector("svg#test-svg") as SVGSVGElement;
+    let svg = document.querySelector("svg#nt-svg") as SVGSVGElement;
     let svgX = svg.getClientRects()[0]!["x"];
     let svgY = svg.getClientRects()[0]!["y"];
 
     const ev: unknown = e as unknown as MouseEvent;
 
     captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Source, "X") - e.clientX;
-    captuerPos.current.y = svgX + getObjectCoord(FIELD_OBJECT.Source, "Y") - e.clientY;
+    captuerPos.current.y = svgY + getObjectCoord(FIELD_OBJECT.Source, "Y") - e.clientY;
     captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Source, "Y") - e.clientY;
 
     setCapturedPicker(PICKERS.Source);
@@ -761,13 +785,13 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   //function onReceiverPickerMouseDown(e: MouseEventHandler<SVGSVGElement>) {
   const onReceiverPickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
-    let svg = document.querySelector("svg#test-svg");
+    let svg = document.querySelector("svg#nt-svg");
     if (svg !== null && svg !== undefined) {
       let svgX = svg.getClientRects()[0]!["x"];
       let svgY = svg.getClientRects()[0]!["y"];
 
       captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Receiver, "X") - e.clientX;
-      captuerPos.current.y = svgX + getObjectCoord(FIELD_OBJECT.Receiver, "Y") - e.clientY;
+      captuerPos.current.y = svgY + getObjectCoord(FIELD_OBJECT.Receiver, "Y") - e.clientY;
       captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Receiver, "Y") - e.clientY;
 
       setCapturedPicker(PICKERS.Receiver);
@@ -776,12 +800,12 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   //function onBarrier1PickerMouseDown(e: MouseEventHandler<SVGSVGElement>) {
   const onBarrier1PickerMouseDown = (e: React.MouseEvent<SVGGElement>) => {
-    let svg = document.querySelector("svg#test-svg")!;
+    let svg = document.querySelector("svg#nt-svg")!;
     let svgX = svg.getClientRects()[0]!["x"];
     let svgY = svg.getClientRects()[0]!["y"];
 
     captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Barrier1, "X") - e.clientX;
-    captuerPos.current.y = svgX + getObjectCoord(FIELD_OBJECT.Barrier1, "Y") - e.clientY;
+    captuerPos.current.y = svgY + getObjectCoord(FIELD_OBJECT.Barrier1, "Y") - e.clientY;
     captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Barrier1, "Y") - e.clientY;
 
     setCapturedPicker(PICKERS.Barrier1);
@@ -815,7 +839,7 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   function onPickerMouseMoveUseRef(e: MouseEvent, cap: number) {
     //function onPickerMouseMove(e:MouseEventHandler<SVGSVGElement>){
-    let svg = document.querySelector("svg#test-svg");
+    let svg = document.querySelector("svg#nt-svg");
     if (svg == null) return;
 
     let svgX = svg.getClientRects()[0]!["x"];
@@ -913,12 +937,13 @@ const Noisetools = forwardRef((props: any, ref) => {
             ) / 10;
         }
         newH = newH >= 0 ? newH : 0;
+        console.log(`newD:${newD} newH:${newH}`);
         setBarrier1Data({ distFromSource: newD, height: newH });
       }
     }
   }
 
-  const onLeftWallMouseDown: React.MouseEventHandler<SVGElement> = (e) => {
+  const onLeftWallClick: React.MouseEventHandler<SVGElement> = (e) => {
     if (leftWallRef.current) {
       leftWallRef.current.style.setProperty(
         "display",
@@ -931,7 +956,7 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
   };
 
-  const onRightWallMouseDown: React.MouseEventHandler<SVGElement> = (e) => {
+  const onRightWallClick: React.MouseEventHandler<SVGElement> = (e) => {
     if (rightWallRef.current) {
       rightWallRef.current.style.setProperty(
         "display",
@@ -944,9 +969,37 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
   };
 
+  const onStoRRlulerClick: React.MouseEventHandler<SVGElement> = (e) => {
+    if (toolPopupRef.current && sToRTextRef.current && svgRef.current) {
+      console.log(
+        `sToRTextRef.x: ${sToRTextRef.current.getClientRects()[0]!["x"]} sToRTextRef.y: ${
+          sToRTextRef.current.getClientRects()[0]!["y"]
+        }`
+      );
+
+      let x =
+        (
+          sToRTextRef.current.getClientRects()[0]!["x"] -
+          svgRef.current.getClientRects()[0]!["x"] +
+          svgRef.current.parentElement!.offsetLeft
+        ).toString() + "px";
+      let y = (window.scrollY + svgRef.current.getClientRects()[0]!["y"]).toString() + "px";
+
+      let aaa = document.getElementById("src_to_recv_distance");
+
+      toolPopupRef.current.style.setProperty("left", x);
+      toolPopupRef.current.style.setProperty("top", y);
+      toolPopupRef.current.style.setProperty("display", "flex");
+    }
+  };
+
   let parentRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let svgRef: React.RefObject<SVGSVGElement> = useRef(null);
   let leftWallRef: React.RefObject<SVGGElement> = useRef(null);
   let rightWallRef: React.RefObject<SVGGElement> = useRef(null);
+
+  let toolPopupRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let sToRTextRef: React.RefObject<SVGTextElement> = useRef(null);
 
   // https://noisetools.net/barriercalculator?source=[5.5]&receiver=[5.4,20]&barrier=[1,2.9,8.8]&walls=[1,1]&display=2
   // https://github.com/svgcamp/svg-arc/blob/master/index.js
@@ -958,10 +1011,11 @@ const Noisetools = forwardRef((props: any, ref) => {
         width="100%"
         height="100%"
         viewBox={fieldRect}
-        id="test-svg"
+        id="nt-svg"
         className={"nts_noise_field"}
         onMouseMove={onSvgMouseMove}
         onMouseUp={onSvgMouseUp}
+        ref={svgRef}
       >
         <g id="swaves" transform={sourceMatrix.current}>
           <g id="swave_picker">
@@ -1064,7 +1118,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 >
                   {barrierEffectAreaPts.leftRulerLength.toFixed(
                     Math.round((barrierEffectAreaPts.leftRulerLength * 10) % 10) == 0 ? 0 : 1
-                  ) + "m"}
+                  ) + distanceUnit.current}
                 </text>
               </g>
               <g>
@@ -1112,11 +1166,11 @@ const Noisetools = forwardRef((props: any, ref) => {
                 >
                   {barrierEffectAreaPts.rightRulerLength.toFixed(
                     Math.round((barrierEffectAreaPts.rightRulerLength * 10) % 10) == 0 ? 0 : 1
-                  ) + "m"}
+                  ) + distanceUnit.current}
                 </text>
               </g>
             </g>
-            <g id="ruler_dist_s_to_r" transform="matrix(1 0 0 1 0 35)">
+            <g id="ruler_dist_s_to_r" transform="matrix(1 0 0 1 0 35)" onClick={onStoRRlulerClick}>
               <g className={"nts_ruler_line"} stroke="#000000" fill="#000000" strokeWidth="0">
                 <polygon id="s_to_r_dist_st" points={sourceArrowPts.current} />
                 <line
@@ -1136,13 +1190,15 @@ const Noisetools = forwardRef((props: any, ref) => {
                   fill="#CCCCCC"
                 ></rect>
                 <text
+                  ref={sToRTextRef}
+                  id="src_to_recv_distance"
                   className={"nts_ruler_dist_s_to_r_text"}
                   x={fieldData.current.width / 2}
                   y="5"
                   textAnchor="middle"
                   alignmentBaseline="middle"
                 >
-                  {receiverData.distFromSource.toString() + "m"}
+                  {receiverData.distFromSource.toString() + distanceUnit.current}
                 </text>
               </g>
             </g>
@@ -1158,7 +1214,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               }) rotate(270)`}
               className={"wall_btn"}
               strokeWidth="0"
-              onClick={onLeftWallMouseDown}
+              onClick={onLeftWallClick}
             >
               <rect x="-25" y="-10" width={50} height={20} rx="5" fill="#FFFFFF" />
               <text
@@ -1176,7 +1232,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               id="left_wall"
               className={"wall_btn"}
               strokeWidth="1"
-              onClick={onLeftWallMouseDown}
+              onClick={onLeftWallClick}
             >
               <rect
                 x="-2"
@@ -1208,7 +1264,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               }) rotate(270)`}
               className={"wall_btn"}
               strokeWidth="0"
-              onClick={onRightWallMouseDown}
+              onClick={onRightWallClick}
             >
               <rect x="-25" y="-10" width={50} height={20} rx="5" fill="#FFFFFF" />
               <text
@@ -1226,7 +1282,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               id="right_wall"
               className={"wall_btn"}
               strokeWidth="1"
-              onClick={onRightWallMouseDown}
+              onClick={onRightWallClick}
             >
               <rect
                 x={fieldData.current.width - pxPerMeter() * 1.3 + 2}
@@ -1295,7 +1351,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               textAnchor="middle"
               alignmentBaseline="middle"
             >
-              {(Math.round(sourceData.height * 10) / 10).toString() + "m"}
+              {(Math.round(sourceData.height * 10) / 10).toString() + distanceUnit.current}
             </text>
           </g>
 
@@ -1362,7 +1418,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 textAnchor="middle"
                 alignmentBaseline="middle"
               >
-                {barrier1Data.height.toString() + "m"}
+                {barrier1Data.height.toString() + distanceUnit.current}
               </text>
             </g>
             <g
@@ -1447,7 +1503,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               textAnchor="middle"
               alignmentBaseline="middle"
             >
-              {(Math.round(receiverData.height * 10) / 10).toString() + "m"}
+              {(Math.round(receiverData.height * 10) / 10).toString() + distanceUnit.current}
             </text>
           </g>
           <g
@@ -1541,6 +1597,12 @@ const Noisetools = forwardRef((props: any, ref) => {
           </text>
         </g>
       </svg>
+      <div ref={toolPopupRef} id="tool_popup" className="nts_inupt_popup">
+        <div id="tool_popup_content">
+          <input type="number" />
+          <button>Apply</button>
+        </div>
+      </div>
     </div>
   );
 });
