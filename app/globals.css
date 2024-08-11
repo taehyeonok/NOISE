@@ -576,6 +576,11 @@ body {
 .disabled:hover{
     cursor: not-allowed;
 }
+
+.hide{
+    display: none;
+}
+
 .wall_btn{
     fill: #CCCCCC;
     stroke: #000000;
@@ -597,6 +602,54 @@ body {
 
 .nts_svg_parent {
     aspect-ratio: 1100/ 500;
+}
+
+.nts_inupt_popup {
+    display: none;
+    position:absolute ;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+#tool_popup_content {
+    padding: .5em;
+    background-color: #fff;
+    border-radius: .5em;
+    border: 2px solid rgb(39, 132, 193);
+    box-shadow: var(--boxshadow);
+    position: absolute;
+    top: 11px;
+    left: -3em;
+    width: 6em;
+    display: flex;
+    flex-direction: column;
+    gap: .333em;
+    align-items: center;
+}
+
+.nts_inupt_popup input[type=number] {
+    border: 0 !important;
+    font-size: 1.125em;
+    display: block;
+    width: 100%;
+    line-height: 1;
+    height: 1.5em;
+    margin: 0;
+    border-radius: 3px;
+    font-weight: 400;
+    text-align: center
+}
+
+.nts_inupt_popup button{
+    padding: .25em;
+    height: 2em;
+    cursor: pointer;
+    border: 1px solid #999;
+    background-color: #bbb;
+    color: #000;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    border-radius: .125em;
+    transition: border-color .2s, background-color .2s, box-shadow .2s;
 }
 
 }
