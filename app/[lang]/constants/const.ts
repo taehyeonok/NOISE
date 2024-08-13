@@ -26,7 +26,8 @@ export const browserType = {
   MOBILE: "mobile",
 };
 
-export const headerHelpMenu = ["Manual", "Tutorial", "Glossary", "FAQ", "Contact"];
+export const headerHelpMenu = ["Manual"];
+// ,"Tutorial", "Glossary", "FAQ", "Contact"];
 
 export const headerLanguage = [
   {
@@ -194,43 +195,27 @@ Note : Legal Disclaimer: For continual product development, LG Electronics Inc.,
 export const soundPressureLevelDummyData = [
   {
     dataType: "63Hz",
-    product1: 61.8,
-    product2: 62.5,
   },
   {
     dataType: "125Hz",
-    product1: 64.7,
-    product2: 58.5,
   },
   {
     dataType: "250Hz",
-    product1: 61.7,
-    product2: 60.1,
   },
   {
     dataType: "500Hz",
-    product1: 63.6,
-    product2: 58.6,
   },
   {
     dataType: "1000Hz",
-    product1: 61.9,
-    product2: 54.3,
   },
   {
     dataType: "2000Hz",
-    product1: 57.2,
-    product2: 51.6,
   },
   {
     dataType: "4000Hz",
-    product1: 53.6,
-    product2: 53.0,
   },
   {
     dataType: "8000Hz",
-    product1: 50.6,
-    product2: 46.7,
   },
   {
     dataType: "Overall (dB(A))",
@@ -240,35 +225,27 @@ export const soundPressureLevelDummyData = [
 export const soundPowerLevelDummyData = [
   {
     dataType: "63Hz",
-    product3: 57.9,
   },
   {
     dataType: "125Hz",
-    product3: 57.9,
   },
   {
     dataType: "250Hz",
-    product3: 57.4,
   },
   {
     dataType: "500Hz",
-    product3: 57.9,
   },
   {
     dataType: "1000Hz",
-    product3: 51.9,
   },
   {
     dataType: "2000Hz",
-    product3: 46.9,
   },
   {
     dataType: "4000Hz",
-    product3: 40.4,
   },
   {
     dataType: "8000Hz",
-    product3: 41.9,
   },
   {
     dataType: "Overall (dB(A))",

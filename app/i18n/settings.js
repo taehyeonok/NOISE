@@ -18,7 +18,7 @@ export const languages = [
   "uk",
 ];
 export const defaultNS = "common";
-export const cookieName = "latsRChecker_i18next";
+export const cookieName = "latsNoise_i18next";
 
 export function getOptions(lang = fallbackLng, ns = defaultNS) {
   return {

@@ -155,13 +155,10 @@ export default function ProductInformationTable({
                 <CCustomInput
                   type={"number"}
                   placeholder={"1"}
+                  value={1}
                   classList={"w-[12.5rem]"}
                   onChange={(changedValue: string) => {
-                    if (changedValue == "0") {
-                      data[index]!.qty = "1";
-                    } else {
-                      data[index]!.qty = changedValue;
-                    }
+                    data[index]!.qty = changedValue;
                     setData([...data]);
                   }}
                   validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
@@ -313,13 +310,10 @@ export default function ProductInformationTable({
                     name={`qty_${index}`}
                     type={"number"}
                     placeholder={"1"}
+                    value={1}
                     classList={"w-full px-3 !h-7"}
                     onChange={(changedValue: string) => {
-                      if (changedValue == "0") {
-                        data[index]!.qty = "1";
-                      } else {
-                        data[index]!.qty = changedValue;
-                      }
+                      data[index]!.qty = changedValue;
                       setData([...data]);
                     }}
                     validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}

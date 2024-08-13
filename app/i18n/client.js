@@ -24,8 +24,8 @@ i18next
     lng: undefined, // let detect the language on client side
     detection: {
       order: ["path", "htmlTag", "cookie", "navigator"],
-      lookupLocalStorage: "latsRChecker_i18nextLng",
-      lookupSessionStorage: "latsRChecker_i18nextLng",
+      lookupLocalStorage: "latsNoise_i18nextLng",
+      lookupSessionStorage: "latsNoise_i18nextLng",
     },
     preload: runsOnServerSide ? languages : [],
   });
@@ -52,9 +52,9 @@ export function useTranslation(lng, ns, options) {
     }, [lng, i18n]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (cookies.latsRChecker_i18next === lng) return;
+      if (cookies.latsNoise_i18next === lng) return;
       setCookie(cookieName, lng, { path: "/" });
-    }, [lng, cookies.latsRChecker_i18next]);
+    }, [lng, cookies.latsNoise_i18next]);
   }
   return ret;
 }

@@ -29,6 +29,13 @@ export default function CCustomInput({
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value;
     if (name === "Project Name") {
+      if (Number(inputValue) < 0) {
+        inputValue = "0";
+      }
+      if (inputValue) {
+        inputRef.current?.setCustomValidity("");
+        inputRef.current?.reportValidity();
+      }
       setInput(inputValue);
       if (onChange) onChange(inputValue);
     } else {

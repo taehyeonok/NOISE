@@ -82,7 +82,7 @@ const Noisetools = forwardRef((props: any, ref) => {
           drawSoundWaves();
         },
         scrollIntoView(val: number) {
-          console.log("scrollIntoView");
+          // console.log("scrollIntoView");
         },
       };
     },
@@ -443,9 +443,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   // onload
   useEffect(() => {
     const handleResize = () => {
-      console.log(`handleResize pos 1`);
       if (parentRef.current) {
-        console.log(`handleResize pos 2`);
         let sz = parentRef.current.getClientRects()[0];
 
         fieldData.current.width = sz!.width;
@@ -950,7 +948,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             ) / 10;
         }
         newH = newH >= 0 ? newH : 0;
-        console.log(`newD:${newD} newH:${newH}`);
+        // console.log(`newD:${newD} newH:${newH}`);
         setBarrier1Data({
           distFromSource: newD,
           height: newH,

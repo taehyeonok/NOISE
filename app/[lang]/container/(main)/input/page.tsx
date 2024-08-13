@@ -72,6 +72,7 @@ export default function Input() {
     title: "O",
     value: "0",
   });
+  const [isClient, setIsClient] = useState(false);
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -193,6 +194,7 @@ export default function Input() {
     copyProduct[0].step = "";
     copyProduct[0].capacity = "%";
     setProductTableData(copyProduct);
+    setIsClient(true);
   }, []);
 
   //Total Capacity Data & Sound Spec Data
@@ -203,8 +205,7 @@ export default function Input() {
 
     let totalCool: number = 0;
     let totalCapacity: number = 0;
-
-    productTableData.map(async (data) => {
+    productTableData.map(async (data: any) => {
       if (data.productType !== "") {
         const res = await fetch(`${basePath}/api/common-select-modelspec`, {
           method: "post",
@@ -214,43 +215,79 @@ export default function Input() {
         result.data.map((item: any) => {
           data.capacity = item.capacity + "%";
           if (item.dataType === "SPL") {
-            copySoundPressure[0][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
-            copySoundPressure[1][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
-            copySoundPressure[2][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
-            copySoundPressure[3][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
-            copySoundPressure[4][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
-            copySoundPressure[5][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
-            copySoundPressure[6][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
-            copySoundPressure[7][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
-            copySoundPressure[8][item.id] =
-              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+            copySoundPressure[0][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[1][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[2][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[3][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[4][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[5][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[6][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[7][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPressure[8][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
+              0
+            );
           } else {
-            copySoundPower[0][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty));
-            copySoundPower[1][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty));
-            copySoundPower[2][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty));
-            copySoundPower[3][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty));
-            copySoundPower[4][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty));
-            copySoundPower[5][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty));
-            copySoundPower[6][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty));
-            copySoundPower[7][item.id] =
-              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty));
-            copySoundPower[8][item.id] =
-              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty));
+            copySoundPower[0][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[1][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[2][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[3][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[4][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[5][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[6][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[7][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
+              0
+            );
+            copySoundPower[8][item.id] = Math.max(
+              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
+              0
+            );
           }
           setSoundPressureLevelData(copySoundPressure);
           setSoundPowerLevelData(copySoundPower);
@@ -349,7 +386,8 @@ export default function Input() {
       });
       num++;
     });
-    if (columnSum.length == 0) copyEstimated.map((item: any) => (item.content2 = 0));
+    if (columnSum.length == 0 || Number.isNaN(columnSum[0]))
+      copyEstimated.map((item: any) => (item.content2 = 0));
     else columnSum.map((item, index) => (copyEstimated[index].content2 = item));
 
     setEstimatedSoundData(copyEstimated);
@@ -400,19 +438,19 @@ export default function Input() {
             {/* 반응형 */}
             <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
               <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>
-                {t("project_name")}
+                {isClient ? t("project_name") : "Project Name"}
               </div>
               <CCustomInput
                 name={`Project Name`}
                 type={"text"}
-                placeholder={t("project_name")}
+                placeholder={isClient ? t("project_name") : "Project Name"}
                 value={projectName}
                 classList={"w-[18.438rem] mobile:w-[12.5rem]"}
                 onChange={(changeValue: string) => {
                   setProjectName(changeValue);
                 }}
                 validMessage={{ message: t("NOISE_0006"), format: [t("project_name")] }}
-                required
+                required={projectName == "" ? true : false}
               />
             </div>
             {/* 반응형 */}

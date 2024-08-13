@@ -209,7 +209,7 @@ body {
     }
 
     .calendarIcon {
-        width: fit-content;
+        width: 20%;
         position: relative;
         outline: none;
     }
@@ -236,6 +236,7 @@ body {
 
     .calendarIcon::-webkit-calendar-picker-indicator {
         background: transparent;
+        cursor: pointer;
         z-index: 1;
     }
 
