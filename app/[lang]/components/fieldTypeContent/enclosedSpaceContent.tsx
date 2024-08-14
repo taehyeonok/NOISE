@@ -58,7 +58,12 @@ export default function EnclosedSpaceContent({ t, unitData }: any) {
           placeholder={"0"}
           value={8}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
-          unit={unitData?.length}
+          unit={
+            <>
+              {unitData?.length}
+              <sup>3</sup>
+            </>
+          }
         />
       )}
     </ContainerBoxRow>

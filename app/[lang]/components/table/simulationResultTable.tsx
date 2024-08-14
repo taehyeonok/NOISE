@@ -1,4 +1,5 @@
 import {
+  dBAF,
   detailInformationDummyData,
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
@@ -14,18 +15,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
     soundPressureReceiverDummyData
   );
   useEffect(() => {
-    const dBA =
-      10 *
-      Math.log10(
-        10 ** ((simulateData[0] - 26.2) / 10) +
-          10 ** ((simulateData[1] - 16.1) / 10) +
-          10 ** ((simulateData[2] - 8.6) / 10) +
-          10 ** ((simulateData[3] - 3.2) / 10) +
-          10 ** (simulateData[4] / 10) +
-          10 ** ((simulateData[5] + 1.2) / 10) +
-          10 ** ((simulateData[6] + 1) / 10) +
-          10 ** ((simulateData[7] - 1.1) / 10)
-      );
+    const dBA = dBAF(simulateData.data, "content");
     setSimulateOverallData(dBA);
 
     const copyMSoundPressure = cloneObject(mSoundPressureReceiver);
@@ -113,12 +103,12 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
               })}
             </tr>
             <tr>
-              {simulateData.map((data: any, index: any) => {
+              {simulateData.data.map((data: any, index: any) => {
                 const cellTypeStyle = data.titleOfRow ? "bg-gray_100" : "w-[4.5rem]";
                 const noLineStyle = data.noLine ? "noLine" : "";
                 return (
                   <td key={index} className={`tableTd ${cellTypeStyle} ${noLineStyle}`}>
-                    {Number(data).toFixed(1)}
+                    {Number(data.content).toFixed(1)}
                   </td>
                 );
               })}

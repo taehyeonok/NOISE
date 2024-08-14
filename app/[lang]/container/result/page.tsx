@@ -10,6 +10,7 @@ import {
   accordionDummyData,
   detailInformationDummyData,
   pageIndex,
+  soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
 import { useEffect, useRef, useState } from "react";
 import IG_REPORT from "@/app/assets/images/ig_report.svg";
@@ -25,16 +26,19 @@ export default function Result({ params: { lang } }: any) {
   const [isAccordionOpen1, setIsAccordionOpen1] = useState<boolean>(true);
   const [isAccordionOpen2, setIsAccordionOpen2] = useState<boolean>(true);
   const [isActiveReportPopup, setIsActiveReportPopup] = useState<boolean>(false);
-  const [simulateData, setSimulateData] = useState([]);
+  const [simulateData, setSimulateData] = useState(soundPressureReceiverDummyData);
   const reportPopupRef = useRef<HTMLDivElement>(null);
   const [detailData, setDetailData] = useState(detailInformationDummyData);
   {
     /* 반응형 */
   }
-
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("simulate")!);
-    setSimulateData(data.data);
+    const copySimulateData = cloneObject(simulateData);
+    for (let i = 0; i < simulateData.data.length; i++) {
+      copySimulateData.data[i].content = data.data[i];
+    }
+    setSimulateData(copySimulateData);
 
     const outdoor_space = JSON.parse(localStorage.getItem("outdoor_space")!);
     const copyDetailData = cloneObject(detailData);
@@ -44,7 +48,6 @@ export default function Result({ params: { lang } }: any) {
         copyDetailData.data[0].content[i].content = "-";
         copyDetailData.data[1].content[i].content = Number(data.attenuation[i]).toFixed(1);
         copyDetailData.data[2].content[i].content = "-";
-        setDetailData(copyDetailData);
       }
     } else {
       for (let i = 0; i < detailLength; i++) {
@@ -53,9 +56,9 @@ export default function Result({ params: { lang } }: any) {
         copyDetailData.data[2].content[i].content = Number(
           data.estimatedSoundData[i].content2 + data.DI - data.distance - data.data[i]
         ).toFixed(1);
-        setDetailData(copyDetailData);
       }
     }
+    setDetailData(copyDetailData);
   }, [lang]);
 
   const renderReportPopup = () => {

@@ -187,13 +187,13 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
-    const copyProduct = cloneObject(productTableData);
-    copyProduct[0].productType = "";
-    copyProduct[0].modelName = "";
-    copyProduct[0].function = "";
-    copyProduct[0].step = "";
-    copyProduct[0].capacity = "%";
-    setProductTableData(copyProduct);
+    // const copyProduct = cloneObject(productTableData);
+    // copyProduct[0].productType = "";
+    // copyProduct[0].modelName = "";
+    // copyProduct[0].function = "";
+    // copyProduct[0].step = "";
+    // copyProduct[0].capacity = "%";
+    // setProductTableData(copyProduct);
     setIsClient(true);
   }, []);
 
@@ -358,7 +358,7 @@ export default function Input() {
       let newItem: any = {};
 
       Object.values(data).map((item: any) => {
-        newItem[number] = Number(Number(item + distance_attenuation + correction[i]).toFixed(1));
+        newItem[number] = Number(item + distance_attenuation + correction[i]);
         number++;
       });
       soundSpecData.push(newItem);
@@ -369,18 +369,15 @@ export default function Input() {
         soundSpecData[i] = { ...soundSpecData[i], item };
       });
     });
-
     const columnSum: any[] = [];
     let num = 0;
     soundSpecData.forEach((data: any) => {
       Object.entries(data).forEach((key: any) => {
         if (columnSum[num] === undefined) {
-          columnSum[num] = Number(Number(key[1]).toFixed(1));
+          columnSum[num] = Number(key[1]);
         } else {
           columnSum[num] = Number(
-            Number(
-              10 * Math.log10(10 ** Number(columnSum[num] / 10) + 10 ** Number(key[1] / 10))
-            ).toFixed(1)
+            10 * Math.log10(10 ** Number(columnSum[num] / 10) + 10 ** Number(key[1] / 10))
           );
         }
       });
@@ -388,10 +385,10 @@ export default function Input() {
     });
     if (columnSum.length == 0 || Number.isNaN(columnSum[0]))
       copyEstimated.map((item: any) => (item.content2 = 0));
-    else columnSum.map((item, index) => (copyEstimated[index].content2 = item));
+    else columnSum.map((item, index) => (copyEstimated[index].content2 = Number(Number(item))));
 
     setEstimatedSoundData(copyEstimated);
-  }, [soundPressureLevelData, soundPowerLevelData]);
+  }, [soundPressureLevelData, soundPowerLevelData, totalCapacityTableData]);
   /**
    * Noise 계산 로직 실행 후 결과창 이동
    * @param formData
@@ -574,7 +571,7 @@ export default function Input() {
             />
           </ContainerBoxRow>
           {/* 반응형 */}
-          <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
+          <div className={"mt-5 mb-10 mobile:my-[4.5rem]"}>
             {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
             {selectFieldType.value === "1" && (
               <Noisetools
