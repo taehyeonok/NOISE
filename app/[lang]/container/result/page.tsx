@@ -51,8 +51,8 @@ export default function Result({ params: { lang } }: any) {
       }
     } else {
       for (let i = 0; i < detailLength; i++) {
-        copyDetailData.data[0].content[i].content = data.DI;
-        copyDetailData.data[1].content[i].content = data.distance;
+        copyDetailData.data[0].content[i].content = data.DI.toFixed(1);
+        copyDetailData.data[1].content[i].content = data.distance.toFixed(1);
         copyDetailData.data[2].content[i].content = Number(
           data.estimatedSoundData[i].content2 + data.DI - data.distance - data.data[i]
         ).toFixed(1);

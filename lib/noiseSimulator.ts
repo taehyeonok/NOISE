@@ -19,7 +19,7 @@ export async function noiseSimulator(
     const editUnit = new EditUnit();
     editUnit.setUnitData_useServer(unitData);
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
-    const ratio = [0.9333333, 0.9333333, 0.9, 0.8666667, 0.8, 0.75, 0.7, 0.6666667];
+    const ratio = [28 / 30, 28 / 30, 27 / 30, 26 / 30, 24 / 30, 22.5 / 30, 21 / 30, 20 / 30];
     let result = { data: [], attenuation: [] } as any;
     const field_type = formData.get("outdoor_space_text");
     const outdoor_unit = editUnit.GetTrans(
@@ -46,7 +46,7 @@ export async function noiseSimulator(
     //거리감쇠량
     const sLine_distance_attenuation = 20 * Math.log10(sLineDistance) + 11;
 
-    const DI = wallCount === 0 ? 0 : wallCount === 1 ? 3 : wallCount === 2 ? 6 : 9; // 지향성 보정(DI)
+    const DI = 10 * Math.log10(wallCount === 0 ? 0 : wallCount === 1 ? 2 : wallCount === 2 ? 4 : 8); // 지향성 보정(DI)
 
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {
@@ -490,7 +490,7 @@ export async function noiseSimulator(
     }
     result.estimatedSoundData = estimatedSoundData;
     result.DI = DI;
-    result.distance = Number(Number(sLine_distance_attenuation).toFixed(1));
+    result.distance = sLine_distance_attenuation;
     return result;
   } catch (e) {
     console.log(e);
