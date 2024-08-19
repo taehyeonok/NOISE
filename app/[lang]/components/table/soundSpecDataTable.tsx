@@ -1,25 +1,9 @@
-import {
-  soundPowerLevelDummyData,
-  soundPressureLevelDummyData,
-} from "@/app/[lang]/constants/const";
-
-interface SoundLevelData {
-  dataType: string;
-  product1?: number;
-  product2?: number;
-  product3?: number;
-}
-
 export default function SoundSpecDataTable({
   soundPressureLevel,
   soundPowerLevel,
-  soundPressureLevelData,
-  soundPowerLevelData,
 }: {
   soundPressureLevel: any;
   soundPowerLevel: any;
-  soundPressureLevelData: any;
-  soundPowerLevelData: any;
 }) {
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
@@ -59,7 +43,7 @@ export default function SoundSpecDataTable({
   {
     /* 반응형 */
   }
-  const renderMobileTableBox = (data: SoundLevelData[], title: string, children: JSX.Element) => {
+  const renderMobileTableBox = (title: string, children: JSX.Element) => {
     return (
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[1.875rem]"}>
         <div
@@ -79,11 +63,7 @@ export default function SoundSpecDataTable({
   {
     /* 반응형 */
   }
-  const renderMobileTableItem = (
-    title: string,
-    data: SoundLevelData[],
-    productType: keyof SoundLevelData
-  ) => {
+  const renderMobileTableItem = (title: string, data: any[], productType: any) => {
     const lastData = data[data.length - 1];
     return (
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.75rem]"}>
@@ -101,11 +81,13 @@ export default function SoundSpecDataTable({
                 return (
                   <tr key={index}>
                     <th className={`tableTh`}>{item.dataType}</th>
-                    <td className={`tableTd`}>{item[productType]}</td>
+                    <td className={`tableTd`}>{Number(item[productType]).toFixed(1)}</td>
                     {index + 1 < data.length && (
                       <>
                         <th className={`tableTh`}>{tempData?.dataType}</th>
-                        <td className={`tableTd`}>{tempData ? tempData[productType] : ""}</td>
+                        <td className={`tableTd`}>
+                          {tempData ? Number(tempData[productType]).toFixed(1) : ""}
+                        </td>
                       </>
                     )}
                   </tr>
@@ -138,9 +120,9 @@ export default function SoundSpecDataTable({
           soundPressureLevel,
           "_Sound Pressure Level",
           <>
-            {Object.keys(soundPressureLevelData[0]).map((key, index) => {
-              if (index < Object.keys(soundPressureLevelData[0]).length) {
-                return renderTdItem(`Product ${key} / Type : SPL`, soundPressureLevelData, key);
+            {Object.keys(soundPressureLevel[0]).map((key, index) => {
+              if (index < Object.keys(soundPressureLevel[0]).length - 1) {
+                return renderTdItem(`Product ${key} / Type : SPL`, soundPressureLevel, key);
               }
             })}
           </>
@@ -149,9 +131,9 @@ export default function SoundSpecDataTable({
           soundPowerLevel,
           "_Sound Power Level",
           <>
-            {Object.keys(soundPowerLevelData[0]).map((key, index) => {
-              if (index < Object.keys(soundPowerLevelData[0]).length) {
-                return renderTdItem(`Product ${key} / Type : SPL`, soundPowerLevelData, key);
+            {Object.keys(soundPowerLevel[0]).map((key, index) => {
+              if (index < Object.keys(soundPowerLevel[0]).length - 1) {
+                return renderTdItem(`Product ${key} / Type : SPL`, soundPowerLevel, key);
               }
             })}
           </>
@@ -159,26 +141,41 @@ export default function SoundSpecDataTable({
       </div>
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>
         {renderMobileTableBox(
-          soundPressureLevelDummyData,
           "_Sound Pressure Level",
           <>
-            {renderMobileTableItem(
-              "Product 1 / Type : SPL",
-              soundPressureLevelDummyData,
-              "product1"
-            )}
+            {Object.keys(soundPressureLevel[0]).map((key, index) => {
+              if (index < Object.keys(soundPressureLevel[0]).length - 1) {
+                return renderMobileTableItem(
+                  `Product ${key} / Type : SPL`,
+                  soundPressureLevel,
+                  key
+                );
+              }
+            })}
+            {/* {renderMobileTableItem("Product 1 / Type : SPL", soundPressureLevel, "product1")} */}
+            {/*
             {renderMobileTableItem(
               "Product 2 / Type : SPL",
-              soundPressureLevelDummyData,
-              "product2"
-            )}
+              soundPressureLevel,
+              "product2",
+              soundPressureLevelData
+            )} */}
           </>
         )}
         {renderMobileTableBox(
-          soundPowerLevelDummyData,
           "_Sound Power Level",
           <>
-            {renderMobileTableItem("Product 3 / Type : SPL", soundPowerLevelDummyData, "product3")}
+            {Object.keys(soundPowerLevel[0]).map((key, index) => {
+              if (index < Object.keys(soundPowerLevel[0]).length - 1) {
+                return renderMobileTableItem(`Product ${key} / Type : SPL`, soundPowerLevel, key);
+              }
+            })}
+            {/* {renderMobileTableItem(
+              "Product 3 / Type : SPL",
+              soundPowerLevelDummyData,
+              "product3",
+              soundPowerLevelData
+            )} */}
           </>
         )}
       </div>

@@ -196,7 +196,7 @@ export default function Header({ lang, selectedLanguage }: any) {
                       className={`mr-[1.188rem] text-[0.875rem] text-gray_700 leading-[1.225rem]
                                             mobile:text-[0.75rem] mobile:leading-[1.05rem]`}
                     >
-                      {index + 1})
+                      {index + 1}
                     </span>
                     {item.highLight ? (
                       <>
@@ -286,13 +286,16 @@ export default function Header({ lang, selectedLanguage }: any) {
   };
 
   const fnLatsMain = () => {
+    localStorage.removeItem("simulate");
+    localStorage.removeItem("outdoor_space");
     removeCookie("latsNoiseLogin");
     removeCookie("latsNoiseLoginInfo");
     router.push(window.location.protocol + "//" + window.location.host + "/");
   };
 
   const fnLogout = () => {
-    sessionStorage.clear();
+    localStorage.removeItem("simulate");
+    localStorage.removeItem("outdoor_space");
     removeCookie("latsNoiseLogin");
     removeCookie("latsNoiseLoginInfo");
     router.push(window.location.protocol + "//" + window.location.host + "/login/logout.lge");

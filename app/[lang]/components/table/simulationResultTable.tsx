@@ -21,7 +21,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
     const copyMSoundPressure = cloneObject(mSoundPressureReceiver);
 
     copyMSoundPressure.data.map((item: any, index: number) => {
-      item.content = simulateData[index];
+      item.content = simulateData.data[index].content;
     });
     setMSoundPressureReceiver(copyMSoundPressure);
   }, [simulateData]);
@@ -127,23 +127,23 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.938rem]"}>
         {renderMobileTableItem(
           "Detail information",
-          detailInformationDummyData.data.map((item, index) => (
+          detailData.data.map((item: any, index: number) => (
             <div key={"detailInformationDummyData-" + index} className={"flex flex-col gap-[1rem]"}>
               <p className={"leading-[1.125rem] text-[0.875rem] font-LGSMHATB text-left"}>
                 {item.title}
               </p>
               <table className={"table-fixed"}>
                 <tbody>
-                  {item.content.map((contentItem, contentIndex) => {
+                  {item.content.map((contentItem: any, contentIndex: number) => {
                     if (contentIndex % 2 === 0) {
                       return (
                         <tr key={contentIndex}>
                           <td className={"tableTh"}>
-                            {detailInformationDummyData.headings[contentIndex]?.content}
+                            {detailData.headings[contentIndex]?.content}
                           </td>
                           <td className={"tableTd"}>{contentItem.content}</td>
                           <td className={"tableTh"}>
-                            {detailInformationDummyData.headings[contentIndex + 1]?.content}
+                            {detailData.headings[contentIndex + 1]?.content}
                           </td>
                           <td className={"tableTd"}>{item.content[contentIndex + 1]?.content}</td>
                         </tr>

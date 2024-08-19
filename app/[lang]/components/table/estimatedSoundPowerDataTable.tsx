@@ -92,7 +92,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
                   return (
                     <tr key={index}>
                       <th className={`tableTh`}>{item.content1}</th>
-                      <td className={`tableTd`}>{item.content2}</td>
+                      <td className={`tableTd`}>{Number(item.content2).toFixed(1)}</td>
                       {index + 1 < estimatedSoundData.length && (
                         <>
                           <th className={`tableTh`}>{estimatedSoundData[index + 1]?.content1}</th>

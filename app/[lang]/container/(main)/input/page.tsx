@@ -60,9 +60,6 @@ export default function Input() {
   const [estimatedSoundData, setEstimatedSoundData] = useState(estimatedSoundDummyData);
   const [totalCapacityTableData, setTotalCapacityTableData] = useState(totalCapacityTableDummyData);
   const [barrierInfoTableData, setBarrierInfoTableData] = useState(barrierInfoTableDummyData);
-  const [soundPressureLevelData, setSoundPressureLevelData] =
-    useState<any>(soundPressureLevelDummy);
-  const [soundPowerLevelData, setSoundPowerLevelData] = useState<any>(soundPowerLevelDummy);
   const [unitData, setUnitData] = useState<any>(null);
   const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
@@ -97,15 +94,15 @@ export default function Input() {
     if (productTableData.length > MIN_ROWS) {
       const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
 
-      const deleteSoundPressure = cloneObject(soundPressureLevelData);
+      const deleteSoundPressure = cloneObject(soundPressureLevel);
       deleteSoundPressure.map((item: any) => delete item[rowId]);
 
-      const deleteSoundPower = cloneObject(soundPowerLevelData);
+      const deleteSoundPower = cloneObject(soundPowerLevel);
       deleteSoundPower.map((item: any) => delete item[rowId]);
 
       setProductTableData(updatedTableRows);
-      setSoundPressureLevelData(deleteSoundPressure);
-      setSoundPowerLevelData(deleteSoundPower);
+      setSoundPressureLevel(deleteSoundPressure);
+      setSoundPowerLevel(deleteSoundPower);
     }
   };
 
@@ -195,16 +192,16 @@ export default function Input() {
     // copyProduct[0].capacity = "%";
     // setProductTableData(copyProduct);
     setIsClient(true);
+    localStorage.removeItem("simulate");
   }, []);
-
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
-    const copySoundPressure = cloneObject(soundPressureLevelData);
-    const copySoundPower = cloneObject(soundPowerLevelData);
+    const copySoundPressure = cloneObject(soundPressureLevel);
+    const copySoundPower = cloneObject(soundPowerLevel);
     const copyTotal = cloneObject(totalCapacityTableData);
 
-    let totalCool: number = 0;
-    let totalCapacity: number = 0;
+    let totalRated: number = 0;
+    let totalSimulated: number = 0;
     productTableData.map(async (data: any) => {
       if (data.productType !== "") {
         const res = await fetch(`${basePath}/api/common-select-modelspec`, {
@@ -289,9 +286,10 @@ export default function Input() {
               0
             );
           }
-          setSoundPressureLevelData(copySoundPressure);
-          setSoundPowerLevelData(copySoundPower);
         });
+        setSoundPressureLevel(copySoundPressure);
+        setSoundPowerLevel(copySoundPower);
+
         const capacity = Number(data.capacity.replace("%", ""));
         const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
           method: "post",
@@ -302,19 +300,18 @@ export default function Input() {
           item.t_cool_w == null ? 0 : item.t_cool_w
         );
         setTotalData(coolData);
-        totalCool += coolData * Number(data.qty);
-        totalCapacity += coolData * 0.001 * capacity * Number(data.qty);
-        copyTotal[0].first = Number(totalCool * 0.001).toFixed(1) + "kW";
-        copyTotal[1].first = Number(totalCapacity * 0.01).toFixed(1) + "kW";
+        totalRated += coolData * Number(data.qty);
+        totalSimulated += coolData * 0.001 * capacity * Number(data.qty);
+        copyTotal[0].first = Number(totalRated * 0.001).toFixed(1) + "kW";
+        copyTotal[1].first = Number(totalSimulated * 0.01).toFixed(1) + "kW";
         copyTotal[1].second =
-          totalCapacity == 0
+          totalSimulated == 0
             ? "0%"
-            : Number(((totalCapacity * 0.01) / (totalCool * 0.001)) * 100).toFixed(0) + "%";
+            : Number(((totalSimulated * 0.01) / (totalRated * 0.001)) * 100).toFixed(0) + "%";
         setTotalCapacityTableData(copyTotal);
       }
     });
   }, [productTableData, productTypeData]);
-
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
     const copyEstimated = cloneObject(estimatedSoundData);
@@ -354,19 +351,23 @@ export default function Input() {
 
     const soundSpecData: any[] = [];
     let number = 0;
-    soundPressureLevelData.slice(0, 8).forEach((data: any, i: number) => {
+    soundPressureLevel.slice(0, 8).forEach((data: any, i: number) => {
       let newItem: any = {};
 
-      Object.values(data).map((item: any) => {
-        newItem[number] = Number(item + distance_attenuation + correction[i]);
-        number++;
+      Object.values(data).map((item: any, index: number) => {
+        if (index < Object.keys(data).length - 1) {
+          newItem[number] = Number(item + distance_attenuation + correction[i]);
+          number++;
+        }
       });
       soundSpecData.push(newItem);
     });
 
-    soundPowerLevelData.slice(0, 8).forEach((data: any, i: number) => {
-      Object.values(data).map((item: any) => {
-        soundSpecData[i] = { ...soundSpecData[i], item };
+    soundPowerLevel.slice(0, 8).forEach((data: any, i: number) => {
+      Object.values(data).map((item: any, index: number) => {
+        if (index < Object.keys(data).length - 1) {
+          soundSpecData[i] = { ...soundSpecData[i], item };
+        }
       });
     });
     const columnSum: any[] = [];
@@ -388,7 +389,7 @@ export default function Input() {
     else columnSum.map((item, index) => (copyEstimated[index].content2 = Number(Number(item))));
 
     setEstimatedSoundData(copyEstimated);
-  }, [soundPressureLevelData, soundPowerLevelData, totalCapacityTableData]);
+  }, [soundPressureLevel, soundPowerLevel, totalCapacityTableData]);
   /**
    * Noise 계산 로직 실행 후 결과창 이동
    * @param formData
@@ -396,6 +397,7 @@ export default function Input() {
   useEffect(() => {
     localStorage.setItem("outdoor_space", JSON.stringify(selectFieldType));
   }, [selectFieldType]);
+
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
@@ -491,10 +493,10 @@ export default function Input() {
             setProductTypeData={setProductTypeData}
             functionNoiseData={functionNoiseData}
             setFunctionNoiseData={setFunctionNoiseData}
-            setSoundPressureLevelData={setSoundPressureLevelData}
-            setSoundPowerLevelData={setSoundPowerLevelData}
-            soundPressureLevelData={soundPressureLevelData}
-            soundPowerLevelData={soundPowerLevelData}
+            setSoundPressureLevel={setSoundPressureLevel}
+            setSoundPowerLevel={setSoundPowerLevel}
+            soundPressureLevel={soundPressureLevel}
+            soundPowerLevel={soundPowerLevel}
           />
           {/* 반응형 */}
           <ContainerBoxRow
@@ -529,8 +531,6 @@ export default function Input() {
           <SoundSpecDataTable
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
-            soundPressureLevelData={soundPressureLevelData}
-            soundPowerLevelData={soundPowerLevelData}
           />
           {/* 반응형 */}
           <div
