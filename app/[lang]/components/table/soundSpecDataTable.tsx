@@ -145,10 +145,10 @@ export default function SoundSpecDataTable({
           <>
             {Object.keys(soundPressureLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPressureLevel[0]).length - 1) {
-                return renderMobileTableItem(
-                  `Product ${key} / Type : SPL`,
-                  soundPressureLevel,
-                  key
+                return (
+                  <div key={index}>
+                    {renderMobileTableItem(`Product ${key} / Type : SPL`, soundPressureLevel, key)}
+                  </div>
                 );
               }
             })}
@@ -167,7 +167,11 @@ export default function SoundSpecDataTable({
           <>
             {Object.keys(soundPowerLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPowerLevel[0]).length - 1) {
-                return renderMobileTableItem(`Product ${key} / Type : SPL`, soundPowerLevel, key);
+                return (
+                  <div key={index}>
+                    {renderMobileTableItem(`Product ${key} / Type : SPL`, soundPowerLevel, key)}
+                  </div>
+                );
               }
             })}
             {/* {renderMobileTableItem(
