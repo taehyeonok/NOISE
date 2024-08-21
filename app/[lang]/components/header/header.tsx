@@ -3,6 +3,7 @@
 import Image from "next/image";
 import {
   browserType,
+  headerManualDummyData,
   howToUseDummyData,
   unitSettingDefaultData,
   UnitStorageName,
@@ -154,94 +155,73 @@ export default function Header({ lang, selectedLanguage }: any) {
     setLoginUserName(cookies.latsNoiseLoginInfo);
   }, [cookies]);
   const renderHeaderManualPop = () => {
-    const headerManualItemBox = `flex flex-col gap-[1.25rem]`;
-    const headerManualItemTitle = `text-gray_700 font-LGSMHATB`;
     return (
       //반응형
       <CPopUp
         ref={manualPopRef}
         isActive={selectedHelpMenu === "Manual"}
-        className={"w-[37.5rem] mobile:w-full"}
+        className={"p-[2.5rem_3.125rem] mobile:w-[90%] mobile:p-0"}
+        classList={"mobile:bg-popup_bg"}
         notOverflow={isShowHelpMenu === browserType.MOBILE}
       >
-        <CPopHeader label={"Read the guide"} onClick={() => setSelectedHelpMenu("")} />
         {/* 반응형 */}
-        <div
-          className={`p-[2.5rem] flex flex-col gap-[1.875rem] items-center overflow-y-auto h-[37.5rem]
-                    mobile:p-[1.25rem_1rem_2.5rem] mobile:h-full`}
-        >
+        <div className={"flex flex-col gap-10 mobile:gap-[1.875rem]"}>
           {/* 반응형 */}
-          <div className={"flex flex-col gap-[2.5rem] mobile:gap-[1.875rem]"}>
-            {/* 반응형 */}
-            <p
-              className={`leading-[1.4rem] text-gray_700
-                        mobile:text-[0.875rem] mobile:leading-[1.225rem]  mobile:mb-[-0.625rem]`}
-            >
-              This sound simulator is suitable for outdoor noise level evaluation because it
-              consider propagation over a distance and insertion loss of a barrier between the noise
-              source and the receiver in the outdoor environment.
+          <div
+            className={
+              "flex flex-col gap-5 items-center mobile:p-[1.875rem_1rem_0_1rem] mobile:gap-2.5"
+            }
+          >
+            <p className={"text-gray_900 text-[1.625rem] font-LGSMHATSB mobile:text-[1.25rem]"}>
+              Manual
             </p>
-            <div className={headerManualItemBox}>
-              <p className={headerManualItemTitle}>How to use</p>
-              <div className={"flex flex-col gap-[0.75rem]"}>
-                {howToUseDummyData.map((item, index) => (
-                  // 반응형
-                  <div
-                    key={"howToUseDummyData" + index}
-                    className={`text-[0.875rem] text-gray_700 leading-[1.225rem] indent-[-1.938rem] pl-[1.938rem]
-                                         mobile:text-[0.75rem] mobile:leading-[1.05rem]`}
-                  >
-                    {/* 반응형 */}
-                    <span
-                      className={`mr-[1.188rem] text-[0.875rem] text-gray_700 leading-[1.225rem]
-                                            mobile:text-[0.75rem] mobile:leading-[1.05rem]`}
-                    >
-                      {index + 1}
-                    </span>
-                    {item.highLight ? (
-                      <>
-                        {item.content1.replace(item.highLight, "")}
-                        <br />
-                        {/* 반응형 */}
-                        <span
-                          className={`text-primary text-[0.875rem] leading-[1.225rem] font-LGSMHATSB
-                                                    mobile:text-[0.75rem] mobile:leading-[1.05rem]`}
-                        >
-                          {item.highLight}
-                        </span>
-                        {item.content2}
-                      </>
-                    ) : (
-                      item.content1
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={headerManualItemBox}>
-              <p className={headerManualItemTitle}>Guide image for center point</p>
-              <Image src={IG_GUIDE_IMAGE_FOR_CENTER_POINT} alt={"Guide image for center point"} />
-            </div>
-            <div className={headerManualItemBox}>
-              <p className={headerManualItemTitle}>Guide image for reflective wall and ground</p>
-              <Image
-                src={IG_REFLECTIVE_WALL_AND_GROUND}
-                alt={"Guide image for reflective wall and ground"}
-              />
-            </div>
-            <div className={headerManualItemBox}>
-              <p className={headerManualItemTitle}>Reference_Common background noises</p>
-              <ReferenceCommonTable />
-            </div>
+            <p className={"text-757575 mobile:text-center"}>
+              Looking for a manual? Download user manual here.
+            </p>
           </div>
           {/* 반응형 */}
-          <CButton
-            title={"OK"}
-            className={"primaryButton w-[8.75rem] flex-none mobile:w-full mobile:h-[2.25rem]"}
-            onClick={() => {
-              setSelectedHelpMenu("");
-            }}
-          />
+          <div className={"flex flex-col gap-10 mobile:gap-[1.875rem]"}>
+            {/* 반응형 */}
+            <div className={"flex flex-col gap-2.5 mobile:p-[0_1rem]"}>
+              {headerManualDummyData.map((item, index) => {
+                return (
+                  <div
+                    key={"headerManualDummyData" + index}
+                    className={
+                      "w-[31.25rem] h-[3.125rem] rounded-[3px] border border-solid border-gray_300 px-5 flex items-center justify-between cursor-pointer " +
+                      "hover:border-primary " +
+                      "mobile:flex-col mobile:px-[1.063rem] mobile:items-start mobile:w-full mobile:h-[4rem] mobile:justify-center mobile:gap-[0.75rem]"
+                    }
+                    onClick={() => {
+                      downloadManual(item.title);
+                    }}
+                  >
+                    {/* 반응형 */}
+                    <p className={"text-gray_900 mobile:text-[0.875rem]"}>{item.title}</p>
+                    <p className={"text-[0.75rem] text-gray_500"}>{item.date}</p>
+                  </div>
+                );
+              })}
+            </div>
+            {/* 반응형 */}
+            <div className={"flex gap-2.5 justify-center mobile:gap-0"}>
+              <CButton
+                title={"Cancel"}
+                className={
+                  "blackLineButton w-[10rem] h-[3.125rem] !text-[1.125rem] mobile:w-[50%] mobile:rounded-none mobile:border-l-0 mobile:border-r-0 mobile:border-b-0"
+                }
+                onClick={() => {
+                  setSelectedHelpMenu("");
+                }}
+              />
+              {/* <CButton
+                  title={"Download"}
+                  className={
+                    "primaryButton w-[10rem] h-[3.125rem] !text-[1.125rem] mobile:w-[50%] mobile:rounded-none"
+                  }
+                /> */}
+            </div>
+          </div>
         </div>
       </CPopUp>
     );
@@ -303,6 +283,35 @@ export default function Header({ lang, selectedLanguage }: any) {
     router.push(window.location.protocol + "//" + window.location.host + "/login/logout.lge");
   };
 
+  const downloadManual = async (fileName: string) => {
+    // let fileURL = "";
+    let fileURL =
+      "http://latscw.lge.com/global/latsWeb/common/fileDownUtil.ajax?path=Noise/Manual&fileName=";
+    fileURL += fileName;
+
+    // 파일 다운로드 진행
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+    let res: Response = new Response();
+    res = await fetch(`${basePath}/api/download-manual`, {
+      method: "post",
+      body: JSON.stringify({
+        fileURL: fileURL,
+      }),
+    });
+
+    const file = await res.blob();
+    const downloadUrl = window.URL.createObjectURL(file);
+
+    const anchorElement = document.createElement("a");
+    document.body.appendChild(anchorElement);
+    anchorElement.download = "LATS Noise User Manual.pdf";
+    anchorElement.href = downloadUrl;
+
+    anchorElement.click();
+
+    document.body.removeChild(anchorElement);
+    window.URL.revokeObjectURL(downloadUrl);
+  };
   return (
     <>
       {/* 반응형 */}

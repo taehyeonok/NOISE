@@ -21,7 +21,7 @@ export default function CCalendar({ label }: cCalendarProps) {
   };
   useEffect(() => {
     const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
-    if (isBack) setDate(projectInfoData.calendar);
+    if (isBack) setDate(projectInfoData.calendar ? projectInfoData.calendar : date);
   }, []);
   return (
     //반응형

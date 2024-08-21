@@ -200,38 +200,50 @@ export default function Input() {
     const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
     if (isBack) {
       setProjectName(projectInfoData?.projectName);
-      setProductTableData(projectInfoData?.productTable);
-      const productType = projectInfoData?.productTable.map((k: any) => k.productType);
+      setProductTableData(
+        projectInfoData?.productTable
+          ? projectInfoData?.productTable
+          : productInformationTableDummyData
+      );
+      const productType = projectInfoData?.productTable
+        ? projectInfoData.productTable.map((k: any) => k.productType)
+        : [];
       setProductTypeData(productType);
-      setFunctionNoiseData(projectInfoData?.functionNoise);
-      setStepData(projectInfoData?.step);
-      setSelectFieldType(projectInfoData?.selectFieldType);
-      if (projectInfoData?.selectFieldType.value == "1") {
-        setBarrierSelected(projectInfoData?.inputData.barrierSelected);
-        setHorizontal(projectInfoData?.inputData.horizontal);
-        setOutdoorUnit(projectInfoData?.inputData.outdoorUnit);
-        setReceiver(projectInfoData?.inputData.receiver);
-        setBarrierThickness(projectInfoData?.inputData.barrierThickness);
-        setBackgroundNoise(projectInfoData?.inputData.backgroundNoise);
+      setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
+      setStepData(projectInfoData?.step ? projectInfoData.step : []);
+      setSelectFieldType(projectInfoData?.selectFieldType ? projectInfoData.selectFieldType : []);
+      if (projectInfoData?.selectFieldType?.value == "1") {
+        setBarrierSelected(projectInfoData?.inputData?.barrierSelected);
+        setHorizontal(projectInfoData?.inputData?.horizontal);
+        setOutdoorUnit(projectInfoData?.inputData?.outdoorUnit);
+        setReceiver(projectInfoData?.inputData?.receiver);
+        setBarrierThickness(projectInfoData?.inputData?.barrierThickness);
+        setBackgroundNoise(projectInfoData?.inputData?.backgroundNoise);
         //noisetool
-        setLeftBarrier(projectInfoData?.inputData.leftBarrier);
-        setRightBarrier(projectInfoData?.inputData.rightBarrier);
-        setSourceHeight(projectInfoData?.inputData.outdoorUnit + 1);
-        setReceiverHeight(projectInfoData?.inputData.receiver);
-        setHorizontalDistance(projectInfoData?.inputData.horizontal);
+        setLeftBarrier(projectInfoData?.inputData?.leftBarrier);
+        setRightBarrier(projectInfoData?.inputData?.rightBarrier);
+        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
+        setReceiverHeight(projectInfoData?.inputData?.receiver);
+        setHorizontalDistance(projectInfoData?.inputData?.horizontal);
         setBarrierEnable(projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false);
 
-        if (projectInfoData?.inputData.barrierSelected.value == "0") {
-          setOdus(projectInfoData?.inputData.odus);
-          setBarrierH(projectInfoData?.inputData.barrierH);
-          setBarrierInfoTableData(projectInfoData?.inputData.barrierInfoTableData);
+        if (projectInfoData?.inputData?.barrierSelected?.value == "0") {
+          setOdus(projectInfoData?.inputData?.odus);
+          setBarrierH(projectInfoData?.inputData?.barrierH);
+          setBarrierInfoTableData(projectInfoData?.inputData?.barrierInfoTableData);
           //noisetool
-          setBarrierFromSource(projectInfoData?.inputData.odus);
-          setBarrierHeight(projectInfoData?.inputData.barrierH);
+          setBarrierFromSource(projectInfoData?.inputData?.odus);
+          setBarrierHeight(projectInfoData?.inputData?.barrierH);
         }
       } else {
-        setDirectDistance(projectInfoData?.inputData.directDistance);
-        setRoomVolume(projectInfoData?.inputData.roomVolume);
+        setDirectDistance(
+          projectInfoData?.inputData?.directDistance
+            ? projectInfoData?.inputData?.directDistance
+            : 10
+        );
+        setRoomVolume(
+          projectInfoData?.inputData?.roomVolume ? projectInfoData?.inputData?.roomVolume : 5
+        );
       }
     } else {
       const copyProduct = cloneObject(productTableData);
