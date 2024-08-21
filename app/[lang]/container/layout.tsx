@@ -4,6 +4,7 @@ import Header from "@/app/[lang]/components/header/header";
 import Footer from "@/app/[lang]/components/footer/footer";
 import { useParams } from "next/navigation";
 import { getSelectedLanguage } from "@/app/utils/utils";
+import { ProjectInfoProvider } from "@/app/context/projectInfoContext";
 
 export default function MenuLayout({ children }: { children: React.ReactNode }) {
   const param = useParams<{ lang: string }>();
@@ -11,7 +12,7 @@ export default function MenuLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className={"page"}>
       <Header lang={param.lang} selectedLanguage={selectedLanguage} />
-      {children}
+      <ProjectInfoProvider>{children}</ProjectInfoProvider>
       <Footer />
     </div>
   );

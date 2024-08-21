@@ -13,14 +13,18 @@ interface ProductInformationTableProps {
   setData: Function;
   removeTableRow: Function;
   t: any;
-  productTypeData: any;
+  productTypeData: string[];
   setProductTypeData: Function;
-  functionNoiseData: any;
+  functionNoiseData: string[];
   setFunctionNoiseData: Function;
+  stepData: string[];
+  setStepData: Function;
   setSoundPressureLevel: Function;
   setSoundPowerLevel: Function;
-  soundPressureLevel: any;
-  soundPowerLevel: any;
+  soundPressureLevel: object[];
+  soundPowerLevel: object[];
+  projectInfoData: any;
+  setProjectInfoData: Function;
 }
 
 export default function ProductInformationTable({
@@ -32,14 +36,17 @@ export default function ProductInformationTable({
   setProductTypeData,
   functionNoiseData,
   setFunctionNoiseData,
+  stepData,
+  setStepData,
   setSoundPressureLevel,
   setSoundPowerLevel,
   soundPressureLevel,
   soundPowerLevel,
+  projectInfoData,
+  setProjectInfoData,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
   const [isMobile, setIsMobile] = useState(false);
-  const [stepData, setStepData] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -125,6 +132,7 @@ export default function ProductInformationTable({
                     const copyFunction = cloneObject(functionNoiseData);
                     copyFunction[index] = changedValue.value.slice(1).split("/");
                     setFunctionNoiseData(copyFunction);
+                    projectInfoData.functionNoise = copyFunction;
                   }}
                   data={item.productType}
                   number={item.id}
@@ -180,18 +188,11 @@ export default function ProductInformationTable({
                     data[index]!.function = changedValue.title;
                     data[index]!.step = "";
                     setData([...data]);
+
                     const copyStep = cloneObject(stepData);
                     copyStep[index] = changedValue.value.slice(1).split("/");
                     setStepData(copyStep);
-                    //sound source data reset
-                    const deleteSoundPressure = cloneObject(soundPressureLevel);
-                    deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    const deleteSoundPower = cloneObject(soundPowerLevel);
-                    deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    setSoundPressureLevel(deleteSoundPressure);
-                    setSoundPowerLevel(deleteSoundPower);
+                    projectInfoData.step = copyStep;
                   }}
                   data={item.function}
                   params={{ functionData: functionNoiseData[index] }}
@@ -289,6 +290,7 @@ export default function ProductInformationTable({
 
                       const copyFunction = cloneObject(functionNoiseData);
                       copyFunction[index] = changedValue.value.slice(1).split("/");
+                      projectInfoData.functionNoise = copyFunction;
                       setFunctionNoiseData(copyFunction);
                     }}
                     data={item.productType}
@@ -344,19 +346,12 @@ export default function ProductInformationTable({
                     onChange={(changedValue: { title: string; value: string }) => {
                       data[index]!.function = changedValue.title;
                       data[index]!.step = "";
+                      setData([...data]);
+
                       const copyStep = cloneObject(stepData);
                       copyStep[index] = changedValue.value.slice(1).split("/");
-                      //sound source data reset
-                      const deleteSoundPressure = cloneObject(soundPressureLevel);
-                      deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      const deleteSoundPower = cloneObject(soundPowerLevel);
-                      deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
                       setStepData(copyStep);
-                      setData([...data]);
-                      setSoundPressureLevel(deleteSoundPressure);
-                      setSoundPowerLevel(deleteSoundPower);
+                      projectInfoData.step = copyStep;
                     }}
                     data={item.function}
                     params={{ functionData: functionNoiseData[index] }}

@@ -57,7 +57,7 @@ export const validateFormData = (
     }
   }
   //Enclosed Space (Machine Room) 모델 4대 제한
-  if (checkDataObj.outdoor_space_text === "Enclosed Space (Machine Room)") {
+  if (checkDataObj.field_type_text === "Enclosed Space (Machine Room)") {
     if (Number(productTableData.length) > 4) {
       const number_of_point_sound_sources_input = elements.namedItem(
         "product_type_4_text"

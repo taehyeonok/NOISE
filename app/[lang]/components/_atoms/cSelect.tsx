@@ -149,6 +149,8 @@ export default function CSelect({
         setSelectText(initData?.title ? initData?.title : "");
         inputTextRef.current?.setCustomValidity("");
       }
+      if (name == "barrier_in_the_path" || name == "field_type" || name == "material_thickness")
+        setSelectText(value);
     }
     setActive(false);
   }, [selectBoxData, initValue, value]);

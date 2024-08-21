@@ -469,10 +469,6 @@ export const unitSettingDefaultData: Record<string, Record<string, string>> = {
   },
 };
 
-export const soundPressureLevelDummy = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-
-export const soundPowerLevelDummy = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
-
 export const dBAF = (data: any[], objProps: string) => {
   return (
     10 *

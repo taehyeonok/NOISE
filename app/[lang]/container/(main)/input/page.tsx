@@ -3,11 +3,9 @@
 import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 import IC_ROUND_PLUS from "@/app/assets/icons/ic_round_plus.svg";
-import IG_OUTDOOR_SPACE from "@/app/assets/images/ig_outdoor_space.svg";
-import IC_TOOLTIP from "@/app/assets/icons/ic_tooltip.svg";
 import Image from "next/image";
 import ProductInformationTable from "@/app/[lang]/components/table/productInformationTable";
 import {
@@ -15,9 +13,7 @@ import {
   estimatedSoundDummyData,
   fieldTypeSelectBoxData,
   productInformationTableDummyData,
-  soundPowerLevelDummy,
   soundPowerLevelDummyData,
-  soundPressureLevelDummy,
   soundPressureLevelDummyData,
   totalCapacityTableDummyData,
 } from "@/app/[lang]/constants/const";
@@ -30,15 +26,17 @@ import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import EditUnit from "@/lib/editUnit";
 import { noiseSimulator } from "@/lib/noiseSimulator";
 import { validateFormData } from "@/lib/validation";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 import LoadingPage from "@/app/[lang]/components/loadingSkeleton/loadingPage";
 import { ProductItem } from "@/@types/components";
 import { cloneObject } from "@/app/utils/utils";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import Noisetools from "@/app/[lang]/components/noisetools/noisetools";
+import { ProjectInfoContext } from "@/app/context/projectInfoContext";
 
 export default function Input() {
+  const searchParams = useSearchParams();
   const param = useParams<{ lang: string }>();
   const { t } = useTranslation(param.lang);
   const editUnit = new EditUnit();
@@ -63,13 +61,22 @@ export default function Input() {
   const [unitData, setUnitData] = useState<any>(null);
   const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
+  const [stepData, setStepData] = useState([]);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
-  const [totalData, setTotalData] = useState(0);
+  const [totalRatedData, setTotalRatedData] = useState(0);
+  const [totalSimulatedData, setTotalSimulatedData] = useState(0);
   const [barrierSelected, setBarrierSelected] = useState<{ title: string; value: string }>({
     title: "O",
     value: "0",
   });
+  const [directDistance, setDirectDistance] = useState(7);
+  const [roomVolume, setRoomVolume] = useState(8);
+  const [barrierThickness, setBarrierThickness] = useState<{ title: string; value: string }>({
+    title: "Concrete(Default) / 120mm",
+    value: "120",
+  });
   const [isClient, setIsClient] = useState(false);
+  const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
 
   const addTableRow = () => {
     const existingIds = productTableData.map((row) => row.id);
@@ -149,9 +156,11 @@ export default function Input() {
   const [receiver, setReceiver] = useState<number>(2);
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
-  const [barrier, setBarrier] = useState<number>(5);
+  const [barrierH, setBarrierH] = useState<number>(5);
   const [leftBarrier, setLeftBarrier] = useState(1);
   const [rightBarrier, setRightBarrier] = useState(1);
+  const [backgroundNoise, setBackgroundNoise] = useState(30);
+
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
     switch (factorType) {
       case "Source":
@@ -161,7 +170,7 @@ export default function Input() {
         setReceiver(value1);
         break;
       case "Barrier":
-        setBarrier(value1);
+        setBarrierH(value1);
         setOdus(value2!);
         break;
       case "LEFT_WALL":
@@ -184,16 +193,114 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
-    // const copyProduct = cloneObject(productTableData);
-    // copyProduct[0].productType = "";
-    // copyProduct[0].modelName = "";
-    // copyProduct[0].function = "";
-    // copyProduct[0].step = "";
-    // copyProduct[0].capacity = "%";
-    // setProductTableData(copyProduct);
     setIsClient(true);
     localStorage.removeItem("simulate");
+
+    //뒤로가기 시 이전 data 세팅
+    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    if (isBack) {
+      setProjectName(projectInfoData?.projectName);
+      setProductTableData(projectInfoData?.productTable);
+      const productType = projectInfoData?.productTable.map((k: any) => k.productType);
+      setProductTypeData(productType);
+      setFunctionNoiseData(projectInfoData?.functionNoise);
+      setStepData(projectInfoData?.step);
+      setSelectFieldType(projectInfoData?.selectFieldType);
+      if (projectInfoData?.selectFieldType.value == "1") {
+        setBarrierSelected(projectInfoData?.inputData.barrierSelected);
+        setHorizontal(projectInfoData?.inputData.horizontal);
+        setOutdoorUnit(projectInfoData?.inputData.outdoorUnit);
+        setReceiver(projectInfoData?.inputData.receiver);
+        setBarrierThickness(projectInfoData?.inputData.barrierThickness);
+        setBackgroundNoise(projectInfoData?.inputData.backgroundNoise);
+        //noisetool
+        setLeftBarrier(projectInfoData?.inputData.leftBarrier);
+        setRightBarrier(projectInfoData?.inputData.rightBarrier);
+        setSourceHeight(projectInfoData?.inputData.outdoorUnit + 1);
+        setReceiverHeight(projectInfoData?.inputData.receiver);
+        setHorizontalDistance(projectInfoData?.inputData.horizontal);
+        setBarrierEnable(projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false);
+
+        if (projectInfoData?.inputData.barrierSelected.value == "0") {
+          setOdus(projectInfoData?.inputData.odus);
+          setBarrierH(projectInfoData?.inputData.barrierH);
+          setBarrierInfoTableData(projectInfoData?.inputData.barrierInfoTableData);
+          //noisetool
+          setBarrierFromSource(projectInfoData?.inputData.odus);
+          setBarrierHeight(projectInfoData?.inputData.barrierH);
+        }
+      } else {
+        setDirectDistance(projectInfoData?.inputData.directDistance);
+        setRoomVolume(projectInfoData?.inputData.roomVolume);
+      }
+    } else {
+      const copyProduct = cloneObject(productTableData);
+      copyProduct[0].productType = "";
+      copyProduct[0].modelName = "";
+      copyProduct[0].function = "";
+      copyProduct[0].step = "";
+      copyProduct[0].capacity = "%";
+      setProductTableData(copyProduct);
+    }
+    const searchParam = new URLSearchParams(window.location.search);
+    const time = setTimeout(() => {
+      searchParam.delete("isBack");
+      localStorage.removeItem("isBack");
+      window.history.replaceState({}, "", `${window.location.pathname}`);
+    }, 1000);
+    return () => {
+      clearTimeout(time);
+    };
   }, []);
+
+  //Context Data 세팅
+  useEffect(() => {
+    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    const systemObject = cloneObject(projectInfoData);
+
+    const inpuOutdoorObj = {
+      outdoorUnit,
+      receiver,
+      horizontal,
+      backgroundNoise,
+      leftBarrier,
+      rightBarrier,
+      barrierInfoTableData,
+      barrierSelected,
+      odus,
+      barrierH,
+      barrierThickness,
+    };
+    const inputEnclosedObj = {
+      directDistance,
+      roomVolume,
+    };
+
+    systemObject.projectName = projectName;
+    systemObject.productTable = productTableData;
+    systemObject.inputData = selectFieldType.value == "1" ? inpuOutdoorObj : inputEnclosedObj;
+    systemObject.selectFieldType = selectFieldType;
+
+    if (!isBack) setProjectInfoData(systemObject);
+  }, [
+    projectName,
+    outdoorUnit,
+    receiver,
+    horizontal,
+    backgroundNoise,
+    leftBarrier,
+    rightBarrier,
+    barrierInfoTableData,
+    barrierSelected,
+    odus,
+    barrierH,
+    barrierThickness,
+    directDistance,
+    roomVolume,
+    productTableData,
+    selectFieldType,
+  ]);
+
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
     const copySoundPressure = cloneObject(soundPressureLevel);
@@ -299,9 +406,10 @@ export default function Input() {
         const coolData = resultData.data.map((item: any) =>
           item.t_cool_w == null ? 0 : item.t_cool_w
         );
-        setTotalData(coolData);
         totalRated += coolData * Number(data.qty);
         totalSimulated += coolData * 0.001 * capacity * Number(data.qty);
+        setTotalRatedData(totalRated);
+        setTotalSimulatedData(totalSimulated);
         copyTotal[0].first = Number(totalRated * 0.001).toFixed(1) + "kW";
         copyTotal[1].first = Number(totalSimulated * 0.01).toFixed(1) + "kW";
         copyTotal[1].second =
@@ -395,7 +503,7 @@ export default function Input() {
    * @param formData
    */
   useEffect(() => {
-    localStorage.setItem("outdoor_space", JSON.stringify(selectFieldType));
+    localStorage.setItem("fieldType", JSON.stringify(selectFieldType));
   }, [selectFieldType]);
 
   async function actionSimulate(formData: FormData) {
@@ -493,10 +601,14 @@ export default function Input() {
             setProductTypeData={setProductTypeData}
             functionNoiseData={functionNoiseData}
             setFunctionNoiseData={setFunctionNoiseData}
+            stepData={stepData}
+            setStepData={setStepData}
             setSoundPressureLevel={setSoundPressureLevel}
             setSoundPowerLevel={setSoundPowerLevel}
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
+            projectInfoData={projectInfoData}
+            setProjectInfoData={setProjectInfoData}
           />
           {/* 반응형 */}
           <ContainerBoxRow
@@ -558,8 +670,11 @@ export default function Input() {
               Field type
             </div>
             <CSelect
-              name={"outdoor_space"}
+              name={"field_type"}
               title={"Outdoor Space"}
+              value={
+                selectFieldType.value == "1" ? "Outdoor Space" : "Enclosed Space (Machine Room)"
+              }
               selected
               className={"w-[18.438rem] mobile:w-[12.5rem]"}
               selectList={fieldTypeSelectBoxData}
@@ -581,7 +696,7 @@ export default function Input() {
                 sourceHeight={outdoorUnit + 1}
                 receiverHeight={receiver}
                 barrierFromSource={odus}
-                barrierHeight={barrier}
+                barrierHeight={barrierH}
                 distanceUnit={unitData?.length}
               />
             )}
@@ -599,7 +714,9 @@ export default function Input() {
               setReceiver={setReceiver}
               setReceiverHeight={setReceiverHeight}
               odus={odus}
-              barrierHeight={barrier}
+              setOdus={setOdus}
+              barrierHeight={barrierH}
+              setBarrierH={setBarrierH}
               setBarrierHeight={setBarrierHeight}
               setBarrierFromSource={setBarrierFromSource}
               horizontal={horizontal}
@@ -608,9 +725,20 @@ export default function Input() {
               selected={barrierSelected}
               setSelected={setBarrierSelected}
               setBarrierEnable={setBarrierEnable}
+              barrierThickness={barrierThickness}
+              setBarrierThickness={setBarrierThickness}
+              backgroundNoise={backgroundNoise}
+              setBackgroundNoise={setBackgroundNoise}
             />
           ) : (
-            <EnclosedSpaceContent t={t} unitData={unitData} />
+            <EnclosedSpaceContent
+              t={t}
+              unitData={unitData}
+              directDistance={directDistance}
+              setDirectDistance={setDirectDistance}
+              roomVolume={roomVolume}
+              setRoomVolume={setRoomVolume}
+            />
           )}
           {/* 반응형 */}
           <ContainerBoxRow

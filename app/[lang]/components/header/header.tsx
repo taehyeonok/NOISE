@@ -287,7 +287,8 @@ export default function Header({ lang, selectedLanguage }: any) {
 
   const fnLatsMain = () => {
     localStorage.removeItem("simulate");
-    localStorage.removeItem("outdoor_space");
+    localStorage.removeItem("fieldType");
+    localStorage.removeItem("isBack");
     removeCookie("latsNoiseLogin");
     removeCookie("latsNoiseLoginInfo");
     router.push(window.location.protocol + "//" + window.location.host + "/");
@@ -295,7 +296,8 @@ export default function Header({ lang, selectedLanguage }: any) {
 
   const fnLogout = () => {
     localStorage.removeItem("simulate");
-    localStorage.removeItem("outdoor_space");
+    localStorage.removeItem("fieldType");
+    localStorage.removeItem("isBack");
     removeCookie("latsNoiseLogin");
     removeCookie("latsNoiseLoginInfo");
     router.push(window.location.protocol + "//" + window.location.host + "/login/logout.lge");
@@ -370,7 +372,15 @@ export default function Header({ lang, selectedLanguage }: any) {
             )}
           </div>
           <Link href={"setting"}>
-            <Image className={"cursor-pointer"} src={IC_SETTING} alt={"setting"} tabIndex={0} />
+            <Image
+              className={"cursor-pointer"}
+              src={IC_SETTING}
+              alt={"setting"}
+              tabIndex={0}
+              onClick={() => {
+                localStorage.setItem("isBack", "true");
+              }}
+            />
           </Link>
         </div>
       </div>
@@ -432,6 +442,9 @@ export default function Header({ lang, selectedLanguage }: any) {
                     src={IC_SETTING}
                     alt={"setting"}
                     tabIndex={0}
+                    onClick={() => {
+                      localStorage.setItem("isBack", "true");
+                    }}
                   />
                 </Link>
               </div>
@@ -570,7 +583,13 @@ export default function Header({ lang, selectedLanguage }: any) {
               }
             >
               <Link href={"setting"}>
-                <Image src={IC_SETTING} alt={"setting"} />
+                <Image
+                  src={IC_SETTING}
+                  alt={"setting"}
+                  onClick={() => {
+                    localStorage.setItem("isBack", "true");
+                  }}
+                />
                 <div className={"font-LGSMHATSB text-black"}>Setting</div>
               </Link>
             </div>

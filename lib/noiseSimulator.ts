@@ -21,7 +21,7 @@ export async function noiseSimulator(
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
     const ratio = [28 / 30, 28 / 30, 27 / 30, 26 / 30, 24 / 30, 22.5 / 30, 21 / 30, 20 / 30];
     let result = { data: [], attenuation: [] } as any;
-    const field_type = formData.get("outdoor_space_text");
+    const field_type = formData.get("field_type_text");
     const outdoor_unit = editUnit.GetTrans(
       EditUnitType.TYPE_UNIT_ELEVATION,
       Number(formData.get("elevation_of_outdoor_unit")),

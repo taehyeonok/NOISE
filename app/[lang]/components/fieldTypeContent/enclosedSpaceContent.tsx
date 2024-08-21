@@ -5,7 +5,14 @@ import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
 import React from "react";
 
-export default function EnclosedSpaceContent({ t, unitData }: any) {
+export default function EnclosedSpaceContent({
+  t,
+  unitData,
+  directDistance,
+  setDirectDistance,
+  roomVolume,
+  setRoomVolume,
+}: any) {
   {
     /* 반응형 */
   }
@@ -44,9 +51,12 @@ export default function EnclosedSpaceContent({ t, unitData }: any) {
           name="direct_distance"
           type={"number"}
           placeholder={"0"}
-          value={7}
+          value={directDistance}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
           unit={unitData?.length}
+          onChange={(changeValue: number) => {
+            setDirectDistance(changeValue);
+          }}
         />
       )}
       {renderContainerBoxRowItem(
@@ -56,7 +66,7 @@ export default function EnclosedSpaceContent({ t, unitData }: any) {
           name="room_volume"
           type={"number"}
           placeholder={"0"}
-          value={8}
+          value={roomVolume}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
           unit={
             <>
@@ -64,6 +74,9 @@ export default function EnclosedSpaceContent({ t, unitData }: any) {
               <sup>3</sup>
             </>
           }
+          onChange={(changeValue: number) => {
+            setRoomVolume(changeValue);
+          }}
         />
       )}
     </ContainerBoxRow>

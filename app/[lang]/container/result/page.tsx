@@ -40,10 +40,10 @@ export default function Result({ params: { lang } }: any) {
     }
     setSimulateData(copySimulateData);
 
-    const outdoor_space = JSON.parse(localStorage.getItem("outdoor_space")!);
+    const fieldType = JSON.parse(localStorage.getItem("fieldType")!);
     const copyDetailData = cloneObject(detailData);
     const detailLength = detailData.data[0]?.content.length!;
-    if (outdoor_space.title === "Enclosed Space (Machine Room)") {
+    if (fieldType.value === "2") {
       for (let i = 0; i < detailLength; i++) {
         copyDetailData.data[0].content[i].content = "-";
         copyDetailData.data[1].content[i].content = Number(data.attenuation[i]).toFixed(1);
@@ -150,7 +150,7 @@ export default function Result({ params: { lang } }: any) {
           alignItems={"center"}
           classList={"pt-[2.5rem] mobile:gap-[0.75rem]"}
         >
-          <Link href={"/container/input"} className={"mobile:w-[calc(100%/2)]"}>
+          <Link href={"/container/input?isBack=true"} className={"mobile:w-[calc(100%/2)]"}>
             <CImageButton
               image={IC_BUTTON_LEFT_ARROW}
               title={"Previous"}

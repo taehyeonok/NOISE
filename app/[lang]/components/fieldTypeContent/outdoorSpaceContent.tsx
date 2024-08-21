@@ -24,7 +24,9 @@ interface OutdoorSpaceItem {
   setReceiver: Function;
   setReceiverHeight: Function;
   odus: number;
+  setOdus: Function;
   barrierHeight: number;
+  setBarrierH: Function;
   setBarrierHeight: Function;
   setBarrierFromSource: Function;
   horizontal: number;
@@ -33,6 +35,10 @@ interface OutdoorSpaceItem {
   selected: { title: string; value: string };
   setSelected: Dispatch<SetStateAction<{ title: string; value: string }>>;
   setBarrierEnable: Function;
+  barrierThickness: any;
+  setBarrierThickness: Function;
+  backgroundNoise: number;
+  setBackgroundNoise: Function;
 }
 export default function OutdoorSpaceContent({
   barrierInfoTableData,
@@ -47,6 +53,8 @@ export default function OutdoorSpaceContent({
   setReceiverHeight,
   barrierHeight,
   odus,
+  setOdus,
+  setBarrierH,
   setBarrierHeight,
   setBarrierFromSource,
   horizontal,
@@ -55,6 +63,10 @@ export default function OutdoorSpaceContent({
   selected,
   setSelected,
   setBarrierEnable,
+  barrierThickness,
+  setBarrierThickness,
+  backgroundNoise,
+  setBackgroundNoise,
 }: OutdoorSpaceItem) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
@@ -63,10 +75,7 @@ export default function OutdoorSpaceContent({
   ];
 
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
-  const [barrierThickness, setBarrierThickness] = useState<{ title: string; value: string }>({
-    title: "Concrete(Default) / 120mm",
-    value: "120",
-  });
+
   const transmissionLoss = [
     [32, 32, 40, 46, 53, 59, 64, 64],
     [24, 24, 27, 26, 27, 24, 33, 33],
@@ -189,9 +198,12 @@ export default function OutdoorSpaceContent({
             name="background_noise"
             type={"number"}
             placeholder={"0"}
-            value={30}
+            value={backgroundNoise}
             classList={`${inputSelectStyle}`}
             unit={"db(A)"}
+            onChange={(changeValue: number) => {
+              setBackgroundNoise(changeValue);
+            }}
           />,
           undefined,
           false,
@@ -205,6 +217,7 @@ export default function OutdoorSpaceContent({
           <CSelect
             name={"barrier_in_the_path"}
             title={"O"}
+            value={selected.title == "O" ? "O" : "X"}
             select={selected}
             setSelect={setSelected}
             className={`${inputSelectStyle} h-[2.25rem]`}
@@ -252,6 +265,7 @@ export default function OutdoorSpaceContent({
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
+                  setOdus(changeValue);
                   setBarrierFromSource(changeValue);
                 }}
               />,
@@ -268,6 +282,7 @@ export default function OutdoorSpaceContent({
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
                   setBarrierHeight(changeValue);
+                  setBarrierH(changeValue);
                 }}
               />,
               "The barrier effect is incomplete due to the low height"
@@ -284,6 +299,7 @@ export default function OutdoorSpaceContent({
               <CSelect
                 name="material_thickness"
                 title={"Concrete(Default) / 120mm"}
+                value={barrierThickness.title}
                 className={`${inputSelectStyle} h-[2.25rem]`}
                 selectList={selectMaterialDummyData}
                 onChange={(changeValue: { title: string; value: string }) => {
