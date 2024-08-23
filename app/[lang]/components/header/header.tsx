@@ -267,6 +267,7 @@ export default function Header({ lang, selectedLanguage }: any) {
 
   const fnLatsMain = () => {
     localStorage.removeItem("simulate");
+    localStorage.removeItem("simulate2");
     localStorage.removeItem("fieldType");
     localStorage.removeItem("isBack");
     removeCookie("latsNoiseLogin");
@@ -276,6 +277,7 @@ export default function Header({ lang, selectedLanguage }: any) {
 
   const fnLogout = () => {
     localStorage.removeItem("simulate");
+    localStorage.removeItem("simulate2");
     localStorage.removeItem("fieldType");
     localStorage.removeItem("isBack");
     removeCookie("latsNoiseLogin");

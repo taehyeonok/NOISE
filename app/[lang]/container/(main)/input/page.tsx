@@ -195,6 +195,7 @@ export default function Input() {
     setUnitData(lats_unit[lats_unit.unitClss]);
     setIsClient(true);
     localStorage.removeItem("simulate");
+    localStorage.removeItem("simulate2");
 
     //뒤로가기 시 이전 data 세팅
     const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
@@ -532,6 +533,8 @@ export default function Input() {
       wallCount
     );
     localStorage.setItem("simulate", JSON.stringify(result));
+    result.data.unshift(null);
+    localStorage.setItem("simulate2", JSON.stringify(result.data));
     setIsLoading(false);
     router.push("/container/result");
   }

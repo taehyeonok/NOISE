@@ -21,19 +21,31 @@ import Link from "next/link";
 import CPopHeader from "@/app/[lang]/components/_atoms/cPopHeader";
 import CPopUp from "@/app/[lang]/components/_atoms/cPopup";
 import { cloneObject } from "@/app/utils/utils";
+import ResultChart from "../../components/chart/resultChart";
+import dynamic from "next/dynamic";
+import LoadingChart from "../../components/loadingSkeleton/loadingChart";
+import { useTranslation } from "react-i18next";
 
 export default function Result({ params: { lang } }: any) {
+  const { t } = useTranslation(lang);
   const [isAccordionOpen1, setIsAccordionOpen1] = useState<boolean>(true);
   const [isAccordionOpen2, setIsAccordionOpen2] = useState<boolean>(true);
   const [isActiveReportPopup, setIsActiveReportPopup] = useState<boolean>(false);
   const [simulateData, setSimulateData] = useState(soundPressureReceiverDummyData);
   const reportPopupRef = useRef<HTMLDivElement>(null);
   const [detailData, setDetailData] = useState(detailInformationDummyData);
+  const [octaveBand, setOctaveBand] = useState([]);
+  // const ResultChart = dynamic(() => import("../../components/chart/resultChart"), {
+  //   ssr: false,
+  //   loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
+  // });
   {
     /* 반응형 */
   }
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("simulate")!);
+    const data2 = JSON.parse(localStorage.getItem("simulate2")!);
+    setOctaveBand(data2);
     const copySimulateData = cloneObject(simulateData);
     for (let i = 0; i < simulateData.data.length; i++) {
       copySimulateData.data[i].content = data.data[i];
@@ -123,11 +135,14 @@ export default function Result({ params: { lang } }: any) {
             >
               Octave Band
             </div>
-            <Image
+
+            <ResultChart simulateData={octaveBand} t={t} />
+
+            {/* <Image
               src={IG_OCTAVE_BAND}
               alt={"octave band"}
-              className={"mt-[3.25rem] mobile:mt-[1.25rem]"}
-            />
+              className={"mt-[3.25rem] mobile:mt-[1.25rem] w-[29rem] h-[20rem] "}
+            /> */}
           </section>
         </ContainerBoxRow>
         <CAccordionBox
