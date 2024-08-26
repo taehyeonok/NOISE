@@ -163,13 +163,13 @@ export default function Input() {
 
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
     switch (factorType) {
-      case "Source":
+      case "SOURCE":
         setOutdoorUnit(Number(Number(value1 - 1).toFixed(1)));
         break;
-      case "Receiverce":
+      case "RECEIVER":
         setReceiver(value1);
         break;
-      case "Barrier":
+      case "BARRIER1":
         setBarrierH(value1);
         setOdus(value2!);
         break;
@@ -178,6 +178,9 @@ export default function Input() {
         break;
       case "RIGHT_WALL":
         setRightBarrier(value1);
+        break;
+      case "HORIZONTAL_DISTANCE":
+        setHorizontal(value1);
         break;
     }
     // console.log(
@@ -701,7 +704,7 @@ export default function Input() {
             />
           </ContainerBoxRow>
           {/* 반응형 */}
-          <div className={"mt-5 mb-10 mobile:my-[4.5rem]"}>
+          <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
             {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
             {selectFieldType.value === "1" && (
               <Noisetools

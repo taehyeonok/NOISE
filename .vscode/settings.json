@@ -20,7 +20,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "liveServer.settings.donotShowInfoMsg": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,

@@ -1,4 +1,5 @@
 "use client";
+import IG_CONC_PATTERN from "@/app/assets/images/cement-texture2.png";
 import React, {
   useState,
   useEffect,
@@ -16,32 +17,33 @@ const Noisetools = forwardRef((props: any, ref) => {
     () => {
       return {
         setHorizontalDistance(dist: number) {
-          setReceiverData({
-            distFromSource: dist,
-            fromRight: receiverDataRef.current.fromRight,
-            height: receiverDataRef.current.height,
-          });
+          // setReceiverData({
+          //   distFromSource: dist,
+          //   fromRight: receiverDataRef.current.fromRight,
+          //   height: receiverDataRef.current.height,
+          // });
 
-          setSourceData({
-            fromLeft: sourceDataRef.current.fromLeft,
-            height: sourceDataRef.current.height,
-          });
+          // setSourceData({
+          //   fromLeft: sourceDataRef.current.fromLeft,
+          //   height: sourceDataRef.current.height,
+          // });
 
-          setBarrier1Data({
-            distFromSource: barrier1DataRef.current.distFromSource,
-            height: barrier1DataRef.current.height,
-            enabled: barrier1DataRef.current.enabled,
-          });
+          // setBarrier1Data({
+          //   distFromSource: barrier1DataRef.current.distFromSource,
+          //   height: barrier1DataRef.current.height,
+          //   enabled: barrier1DataRef.current.enabled,
+          // });
 
-          setLinePathSToR(
-            `${getObjectCoord(FIELD_OBJECT.Source, "X")}, ${getObjectCoord(
-              FIELD_OBJECT.Source,
-              "Y"
-            )}, ${getObjectCoord(FIELD_OBJECT.Receiver, "X")}, ${getObjectCoord(
-              FIELD_OBJECT.Receiver,
-              "Y"
-            )}`
-          );
+          // setLinePathSToR(
+          //   `${getObjectCoord(FIELD_OBJECT.Source, "X")}, ${getObjectCoord(
+          //     FIELD_OBJECT.Source,
+          //     "Y"
+          //   )}, ${getObjectCoord(FIELD_OBJECT.Receiver, "X")}, ${getObjectCoord(
+          //     FIELD_OBJECT.Receiver,
+          //     "Y"
+          //   )}`
+          // );
+          setHorizontalDistance(dist);
         },
         setBarrierFromSource(val: number) {
           setBarrier1Data({
@@ -65,6 +67,15 @@ const Noisetools = forwardRef((props: any, ref) => {
           });
         },
         setSourceHeight(val: number) {
+          if (val * 2.5 > receiverDataRef.current.distFromSource) {
+            //let ar = parentRef.current?.style.getPropertyValue("aspect-ratio");
+            //parentRef.current?.style.setProperty("aspect-ratio", `${1100/ 700}`)
+            //fieldData.current.width = sz!.width;
+            //fieldData.current.height = 700;
+            //setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
+            //RecalcFiledPos(1800, 1100);
+          }
+
           setSourceData({
             fromLeft: sourceDataRef.current.fromLeft,
             height: val,
@@ -89,6 +100,35 @@ const Noisetools = forwardRef((props: any, ref) => {
     []
   );
 
+  function setHorizontalDistance(dist: number) {
+    setReceiverData({
+      distFromSource: dist,
+      fromRight: receiverDataRef.current.fromRight,
+      height: receiverDataRef.current.height,
+    });
+
+    setSourceData({
+      fromLeft: sourceDataRef.current.fromLeft,
+      height: sourceDataRef.current.height,
+    });
+
+    setBarrier1Data({
+      distFromSource: barrier1DataRef.current.distFromSource,
+      height: barrier1DataRef.current.height,
+      enabled: barrier1DataRef.current.enabled,
+    });
+
+    setLinePathSToR(
+      `${getObjectCoord(FIELD_OBJECT.Source, "X")}, ${getObjectCoord(
+        FIELD_OBJECT.Source,
+        "Y"
+      )}, ${getObjectCoord(FIELD_OBJECT.Receiver, "X")}, ${getObjectCoord(
+        FIELD_OBJECT.Receiver,
+        "Y"
+      )}`
+    );
+  }
+
   const heightBackgroundColor = "#FFFFFF";
 
   const PICKERS = {
@@ -105,6 +145,7 @@ const Noisetools = forwardRef((props: any, ref) => {
     Barrier1: "BARRIER1",
     LeftWall: "LEFT_WALL",
     RightWall: "RIGHT_WALL",
+    HorizontalDistance: "HORIZONTAL_DISTANCE",
   } as const;
   type FIELD_OBJECT = (typeof FIELD_OBJECT)[keyof typeof FIELD_OBJECT];
 
@@ -138,7 +179,15 @@ const Noisetools = forwardRef((props: any, ref) => {
     height: props.barrierHeight,
     enabled: true,
   });
-  let pxPerMeterValue = useRef(
+
+  let pxPerMeterXValue = useRef(
+    fieldData.current.width /
+      (receiverDataRef.current.distFromSource +
+        sourceDataRef.current.fromLeft +
+        receiverDataRef.current.fromRight)
+  );
+
+  let pxPerMeterYValue = useRef(
     fieldData.current.width /
       (receiverDataRef.current.distFromSource +
         sourceDataRef.current.fromLeft +
@@ -148,8 +197,19 @@ const Noisetools = forwardRef((props: any, ref) => {
   let wallState = useRef({ leftWall: 1, rightWall: 1 });
   let distanceUnit = useRef(props.distanceUnit === undefined ? "m" : props.distanceUnit);
 
+  const distSourceFromWall = 2.0;
+  const wallThickness = 0.5;
+
   function pxPerMeter() {
-    return pxPerMeterValue.current;
+    return pxPerMeterXValue.current;
+  }
+
+  function pxPerMeterX() {
+    return pxPerMeterXValue.current;
+  }
+
+  function pxPerMeterY() {
+    return pxPerMeterYValue.current;
   }
 
   function getBarrierHeight(): number {
@@ -157,7 +217,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   }
 
   function updateGroup1() {
-    pxPerMeterValue.current =
+    pxPerMeterXValue.current =
       fieldData.current.width /
       (receiverData.distFromSource + sourceData.fromLeft + receiverData.fromRight);
 
@@ -357,20 +417,24 @@ const Noisetools = forwardRef((props: any, ref) => {
     return `translate(${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord(
       FIELD_OBJECT.Barrier1,
       "Y"
-    )}) rotate(270)`;
+    )}) rotate(0)`;
   }
 
   let recvTransform = useRef(updateRecvTransform());
   function updateRecvTransform() {
-    return `translate(${getObjectCoord(FIELD_OBJECT.Receiver, "X")}, ${
-      getObjectCoord(FIELD_OBJECT.Receiver, "Y") + 7
-    }) rotate(270)`;
+    return `translate(${getObjectCoord(FIELD_OBJECT.Receiver, "X") - 7}, ${getObjectCoord(
+      FIELD_OBJECT.Receiver,
+      "Y"
+    )}) rotate(0)`;
   }
 
   let wavesDist = [];
   let field;
   let swaveWidthDistLables = useRef<number[]>([0, 0, 0, 0, 0]);
   let rulerWidthDistLables = useRef<number[]>([0, 0, 0, 0, 0]);
+  let prevTouch = useRef<any>(null);
+
+  const topWallLength = 5.0;
 
   function drawSoundWaves() {
     let newSoundWaves = [];
@@ -378,63 +442,115 @@ const Noisetools = forwardRef((props: any, ref) => {
 
     if (swaveWidthDistLables.current === null) return;
 
-    for (let i = 0; i < Math.ceil(fieldData.current.width / pxPerMeter()); i++) {
+    for (
+      let i = 0;
+      i < Math.ceil(((fieldData.current.width / pxPerMeter()) * topWallLength) / 2);
+      i++
+    ) {
       newSoundWaves.push(
-        <g key={"swave" + (i + 1).toString()}>
-          <circle
-            key={"swave_circle" + (i + 1).toString()}
-            id={"swave_circle" + (i + 1).toString()}
-            cx="0"
-            cy="0"
-            r={(i + 1) * pxPerMeter()}
-            fill="none"
-            stroke={(i + 1) % 10 === 0 ? "#666666" : "#CCCCCC"}
+        <g key={"swave_V" + i.toString()}>
+          <line
+            y1={-fieldData.current.height}
+            x1={(i * pxPerMeter()) / 2}
+            y2={fieldData.current.width}
+            x2={(i * pxPerMeter()) / 2}
+            stroke={"#EEEEEE"}
             strokeWidth="1"
           />
-          <rect
-            key={"swave_dist_box_up" + (i + 1).toString()}
-            id={"swave_dist_box" + (i + 1).toString()}
-            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
-            y={0 + (i + 1) * pxPerMeter() - 6}
-            width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
-            height={12}
-            fill="#FFFFFF"
-          ></rect>
-          <text
-            className={"nts_swave_dist_text"}
-            key={"swave_dist_up" + (i + 1).toString()}
-            id={"swave_dist" + (i + 1).toString()}
-            x="0"
-            y={(i + 1) * pxPerMeter()}
-            textAnchor="middle"
-            alignmentBaseline="middle"
-          >
-            {(i + 1).toString() + distanceUnit.current}
-          </text>
-          <rect
-            key={"swave_dist_box_dn" + (i + 1).toString()}
-            id={"swave_dist_box" + (i + 1).toString()}
-            x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
-            y={0 + -1 * (i + 1) * pxPerMeter() - 6}
-            width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
-            height={12}
-            fill="#FFFFFF"
-          >
-            {" "}
-          </rect>
-          <text
-            className={"nts_swave_dist_text"}
-            key={"swave_dist_dn" + (i + 1).toString()}
-            id={"swave_dist" + (i + 1).toString()}
-            x="0"
-            y={(i + 1) * pxPerMeter() * -1}
-            textAnchor="middle"
-            alignmentBaseline="middle"
-          >
-            {(i + 1).toString() + distanceUnit.current}
-          </text>
+          <line
+            y1={-fieldData.current.height}
+            x1={-(i * pxPerMeter()) / 2}
+            y2={fieldData.current.width}
+            x2={-(i * pxPerMeter()) / 2}
+            stroke={"#EEEEEE"}
+            strokeWidth="1"
+          />
         </g>
       );
+    }
+
+    for (
+      let i = 0;
+      i < Math.ceil(((fieldData.current.height / pxPerMeter()) * topWallLength) / 2);
+      i++
+    ) {
+      newSoundWaves.push(
+        <g key={"swave_H" + i.toString()}>
+          <line
+            x1={-sourceDataRef.current.fromLeft * pxPerMeter()}
+            y1={(i * pxPerMeter()) / 2}
+            x2={fieldData.current.width}
+            y2={(i * pxPerMeter()) / 2}
+            stroke={"#EEEEEE"}
+            strokeWidth="1"
+          />
+          <line
+            x1={-sourceDataRef.current.fromLeft * pxPerMeter()}
+            y1={-(i * pxPerMeter()) / 2}
+            x2={fieldData.current.width}
+            y2={-(i * pxPerMeter()) / 2}
+            stroke={"#EEEEEE"}
+            strokeWidth="1"
+          />
+        </g>
+      );
+
+      // newSoundWaves.push(
+      //   <g key={"swave" + (i + 1).toString()}>
+      //     <circle
+      //       key={"swave_circle" + (i + 1).toString()}
+      //       id={"swave_circle" + (i + 1).toString()}
+      //       cx="0"
+      //       cy="0"
+      //       r={(i + 1) * pxPerMeter()}
+      //       fill="none"
+      //       stroke={(i + 1) % 10 === 0 ? "#666666" : "#CCCCCC"}
+      //       strokeWidth="1"
+      //     />
+      //     <rect
+      //       key={"swave_dist_box_up" + (i + 1).toString()}
+      //       id={"swave_dist_box" + (i + 1).toString()}
+      //       x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
+      //       y={0 + (i + 1) * pxPerMeter() - 6}
+      //       width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
+      //       height={12}
+      //       fill="#FFFFFF"
+      //     ></rect>
+      //     <text
+      //       className={"nts_swave_dist_text"}
+      //       key={"swave_dist_up" + (i + 1).toString()}
+      //       id={"swave_dist" + (i + 1).toString()}
+      //       x="0"
+      //       y={(i + 1) * pxPerMeter()}
+      //       textAnchor="middle"
+      //       alignmentBaseline="middle"
+      //     >
+      //       {(i + 1).toString() + distanceUnit.current}
+      //     </text>
+      //     <rect
+      //       key={"swave_dist_box_dn" + (i + 1).toString()}
+      //       id={"swave_dist_box" + (i + 1).toString()}
+      //       x={swaveWidthDistLables.current[(i + 1).toFixed(0).length - 1]! * -0.5}
+      //       y={0 + -1 * (i + 1) * pxPerMeter() - 6}
+      //       width={swaveWidthDistLables.current[Math.floor((i + 1) / 10)]}
+      //       height={12}
+      //       fill="#FFFFFF"
+      //     >
+      //       {" "}
+      //     </rect>
+      //     <text
+      //       className={"nts_swave_dist_text"}
+      //       key={"swave_dist_dn" + (i + 1).toString()}
+      //       id={"swave_dist" + (i + 1).toString()}
+      //       x="0"
+      //       y={(i + 1) * pxPerMeter() * -1}
+      //       textAnchor="middle"
+      //       alignmentBaseline="middle"
+      //     >
+      //       {(i + 1).toString() + distanceUnit.current}
+      //     </text>
+      //   </g>
+      // );
     }
     setSoundWaves(newSoundWaves);
   }
@@ -442,49 +558,52 @@ const Noisetools = forwardRef((props: any, ref) => {
   ///////////////////////////////////////////////////////////////////////////
   // onload
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = (/*width: number, height: number*/) => {
+      console.log(`handleResize pos 1`);
       if (parentRef.current) {
         let sz = parentRef.current.getClientRects()[0];
 
-        fieldData.current.width = sz!.width;
-        fieldData.current.height = sz!.height;
+        RecalcFiledPos(sz!.width, sz!.height);
 
-        setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
-        setRulerAreaMatrix(`matrix(1 0 0 1 0 ${getObjectCoord("RULER-BACKGROUND", "Y")})`);
+        // fieldData.current.width = sz!.width;
+        // fieldData.current.height = sz!.height;
 
-        pxPerMeterValue.current =
-          fieldData.current.width /
-          (receiverData.distFromSource + sourceData.fromLeft + receiverData.fromRight);
+        // setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
+        // setRulerAreaMatrix(`matrix(1 0 0 1 0 ${getObjectCoord("RULER-BACKGROUND", "Y")})`);
 
-        sourceMatrix.current = `matrix(1 0 0 1 ${getObjectCoord(
-          FIELD_OBJECT.Source,
-          "X"
-        )} ${getObjectCoord(FIELD_OBJECT.Source, "Y")})`;
+        // pxPerMeterValue.current =
+        //   fieldData.current.width /
+        //   (receiverData.distFromSource + sourceData.fromLeft + receiverData.fromRight);
 
-        setReceiverData({
-          distFromSource: receiverDataRef.current.distFromSource,
-          fromRight: receiverDataRef.current.fromRight,
-          height: receiverDataRef.current.height,
-        });
+        // sourceMatrix.current = `matrix(1 0 0 1 ${getObjectCoord(
+        //   FIELD_OBJECT.Source,
+        //   "X"
+        // )} ${getObjectCoord(FIELD_OBJECT.Source, "Y")})`;
 
-        sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
-        sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
+        // setReceiverData({
+        //   distFromSource: receiverDataRef.current.distFromSource,
+        //   fromRight: receiverDataRef.current.fromRight,
+        //   height: receiverDataRef.current.height,
+        // });
 
-        sourceArrowPts.current = updateSourceArrowPts();
-        receiverArrowPts.current = updateReceiverArrowPts();
+        // sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
+        // sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
 
-        receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
-        receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
+        // sourceArrowPts.current = updateSourceArrowPts();
+        // receiverArrowPts.current = updateReceiverArrowPts();
 
-        setBarrier1Data({
-          distFromSource: barrier1DataRef.current.distFromSource,
-          height: barrier1DataRef.current.height,
-          enabled: barrier1DataRef.current.enabled,
-        });
+        // receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
+        // receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
 
-        recvTransform.current = updateRecvTransform();
+        // setBarrier1Data({
+        //   distFromSource: barrier1DataRef.current.distFromSource,
+        //   height: barrier1DataRef.current.height,
+        //   enabled: barrier1DataRef.current.enabled,
+        // });
 
-        drawSoundWaves();
+        // recvTransform.current = updateRecvTransform();
+
+        // drawSoundWaves();
       }
     };
 
@@ -510,7 +629,7 @@ const Noisetools = forwardRef((props: any, ref) => {
       rulerWidthDistLables.current.push(dist1digit.getBBox()["width"] * 1.4);
     }
 
-    drawSoundWaves();
+    //drawSoundWaves();
 
     window.addEventListener("mouseup", windowMouseUp);
     window.addEventListener("mousemove", onWindowMouseMove);
@@ -526,6 +645,51 @@ const Noisetools = forwardRef((props: any, ref) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  function RecalcFiledPos(width: number, height: number) {
+    if (parentRef.current) {
+      fieldData.current.width = width;
+      fieldData.current.height = height;
+
+      setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
+      setRulerAreaMatrix(`matrix(1 0 0 1 0 ${getObjectCoord("RULER-BACKGROUND", "Y")})`);
+
+      pxPerMeterXValue.current =
+        fieldData.current.width /
+        (receiverData.distFromSource + sourceData.fromLeft + receiverData.fromRight);
+
+      sourceMatrix.current = `matrix(1 0 0 1 ${getObjectCoord(
+        FIELD_OBJECT.Source,
+        "X"
+      )} ${getObjectCoord(FIELD_OBJECT.Source, "Y")})`;
+
+      setReceiverData({
+        distFromSource: receiverDataRef.current.distFromSource,
+        fromRight: receiverDataRef.current.fromRight,
+        height: receiverDataRef.current.height,
+      });
+
+      pxPerMeter;
+      sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
+      sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
+
+      sourceArrowPts.current = updateSourceArrowPts();
+      receiverArrowPts.current = updateReceiverArrowPts();
+
+      receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
+      receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
+
+      setBarrier1Data({
+        distFromSource: barrier1DataRef.current.distFromSource,
+        height: barrier1DataRef.current.height,
+        enabled: barrier1DataRef.current.enabled,
+      });
+
+      recvTransform.current = updateRecvTransform();
+
+      drawSoundWaves();
+    }
+  }
 
   useEffect(() => {
     sourceDataRef.current = sourceData;
@@ -736,8 +900,6 @@ const Noisetools = forwardRef((props: any, ref) => {
       case "RULER-BACKGROUND-Y":
         return fieldData.current.height - rulerAreaHight;
     }
-
-    return 0;
   }
 
   function setCapturedPicker(v: PICKERS) {
@@ -749,23 +911,29 @@ const Noisetools = forwardRef((props: any, ref) => {
     if (props.factorChangedCallback) {
       switch (objectName) {
         case FIELD_OBJECT.Source:
-          props.factorChangedCallback("Source", sourceDataRef.current.height);
+          props.factorChangedCallback(FIELD_OBJECT.Source, sourceDataRef.current.height);
           break;
         case FIELD_OBJECT.Receiver:
-          props.factorChangedCallback("Receiverce", receiverDataRef.current.height);
+          props.factorChangedCallback(FIELD_OBJECT.Receiver, receiverDataRef.current.height);
           break;
         case FIELD_OBJECT.Barrier1:
           props.factorChangedCallback(
-            "Barrier",
+            FIELD_OBJECT.Barrier1,
             barrier1DataRef.current.height,
             barrier1DataRef.current.distFromSource
           );
           break;
         case FIELD_OBJECT.LeftWall:
-          props.factorChangedCallback("LEFT_WALL", wallState.current.leftWall);
+          props.factorChangedCallback(FIELD_OBJECT.LeftWall, wallState.current.leftWall);
           break;
         case FIELD_OBJECT.RightWall:
-          props.factorChangedCallback("RIGHT_WALL", wallState.current.rightWall);
+          props.factorChangedCallback(FIELD_OBJECT.RightWall, wallState.current.rightWall);
+          break;
+        case FIELD_OBJECT.HorizontalDistance:
+          props.factorChangedCallback(
+            FIELD_OBJECT.HorizontalDistance,
+            receiverDataRef.current.distFromSource
+          );
           break;
       }
     }
@@ -794,6 +962,37 @@ const Noisetools = forwardRef((props: any, ref) => {
     captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Source, "Y") - e.clientY;
 
     setCapturedPicker(PICKERS.Source);
+
+    console.log("onSourcePickerMouseDown fired");
+  };
+
+  const onSourcePickerTouchMove = (e: React.TouchEvent<SVGGElement>) => {
+    // let svg = document.querySelector("svg#nt-svg") as SVGSVGElement;
+    // let svgX = svg.getClientRects()[0]!["x"];
+    // let svgY = svg.getClientRects()[0]!["y"];
+
+    // const ev: unknown = e as unknown as MouseEvent;
+
+    // captuerPos.current.x = svgX + getObjectCoord(FIELD_OBJECT.Source, "X") - e.touches[0].clientX;
+    // captuerPos.current.y = svgY + getObjectCoord(FIELD_OBJECT.Source, "Y") - e.touches[0].clientY;
+    // captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Source, "Y") - e.touches[0].clientY;
+
+    // setCapturedPicker(PICKERS.Source);
+
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (prevTouch.current != null) {
+      console.log(
+        `movement x = ${e.touches[0]!.pageX - prevTouch.current.pageX} , movement y = ${
+          e.touches[0]!.pageY - prevTouch.current.pageY
+        }`
+      );
+    }
+
+    prevTouch.current = e.touches[0];
+
+    console.log("onSourcePickerTouchMove fired");
   };
 
   //function onReceiverPickerMouseDown(e: MouseEventHandler<SVGSVGElement>) {
@@ -948,7 +1147,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             ) / 10;
         }
         newH = newH >= 0 ? newH : 0;
-        // console.log(`newD:${newD} newH:${newH}`);
+        console.log(`newD:${newD} newH:${newH}`);
         setBarrier1Data({
           distFromSource: newD,
           height: newH,
@@ -985,27 +1184,56 @@ const Noisetools = forwardRef((props: any, ref) => {
   };
 
   const onStoRRlulerClick: React.MouseEventHandler<SVGElement> = (e) => {
-    if (toolPopupRef.current && sToRTextRef.current && svgRef.current) {
-      console.log(
-        `sToRTextRef.x: ${sToRTextRef.current.getClientRects()[0]!["x"]} sToRTextRef.y: ${
-          sToRTextRef.current.getClientRects()[0]!["y"]
-        }`
-      );
+    if (
+      toolPopupHDInputRef.current &&
+      toolPopupRef.current &&
+      sToRTextRef.current &&
+      svgRef.current
+    ) {
+      toolPopupRef.current.style.setProperty("display", "flex");
+      toolPopupHDInputRef.current.value = `${receiverDataRef.current.distFromSource}`;
+      toolPopupHDInputRef.current.select();
+      let contElement = document.querySelector(".container");
+      let x = "-100px";
+      if (contElement != null)
+        x = `${
+          contElement?.getClientRects()[0]!["width"] / 2 -
+          toolPopupRef.current.getClientRects()[0]!["width"] / 2
+        }px`; //`${sToRTextRef.current.getClientRects()[0]!["x"] - 360}px`;
 
-      let x =
-        (
-          sToRTextRef.current.getClientRects()[0]!["x"] -
-          svgRef.current.getClientRects()[0]!["x"] +
-          svgRef.current.parentElement!.offsetLeft
-        ).toString() + "px";
-      let y = (window.scrollY + svgRef.current.getClientRects()[0]!["y"]).toString() + "px";
-
-      let aaa = document.getElementById("src_to_recv_distance");
+      let y = `${
+        document.scrollingElement!.scrollTop + sToRTextRef.current.getClientRects()[0]!["y"]
+      }`;
 
       toolPopupRef.current.style.setProperty("left", x);
       toolPopupRef.current.style.setProperty("top", y);
-      toolPopupRef.current.style.setProperty("display", "flex");
+      toolPopupHDInputRef.current.focus();
     }
+  };
+
+  const onClickHorizontalDistanceApply = (e: React.MouseEvent | React.KeyboardEvent) => {
+    if (
+      e.nativeEvent instanceof KeyboardEvent &&
+      e.nativeEvent.key != "Enter" &&
+      e.nativeEvent.key != "Escape"
+    )
+      return;
+
+    toolPopupRef.current?.style.setProperty("display", "none");
+    if (
+      (e.nativeEvent.target as HTMLElement).id == "apply_hd" ||
+      (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.key == "Enter")
+    ) {
+      receiverDataRef.current.distFromSource = Number(toolPopupHDInputRef.current?.value);
+      setReceiverData({
+        distFromSource: receiverDataRef.current.distFromSource,
+        fromRight: receiverDataRef.current.fromRight,
+        height: receiverDataRef.current.height,
+      });
+      notifyNtFactorChanged(FIELD_OBJECT.HorizontalDistance);
+    }
+    e.preventDefault();
+    //e.stopPropagation();
   };
 
   let parentRef: React.RefObject<HTMLDivElement> = useRef(null);
@@ -1014,6 +1242,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   let rightWallRef: React.RefObject<SVGGElement> = useRef(null);
 
   let toolPopupRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let toolPopupHDInputRef: React.RefObject<HTMLInputElement> = useRef(null);
   let sToRTextRef: React.RefObject<SVGTextElement> = useRef(null);
   let ba1PickerRef: React.RefObject<SVGGElement> = useRef(null);
 
@@ -1031,65 +1260,118 @@ const Noisetools = forwardRef((props: any, ref) => {
         className={"nts_noise_field"}
         onMouseMove={onSvgMouseMove}
         onMouseUp={onSvgMouseUp}
+        // onTouchMove={}
         ref={svgRef}
       >
+        <defs>
+          <pattern
+            id="concrete_texture"
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+            patternUnits="userSpaceOnUse"
+          >
+            <image x="0" y="-20" href={IG_CONC_PATTERN.src} width="100" height="100" />
+          </pattern>
+          <pattern
+            id="concrete_texture_vert"
+            x="0"
+            y="0"
+            width="50"
+            height="50"
+            patternUnits="userSpaceOnUse"
+          >
+            <image x="0" y="-20" href={IG_CONC_PATTERN.src} width="100" height="90" />
+          </pattern>
+        </defs>
         <g id="swaves" transform={sourceMatrix.current}>
           <g id="swave_picker">
             {soundWaves}
             <g
               className={"nts_ruler_line"}
-              transform="rotate(-90, 0, 0)"
+              // transform="rotate(-90, 0, 0)"
               stroke="#000000"
-              fill="#FF0000"
+              fill="#00FF00"
               strokeWidth="0"
               onMouseDown={onSourcePickerMouseDown}
+              //onTouchMove={onSourcePickerTouchMove}
             >
               <circle id="swave_picker" cx="0" cy="0" r="7" strokeWidth="0" />
-              <rect x="15" y="-10" width={60} height={20} rx="5" fill="#FFFFFF">
+              <rect x="-31" y="-26" width={60} height={20} rx="5" fill="#FFFFFF">
                 {" "}
               </rect>
               <text
                 className={"nts_source_text"}
-                x="13"
-                y="0"
+                x="-28"
+                y="-15"
                 textAnchor="start"
                 alignmentBaseline="middle"
               >
                 SOURCE
               </text>
+
+              {/* <defs>
+                <radialGradient id="myGradient">
+                  <stop offset="60%" stopColor="#5555FF" stopOpacity="0.0" />
+                  <stop offset="100%" stopColor="#5555FF" stopOpacity="0.1" />
+                </radialGradient>
+              </defs>
+              <circle
+                id="swave_move"
+                cx="0"
+                cy="0"
+                r={0 * pxPerMeter()}
+                fill="url('#myGradient')"
+                stroke={"#6666FF"}
+                strokeWidth="0"
+              >
+                <animate
+                  attributeName="r"
+                  values={`0;${fieldData.current.width};`}
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </circle> */}
             </g>
           </g>
         </g>
-        <g id="ba_effect_area">
+        {/* <g id="ba_effect_area">
           <g id="ba1_effect_area">
             <polygon
               points={barrierEffectAreaPts.Ba1}
               stroke="#000000"
-              fill="#000000"
+              fill="#0000FF"
               strokeWidth="0"
               fillOpacity="12.5%"
             />
           </g>
-        </g>
+        </g> */}
         <g id="ruler_area">
           <g transform={rulerAreaMatrix}>
             <g id="ruler_background">
               <rect
                 x="-1"
                 width={fieldData.current.width + 2}
-                height={rulerAreaHight}
-                fill="#CCCCCC"
+                height={rulerAreaHight + 1}
+                // fill="#CCCCCC"
+                fill="url(#concrete_texture)"
               />
               <line
                 x1="-1"
-                y1="0"
+                y1="1"
                 x2={fieldData.current.width + 2}
-                y2="0"
+                y2="1"
                 strokeWidth="1"
                 stroke="#000000"
               ></line>
+              {/* <polyline points={linePathSToR} fill="none" stroke="black" strokeDasharray="5" /> */}
             </g>
-            <g id="ruler_dist_left" transform="matrix(1 0 0 1 0 15)">
+            <g
+              id="ruler_dist_left_right"
+              transform="matrix(1 0 0 1 0 15)"
+              className={barrier1Data.enabled ? "" : "hide"}
+            >
               <g>
                 <polygon
                   id="left_dist_st"
@@ -1120,7 +1402,9 @@ const Noisetools = forwardRef((props: any, ref) => {
                   y={-4}
                   width={rulerWidthDistLables.current[0]}
                   height={16}
-                  fill="#CCCCCC"
+                  fill="#EEEEEE"
+                  rx="5"
+                  fillOpacity="100%"
                 ></rect>
                 <text
                   className={"nts_ruler_dist_s_to_r_text"}
@@ -1168,7 +1452,9 @@ const Noisetools = forwardRef((props: any, ref) => {
                   y={-4}
                   width={rulerWidthDistLables.current[0]}
                   height={16}
-                  fill="#CCCCCC"
+                  fill="#EEEEEE"
+                  rx="5"
+                  fillOpacity="100%"
                 ></rect>
                 <text
                   className={"nts_ruler_dist_s_to_r_text"}
@@ -1200,10 +1486,13 @@ const Noisetools = forwardRef((props: any, ref) => {
                 <polygon id="s_to_r_dist_ed" points={receiverArrowPts.current} />
                 <rect
                   x={fieldData.current.width / 2 - 25}
+                  y={-4}
                   width="50"
-                  height="10"
+                  height="16"
                   strokeWidth="0"
-                  fill="#CCCCCC"
+                  fill="#EEEEEE"
+                  rx="5"
+                  fillOpacity="100%"
                 ></rect>
                 <text
                   ref={sToRTextRef}
@@ -1225,14 +1514,30 @@ const Noisetools = forwardRef((props: any, ref) => {
           <g id="wall_area_left">
             <g
               id="letf_wall_add"
-              transform={`translate(${(pxPerMeter() * 1.3) / 2 - 2}, ${
-                getObjectCoord("RULER-BACKGROUND", "Y") / 2
+              transform={`translate(${
+                (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                  pxPerMeter() +
+                (wallThickness * pxPerMeter()) / 2
+              }, ${
+                getObjectCoord("SOURCE", "Y") -
+                pxPerMeter() * distSourceFromWall +
+                ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeter()) / 2
               }) rotate(270)`}
-              className={"wall_btn"}
+              className={`wall_btn ${wallState.current.leftWall == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onLeftWallClick}
             >
-              <rect x="-25" y="-10" width={50} height={20} rx="5" fill="#FFFFFF" />
+              <rect
+                x="-25"
+                y="-10"
+                width={50}
+                height={20}
+                rx="5"
+                fill="#FFFFFF"
+                strokeWidth="1"
+                stroke="#666666"
+                strokeDasharray="3"
+              />
               <text
                 className={"nts_ruler_dist_s_to_r_text"}
                 x="0"
@@ -1251,11 +1556,15 @@ const Noisetools = forwardRef((props: any, ref) => {
               onClick={onLeftWallClick}
             >
               <rect
-                x="-2"
-                y="-1"
-                width={pxPerMeter() * 1.3}
-                height={getObjectCoord("RULER-BACKGROUND", "Y") + 1}
-                fill="#CCCCCC"
+                x={
+                  (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                  pxPerMeter()
+                }
+                y={getObjectCoord("SOURCE", "Y") - pxPerMeter() * distSourceFromWall}
+                width={pxPerMeter() * 0.5}
+                height={(sourceDataRef.current.height + distSourceFromWall) * pxPerMeter() + 1}
+                //fill="#CCCCCC"
+                fill="url(#concrete_texture_vert)"
                 strokeWidth={"1"}
               />
               <text
@@ -1264,8 +1573,14 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y="1"
                 textAnchor="middle"
                 alignmentBaseline="middle"
-                transform={`translate(${(pxPerMeter() * 1.3) / 2 - 2}, ${
-                  getObjectCoord("RULER-BACKGROUND", "Y") / 2
+                transform={`translate(${
+                  (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                    pxPerMeter() +
+                  (wallThickness * pxPerMeter()) / 2
+                }, ${
+                  getObjectCoord("SOURCE", "Y") -
+                  pxPerMeter() * distSourceFromWall +
+                  ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeter()) / 2
                 }) rotate(270)`}
               >
                 WALL+3dB
@@ -1275,14 +1590,33 @@ const Noisetools = forwardRef((props: any, ref) => {
           <g id="wall_area_right">
             <g
               id="right_wall_add"
-              transform={`translate(${fieldData.current.width - (pxPerMeter() * 1.3) / 2 + 2}, ${
-                getObjectCoord("RULER-BACKGROUND", "Y") / 2
-              }) rotate(270)`}
-              className={"wall_btn"}
+              transform={`translate(${
+                (sourceDataRef.current.fromLeft -
+                  distSourceFromWall -
+                  wallThickness +
+                  topWallLength / 2) *
+                pxPerMeter()
+              }, ${
+                getObjectCoord("SOURCE", "Y") -
+                pxPerMeter() * (distSourceFromWall + wallThickness) +
+                (wallThickness * pxPerMeter()) / 2 +
+                1
+              })`}
+              className={`wall_btn ${wallState.current.rightWall == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onRightWallClick}
             >
-              <rect x="-25" y="-10" width={50} height={20} rx="5" fill="#FFFFFF" />
+              <rect
+                x="-25"
+                y="-10"
+                width={50}
+                height={20}
+                rx="5"
+                fill="#FFFFFF"
+                strokeWidth="1"
+                stroke="#666666"
+                strokeDasharray="3"
+              />
               <text
                 className={"nts_ruler_dist_s_to_r_text"}
                 x="0"
@@ -1296,34 +1630,53 @@ const Noisetools = forwardRef((props: any, ref) => {
             <g
               ref={rightWallRef}
               id="right_wall"
-              className={"wall_btn"}
+              className={`wall_btn`}
               strokeWidth="1"
               onClick={onRightWallClick}
             >
               <rect
-                x={fieldData.current.width - pxPerMeter() * 1.3 + 2}
-                y="-1"
-                width={pxPerMeter() * 1.3}
-                height={getObjectCoord("RULER-BACKGROUND", "Y") + 1}
-                fill="#CCCCCC"
+                x={
+                  (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                  pxPerMeter()
+                }
+                y={
+                  getObjectCoord("SOURCE", "Y") -
+                  pxPerMeter() * (distSourceFromWall + wallThickness)
+                }
+                width={pxPerMeter() * topWallLength}
+                height={pxPerMeter() * 0.5}
+                fill="url(#concrete_texture_vert)"
                 strokeWidth={"1"}
               />
               <text
                 className={"nts_ruler_dist_s_to_r_text"}
-                x="0"
-                y="0"
+                x={
+                  (sourceDataRef.current.fromLeft -
+                    distSourceFromWall -
+                    wallThickness +
+                    topWallLength / 2) *
+                  pxPerMeter()
+                }
+                y={
+                  getObjectCoord("SOURCE", "Y") -
+                  pxPerMeter() * (distSourceFromWall + wallThickness) +
+                  (wallThickness * pxPerMeter()) / 2 +
+                  1
+                }
                 textAnchor="middle"
                 alignmentBaseline="middle"
-                transform={`translate(${fieldData.current.width - (pxPerMeter() * 1.3) / 2 + 4}, ${
-                  getObjectCoord("RULER-BACKGROUND", "Y") / 2
-                }) rotate(270)`}
+                // transform={`translate(${fieldData.current.width - (pxPerMeter() * 1.3) / 2 + 4}, ${
+                //   getObjectCoord("RULER-BACKGROUND", "Y") / 2
+                // }) rotate(270)`}
               >
                 WALL+3dB
               </text>
             </g>
           </g>
         </g>
-
+        <g>
+          <polyline points={linePathSToR} fill="none" stroke="black" strokeDasharray="5" />
+        </g>
         <g>
           <g
             id="s_height_ruler"
@@ -1343,7 +1696,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             <polygon id="s_height_arr_up" points={sourceHUpArrowPts.current} />
             <polygon id="s_height_arr_dn" points={sourceHDnArrowPts.current} />
             <rect
-              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 - 50}
+              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 + 20}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
@@ -1357,7 +1710,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             ></rect>
             <text
               className={"nts_ruler_dist_s_to_r_text"}
-              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 - 30}
+              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 + 40}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
@@ -1395,7 +1748,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             </g>
             <g
               id="ba1_height_ruler"
-              className={"nts_ruler_line"}
+              className={`nts_ruler_line ${barrier1Data.enabled ? "" : "hide"}`}
               stroke="#000000"
               fill="#000000"
               strokeWidth="0"
@@ -1444,18 +1797,18 @@ const Noisetools = forwardRef((props: any, ref) => {
             <g
               id="ba1_picker"
               ref={ba1PickerRef}
-              className={`nts_ruler_line ${barrier1Data.enabled ? "" : "disabled"}`}
+              className={`nts_ruler_line ${barrier1Data.enabled ? "" : "hide"}`}
               stroke="#000000"
               fill="#000000"
               strokeWidth="0"
               onMouseDown={onBarrier1PickerMouseDown}
               transform={ba1Transform.current}
             >
-              {<circle cx="-4" cy="0" r="4" />}
+              {<circle cx="0" cy="0" r="4" />}
               <g id="ba2_lable">
                 <rect
-                  x="15"
-                  y="-10"
+                  x="-40"
+                  y="-25"
                   width={70}
                   height={20}
                   rx="5"
@@ -1464,8 +1817,8 @@ const Noisetools = forwardRef((props: any, ref) => {
                 />
                 <text
                   className={"nts_source_text"}
-                  x="13"
-                  y="2"
+                  x="-33"
+                  y="-15"
                   textAnchor="start"
                   alignmentBaseline="middle"
                 >
@@ -1480,7 +1833,7 @@ const Noisetools = forwardRef((props: any, ref) => {
             stroke="#000000"
             fill="#000000"
             strokeWidth="0"
-            transform="matrix(1 0 0 1 15 0)"
+            transform="matrix(1 0 0 1 8 0)"
           >
             <line
               id="receiver_ruler"
@@ -1531,27 +1884,24 @@ const Noisetools = forwardRef((props: any, ref) => {
             id="r_picker"
             className={"nts_ruler_line"}
             stroke="#000000"
-            fill="#00FF00"
+            fill="#FF0000"
             strokeWidth="0"
             onMouseDown={onReceiverPickerMouseDown}
             transform={recvTransform.current}
           >
             <polygon id="r_picker_arr_up" points="0, -7, 0, 7, 7, 0" />
             <g id="r_lable">
-              <rect x="15" y="-10" width={72} height={20} rx="5" fill="#FFFFFF" />
+              <rect x="-24" y="-32" width={72} height={20} rx="5" fill="#FFFFFF" />
               <text
                 className={"nts_source_text"}
-                x="20"
-                y="2"
+                x="-20"
+                y="-20"
                 textAnchor="start"
                 alignmentBaseline="middle"
               >
                 RECEIVER
               </text>
             </g>
-          </g>
-          <g>
-            <polyline points={linePathSToR} fill="none" stroke="black" strokeDasharray="5" />
           </g>
         </g>
 
@@ -1618,6 +1968,23 @@ const Noisetools = forwardRef((props: any, ref) => {
           </text>
         </g>
       </svg>
+      <div ref={toolPopupRef} id="tool_popup" className="nts_inupt_popup">
+        <div id="tool_popup_content">
+          <input
+            ref={toolPopupHDInputRef}
+            type="number"
+            onKeyDown={onClickHorizontalDistanceApply}
+          />
+          <div id="button_area">
+            <button type="button" id="apply_hd" onClick={onClickHorizontalDistanceApply}>
+              Apply
+            </button>
+            <button type="button" id="cancel_hd" onClick={onClickHorizontalDistanceApply}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 });
