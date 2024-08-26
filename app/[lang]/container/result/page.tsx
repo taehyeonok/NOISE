@@ -35,10 +35,10 @@ export default function Result({ params: { lang } }: any) {
   const reportPopupRef = useRef<HTMLDivElement>(null);
   const [detailData, setDetailData] = useState(detailInformationDummyData);
   const [octaveBand, setOctaveBand] = useState([]);
-  // const ResultChart = dynamic(() => import("../../components/chart/resultChart"), {
-  //   ssr: false,
-  //   loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
-  // });
+  const ResultChart = dynamic(() => import("@/app/[lang]/components/chart/resultChart"), {
+    ssr: false,
+    loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
+  });
   {
     /* 반응형 */
   }
@@ -127,7 +127,7 @@ export default function Result({ params: { lang } }: any) {
             <SimulationResultTable simulateData={simulateData} detailData={detailData} />
           </section>
           {/* 반응형 */}
-          <section>
+          <section className="mobile:w-full mobile:max-w-[29rem]">
             <div
               className={
                 "font-LGSMHATB leading-[1.115rem] text-gray_700 mb-5 text-left mobile:text-[0.875rem] mobile:leading-[0.976rem]"

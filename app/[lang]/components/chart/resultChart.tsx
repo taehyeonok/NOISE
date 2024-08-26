@@ -170,11 +170,11 @@ const ResultChart = ({ simulateData, t }: any) => {
       {
         label: "hidden",
         data: NCData[0],
-        // backgroundColor: "rgb(95, 87, 87)",
+        backgroundColor: "rgb(255, 255, 255)",
         borderColor: "rgb(0, 0, 0)",
+        borderWidth: 1,
         pointRadius: 0, // 0일 경우 포인트 삭제
         lineTension: 0.1, // 꺾임 정도(?)
-        borderWidth: 1,
         yAxisID: "y2",
       },
       {
@@ -186,7 +186,6 @@ const ResultChart = ({ simulateData, t }: any) => {
         pointRadius: 0, // 0일 경우 포인트 삭제
         lineTension: 0.1, // 꺾임 정도(?)
         yAxisID: "y2",
-        pointBorderWidth: 0,
       },
       {
         label: "hidden",
@@ -303,7 +302,7 @@ const ResultChart = ({ simulateData, t }: any) => {
   };
 
   return (
-    <div className="relative mt-[1.25rem] mobile:mt-[1.25rem] w-[29rem] h-[24.5rem]  mobile:w-full mobile:h-[20rem]">
+    <div className="relative mt-[1.25rem] mobile:mt-[1.25rem] w-[29rem] h-[24.5rem] mobile:w-full ">
       <Line
         options={options}
         data={data}

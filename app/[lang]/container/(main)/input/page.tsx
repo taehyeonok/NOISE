@@ -42,8 +42,10 @@ export default function Input() {
   const editUnit = new EditUnit();
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const [productTableData, setProductTableData] = useState<ProductItem[]>(
     productInformationTableDummyData
   );
@@ -62,7 +64,6 @@ export default function Input() {
   const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
   const [stepData, setStepData] = useState([]);
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [totalRatedData, setTotalRatedData] = useState(0);
   const [totalSimulatedData, setTotalSimulatedData] = useState(0);
   const [barrierSelected, setBarrierSelected] = useState<{ title: string; value: string }>({
@@ -75,7 +76,6 @@ export default function Input() {
     title: "Concrete(Default) / 120mm",
     value: "120",
   });
-  const [isClient, setIsClient] = useState(false);
   const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
 
   const addTableRow = () => {
@@ -157,8 +157,8 @@ export default function Input() {
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
   const [barrierH, setBarrierH] = useState<number>(5);
-  const [leftBarrier, setLeftBarrier] = useState(1);
-  const [rightBarrier, setRightBarrier] = useState(1);
+  const [leftWall, setLeftWall] = useState(1);
+  const [topWall, setTopWall] = useState(1);
   const [backgroundNoise, setBackgroundNoise] = useState(30);
 
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
@@ -174,10 +174,10 @@ export default function Input() {
         setOdus(value2!);
         break;
       case "LEFT_WALL":
-        setLeftBarrier(value1);
+        setLeftWall(value1);
         break;
       case "RIGHT_WALL":
-        setRightBarrier(value1);
+        setTopWall(value1);
         break;
       case "HORIZONTAL_DISTANCE":
         setHorizontal(value1);
@@ -216,6 +216,7 @@ export default function Input() {
       setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
       setStepData(projectInfoData?.step ? projectInfoData.step : []);
       setSelectFieldType(projectInfoData?.selectFieldType ? projectInfoData.selectFieldType : []);
+      //Outdoor Space
       if (projectInfoData?.selectFieldType?.value == "1") {
         setBarrierSelected(projectInfoData?.inputData?.barrierSelected);
         setHorizontal(projectInfoData?.inputData?.horizontal);
@@ -223,14 +224,13 @@ export default function Input() {
         setReceiver(projectInfoData?.inputData?.receiver);
         setBarrierThickness(projectInfoData?.inputData?.barrierThickness);
         setBackgroundNoise(projectInfoData?.inputData?.backgroundNoise);
+        setLeftWall(projectInfoData?.inputData?.leftWall);
+        setTopWall(projectInfoData?.inputData?.topWall);
         //noisetool
-        setLeftBarrier(projectInfoData?.inputData?.leftBarrier);
-        setRightBarrier(projectInfoData?.inputData?.rightBarrier);
-        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
-        setReceiverHeight(projectInfoData?.inputData?.receiver);
         setHorizontalDistance(projectInfoData?.inputData?.horizontal);
         setBarrierEnable(projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false);
 
+        //Barrier in the path == O 일 때
         if (projectInfoData?.inputData?.barrierSelected?.value == "0") {
           setOdus(projectInfoData?.inputData?.odus);
           setBarrierH(projectInfoData?.inputData?.barrierH);
@@ -239,6 +239,11 @@ export default function Input() {
           setBarrierFromSource(projectInfoData?.inputData?.odus);
           setBarrierHeight(projectInfoData?.inputData?.barrierH);
         }
+        //noisetool
+        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
+        setReceiverHeight(projectInfoData?.inputData?.receiver);
+
+        // Enclosed Space (Machine Room)
       } else {
         setDirectDistance(
           projectInfoData?.inputData?.directDistance
@@ -279,8 +284,8 @@ export default function Input() {
       receiver,
       horizontal,
       backgroundNoise,
-      leftBarrier,
-      rightBarrier,
+      leftWall,
+      topWall,
       barrierInfoTableData,
       barrierSelected,
       odus,
@@ -304,8 +309,8 @@ export default function Input() {
     receiver,
     horizontal,
     backgroundNoise,
-    leftBarrier,
-    rightBarrier,
+    leftWall,
+    topWall,
     barrierInfoTableData,
     barrierSelected,
     odus,
@@ -435,7 +440,8 @@ export default function Input() {
         setTotalCapacityTableData(copyTotal);
       }
     });
-  }, [productTableData, productTypeData]);
+  }, [productTableData]);
+
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
     const copyEstimated = cloneObject(estimatedSoundData);
@@ -525,7 +531,7 @@ export default function Input() {
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
-    const wallCount = 1 + leftBarrier + rightBarrier;
+    const wallCount = 1 + leftWall + topWall;
     const unitData = editUnit.getUnitSetting();
     const result = await noiseSimulator(
       formData,
