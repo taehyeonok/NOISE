@@ -8,6 +8,10 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
+import { RefObject, useEffect, useState } from "react";
+import EditUnit, { EditUnitType } from "@/lib/editUnit";
+import { useTranslation } from "@/app/i18n/client";
+import { useParams } from "next/navigation";
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -44,31 +48,62 @@ const rightLabels = [
   "NC-65",
 ];
 
-// const customPlugin = {
-//   id: "customPlugin",
-//   beforeDraw: function (chart: any) {
-//     const ctx = chart.ctx;
-//     const chartArea = chart.chartArea;
-//     const x = chartArea.left + 30;
-//     const y = chartArea.left + (chartArea.bottom - chartArea.top) / 2;
+const customPlugin = {
+  id: "customPlugin",
+  beforeDraw: function (chart: any) {
+    const { ctx, chartArea } = chart;
+    const { width } = chartArea;
 
-//     ctx.save();
-//     ctx.font = "bold 12px Arial";
-//     ctx.fillStyle = "gray";
-//     ctx.textAlign = "center";
+    const x1 = chart.scales.x.getPixelForValue("63");
+    const arrowY = chart.scales.y.getPixelForValue("35");
+    const arrowY2 = chart.scales.y.getPixelForValue("30");
+    const textY = chart.scales.y.getPixelForValue("25");
+    ctx.save();
+    ctx.font = `12px `;
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    const text = "Approximate";
+    const textWidth = ctx.measureText(text);
+    const textHeight = 35;
 
-//     ctx.fillText(`Approximate Hearing Threshold`, x, y);
-//     ctx.beginPath();
-//     ctx.moveTo(x, y - 40);
-//     ctx.lineTo(x - 10, y - 20);
-//     ctx.lineTo(x + 10, y - 20);
-//     ctx.closePath();
-//     ctx.fillStyle = "gray";
-//     ctx.fill();
+    const boxX = x1 - textWidth.width / 2 - 2;
+    const boxY = textY + 30 - textHeight - 2;
+    const boxWidth = textWidth.width + 4;
+    const boxHeigth = textHeight + 10;
 
-//     ctx.restore();
-//   },
-// };
+    //네모박스
+    ctx.beginPath();
+    ctx.rect(boxX, boxY, boxWidth, boxHeigth);
+    ctx.fill();
+    ctx.fillStyle = "black";
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+
+    //텍스트
+    ctx.fillText(`Approximate`, x1, textY + 5);
+    ctx.fillText(`Hearing`, x1, textY + 20);
+    ctx.fillText(`Threshold`, x1, textY + 35);
+
+    //화살표
+    ctx.beginPath();
+    ctx.moveTo(x1 + 6, arrowY + 5);
+    ctx.lineTo(x1 - 5, arrowY + 13);
+    ctx.lineTo(x1 + 5, arrowY + 13);
+    ctx.fillStyle = "gray";
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    //선
+    ctx.beginPath();
+    ctx.moveTo(x1, arrowY2 - 10);
+    ctx.lineTo(x1 - 15, arrowY2 + 15);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.restore();
+  },
+};
 
 const ResultChart = ({ simulateData, t }: any) => {
   const options = {
@@ -85,7 +120,6 @@ const ResultChart = ({ simulateData, t }: any) => {
       },
       tooltip: {
         // enabled: false,
-        // external: (context: any) => externalTooltipHandler(context, type, props, unitData, t),
         bodyFont: { size: 15 },
         filter: function (tooltipItem: any) {
           return tooltipItem.dataset.label !== "hidden";
@@ -303,11 +337,7 @@ const ResultChart = ({ simulateData, t }: any) => {
 
   return (
     <div className="relative mt-[1.25rem] mobile:mt-[1.25rem] w-[29rem] h-[24.5rem] mobile:w-full ">
-      <Line
-        options={options}
-        data={data}
-        //  plugins={[customPlugin]}
-      />
+      <Line options={options} data={data} plugins={[customPlugin]} />
     </div>
   );
 };
