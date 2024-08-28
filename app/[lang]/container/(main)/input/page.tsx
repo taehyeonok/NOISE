@@ -215,7 +215,14 @@ export default function Input() {
       setProductTypeData(productType);
       setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
       setStepData(projectInfoData?.step ? projectInfoData.step : []);
-      setSelectFieldType(projectInfoData?.selectFieldType ? projectInfoData.selectFieldType : []);
+      setSelectFieldType(
+        projectInfoData?.selectFieldType
+          ? projectInfoData.selectFieldType
+          : {
+              title: "Outdoor Space",
+              value: "1",
+            }
+      );
       //Outdoor Space
       if (projectInfoData?.selectFieldType?.value == "1") {
         setBarrierSelected(projectInfoData?.inputData?.barrierSelected);
@@ -553,7 +560,7 @@ export default function Input() {
       {isLoading && <LoadingPage />}
       <div className={"flex flex-col gap-[2.5rem] mb-[2.5rem]"}>
         <ContainerBox>
-          <ContainerBoxTitle title={"Inputs"} />
+          <ContainerBoxTitle title={t("NOISE_0039")} />
           {/* 반응형 */}
           <div
             className={`font-LGSMHATB text-gray_700 mb-5 mt-10 text-left leading-[1.115rem]
