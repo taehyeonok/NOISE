@@ -148,6 +148,14 @@ model T_CMN_COM_MEMBER {
   BPP_REGION_CODE     String?   @db.VarChar(10)
   PARTNER_TYPE_CODE   String?   @db.VarChar(10)
   PARTNER_GRADE_CODE  String?   @db.VarChar(10)
+  US_FEDERATION_ID    String?   @db.VarChar(100)
+  US_SFDC_ID          String?   @db.VarChar(100)
+  US_CONTACT_ID       String?   @db.VarChar(100)
+  US_JOB_TYPE         String?   @db.VarChar(100)
+  US_ACCOUNT_ID       String?   @db.VarChar(100)
+  US_ACCOUNT_CODE     String?   @db.VarChar(100)
+  LOGIN_TYPE          String?   @db.VarChar(100)
+  LOGIN_TOKEN         String?   @db.MediumText
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
@@ -318,8 +326,9 @@ model T_CMN_MEM_TERMS {
   LOCALE_TYPE      String    @default("english") @db.VarChar(50)
   CORPORATION_CODE String?   @db.VarChar(8)
   QUESTION_CONTENT String?   @db.Text
+  AGREE_YN         String    @default("N") @db.VarChar(10)
 
-  @@unique([TERMS_SEQ_NO, REGION_CODE, LOCALE_TYPE], map: "PK_CMN_MEM_TERMS")
+  @@unique([TERMS_SEQ_NO, REGION_CODE, LOCALE_TYPE], map: "T_CMN_MEM_TERMS_UN")
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
@@ -615,7 +624,7 @@ model T_CMN_USAGE {
   OFFICE_VERSION   String?   @db.VarChar(200)
   AUTODESK_VERSION String?   @db.VarChar(200)
   REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(10)
+  JOBTYPE          String?   @db.VarChar(50)
   MARKETING        String?   @db.VarChar(10)
   LOGTYPE          String?   @db.VarChar(10)
   USAGETYPE        Int?
@@ -627,202 +636,6 @@ model T_CMN_USAGE {
   @@index([ENTITY], map: "T_CMN_USAGE_ENTITY_IDX")
   @@index([PROGRAM], map: "T_CMN_USAGE_PROGRAM_IDX")
   @@index([REGION], map: "T_CMN_USAGE_REGION_IDX")
-  @@index([REQUEST_CODE], map: "T_CMN_USAGE_REQUEST_CODE_IDX")
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model T_CMN_USAGE_2021 {
-  SEQ              Int       @unique(map: "T_CMN_USAGE_SEQ_IDX")
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(20)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(200)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@index([COUNTRY], map: "T_CMN_USAGE_COUNTRY_IDX")
-  @@index([ENTITY], map: "T_CMN_USAGE_ENTITY_IDX")
-  @@index([PROGRAM], map: "T_CMN_USAGE_PROGRAM_IDX")
-  @@index([REGION], map: "T_CMN_USAGE_REGION_IDX")
-  @@index([REQUEST_CODE], map: "T_CMN_USAGE_REQUEST_CODE_IDX")
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model T_CMN_USAGE_2022 {
-  SEQ              Int       @unique(map: "T_CMN_USAGE_SEQ_IDX")
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(40)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(200)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@index([COUNTRY], map: "T_CMN_USAGE_COUNTRY_IDX")
-  @@index([ENTITY], map: "T_CMN_USAGE_ENTITY_IDX")
-  @@index([PROGRAM], map: "T_CMN_USAGE_PROGRAM_IDX")
-  @@index([REGION], map: "T_CMN_USAGE_REGION_IDX")
-  @@index([REQUEST_CODE], map: "T_CMN_USAGE_REQUEST_CODE_IDX")
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model T_CMN_USAGE_202310_202312 {
-  SEQ              Int?
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(20)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(10)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@index([REQUEST_CODE], map: "IDX_REQUEST_CODE")
-  @@ignore
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model T_CMN_USAGE_2023_2024 {
-  SEQ              BigInt
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(20)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(10)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@ignore
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model T_CMN_USAGE_2023_REVIT {
-  SEQ              Int       @unique(map: "T_CMN_USAGE_SEQ_IDX")
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(20)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(200)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@index([COUNTRY], map: "T_CMN_USAGE_COUNTRY_IDX")
-  @@index([ENTITY], map: "T_CMN_USAGE_ENTITY_IDX")
-  @@index([PROGRAM], map: "T_CMN_USAGE_PROGRAM_IDX")
-  @@index([REGION], map: "T_CMN_USAGE_REGION_IDX")
-  @@index([REQUEST_CODE], map: "T_CMN_USAGE_REQUEST_CODE_IDX")
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model T_CMN_USAGE_202401 {
-  SEQ              BigInt?
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(50)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(100)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(10)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        BigInt?
-  CREATE_DATE      DateTime? @db.Date
-  ENTITY           String?   @db.VarChar(20)
-
-  @@ignore
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model T_CMN_USAGE_BACKUP {
-  SEQ              Int       @unique(map: "T_CMN_USAGE_SEQ_IDX")
-  PROGRAM          String?   @db.VarChar(200)
-  USER             String?   @db.VarChar(100)
-  EMAIL            String?   @db.VarChar(100)
-  IP               String?   @db.VarChar(20)
-  COMPANY          String?   @db.VarChar(100)
-  COUNTRY          String?   @db.VarChar(200)
-  REGION           String?   @db.VarChar(100)
-  OS_VERSION       String?   @db.VarChar(200)
-  PROGRAM_VERSION  String?   @db.VarChar(200)
-  OFFICE_VERSION   String?   @db.VarChar(200)
-  AUTODESK_VERSION String?   @db.VarChar(200)
-  REQUEST_CODE     String?   @db.VarChar(20)
-  JOBTYPE          String?   @db.VarChar(10)
-  MARKETING        String?   @db.VarChar(10)
-  LOGTYPE          String?   @db.VarChar(10)
-  USAGETYPE        Int?
-  CREATE_DATE      DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
-  ENTITY           String?   @db.VarChar(20)
-  OS_LOCALE        String?   @db.VarChar(100)
-
-  @@index([PROGRAM, COUNTRY, REGION, ENTITY], map: "T_CMN_USAGE_BACKUP_PROGRAM_IDX")
   @@index([REQUEST_CODE], map: "T_CMN_USAGE_REQUEST_CODE_IDX")
 }
 
@@ -895,29 +708,6 @@ model T_CMN_USAGE_IP_COUNTRY {
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model T_CMN_USAGE_IP_COUNTRY_TEST {
-  ID           Float?
-  IP_FROM1     BigInt?
-  IP_FROM2     BigInt?
-  IP_FROM3     BigInt?
-  IP_FROM4     BigInt?
-  IP_FROM      BigInt?
-  IP_TO1       BigInt?
-  IP_TO2       BigInt?
-  IP_TO3       BigInt?
-  IP_TO4       BigInt?
-  IP_TO        BigInt?
-  C2           String? @db.VarChar(20)
-  COUNTRY_NAME String? @db.VarChar(200)
-
-  @@index([C2], map: "T_CMN_USAGE_IP_COUNTRY_TEST_C2_IDX")
-  @@index([IP_FROM1], map: "T_CMN_USAGE_IP_COUNTRY_TEST_IP_FROM1_IDX")
-  @@index([IP_FROM], map: "T_CMN_USAGE_IP_COUNTRY_TEST_IP_FROM_IDX")
-  @@index([IP_TO], map: "T_CMN_USAGE_IP_COUNTRY_TEST_IP_TO_IDX")
-  @@ignore
-}
-
 model T_CMN_USAGE_PROG_USE_CODE {
   USER         String  @db.VarChar(200)
   COUNTRY_TEMP String  @db.VarChar(200)
@@ -985,18 +775,6 @@ model T_CMN_USAGE_UNIT {
   MODEL     String?  @db.VarChar(40)
   QTY       Decimal?
   PROGRAM   String?  @db.VarChar(200)
-
-  @@ignore
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model T_CMN_USAGE_UNIT_BACK {
-  SEQ       Int?
-  REGION    String? @db.VarChar(200)
-  UNIT_TYPE String? @db.VarChar(10)
-  MODEL     String? @db.VarChar(40)
-  QTY       Int?
-  PROGRAM   String? @db.VarChar(200)
 
   @@ignore
 }
@@ -1429,11 +1207,11 @@ model T_MASTER_MS_IDU {
   OPER_TYPE           Int?
   NOMINAL_CAPACITY    Decimal?  @db.Decimal(30, 10)
   COOLING_CAPACITY    Decimal?  @db.Decimal(30, 10)
-  T_COOL_W            Int?
-  T_COOL_KCAL_H       Int?
+  T_COOL_W            Decimal?  @db.Decimal(30, 10)
+  T_COOL_KCAL_H       Decimal?  @db.Decimal(30, 10)
   HEATING_CAPACITY    Decimal?  @db.Decimal(30, 10)
-  T_HEAT_W            Int?
-  T_HEAT_KCAL_H       Int?
+  T_HEAT_W            Decimal?  @db.Decimal(30, 10)
+  T_HEAT_KCAL_H       Decimal?  @db.Decimal(30, 10)
   COOLING_INPUT_POWER Decimal?  @db.Decimal(30, 10)
   HEATING_INPUT_POWER Decimal?  @db.Decimal(30, 10)
   POWER_SUPPLY        String?   @db.MediumText
@@ -1505,17 +1283,18 @@ model T_MASTER_MS_ODU {
   CASSETTE_1WAY              Decimal?  @db.Decimal(30, 10)
   CASSETTE_4WAY              Decimal?  @db.Decimal(30, 10)
   CONVERTIBLE                Int?
-  DUCT_HIGH_STATIC           Int?
-  DUCT_MID_STATIC            Int?
-  DUCT_LOW_STATIC            Int?
-  DUCT_BUILT_IN              Int?
-  FLOOR_STANDING             Int?
-  CONSOLE                    Int?
-  VAHU_2WAY                  Int?
-  VAHU_4WAY                  Int?
-  A_COIL                     Int?
-  CASSETTE_ROUND             Int?
+  DUCT_HIGH_STATIC           Decimal?  @db.Decimal(30, 10)
+  DUCT_MID_STATIC            Decimal?  @db.Decimal(30, 10)
   COOLING_CAPACITY           Decimal?  @db.Decimal(30, 10)
+  DUCT_LOW_STATIC            Decimal?  @db.Decimal(30, 10)
+  DUCT_BUILT_IN              Decimal?  @db.Decimal(30, 10)
+  FLOOR_STANDING             Decimal?  @db.Decimal(30, 10)
+  CONSOLE                    Decimal?  @db.Decimal(30, 10)
+  VAHU_2WAY                  Decimal?  @db.Decimal(30, 10)
+  VAHU_4WAY                  Decimal?  @db.Decimal(30, 10)
+  A_COIL                     Int?
+  CASSETTE_ROUND             Decimal?  @db.Decimal(30, 10)
+  DX_AHU                     Int?
   HEATING_CAPACITY           Decimal?  @db.Decimal(30, 10)
   COOLING_INPUT_POWER        Int?
   HEATING_INPUT_POWER        Int?
@@ -1991,6 +1770,26 @@ model T_MASTER_MV_DOAS {
   DOAS_DOAS_HEIGHT         Decimal? @db.Decimal(30, 10)
   INTERNAL_STATIC_PRESSURE Int?
   REVIT_FAMILY_NAME        String?  @db.MediumText
+  CONNECTABLE_ODU_TYPE     String?  @db.MediumText
+  TYPE_PRODUCT             String?  @db.VarChar(100)
+  SYMBOL_INDEX             Int?
+  T_HEAT_KCAL_H            Decimal? @db.Decimal(30, 10)
+  T_HEAT_W                 Decimal? @db.Decimal(30, 10)
+  BREAKER                  Decimal? @db.Decimal(30, 10)
+  T_REHEAT_W               Decimal? @db.Decimal(30, 10)
+  T_COOL_W                 Decimal? @db.Decimal(30, 10)
+  IMAGE_INDEX              Int?
+  T_COOL_KCAL_H            Decimal? @db.Decimal(30, 10)
+  T_REHEAT_KCAL_H          Decimal? @db.Decimal(30, 10)
+  RUN_CURRENT_HEATING      Decimal? @db.Decimal(30, 10)
+  RUN_CURRENT_COOLING      Decimal? @db.Decimal(30, 10)
+  DRAIN_DIAMETER           Int?
+  WIRE_POWER_H07RN_F       String?  @db.VarChar(100)
+  FAN_TYPE                 String?  @db.VarChar(50)
+  FAN_POWER                String?  @db.VarChar(50)
+  POWER_SUPPLY             String?  @db.VarChar(100)
+  WIRE_COMM                String?  @db.VarChar(100)
+  EQUIP_TABLE_KO           String?  @db.VarChar(50)
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
@@ -2360,10 +2159,9 @@ model T_MASTER_THERMAV_IDU {
   ID                  Int      @id @db.UnsignedInt
   MODEL               String   @unique(map: "IDU_UNIQUE_IDX") @db.VarChar(30)
   BUYER_MODEL_NAME    String?  @db.VarChar(100)
-  LOCATION            String?  @db.Text
+  APP_LOCATION        String?  @db.Text
   NOTUSEDCOUNTRY      String?  @db.Text
   VISIBLE             Int?     @db.UnsignedTinyInt
-  VISIBLE_THERMAV     Int?     @db.UnsignedTinyInt
   DESCRIPTION         String?  @db.Text
   ACCESSARY           String?  @db.Text
   ACC_DEFAULT         String?  @db.Text
@@ -2416,96 +2214,92 @@ model T_MASTER_THERMAV_IDU {
   PIPE_INLET          String?  @db.VarChar(100)
   PIPE_OUTLET         String?  @db.VarChar(100)
   HEAT_EXCHANGER_TYPE String?  @db.VarChar(100)
-  EQUIPMENT_TABLE_KO  String?  @db.VarChar(100)
   REVIT_FAMILY_NAME   String?  @db.Text
   EQUIP_TABLE_KO      String?  @db.VarChar(50)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model T_MASTER_THERMAV_ODU {
-  PROGRAM                   String   @db.VarChar(30)
-  ID                        Int      @id @db.UnsignedInt
-  MODEL                     String   @unique(map: "ODU_UNIQUE_IDX") @db.VarChar(30)
-  BUYER_MODEL_NAME          String?  @db.VarChar(100)
-  APP_LOCATION              String?  @db.Text
-  VISIBLE                   Int?     @db.UnsignedTinyInt
-  VISIBLE_THERMAV           Int?     @db.UnsignedTinyInt
-  TYPE_ODU                  String?  @db.VarChar(30)
-  TYPE_TEMP                 String?  @db.VarChar(30)
-  DESCRIPTION               String?  @db.Text
-  ACCESSARY                 String?  @db.Text
-  ACC_DEFAULT               String?  @db.Text
-  HZ                        Int?     @db.UnsignedInt
-  REFRIGERANT               String?  @db.VarChar(30)
-  TYPE_RUNNING              String?  @db.VarChar(30)
-  NOMINAL_CAPACITY          Decimal? @db.Decimal(30, 10)
-  COOLING_CAPACITY          Decimal? @db.Decimal(30, 10)
-  HEATING_CAPACITY          Decimal? @db.Decimal(30, 10)
-  COOLING_CAPACITY_RT       Decimal? @db.Decimal(30, 10)
-  HEATING_CAPACITY_RT       Decimal? @db.Decimal(30, 10)
-  T_COOL_W                  Decimal? @db.Decimal(30, 10)
-  T_COOL_KCAL_H             Decimal? @db.Decimal(30, 10)
-  T_COOL_BTU_H              Decimal? @db.Decimal(30, 10)
-  T_HEAT_W                  Decimal? @db.Decimal(30, 10)
-  T_HEAT_KCAL_H             Decimal? @db.Decimal(30, 10)
-  T_HEAT_BTU_H              Decimal? @db.Decimal(30, 10)
-  COOLING_INPUT_POWER       Decimal? @db.Decimal(30, 10)
-  HEATING_INPUT_POWER       Decimal? @db.Decimal(30, 10)
-  COOLING_INDOOR_LOW        Decimal? @db.Decimal(30, 10)
-  COOLING_INDOOR_HIGH       Decimal? @db.Decimal(30, 10)
-  COOLING_OUTDOOR_LOW       Decimal? @db.Decimal(30, 10)
-  COOLING_OUTDOOR_HIGH      Decimal? @db.Decimal(30, 10)
-  HEATING_INDOOR_HIGH       Decimal? @db.Decimal(30, 10)
-  HEATING_OUTDOOR_LOW       Decimal? @db.Decimal(30, 10)
-  HEATING_OUTDOOR_HIGH      Decimal? @db.Decimal(30, 10)
-  POWER_SUPPLY              String?  @db.VarChar(100)
-  PHASE                     Int?     @db.UnsignedTinyInt
-  BREAKER                   Decimal? @db.Decimal(30, 10)
-  IMAGE_INDEX               Int?     @db.UnsignedSmallInt
-  SYMBOL_INDEX              Int?     @db.UnsignedSmallInt
-  RUN_CURRENT_MAX           Decimal? @db.Decimal(30, 10)
-  CURRENT_COOL              Decimal? @db.Decimal(30, 10)
-  CURRENT_HEAT              Decimal? @db.Decimal(30, 10)
-  FAN_TYPE                  String?  @db.VarChar(100)
-  FAN_CMH                   String?  @db.VarChar(100)
-  FAN_CFM                   String?  @db.VarChar(100)
-  FAN_POWER                 String?  @db.VarChar(100)
-  COMP_COOLANT              String?  @db.VarChar(100)
-  COMP_TYPE                 String?  @db.VarChar(100)
-  COMP_POWER                String?  @db.VarChar(100)
-  WEIGHT                    String?  @db.VarChar(100)
-  WEIGHT_LBS                String?  @db.VarChar(100)
-  SIZE_UNIT                 String?  @db.VarChar(100)
-  SIZE_UNIT_INCH            String?  @db.VarChar(100)
-  WIRE_COMM                 String?  @db.VarChar(100)
-  MCA                       String?  @db.VarChar(100)
-  SOUND_PRESSURE            String?  @db.VarChar(100)
-  PIPE_INLET                String?  @db.VarChar(100)
-  PIPE_OUTLET               String?  @db.VarChar(100)
-  PIPE_LIQUID               String?  @db.VarChar(100)
-  PIPE_GAS                  String?  @db.VarChar(100)
-  HEAT_EXCHANGER_TYPE       String?  @db.VarChar(100)
-  WATER_FLOW_LPM            Decimal? @db.Decimal(30, 10)
-  WATER_FLOW_GPM            Decimal? @db.Decimal(30, 10)
-  EQUIPMENT_TABLE_KO        String?  @db.VarChar(100)
-  SYSTEM_REF_AMOUNT         Decimal? @db.Decimal(30, 10)
-  REVIT_FAMILY_NAME         String?  @db.Text
-  COOLING_EER               Decimal? @db.Decimal(30, 10)
-  HEATING_COP               Decimal? @db.Decimal(30, 10)
-  HEATER_BUILTIN            Decimal? @db.Decimal(30, 10)
-  HEATER_ACC                Decimal? @db.Decimal(30, 10)
-  COOL_LEAVING_TEMP_LOW     Decimal? @db.Decimal(30, 10)
-  COOL_LEAVING_TEMP_HIGH    Decimal? @db.Decimal(30, 10)
-  HEAT_LEAVING_TEMP_LOW     Decimal? @db.Decimal(30, 10)
-  HEAT_LEAVING_TEMP_HIGH    Decimal? @db.Decimal(30, 10)
-  SOUND_LOW                 Decimal? @db.Decimal(30, 10)
-  SOUND_MAX                 Decimal? @db.Decimal(30, 10)
-  HEATING_INDOOR_LOW        String?  @db.VarChar(50)
-  EQUIP_TABLE_KO            String?  @db.VarChar(50)
-  COOLING_LEAVING_TEMP_LOW  String?  @db.VarChar(50)
-  COOLING_LEAVING_TEMP_HIGH String?  @db.VarChar(50)
-  HEATING_LEAVING_TEMP_LOW  String?  @db.VarChar(50)
-  HEATING_LEAVING_TEMP_HIGH String?  @db.VarChar(50)
+  PROGRAM                String   @db.VarChar(30)
+  ID                     Int      @id @db.UnsignedInt
+  MODEL                  String   @unique(map: "ODU_UNIQUE_IDX") @db.VarChar(30)
+  BUYER_MODEL_NAME       String?  @db.VarChar(100)
+  APP_LOCATION           String?  @db.Text
+  NOTUSEDCOUNTRY         String?  @db.VarChar(100)
+  VISIBLE_CAD            Int?     @db.UnsignedTinyInt
+  VISIBLE                Int?     @db.UnsignedTinyInt
+  TYPE_ODU               String?  @db.VarChar(30)
+  TYPE_ODU_THERMAV       String?  @db.VarChar(30)
+  TYPE_TEMP              String?  @db.VarChar(30)
+  DESCRIPTION            String?  @db.Text
+  ACCESSARY              String?  @db.Text
+  ACC_DEFAULT            String?  @db.Text
+  HZ                     Int?     @db.UnsignedInt
+  REFRIGERANT            String?  @db.VarChar(30)
+  TYPE_RUNNING           String?  @db.VarChar(30)
+  NOMINAL_CAPACITY       Decimal? @db.Decimal(30, 10)
+  COOLING_CAPACITY       Decimal? @db.Decimal(30, 10)
+  HEATING_CAPACITY       Decimal? @db.Decimal(30, 10)
+  COOLING_CAPACITY_RT    Decimal? @db.Decimal(30, 10)
+  HEATING_CAPACITY_RT    Decimal? @db.Decimal(30, 10)
+  T_COOL_W               Decimal? @db.Decimal(30, 10)
+  T_COOL_KCAL_H          Decimal? @db.Decimal(30, 10)
+  T_COOL_BTU_H           Decimal? @db.Decimal(30, 10)
+  T_HEAT_W               Decimal? @db.Decimal(30, 10)
+  T_HEAT_KCAL_H          Decimal? @db.Decimal(30, 10)
+  T_HEAT_BTU_H           Decimal? @db.Decimal(30, 10)
+  COOLING_INPUT_POWER    Decimal? @db.Decimal(30, 10)
+  HEATING_INPUT_POWER    Decimal? @db.Decimal(30, 10)
+  COOLING_INDOOR_LOW     Decimal? @db.Decimal(30, 10)
+  COOLING_INDOOR_HIGH    Decimal? @db.Decimal(30, 10)
+  COOLING_OUTDOOR_LOW    Decimal? @db.Decimal(30, 10)
+  COOLING_OUTDOOR_HIGH   Decimal? @db.Decimal(30, 10)
+  HEATING_INDOOR_HIGH    Decimal? @db.Decimal(30, 10)
+  HEATING_OUTDOOR_LOW    Decimal? @db.Decimal(30, 10)
+  HEATING_OUTDOOR_HIGH   Decimal? @db.Decimal(30, 10)
+  POWER_SUPPLY           String?  @db.VarChar(100)
+  PHASE                  Int?     @db.UnsignedTinyInt
+  BREAKER                Decimal? @db.Decimal(30, 10)
+  IMAGE_INDEX            Int?     @db.UnsignedSmallInt
+  SYMBOL_INDEX           Int?     @db.UnsignedSmallInt
+  RUN_CURRENT_MAX        Decimal? @db.Decimal(30, 10)
+  CURRENT_COOL           Decimal? @db.Decimal(30, 10)
+  CURRENT_HEAT           Decimal? @db.Decimal(30, 10)
+  FAN_TYPE               String?  @db.VarChar(100)
+  FAN_CMH                String?  @db.VarChar(100)
+  FAN_CFM                String?  @db.VarChar(100)
+  FAN_POWER              String?  @db.VarChar(100)
+  COMP_COOLANT           String?  @db.VarChar(100)
+  COMP_TYPE              String?  @db.VarChar(100)
+  COMP_POWER             String?  @db.VarChar(100)
+  WEIGHT                 String?  @db.VarChar(100)
+  WEIGHT_LBS             String?  @db.VarChar(100)
+  SIZE_UNIT              String?  @db.VarChar(100)
+  SIZE_UNIT_INCH         String?  @db.VarChar(100)
+  WIRE_COMM              String?  @db.VarChar(100)
+  MCA                    String?  @db.VarChar(100)
+  SOUND_PRESSURE         String?  @db.VarChar(100)
+  PIPE_INLET             String?  @db.VarChar(100)
+  PIPE_OUTLET            String?  @db.VarChar(100)
+  PIPE_LIQUID            String?  @db.VarChar(100)
+  PIPE_GAS               String?  @db.VarChar(100)
+  HEAT_EXCHANGER_TYPE    String?  @db.VarChar(100)
+  WATER_FLOW_LPM         Decimal? @db.Decimal(30, 10)
+  WATER_FLOW_GPM         Decimal? @db.Decimal(30, 10)
+  SYSTEM_REF_AMOUNT      Decimal? @db.Decimal(30, 10)
+  REVIT_FAMILY_NAME      String?  @db.Text
+  COOLING_EER            Decimal? @db.Decimal(30, 10)
+  HEATING_COP            Decimal? @db.Decimal(30, 10)
+  HEATER_BUILTIN         Decimal? @db.Decimal(30, 10)
+  HEATER_ACC             Decimal? @db.Decimal(30, 10)
+  COOL_LEAVING_TEMP_LOW  Decimal? @db.Decimal(30, 10)
+  COOL_LEAVING_TEMP_HIGH Decimal? @db.Decimal(30, 10)
+  HEAT_LEAVING_TEMP_LOW  Decimal? @db.Decimal(30, 10)
+  HEAT_LEAVING_TEMP_HIGH Decimal? @db.Decimal(30, 10)
+  SOUND_LOW              Decimal? @db.Decimal(30, 10)
+  SOUND_MAX              Decimal? @db.Decimal(30, 10)
+  HEATING_INDOOR_LOW     String?  @db.VarChar(50)
+  EQUIP_TABLE_KO         String?  @db.VarChar(50)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -2521,12 +2315,45 @@ model error_log {
   log_date       DateTime @default(now()) @db.DateTime(0)
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model T_CMN_LATS_SUPPORT {
+  SEQ          Int       @id @default(autoincrement())
+  PROGRAM      String    @default("0") @db.VarChar(100)
+  TYPE         Int
+  PROJECT_SEQ  Int?
+  TITLE        String    @default("LATS ISSUE") @db.VarChar(100)
+  CONTENTS     String?   @db.MediumText
+  CREATE_DATE  DateTime? @default(now()) @db.DateTime(0)
+  CREATE_BY_ID String    @default("") @db.VarChar(100)
+  UPDATE_DATE  DateTime? @default(now()) @db.DateTime(0)
+  UPDATE_BY_ID String?   @db.VarChar(100)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model T_CMN_LATS_VERSION {
+  SEQ          Int       @id @default(autoincrement())
+  PROGRAM_NAME String    @default("") @db.VarChar(50)
+  VERSION      String    @default("") @db.VarChar(50)
+  RELEASE_NOTE String?   @db.MediumText
+  CREATE_DATE  DateTime? @default(now()) @db.DateTime(0)
+  UPDATE_DATE  DateTime? @default(now()) @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model T_CMN_USAGE_ERROR_LOG {
+  ID              BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  ERROR_DATA      String?   @db.VarChar(10000)
+  ERROR_MESSAGE   String?   @db.VarChar(1000)
+  ERROR_TIMESTAMP DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
+  PROCESSED       Boolean?  @default(false)
+}
+
 /// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 view V_CMN_LANGUAGE_THERMAV {
   CODE    String  @default("") @db.LongText
   HVAC_ID String? @db.VarChar(200)
   MESSAGE String? @db.LongText
-  LOCALE  String? @db.VarChar(12)
+  LOCALE  String? @db.VarChar(9)
 
   @@ignore
 }
@@ -2565,7 +2392,7 @@ view V_CMN_USAGE {
   COUNTRY        String?   @db.VarChar(200)
   REGION         String?   @db.VarChar(100)
   REQUEST_CODE   String?   @db.VarChar(20)
-  JOBTYPE        String?   @db.VarChar(10)
+  JOBTYPE        String?   @db.VarChar(50)
   USAGETYPE      Int?
   CREATE_DATE    DateTime? @default(dbgenerated("(sysdate())")) @db.DateTime(0)
   CREATE_MONTH   String?   @db.VarChar(6)
