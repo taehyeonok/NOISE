@@ -3696,7 +3696,7 @@
   "THERMAV_181": "Power Supply를 입력하세요.",
   "THERMAV_182": "IDU Type을 입력하세요.",
   "THERMAV_268": "These results are the simulated value based on sound power level, so it may be different from actual values. Except for solid angle as per intallation condition, other add-on factor is not considered in the simulation.",
-  "THERMAV_269": "Sound Pressure(db(A))",
+  "THERMAV_269": "Sound Pressure(dB(A))",
   "THERMAV_27": "설정",
   "THERMAV_270": "거리 (m)",
   "THERMAV_271": "거리",
@@ -5124,7 +5124,16 @@
   "NOISE_0057": "방 볼륨",
   "NOISE_0058": "장벽 정보",
   "NOISE_0059": "경로의 장벽",
-  "NOISE_0060": "Distance from ODUs",
+  "NOISE_0060": "Distance form ODUs",
   "NOISE_0061": "장벽 높이",
-  "NOISE_0062": "장벽 두께"
+  "NOISE_0062": "장벽 두께",
+  "NOISE_0063": "일반 정보",
+  "NOISE_0064": "발행일",
+  "NOISE_0065": "모델 추가",
+  "NOISE_0066": "총 용량",
+  "NOISE_0067": "음원",
+  "NOISE_0068": "Data(Octaved band)_Sound Pressure Level",
+  "NOISE_0069": "Data(Octaved band)_Sound Power Level",
+  "NOISE_0070": "재질/두께",
+  "NOISE_0071": "Simulate"
 }
