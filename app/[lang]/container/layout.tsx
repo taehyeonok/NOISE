@@ -5,7 +5,6 @@ import Footer from "@/app/[lang]/components/footer/footer";
 import { useParams } from "next/navigation";
 import { getSelectedLanguage } from "@/app/utils/utils";
 import { ProjectInfoProvider } from "@/app/context/projectInfoContext";
-import LoadingPage from "../components/loadingSkeleton/loadingPage";
 
 export default function MenuLayout({ children }: { children: React.ReactNode }) {
   const param = useParams<{ lang: string }>();
