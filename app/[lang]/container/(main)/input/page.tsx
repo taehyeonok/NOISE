@@ -45,7 +45,6 @@ export default function Input() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const [productTableData, setProductTableData] = useState<ProductItem[]>(
     productInformationTableDummyData
   );
@@ -196,7 +195,6 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
-    setIsClient(true);
     localStorage.removeItem("simulate");
     localStorage.removeItem("simulate2");
 
@@ -584,12 +582,12 @@ export default function Input() {
             {/* 반응형 */}
             <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
               <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>
-                {isClient ? t("project_name") : "Project Name"}
+                {t("project_name")}
               </div>
               <CCustomInput
                 name={`Project Name`}
                 type={"text"}
-                placeholder={isClient ? t("project_name") : "Project Name"}
+                placeholder={t("project_name")}
                 value={projectName}
                 classList={"w-[18.438rem] mobile:w-[12.5rem]"}
                 onChange={(changeValue: string) => {

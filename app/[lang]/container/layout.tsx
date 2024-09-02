@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import Header from "@/app/[lang]/components/header/header";
 import Footer from "@/app/[lang]/components/footer/footer";
 import { useParams } from "next/navigation";
@@ -14,7 +14,7 @@ export default function MenuLayout({ children }: { children: React.ReactNode }) 
     <div className={"page"}>
       <Header lang={param.lang} selectedLanguage={selectedLanguage} />
       <ProjectInfoProvider>
-        <Suspense fallback={<LoadingPage />}>{children}</Suspense>
+        {children}
         <Footer />
       </ProjectInfoProvider>
     </div>
