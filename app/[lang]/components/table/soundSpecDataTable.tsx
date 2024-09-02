@@ -1,9 +1,11 @@
 export default function SoundSpecDataTable({
   soundPressureLevel,
   soundPowerLevel,
+  t,
 }: {
   soundPressureLevel: any;
   soundPowerLevel: any;
+  t: any;
 }) {
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
@@ -11,7 +13,7 @@ export default function SoundSpecDataTable({
         <thead>
           <tr>
             <th colSpan={10} className={"tableTh"}>
-              Data(Octaved band)
+              {/* Data(Octaved band) */}
               <span className={"text-[0.75rem] leading-[1.125rem] !font-LGSMHATR"}>{title}</span>
             </th>
           </tr>
@@ -52,7 +54,8 @@ export default function SoundSpecDataTable({
           }
         >
           <p className={"font-LGSMHATB text-gray_700 text-[0.875rem]"}>
-            Data(Octaved band)<span className={"font-LGSMHATSB text-[0.875rem]"}>{title}</span>
+            {/* Data(Octaved band) */}
+            <span className={"font-LGSMHATSB text-[0.875rem]"}>{title}</span>
           </p>
           <p className={"text-[0.625rem] text-gray_700"}>Unit : dB</p>
         </div>
@@ -118,7 +121,7 @@ export default function SoundSpecDataTable({
       >
         {renderTableBox(
           soundPressureLevel,
-          "_Sound Pressure Level",
+          t("NOISE_0068"),
           <>
             {Object.keys(soundPressureLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPressureLevel[0]).length - 1) {
@@ -129,7 +132,7 @@ export default function SoundSpecDataTable({
         )}
         {renderTableBox(
           soundPowerLevel,
-          "_Sound Power Level",
+          t("NOISE_0069"),
           <>
             {Object.keys(soundPowerLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPowerLevel[0]).length - 1) {
@@ -141,7 +144,7 @@ export default function SoundSpecDataTable({
       </div>
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>
         {renderMobileTableBox(
-          "_Sound Pressure Level",
+          t("NOISE_0068"),
           <>
             {Object.keys(soundPressureLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPressureLevel[0]).length - 1) {
@@ -163,7 +166,7 @@ export default function SoundSpecDataTable({
           </>
         )}
         {renderMobileTableBox(
-          "_Sound Power Level",
+          t("NOISE_0069"),
           <>
             {Object.keys(soundPowerLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPowerLevel[0]).length - 1) {

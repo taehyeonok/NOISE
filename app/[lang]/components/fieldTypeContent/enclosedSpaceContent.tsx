@@ -45,7 +45,7 @@ export default function EnclosedSpaceContent({
       classList={"mobile:flex-col mobile:gap-[1.25rem]"}
     >
       {renderContainerBoxRowItem(
-        "Direct distance",
+        t("NOISE_0056"),
         "direct distance from center of source to receiver",
         <CCustomInput
           name="direct_distance"
@@ -60,7 +60,7 @@ export default function EnclosedSpaceContent({
         />
       )}
       {renderContainerBoxRowItem(
-        "Room volume",
+        t("NOISE_0057"),
         "Room volume of the enclosed space",
         <CCustomInput
           name="room_volume"

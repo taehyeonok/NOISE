@@ -13,6 +13,7 @@ export default function CAccordionBox({
   setIsOpen,
   image,
   classList,
+  t,
 }: accordionBoxProps) {
   return (
     <article
@@ -37,7 +38,9 @@ export default function CAccordionBox({
           }
         }}
       >
-        <div className={"font-LGSMHATSB " + (isOpen ? "text-primary" : "text-black")}>{title}</div>
+        <div className={"font-LGSMHATSB " + (isOpen ? "text-primary" : "text-black")}>
+          {t(title)}
+        </div>
         <Image src={isOpen ? IC_ACCORDION_ARROW_UP : IC_ACCORDION_ARROW_DOWN} alt={"show"} />
       </div>
 
@@ -47,7 +50,7 @@ export default function CAccordionBox({
           className={`'w-full text-sm font-LGSMHATR text-gray_700 text-left whitespace-pre-wrap
                     ${isOpen ? "py-5 px-8 h-fit mobile:px-4 " : "h-0 overflow-hidden"}`}
         >
-          {content}
+          {t(content)}
         </div>
       ) : (
         // 반응형
@@ -66,9 +69,12 @@ export default function CAccordionBox({
                 >
                   <span className={"mr-2 text-sm"}>
                     {index + 1 < 10 && 0}
-                    {index + 1})
+                    {index + 1 + ")"}
                   </span>
-                  {row}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: t(row) }}
+                    className="inline text-sm text-gray_700 text-left "
+                  />
                 </div>
               );
             })}

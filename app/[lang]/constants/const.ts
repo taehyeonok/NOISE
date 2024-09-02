@@ -131,12 +131,12 @@ export const productInformationTableDummyData = [
 
 export const totalCapacityTableDummyData = [
   {
-    label: "Rated",
+    label: "NOISE_0042",
     first: "0.0kW",
     second: "",
   },
   {
-    label: "Simulated",
+    label: "NOISE_0043",
     first: "0.0kW",
     second: "0%",
   },
@@ -152,42 +152,33 @@ import exp from "node:constants";
 
 export const accordionDummyData = [
   {
-    title: "Legal Disclaimer",
-    content: `“LG Electronics Inc. does not make any warranty, express or implied, nor assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product or process disclosed, nor represents that its use would not infringe privately owned rights.
-The models described in this report are intended to demonstrate the potential thermal and air flow patterns of possible energy improvements for the new facilities.
-Due to the limitation of the Simulations including differences of physical models and the real world, boundary conditions, and numerical errors, the conclusions of this report do not guarantee actual sound level or system performances.”
-
-This low noise simulator, as well as all reports, illustrations, data, information, and other materials are the property of LG Electronics INC., and are disclosed by LG Electronics Inc., only in confidence.
-
-Note : Legal Disclaimer: For continual product development, LG Electronics Inc., reserves the right to change specifications without notice.
-`,
+    title: "NOISE_0019",
+    content: "NOISE_0020",
   },
   {
-    title: "Note",
+    title: "NOISE_0021",
     content: [
-      "Sound level values are depend on the ambient conditions and values are normally higher in actual operation.",
-      "Product data is valid at diffuse field condition.",
-      "Product data is valid at nominal operating condition.",
-      "Sound values of system [dB(A)] = 10*log[10^(A1/10)+…+10^(An/10)] , A1~An means sound values of independent models.",
-      "Sound levels can be increased in accordance with installation and operating conditions. " +
-        "\n" +
-        "(Operating conditions include some functional condition like Static pressure mode, air guide use, room target temperature setting, etc. and these functions are different in accordance with each model.)",
-      "Sound level will vary depending on a range of factors such as the construction(acoustic absorption coefficient) of particular room in which the equipment in installed.",
-      "This simulator is an approximate calculation tool and should not replace real life measurements.",
-      "OSP17534-3:2015 has a recommendation that ground reflections are not removed by a barrier.",
-      "There are no reflections from the barrier. In reality when dealing with short distances and many reflective surfaces the “canyon effect” may occur with repeating reflections.",
-      "There are no affecting weather conditions, such as wind or temperature inversion, as these will affect the propagation path of a noise source and diffraction around the barrier.",
-      "The noise source behaves as a point source and is far-field, where inherent directivity is minimal.",
-      "Walls used in the simulator are considered to be perfectly reflecting and at 1 meter distance (façade level).",
-      "Conditions are free-field and there is no reverberant field.",
-      "Outdoor air temperature : 20℃, relative humidity : 50%",
-      "The surface density of barrier should be at least 10kg/m2.",
-      "Barriers should be closed surfaces without big holes or crevices.",
-      "The horizontal dimension of the barrier should be long enough to the left and right.",
+      "NOISE_0022",
+      "NOISE_0023",
+      "NOISE_0024",
+      "NOISE_0025",
+      "NOISE_0026",
+      "NOISE_0027",
+      "NOISE_0028",
+      "NOISE_0029",
+      "NOISE_0030",
+      "NOISE_0031",
+      "NOISE_0032",
+      "NOISE_0033",
+      "NOISE_0034",
+      "NOISE_0035",
+      "NOISE_0036",
+      "NOISE_0037",
+      "NOISE_0038",
     ],
     image: [
-      { src: IG_NOTE_TABLE_SPHERICAL_FIELD, alt: "Noise calculation formula (Spherical field)" },
-      { src: IG_NOTE_TABLE_ENCLOSED_SPACE, alt: "Noise calculation formula (Enclosed space)" },
+      { src: IG_NOTE_TABLE_SPHERICAL_FIELD, alt: "NOISE_0039" },
+      { src: IG_NOTE_TABLE_ENCLOSED_SPACE, alt: "NOISE_0040" },
     ],
   },
 ];
@@ -318,7 +309,7 @@ export const detailInformationDummyData = {
   ],
   data: [
     {
-      title: "Radiating correction",
+      title: "NOISE_0014",
       content: [
         { content: "3.0" },
         { content: "3.0" },
@@ -332,7 +323,7 @@ export const detailInformationDummyData = {
       noLine: true,
     },
     {
-      title: "Distance correction",
+      title: "NOISE_0015",
       content: [
         { content: "35.3" },
         { content: "35.3" },
@@ -346,7 +337,7 @@ export const detailInformationDummyData = {
       noLine: true,
     },
     {
-      title: "Reduction by barrier",
+      title: "NOISE_0016",
       content: [
         { content: "0.7" },
         { content: "0.8" },

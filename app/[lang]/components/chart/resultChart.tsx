@@ -8,10 +8,6 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
-import { RefObject, useEffect, useState } from "react";
-import EditUnit, { EditUnitType } from "@/lib/editUnit";
-import { useTranslation } from "@/app/i18n/client";
-import { useParams } from "next/navigation";
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -105,7 +101,7 @@ const customPlugin = {
   },
 };
 
-const ResultChart = ({ simulateData, t }: any) => {
+const ResultChart = ({ simulateData, t, chartDivRef }: any) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -336,7 +332,10 @@ const ResultChart = ({ simulateData, t }: any) => {
   };
 
   return (
-    <div className="relative mt-[1.25rem] mobile:mt-[1.25rem] w-[29rem] h-[24.5rem] mobile:w-full ">
+    <div
+      ref={chartDivRef}
+      className="relative mt-[1.25rem] mobile:mt-[1.25rem] w-[29rem] h-[24.5rem] mobile:w-full "
+    >
       <Line options={options} data={data} plugins={[customPlugin]} />
     </div>
   );

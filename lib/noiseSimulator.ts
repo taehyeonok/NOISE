@@ -20,7 +20,7 @@ export async function noiseSimulator(
     editUnit.setUnitData_useServer(unitData);
     const hz = [63, 125, 250, 500, 1000, 2000, 4000, 8000];
     const ratio = [28 / 30, 28 / 30, 27 / 30, 26 / 30, 24 / 30, 22.5 / 30, 21 / 30, 20 / 30];
-    let result = { data: [], attenuation: [] } as any;
+    let result = { data: [], attenuation: [], inputData: {} } as any;
     const field_type = formData.get("field_type_text");
     const outdoor_unit = editUnit.GetTrans(
       EditUnitType.TYPE_UNIT_ELEVATION,
@@ -47,6 +47,7 @@ export async function noiseSimulator(
     const sLine_distance_attenuation = 20 * Math.log10(sLineDistance) + 11;
 
     const DI = 10 * Math.log10(wallCount === 0 ? 0 : wallCount === 1 ? 2 : wallCount === 2 ? 4 : 8); // 지향성 보정(DI)
+    result.inputData.field_type = formData.get("field_type_text");
 
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {
@@ -63,9 +64,13 @@ export async function noiseSimulator(
         true
       );
       const barrier_thickness = Number(formData.get("barrier_thickness"));
-      // const material_thickness = formData.get("material_thickness_text");
+      const material_thickness = formData.get("material_thickness_text") as any;
       const background_noise = Number(formData.get("background_noise"));
-
+      result.inputData.outdoor_unit = formData.get("elevation_of_outdoor_unit");
+      result.inputData.receiver = formData.get("elevation_of_receiver");
+      result.inputData.horizontal_distance = formData.get("horizontal_distance");
+      result.inputData.background_noise = formData.get("background_noise");
+      result.inputData.isBarrier = formData.get("barrier_in_the_path_text");
       //Scene 1: Only propagation
       if (isBarrier === "X") {
         for (let i = 0; i < hz.length; i++) {
@@ -462,6 +467,11 @@ export async function noiseSimulator(
               10 * Math.log10(10 ** (scene4 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
           }
         }
+        result.inputData.ODUs = formData.get("distance_from_ODUs");
+        result.inputData.barrier_height = formData.get("barrier_height");
+        result.inputData.barrier_thickness = formData.get("barrier_thickness");
+        result.inputData.material_thickness = material_thickness?.split("/");
+        result.inputData.barrierInfoTableData = barrierInfoTableData.map((e: any) => e.content2);
       }
     }
     //Enclosed Space : 실내 케이스로, Direct distance, Room Volume, Number of Sound Sources로 계산
@@ -487,6 +497,8 @@ export async function noiseSimulator(
         result.attenuation[i] = attenuation;
         result.data[i] = estimatedSoundData[i].content2 - attenuation;
       }
+      result.inputData.direct_distance = formData.get("direct_distance");
+      result.inputData.room_volume = formData.get("room_volume");
     }
     result.estimatedSoundData = estimatedSoundData;
     result.DI = DI;

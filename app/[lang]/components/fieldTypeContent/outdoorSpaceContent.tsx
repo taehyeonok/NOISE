@@ -123,7 +123,7 @@ export default function OutdoorSpaceContent({
         classList={"mobile:flex-col mobile:gap-[1rem]"}
       >
         {renderContainerBoxRowItem(
-          "Elevation of outdoor unit",
+          t("NOISE_0051"),
           <CCustomInput
             name="elevation_of_outdoor_unit"
             type={"number"}
@@ -140,7 +140,7 @@ export default function OutdoorSpaceContent({
           "Elevation from the ground to bottom of outdoor unit"
         )}
         {renderContainerBoxRowItem(
-          "Height of sound source",
+          t("NOISE_0052"),
           <CCustomInput
             type={"number"}
             placeholder={"0"}
@@ -158,7 +158,7 @@ export default function OutdoorSpaceContent({
         classList={"mobile:flex-col mobile:gap-[1rem]"}
       >
         {renderContainerBoxRowItem(
-          "Elevation of receiver",
+          t("NOISE_0053"),
           <CCustomInput
             name="elevation_of_receiver"
             type={"number"}
@@ -174,7 +174,7 @@ export default function OutdoorSpaceContent({
           "Elevation from the ground to receiver"
         )}
         {renderContainerBoxRowItem(
-          "Horizontal distance",
+          t("NOISE_0054"),
           <CCustomInput
             name="horizontal_distance"
             type={"number"}
@@ -193,7 +193,7 @@ export default function OutdoorSpaceContent({
       {/* 반응형 */}
       <ContainerBoxRow justifyContent={"start"} alignItems={"center"}>
         {renderContainerBoxRowItem(
-          "Background Noise",
+          t("NOISE_0055"),
           <CCustomInput
             name="background_noise"
             type={"number"}
@@ -213,7 +213,7 @@ export default function OutdoorSpaceContent({
       {/* 반응형 */}
       <ContainerBoxRow justifyContent={"start"} alignItems={"center"}>
         {renderContainerBoxRowItem(
-          "Barrier in the path",
+          t("NOISE_0059"),
           <CSelect
             name={"barrier_in_the_path"}
             title={"O"}
@@ -247,7 +247,7 @@ export default function OutdoorSpaceContent({
             className={`font-LGSMHATSB text-[0.875rem] text-gray_400 bg-white absolute top-[-0.688rem] px-2 left-3
                         mobile:static mobile:mb-[-0.375rem] mobile:text-left mobile:px-0`}
           >
-            Barrier Information
+            {t("NOISE_0058")}
           </div>
           {/* 반응형 */}
           <ContainerBoxRow
@@ -256,7 +256,7 @@ export default function OutdoorSpaceContent({
             classList={"mobile:flex-col mobile:gap-[1rem]"}
           >
             {renderContainerBoxRowItem(
-              "Distance form ODUs",
+              t("NOISE_0060"),
               <CCustomInput
                 name="distance_from_ODUs"
                 type={"number"}
@@ -272,7 +272,7 @@ export default function OutdoorSpaceContent({
               "Short distance may result in extra reflections"
             )}
             {renderContainerBoxRowItem(
-              "Barrier height",
+              t("NOISE_0061"),
               <CCustomInput
                 name="barrier_height"
                 type={"number"}
@@ -295,7 +295,7 @@ export default function OutdoorSpaceContent({
             classList={"mobile:flex-col mobile:gap-[1rem]"}
           >
             {renderContainerBoxRowItem(
-              "Material / Thickness",
+              t("NOISE_0070"),
               <CSelect
                 name="material_thickness"
                 title={"Concrete(Default) / 120mm"}
@@ -323,7 +323,7 @@ export default function OutdoorSpaceContent({
               true
             )}
             {renderContainerBoxRowItem(
-              "Barrier Thickness",
+              t("NOISE_0062"),
               <CCustomInput
                 name="barrier_thickness"
                 type={"number"}
