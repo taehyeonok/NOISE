@@ -16,6 +16,41 @@ const Noisetools = forwardRef((props: any, ref) => {
     ref,
     () => {
       return {
+        setAllValues(
+          horizontalD: number,
+          sourceH: number,
+          receiverH: number,
+          barrierD: number,
+          barrierH: number,
+          barrierEn: boolean,
+          leftWallEn: boolean,
+          topWallEn: boolean
+        ) {
+          setSourceData({
+            fromLeft: sourceDataRef.current.fromLeft,
+            height: sourceH,
+          });
+
+          setReceiverData({
+            distFromSource: horizontalD,
+            fromRight: receiverDataRef.current.fromRight,
+            height: receiverH,
+          });
+
+          setBarrier1Data({
+            distFromSource: barrierD,
+            height: barrierH,
+            enabled: barrierEn,
+          });
+
+          setLeftWallState(leftWallEn ? 1 : 0);
+          setTopWallState(topWallEn ? 1 : 0);
+
+          console.log(
+            `horizontalD = ${horizontalD}, sourceH = ${sourceH}, receiverH = ${receiverH}, barrierD = ${barrierD}, barrierH = ${barrierH}, barrierEn = ${barrierEn}, leftWallEn = ${leftWallEn}, topWallEn = ${topWallEn}`
+          );
+        },
+
         setHorizontalDistance(dist: number) {
           // setReceiverData({
           //   distFromSource: dist,
@@ -45,6 +80,7 @@ const Noisetools = forwardRef((props: any, ref) => {
           // );
           setHorizontalDistance(dist);
         },
+
         setBarrierFromSource(val: number) {
           setBarrier1Data({
             distFromSource: val,
@@ -52,13 +88,18 @@ const Noisetools = forwardRef((props: any, ref) => {
             enabled: barrier1DataRef.current.enabled,
           });
         },
+
         setBarrierHeight(val: number) {
-          setBarrier1Data({
-            distFromSource: barrier1DataRef.current.distFromSource,
-            height: val,
-            enabled: barrier1DataRef.current.enabled,
-          });
+          // setBarrier1Data({
+          //   distFromSource: barrier1DataRef.current.distFromSource,
+          //   height: val,
+          //   enabled: barrier1DataRef.current.enabled,
+          // });
+
+          barrier1DataRef.current.height = val;
+          checkFieldRecalc();
         },
+
         setBarrierEnable(val: boolean) {
           setBarrier1Data({
             distFromSource: barrier1DataRef.current.distFromSource,
@@ -66,32 +107,49 @@ const Noisetools = forwardRef((props: any, ref) => {
             enabled: val,
           });
         },
-        setSourceHeight(val: number) {
-          if (val * 2.5 > receiverDataRef.current.distFromSource) {
-            //let ar = parentRef.current?.style.getPropertyValue("aspect-ratio");
-            //parentRef.current?.style.setProperty("aspect-ratio", `${1100/ 700}`)
-            //fieldData.current.width = sz!.width;
-            //fieldData.current.height = 700;
-            //setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
-            //RecalcFiledPos(1800, 1100);
-          }
 
-          setSourceData({
-            fromLeft: sourceDataRef.current.fromLeft,
-            height: val,
-          });
+        setSourceHeight(val: number) {
+          // setSourceData({
+          //   fromLeft: sourceDataRef.current.fromLeft,
+          //   height: val,
+          // });
+
+          sourceDataRef.current.height = val;
+          checkFieldRecalc();
         },
+
         setReceiverHeight(val: number) {
+          // setReceiverData({
+          //   distFromSource: receiverDataRef.current.distFromSource,
+          //   fromRight: receiverDataRef.current.fromRight,
+          //   height: val,
+          // });
+
+          receiverDataRef.current.height = val;
+          checkFieldRecalc();
+        },
+
+        setLeftWall(val: number) {
           setReceiverData({
             distFromSource: receiverDataRef.current.distFromSource,
             fromRight: receiverDataRef.current.fromRight,
             height: val,
           });
         },
+
+        setToptWall(val: number) {
+          setReceiverData({
+            distFromSource: receiverDataRef.current.distFromSource,
+            fromRight: receiverDataRef.current.fromRight,
+            height: val,
+          });
+        },
+
         setUnit(val: string) {
           distanceUnit.current = val;
           drawSoundWaves();
         },
+
         scrollIntoView(val: number) {
           // console.log("scrollIntoView");
         },
@@ -107,16 +165,16 @@ const Noisetools = forwardRef((props: any, ref) => {
       height: receiverDataRef.current.height,
     });
 
-    setSourceData({
-      fromLeft: sourceDataRef.current.fromLeft,
-      height: sourceDataRef.current.height,
-    });
+    // setSourceData({
+    //   fromLeft: sourceDataRef.current.fromLeft,
+    //   height: sourceDataRef.current.height,
+    // });
 
-    setBarrier1Data({
-      distFromSource: barrier1DataRef.current.distFromSource,
-      height: barrier1DataRef.current.height,
-      enabled: barrier1DataRef.current.enabled,
-    });
+    // setBarrier1Data({
+    //   distFromSource: barrier1DataRef.current.distFromSource,
+    //   height: barrier1DataRef.current.height,
+    //   enabled: barrier1DataRef.current.enabled,
+    // });
 
     setLinePathSToR(
       `${getObjectCoord(FIELD_OBJECT.Source, "X")}, ${getObjectCoord(
@@ -144,7 +202,7 @@ const Noisetools = forwardRef((props: any, ref) => {
     Receiver: "RECEIVER",
     Barrier1: "BARRIER1",
     LeftWall: "LEFT_WALL",
-    RightWall: "RIGHT_WALL",
+    TopWall: "TOP_WALL",
     HorizontalDistance: "HORIZONTAL_DISTANCE",
   } as const;
   type FIELD_OBJECT = (typeof FIELD_OBJECT)[keyof typeof FIELD_OBJECT];
@@ -194,7 +252,9 @@ const Noisetools = forwardRef((props: any, ref) => {
         receiverDataRef.current.fromRight)
   );
 
-  let wallState = useRef({ leftWall: 1, rightWall: 1 });
+  const [leftWallState, setLeftWallState] = useState(1);
+  const [topWallState, setTopWallState] = useState(1);
+
   let distanceUnit = useRef(props.distanceUnit === undefined ? "m" : props.distanceUnit);
 
   const distSourceFromWall = 2.0;
@@ -274,22 +334,29 @@ const Noisetools = forwardRef((props: any, ref) => {
   }
 
   function updateSourceHightUpArrowPts() {
-    return `${sourceData.fromLeft * pxPerMeter() - 15}, ${getObjectCoord(
+    return `${sourceData.fromLeft * pxPerMeterX() - 15}, ${getObjectCoord(
       FIELD_OBJECT.Source,
       "Y"
     )}, 
-        ${sourceData.fromLeft * pxPerMeter() - 15 - 5}, ${
+        ${sourceData.fromLeft * pxPerMeterX() - 15 - 5}, ${
       getObjectCoord(FIELD_OBJECT.Source, "Y") + 5
     }, 
-        ${sourceData.fromLeft * pxPerMeter() - 15 + 5}, ${
+        ${sourceData.fromLeft * pxPerMeterX() - 15 + 5}, ${
       getObjectCoord(FIELD_OBJECT.Source, "Y") + 5
     }`;
   }
 
   function updateSourceHightDnArrowPts() {
-    return `${sourceData.fromLeft * pxPerMeter() - 15}, ${getObjectCoord("RULER-BACKGROUND", "Y")}, 
-    ${sourceData.fromLeft * pxPerMeter() - 15 - 5}, ${getObjectCoord("RULER-BACKGROUND", "Y") - 5}, 
-    ${sourceData.fromLeft * pxPerMeter() - 15 + 5}, ${getObjectCoord("RULER-BACKGROUND", "Y") - 5}`;
+    return `${sourceData.fromLeft * pxPerMeterX() - 15}, ${getObjectCoord(
+      "RULER-BACKGROUND",
+      "Y"
+    )}, 
+    ${sourceData.fromLeft * pxPerMeterX() - 15 - 5}, ${
+      getObjectCoord("RULER-BACKGROUND", "Y") - 5
+    }, 
+    ${sourceData.fromLeft * pxPerMeterX() - 15 + 5}, ${
+      getObjectCoord("RULER-BACKGROUND", "Y") - 5
+    }`;
   }
 
   function updateReceiverHUpArrowPts() {
@@ -388,7 +455,7 @@ const Noisetools = forwardRef((props: any, ref) => {
       "X"
     )}, 5, ${getObjectCoord(FIELD_OBJECT.Barrier1, "X") - 5}, 8`,
     rightRulerStart: getObjectCoord(FIELD_OBJECT.Barrier1, "X"),
-    rightRulerEnd: fieldData.current.width - sourceData.fromLeft * pxPerMeter(),
+    rightRulerEnd: fieldData.current.width - sourceData.fromLeft * pxPerMeterX(),
     rightRulerLength: receiverData.distFromSource - barrier1Data.distFromSource,
     rightRulerStartArrowPts: `${
       getObjectCoord(FIELD_OBJECT.Barrier1, "X") + 5
@@ -396,9 +463,9 @@ const Noisetools = forwardRef((props: any, ref) => {
       getObjectCoord(FIELD_OBJECT.Barrier1, "X") + 5
     }, 8`,
     rightRulerEndArrowPts: `${
-      fieldData.current.width - sourceData.fromLeft * pxPerMeter() - 5
-    }, 2, ${fieldData.current.width - sourceData.fromLeft * pxPerMeter()}, 5, ${
-      fieldData.current.width - sourceData.fromLeft * pxPerMeter() - 5
+      fieldData.current.width - sourceData.fromLeft * pxPerMeterX() - 5
+    }, 2, ${fieldData.current.width - sourceData.fromLeft * pxPerMeterX()}, 5, ${
+      fieldData.current.width - sourceData.fromLeft * pxPerMeterX() - 5
     }, 8`,
   });
 
@@ -438,31 +505,23 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   function drawSoundWaves() {
     let newSoundWaves = [];
-    let innter = fieldData.current.width / pxPerMeter();
+    let innter = fieldData.current.width / pxPerMeterX();
 
     if (swaveWidthDistLables.current === null) return;
 
     for (
       let i = 0;
-      i < Math.ceil(((fieldData.current.width / pxPerMeter()) * topWallLength) / 2);
+      i < Math.ceil(((fieldData.current.width / pxPerMeterX()) * topWallLength) / 2);
       i++
     ) {
       newSoundWaves.push(
         <g key={"swave_V" + i.toString()}>
           <line
-            y1={-fieldData.current.height}
-            x1={(i * pxPerMeter()) / 2}
-            y2={fieldData.current.width}
-            x2={(i * pxPerMeter()) / 2}
-            stroke={"#EEEEEE"}
-            strokeWidth="1"
-          />
-          <line
-            y1={-fieldData.current.height}
-            x1={-(i * pxPerMeter()) / 2}
-            y2={fieldData.current.width}
-            x2={-(i * pxPerMeter()) / 2}
-            stroke={"#EEEEEE"}
+            y1={/*-fieldData.current.height*/ 0}
+            x1={(i * pxPerMeterX()) / 2}
+            y2={fieldData.current.height}
+            x2={(i * pxPerMeterX()) / 2}
+            stroke={i % 2 == 0 ? "#DDDDDD" : "#EEEEEE"}
             strokeWidth="1"
           />
         </g>
@@ -471,30 +530,21 @@ const Noisetools = forwardRef((props: any, ref) => {
 
     for (
       let i = 0;
-      i < Math.ceil(((fieldData.current.height / pxPerMeter()) * topWallLength) / 2);
+      i < Math.ceil(((fieldData.current.height / pxPerMeterY()) * topWallLength) / 2);
       i++
     ) {
       newSoundWaves.push(
         <g key={"swave_H" + i.toString()}>
           <line
-            x1={-sourceDataRef.current.fromLeft * pxPerMeter()}
-            y1={(i * pxPerMeter()) / 2}
+            x1={0}
+            y1={fieldData.current.height - rulerAreaHight - (i * pxPerMeterY()) / 2}
             x2={fieldData.current.width}
-            y2={(i * pxPerMeter()) / 2}
-            stroke={"#EEEEEE"}
-            strokeWidth="1"
-          />
-          <line
-            x1={-sourceDataRef.current.fromLeft * pxPerMeter()}
-            y1={-(i * pxPerMeter()) / 2}
-            x2={fieldData.current.width}
-            y2={-(i * pxPerMeter()) / 2}
-            stroke={"#EEEEEE"}
+            y2={fieldData.current.height - rulerAreaHight - (i * pxPerMeterY()) / 2}
+            stroke={i % 2 == 0 ? "#DDDDDD" : "#EEEEEE"}
             strokeWidth="1"
           />
         </g>
       );
-
       // newSoundWaves.push(
       //   <g key={"swave" + (i + 1).toString()}>
       //     <circle
@@ -559,7 +609,6 @@ const Noisetools = forwardRef((props: any, ref) => {
   // onload
   useEffect(() => {
     const handleResize = (/*width: number, height: number*/) => {
-      console.log(`handleResize pos 1`);
       if (parentRef.current) {
         let sz = parentRef.current.getClientRects()[0];
 
@@ -636,6 +685,11 @@ const Noisetools = forwardRef((props: any, ref) => {
     window.addEventListener("resize", handleResize);
     //document.nt_capture = 0;
 
+    // toolPopupRef.current?.addEventListener("focusout", (e) => {
+    //   //toolPopupRef.current?.style.setProperty("display", "none");
+    //   console.log(e.target);
+    // });
+
     handleResize();
 
     return () => {
@@ -648,20 +702,36 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   function RecalcFiledPos(width: number, height: number) {
     if (parentRef.current) {
+      console.log(`RecalcFiledPos(width: ${width}, height: ${height})`);
       fieldData.current.width = width;
       fieldData.current.height = height;
 
       setFieldRect(`0 0 ${fieldData.current.width} ${fieldData.current.height}`);
       setRulerAreaMatrix(`matrix(1 0 0 1 0 ${getObjectCoord("RULER-BACKGROUND", "Y")})`);
 
-      pxPerMeterXValue.current =
+      pxPerMeterXValue.current = pxPerMeterYValue.current =
         fieldData.current.width /
         (receiverData.distFromSource + sourceData.fromLeft + receiverData.fromRight);
+
+      let maxH = Math.max(
+        sourceDataRef.current.height,
+        barrier1DataRef.current.height,
+        receiverDataRef.current.height
+      );
+
+      if (fieldData.current.height - rulerAreaHight < maxH * 1.3 * pxPerMeterY()) {
+        pxPerMeterYValue.current = (fieldData.current.height - rulerAreaHight) / (maxH * 1.3);
+      }
 
       sourceMatrix.current = `matrix(1 0 0 1 ${getObjectCoord(
         FIELD_OBJECT.Source,
         "X"
       )} ${getObjectCoord(FIELD_OBJECT.Source, "Y")})`;
+
+      setSourceData({
+        fromLeft: sourceDataRef.current.fromLeft,
+        height: sourceDataRef.current.height,
+      });
 
       setReceiverData({
         distFromSource: receiverDataRef.current.distFromSource,
@@ -669,15 +739,14 @@ const Noisetools = forwardRef((props: any, ref) => {
         height: receiverDataRef.current.height,
       });
 
-      pxPerMeter;
-      sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
-      sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
+      // sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
+      // sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
 
-      sourceArrowPts.current = updateSourceArrowPts();
-      receiverArrowPts.current = updateReceiverArrowPts();
+      // sourceArrowPts.current = updateSourceArrowPts();
+      // receiverArrowPts.current = updateReceiverArrowPts();
 
-      receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
-      receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
+      // receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
+      // receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
 
       setBarrier1Data({
         distFromSource: barrier1DataRef.current.distFromSource,
@@ -734,8 +803,7 @@ const Noisetools = forwardRef((props: any, ref) => {
     updateGroup1();
 
     recvTransform.current = updateRecvTransform();
-
-    drawSoundWaves();
+    //drawSoundWaves();
   }, [receiverData]);
 
   function setLineSourceToReceiver() {
@@ -778,18 +846,18 @@ const Noisetools = forwardRef((props: any, ref) => {
         ${getObjectCoord(FIELD_OBJECT.Barrier1, "X")}, ${getObjectCoord("RULER-BACKGROUND", "Y")}`;
     setBarrierEffectAreaPts({
       Ba1: ba1Pts,
-      leftRulerStart: sourceData.fromLeft * pxPerMeter(),
+      leftRulerStart: sourceData.fromLeft * pxPerMeterX(),
       leftRulerEnd: getObjectCoord(leftBarrierName, "X"),
       leftRulerLength: leftBarrier.distFromSource,
-      leftRulerStartArrowPts: `${sourceData.fromLeft * pxPerMeter() + 5}, 2, ${
-        sourceData.fromLeft * pxPerMeter()
-      }, 5, ${sourceData.fromLeft * pxPerMeter() + 5}, 8`,
+      leftRulerStartArrowPts: `${sourceData.fromLeft * pxPerMeterX() + 5}, 2, ${
+        sourceData.fromLeft * pxPerMeterX()
+      }, 5, ${sourceData.fromLeft * pxPerMeterX() + 5}, 8`,
       leftRulerEndArrowPts: `${getObjectCoord(leftBarrierName, "X") - 5}, 2, ${getObjectCoord(
         leftBarrierName,
         "X"
       )}, 5, ${getObjectCoord(leftBarrierName, "X") - 5}, 8`,
       rightRulerStart: getObjectCoord(FIELD_OBJECT.Barrier1, "X"),
-      rightRulerEnd: fieldData.current.width - receiverData.fromRight * pxPerMeter(),
+      rightRulerEnd: fieldData.current.width - receiverData.fromRight * pxPerMeterX(),
       rightRulerLength: receiverData.distFromSource - leftBarrier.distFromSource,
       rightRulerStartArrowPts: `${
         getObjectCoord(FIELD_OBJECT.Barrier1, "X") + 5
@@ -797,9 +865,9 @@ const Noisetools = forwardRef((props: any, ref) => {
         getObjectCoord(FIELD_OBJECT.Barrier1, "X") + 5
       }, 8`,
       rightRulerEndArrowPts: `${
-        fieldData.current.width - receiverData.fromRight * pxPerMeter() - 5
-      }, 2, ${fieldData.current.width - receiverData.fromRight * pxPerMeter()}, 5, ${
-        fieldData.current.width - receiverData.fromRight * pxPerMeter() - 5
+        fieldData.current.width - receiverData.fromRight * pxPerMeterX() - 5
+      }, 2, ${fieldData.current.width - receiverData.fromRight * pxPerMeterX()}, 5, ${
+        fieldData.current.width - receiverData.fromRight * pxPerMeterX() - 5
       }, 8`,
     });
 
@@ -872,30 +940,30 @@ const Noisetools = forwardRef((props: any, ref) => {
     return { a, b, radius };
   }
 
-  function getObjectCoord(objectName: string, xy: string): number {
+  function getObjectCoord(objectName: string, xy: string): number | any {
     switch (objectName.toUpperCase() + "-" + xy.toUpperCase()) {
       case "SOURCE-X":
-        return sourceDataRef.current.fromLeft * pxPerMeter();
+        return sourceDataRef.current.fromLeft * pxPerMeterX();
       case "SOURCE-Y":
         return (
-          fieldData.current.height - rulerAreaHight - sourceDataRef.current.height * pxPerMeter()
+          fieldData.current.height - rulerAreaHight - sourceDataRef.current.height * pxPerMeterY()
         );
       case "RECEIVER-X":
-        return fieldData.current.width - receiverDataRef.current.fromRight * pxPerMeter();
+        return fieldData.current.width - receiverDataRef.current.fromRight * pxPerMeterX();
       case "RECEIVER-Y":
         return (
-          fieldData.current.height - rulerAreaHight - receiverDataRef.current.height * pxPerMeter()
+          fieldData.current.height - rulerAreaHight - receiverDataRef.current.height * pxPerMeterY()
         );
       case "BARRIER1-X":
         return (
-          sourceDataRef.current.fromLeft * pxPerMeter() +
-          barrier1DataRef.current.distFromSource * pxPerMeter()
+          sourceDataRef.current.fromLeft * pxPerMeterX() +
+          barrier1DataRef.current.distFromSource * pxPerMeterX()
         );
       case "BARRIER1-Y":
         return (
           fieldData.current.height -
           rulerAreaHight -
-          /*barrier1Data.height*/ getBarrierHeight() * pxPerMeter()
+          /*barrier1Data.height*/ getBarrierHeight() * pxPerMeterY()
         );
       case "RULER-BACKGROUND-Y":
         return fieldData.current.height - rulerAreaHight;
@@ -904,7 +972,32 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   function setCapturedPicker(v: PICKERS) {
     //document.nt_capture = v;
+
+    if (v == PICKERS.None && captured.current != PICKERS.None) {
+      checkFieldRecalc();
+    }
+
     captured.current = v;
+  }
+
+  function checkFieldRecalc() {
+    if (parentRef.current) {
+      let maxH = Math.max(
+        sourceDataRef.current.height,
+        barrier1DataRef.current.height,
+        receiverDataRef.current.height
+      );
+
+      // if (
+      //   fieldData.current.height - rulerAreaHight < maxH * pxPerMeterY() * 1.3 ||
+      //   (maxH * pxPerMeterY()) / (fieldData.current.height - rulerAreaHight) < 0.6
+      // ) {
+      //   let sz = parentRef.current.getClientRects()[0];
+      //   RecalcFiledPos(sz!.width, sz!.height);
+      // }
+      let sz = parentRef.current.getClientRects()[0];
+      RecalcFiledPos(sz!.width, sz!.height);
+    }
   }
 
   function notifyNtFactorChanged(objectName: string) {
@@ -924,10 +1017,10 @@ const Noisetools = forwardRef((props: any, ref) => {
           );
           break;
         case FIELD_OBJECT.LeftWall:
-          props.factorChangedCallback(FIELD_OBJECT.LeftWall, wallState.current.leftWall);
+          props.factorChangedCallback(FIELD_OBJECT.LeftWall, leftWallState);
           break;
-        case FIELD_OBJECT.RightWall:
-          props.factorChangedCallback(FIELD_OBJECT.RightWall, wallState.current.rightWall);
+        case FIELD_OBJECT.TopWall:
+          props.factorChangedCallback(FIELD_OBJECT.TopWall, topWallState);
           break;
         case FIELD_OBJECT.HorizontalDistance:
           props.factorChangedCallback(
@@ -962,8 +1055,6 @@ const Noisetools = forwardRef((props: any, ref) => {
     captuerPos.current.fromBottom = getObjectCoord(FIELD_OBJECT.Source, "Y") - e.clientY;
 
     setCapturedPicker(PICKERS.Source);
-
-    console.log("onSourcePickerMouseDown fired");
   };
 
   const onSourcePickerTouchMove = (e: React.TouchEvent<SVGGElement>) => {
@@ -991,8 +1082,6 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
 
     prevTouch.current = e.touches[0];
-
-    console.log("onSourcePickerTouchMove fired");
   };
 
   //function onReceiverPickerMouseDown(e: MouseEventHandler<SVGSVGElement>) {
@@ -1073,7 +1162,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               ((getObjectCoord("RULER-BACKGROUND", "Y") -
                 e.clientY -
                 captuerPos.current.fromBottom) /
-                pxPerMeter()) *
+                pxPerMeterY()) *
                 10
             ) / 10;
         }
@@ -1098,7 +1187,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               ((getObjectCoord("RULER-BACKGROUND", "Y") -
                 e.clientY -
                 captuerPos.current.fromBottom) /
-                pxPerMeter()) *
+                pxPerMeterY()) *
                 10
             ) / 10;
         }
@@ -1121,8 +1210,11 @@ const Noisetools = forwardRef((props: any, ref) => {
         ) {
           newD =
             Math.round(
-              ((e.clientX - svg?.getClientRects()[0]!["x"] - sourceData.fromLeft * pxPerMeter()) /
-                pxPerMeter()) *
+              ((e.clientX -
+                svg?.getClientRects()[0]!["x"] +
+                captuerPos.current.x -
+                sourceData.fromLeft * pxPerMeterX()) /
+                pxPerMeterX()) *
                 10
             ) / 10;
         } else {
@@ -1142,12 +1234,11 @@ const Noisetools = forwardRef((props: any, ref) => {
               ((getObjectCoord("RULER-BACKGROUND", "Y") -
                 e.clientY -
                 captuerPos.current.fromBottom) /
-                pxPerMeter()) *
+                pxPerMeterY()) *
                 10
             ) / 10;
         }
         newH = newH >= 0 ? newH : 0;
-        console.log(`newD:${newD} newH:${newH}`);
         setBarrier1Data({
           distFromSource: newD,
           height: newH,
@@ -1159,14 +1250,19 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   const onLeftWallClick: React.MouseEventHandler<SVGElement> = (e) => {
     if (leftWallRef.current) {
+      toggleLeftWall();
+      notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
+    }
+  };
+
+  const toggleLeftWall = () => {
+    if (leftWallRef.current) {
       leftWallRef.current.style.setProperty(
         "display",
         leftWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
       );
-      wallState.current.leftWall =
-        leftWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1;
 
-      notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
+      setLeftWallState(leftWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1);
     }
   };
 
@@ -1176,10 +1272,9 @@ const Noisetools = forwardRef((props: any, ref) => {
         "display",
         rightWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
       );
-      wallState.current.rightWall =
-        rightWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1;
 
-      notifyNtFactorChanged(FIELD_OBJECT.RightWall);
+      setTopWallState(rightWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1);
+      notifyNtFactorChanged(FIELD_OBJECT.TopWall);
     }
   };
 
@@ -1285,9 +1380,10 @@ const Noisetools = forwardRef((props: any, ref) => {
             <image x="0" y="-20" href={IG_CONC_PATTERN.src} width="100" height="90" />
           </pattern>
         </defs>
-        <g id="swaves" transform={sourceMatrix.current}>
-          <g id="swave_picker">
-            {soundWaves}
+        <g>{soundWaves}</g>
+        <g id="source" transform={sourceMatrix.current}>
+          <g id="source_picker">
+            {/* {soundWaves} */}
             <g
               className={"nts_ruler_line"}
               // transform="rotate(-90, 0, 0)"
@@ -1297,7 +1393,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               onMouseDown={onSourcePickerMouseDown}
               //onTouchMove={onSourcePickerTouchMove}
             >
-              <circle id="swave_picker" cx="0" cy="0" r="7" strokeWidth="0" />
+              <circle id="source_picker_circle" cx="0" cy="0" r="7" strokeWidth="0" />
               <rect x="-31" y="-26" width={60} height={20} rx="5" fill="#FFFFFF">
                 {" "}
               </rect>
@@ -1321,7 +1417,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 id="swave_move"
                 cx="0"
                 cy="0"
-                r={0 * pxPerMeter()}
+                r={0 * pxPerMeterX()}
                 fill="url('#myGradient')"
                 stroke={"#6666FF"}
                 strokeWidth="0"
@@ -1477,9 +1573,9 @@ const Noisetools = forwardRef((props: any, ref) => {
                 <polygon id="s_to_r_dist_st" points={sourceArrowPts.current} />
                 <line
                   id="s_to_r_dist"
-                  x1={sourceData.fromLeft * pxPerMeter() + 5}
+                  x1={sourceData.fromLeft * pxPerMeterX() + 5}
                   y1="5"
-                  x2={fieldData.current.width - receiverData.fromRight * pxPerMeter() - 5}
+                  x2={fieldData.current.width - receiverData.fromRight * pxPerMeterX() - 5}
                   y2="5"
                   strokeWidth="2"
                 ></line>
@@ -1516,14 +1612,14 @@ const Noisetools = forwardRef((props: any, ref) => {
               id="letf_wall_add"
               transform={`translate(${
                 (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
-                  pxPerMeter() +
-                (wallThickness * pxPerMeter()) / 2
+                  pxPerMeterX() +
+                (wallThickness * pxPerMeterX()) / 2
               }, ${
                 getObjectCoord("SOURCE", "Y") -
-                pxPerMeter() * distSourceFromWall +
-                ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeter()) / 2
+                pxPerMeterY() * distSourceFromWall +
+                ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeterY()) / 2
               }) rotate(270)`}
-              className={`wall_btn ${wallState.current.leftWall == 1 ? "hide" : ""}`}
+              className={`wall_btn ${leftWallState == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onLeftWallClick}
             >
@@ -1558,11 +1654,11 @@ const Noisetools = forwardRef((props: any, ref) => {
               <rect
                 x={
                   (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
-                  pxPerMeter()
+                  pxPerMeterX()
                 }
-                y={getObjectCoord("SOURCE", "Y") - pxPerMeter() * distSourceFromWall}
-                width={pxPerMeter() * 0.5}
-                height={(sourceDataRef.current.height + distSourceFromWall) * pxPerMeter() + 1}
+                y={getObjectCoord("SOURCE", "Y") - pxPerMeterY() * distSourceFromWall}
+                width={pxPerMeterX() * 0.5}
+                height={(sourceDataRef.current.height + distSourceFromWall) * pxPerMeterY()}
                 //fill="#CCCCCC"
                 fill="url(#concrete_texture_vert)"
                 strokeWidth={"1"}
@@ -1575,12 +1671,12 @@ const Noisetools = forwardRef((props: any, ref) => {
                 alignmentBaseline="middle"
                 transform={`translate(${
                   (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
-                    pxPerMeter() +
-                  (wallThickness * pxPerMeter()) / 2
+                    pxPerMeterX() +
+                  (wallThickness * pxPerMeterX()) / 2
                 }, ${
                   getObjectCoord("SOURCE", "Y") -
-                  pxPerMeter() * distSourceFromWall +
-                  ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeter()) / 2
+                  pxPerMeterY() * distSourceFromWall +
+                  ((sourceDataRef.current.height + distSourceFromWall) * pxPerMeterY()) / 2
                 }) rotate(270)`}
               >
                 WALL+3dB
@@ -1595,20 +1691,20 @@ const Noisetools = forwardRef((props: any, ref) => {
                   distSourceFromWall -
                   wallThickness +
                   topWallLength / 2) *
-                pxPerMeter()
+                pxPerMeterX()
               }, ${
                 getObjectCoord("SOURCE", "Y") -
-                pxPerMeter() * (distSourceFromWall + wallThickness) +
-                (wallThickness * pxPerMeter()) / 2 +
+                pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                (wallThickness * pxPerMeterY()) / 2 +
                 1
               })`}
-              className={`wall_btn ${wallState.current.rightWall == 1 ? "hide" : ""}`}
+              className={`wall_btn ${topWallState == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onRightWallClick}
             >
               <rect
                 x="-25"
-                y="-10"
+                y="-20"
                 width={50}
                 height={20}
                 rx="5"
@@ -1620,7 +1716,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               <text
                 className={"nts_ruler_dist_s_to_r_text"}
                 x="0"
-                y="2"
+                y="-8"
                 textAnchor="middle"
                 alignmentBaseline="middle"
               >
@@ -1631,20 +1727,22 @@ const Noisetools = forwardRef((props: any, ref) => {
               ref={rightWallRef}
               id="right_wall"
               className={`wall_btn`}
-              strokeWidth="1"
+              strokeWidth="0"
               onClick={onRightWallClick}
             >
               <rect
                 x={
                   (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
-                  pxPerMeter()
+                  pxPerMeterX()
                 }
                 y={
                   getObjectCoord("SOURCE", "Y") -
-                  pxPerMeter() * (distSourceFromWall + wallThickness)
+                  pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                  1 -
+                  (pxPerMeterX() - pxPerMeterY()) / 2 //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
                 }
-                width={pxPerMeter() * topWallLength}
-                height={pxPerMeter() * 0.5}
+                width={pxPerMeterX() * topWallLength}
+                height={/*pxPerMeterY()*/ pxPerMeterX() * 0.5 - 1}
                 fill="url(#concrete_texture_vert)"
                 strokeWidth={"1"}
               />
@@ -1655,17 +1753,26 @@ const Noisetools = forwardRef((props: any, ref) => {
                     distSourceFromWall -
                     wallThickness +
                     topWallLength / 2) *
-                  pxPerMeter()
+                  pxPerMeterX()
                 }
+                // y={
+                //   getObjectCoord("SOURCE", "Y") -
+                //   pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                //   (wallThickness * pxPerMeterY()) / 2 +
+                //   1 -
+                //   5 //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+                // }
                 y={
                   getObjectCoord("SOURCE", "Y") -
-                  pxPerMeter() * (distSourceFromWall + wallThickness) +
-                  (wallThickness * pxPerMeter()) / 2 +
-                  1
+                  pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                  2 -
+                  (pxPerMeterX() - pxPerMeterY()) / 2 + //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+                  (pxPerMeterX() * 0.5) / 2
                 }
+                strokeWidth="1"
                 textAnchor="middle"
                 alignmentBaseline="middle"
-                // transform={`translate(${fieldData.current.width - (pxPerMeter() * 1.3) / 2 + 4}, ${
+                // transform={`translate(${fieldData.current.width - (pxPerMeterX() * 1.3) / 2 + 4}, ${
                 //   getObjectCoord("RULER-BACKGROUND", "Y") / 2
                 // }) rotate(270)`}
               >
@@ -1687,20 +1794,20 @@ const Noisetools = forwardRef((props: any, ref) => {
           >
             <line
               id="source_ruler"
-              x1={sourceData.fromLeft * pxPerMeter() - 15}
-              y1={fieldData.current.height - rulerAreaHight - sourceData.height * pxPerMeter() + 2}
-              x2={sourceData.fromLeft * pxPerMeter() - 15}
+              x1={sourceData.fromLeft * pxPerMeterX() - 15}
+              y1={fieldData.current.height - rulerAreaHight - sourceData.height * pxPerMeterY() + 2}
+              x2={sourceData.fromLeft * pxPerMeterX() - 15}
               y2={fieldData.current.height - rulerAreaHight}
               strokeWidth="1"
             ></line>
             <polygon id="s_height_arr_up" points={sourceHUpArrowPts.current} />
             <polygon id="s_height_arr_dn" points={sourceHDnArrowPts.current} />
             <rect
-              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 + 20}
+              x={sourceData.fromLeft * pxPerMeterX() - pxPerMeterX() / 2 + 20}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
-                (sourceData.height / 2) * pxPerMeter() -
+                (sourceData.height / 2) * pxPerMeterY() -
                 10
               }
               width={40}
@@ -1710,11 +1817,11 @@ const Noisetools = forwardRef((props: any, ref) => {
             ></rect>
             <text
               className={"nts_ruler_dist_s_to_r_text"}
-              x={sourceData.fromLeft * pxPerMeter() - pxPerMeter() / 2 + 40}
+              x={sourceData.fromLeft * pxPerMeterX() - pxPerMeterX() / 2 + 40}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
-                (sourceData.height / 2) * pxPerMeter() +
+                (sourceData.height / 2) * pxPerMeterY() +
                 2
               }
               textAnchor="middle"
@@ -1739,7 +1846,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y1={
                   fieldData.current.height -
                   rulerAreaHight -
-                  /*barrier1Data.height*/ getBarrierHeight() * pxPerMeter()
+                  /*barrier1Data.height*/ getBarrierHeight() * pxPerMeterY()
                 }
                 x2={getObjectCoord(FIELD_OBJECT.Barrier1, "X")}
                 y2={fieldData.current.height - rulerAreaHight}
@@ -1772,7 +1879,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y={
                   fieldData.current.height -
                   rulerAreaHight -
-                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeter() -
+                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeterY() -
                   10
                 }
                 width={40}
@@ -1785,7 +1892,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 y={
                   fieldData.current.height -
                   rulerAreaHight -
-                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeter() +
+                  /*barrier1Data.height*/ (getBarrierHeight() / 2) * pxPerMeterY() +
                   2
                 }
                 textAnchor="middle"
@@ -1837,11 +1944,11 @@ const Noisetools = forwardRef((props: any, ref) => {
           >
             <line
               id="receiver_ruler"
-              x1={sourceData.fromLeft * pxPerMeter() + receiverData.distFromSource * pxPerMeter()}
+              x1={(sourceData.fromLeft + receiverData.distFromSource) * pxPerMeterX()}
               y1={
-                fieldData.current.height - rulerAreaHight - receiverData.height * pxPerMeter() + 3
+                fieldData.current.height - rulerAreaHight - receiverData.height * pxPerMeterY() + 3
               }
-              x2={sourceData.fromLeft * pxPerMeter() + receiverData.distFromSource * pxPerMeter()}
+              x2={(sourceData.fromLeft + receiverData.distFromSource) * pxPerMeterX()}
               y2={fieldData.current.height - rulerAreaHight}
               strokeWidth="1"
             ></line>
@@ -1850,13 +1957,11 @@ const Noisetools = forwardRef((props: any, ref) => {
             <rect
               strokeWidth="0"
               rx="5"
-              x={
-                sourceData.fromLeft * pxPerMeter() + receiverData.distFromSource * pxPerMeter() + 10
-              }
+              x={(sourceData.fromLeft + receiverData.distFromSource) * pxPerMeterX() + 10}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
-                (receiverData.height / 2) * pxPerMeter() -
+                (receiverData.height / 2) * pxPerMeterY() -
                 10
               }
               width={40}
@@ -1865,13 +1970,11 @@ const Noisetools = forwardRef((props: any, ref) => {
             ></rect>
             <text
               className={"nts_ruler_dist_s_to_r_text"}
-              x={
-                sourceData.fromLeft * pxPerMeter() + receiverData.distFromSource * pxPerMeter() + 30
-              }
+              x={(sourceData.fromLeft + receiverData.distFromSource) * pxPerMeterX() + 30}
               y={
                 fieldData.current.height -
                 rulerAreaHight -
-                (receiverData.height / 2) * pxPerMeter() +
+                (receiverData.height / 2) * pxPerMeterY() +
                 2
               }
               textAnchor="middle"
@@ -1968,7 +2071,14 @@ const Noisetools = forwardRef((props: any, ref) => {
           </text>
         </g>
       </svg>
-      <div ref={toolPopupRef} id="tool_popup" className="nts_inupt_popup">
+      <div
+        ref={toolPopupRef}
+        id="tool_popup"
+        className="nts_inupt_popup"
+        // onBlur={(e) => {
+        //   toolPopupRef.current?.style.setProperty("display", "none");
+        // }}
+      >
         <div id="tool_popup_content">
           <input
             ref={toolPopupHDInputRef}
