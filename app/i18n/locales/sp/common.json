@@ -5135,5 +5135,15 @@
   "NOISE_0068": "Data(Octaved band)_Sound Pressure Level",
   "NOISE_0069": "Data(Octaved band)_Sound Power Level",
   "NOISE_0070": "Material / Thickness",
-  "NOISE_0071": "Simulate"
+  "NOISE_0071": "Simulate",
+  "THERMAV_893": "It cannot be downloaded. (Please check the file name/path)",
+  "NOISE_0072": "Elevation from the ground to bottom of outdoor unit",
+  "NOISE_0073": "Rated height : 1m (from the bottom of outdoor unit)",
+  "NOISE_0074": "Elevation from the ground to receiver",
+  "NOISE_0075": "Horizontal distance from center of source to receiver",
+  "NOISE_0076": "Presence of a wall between the source and the receiver",
+  "NOISE_0077": "Short distance may result in extra reflections",
+  "NOISE_0078": "The barrier effect is incomplete due to the low height",
+  "NOISE_0079": "direct distance from center of source to receiver",
+  "NOISE_0080": "Room volume of the enclosed space"
 }

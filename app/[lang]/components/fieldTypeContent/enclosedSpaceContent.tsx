@@ -46,27 +46,29 @@ export default function EnclosedSpaceContent({
     >
       {renderContainerBoxRowItem(
         t("NOISE_0056"),
-        "direct distance from center of source to receiver",
+        t("NOISE_0079"),
         <CCustomInput
           name="direct_distance"
           type={"number"}
           placeholder={"0"}
-          value={directDistance}
+          value={directDistance || ""}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
           unit={unitData?.length}
           onChange={(changeValue: number) => {
             setDirectDistance(changeValue);
           }}
+          required
+          validMessage={{ message: t("RC_0061"), format: [t("NOISE_0056")] }}
         />
       )}
       {renderContainerBoxRowItem(
         t("NOISE_0057"),
-        "Room volume of the enclosed space",
+        t("NOISE_0080"),
         <CCustomInput
           name="room_volume"
           type={"number"}
           placeholder={"0"}
-          value={roomVolume}
+          value={roomVolume || ""}
           classList={"w-[18.438rem] mobile:w-[7.5rem]"}
           unit={
             <>
@@ -77,6 +79,8 @@ export default function EnclosedSpaceContent({
           onChange={(changeValue: number) => {
             setRoomVolume(changeValue);
           }}
+          required
+          validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0057")] }}
         />
       )}
     </ContainerBoxRow>

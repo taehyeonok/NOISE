@@ -135,9 +135,9 @@ export default function OutdoorSpaceContent({
               setOutdoorUnit(changeValue);
               setSourceHeight(Number(changeValue) + 1);
             }}
-            validMessage={{ message: t("RC_0061"), format: [t("THERMAV_209")] }}
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0051")] }}
           />,
-          "Elevation from the ground to bottom of outdoor unit"
+          t("NOISE_0072")
         )}
         {renderContainerBoxRowItem(
           t("NOISE_0052"),
@@ -148,7 +148,7 @@ export default function OutdoorSpaceContent({
             classList={`${inputSelectStyle}`}
             disabled={true}
           />,
-          "Rated height : 1m (from the bottom of outdoor unit)"
+          t("NOISE_0073")
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
@@ -170,8 +170,10 @@ export default function OutdoorSpaceContent({
               setReceiverHeight(changeValue);
               setReceiver(changeValue);
             }}
+            required
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0053")] }}
           />,
-          "Elevation from the ground to receiver"
+          t("NOISE_0074")
         )}
         {renderContainerBoxRowItem(
           t("NOISE_0054"),
@@ -186,8 +188,10 @@ export default function OutdoorSpaceContent({
               setHorizontalDistance(changeValue);
               setHorizontal(changeValue);
             }}
+            required
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0054")] }}
           />,
-          "Horizontal distance from center of source to receiver"
+          t("NOISE_0075")
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
@@ -198,12 +202,14 @@ export default function OutdoorSpaceContent({
             name="background_noise"
             type={"number"}
             placeholder={"0"}
-            value={backgroundNoise}
+            value={backgroundNoise || ""}
             classList={`${inputSelectStyle}`}
             unit={"db(A)"}
             onChange={(changeValue: number) => {
               setBackgroundNoise(changeValue);
             }}
+            required
+            validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0055")] }}
           />,
           undefined,
           false,
@@ -231,7 +237,7 @@ export default function OutdoorSpaceContent({
               }
             }}
           />,
-          "Presence of a wall between the source and the receiver",
+          t("NOISE_0076"),
           false,
           `${selected.value === "1" ? "mobile:bottom-[2.25rem] mobile:!top-auto" : ""}`
         )}
@@ -261,15 +267,17 @@ export default function OutdoorSpaceContent({
                 name="distance_from_ODUs"
                 type={"number"}
                 placeholder={"0"}
-                value={odus}
+                value={odus || ""}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
                   setOdus(changeValue);
                   setBarrierFromSource(changeValue);
                 }}
+                required
+                validMessage={{ message: t("RC_0061"), format: [t("NOISE_0060")] }}
               />,
-              "Short distance may result in extra reflections"
+              t("NOISE_0077")
             )}
             {renderContainerBoxRowItem(
               t("NOISE_0061"),
@@ -277,15 +285,17 @@ export default function OutdoorSpaceContent({
                 name="barrier_height"
                 type={"number"}
                 placeholder={"0"}
-                value={barrierHeight}
+                value={barrierHeight || ""}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
                   setBarrierHeight(changeValue);
                   setBarrierH(changeValue);
                 }}
+                required
+                validMessage={{ message: t("RC_0061"), format: [t("NOISE_0061")] }}
               />,
-              "The barrier effect is incomplete due to the low height"
+              t("NOISE_0078")
             )}
           </ContainerBoxRow>
           {/* 반응형 */}
