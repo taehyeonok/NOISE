@@ -6,9 +6,11 @@ interface totalCapacityTableData {
 export default function TotalCapacityTable({
   totalCapacityTableData,
   setTotalCapacityTableData,
+  t,
 }: {
   totalCapacityTableData: totalCapacityTableData[];
   setTotalCapacityTableData: Function;
+  t: any;
 }) {
   return (
     //반응형
@@ -20,7 +22,7 @@ export default function TotalCapacityTable({
             className={`tableTh
                 mobile:border-0 mobile:h-[2.5rem] mobile:text-gray_700 mobile:text-[0.875rem]`}
           >
-            Total Capacity
+            {t("NOISE_0066")}
           </th>
         </tr>
       </thead>
@@ -32,7 +34,7 @@ export default function TotalCapacityTable({
                 className={`tableTd w-[12.5rem]
                          mobile:noLine mobile:w-[6.875rem] mobile:border-t-0  mobile:h-[2.5rem] mobile:text-[0.875rem]`}
               >
-                {item.label}
+                {t(item.label)}
               </td>
               <td
                 className={`tableTd w-[7.5rem] 

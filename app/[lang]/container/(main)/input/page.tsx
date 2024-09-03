@@ -42,6 +42,7 @@ export default function Input() {
   const editUnit = new EditUnit();
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [productTableData, setProductTableData] = useState<ProductItem[]>(
@@ -62,7 +63,6 @@ export default function Input() {
   const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
   const [stepData, setStepData] = useState([]);
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   const [totalRatedData, setTotalRatedData] = useState(0);
   const [totalSimulatedData, setTotalSimulatedData] = useState(0);
   const [barrierSelected, setBarrierSelected] = useState<{ title: string; value: string }>({
@@ -75,7 +75,6 @@ export default function Input() {
     title: "Concrete(Default) / 120mm",
     value: "120",
   });
-  const [isClient, setIsClient] = useState(false);
   const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
 
   const addTableRow = () => {
@@ -157,8 +156,8 @@ export default function Input() {
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
   const [barrierH, setBarrierH] = useState<number>(5);
-  const [leftBarrier, setLeftBarrier] = useState(1);
-  const [rightBarrier, setRightBarrier] = useState(1);
+  const [leftWall, setLeftWall] = useState(1);
+  const [topWall, setTopWall] = useState(1);
   const [backgroundNoise, setBackgroundNoise] = useState(30);
 
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
@@ -174,10 +173,10 @@ export default function Input() {
         setOdus(value2!);
         break;
       case "LEFT_WALL":
-        setLeftBarrier(value1);
+        setLeftWall(value1);
         break;
       case "RIGHT_WALL":
-        setRightBarrier(value1);
+        setTopWall(value1);
         break;
       case "HORIZONTAL_DISTANCE":
         setHorizontal(value1);
@@ -196,7 +195,6 @@ export default function Input() {
   useEffect(() => {
     const lats_unit = editUnit.getUnitSetting();
     setUnitData(lats_unit[lats_unit.unitClss]);
-    setIsClient(true);
     localStorage.removeItem("simulate");
     localStorage.removeItem("simulate2");
 
@@ -215,7 +213,15 @@ export default function Input() {
       setProductTypeData(productType);
       setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
       setStepData(projectInfoData?.step ? projectInfoData.step : []);
-      setSelectFieldType(projectInfoData?.selectFieldType ? projectInfoData.selectFieldType : []);
+      setSelectFieldType(
+        projectInfoData?.selectFieldType
+          ? projectInfoData.selectFieldType
+          : {
+              title: "Outdoor Space",
+              value: "1",
+            }
+      );
+      //Outdoor Space
       if (projectInfoData?.selectFieldType?.value == "1") {
         setBarrierSelected(projectInfoData?.inputData?.barrierSelected);
         setHorizontal(projectInfoData?.inputData?.horizontal);
@@ -223,14 +229,13 @@ export default function Input() {
         setReceiver(projectInfoData?.inputData?.receiver);
         setBarrierThickness(projectInfoData?.inputData?.barrierThickness);
         setBackgroundNoise(projectInfoData?.inputData?.backgroundNoise);
+        setLeftWall(projectInfoData?.inputData?.leftWall);
+        setTopWall(projectInfoData?.inputData?.topWall);
         //noisetool
-        setLeftBarrier(projectInfoData?.inputData?.leftBarrier);
-        setRightBarrier(projectInfoData?.inputData?.rightBarrier);
-        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
-        setReceiverHeight(projectInfoData?.inputData?.receiver);
         setHorizontalDistance(projectInfoData?.inputData?.horizontal);
         setBarrierEnable(projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false);
 
+        //Barrier in the path == O 일 때
         if (projectInfoData?.inputData?.barrierSelected?.value == "0") {
           setOdus(projectInfoData?.inputData?.odus);
           setBarrierH(projectInfoData?.inputData?.barrierH);
@@ -239,6 +244,11 @@ export default function Input() {
           setBarrierFromSource(projectInfoData?.inputData?.odus);
           setBarrierHeight(projectInfoData?.inputData?.barrierH);
         }
+        //noisetool
+        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
+        setReceiverHeight(projectInfoData?.inputData?.receiver);
+
+        // Enclosed Space (Machine Room)
       } else {
         setDirectDistance(
           projectInfoData?.inputData?.directDistance
@@ -279,8 +289,8 @@ export default function Input() {
       receiver,
       horizontal,
       backgroundNoise,
-      leftBarrier,
-      rightBarrier,
+      leftWall,
+      topWall,
       barrierInfoTableData,
       barrierSelected,
       odus,
@@ -304,8 +314,8 @@ export default function Input() {
     receiver,
     horizontal,
     backgroundNoise,
-    leftBarrier,
-    rightBarrier,
+    leftWall,
+    topWall,
     barrierInfoTableData,
     barrierSelected,
     odus,
@@ -435,7 +445,8 @@ export default function Input() {
         setTotalCapacityTableData(copyTotal);
       }
     });
-  }, [productTableData, productTypeData]);
+  }, [productTableData]);
+
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
     const copyEstimated = cloneObject(estimatedSoundData);
@@ -525,7 +536,7 @@ export default function Input() {
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);
-    const wallCount = 1 + leftBarrier + rightBarrier;
+    const wallCount = 1 + leftWall + topWall;
     const unitData = editUnit.getUnitSetting();
     const result = await noiseSimulator(
       formData,
@@ -535,6 +546,14 @@ export default function Input() {
       unitData,
       wallCount
     );
+    const soundData = {
+      soundPressureLevel,
+      soundPowerLevel,
+      estimatedSoundData,
+      totalCapacityTableData,
+    };
+    result.projectInfoData = projectInfoData;
+    result.soundData = soundData;
     localStorage.setItem("simulate", JSON.stringify(result));
     result.data.unshift(null);
     localStorage.setItem("simulate2", JSON.stringify(result.data));
@@ -547,13 +566,13 @@ export default function Input() {
       {isLoading && <LoadingPage />}
       <div className={"flex flex-col gap-[2.5rem] mb-[2.5rem]"}>
         <ContainerBox>
-          <ContainerBoxTitle title={"Inputs"} />
+          <ContainerBoxTitle title={t("NOISE_0039")} />
           {/* 반응형 */}
           <div
             className={`font-LGSMHATB text-gray_700 mb-5 mt-10 text-left leading-[1.115rem]
                 mobile:mt-[1.25rem] mobile:mb-[1.875rem]`}
           >
-            General Information
+            {t("NOISE_0063")}
           </div>
           {/* 반응형 */}
           <ContainerBoxRow
@@ -563,12 +582,12 @@ export default function Input() {
             {/* 반응형 */}
             <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
               <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>
-                {isClient ? t("project_name") : "Project Name"}
+                {t("project_name")}
               </div>
               <CCustomInput
                 name={`Project Name`}
                 type={"text"}
-                placeholder={isClient ? t("project_name") : "Project Name"}
+                placeholder={t("project_name")}
                 value={projectName}
                 classList={"w-[18.438rem] mobile:w-[12.5rem]"}
                 onChange={(changeValue: string) => {
@@ -580,7 +599,9 @@ export default function Input() {
             </div>
             {/* 반응형 */}
             <div className={"flex items-center w-[32.5rem] justify-between mobile:w-full"}>
-              <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>Date of issue</div>
+              <div className={"font-LGSMHATSB text-[0.875rem] text-gray_400"}>
+                {t("NOISE_0064")}
+              </div>
               <CCalendar label="date_of_issue" />
             </div>
           </ContainerBoxRow>
@@ -591,7 +612,7 @@ export default function Input() {
                 "w-[13.438rem] font-LGSMHATSB text-[0.875rem] text-gray_400 mr-5 text-left align-top mb-5 mobile:mb-[0.563rem] mobile:mr-0"
               }
             >
-              Product Information
+              {t("NOISE_0040")}
             </div>
             <button
               type={"button"}
@@ -606,7 +627,7 @@ export default function Input() {
                 className={`font-LGSMHATB text-[0.875rem] text-gray_400 leading-[1.125rem]
                             mobile:text-[0.75rem] mobile:leading-[0.836rem]`}
               >
-                Add Model
+                {t("NOISE_0065")}
               </span>
             </button>
           </ContainerBoxRow>
@@ -637,6 +658,7 @@ export default function Input() {
             <TotalCapacityTable
               totalCapacityTableData={totalCapacityTableData}
               setTotalCapacityTableData={setTotalCapacityTableData}
+              t={t}
             />
           </ContainerBoxRow>
           {/* 반응형 */}
@@ -644,14 +666,14 @@ export default function Input() {
             className={`font-LGSMHATB text-gray_700 mb-5 mt-10 text-left leading-[1.115rem]
                 mobile:mt-[2.5rem] mobile:mb-[0.688rem]`}
           >
-            Sound Source
+            {t("NOISE_0067")}
           </div>
           {/* 반응형 */}
           <div
             className={`w-full bg-[#666768] h-[2.25rem] text-white font-LGSMHATSB mb-2.5 text-[0.875rem] flex items-center justify-center
                     mobile:h-[2.5rem] mobile:mb-[1.25rem] mobile:w-[calc(100%+2rem)] mobile:mx-[-1rem]`}
           >
-            Sound Spec Data
+            {t("NOISE_0044")}
           </div>
           <div
             className={"!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3 mobile:hidden"}
@@ -661,18 +683,19 @@ export default function Input() {
           <SoundSpecDataTable
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
+            t={t}
           />
           {/* 반응형 */}
           <div
             className={`w-full bg-[#666768] h-[2.25rem] text-white font-LGSMHATSB mb-2.5 text-[0.875rem] flex items-center justify-center mt-10
                           mobile:h-[2.5rem] mobile:mt-[1.875rem] mobile:mb-[1.25rem] mobile:w-[calc(100%+2rem)] mobile:mx-[-1rem]`}
           >
-            Estimated Sound Power Data
+            {t("NOISE_0048")}
           </div>
-          <EstimatedSoundPowerDataTable estimatedSoundData={estimatedSoundData} />
+          <EstimatedSoundPowerDataTable estimatedSoundData={estimatedSoundData} t={t} />
           {/* 반응형 */}
           <div className={"font-LGSMHATB text-gray_700 mb-5 mt-10 text-left leading-[1.115rem]"}>
-            Environmental Information
+            {t("NOISE_0049")}
           </div>
           {/* 반응형 */}
           <ContainerBoxRow
@@ -685,7 +708,7 @@ export default function Input() {
                 "w-[13.438rem] font-LGSMHATSB text-[0.875rem] leading-[0.976rem] text-gray_400 mr-5 text-left mobile:w-max mobile:mr-0"
               }
             >
-              Field type
+              {t("NOISE_0050")}
             </div>
             <CSelect
               name={"field_type"}
@@ -766,7 +789,7 @@ export default function Input() {
           >
             {/* <Link href={"/container/result"} className={"mobile:w-full"}> */}
             <button type={"submit"} className={"primaryButton w-[8.75rem] mobile:w-full"}>
-              Simulate
+              {t("NOISE_0071")}
             </button>
             {/* </Link> */}
           </ContainerBoxRow>

@@ -73,6 +73,7 @@ interface accordionBoxProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   classList?: string;
+  t?: any;
 }
 {
   /* 반응형 */
@@ -83,6 +84,11 @@ interface cPopUpProps {
   className?: string;
   isActive: boolean;
   notOverflow?: boolean;
+}
+interface cReportPopUpProps {
+  children?: React.ReactNode;
+  classList?: string;
+  className?: string;
 }
 interface imageButtonProps {
   image: StaticImageData;
@@ -125,4 +131,12 @@ interface ProductItem {
   step: string;
   capacity: string;
   del: string;
+}
+
+interface cTextAreaProps {
+  label: string;
+  disabled?: boolean;
+  value?: string | number;
+  placeholder?: any;
+  className?: string;
 }

@@ -123,7 +123,7 @@ export default function OutdoorSpaceContent({
         classList={"mobile:flex-col mobile:gap-[1rem]"}
       >
         {renderContainerBoxRowItem(
-          "Elevation of outdoor unit",
+          t("NOISE_0051"),
           <CCustomInput
             name="elevation_of_outdoor_unit"
             type={"number"}
@@ -135,12 +135,12 @@ export default function OutdoorSpaceContent({
               setOutdoorUnit(changeValue);
               setSourceHeight(Number(changeValue) + 1);
             }}
-            validMessage={{ message: t("RC_0061"), format: [t("THERMAV_209")] }}
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0051")] }}
           />,
-          "Elevation from the ground to bottom of outdoor unit"
+          t("NOISE_0072")
         )}
         {renderContainerBoxRowItem(
-          "Height of sound source",
+          t("NOISE_0052"),
           <CCustomInput
             type={"number"}
             placeholder={"0"}
@@ -148,7 +148,7 @@ export default function OutdoorSpaceContent({
             classList={`${inputSelectStyle}`}
             disabled={true}
           />,
-          "Rated height : 1m (from the bottom of outdoor unit)"
+          t("NOISE_0073")
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
@@ -158,7 +158,7 @@ export default function OutdoorSpaceContent({
         classList={"mobile:flex-col mobile:gap-[1rem]"}
       >
         {renderContainerBoxRowItem(
-          "Elevation of receiver",
+          t("NOISE_0053"),
           <CCustomInput
             name="elevation_of_receiver"
             type={"number"}
@@ -170,11 +170,13 @@ export default function OutdoorSpaceContent({
               setReceiverHeight(changeValue);
               setReceiver(changeValue);
             }}
+            required
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0053")] }}
           />,
-          "Elevation from the ground to receiver"
+          t("NOISE_0074")
         )}
         {renderContainerBoxRowItem(
-          "Horizontal distance",
+          t("NOISE_0054"),
           <CCustomInput
             name="horizontal_distance"
             type={"number"}
@@ -186,24 +188,28 @@ export default function OutdoorSpaceContent({
               setHorizontalDistance(changeValue);
               setHorizontal(changeValue);
             }}
+            required
+            validMessage={{ message: t("RC_0061"), format: [t("NOISE_0054")] }}
           />,
-          "Horizontal distance from center of source to receiver"
+          t("NOISE_0075")
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
       <ContainerBoxRow justifyContent={"start"} alignItems={"center"}>
         {renderContainerBoxRowItem(
-          "Background Noise",
+          t("NOISE_0055"),
           <CCustomInput
             name="background_noise"
             type={"number"}
             placeholder={"0"}
-            value={backgroundNoise}
+            value={backgroundNoise || ""}
             classList={`${inputSelectStyle}`}
             unit={"db(A)"}
             onChange={(changeValue: number) => {
               setBackgroundNoise(changeValue);
             }}
+            required
+            validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0055")] }}
           />,
           undefined,
           false,
@@ -213,7 +219,7 @@ export default function OutdoorSpaceContent({
       {/* 반응형 */}
       <ContainerBoxRow justifyContent={"start"} alignItems={"center"}>
         {renderContainerBoxRowItem(
-          "Barrier in the path",
+          t("NOISE_0059"),
           <CSelect
             name={"barrier_in_the_path"}
             title={"O"}
@@ -231,7 +237,7 @@ export default function OutdoorSpaceContent({
               }
             }}
           />,
-          "Presence of a wall between the source and the receiver",
+          t("NOISE_0076"),
           false,
           `${selected.value === "1" ? "mobile:bottom-[2.25rem] mobile:!top-auto" : ""}`
         )}
@@ -247,7 +253,7 @@ export default function OutdoorSpaceContent({
             className={`font-LGSMHATSB text-[0.875rem] text-gray_400 bg-white absolute top-[-0.688rem] px-2 left-3
                         mobile:static mobile:mb-[-0.375rem] mobile:text-left mobile:px-0`}
           >
-            Barrier Information
+            {t("NOISE_0058")}
           </div>
           {/* 반응형 */}
           <ContainerBoxRow
@@ -256,36 +262,40 @@ export default function OutdoorSpaceContent({
             classList={"mobile:flex-col mobile:gap-[1rem]"}
           >
             {renderContainerBoxRowItem(
-              "Distance form ODUs",
+              t("NOISE_0060"),
               <CCustomInput
                 name="distance_from_ODUs"
                 type={"number"}
                 placeholder={"0"}
-                value={odus}
+                value={odus || ""}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
                   setOdus(changeValue);
                   setBarrierFromSource(changeValue);
                 }}
+                required
+                validMessage={{ message: t("RC_0061"), format: [t("NOISE_0060")] }}
               />,
-              "Short distance may result in extra reflections"
+              t("NOISE_0077")
             )}
             {renderContainerBoxRowItem(
-              "Barrier height",
+              t("NOISE_0061"),
               <CCustomInput
                 name="barrier_height"
                 type={"number"}
                 placeholder={"0"}
-                value={barrierHeight}
+                value={barrierHeight || ""}
                 classList={`${inputSelectStyle}`}
                 unit={unitData?.length}
                 onChange={(changeValue: SetStateAction<number>) => {
                   setBarrierHeight(changeValue);
                   setBarrierH(changeValue);
                 }}
+                required
+                validMessage={{ message: t("RC_0061"), format: [t("NOISE_0061")] }}
               />,
-              "The barrier effect is incomplete due to the low height"
+              t("NOISE_0078")
             )}
           </ContainerBoxRow>
           {/* 반응형 */}
@@ -295,7 +305,7 @@ export default function OutdoorSpaceContent({
             classList={"mobile:flex-col mobile:gap-[1rem]"}
           >
             {renderContainerBoxRowItem(
-              "Material / Thickness",
+              t("NOISE_0070"),
               <CSelect
                 name="material_thickness"
                 title={"Concrete(Default) / 120mm"}
@@ -323,7 +333,7 @@ export default function OutdoorSpaceContent({
               true
             )}
             {renderContainerBoxRowItem(
-              "Barrier Thickness",
+              t("NOISE_0062"),
               <CCustomInput
                 name="barrier_thickness"
                 type={"number"}

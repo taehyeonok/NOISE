@@ -98,12 +98,12 @@ export default function ProductInformationTable({
                 )}
               </div>
               {renderTableItem(
-                "Product Type",
+                t("product_type"),
                 <CSelect
-                  key={`product_type_${index}`}
+                  key={`productType_${item.id}`}
                   id={`productType_${item.id}`}
                   code="productType"
-                  name={`product_type_${index}`}
+                  name={`productType_${item.id}`}
                   title={item.productType}
                   selected
                   className={"mobileTableSelectStyle"}
@@ -141,10 +141,10 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Model Name",
+                t("COMMON_509"),
                 <CSelect
                   code="modelName"
-                  name={`model_name_${index}`}
+                  name={`modelName_${item.id}`}
                   title={item.modelName}
                   selected
                   className={"mobileTableSelectStyle"}
@@ -160,7 +160,7 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Qty(EA)",
+                t("COMMON_563") + " (EA)",
                 <CCustomInput
                   type={"number"}
                   placeholder={"1"}
@@ -175,12 +175,12 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Function (Noise)",
+                t("NOISE_0041"),
                 <CSelect
                   id={`functionNoise_${item.id}`}
-                  key={`function_noise_${index}`}
+                  key={`functionNoise_${item.id}`}
                   code="functionNoise"
-                  name={`function_noise_${index}`}
+                  name={`functionNoise_${item.id}`}
                   title={item.function}
                   selected
                   className={"mobileTableSelectStyle"}
@@ -202,10 +202,10 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Step",
+                t("NOISE_0005"),
                 <CSelect
                   code="step"
-                  name={`step_${index}`}
+                  name={`step_${item.id}`}
                   title={item.step}
                   selected
                   className={"mobileTableSelectStyle"}
@@ -221,7 +221,7 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                "Capacity (%)",
+                t("COMMON_524") + " (%)",
                 <CCustomInput
                   type={"text"}
                   placeholder={"0"}
@@ -243,12 +243,12 @@ export default function ProductInformationTable({
         <thead>
           <tr>
             <th className={`tableTh w-10`}>No.</th>
-            <th className={`tableTh w-[17.5rem]`}>Product Type</th>
-            <th className={`tableTh w-[17.5rem]`}>Model Name</th>
-            <th className={`tableTh w-[7.5rem]`}>Qty(EA)</th>
-            <th className={`tableTh w-[12.5rem]`}>Function (Noise)</th>
-            <th className={`tableTh w-[7.5rem]`}>Step</th>
-            <th className={`tableTh w-[7.5rem]`}>Capacity (%)</th>
+            <th className={`tableTh w-[17.5rem]`}>{t("product_type")}</th>
+            <th className={`tableTh w-[17.5rem]`}>{t("COMMON_509")}</th>
+            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_563")}(EA)</th>
+            <th className={`tableTh w-[12.5rem]`}>{t("NOISE_0041")}</th>
+            <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0005")}</th>
+            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_524")} (%)</th>
             <th className={`tableTh w-10`}>Del</th>
           </tr>
         </thead>
@@ -259,10 +259,10 @@ export default function ProductInformationTable({
                 <td className={"tableTd"}>{item.id}</td>
                 <td className={"tableTd"}>
                   <CSelect
-                    key={`product_type_${index}`}
+                    key={`productType_${item.id}`}
                     id={`productType_${item.id}`}
                     code="productType"
-                    name={`product_type_${index}`}
+                    name={`productType_${item.id}`}
                     title={item.productType}
                     selected
                     classList={"tableSelectStyle"}
@@ -301,9 +301,9 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
-                    key={`model_name_${index}`}
+                    key={`modelName_${item.id}`}
                     code="modelName"
-                    name={`model_name_${index}`}
+                    name={`modelName_${item.id}`}
                     title={item.modelName}
                     selected
                     classList={"tableSelectStyle"}
@@ -320,8 +320,8 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
-                    key={`qty_${index}`}
-                    name={`qty_${index}`}
+                    key={`qty_${item.id}`}
+                    name={`qty_${item.id}`}
                     type={"number"}
                     placeholder={"1"}
                     value={1}
@@ -336,10 +336,10 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
+                    key={`functionNoise_${item.id}`}
                     id={`functionNoise_${item.id}`}
-                    key={`function_noise_${index}`}
                     code="functionNoise"
-                    name={`function_noise_${index}`}
+                    name={`functionNoise_${item.id}`}
                     title={item.function}
                     selected
                     classList={"tableSelectStyle"}
@@ -362,9 +362,10 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CSelect
-                    key={`step_${index}`}
+                    key={`step_${item.id}`}
+                    id={`step_${item.id}`}
                     code="step"
-                    name={`step_${index}`}
+                    name={`step_${item.id}`}
                     title={item.step}
                     selected
                     classList={"tableSelectStyle"}
@@ -381,9 +382,9 @@ export default function ProductInformationTable({
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
-                    key={`capacity_${index}`}
+                    key={`capacity_${item.id}`}
                     type={"text"}
-                    name={`capacity_${index}`}
+                    name={`capacity_${item.id}`}
                     placeholder={"0"}
                     value={item.capacity}
                     classList={"w-full px-3 !h-7"}

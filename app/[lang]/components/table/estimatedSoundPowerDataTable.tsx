@@ -6,7 +6,7 @@ interface estimatedSoundProps {
   content2: string;
 }
 
-export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any) {
+export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: any) {
   const [estimatedSoundDBA, setEstimatedSoundDBA] = useState(0);
 
   useEffect(() => {
@@ -43,22 +43,21 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
           <tr>
             <th colSpan={9} className={"tableTh"}>
               <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem]"}>
-                Data(Octaved band)
+                {t("NOISE_0069")}
               </span>
-              _Sound Power Level
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td className={"tableTd w-[12.5rem] bg-gray_100"} rowSpan={2}>
-              Octave Band
+              {t("NOISE_0012")}
             </td>
             {renderTdItem("content1")}
           </tr>
           <tr>{renderTdItem("content2")}</tr>
           <tr>
-            <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>Overall (dB(A))</td>
+            <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>{t("NOISE_0018")} (dB(A))</td>
             <td className={"tableTd !h-[1.875rem]"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
           </tr>
         </tbody>
@@ -71,8 +70,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
           }
         >
           <p className={"font-LGSMHATB text-gray_700 text-[0.875rem]"}>
-            Data(Octaved band)
-            <span className={"font-LGSMHATSB text-[0.875rem]"}>_Sound Power Level</span>
+            <span className={"font-LGSMHATSB text-[0.875rem]"}> {t("NOISE_0069")}</span>
           </p>
           <p className={"text-[0.625rem] text-gray_700"}>Unit : dB</p>
         </div>
@@ -80,7 +78,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
           <div
             className={`text-[0.875rem] leading-[1.125rem] font-LGSMHATB text-gray_700 text-left`}
           >
-            Octave Band
+            {t("NOISE_0012")}
           </div>
           <div className={"flex flex-col gap-[1.5rem]"}>
             <table className={"table-fixed"}>
@@ -109,7 +107,9 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData }: any
             <table className={"table-fixed "}>
               <tbody>
                 <tr>
-                  <th className={"tableTh !font-LGSMHATR !text-[#000]"}>Overall (dB(A))</th>
+                  <th className={"tableTh !font-LGSMHATR !text-[#000]"}>
+                    {t("NOISE_0018")} (dB(A))
+                  </th>
                   <td className={"tableTd"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
                 </tr>
               </tbody>

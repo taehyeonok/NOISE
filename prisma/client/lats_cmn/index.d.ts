@@ -79,26 +79,6 @@ export type T_CMN_UNIT_TABLE = $Result.DefaultSelection<Prisma.$T_CMN_UNIT_TABLE
  */
 export type T_CMN_USAGE = $Result.DefaultSelection<Prisma.$T_CMN_USAGEPayload>
 /**
- * Model T_CMN_USAGE_2021
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
- */
-export type T_CMN_USAGE_2021 = $Result.DefaultSelection<Prisma.$T_CMN_USAGE_2021Payload>
-/**
- * Model T_CMN_USAGE_2022
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
- */
-export type T_CMN_USAGE_2022 = $Result.DefaultSelection<Prisma.$T_CMN_USAGE_2022Payload>
-/**
- * Model T_CMN_USAGE_2023_REVIT
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
- */
-export type T_CMN_USAGE_2023_REVIT = $Result.DefaultSelection<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-/**
- * Model T_CMN_USAGE_BACKUP
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
- */
-export type T_CMN_USAGE_BACKUP = $Result.DefaultSelection<Prisma.$T_CMN_USAGE_BACKUPPayload>
-/**
  * Model T_CMN_USAGE_EMP_CNTRY_ENT
  * 
  */
@@ -173,6 +153,21 @@ export type T_MASTER_THERMAV_ODU = $Result.DefaultSelection<Prisma.$T_MASTER_THE
  * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
 export type error_log = $Result.DefaultSelection<Prisma.$error_logPayload>
+/**
+ * Model T_CMN_LATS_SUPPORT
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type T_CMN_LATS_SUPPORT = $Result.DefaultSelection<Prisma.$T_CMN_LATS_SUPPORTPayload>
+/**
+ * Model T_CMN_LATS_VERSION
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type T_CMN_LATS_VERSION = $Result.DefaultSelection<Prisma.$T_CMN_LATS_VERSIONPayload>
+/**
+ * Model T_CMN_USAGE_ERROR_LOG
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type T_CMN_USAGE_ERROR_LOG = $Result.DefaultSelection<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
 /**
  * Model V_CMN_LANGUAGE
  * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
@@ -432,46 +427,6 @@ export class PrismaClient<
   get t_CMN_USAGE(): Prisma.T_CMN_USAGEDelegate<ExtArgs>;
 
   /**
-   * `prisma.t_CMN_USAGE_2021`: Exposes CRUD operations for the **T_CMN_USAGE_2021** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more T_CMN_USAGE_2021s
-    * const t_CMN_USAGE_2021s = await prisma.t_CMN_USAGE_2021.findMany()
-    * ```
-    */
-  get t_CMN_USAGE_2021(): Prisma.T_CMN_USAGE_2021Delegate<ExtArgs>;
-
-  /**
-   * `prisma.t_CMN_USAGE_2022`: Exposes CRUD operations for the **T_CMN_USAGE_2022** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more T_CMN_USAGE_2022s
-    * const t_CMN_USAGE_2022s = await prisma.t_CMN_USAGE_2022.findMany()
-    * ```
-    */
-  get t_CMN_USAGE_2022(): Prisma.T_CMN_USAGE_2022Delegate<ExtArgs>;
-
-  /**
-   * `prisma.t_CMN_USAGE_2023_REVIT`: Exposes CRUD operations for the **T_CMN_USAGE_2023_REVIT** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more T_CMN_USAGE_2023_REVITS
-    * const t_CMN_USAGE_2023_REVITS = await prisma.t_CMN_USAGE_2023_REVIT.findMany()
-    * ```
-    */
-  get t_CMN_USAGE_2023_REVIT(): Prisma.T_CMN_USAGE_2023_REVITDelegate<ExtArgs>;
-
-  /**
-   * `prisma.t_CMN_USAGE_BACKUP`: Exposes CRUD operations for the **T_CMN_USAGE_BACKUP** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more T_CMN_USAGE_BACKUPS
-    * const t_CMN_USAGE_BACKUPS = await prisma.t_CMN_USAGE_BACKUP.findMany()
-    * ```
-    */
-  get t_CMN_USAGE_BACKUP(): Prisma.T_CMN_USAGE_BACKUPDelegate<ExtArgs>;
-
-  /**
    * `prisma.t_CMN_USAGE_EMP_CNTRY_ENT`: Exposes CRUD operations for the **T_CMN_USAGE_EMP_CNTRY_ENT** model.
     * Example usage:
     * ```ts
@@ -620,6 +575,36 @@ export class PrismaClient<
     * ```
     */
   get error_log(): Prisma.error_logDelegate<ExtArgs>;
+
+  /**
+   * `prisma.t_CMN_LATS_SUPPORT`: Exposes CRUD operations for the **T_CMN_LATS_SUPPORT** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more T_CMN_LATS_SUPPORTS
+    * const t_CMN_LATS_SUPPORTS = await prisma.t_CMN_LATS_SUPPORT.findMany()
+    * ```
+    */
+  get t_CMN_LATS_SUPPORT(): Prisma.T_CMN_LATS_SUPPORTDelegate<ExtArgs>;
+
+  /**
+   * `prisma.t_CMN_LATS_VERSION`: Exposes CRUD operations for the **T_CMN_LATS_VERSION** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more T_CMN_LATS_VERSIONS
+    * const t_CMN_LATS_VERSIONS = await prisma.t_CMN_LATS_VERSION.findMany()
+    * ```
+    */
+  get t_CMN_LATS_VERSION(): Prisma.T_CMN_LATS_VERSIONDelegate<ExtArgs>;
+
+  /**
+   * `prisma.t_CMN_USAGE_ERROR_LOG`: Exposes CRUD operations for the **T_CMN_USAGE_ERROR_LOG** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more T_CMN_USAGE_ERROR_LOGS
+    * const t_CMN_USAGE_ERROR_LOGS = await prisma.t_CMN_USAGE_ERROR_LOG.findMany()
+    * ```
+    */
+  get t_CMN_USAGE_ERROR_LOG(): Prisma.T_CMN_USAGE_ERROR_LOGDelegate<ExtArgs>;
 
   /**
    * `prisma.v_CMN_LANGUAGE`: Exposes CRUD operations for the **V_CMN_LANGUAGE** model.
@@ -1113,10 +1098,6 @@ export namespace Prisma {
     T_CMN_SPEC_OUT: 'T_CMN_SPEC_OUT',
     T_CMN_UNIT_TABLE: 'T_CMN_UNIT_TABLE',
     T_CMN_USAGE: 'T_CMN_USAGE',
-    T_CMN_USAGE_2021: 'T_CMN_USAGE_2021',
-    T_CMN_USAGE_2022: 'T_CMN_USAGE_2022',
-    T_CMN_USAGE_2023_REVIT: 'T_CMN_USAGE_2023_REVIT',
-    T_CMN_USAGE_BACKUP: 'T_CMN_USAGE_BACKUP',
     T_CMN_USAGE_EMP_CNTRY_ENT: 'T_CMN_USAGE_EMP_CNTRY_ENT',
     T_CMN_USAGE_PROG_USE_CODE: 'T_CMN_USAGE_PROG_USE_CODE',
     T_MASTER_ERV_SPEC_SHEET: 'T_MASTER_ERV_SPEC_SHEET',
@@ -1132,6 +1113,9 @@ export namespace Prisma {
     T_MASTER_THERMAV_IDU: 'T_MASTER_THERMAV_IDU',
     T_MASTER_THERMAV_ODU: 'T_MASTER_THERMAV_ODU',
     error_log: 'error_log',
+    T_CMN_LATS_SUPPORT: 'T_CMN_LATS_SUPPORT',
+    T_CMN_LATS_VERSION: 'T_CMN_LATS_VERSION',
+    T_CMN_USAGE_ERROR_LOG: 'T_CMN_USAGE_ERROR_LOG',
     V_CMN_LANGUAGE: 'V_CMN_LANGUAGE'
   };
 
@@ -1149,7 +1133,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 't_CMN_CAPA_OUT_COOLING' | 't_CMN_CAPA_OUT_HEATING' | 't_CMN_CODE' | 't_CMN_COM_MEMBER' | 't_CMN_LANGUAGE' | 't_CMN_LOCATION' | 't_CMN_MEM_REGION_COUNTRY' | 't_CMN_MEM_TERMS' | 't_CMN_MEM_TERMS_MAPPING' | 't_CMN_SETTING' | 't_CMN_SPEC_OUT' | 't_CMN_UNIT_TABLE' | 't_CMN_USAGE' | 't_CMN_USAGE_2021' | 't_CMN_USAGE_2022' | 't_CMN_USAGE_2023_REVIT' | 't_CMN_USAGE_BACKUP' | 't_CMN_USAGE_EMP_CNTRY_ENT' | 't_CMN_USAGE_PROG_USE_CODE' | 't_MASTER_ERV_SPEC_SHEET' | 't_MASTER_ERV_SPEC_SHEET_OLD' | 't_MASTER_MS_DIAMETER' | 't_MASTER_MS_IDU' | 't_MASTER_MS_IDU_ODU_TYPE' | 't_MASTER_MS_ODU' | 't_MASTER_MV_BRANCH_NEW' | 't_MASTER_MV_DOAS' | 't_MASTER_MV_HEADER' | 't_MASTER_MV_ODU' | 't_MASTER_THERMAV_IDU' | 't_MASTER_THERMAV_ODU' | 'error_log' | 'v_CMN_LANGUAGE'
+      modelProps: 't_CMN_CAPA_OUT_COOLING' | 't_CMN_CAPA_OUT_HEATING' | 't_CMN_CODE' | 't_CMN_COM_MEMBER' | 't_CMN_LANGUAGE' | 't_CMN_LOCATION' | 't_CMN_MEM_REGION_COUNTRY' | 't_CMN_MEM_TERMS' | 't_CMN_MEM_TERMS_MAPPING' | 't_CMN_SETTING' | 't_CMN_SPEC_OUT' | 't_CMN_UNIT_TABLE' | 't_CMN_USAGE' | 't_CMN_USAGE_EMP_CNTRY_ENT' | 't_CMN_USAGE_PROG_USE_CODE' | 't_MASTER_ERV_SPEC_SHEET' | 't_MASTER_ERV_SPEC_SHEET_OLD' | 't_MASTER_MS_DIAMETER' | 't_MASTER_MS_IDU' | 't_MASTER_MS_IDU_ODU_TYPE' | 't_MASTER_MS_ODU' | 't_MASTER_MV_BRANCH_NEW' | 't_MASTER_MV_DOAS' | 't_MASTER_MV_HEADER' | 't_MASTER_MV_ODU' | 't_MASTER_THERMAV_IDU' | 't_MASTER_THERMAV_ODU' | 'error_log' | 't_CMN_LATS_SUPPORT' | 't_CMN_LATS_VERSION' | 't_CMN_USAGE_ERROR_LOG' | 'v_CMN_LANGUAGE'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -2008,270 +1992,6 @@ export namespace Prisma {
           count: {
             args: Prisma.T_CMN_USAGECountArgs<ExtArgs>,
             result: $Utils.Optional<T_CMN_USAGECountAggregateOutputType> | number
-          }
-        }
-      }
-      T_CMN_USAGE_2021: {
-        payload: Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>
-        fields: Prisma.T_CMN_USAGE_2021FieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.T_CMN_USAGE_2021FindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.T_CMN_USAGE_2021FindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          findFirst: {
-            args: Prisma.T_CMN_USAGE_2021FindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.T_CMN_USAGE_2021FindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          findMany: {
-            args: Prisma.T_CMN_USAGE_2021FindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>[]
-          }
-          create: {
-            args: Prisma.T_CMN_USAGE_2021CreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          createMany: {
-            args: Prisma.T_CMN_USAGE_2021CreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.T_CMN_USAGE_2021DeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          update: {
-            args: Prisma.T_CMN_USAGE_2021UpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          deleteMany: {
-            args: Prisma.T_CMN_USAGE_2021DeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.T_CMN_USAGE_2021UpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.T_CMN_USAGE_2021UpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2021Payload>
-          }
-          aggregate: {
-            args: Prisma.T_CMN_USAGE_2021AggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateT_CMN_USAGE_2021>
-          }
-          groupBy: {
-            args: Prisma.T_CMN_USAGE_2021GroupByArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2021GroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.T_CMN_USAGE_2021CountArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2021CountAggregateOutputType> | number
-          }
-        }
-      }
-      T_CMN_USAGE_2022: {
-        payload: Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>
-        fields: Prisma.T_CMN_USAGE_2022FieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.T_CMN_USAGE_2022FindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.T_CMN_USAGE_2022FindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          findFirst: {
-            args: Prisma.T_CMN_USAGE_2022FindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.T_CMN_USAGE_2022FindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          findMany: {
-            args: Prisma.T_CMN_USAGE_2022FindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>[]
-          }
-          create: {
-            args: Prisma.T_CMN_USAGE_2022CreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          createMany: {
-            args: Prisma.T_CMN_USAGE_2022CreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.T_CMN_USAGE_2022DeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          update: {
-            args: Prisma.T_CMN_USAGE_2022UpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          deleteMany: {
-            args: Prisma.T_CMN_USAGE_2022DeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.T_CMN_USAGE_2022UpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.T_CMN_USAGE_2022UpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2022Payload>
-          }
-          aggregate: {
-            args: Prisma.T_CMN_USAGE_2022AggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateT_CMN_USAGE_2022>
-          }
-          groupBy: {
-            args: Prisma.T_CMN_USAGE_2022GroupByArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2022GroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.T_CMN_USAGE_2022CountArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2022CountAggregateOutputType> | number
-          }
-        }
-      }
-      T_CMN_USAGE_2023_REVIT: {
-        payload: Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>
-        fields: Prisma.T_CMN_USAGE_2023_REVITFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.T_CMN_USAGE_2023_REVITFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.T_CMN_USAGE_2023_REVITFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          findFirst: {
-            args: Prisma.T_CMN_USAGE_2023_REVITFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.T_CMN_USAGE_2023_REVITFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          findMany: {
-            args: Prisma.T_CMN_USAGE_2023_REVITFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>[]
-          }
-          create: {
-            args: Prisma.T_CMN_USAGE_2023_REVITCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          createMany: {
-            args: Prisma.T_CMN_USAGE_2023_REVITCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.T_CMN_USAGE_2023_REVITDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          update: {
-            args: Prisma.T_CMN_USAGE_2023_REVITUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          deleteMany: {
-            args: Prisma.T_CMN_USAGE_2023_REVITDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.T_CMN_USAGE_2023_REVITUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.T_CMN_USAGE_2023_REVITUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_2023_REVITPayload>
-          }
-          aggregate: {
-            args: Prisma.T_CMN_USAGE_2023_REVITAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateT_CMN_USAGE_2023_REVIT>
-          }
-          groupBy: {
-            args: Prisma.T_CMN_USAGE_2023_REVITGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2023_REVITGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.T_CMN_USAGE_2023_REVITCountArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_2023_REVITCountAggregateOutputType> | number
-          }
-        }
-      }
-      T_CMN_USAGE_BACKUP: {
-        payload: Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>
-        fields: Prisma.T_CMN_USAGE_BACKUPFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.T_CMN_USAGE_BACKUPFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.T_CMN_USAGE_BACKUPFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          findFirst: {
-            args: Prisma.T_CMN_USAGE_BACKUPFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.T_CMN_USAGE_BACKUPFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          findMany: {
-            args: Prisma.T_CMN_USAGE_BACKUPFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>[]
-          }
-          create: {
-            args: Prisma.T_CMN_USAGE_BACKUPCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          createMany: {
-            args: Prisma.T_CMN_USAGE_BACKUPCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          delete: {
-            args: Prisma.T_CMN_USAGE_BACKUPDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          update: {
-            args: Prisma.T_CMN_USAGE_BACKUPUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          deleteMany: {
-            args: Prisma.T_CMN_USAGE_BACKUPDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.T_CMN_USAGE_BACKUPUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.T_CMN_USAGE_BACKUPUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_BACKUPPayload>
-          }
-          aggregate: {
-            args: Prisma.T_CMN_USAGE_BACKUPAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateT_CMN_USAGE_BACKUP>
-          }
-          groupBy: {
-            args: Prisma.T_CMN_USAGE_BACKUPGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_BACKUPGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.T_CMN_USAGE_BACKUPCountArgs<ExtArgs>,
-            result: $Utils.Optional<T_CMN_USAGE_BACKUPCountAggregateOutputType> | number
           }
         }
       }
@@ -3262,6 +2982,204 @@ export namespace Prisma {
           count: {
             args: Prisma.error_logCountArgs<ExtArgs>,
             result: $Utils.Optional<Error_logCountAggregateOutputType> | number
+          }
+        }
+      }
+      T_CMN_LATS_SUPPORT: {
+        payload: Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>
+        fields: Prisma.T_CMN_LATS_SUPPORTFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.T_CMN_LATS_SUPPORTFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.T_CMN_LATS_SUPPORTFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          findFirst: {
+            args: Prisma.T_CMN_LATS_SUPPORTFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.T_CMN_LATS_SUPPORTFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          findMany: {
+            args: Prisma.T_CMN_LATS_SUPPORTFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>[]
+          }
+          create: {
+            args: Prisma.T_CMN_LATS_SUPPORTCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          createMany: {
+            args: Prisma.T_CMN_LATS_SUPPORTCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.T_CMN_LATS_SUPPORTDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          update: {
+            args: Prisma.T_CMN_LATS_SUPPORTUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          deleteMany: {
+            args: Prisma.T_CMN_LATS_SUPPORTDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.T_CMN_LATS_SUPPORTUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.T_CMN_LATS_SUPPORTUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_SUPPORTPayload>
+          }
+          aggregate: {
+            args: Prisma.T_CMN_LATS_SUPPORTAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateT_CMN_LATS_SUPPORT>
+          }
+          groupBy: {
+            args: Prisma.T_CMN_LATS_SUPPORTGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_LATS_SUPPORTGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.T_CMN_LATS_SUPPORTCountArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_LATS_SUPPORTCountAggregateOutputType> | number
+          }
+        }
+      }
+      T_CMN_LATS_VERSION: {
+        payload: Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>
+        fields: Prisma.T_CMN_LATS_VERSIONFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.T_CMN_LATS_VERSIONFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.T_CMN_LATS_VERSIONFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          findFirst: {
+            args: Prisma.T_CMN_LATS_VERSIONFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.T_CMN_LATS_VERSIONFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          findMany: {
+            args: Prisma.T_CMN_LATS_VERSIONFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>[]
+          }
+          create: {
+            args: Prisma.T_CMN_LATS_VERSIONCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          createMany: {
+            args: Prisma.T_CMN_LATS_VERSIONCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.T_CMN_LATS_VERSIONDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          update: {
+            args: Prisma.T_CMN_LATS_VERSIONUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          deleteMany: {
+            args: Prisma.T_CMN_LATS_VERSIONDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.T_CMN_LATS_VERSIONUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.T_CMN_LATS_VERSIONUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_LATS_VERSIONPayload>
+          }
+          aggregate: {
+            args: Prisma.T_CMN_LATS_VERSIONAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateT_CMN_LATS_VERSION>
+          }
+          groupBy: {
+            args: Prisma.T_CMN_LATS_VERSIONGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_LATS_VERSIONGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.T_CMN_LATS_VERSIONCountArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_LATS_VERSIONCountAggregateOutputType> | number
+          }
+        }
+      }
+      T_CMN_USAGE_ERROR_LOG: {
+        payload: Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>
+        fields: Prisma.T_CMN_USAGE_ERROR_LOGFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          findFirst: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          findMany: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>[]
+          }
+          create: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          createMany: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          update: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          deleteMany: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload>
+          }
+          aggregate: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateT_CMN_USAGE_ERROR_LOG>
+          }
+          groupBy: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_USAGE_ERROR_LOGGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.T_CMN_USAGE_ERROR_LOGCountArgs<ExtArgs>,
+            result: $Utils.Optional<T_CMN_USAGE_ERROR_LOGCountAggregateOutputType> | number
           }
         }
       }
@@ -7153,6 +7071,14 @@ export namespace Prisma {
     BPP_REGION_CODE: string | null
     PARTNER_TYPE_CODE: string | null
     PARTNER_GRADE_CODE: string | null
+    US_FEDERATION_ID: string | null
+    US_SFDC_ID: string | null
+    US_CONTACT_ID: string | null
+    US_JOB_TYPE: string | null
+    US_ACCOUNT_ID: string | null
+    US_ACCOUNT_CODE: string | null
+    LOGIN_TYPE: string | null
+    LOGIN_TOKEN: string | null
   }
 
   export type T_CMN_COM_MEMBERMaxAggregateOutputType = {
@@ -7191,6 +7117,14 @@ export namespace Prisma {
     BPP_REGION_CODE: string | null
     PARTNER_TYPE_CODE: string | null
     PARTNER_GRADE_CODE: string | null
+    US_FEDERATION_ID: string | null
+    US_SFDC_ID: string | null
+    US_CONTACT_ID: string | null
+    US_JOB_TYPE: string | null
+    US_ACCOUNT_ID: string | null
+    US_ACCOUNT_CODE: string | null
+    LOGIN_TYPE: string | null
+    LOGIN_TOKEN: string | null
   }
 
   export type T_CMN_COM_MEMBERCountAggregateOutputType = {
@@ -7229,6 +7163,14 @@ export namespace Prisma {
     BPP_REGION_CODE: number
     PARTNER_TYPE_CODE: number
     PARTNER_GRADE_CODE: number
+    US_FEDERATION_ID: number
+    US_SFDC_ID: number
+    US_CONTACT_ID: number
+    US_JOB_TYPE: number
+    US_ACCOUNT_ID: number
+    US_ACCOUNT_CODE: number
+    LOGIN_TYPE: number
+    LOGIN_TOKEN: number
     _all: number
   }
 
@@ -7277,6 +7219,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: true
     PARTNER_TYPE_CODE?: true
     PARTNER_GRADE_CODE?: true
+    US_FEDERATION_ID?: true
+    US_SFDC_ID?: true
+    US_CONTACT_ID?: true
+    US_JOB_TYPE?: true
+    US_ACCOUNT_ID?: true
+    US_ACCOUNT_CODE?: true
+    LOGIN_TYPE?: true
+    LOGIN_TOKEN?: true
   }
 
   export type T_CMN_COM_MEMBERMaxAggregateInputType = {
@@ -7315,6 +7265,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: true
     PARTNER_TYPE_CODE?: true
     PARTNER_GRADE_CODE?: true
+    US_FEDERATION_ID?: true
+    US_SFDC_ID?: true
+    US_CONTACT_ID?: true
+    US_JOB_TYPE?: true
+    US_ACCOUNT_ID?: true
+    US_ACCOUNT_CODE?: true
+    LOGIN_TYPE?: true
+    LOGIN_TOKEN?: true
   }
 
   export type T_CMN_COM_MEMBERCountAggregateInputType = {
@@ -7353,6 +7311,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: true
     PARTNER_TYPE_CODE?: true
     PARTNER_GRADE_CODE?: true
+    US_FEDERATION_ID?: true
+    US_SFDC_ID?: true
+    US_CONTACT_ID?: true
+    US_JOB_TYPE?: true
+    US_ACCOUNT_ID?: true
+    US_ACCOUNT_CODE?: true
+    LOGIN_TYPE?: true
+    LOGIN_TOKEN?: true
     _all?: true
   }
 
@@ -7478,6 +7444,14 @@ export namespace Prisma {
     BPP_REGION_CODE: string | null
     PARTNER_TYPE_CODE: string | null
     PARTNER_GRADE_CODE: string | null
+    US_FEDERATION_ID: string | null
+    US_SFDC_ID: string | null
+    US_CONTACT_ID: string | null
+    US_JOB_TYPE: string | null
+    US_ACCOUNT_ID: string | null
+    US_ACCOUNT_CODE: string | null
+    LOGIN_TYPE: string | null
+    LOGIN_TOKEN: string | null
     _count: T_CMN_COM_MEMBERCountAggregateOutputType | null
     _avg: T_CMN_COM_MEMBERAvgAggregateOutputType | null
     _sum: T_CMN_COM_MEMBERSumAggregateOutputType | null
@@ -7535,6 +7509,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: boolean
     PARTNER_TYPE_CODE?: boolean
     PARTNER_GRADE_CODE?: boolean
+    US_FEDERATION_ID?: boolean
+    US_SFDC_ID?: boolean
+    US_CONTACT_ID?: boolean
+    US_JOB_TYPE?: boolean
+    US_ACCOUNT_ID?: boolean
+    US_ACCOUNT_CODE?: boolean
+    LOGIN_TYPE?: boolean
+    LOGIN_TOKEN?: boolean
   }, ExtArgs["result"]["t_CMN_COM_MEMBER"]>
 
   export type T_CMN_COM_MEMBERSelectScalar = {
@@ -7573,6 +7555,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: boolean
     PARTNER_TYPE_CODE?: boolean
     PARTNER_GRADE_CODE?: boolean
+    US_FEDERATION_ID?: boolean
+    US_SFDC_ID?: boolean
+    US_CONTACT_ID?: boolean
+    US_JOB_TYPE?: boolean
+    US_ACCOUNT_ID?: boolean
+    US_ACCOUNT_CODE?: boolean
+    LOGIN_TYPE?: boolean
+    LOGIN_TOKEN?: boolean
   }
 
 
@@ -7615,6 +7605,14 @@ export namespace Prisma {
       BPP_REGION_CODE: string | null
       PARTNER_TYPE_CODE: string | null
       PARTNER_GRADE_CODE: string | null
+      US_FEDERATION_ID: string | null
+      US_SFDC_ID: string | null
+      US_CONTACT_ID: string | null
+      US_JOB_TYPE: string | null
+      US_ACCOUNT_ID: string | null
+      US_ACCOUNT_CODE: string | null
+      LOGIN_TYPE: string | null
+      LOGIN_TOKEN: string | null
     }, ExtArgs["result"]["t_CMN_COM_MEMBER"]>
     composites: {}
   }
@@ -8044,6 +8042,14 @@ export namespace Prisma {
     readonly BPP_REGION_CODE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
     readonly PARTNER_TYPE_CODE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
     readonly PARTNER_GRADE_CODE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_FEDERATION_ID: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_SFDC_ID: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_CONTACT_ID: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_JOB_TYPE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_ACCOUNT_ID: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly US_ACCOUNT_CODE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly LOGIN_TYPE: FieldRef<"T_CMN_COM_MEMBER", 'String'>
+    readonly LOGIN_TOKEN: FieldRef<"T_CMN_COM_MEMBER", 'String'>
   }
     
 
@@ -11609,6 +11615,7 @@ export namespace Prisma {
     LOCALE_TYPE: string | null
     CORPORATION_CODE: string | null
     QUESTION_CONTENT: string | null
+    AGREE_YN: string | null
   }
 
   export type T_CMN_MEM_TERMSMaxAggregateOutputType = {
@@ -11624,6 +11631,7 @@ export namespace Prisma {
     LOCALE_TYPE: string | null
     CORPORATION_CODE: string | null
     QUESTION_CONTENT: string | null
+    AGREE_YN: string | null
   }
 
   export type T_CMN_MEM_TERMSCountAggregateOutputType = {
@@ -11639,6 +11647,7 @@ export namespace Prisma {
     LOCALE_TYPE: number
     CORPORATION_CODE: number
     QUESTION_CONTENT: number
+    AGREE_YN: number
     _all: number
   }
 
@@ -11664,6 +11673,7 @@ export namespace Prisma {
     LOCALE_TYPE?: true
     CORPORATION_CODE?: true
     QUESTION_CONTENT?: true
+    AGREE_YN?: true
   }
 
   export type T_CMN_MEM_TERMSMaxAggregateInputType = {
@@ -11679,6 +11689,7 @@ export namespace Prisma {
     LOCALE_TYPE?: true
     CORPORATION_CODE?: true
     QUESTION_CONTENT?: true
+    AGREE_YN?: true
   }
 
   export type T_CMN_MEM_TERMSCountAggregateInputType = {
@@ -11694,6 +11705,7 @@ export namespace Prisma {
     LOCALE_TYPE?: true
     CORPORATION_CODE?: true
     QUESTION_CONTENT?: true
+    AGREE_YN?: true
     _all?: true
   }
 
@@ -11796,6 +11808,7 @@ export namespace Prisma {
     LOCALE_TYPE: string
     CORPORATION_CODE: string | null
     QUESTION_CONTENT: string | null
+    AGREE_YN: string
     _count: T_CMN_MEM_TERMSCountAggregateOutputType | null
     _avg: T_CMN_MEM_TERMSAvgAggregateOutputType | null
     _sum: T_CMN_MEM_TERMSSumAggregateOutputType | null
@@ -11830,6 +11843,7 @@ export namespace Prisma {
     LOCALE_TYPE?: boolean
     CORPORATION_CODE?: boolean
     QUESTION_CONTENT?: boolean
+    AGREE_YN?: boolean
   }, ExtArgs["result"]["t_CMN_MEM_TERMS"]>
 
   export type T_CMN_MEM_TERMSSelectScalar = {
@@ -11845,6 +11859,7 @@ export namespace Prisma {
     LOCALE_TYPE?: boolean
     CORPORATION_CODE?: boolean
     QUESTION_CONTENT?: boolean
+    AGREE_YN?: boolean
   }
 
 
@@ -11864,6 +11879,7 @@ export namespace Prisma {
       LOCALE_TYPE: string
       CORPORATION_CODE: string | null
       QUESTION_CONTENT: string | null
+      AGREE_YN: string
     }, ExtArgs["result"]["t_CMN_MEM_TERMS"]>
     composites: {}
   }
@@ -12270,6 +12286,7 @@ export namespace Prisma {
     readonly LOCALE_TYPE: FieldRef<"T_CMN_MEM_TERMS", 'String'>
     readonly CORPORATION_CODE: FieldRef<"T_CMN_MEM_TERMS", 'String'>
     readonly QUESTION_CONTENT: FieldRef<"T_CMN_MEM_TERMS", 'String'>
+    readonly AGREE_YN: FieldRef<"T_CMN_MEM_TERMS", 'String'>
   }
     
 
@@ -19083,4298 +19100,6 @@ export namespace Prisma {
 
 
   /**
-   * Model T_CMN_USAGE_2021
-   */
-
-  export type AggregateT_CMN_USAGE_2021 = {
-    _count: T_CMN_USAGE_2021CountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2021AvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2021SumAggregateOutputType | null
-    _min: T_CMN_USAGE_2021MinAggregateOutputType | null
-    _max: T_CMN_USAGE_2021MaxAggregateOutputType | null
-  }
-
-  export type T_CMN_USAGE_2021AvgAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2021SumAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2021MinAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2021MaxAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2021CountAggregateOutputType = {
-    SEQ: number
-    PROGRAM: number
-    USER: number
-    EMAIL: number
-    IP: number
-    COMPANY: number
-    COUNTRY: number
-    REGION: number
-    OS_VERSION: number
-    PROGRAM_VERSION: number
-    OFFICE_VERSION: number
-    AUTODESK_VERSION: number
-    REQUEST_CODE: number
-    JOBTYPE: number
-    MARKETING: number
-    LOGTYPE: number
-    USAGETYPE: number
-    CREATE_DATE: number
-    ENTITY: number
-    OS_LOCALE: number
-    _all: number
-  }
-
-
-  export type T_CMN_USAGE_2021AvgAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2021SumAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2021MinAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2021MaxAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2021CountAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-    _all?: true
-  }
-
-  export type T_CMN_USAGE_2021AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2021 to aggregate.
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2021s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2021OrderByWithRelationInput | T_CMN_USAGE_2021OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: T_CMN_USAGE_2021WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2021s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2021s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned T_CMN_USAGE_2021s
-    **/
-    _count?: true | T_CMN_USAGE_2021CountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: T_CMN_USAGE_2021AvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: T_CMN_USAGE_2021SumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: T_CMN_USAGE_2021MinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: T_CMN_USAGE_2021MaxAggregateInputType
-  }
-
-  export type GetT_CMN_USAGE_2021AggregateType<T extends T_CMN_USAGE_2021AggregateArgs> = {
-        [P in keyof T & keyof AggregateT_CMN_USAGE_2021]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateT_CMN_USAGE_2021[P]>
-      : GetScalarType<T[P], AggregateT_CMN_USAGE_2021[P]>
-  }
-
-
-
-
-  export type T_CMN_USAGE_2021GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: T_CMN_USAGE_2021WhereInput
-    orderBy?: T_CMN_USAGE_2021OrderByWithAggregationInput | T_CMN_USAGE_2021OrderByWithAggregationInput[]
-    by: T_CMN_USAGE_2021ScalarFieldEnum[] | T_CMN_USAGE_2021ScalarFieldEnum
-    having?: T_CMN_USAGE_2021ScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: T_CMN_USAGE_2021CountAggregateInputType | true
-    _avg?: T_CMN_USAGE_2021AvgAggregateInputType
-    _sum?: T_CMN_USAGE_2021SumAggregateInputType
-    _min?: T_CMN_USAGE_2021MinAggregateInputType
-    _max?: T_CMN_USAGE_2021MaxAggregateInputType
-  }
-
-  export type T_CMN_USAGE_2021GroupByOutputType = {
-    SEQ: number
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-    _count: T_CMN_USAGE_2021CountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2021AvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2021SumAggregateOutputType | null
-    _min: T_CMN_USAGE_2021MinAggregateOutputType | null
-    _max: T_CMN_USAGE_2021MaxAggregateOutputType | null
-  }
-
-  type GetT_CMN_USAGE_2021GroupByPayload<T extends T_CMN_USAGE_2021GroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<T_CMN_USAGE_2021GroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof T_CMN_USAGE_2021GroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], T_CMN_USAGE_2021GroupByOutputType[P]>
-            : GetScalarType<T[P], T_CMN_USAGE_2021GroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type T_CMN_USAGE_2021Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }, ExtArgs["result"]["t_CMN_USAGE_2021"]>
-
-  export type T_CMN_USAGE_2021SelectScalar = {
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }
-
-
-  export type $T_CMN_USAGE_2021Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "T_CMN_USAGE_2021"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      SEQ: number
-      PROGRAM: string | null
-      USER: string | null
-      EMAIL: string | null
-      IP: string | null
-      COMPANY: string | null
-      COUNTRY: string | null
-      REGION: string | null
-      OS_VERSION: string | null
-      PROGRAM_VERSION: string | null
-      OFFICE_VERSION: string | null
-      AUTODESK_VERSION: string | null
-      REQUEST_CODE: string | null
-      JOBTYPE: string | null
-      MARKETING: string | null
-      LOGTYPE: string | null
-      USAGETYPE: number | null
-      CREATE_DATE: Date | null
-      ENTITY: string | null
-      OS_LOCALE: string | null
-    }, ExtArgs["result"]["t_CMN_USAGE_2021"]>
-    composites: {}
-  }
-
-
-  type T_CMN_USAGE_2021GetPayload<S extends boolean | null | undefined | T_CMN_USAGE_2021DefaultArgs> = $Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload, S>
-
-  type T_CMN_USAGE_2021CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<T_CMN_USAGE_2021FindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: T_CMN_USAGE_2021CountAggregateInputType | true
-    }
-
-  export interface T_CMN_USAGE_2021Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_USAGE_2021'], meta: { name: 'T_CMN_USAGE_2021' } }
-    /**
-     * Find zero or one T_CMN_USAGE_2021 that matches the filter.
-     * @param {T_CMN_USAGE_2021FindUniqueArgs} args - Arguments to find a T_CMN_USAGE_2021
-     * @example
-     * // Get one T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends T_CMN_USAGE_2021FindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021FindUniqueArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one T_CMN_USAGE_2021 that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {T_CMN_USAGE_2021FindUniqueOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2021
-     * @example
-     * // Get one T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends T_CMN_USAGE_2021FindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021FindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2021 that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021FindFirstArgs} args - Arguments to find a T_CMN_USAGE_2021
-     * @example
-     * // Get one T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends T_CMN_USAGE_2021FindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021FindFirstArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2021 that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021FindFirstOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2021
-     * @example
-     * // Get one T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends T_CMN_USAGE_2021FindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021FindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more T_CMN_USAGE_2021s that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021FindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all T_CMN_USAGE_2021s
-     * const t_CMN_USAGE_2021s = await prisma.t_CMN_USAGE_2021.findMany()
-     * 
-     * // Get first 10 T_CMN_USAGE_2021s
-     * const t_CMN_USAGE_2021s = await prisma.t_CMN_USAGE_2021.findMany({ take: 10 })
-     * 
-     * // Only select the `SEQ`
-     * const t_CMN_USAGE_2021WithSEQOnly = await prisma.t_CMN_USAGE_2021.findMany({ select: { SEQ: true } })
-     * 
-    **/
-    findMany<T extends T_CMN_USAGE_2021FindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021FindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a T_CMN_USAGE_2021.
-     * @param {T_CMN_USAGE_2021CreateArgs} args - Arguments to create a T_CMN_USAGE_2021.
-     * @example
-     * // Create one T_CMN_USAGE_2021
-     * const T_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.create({
-     *   data: {
-     *     // ... data to create a T_CMN_USAGE_2021
-     *   }
-     * })
-     * 
-    **/
-    create<T extends T_CMN_USAGE_2021CreateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021CreateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many T_CMN_USAGE_2021s.
-     *     @param {T_CMN_USAGE_2021CreateManyArgs} args - Arguments to create many T_CMN_USAGE_2021s.
-     *     @example
-     *     // Create many T_CMN_USAGE_2021s
-     *     const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends T_CMN_USAGE_2021CreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021CreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a T_CMN_USAGE_2021.
-     * @param {T_CMN_USAGE_2021DeleteArgs} args - Arguments to delete one T_CMN_USAGE_2021.
-     * @example
-     * // Delete one T_CMN_USAGE_2021
-     * const T_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.delete({
-     *   where: {
-     *     // ... filter to delete one T_CMN_USAGE_2021
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends T_CMN_USAGE_2021DeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021DeleteArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one T_CMN_USAGE_2021.
-     * @param {T_CMN_USAGE_2021UpdateArgs} args - Arguments to update one T_CMN_USAGE_2021.
-     * @example
-     * // Update one T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends T_CMN_USAGE_2021UpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021UpdateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more T_CMN_USAGE_2021s.
-     * @param {T_CMN_USAGE_2021DeleteManyArgs} args - Arguments to filter T_CMN_USAGE_2021s to delete.
-     * @example
-     * // Delete a few T_CMN_USAGE_2021s
-     * const { count } = await prisma.t_CMN_USAGE_2021.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends T_CMN_USAGE_2021DeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2021DeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more T_CMN_USAGE_2021s.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021UpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many T_CMN_USAGE_2021s
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends T_CMN_USAGE_2021UpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021UpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one T_CMN_USAGE_2021.
-     * @param {T_CMN_USAGE_2021UpsertArgs} args - Arguments to update or create a T_CMN_USAGE_2021.
-     * @example
-     * // Update or create a T_CMN_USAGE_2021
-     * const t_CMN_USAGE_2021 = await prisma.t_CMN_USAGE_2021.upsert({
-     *   create: {
-     *     // ... data to create a T_CMN_USAGE_2021
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2021 we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends T_CMN_USAGE_2021UpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2021UpsertArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2021Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2021Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of T_CMN_USAGE_2021s.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021CountArgs} args - Arguments to filter T_CMN_USAGE_2021s to count.
-     * @example
-     * // Count the number of T_CMN_USAGE_2021s
-     * const count = await prisma.t_CMN_USAGE_2021.count({
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2021s we want to count
-     *   }
-     * })
-    **/
-    count<T extends T_CMN_USAGE_2021CountArgs>(
-      args?: Subset<T, T_CMN_USAGE_2021CountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], T_CMN_USAGE_2021CountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a T_CMN_USAGE_2021.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends T_CMN_USAGE_2021AggregateArgs>(args: Subset<T, T_CMN_USAGE_2021AggregateArgs>): Prisma.PrismaPromise<GetT_CMN_USAGE_2021AggregateType<T>>
-
-    /**
-     * Group by T_CMN_USAGE_2021.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2021GroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends T_CMN_USAGE_2021GroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: T_CMN_USAGE_2021GroupByArgs['orderBy'] }
-        : { orderBy?: T_CMN_USAGE_2021GroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, T_CMN_USAGE_2021GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_USAGE_2021GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the T_CMN_USAGE_2021 model
-   */
-  readonly fields: T_CMN_USAGE_2021FieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for T_CMN_USAGE_2021.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__T_CMN_USAGE_2021Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the T_CMN_USAGE_2021 model
-   */ 
-  interface T_CMN_USAGE_2021FieldRefs {
-    readonly SEQ: FieldRef<"T_CMN_USAGE_2021", 'Int'>
-    readonly PROGRAM: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly USER: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly EMAIL: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly IP: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly COMPANY: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly COUNTRY: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly REGION: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly OS_VERSION: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly PROGRAM_VERSION: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly OFFICE_VERSION: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly AUTODESK_VERSION: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly REQUEST_CODE: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly JOBTYPE: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly MARKETING: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly LOGTYPE: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly USAGETYPE: FieldRef<"T_CMN_USAGE_2021", 'Int'>
-    readonly CREATE_DATE: FieldRef<"T_CMN_USAGE_2021", 'DateTime'>
-    readonly ENTITY: FieldRef<"T_CMN_USAGE_2021", 'String'>
-    readonly OS_LOCALE: FieldRef<"T_CMN_USAGE_2021", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * T_CMN_USAGE_2021 findUnique
-   */
-  export type T_CMN_USAGE_2021FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2021 to fetch.
-     */
-    where: T_CMN_USAGE_2021WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 findUniqueOrThrow
-   */
-  export type T_CMN_USAGE_2021FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2021 to fetch.
-     */
-    where: T_CMN_USAGE_2021WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 findFirst
-   */
-  export type T_CMN_USAGE_2021FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2021 to fetch.
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2021s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2021OrderByWithRelationInput | T_CMN_USAGE_2021OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2021s.
-     */
-    cursor?: T_CMN_USAGE_2021WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2021s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2021s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2021s.
-     */
-    distinct?: T_CMN_USAGE_2021ScalarFieldEnum | T_CMN_USAGE_2021ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 findFirstOrThrow
-   */
-  export type T_CMN_USAGE_2021FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2021 to fetch.
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2021s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2021OrderByWithRelationInput | T_CMN_USAGE_2021OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2021s.
-     */
-    cursor?: T_CMN_USAGE_2021WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2021s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2021s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2021s.
-     */
-    distinct?: T_CMN_USAGE_2021ScalarFieldEnum | T_CMN_USAGE_2021ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 findMany
-   */
-  export type T_CMN_USAGE_2021FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2021s to fetch.
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2021s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2021OrderByWithRelationInput | T_CMN_USAGE_2021OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing T_CMN_USAGE_2021s.
-     */
-    cursor?: T_CMN_USAGE_2021WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2021s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2021s.
-     */
-    skip?: number
-    distinct?: T_CMN_USAGE_2021ScalarFieldEnum | T_CMN_USAGE_2021ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 create
-   */
-  export type T_CMN_USAGE_2021CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * The data needed to create a T_CMN_USAGE_2021.
-     */
-    data: XOR<T_CMN_USAGE_2021CreateInput, T_CMN_USAGE_2021UncheckedCreateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 createMany
-   */
-  export type T_CMN_USAGE_2021CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many T_CMN_USAGE_2021s.
-     */
-    data: T_CMN_USAGE_2021CreateManyInput | T_CMN_USAGE_2021CreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 update
-   */
-  export type T_CMN_USAGE_2021UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * The data needed to update a T_CMN_USAGE_2021.
-     */
-    data: XOR<T_CMN_USAGE_2021UpdateInput, T_CMN_USAGE_2021UncheckedUpdateInput>
-    /**
-     * Choose, which T_CMN_USAGE_2021 to update.
-     */
-    where: T_CMN_USAGE_2021WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 updateMany
-   */
-  export type T_CMN_USAGE_2021UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update T_CMN_USAGE_2021s.
-     */
-    data: XOR<T_CMN_USAGE_2021UpdateManyMutationInput, T_CMN_USAGE_2021UncheckedUpdateManyInput>
-    /**
-     * Filter which T_CMN_USAGE_2021s to update
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 upsert
-   */
-  export type T_CMN_USAGE_2021UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * The filter to search for the T_CMN_USAGE_2021 to update in case it exists.
-     */
-    where: T_CMN_USAGE_2021WhereUniqueInput
-    /**
-     * In case the T_CMN_USAGE_2021 found by the `where` argument doesn't exist, create a new T_CMN_USAGE_2021 with this data.
-     */
-    create: XOR<T_CMN_USAGE_2021CreateInput, T_CMN_USAGE_2021UncheckedCreateInput>
-    /**
-     * In case the T_CMN_USAGE_2021 was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<T_CMN_USAGE_2021UpdateInput, T_CMN_USAGE_2021UncheckedUpdateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 delete
-   */
-  export type T_CMN_USAGE_2021DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-    /**
-     * Filter which T_CMN_USAGE_2021 to delete.
-     */
-    where: T_CMN_USAGE_2021WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 deleteMany
-   */
-  export type T_CMN_USAGE_2021DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2021s to delete
-     */
-    where?: T_CMN_USAGE_2021WhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2021 without action
-   */
-  export type T_CMN_USAGE_2021DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2021
-     */
-    select?: T_CMN_USAGE_2021Select<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model T_CMN_USAGE_2022
-   */
-
-  export type AggregateT_CMN_USAGE_2022 = {
-    _count: T_CMN_USAGE_2022CountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2022AvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2022SumAggregateOutputType | null
-    _min: T_CMN_USAGE_2022MinAggregateOutputType | null
-    _max: T_CMN_USAGE_2022MaxAggregateOutputType | null
-  }
-
-  export type T_CMN_USAGE_2022AvgAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2022SumAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2022MinAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2022MaxAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2022CountAggregateOutputType = {
-    SEQ: number
-    PROGRAM: number
-    USER: number
-    EMAIL: number
-    IP: number
-    COMPANY: number
-    COUNTRY: number
-    REGION: number
-    OS_VERSION: number
-    PROGRAM_VERSION: number
-    OFFICE_VERSION: number
-    AUTODESK_VERSION: number
-    REQUEST_CODE: number
-    JOBTYPE: number
-    MARKETING: number
-    LOGTYPE: number
-    USAGETYPE: number
-    CREATE_DATE: number
-    ENTITY: number
-    OS_LOCALE: number
-    _all: number
-  }
-
-
-  export type T_CMN_USAGE_2022AvgAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2022SumAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2022MinAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2022MaxAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2022CountAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-    _all?: true
-  }
-
-  export type T_CMN_USAGE_2022AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2022 to aggregate.
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2022s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2022OrderByWithRelationInput | T_CMN_USAGE_2022OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: T_CMN_USAGE_2022WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2022s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2022s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned T_CMN_USAGE_2022s
-    **/
-    _count?: true | T_CMN_USAGE_2022CountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: T_CMN_USAGE_2022AvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: T_CMN_USAGE_2022SumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: T_CMN_USAGE_2022MinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: T_CMN_USAGE_2022MaxAggregateInputType
-  }
-
-  export type GetT_CMN_USAGE_2022AggregateType<T extends T_CMN_USAGE_2022AggregateArgs> = {
-        [P in keyof T & keyof AggregateT_CMN_USAGE_2022]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateT_CMN_USAGE_2022[P]>
-      : GetScalarType<T[P], AggregateT_CMN_USAGE_2022[P]>
-  }
-
-
-
-
-  export type T_CMN_USAGE_2022GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: T_CMN_USAGE_2022WhereInput
-    orderBy?: T_CMN_USAGE_2022OrderByWithAggregationInput | T_CMN_USAGE_2022OrderByWithAggregationInput[]
-    by: T_CMN_USAGE_2022ScalarFieldEnum[] | T_CMN_USAGE_2022ScalarFieldEnum
-    having?: T_CMN_USAGE_2022ScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: T_CMN_USAGE_2022CountAggregateInputType | true
-    _avg?: T_CMN_USAGE_2022AvgAggregateInputType
-    _sum?: T_CMN_USAGE_2022SumAggregateInputType
-    _min?: T_CMN_USAGE_2022MinAggregateInputType
-    _max?: T_CMN_USAGE_2022MaxAggregateInputType
-  }
-
-  export type T_CMN_USAGE_2022GroupByOutputType = {
-    SEQ: number
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-    _count: T_CMN_USAGE_2022CountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2022AvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2022SumAggregateOutputType | null
-    _min: T_CMN_USAGE_2022MinAggregateOutputType | null
-    _max: T_CMN_USAGE_2022MaxAggregateOutputType | null
-  }
-
-  type GetT_CMN_USAGE_2022GroupByPayload<T extends T_CMN_USAGE_2022GroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<T_CMN_USAGE_2022GroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof T_CMN_USAGE_2022GroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], T_CMN_USAGE_2022GroupByOutputType[P]>
-            : GetScalarType<T[P], T_CMN_USAGE_2022GroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type T_CMN_USAGE_2022Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }, ExtArgs["result"]["t_CMN_USAGE_2022"]>
-
-  export type T_CMN_USAGE_2022SelectScalar = {
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }
-
-
-  export type $T_CMN_USAGE_2022Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "T_CMN_USAGE_2022"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      SEQ: number
-      PROGRAM: string | null
-      USER: string | null
-      EMAIL: string | null
-      IP: string | null
-      COMPANY: string | null
-      COUNTRY: string | null
-      REGION: string | null
-      OS_VERSION: string | null
-      PROGRAM_VERSION: string | null
-      OFFICE_VERSION: string | null
-      AUTODESK_VERSION: string | null
-      REQUEST_CODE: string | null
-      JOBTYPE: string | null
-      MARKETING: string | null
-      LOGTYPE: string | null
-      USAGETYPE: number | null
-      CREATE_DATE: Date | null
-      ENTITY: string | null
-      OS_LOCALE: string | null
-    }, ExtArgs["result"]["t_CMN_USAGE_2022"]>
-    composites: {}
-  }
-
-
-  type T_CMN_USAGE_2022GetPayload<S extends boolean | null | undefined | T_CMN_USAGE_2022DefaultArgs> = $Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload, S>
-
-  type T_CMN_USAGE_2022CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<T_CMN_USAGE_2022FindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: T_CMN_USAGE_2022CountAggregateInputType | true
-    }
-
-  export interface T_CMN_USAGE_2022Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_USAGE_2022'], meta: { name: 'T_CMN_USAGE_2022' } }
-    /**
-     * Find zero or one T_CMN_USAGE_2022 that matches the filter.
-     * @param {T_CMN_USAGE_2022FindUniqueArgs} args - Arguments to find a T_CMN_USAGE_2022
-     * @example
-     * // Get one T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends T_CMN_USAGE_2022FindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022FindUniqueArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one T_CMN_USAGE_2022 that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {T_CMN_USAGE_2022FindUniqueOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2022
-     * @example
-     * // Get one T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends T_CMN_USAGE_2022FindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022FindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2022 that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022FindFirstArgs} args - Arguments to find a T_CMN_USAGE_2022
-     * @example
-     * // Get one T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends T_CMN_USAGE_2022FindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022FindFirstArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2022 that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022FindFirstOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2022
-     * @example
-     * // Get one T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends T_CMN_USAGE_2022FindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022FindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more T_CMN_USAGE_2022s that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022FindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all T_CMN_USAGE_2022s
-     * const t_CMN_USAGE_2022s = await prisma.t_CMN_USAGE_2022.findMany()
-     * 
-     * // Get first 10 T_CMN_USAGE_2022s
-     * const t_CMN_USAGE_2022s = await prisma.t_CMN_USAGE_2022.findMany({ take: 10 })
-     * 
-     * // Only select the `SEQ`
-     * const t_CMN_USAGE_2022WithSEQOnly = await prisma.t_CMN_USAGE_2022.findMany({ select: { SEQ: true } })
-     * 
-    **/
-    findMany<T extends T_CMN_USAGE_2022FindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022FindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a T_CMN_USAGE_2022.
-     * @param {T_CMN_USAGE_2022CreateArgs} args - Arguments to create a T_CMN_USAGE_2022.
-     * @example
-     * // Create one T_CMN_USAGE_2022
-     * const T_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.create({
-     *   data: {
-     *     // ... data to create a T_CMN_USAGE_2022
-     *   }
-     * })
-     * 
-    **/
-    create<T extends T_CMN_USAGE_2022CreateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022CreateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many T_CMN_USAGE_2022s.
-     *     @param {T_CMN_USAGE_2022CreateManyArgs} args - Arguments to create many T_CMN_USAGE_2022s.
-     *     @example
-     *     // Create many T_CMN_USAGE_2022s
-     *     const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends T_CMN_USAGE_2022CreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022CreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a T_CMN_USAGE_2022.
-     * @param {T_CMN_USAGE_2022DeleteArgs} args - Arguments to delete one T_CMN_USAGE_2022.
-     * @example
-     * // Delete one T_CMN_USAGE_2022
-     * const T_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.delete({
-     *   where: {
-     *     // ... filter to delete one T_CMN_USAGE_2022
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends T_CMN_USAGE_2022DeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022DeleteArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one T_CMN_USAGE_2022.
-     * @param {T_CMN_USAGE_2022UpdateArgs} args - Arguments to update one T_CMN_USAGE_2022.
-     * @example
-     * // Update one T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends T_CMN_USAGE_2022UpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022UpdateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more T_CMN_USAGE_2022s.
-     * @param {T_CMN_USAGE_2022DeleteManyArgs} args - Arguments to filter T_CMN_USAGE_2022s to delete.
-     * @example
-     * // Delete a few T_CMN_USAGE_2022s
-     * const { count } = await prisma.t_CMN_USAGE_2022.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends T_CMN_USAGE_2022DeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2022DeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more T_CMN_USAGE_2022s.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022UpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many T_CMN_USAGE_2022s
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends T_CMN_USAGE_2022UpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022UpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one T_CMN_USAGE_2022.
-     * @param {T_CMN_USAGE_2022UpsertArgs} args - Arguments to update or create a T_CMN_USAGE_2022.
-     * @example
-     * // Update or create a T_CMN_USAGE_2022
-     * const t_CMN_USAGE_2022 = await prisma.t_CMN_USAGE_2022.upsert({
-     *   create: {
-     *     // ... data to create a T_CMN_USAGE_2022
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2022 we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends T_CMN_USAGE_2022UpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2022UpsertArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2022Client<$Result.GetResult<Prisma.$T_CMN_USAGE_2022Payload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of T_CMN_USAGE_2022s.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022CountArgs} args - Arguments to filter T_CMN_USAGE_2022s to count.
-     * @example
-     * // Count the number of T_CMN_USAGE_2022s
-     * const count = await prisma.t_CMN_USAGE_2022.count({
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2022s we want to count
-     *   }
-     * })
-    **/
-    count<T extends T_CMN_USAGE_2022CountArgs>(
-      args?: Subset<T, T_CMN_USAGE_2022CountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], T_CMN_USAGE_2022CountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a T_CMN_USAGE_2022.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends T_CMN_USAGE_2022AggregateArgs>(args: Subset<T, T_CMN_USAGE_2022AggregateArgs>): Prisma.PrismaPromise<GetT_CMN_USAGE_2022AggregateType<T>>
-
-    /**
-     * Group by T_CMN_USAGE_2022.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2022GroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends T_CMN_USAGE_2022GroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: T_CMN_USAGE_2022GroupByArgs['orderBy'] }
-        : { orderBy?: T_CMN_USAGE_2022GroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, T_CMN_USAGE_2022GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_USAGE_2022GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the T_CMN_USAGE_2022 model
-   */
-  readonly fields: T_CMN_USAGE_2022FieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for T_CMN_USAGE_2022.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__T_CMN_USAGE_2022Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the T_CMN_USAGE_2022 model
-   */ 
-  interface T_CMN_USAGE_2022FieldRefs {
-    readonly SEQ: FieldRef<"T_CMN_USAGE_2022", 'Int'>
-    readonly PROGRAM: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly USER: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly EMAIL: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly IP: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly COMPANY: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly COUNTRY: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly REGION: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly OS_VERSION: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly PROGRAM_VERSION: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly OFFICE_VERSION: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly AUTODESK_VERSION: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly REQUEST_CODE: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly JOBTYPE: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly MARKETING: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly LOGTYPE: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly USAGETYPE: FieldRef<"T_CMN_USAGE_2022", 'Int'>
-    readonly CREATE_DATE: FieldRef<"T_CMN_USAGE_2022", 'DateTime'>
-    readonly ENTITY: FieldRef<"T_CMN_USAGE_2022", 'String'>
-    readonly OS_LOCALE: FieldRef<"T_CMN_USAGE_2022", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * T_CMN_USAGE_2022 findUnique
-   */
-  export type T_CMN_USAGE_2022FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2022 to fetch.
-     */
-    where: T_CMN_USAGE_2022WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 findUniqueOrThrow
-   */
-  export type T_CMN_USAGE_2022FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2022 to fetch.
-     */
-    where: T_CMN_USAGE_2022WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 findFirst
-   */
-  export type T_CMN_USAGE_2022FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2022 to fetch.
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2022s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2022OrderByWithRelationInput | T_CMN_USAGE_2022OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2022s.
-     */
-    cursor?: T_CMN_USAGE_2022WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2022s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2022s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2022s.
-     */
-    distinct?: T_CMN_USAGE_2022ScalarFieldEnum | T_CMN_USAGE_2022ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 findFirstOrThrow
-   */
-  export type T_CMN_USAGE_2022FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2022 to fetch.
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2022s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2022OrderByWithRelationInput | T_CMN_USAGE_2022OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2022s.
-     */
-    cursor?: T_CMN_USAGE_2022WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2022s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2022s.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2022s.
-     */
-    distinct?: T_CMN_USAGE_2022ScalarFieldEnum | T_CMN_USAGE_2022ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 findMany
-   */
-  export type T_CMN_USAGE_2022FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2022s to fetch.
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2022s to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2022OrderByWithRelationInput | T_CMN_USAGE_2022OrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing T_CMN_USAGE_2022s.
-     */
-    cursor?: T_CMN_USAGE_2022WhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2022s from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2022s.
-     */
-    skip?: number
-    distinct?: T_CMN_USAGE_2022ScalarFieldEnum | T_CMN_USAGE_2022ScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 create
-   */
-  export type T_CMN_USAGE_2022CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * The data needed to create a T_CMN_USAGE_2022.
-     */
-    data: XOR<T_CMN_USAGE_2022CreateInput, T_CMN_USAGE_2022UncheckedCreateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 createMany
-   */
-  export type T_CMN_USAGE_2022CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many T_CMN_USAGE_2022s.
-     */
-    data: T_CMN_USAGE_2022CreateManyInput | T_CMN_USAGE_2022CreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 update
-   */
-  export type T_CMN_USAGE_2022UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * The data needed to update a T_CMN_USAGE_2022.
-     */
-    data: XOR<T_CMN_USAGE_2022UpdateInput, T_CMN_USAGE_2022UncheckedUpdateInput>
-    /**
-     * Choose, which T_CMN_USAGE_2022 to update.
-     */
-    where: T_CMN_USAGE_2022WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 updateMany
-   */
-  export type T_CMN_USAGE_2022UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update T_CMN_USAGE_2022s.
-     */
-    data: XOR<T_CMN_USAGE_2022UpdateManyMutationInput, T_CMN_USAGE_2022UncheckedUpdateManyInput>
-    /**
-     * Filter which T_CMN_USAGE_2022s to update
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 upsert
-   */
-  export type T_CMN_USAGE_2022UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * The filter to search for the T_CMN_USAGE_2022 to update in case it exists.
-     */
-    where: T_CMN_USAGE_2022WhereUniqueInput
-    /**
-     * In case the T_CMN_USAGE_2022 found by the `where` argument doesn't exist, create a new T_CMN_USAGE_2022 with this data.
-     */
-    create: XOR<T_CMN_USAGE_2022CreateInput, T_CMN_USAGE_2022UncheckedCreateInput>
-    /**
-     * In case the T_CMN_USAGE_2022 was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<T_CMN_USAGE_2022UpdateInput, T_CMN_USAGE_2022UncheckedUpdateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 delete
-   */
-  export type T_CMN_USAGE_2022DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-    /**
-     * Filter which T_CMN_USAGE_2022 to delete.
-     */
-    where: T_CMN_USAGE_2022WhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 deleteMany
-   */
-  export type T_CMN_USAGE_2022DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2022s to delete
-     */
-    where?: T_CMN_USAGE_2022WhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2022 without action
-   */
-  export type T_CMN_USAGE_2022DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2022
-     */
-    select?: T_CMN_USAGE_2022Select<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model T_CMN_USAGE_2023_REVIT
-   */
-
-  export type AggregateT_CMN_USAGE_2023_REVIT = {
-    _count: T_CMN_USAGE_2023_REVITCountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2023_REVITAvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2023_REVITSumAggregateOutputType | null
-    _min: T_CMN_USAGE_2023_REVITMinAggregateOutputType | null
-    _max: T_CMN_USAGE_2023_REVITMaxAggregateOutputType | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITAvgAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITSumAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITMinAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITMaxAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITCountAggregateOutputType = {
-    SEQ: number
-    PROGRAM: number
-    USER: number
-    EMAIL: number
-    IP: number
-    COMPANY: number
-    COUNTRY: number
-    REGION: number
-    OS_VERSION: number
-    PROGRAM_VERSION: number
-    OFFICE_VERSION: number
-    AUTODESK_VERSION: number
-    REQUEST_CODE: number
-    JOBTYPE: number
-    MARKETING: number
-    LOGTYPE: number
-    USAGETYPE: number
-    CREATE_DATE: number
-    ENTITY: number
-    OS_LOCALE: number
-    _all: number
-  }
-
-
-  export type T_CMN_USAGE_2023_REVITAvgAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2023_REVITSumAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_2023_REVITMinAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2023_REVITMaxAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_2023_REVITCountAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-    _all?: true
-  }
-
-  export type T_CMN_USAGE_2023_REVITAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2023_REVIT to aggregate.
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2023_REVITS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2023_REVITOrderByWithRelationInput | T_CMN_USAGE_2023_REVITOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: T_CMN_USAGE_2023_REVITWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2023_REVITS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2023_REVITS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned T_CMN_USAGE_2023_REVITS
-    **/
-    _count?: true | T_CMN_USAGE_2023_REVITCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: T_CMN_USAGE_2023_REVITAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: T_CMN_USAGE_2023_REVITSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: T_CMN_USAGE_2023_REVITMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: T_CMN_USAGE_2023_REVITMaxAggregateInputType
-  }
-
-  export type GetT_CMN_USAGE_2023_REVITAggregateType<T extends T_CMN_USAGE_2023_REVITAggregateArgs> = {
-        [P in keyof T & keyof AggregateT_CMN_USAGE_2023_REVIT]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateT_CMN_USAGE_2023_REVIT[P]>
-      : GetScalarType<T[P], AggregateT_CMN_USAGE_2023_REVIT[P]>
-  }
-
-
-
-
-  export type T_CMN_USAGE_2023_REVITGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-    orderBy?: T_CMN_USAGE_2023_REVITOrderByWithAggregationInput | T_CMN_USAGE_2023_REVITOrderByWithAggregationInput[]
-    by: T_CMN_USAGE_2023_REVITScalarFieldEnum[] | T_CMN_USAGE_2023_REVITScalarFieldEnum
-    having?: T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: T_CMN_USAGE_2023_REVITCountAggregateInputType | true
-    _avg?: T_CMN_USAGE_2023_REVITAvgAggregateInputType
-    _sum?: T_CMN_USAGE_2023_REVITSumAggregateInputType
-    _min?: T_CMN_USAGE_2023_REVITMinAggregateInputType
-    _max?: T_CMN_USAGE_2023_REVITMaxAggregateInputType
-  }
-
-  export type T_CMN_USAGE_2023_REVITGroupByOutputType = {
-    SEQ: number
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-    _count: T_CMN_USAGE_2023_REVITCountAggregateOutputType | null
-    _avg: T_CMN_USAGE_2023_REVITAvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_2023_REVITSumAggregateOutputType | null
-    _min: T_CMN_USAGE_2023_REVITMinAggregateOutputType | null
-    _max: T_CMN_USAGE_2023_REVITMaxAggregateOutputType | null
-  }
-
-  type GetT_CMN_USAGE_2023_REVITGroupByPayload<T extends T_CMN_USAGE_2023_REVITGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<T_CMN_USAGE_2023_REVITGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof T_CMN_USAGE_2023_REVITGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], T_CMN_USAGE_2023_REVITGroupByOutputType[P]>
-            : GetScalarType<T[P], T_CMN_USAGE_2023_REVITGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type T_CMN_USAGE_2023_REVITSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }, ExtArgs["result"]["t_CMN_USAGE_2023_REVIT"]>
-
-  export type T_CMN_USAGE_2023_REVITSelectScalar = {
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }
-
-
-  export type $T_CMN_USAGE_2023_REVITPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "T_CMN_USAGE_2023_REVIT"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      SEQ: number
-      PROGRAM: string | null
-      USER: string | null
-      EMAIL: string | null
-      IP: string | null
-      COMPANY: string | null
-      COUNTRY: string | null
-      REGION: string | null
-      OS_VERSION: string | null
-      PROGRAM_VERSION: string | null
-      OFFICE_VERSION: string | null
-      AUTODESK_VERSION: string | null
-      REQUEST_CODE: string | null
-      JOBTYPE: string | null
-      MARKETING: string | null
-      LOGTYPE: string | null
-      USAGETYPE: number | null
-      CREATE_DATE: Date | null
-      ENTITY: string | null
-      OS_LOCALE: string | null
-    }, ExtArgs["result"]["t_CMN_USAGE_2023_REVIT"]>
-    composites: {}
-  }
-
-
-  type T_CMN_USAGE_2023_REVITGetPayload<S extends boolean | null | undefined | T_CMN_USAGE_2023_REVITDefaultArgs> = $Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload, S>
-
-  type T_CMN_USAGE_2023_REVITCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<T_CMN_USAGE_2023_REVITFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: T_CMN_USAGE_2023_REVITCountAggregateInputType | true
-    }
-
-  export interface T_CMN_USAGE_2023_REVITDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_USAGE_2023_REVIT'], meta: { name: 'T_CMN_USAGE_2023_REVIT' } }
-    /**
-     * Find zero or one T_CMN_USAGE_2023_REVIT that matches the filter.
-     * @param {T_CMN_USAGE_2023_REVITFindUniqueArgs} args - Arguments to find a T_CMN_USAGE_2023_REVIT
-     * @example
-     * // Get one T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends T_CMN_USAGE_2023_REVITFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITFindUniqueArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one T_CMN_USAGE_2023_REVIT that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {T_CMN_USAGE_2023_REVITFindUniqueOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2023_REVIT
-     * @example
-     * // Get one T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends T_CMN_USAGE_2023_REVITFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2023_REVIT that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITFindFirstArgs} args - Arguments to find a T_CMN_USAGE_2023_REVIT
-     * @example
-     * // Get one T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends T_CMN_USAGE_2023_REVITFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITFindFirstArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_2023_REVIT that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITFindFirstOrThrowArgs} args - Arguments to find a T_CMN_USAGE_2023_REVIT
-     * @example
-     * // Get one T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends T_CMN_USAGE_2023_REVITFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more T_CMN_USAGE_2023_REVITS that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all T_CMN_USAGE_2023_REVITS
-     * const t_CMN_USAGE_2023_REVITS = await prisma.t_CMN_USAGE_2023_REVIT.findMany()
-     * 
-     * // Get first 10 T_CMN_USAGE_2023_REVITS
-     * const t_CMN_USAGE_2023_REVITS = await prisma.t_CMN_USAGE_2023_REVIT.findMany({ take: 10 })
-     * 
-     * // Only select the `SEQ`
-     * const t_CMN_USAGE_2023_REVITWithSEQOnly = await prisma.t_CMN_USAGE_2023_REVIT.findMany({ select: { SEQ: true } })
-     * 
-    **/
-    findMany<T extends T_CMN_USAGE_2023_REVITFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a T_CMN_USAGE_2023_REVIT.
-     * @param {T_CMN_USAGE_2023_REVITCreateArgs} args - Arguments to create a T_CMN_USAGE_2023_REVIT.
-     * @example
-     * // Create one T_CMN_USAGE_2023_REVIT
-     * const T_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.create({
-     *   data: {
-     *     // ... data to create a T_CMN_USAGE_2023_REVIT
-     *   }
-     * })
-     * 
-    **/
-    create<T extends T_CMN_USAGE_2023_REVITCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITCreateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many T_CMN_USAGE_2023_REVITS.
-     *     @param {T_CMN_USAGE_2023_REVITCreateManyArgs} args - Arguments to create many T_CMN_USAGE_2023_REVITS.
-     *     @example
-     *     // Create many T_CMN_USAGE_2023_REVITS
-     *     const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends T_CMN_USAGE_2023_REVITCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a T_CMN_USAGE_2023_REVIT.
-     * @param {T_CMN_USAGE_2023_REVITDeleteArgs} args - Arguments to delete one T_CMN_USAGE_2023_REVIT.
-     * @example
-     * // Delete one T_CMN_USAGE_2023_REVIT
-     * const T_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.delete({
-     *   where: {
-     *     // ... filter to delete one T_CMN_USAGE_2023_REVIT
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends T_CMN_USAGE_2023_REVITDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITDeleteArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one T_CMN_USAGE_2023_REVIT.
-     * @param {T_CMN_USAGE_2023_REVITUpdateArgs} args - Arguments to update one T_CMN_USAGE_2023_REVIT.
-     * @example
-     * // Update one T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends T_CMN_USAGE_2023_REVITUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITUpdateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more T_CMN_USAGE_2023_REVITS.
-     * @param {T_CMN_USAGE_2023_REVITDeleteManyArgs} args - Arguments to filter T_CMN_USAGE_2023_REVITS to delete.
-     * @example
-     * // Delete a few T_CMN_USAGE_2023_REVITS
-     * const { count } = await prisma.t_CMN_USAGE_2023_REVIT.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends T_CMN_USAGE_2023_REVITDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_2023_REVITDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more T_CMN_USAGE_2023_REVITS.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many T_CMN_USAGE_2023_REVITS
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends T_CMN_USAGE_2023_REVITUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one T_CMN_USAGE_2023_REVIT.
-     * @param {T_CMN_USAGE_2023_REVITUpsertArgs} args - Arguments to update or create a T_CMN_USAGE_2023_REVIT.
-     * @example
-     * // Update or create a T_CMN_USAGE_2023_REVIT
-     * const t_CMN_USAGE_2023_REVIT = await prisma.t_CMN_USAGE_2023_REVIT.upsert({
-     *   create: {
-     *     // ... data to create a T_CMN_USAGE_2023_REVIT
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2023_REVIT we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends T_CMN_USAGE_2023_REVITUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_2023_REVITUpsertArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_2023_REVITClient<$Result.GetResult<Prisma.$T_CMN_USAGE_2023_REVITPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of T_CMN_USAGE_2023_REVITS.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITCountArgs} args - Arguments to filter T_CMN_USAGE_2023_REVITS to count.
-     * @example
-     * // Count the number of T_CMN_USAGE_2023_REVITS
-     * const count = await prisma.t_CMN_USAGE_2023_REVIT.count({
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_2023_REVITS we want to count
-     *   }
-     * })
-    **/
-    count<T extends T_CMN_USAGE_2023_REVITCountArgs>(
-      args?: Subset<T, T_CMN_USAGE_2023_REVITCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], T_CMN_USAGE_2023_REVITCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a T_CMN_USAGE_2023_REVIT.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends T_CMN_USAGE_2023_REVITAggregateArgs>(args: Subset<T, T_CMN_USAGE_2023_REVITAggregateArgs>): Prisma.PrismaPromise<GetT_CMN_USAGE_2023_REVITAggregateType<T>>
-
-    /**
-     * Group by T_CMN_USAGE_2023_REVIT.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_2023_REVITGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends T_CMN_USAGE_2023_REVITGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: T_CMN_USAGE_2023_REVITGroupByArgs['orderBy'] }
-        : { orderBy?: T_CMN_USAGE_2023_REVITGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, T_CMN_USAGE_2023_REVITGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_USAGE_2023_REVITGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the T_CMN_USAGE_2023_REVIT model
-   */
-  readonly fields: T_CMN_USAGE_2023_REVITFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for T_CMN_USAGE_2023_REVIT.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__T_CMN_USAGE_2023_REVITClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the T_CMN_USAGE_2023_REVIT model
-   */ 
-  interface T_CMN_USAGE_2023_REVITFieldRefs {
-    readonly SEQ: FieldRef<"T_CMN_USAGE_2023_REVIT", 'Int'>
-    readonly PROGRAM: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly USER: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly EMAIL: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly IP: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly COMPANY: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly COUNTRY: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly REGION: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly OS_VERSION: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly PROGRAM_VERSION: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly OFFICE_VERSION: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly AUTODESK_VERSION: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly REQUEST_CODE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly JOBTYPE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly MARKETING: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly LOGTYPE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly USAGETYPE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'Int'>
-    readonly CREATE_DATE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'DateTime'>
-    readonly ENTITY: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-    readonly OS_LOCALE: FieldRef<"T_CMN_USAGE_2023_REVIT", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * T_CMN_USAGE_2023_REVIT findUnique
-   */
-  export type T_CMN_USAGE_2023_REVITFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2023_REVIT to fetch.
-     */
-    where: T_CMN_USAGE_2023_REVITWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT findUniqueOrThrow
-   */
-  export type T_CMN_USAGE_2023_REVITFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2023_REVIT to fetch.
-     */
-    where: T_CMN_USAGE_2023_REVITWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT findFirst
-   */
-  export type T_CMN_USAGE_2023_REVITFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2023_REVIT to fetch.
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2023_REVITS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2023_REVITOrderByWithRelationInput | T_CMN_USAGE_2023_REVITOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2023_REVITS.
-     */
-    cursor?: T_CMN_USAGE_2023_REVITWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2023_REVITS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2023_REVITS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2023_REVITS.
-     */
-    distinct?: T_CMN_USAGE_2023_REVITScalarFieldEnum | T_CMN_USAGE_2023_REVITScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT findFirstOrThrow
-   */
-  export type T_CMN_USAGE_2023_REVITFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2023_REVIT to fetch.
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2023_REVITS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2023_REVITOrderByWithRelationInput | T_CMN_USAGE_2023_REVITOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_2023_REVITS.
-     */
-    cursor?: T_CMN_USAGE_2023_REVITWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2023_REVITS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2023_REVITS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_2023_REVITS.
-     */
-    distinct?: T_CMN_USAGE_2023_REVITScalarFieldEnum | T_CMN_USAGE_2023_REVITScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT findMany
-   */
-  export type T_CMN_USAGE_2023_REVITFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_2023_REVITS to fetch.
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_2023_REVITS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_2023_REVITOrderByWithRelationInput | T_CMN_USAGE_2023_REVITOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing T_CMN_USAGE_2023_REVITS.
-     */
-    cursor?: T_CMN_USAGE_2023_REVITWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_2023_REVITS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_2023_REVITS.
-     */
-    skip?: number
-    distinct?: T_CMN_USAGE_2023_REVITScalarFieldEnum | T_CMN_USAGE_2023_REVITScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT create
-   */
-  export type T_CMN_USAGE_2023_REVITCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * The data needed to create a T_CMN_USAGE_2023_REVIT.
-     */
-    data: XOR<T_CMN_USAGE_2023_REVITCreateInput, T_CMN_USAGE_2023_REVITUncheckedCreateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT createMany
-   */
-  export type T_CMN_USAGE_2023_REVITCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many T_CMN_USAGE_2023_REVITS.
-     */
-    data: T_CMN_USAGE_2023_REVITCreateManyInput | T_CMN_USAGE_2023_REVITCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT update
-   */
-  export type T_CMN_USAGE_2023_REVITUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * The data needed to update a T_CMN_USAGE_2023_REVIT.
-     */
-    data: XOR<T_CMN_USAGE_2023_REVITUpdateInput, T_CMN_USAGE_2023_REVITUncheckedUpdateInput>
-    /**
-     * Choose, which T_CMN_USAGE_2023_REVIT to update.
-     */
-    where: T_CMN_USAGE_2023_REVITWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT updateMany
-   */
-  export type T_CMN_USAGE_2023_REVITUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update T_CMN_USAGE_2023_REVITS.
-     */
-    data: XOR<T_CMN_USAGE_2023_REVITUpdateManyMutationInput, T_CMN_USAGE_2023_REVITUncheckedUpdateManyInput>
-    /**
-     * Filter which T_CMN_USAGE_2023_REVITS to update
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT upsert
-   */
-  export type T_CMN_USAGE_2023_REVITUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * The filter to search for the T_CMN_USAGE_2023_REVIT to update in case it exists.
-     */
-    where: T_CMN_USAGE_2023_REVITWhereUniqueInput
-    /**
-     * In case the T_CMN_USAGE_2023_REVIT found by the `where` argument doesn't exist, create a new T_CMN_USAGE_2023_REVIT with this data.
-     */
-    create: XOR<T_CMN_USAGE_2023_REVITCreateInput, T_CMN_USAGE_2023_REVITUncheckedCreateInput>
-    /**
-     * In case the T_CMN_USAGE_2023_REVIT was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<T_CMN_USAGE_2023_REVITUpdateInput, T_CMN_USAGE_2023_REVITUncheckedUpdateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT delete
-   */
-  export type T_CMN_USAGE_2023_REVITDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-    /**
-     * Filter which T_CMN_USAGE_2023_REVIT to delete.
-     */
-    where: T_CMN_USAGE_2023_REVITWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT deleteMany
-   */
-  export type T_CMN_USAGE_2023_REVITDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_2023_REVITS to delete
-     */
-    where?: T_CMN_USAGE_2023_REVITWhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_2023_REVIT without action
-   */
-  export type T_CMN_USAGE_2023_REVITDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_2023_REVIT
-     */
-    select?: T_CMN_USAGE_2023_REVITSelect<ExtArgs> | null
-  }
-
-
-
-  /**
-   * Model T_CMN_USAGE_BACKUP
-   */
-
-  export type AggregateT_CMN_USAGE_BACKUP = {
-    _count: T_CMN_USAGE_BACKUPCountAggregateOutputType | null
-    _avg: T_CMN_USAGE_BACKUPAvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_BACKUPSumAggregateOutputType | null
-    _min: T_CMN_USAGE_BACKUPMinAggregateOutputType | null
-    _max: T_CMN_USAGE_BACKUPMaxAggregateOutputType | null
-  }
-
-  export type T_CMN_USAGE_BACKUPAvgAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_BACKUPSumAggregateOutputType = {
-    SEQ: number | null
-    USAGETYPE: number | null
-  }
-
-  export type T_CMN_USAGE_BACKUPMinAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPMaxAggregateOutputType = {
-    SEQ: number | null
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPCountAggregateOutputType = {
-    SEQ: number
-    PROGRAM: number
-    USER: number
-    EMAIL: number
-    IP: number
-    COMPANY: number
-    COUNTRY: number
-    REGION: number
-    OS_VERSION: number
-    PROGRAM_VERSION: number
-    OFFICE_VERSION: number
-    AUTODESK_VERSION: number
-    REQUEST_CODE: number
-    JOBTYPE: number
-    MARKETING: number
-    LOGTYPE: number
-    USAGETYPE: number
-    CREATE_DATE: number
-    ENTITY: number
-    OS_LOCALE: number
-    _all: number
-  }
-
-
-  export type T_CMN_USAGE_BACKUPAvgAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_BACKUPSumAggregateInputType = {
-    SEQ?: true
-    USAGETYPE?: true
-  }
-
-  export type T_CMN_USAGE_BACKUPMinAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_BACKUPMaxAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-  }
-
-  export type T_CMN_USAGE_BACKUPCountAggregateInputType = {
-    SEQ?: true
-    PROGRAM?: true
-    USER?: true
-    EMAIL?: true
-    IP?: true
-    COMPANY?: true
-    COUNTRY?: true
-    REGION?: true
-    OS_VERSION?: true
-    PROGRAM_VERSION?: true
-    OFFICE_VERSION?: true
-    AUTODESK_VERSION?: true
-    REQUEST_CODE?: true
-    JOBTYPE?: true
-    MARKETING?: true
-    LOGTYPE?: true
-    USAGETYPE?: true
-    CREATE_DATE?: true
-    ENTITY?: true
-    OS_LOCALE?: true
-    _all?: true
-  }
-
-  export type T_CMN_USAGE_BACKUPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_BACKUP to aggregate.
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_BACKUPS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_BACKUPOrderByWithRelationInput | T_CMN_USAGE_BACKUPOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: T_CMN_USAGE_BACKUPWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_BACKUPS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_BACKUPS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned T_CMN_USAGE_BACKUPS
-    **/
-    _count?: true | T_CMN_USAGE_BACKUPCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: T_CMN_USAGE_BACKUPAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: T_CMN_USAGE_BACKUPSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: T_CMN_USAGE_BACKUPMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: T_CMN_USAGE_BACKUPMaxAggregateInputType
-  }
-
-  export type GetT_CMN_USAGE_BACKUPAggregateType<T extends T_CMN_USAGE_BACKUPAggregateArgs> = {
-        [P in keyof T & keyof AggregateT_CMN_USAGE_BACKUP]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateT_CMN_USAGE_BACKUP[P]>
-      : GetScalarType<T[P], AggregateT_CMN_USAGE_BACKUP[P]>
-  }
-
-
-
-
-  export type T_CMN_USAGE_BACKUPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: T_CMN_USAGE_BACKUPWhereInput
-    orderBy?: T_CMN_USAGE_BACKUPOrderByWithAggregationInput | T_CMN_USAGE_BACKUPOrderByWithAggregationInput[]
-    by: T_CMN_USAGE_BACKUPScalarFieldEnum[] | T_CMN_USAGE_BACKUPScalarFieldEnum
-    having?: T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: T_CMN_USAGE_BACKUPCountAggregateInputType | true
-    _avg?: T_CMN_USAGE_BACKUPAvgAggregateInputType
-    _sum?: T_CMN_USAGE_BACKUPSumAggregateInputType
-    _min?: T_CMN_USAGE_BACKUPMinAggregateInputType
-    _max?: T_CMN_USAGE_BACKUPMaxAggregateInputType
-  }
-
-  export type T_CMN_USAGE_BACKUPGroupByOutputType = {
-    SEQ: number
-    PROGRAM: string | null
-    USER: string | null
-    EMAIL: string | null
-    IP: string | null
-    COMPANY: string | null
-    COUNTRY: string | null
-    REGION: string | null
-    OS_VERSION: string | null
-    PROGRAM_VERSION: string | null
-    OFFICE_VERSION: string | null
-    AUTODESK_VERSION: string | null
-    REQUEST_CODE: string | null
-    JOBTYPE: string | null
-    MARKETING: string | null
-    LOGTYPE: string | null
-    USAGETYPE: number | null
-    CREATE_DATE: Date | null
-    ENTITY: string | null
-    OS_LOCALE: string | null
-    _count: T_CMN_USAGE_BACKUPCountAggregateOutputType | null
-    _avg: T_CMN_USAGE_BACKUPAvgAggregateOutputType | null
-    _sum: T_CMN_USAGE_BACKUPSumAggregateOutputType | null
-    _min: T_CMN_USAGE_BACKUPMinAggregateOutputType | null
-    _max: T_CMN_USAGE_BACKUPMaxAggregateOutputType | null
-  }
-
-  type GetT_CMN_USAGE_BACKUPGroupByPayload<T extends T_CMN_USAGE_BACKUPGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<T_CMN_USAGE_BACKUPGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof T_CMN_USAGE_BACKUPGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], T_CMN_USAGE_BACKUPGroupByOutputType[P]>
-            : GetScalarType<T[P], T_CMN_USAGE_BACKUPGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type T_CMN_USAGE_BACKUPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }, ExtArgs["result"]["t_CMN_USAGE_BACKUP"]>
-
-  export type T_CMN_USAGE_BACKUPSelectScalar = {
-    SEQ?: boolean
-    PROGRAM?: boolean
-    USER?: boolean
-    EMAIL?: boolean
-    IP?: boolean
-    COMPANY?: boolean
-    COUNTRY?: boolean
-    REGION?: boolean
-    OS_VERSION?: boolean
-    PROGRAM_VERSION?: boolean
-    OFFICE_VERSION?: boolean
-    AUTODESK_VERSION?: boolean
-    REQUEST_CODE?: boolean
-    JOBTYPE?: boolean
-    MARKETING?: boolean
-    LOGTYPE?: boolean
-    USAGETYPE?: boolean
-    CREATE_DATE?: boolean
-    ENTITY?: boolean
-    OS_LOCALE?: boolean
-  }
-
-
-  export type $T_CMN_USAGE_BACKUPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "T_CMN_USAGE_BACKUP"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      SEQ: number
-      PROGRAM: string | null
-      USER: string | null
-      EMAIL: string | null
-      IP: string | null
-      COMPANY: string | null
-      COUNTRY: string | null
-      REGION: string | null
-      OS_VERSION: string | null
-      PROGRAM_VERSION: string | null
-      OFFICE_VERSION: string | null
-      AUTODESK_VERSION: string | null
-      REQUEST_CODE: string | null
-      JOBTYPE: string | null
-      MARKETING: string | null
-      LOGTYPE: string | null
-      USAGETYPE: number | null
-      CREATE_DATE: Date | null
-      ENTITY: string | null
-      OS_LOCALE: string | null
-    }, ExtArgs["result"]["t_CMN_USAGE_BACKUP"]>
-    composites: {}
-  }
-
-
-  type T_CMN_USAGE_BACKUPGetPayload<S extends boolean | null | undefined | T_CMN_USAGE_BACKUPDefaultArgs> = $Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload, S>
-
-  type T_CMN_USAGE_BACKUPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<T_CMN_USAGE_BACKUPFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: T_CMN_USAGE_BACKUPCountAggregateInputType | true
-    }
-
-  export interface T_CMN_USAGE_BACKUPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_USAGE_BACKUP'], meta: { name: 'T_CMN_USAGE_BACKUP' } }
-    /**
-     * Find zero or one T_CMN_USAGE_BACKUP that matches the filter.
-     * @param {T_CMN_USAGE_BACKUPFindUniqueArgs} args - Arguments to find a T_CMN_USAGE_BACKUP
-     * @example
-     * // Get one T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends T_CMN_USAGE_BACKUPFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPFindUniqueArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one T_CMN_USAGE_BACKUP that matches the filter or throw an error  with `error.code='P2025'` 
-     *     if no matches were found.
-     * @param {T_CMN_USAGE_BACKUPFindUniqueOrThrowArgs} args - Arguments to find a T_CMN_USAGE_BACKUP
-     * @example
-     * // Get one T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends T_CMN_USAGE_BACKUPFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_BACKUP that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPFindFirstArgs} args - Arguments to find a T_CMN_USAGE_BACKUP
-     * @example
-     * // Get one T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends T_CMN_USAGE_BACKUPFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPFindFirstArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first T_CMN_USAGE_BACKUP that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPFindFirstOrThrowArgs} args - Arguments to find a T_CMN_USAGE_BACKUP
-     * @example
-     * // Get one T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends T_CMN_USAGE_BACKUPFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more T_CMN_USAGE_BACKUPS that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPFindManyArgs=} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all T_CMN_USAGE_BACKUPS
-     * const t_CMN_USAGE_BACKUPS = await prisma.t_CMN_USAGE_BACKUP.findMany()
-     * 
-     * // Get first 10 T_CMN_USAGE_BACKUPS
-     * const t_CMN_USAGE_BACKUPS = await prisma.t_CMN_USAGE_BACKUP.findMany({ take: 10 })
-     * 
-     * // Only select the `SEQ`
-     * const t_CMN_USAGE_BACKUPWithSEQOnly = await prisma.t_CMN_USAGE_BACKUP.findMany({ select: { SEQ: true } })
-     * 
-    **/
-    findMany<T extends T_CMN_USAGE_BACKUPFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a T_CMN_USAGE_BACKUP.
-     * @param {T_CMN_USAGE_BACKUPCreateArgs} args - Arguments to create a T_CMN_USAGE_BACKUP.
-     * @example
-     * // Create one T_CMN_USAGE_BACKUP
-     * const T_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.create({
-     *   data: {
-     *     // ... data to create a T_CMN_USAGE_BACKUP
-     *   }
-     * })
-     * 
-    **/
-    create<T extends T_CMN_USAGE_BACKUPCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPCreateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many T_CMN_USAGE_BACKUPS.
-     *     @param {T_CMN_USAGE_BACKUPCreateManyArgs} args - Arguments to create many T_CMN_USAGE_BACKUPS.
-     *     @example
-     *     // Create many T_CMN_USAGE_BACKUPS
-     *     const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
-    **/
-    createMany<T extends T_CMN_USAGE_BACKUPCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a T_CMN_USAGE_BACKUP.
-     * @param {T_CMN_USAGE_BACKUPDeleteArgs} args - Arguments to delete one T_CMN_USAGE_BACKUP.
-     * @example
-     * // Delete one T_CMN_USAGE_BACKUP
-     * const T_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.delete({
-     *   where: {
-     *     // ... filter to delete one T_CMN_USAGE_BACKUP
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends T_CMN_USAGE_BACKUPDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPDeleteArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one T_CMN_USAGE_BACKUP.
-     * @param {T_CMN_USAGE_BACKUPUpdateArgs} args - Arguments to update one T_CMN_USAGE_BACKUP.
-     * @example
-     * // Update one T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends T_CMN_USAGE_BACKUPUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPUpdateArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more T_CMN_USAGE_BACKUPS.
-     * @param {T_CMN_USAGE_BACKUPDeleteManyArgs} args - Arguments to filter T_CMN_USAGE_BACKUPS to delete.
-     * @example
-     * // Delete a few T_CMN_USAGE_BACKUPS
-     * const { count } = await prisma.t_CMN_USAGE_BACKUP.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends T_CMN_USAGE_BACKUPDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, T_CMN_USAGE_BACKUPDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more T_CMN_USAGE_BACKUPS.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many T_CMN_USAGE_BACKUPS
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends T_CMN_USAGE_BACKUPUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one T_CMN_USAGE_BACKUP.
-     * @param {T_CMN_USAGE_BACKUPUpsertArgs} args - Arguments to update or create a T_CMN_USAGE_BACKUP.
-     * @example
-     * // Update or create a T_CMN_USAGE_BACKUP
-     * const t_CMN_USAGE_BACKUP = await prisma.t_CMN_USAGE_BACKUP.upsert({
-     *   create: {
-     *     // ... data to create a T_CMN_USAGE_BACKUP
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_BACKUP we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends T_CMN_USAGE_BACKUPUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, T_CMN_USAGE_BACKUPUpsertArgs<ExtArgs>>
-    ): Prisma__T_CMN_USAGE_BACKUPClient<$Result.GetResult<Prisma.$T_CMN_USAGE_BACKUPPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of T_CMN_USAGE_BACKUPS.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPCountArgs} args - Arguments to filter T_CMN_USAGE_BACKUPS to count.
-     * @example
-     * // Count the number of T_CMN_USAGE_BACKUPS
-     * const count = await prisma.t_CMN_USAGE_BACKUP.count({
-     *   where: {
-     *     // ... the filter for the T_CMN_USAGE_BACKUPS we want to count
-     *   }
-     * })
-    **/
-    count<T extends T_CMN_USAGE_BACKUPCountArgs>(
-      args?: Subset<T, T_CMN_USAGE_BACKUPCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], T_CMN_USAGE_BACKUPCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a T_CMN_USAGE_BACKUP.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends T_CMN_USAGE_BACKUPAggregateArgs>(args: Subset<T, T_CMN_USAGE_BACKUPAggregateArgs>): Prisma.PrismaPromise<GetT_CMN_USAGE_BACKUPAggregateType<T>>
-
-    /**
-     * Group by T_CMN_USAGE_BACKUP.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_CMN_USAGE_BACKUPGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends T_CMN_USAGE_BACKUPGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: T_CMN_USAGE_BACKUPGroupByArgs['orderBy'] }
-        : { orderBy?: T_CMN_USAGE_BACKUPGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, T_CMN_USAGE_BACKUPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_USAGE_BACKUPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the T_CMN_USAGE_BACKUP model
-   */
-  readonly fields: T_CMN_USAGE_BACKUPFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for T_CMN_USAGE_BACKUP.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__T_CMN_USAGE_BACKUPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the T_CMN_USAGE_BACKUP model
-   */ 
-  interface T_CMN_USAGE_BACKUPFieldRefs {
-    readonly SEQ: FieldRef<"T_CMN_USAGE_BACKUP", 'Int'>
-    readonly PROGRAM: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly USER: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly EMAIL: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly IP: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly COMPANY: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly COUNTRY: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly REGION: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly OS_VERSION: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly PROGRAM_VERSION: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly OFFICE_VERSION: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly AUTODESK_VERSION: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly REQUEST_CODE: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly JOBTYPE: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly MARKETING: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly LOGTYPE: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly USAGETYPE: FieldRef<"T_CMN_USAGE_BACKUP", 'Int'>
-    readonly CREATE_DATE: FieldRef<"T_CMN_USAGE_BACKUP", 'DateTime'>
-    readonly ENTITY: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-    readonly OS_LOCALE: FieldRef<"T_CMN_USAGE_BACKUP", 'String'>
-  }
-    
-
-  // Custom InputTypes
-
-  /**
-   * T_CMN_USAGE_BACKUP findUnique
-   */
-  export type T_CMN_USAGE_BACKUPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_BACKUP to fetch.
-     */
-    where: T_CMN_USAGE_BACKUPWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP findUniqueOrThrow
-   */
-  export type T_CMN_USAGE_BACKUPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_BACKUP to fetch.
-     */
-    where: T_CMN_USAGE_BACKUPWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP findFirst
-   */
-  export type T_CMN_USAGE_BACKUPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_BACKUP to fetch.
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_BACKUPS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_BACKUPOrderByWithRelationInput | T_CMN_USAGE_BACKUPOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_BACKUPS.
-     */
-    cursor?: T_CMN_USAGE_BACKUPWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_BACKUPS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_BACKUPS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_BACKUPS.
-     */
-    distinct?: T_CMN_USAGE_BACKUPScalarFieldEnum | T_CMN_USAGE_BACKUPScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP findFirstOrThrow
-   */
-  export type T_CMN_USAGE_BACKUPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_BACKUP to fetch.
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_BACKUPS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_BACKUPOrderByWithRelationInput | T_CMN_USAGE_BACKUPOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for T_CMN_USAGE_BACKUPS.
-     */
-    cursor?: T_CMN_USAGE_BACKUPWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_BACKUPS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_BACKUPS.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of T_CMN_USAGE_BACKUPS.
-     */
-    distinct?: T_CMN_USAGE_BACKUPScalarFieldEnum | T_CMN_USAGE_BACKUPScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP findMany
-   */
-  export type T_CMN_USAGE_BACKUPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter, which T_CMN_USAGE_BACKUPS to fetch.
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of T_CMN_USAGE_BACKUPS to fetch.
-     */
-    orderBy?: T_CMN_USAGE_BACKUPOrderByWithRelationInput | T_CMN_USAGE_BACKUPOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing T_CMN_USAGE_BACKUPS.
-     */
-    cursor?: T_CMN_USAGE_BACKUPWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` T_CMN_USAGE_BACKUPS from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` T_CMN_USAGE_BACKUPS.
-     */
-    skip?: number
-    distinct?: T_CMN_USAGE_BACKUPScalarFieldEnum | T_CMN_USAGE_BACKUPScalarFieldEnum[]
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP create
-   */
-  export type T_CMN_USAGE_BACKUPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * The data needed to create a T_CMN_USAGE_BACKUP.
-     */
-    data: XOR<T_CMN_USAGE_BACKUPCreateInput, T_CMN_USAGE_BACKUPUncheckedCreateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP createMany
-   */
-  export type T_CMN_USAGE_BACKUPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many T_CMN_USAGE_BACKUPS.
-     */
-    data: T_CMN_USAGE_BACKUPCreateManyInput | T_CMN_USAGE_BACKUPCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP update
-   */
-  export type T_CMN_USAGE_BACKUPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * The data needed to update a T_CMN_USAGE_BACKUP.
-     */
-    data: XOR<T_CMN_USAGE_BACKUPUpdateInput, T_CMN_USAGE_BACKUPUncheckedUpdateInput>
-    /**
-     * Choose, which T_CMN_USAGE_BACKUP to update.
-     */
-    where: T_CMN_USAGE_BACKUPWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP updateMany
-   */
-  export type T_CMN_USAGE_BACKUPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update T_CMN_USAGE_BACKUPS.
-     */
-    data: XOR<T_CMN_USAGE_BACKUPUpdateManyMutationInput, T_CMN_USAGE_BACKUPUncheckedUpdateManyInput>
-    /**
-     * Filter which T_CMN_USAGE_BACKUPS to update
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP upsert
-   */
-  export type T_CMN_USAGE_BACKUPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * The filter to search for the T_CMN_USAGE_BACKUP to update in case it exists.
-     */
-    where: T_CMN_USAGE_BACKUPWhereUniqueInput
-    /**
-     * In case the T_CMN_USAGE_BACKUP found by the `where` argument doesn't exist, create a new T_CMN_USAGE_BACKUP with this data.
-     */
-    create: XOR<T_CMN_USAGE_BACKUPCreateInput, T_CMN_USAGE_BACKUPUncheckedCreateInput>
-    /**
-     * In case the T_CMN_USAGE_BACKUP was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<T_CMN_USAGE_BACKUPUpdateInput, T_CMN_USAGE_BACKUPUncheckedUpdateInput>
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP delete
-   */
-  export type T_CMN_USAGE_BACKUPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-    /**
-     * Filter which T_CMN_USAGE_BACKUP to delete.
-     */
-    where: T_CMN_USAGE_BACKUPWhereUniqueInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP deleteMany
-   */
-  export type T_CMN_USAGE_BACKUPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which T_CMN_USAGE_BACKUPS to delete
-     */
-    where?: T_CMN_USAGE_BACKUPWhereInput
-  }
-
-
-  /**
-   * T_CMN_USAGE_BACKUP without action
-   */
-  export type T_CMN_USAGE_BACKUPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the T_CMN_USAGE_BACKUP
-     */
-    select?: T_CMN_USAGE_BACKUPSelect<ExtArgs> | null
-  }
-
-
-
-  /**
    * Model T_CMN_USAGE_EMP_CNTRY_ENT
    */
 
@@ -29099,11 +24824,11 @@ export namespace Prisma {
     OPER_TYPE: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
-    T_COOL_W: number | null
-    T_COOL_KCAL_H: number | null
+    T_COOL_W: Decimal | null
+    T_COOL_KCAL_H: Decimal | null
     HEATING_CAPACITY: Decimal | null
-    T_HEAT_W: number | null
-    T_HEAT_KCAL_H: number | null
+    T_HEAT_W: Decimal | null
+    T_HEAT_KCAL_H: Decimal | null
     COOLING_INPUT_POWER: Decimal | null
     HEATING_INPUT_POWER: Decimal | null
     BASIC_LENGTH: Decimal | null
@@ -29126,11 +24851,11 @@ export namespace Prisma {
     OPER_TYPE: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
-    T_COOL_W: number | null
-    T_COOL_KCAL_H: number | null
+    T_COOL_W: Decimal | null
+    T_COOL_KCAL_H: Decimal | null
     HEATING_CAPACITY: Decimal | null
-    T_HEAT_W: number | null
-    T_HEAT_KCAL_H: number | null
+    T_HEAT_W: Decimal | null
+    T_HEAT_KCAL_H: Decimal | null
     COOLING_INPUT_POWER: Decimal | null
     HEATING_INPUT_POWER: Decimal | null
     BASIC_LENGTH: Decimal | null
@@ -29161,11 +24886,11 @@ export namespace Prisma {
     OPER_TYPE: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
-    T_COOL_W: number | null
-    T_COOL_KCAL_H: number | null
+    T_COOL_W: Decimal | null
+    T_COOL_KCAL_H: Decimal | null
     HEATING_CAPACITY: Decimal | null
-    T_HEAT_W: number | null
-    T_HEAT_KCAL_H: number | null
+    T_HEAT_W: Decimal | null
+    T_HEAT_KCAL_H: Decimal | null
     COOLING_INPUT_POWER: Decimal | null
     HEATING_INPUT_POWER: Decimal | null
     POWER_SUPPLY: string | null
@@ -29229,11 +24954,11 @@ export namespace Prisma {
     OPER_TYPE: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
-    T_COOL_W: number | null
-    T_COOL_KCAL_H: number | null
+    T_COOL_W: Decimal | null
+    T_COOL_KCAL_H: Decimal | null
     HEATING_CAPACITY: Decimal | null
-    T_HEAT_W: number | null
-    T_HEAT_KCAL_H: number | null
+    T_HEAT_W: Decimal | null
+    T_HEAT_KCAL_H: Decimal | null
     COOLING_INPUT_POWER: Decimal | null
     HEATING_INPUT_POWER: Decimal | null
     POWER_SUPPLY: string | null
@@ -29712,11 +25437,11 @@ export namespace Prisma {
     OPER_TYPE: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
-    T_COOL_W: number | null
-    T_COOL_KCAL_H: number | null
+    T_COOL_W: Decimal | null
+    T_COOL_KCAL_H: Decimal | null
     HEATING_CAPACITY: Decimal | null
-    T_HEAT_W: number | null
-    T_HEAT_KCAL_H: number | null
+    T_HEAT_W: Decimal | null
+    T_HEAT_KCAL_H: Decimal | null
     COOLING_INPUT_POWER: Decimal | null
     HEATING_INPUT_POWER: Decimal | null
     POWER_SUPPLY: string | null
@@ -29939,11 +25664,11 @@ export namespace Prisma {
       OPER_TYPE: number | null
       NOMINAL_CAPACITY: Prisma.Decimal | null
       COOLING_CAPACITY: Prisma.Decimal | null
-      T_COOL_W: number | null
-      T_COOL_KCAL_H: number | null
+      T_COOL_W: Prisma.Decimal | null
+      T_COOL_KCAL_H: Prisma.Decimal | null
       HEATING_CAPACITY: Prisma.Decimal | null
-      T_HEAT_W: number | null
-      T_HEAT_KCAL_H: number | null
+      T_HEAT_W: Prisma.Decimal | null
+      T_HEAT_KCAL_H: Prisma.Decimal | null
       COOLING_INPUT_POWER: Prisma.Decimal | null
       HEATING_INPUT_POWER: Prisma.Decimal | null
       POWER_SUPPLY: string | null
@@ -30398,11 +26123,11 @@ export namespace Prisma {
     readonly OPER_TYPE: FieldRef<"T_MASTER_MS_IDU", 'Int'>
     readonly NOMINAL_CAPACITY: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
     readonly COOLING_CAPACITY: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
-    readonly T_COOL_W: FieldRef<"T_MASTER_MS_IDU", 'Int'>
-    readonly T_COOL_KCAL_H: FieldRef<"T_MASTER_MS_IDU", 'Int'>
+    readonly T_COOL_W: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
+    readonly T_COOL_KCAL_H: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
     readonly HEATING_CAPACITY: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
-    readonly T_HEAT_W: FieldRef<"T_MASTER_MS_IDU", 'Int'>
-    readonly T_HEAT_KCAL_H: FieldRef<"T_MASTER_MS_IDU", 'Int'>
+    readonly T_HEAT_W: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
+    readonly T_HEAT_KCAL_H: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
     readonly COOLING_INPUT_POWER: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
     readonly HEATING_INPUT_POWER: FieldRef<"T_MASTER_MS_IDU", 'Decimal'>
     readonly POWER_SUPPLY: FieldRef<"T_MASTER_MS_IDU", 'String'>
@@ -31661,17 +27386,18 @@ export namespace Prisma {
     CASSETTE_1WAY: Decimal | null
     CASSETTE_4WAY: Decimal | null
     CONVERTIBLE: number | null
-    DUCT_HIGH_STATIC: number | null
-    DUCT_MID_STATIC: number | null
-    DUCT_LOW_STATIC: number | null
-    DUCT_BUILT_IN: number | null
-    FLOOR_STANDING: number | null
-    CONSOLE: number | null
-    VAHU_2WAY: number | null
-    VAHU_4WAY: number | null
-    A_COIL: number | null
-    CASSETTE_ROUND: number | null
+    DUCT_HIGH_STATIC: Decimal | null
+    DUCT_MID_STATIC: Decimal | null
     COOLING_CAPACITY: Decimal | null
+    DUCT_LOW_STATIC: Decimal | null
+    DUCT_BUILT_IN: Decimal | null
+    FLOOR_STANDING: Decimal | null
+    CONSOLE: Decimal | null
+    VAHU_2WAY: Decimal | null
+    VAHU_4WAY: Decimal | null
+    A_COIL: number | null
+    CASSETTE_ROUND: Decimal | null
+    DX_AHU: number | null
     HEATING_CAPACITY: Decimal | null
     COOLING_INPUT_POWER: number | null
     HEATING_INPUT_POWER: number | null
@@ -31733,17 +27459,18 @@ export namespace Prisma {
     CASSETTE_1WAY: Decimal | null
     CASSETTE_4WAY: Decimal | null
     CONVERTIBLE: number | null
-    DUCT_HIGH_STATIC: number | null
-    DUCT_MID_STATIC: number | null
-    DUCT_LOW_STATIC: number | null
-    DUCT_BUILT_IN: number | null
-    FLOOR_STANDING: number | null
-    CONSOLE: number | null
-    VAHU_2WAY: number | null
-    VAHU_4WAY: number | null
-    A_COIL: number | null
-    CASSETTE_ROUND: number | null
+    DUCT_HIGH_STATIC: Decimal | null
+    DUCT_MID_STATIC: Decimal | null
     COOLING_CAPACITY: Decimal | null
+    DUCT_LOW_STATIC: Decimal | null
+    DUCT_BUILT_IN: Decimal | null
+    FLOOR_STANDING: Decimal | null
+    CONSOLE: Decimal | null
+    VAHU_2WAY: Decimal | null
+    VAHU_4WAY: Decimal | null
+    A_COIL: number | null
+    CASSETTE_ROUND: Decimal | null
+    DX_AHU: number | null
     HEATING_CAPACITY: Decimal | null
     COOLING_INPUT_POWER: number | null
     HEATING_INPUT_POWER: number | null
@@ -31809,17 +27536,18 @@ export namespace Prisma {
     CASSETTE_1WAY: Decimal | null
     CASSETTE_4WAY: Decimal | null
     CONVERTIBLE: number | null
-    DUCT_HIGH_STATIC: number | null
-    DUCT_MID_STATIC: number | null
-    DUCT_LOW_STATIC: number | null
-    DUCT_BUILT_IN: number | null
-    FLOOR_STANDING: number | null
-    CONSOLE: number | null
-    VAHU_2WAY: number | null
-    VAHU_4WAY: number | null
-    A_COIL: number | null
-    CASSETTE_ROUND: number | null
+    DUCT_HIGH_STATIC: Decimal | null
+    DUCT_MID_STATIC: Decimal | null
     COOLING_CAPACITY: Decimal | null
+    DUCT_LOW_STATIC: Decimal | null
+    DUCT_BUILT_IN: Decimal | null
+    FLOOR_STANDING: Decimal | null
+    CONSOLE: Decimal | null
+    VAHU_2WAY: Decimal | null
+    VAHU_4WAY: Decimal | null
+    A_COIL: number | null
+    CASSETTE_ROUND: Decimal | null
+    DX_AHU: number | null
     HEATING_CAPACITY: Decimal | null
     COOLING_INPUT_POWER: number | null
     HEATING_INPUT_POWER: number | null
@@ -31923,17 +27651,18 @@ export namespace Prisma {
     CASSETTE_1WAY: Decimal | null
     CASSETTE_4WAY: Decimal | null
     CONVERTIBLE: number | null
-    DUCT_HIGH_STATIC: number | null
-    DUCT_MID_STATIC: number | null
-    DUCT_LOW_STATIC: number | null
-    DUCT_BUILT_IN: number | null
-    FLOOR_STANDING: number | null
-    CONSOLE: number | null
-    VAHU_2WAY: number | null
-    VAHU_4WAY: number | null
-    A_COIL: number | null
-    CASSETTE_ROUND: number | null
+    DUCT_HIGH_STATIC: Decimal | null
+    DUCT_MID_STATIC: Decimal | null
     COOLING_CAPACITY: Decimal | null
+    DUCT_LOW_STATIC: Decimal | null
+    DUCT_BUILT_IN: Decimal | null
+    FLOOR_STANDING: Decimal | null
+    CONSOLE: Decimal | null
+    VAHU_2WAY: Decimal | null
+    VAHU_4WAY: Decimal | null
+    A_COIL: number | null
+    CASSETTE_ROUND: Decimal | null
+    DX_AHU: number | null
     HEATING_CAPACITY: Decimal | null
     COOLING_INPUT_POWER: number | null
     HEATING_INPUT_POWER: number | null
@@ -32039,6 +27768,7 @@ export namespace Prisma {
     CONVERTIBLE: number
     DUCT_HIGH_STATIC: number
     DUCT_MID_STATIC: number
+    COOLING_CAPACITY: number
     DUCT_LOW_STATIC: number
     DUCT_BUILT_IN: number
     FLOOR_STANDING: number
@@ -32047,7 +27777,7 @@ export namespace Prisma {
     VAHU_4WAY: number
     A_COIL: number
     CASSETTE_ROUND: number
-    COOLING_CAPACITY: number
+    DX_AHU: number
     HEATING_CAPACITY: number
     COOLING_INPUT_POWER: number
     HEATING_INPUT_POWER: number
@@ -32151,6 +27881,7 @@ export namespace Prisma {
     CONVERTIBLE?: true
     DUCT_HIGH_STATIC?: true
     DUCT_MID_STATIC?: true
+    COOLING_CAPACITY?: true
     DUCT_LOW_STATIC?: true
     DUCT_BUILT_IN?: true
     FLOOR_STANDING?: true
@@ -32159,7 +27890,7 @@ export namespace Prisma {
     VAHU_4WAY?: true
     A_COIL?: true
     CASSETTE_ROUND?: true
-    COOLING_CAPACITY?: true
+    DX_AHU?: true
     HEATING_CAPACITY?: true
     COOLING_INPUT_POWER?: true
     HEATING_INPUT_POWER?: true
@@ -32223,6 +27954,7 @@ export namespace Prisma {
     CONVERTIBLE?: true
     DUCT_HIGH_STATIC?: true
     DUCT_MID_STATIC?: true
+    COOLING_CAPACITY?: true
     DUCT_LOW_STATIC?: true
     DUCT_BUILT_IN?: true
     FLOOR_STANDING?: true
@@ -32231,7 +27963,7 @@ export namespace Prisma {
     VAHU_4WAY?: true
     A_COIL?: true
     CASSETTE_ROUND?: true
-    COOLING_CAPACITY?: true
+    DX_AHU?: true
     HEATING_CAPACITY?: true
     COOLING_INPUT_POWER?: true
     HEATING_INPUT_POWER?: true
@@ -32299,6 +28031,7 @@ export namespace Prisma {
     CONVERTIBLE?: true
     DUCT_HIGH_STATIC?: true
     DUCT_MID_STATIC?: true
+    COOLING_CAPACITY?: true
     DUCT_LOW_STATIC?: true
     DUCT_BUILT_IN?: true
     FLOOR_STANDING?: true
@@ -32307,7 +28040,7 @@ export namespace Prisma {
     VAHU_4WAY?: true
     A_COIL?: true
     CASSETTE_ROUND?: true
-    COOLING_CAPACITY?: true
+    DX_AHU?: true
     HEATING_CAPACITY?: true
     COOLING_INPUT_POWER?: true
     HEATING_INPUT_POWER?: true
@@ -32413,6 +28146,7 @@ export namespace Prisma {
     CONVERTIBLE?: true
     DUCT_HIGH_STATIC?: true
     DUCT_MID_STATIC?: true
+    COOLING_CAPACITY?: true
     DUCT_LOW_STATIC?: true
     DUCT_BUILT_IN?: true
     FLOOR_STANDING?: true
@@ -32421,7 +28155,7 @@ export namespace Prisma {
     VAHU_4WAY?: true
     A_COIL?: true
     CASSETTE_ROUND?: true
-    COOLING_CAPACITY?: true
+    DX_AHU?: true
     HEATING_CAPACITY?: true
     COOLING_INPUT_POWER?: true
     HEATING_INPUT_POWER?: true
@@ -32527,6 +28261,7 @@ export namespace Prisma {
     CONVERTIBLE?: true
     DUCT_HIGH_STATIC?: true
     DUCT_MID_STATIC?: true
+    COOLING_CAPACITY?: true
     DUCT_LOW_STATIC?: true
     DUCT_BUILT_IN?: true
     FLOOR_STANDING?: true
@@ -32535,7 +28270,7 @@ export namespace Prisma {
     VAHU_4WAY?: true
     A_COIL?: true
     CASSETTE_ROUND?: true
-    COOLING_CAPACITY?: true
+    DX_AHU?: true
     HEATING_CAPACITY?: true
     COOLING_INPUT_POWER?: true
     HEATING_INPUT_POWER?: true
@@ -32726,17 +28461,18 @@ export namespace Prisma {
     CASSETTE_1WAY: Decimal | null
     CASSETTE_4WAY: Decimal | null
     CONVERTIBLE: number | null
-    DUCT_HIGH_STATIC: number | null
-    DUCT_MID_STATIC: number | null
-    DUCT_LOW_STATIC: number | null
-    DUCT_BUILT_IN: number | null
-    FLOOR_STANDING: number | null
-    CONSOLE: number | null
-    VAHU_2WAY: number | null
-    VAHU_4WAY: number | null
-    A_COIL: number | null
-    CASSETTE_ROUND: number | null
+    DUCT_HIGH_STATIC: Decimal | null
+    DUCT_MID_STATIC: Decimal | null
     COOLING_CAPACITY: Decimal | null
+    DUCT_LOW_STATIC: Decimal | null
+    DUCT_BUILT_IN: Decimal | null
+    FLOOR_STANDING: Decimal | null
+    CONSOLE: Decimal | null
+    VAHU_2WAY: Decimal | null
+    VAHU_4WAY: Decimal | null
+    A_COIL: number | null
+    CASSETTE_ROUND: Decimal | null
+    DX_AHU: number | null
     HEATING_CAPACITY: Decimal | null
     COOLING_INPUT_POWER: number | null
     HEATING_INPUT_POWER: number | null
@@ -32861,6 +28597,7 @@ export namespace Prisma {
     CONVERTIBLE?: boolean
     DUCT_HIGH_STATIC?: boolean
     DUCT_MID_STATIC?: boolean
+    COOLING_CAPACITY?: boolean
     DUCT_LOW_STATIC?: boolean
     DUCT_BUILT_IN?: boolean
     FLOOR_STANDING?: boolean
@@ -32869,7 +28606,7 @@ export namespace Prisma {
     VAHU_4WAY?: boolean
     A_COIL?: boolean
     CASSETTE_ROUND?: boolean
-    COOLING_CAPACITY?: boolean
+    DX_AHU?: boolean
     HEATING_CAPACITY?: boolean
     COOLING_INPUT_POWER?: boolean
     HEATING_INPUT_POWER?: boolean
@@ -32975,6 +28712,7 @@ export namespace Prisma {
     CONVERTIBLE?: boolean
     DUCT_HIGH_STATIC?: boolean
     DUCT_MID_STATIC?: boolean
+    COOLING_CAPACITY?: boolean
     DUCT_LOW_STATIC?: boolean
     DUCT_BUILT_IN?: boolean
     FLOOR_STANDING?: boolean
@@ -32983,7 +28721,7 @@ export namespace Prisma {
     VAHU_4WAY?: boolean
     A_COIL?: boolean
     CASSETTE_ROUND?: boolean
-    COOLING_CAPACITY?: boolean
+    DX_AHU?: boolean
     HEATING_CAPACITY?: boolean
     COOLING_INPUT_POWER?: boolean
     HEATING_INPUT_POWER?: boolean
@@ -33091,17 +28829,18 @@ export namespace Prisma {
       CASSETTE_1WAY: Prisma.Decimal | null
       CASSETTE_4WAY: Prisma.Decimal | null
       CONVERTIBLE: number | null
-      DUCT_HIGH_STATIC: number | null
-      DUCT_MID_STATIC: number | null
-      DUCT_LOW_STATIC: number | null
-      DUCT_BUILT_IN: number | null
-      FLOOR_STANDING: number | null
-      CONSOLE: number | null
-      VAHU_2WAY: number | null
-      VAHU_4WAY: number | null
-      A_COIL: number | null
-      CASSETTE_ROUND: number | null
+      DUCT_HIGH_STATIC: Prisma.Decimal | null
+      DUCT_MID_STATIC: Prisma.Decimal | null
       COOLING_CAPACITY: Prisma.Decimal | null
+      DUCT_LOW_STATIC: Prisma.Decimal | null
+      DUCT_BUILT_IN: Prisma.Decimal | null
+      FLOOR_STANDING: Prisma.Decimal | null
+      CONSOLE: Prisma.Decimal | null
+      VAHU_2WAY: Prisma.Decimal | null
+      VAHU_4WAY: Prisma.Decimal | null
+      A_COIL: number | null
+      CASSETTE_ROUND: Prisma.Decimal | null
+      DX_AHU: number | null
       HEATING_CAPACITY: Prisma.Decimal | null
       COOLING_INPUT_POWER: number | null
       HEATING_INPUT_POWER: number | null
@@ -33596,17 +29335,18 @@ export namespace Prisma {
     readonly CASSETTE_1WAY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
     readonly CASSETTE_4WAY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
     readonly CONVERTIBLE: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly DUCT_HIGH_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly DUCT_MID_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly DUCT_LOW_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly DUCT_BUILT_IN: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly FLOOR_STANDING: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly CONSOLE: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly VAHU_2WAY: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly VAHU_4WAY: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly A_COIL: FieldRef<"T_MASTER_MS_ODU", 'Int'>
-    readonly CASSETTE_ROUND: FieldRef<"T_MASTER_MS_ODU", 'Int'>
+    readonly DUCT_HIGH_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly DUCT_MID_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
     readonly COOLING_CAPACITY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly DUCT_LOW_STATIC: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly DUCT_BUILT_IN: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly FLOOR_STANDING: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly CONSOLE: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly VAHU_2WAY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly VAHU_4WAY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly A_COIL: FieldRef<"T_MASTER_MS_ODU", 'Int'>
+    readonly CASSETTE_ROUND: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
+    readonly DX_AHU: FieldRef<"T_MASTER_MS_ODU", 'Int'>
     readonly HEATING_CAPACITY: FieldRef<"T_MASTER_MS_ODU", 'Decimal'>
     readonly COOLING_INPUT_POWER: FieldRef<"T_MASTER_MS_ODU", 'Int'>
     readonly HEATING_INPUT_POWER: FieldRef<"T_MASTER_MS_ODU", 'Int'>
@@ -35266,6 +31006,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT: Decimal | null
     DOAS_DOAS_HEIGHT: Decimal | null
     INTERNAL_STATIC_PRESSURE: number | null
+    SYMBOL_INDEX: number | null
+    T_HEAT_KCAL_H: Decimal | null
+    T_HEAT_W: Decimal | null
+    BREAKER: Decimal | null
+    T_REHEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    IMAGE_INDEX: number | null
+    T_COOL_KCAL_H: Decimal | null
+    T_REHEAT_KCAL_H: Decimal | null
+    RUN_CURRENT_HEATING: Decimal | null
+    RUN_CURRENT_COOLING: Decimal | null
+    DRAIN_DIAMETER: number | null
   }
 
   export type T_MASTER_MV_DOASSumAggregateOutputType = {
@@ -35315,6 +31067,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT: Decimal | null
     DOAS_DOAS_HEIGHT: Decimal | null
     INTERNAL_STATIC_PRESSURE: number | null
+    SYMBOL_INDEX: number | null
+    T_HEAT_KCAL_H: Decimal | null
+    T_HEAT_W: Decimal | null
+    BREAKER: Decimal | null
+    T_REHEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    IMAGE_INDEX: number | null
+    T_COOL_KCAL_H: Decimal | null
+    T_REHEAT_KCAL_H: Decimal | null
+    RUN_CURRENT_HEATING: Decimal | null
+    RUN_CURRENT_COOLING: Decimal | null
+    DRAIN_DIAMETER: number | null
   }
 
   export type T_MASTER_MV_DOASMinAggregateOutputType = {
@@ -35377,6 +31141,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT: Decimal | null
     INTERNAL_STATIC_PRESSURE: number | null
     REVIT_FAMILY_NAME: string | null
+    CONNECTABLE_ODU_TYPE: string | null
+    TYPE_PRODUCT: string | null
+    SYMBOL_INDEX: number | null
+    T_HEAT_KCAL_H: Decimal | null
+    T_HEAT_W: Decimal | null
+    BREAKER: Decimal | null
+    T_REHEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    IMAGE_INDEX: number | null
+    T_COOL_KCAL_H: Decimal | null
+    T_REHEAT_KCAL_H: Decimal | null
+    RUN_CURRENT_HEATING: Decimal | null
+    RUN_CURRENT_COOLING: Decimal | null
+    DRAIN_DIAMETER: number | null
+    WIRE_POWER_H07RN_F: string | null
+    FAN_TYPE: string | null
+    FAN_POWER: string | null
+    POWER_SUPPLY: string | null
+    WIRE_COMM: string | null
+    EQUIP_TABLE_KO: string | null
   }
 
   export type T_MASTER_MV_DOASMaxAggregateOutputType = {
@@ -35439,6 +31223,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT: Decimal | null
     INTERNAL_STATIC_PRESSURE: number | null
     REVIT_FAMILY_NAME: string | null
+    CONNECTABLE_ODU_TYPE: string | null
+    TYPE_PRODUCT: string | null
+    SYMBOL_INDEX: number | null
+    T_HEAT_KCAL_H: Decimal | null
+    T_HEAT_W: Decimal | null
+    BREAKER: Decimal | null
+    T_REHEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    IMAGE_INDEX: number | null
+    T_COOL_KCAL_H: Decimal | null
+    T_REHEAT_KCAL_H: Decimal | null
+    RUN_CURRENT_HEATING: Decimal | null
+    RUN_CURRENT_COOLING: Decimal | null
+    DRAIN_DIAMETER: number | null
+    WIRE_POWER_H07RN_F: string | null
+    FAN_TYPE: string | null
+    FAN_POWER: string | null
+    POWER_SUPPLY: string | null
+    WIRE_COMM: string | null
+    EQUIP_TABLE_KO: string | null
   }
 
   export type T_MASTER_MV_DOASCountAggregateOutputType = {
@@ -35501,6 +31305,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT: number
     INTERNAL_STATIC_PRESSURE: number
     REVIT_FAMILY_NAME: number
+    CONNECTABLE_ODU_TYPE: number
+    TYPE_PRODUCT: number
+    SYMBOL_INDEX: number
+    T_HEAT_KCAL_H: number
+    T_HEAT_W: number
+    BREAKER: number
+    T_REHEAT_W: number
+    T_COOL_W: number
+    IMAGE_INDEX: number
+    T_COOL_KCAL_H: number
+    T_REHEAT_KCAL_H: number
+    RUN_CURRENT_HEATING: number
+    RUN_CURRENT_COOLING: number
+    DRAIN_DIAMETER: number
+    WIRE_POWER_H07RN_F: number
+    FAN_TYPE: number
+    FAN_POWER: number
+    POWER_SUPPLY: number
+    WIRE_COMM: number
+    EQUIP_TABLE_KO: number
     _all: number
   }
 
@@ -35552,6 +31376,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT?: true
     DOAS_DOAS_HEIGHT?: true
     INTERNAL_STATIC_PRESSURE?: true
+    SYMBOL_INDEX?: true
+    T_HEAT_KCAL_H?: true
+    T_HEAT_W?: true
+    BREAKER?: true
+    T_REHEAT_W?: true
+    T_COOL_W?: true
+    IMAGE_INDEX?: true
+    T_COOL_KCAL_H?: true
+    T_REHEAT_KCAL_H?: true
+    RUN_CURRENT_HEATING?: true
+    RUN_CURRENT_COOLING?: true
+    DRAIN_DIAMETER?: true
   }
 
   export type T_MASTER_MV_DOASSumAggregateInputType = {
@@ -35601,6 +31437,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT?: true
     DOAS_DOAS_HEIGHT?: true
     INTERNAL_STATIC_PRESSURE?: true
+    SYMBOL_INDEX?: true
+    T_HEAT_KCAL_H?: true
+    T_HEAT_W?: true
+    BREAKER?: true
+    T_REHEAT_W?: true
+    T_COOL_W?: true
+    IMAGE_INDEX?: true
+    T_COOL_KCAL_H?: true
+    T_REHEAT_KCAL_H?: true
+    RUN_CURRENT_HEATING?: true
+    RUN_CURRENT_COOLING?: true
+    DRAIN_DIAMETER?: true
   }
 
   export type T_MASTER_MV_DOASMinAggregateInputType = {
@@ -35663,6 +31511,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: true
     INTERNAL_STATIC_PRESSURE?: true
     REVIT_FAMILY_NAME?: true
+    CONNECTABLE_ODU_TYPE?: true
+    TYPE_PRODUCT?: true
+    SYMBOL_INDEX?: true
+    T_HEAT_KCAL_H?: true
+    T_HEAT_W?: true
+    BREAKER?: true
+    T_REHEAT_W?: true
+    T_COOL_W?: true
+    IMAGE_INDEX?: true
+    T_COOL_KCAL_H?: true
+    T_REHEAT_KCAL_H?: true
+    RUN_CURRENT_HEATING?: true
+    RUN_CURRENT_COOLING?: true
+    DRAIN_DIAMETER?: true
+    WIRE_POWER_H07RN_F?: true
+    FAN_TYPE?: true
+    FAN_POWER?: true
+    POWER_SUPPLY?: true
+    WIRE_COMM?: true
+    EQUIP_TABLE_KO?: true
   }
 
   export type T_MASTER_MV_DOASMaxAggregateInputType = {
@@ -35725,6 +31593,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: true
     INTERNAL_STATIC_PRESSURE?: true
     REVIT_FAMILY_NAME?: true
+    CONNECTABLE_ODU_TYPE?: true
+    TYPE_PRODUCT?: true
+    SYMBOL_INDEX?: true
+    T_HEAT_KCAL_H?: true
+    T_HEAT_W?: true
+    BREAKER?: true
+    T_REHEAT_W?: true
+    T_COOL_W?: true
+    IMAGE_INDEX?: true
+    T_COOL_KCAL_H?: true
+    T_REHEAT_KCAL_H?: true
+    RUN_CURRENT_HEATING?: true
+    RUN_CURRENT_COOLING?: true
+    DRAIN_DIAMETER?: true
+    WIRE_POWER_H07RN_F?: true
+    FAN_TYPE?: true
+    FAN_POWER?: true
+    POWER_SUPPLY?: true
+    WIRE_COMM?: true
+    EQUIP_TABLE_KO?: true
   }
 
   export type T_MASTER_MV_DOASCountAggregateInputType = {
@@ -35787,6 +31675,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: true
     INTERNAL_STATIC_PRESSURE?: true
     REVIT_FAMILY_NAME?: true
+    CONNECTABLE_ODU_TYPE?: true
+    TYPE_PRODUCT?: true
+    SYMBOL_INDEX?: true
+    T_HEAT_KCAL_H?: true
+    T_HEAT_W?: true
+    BREAKER?: true
+    T_REHEAT_W?: true
+    T_COOL_W?: true
+    IMAGE_INDEX?: true
+    T_COOL_KCAL_H?: true
+    T_REHEAT_KCAL_H?: true
+    RUN_CURRENT_HEATING?: true
+    RUN_CURRENT_COOLING?: true
+    DRAIN_DIAMETER?: true
+    WIRE_POWER_H07RN_F?: true
+    FAN_TYPE?: true
+    FAN_POWER?: true
+    POWER_SUPPLY?: true
+    WIRE_COMM?: true
+    EQUIP_TABLE_KO?: true
     _all?: true
   }
 
@@ -35936,6 +31844,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT: Decimal | null
     INTERNAL_STATIC_PRESSURE: number | null
     REVIT_FAMILY_NAME: string | null
+    CONNECTABLE_ODU_TYPE: string | null
+    TYPE_PRODUCT: string | null
+    SYMBOL_INDEX: number | null
+    T_HEAT_KCAL_H: Decimal | null
+    T_HEAT_W: Decimal | null
+    BREAKER: Decimal | null
+    T_REHEAT_W: Decimal | null
+    T_COOL_W: Decimal | null
+    IMAGE_INDEX: number | null
+    T_COOL_KCAL_H: Decimal | null
+    T_REHEAT_KCAL_H: Decimal | null
+    RUN_CURRENT_HEATING: Decimal | null
+    RUN_CURRENT_COOLING: Decimal | null
+    DRAIN_DIAMETER: number | null
+    WIRE_POWER_H07RN_F: string | null
+    FAN_TYPE: string | null
+    FAN_POWER: string | null
+    POWER_SUPPLY: string | null
+    WIRE_COMM: string | null
+    EQUIP_TABLE_KO: string | null
     _count: T_MASTER_MV_DOASCountAggregateOutputType | null
     _avg: T_MASTER_MV_DOASAvgAggregateOutputType | null
     _sum: T_MASTER_MV_DOASSumAggregateOutputType | null
@@ -36017,6 +31945,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: boolean
     INTERNAL_STATIC_PRESSURE?: boolean
     REVIT_FAMILY_NAME?: boolean
+    CONNECTABLE_ODU_TYPE?: boolean
+    TYPE_PRODUCT?: boolean
+    SYMBOL_INDEX?: boolean
+    T_HEAT_KCAL_H?: boolean
+    T_HEAT_W?: boolean
+    BREAKER?: boolean
+    T_REHEAT_W?: boolean
+    T_COOL_W?: boolean
+    IMAGE_INDEX?: boolean
+    T_COOL_KCAL_H?: boolean
+    T_REHEAT_KCAL_H?: boolean
+    RUN_CURRENT_HEATING?: boolean
+    RUN_CURRENT_COOLING?: boolean
+    DRAIN_DIAMETER?: boolean
+    WIRE_POWER_H07RN_F?: boolean
+    FAN_TYPE?: boolean
+    FAN_POWER?: boolean
+    POWER_SUPPLY?: boolean
+    WIRE_COMM?: boolean
+    EQUIP_TABLE_KO?: boolean
   }, ExtArgs["result"]["t_MASTER_MV_DOAS"]>
 
   export type T_MASTER_MV_DOASSelectScalar = {
@@ -36079,6 +32027,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: boolean
     INTERNAL_STATIC_PRESSURE?: boolean
     REVIT_FAMILY_NAME?: boolean
+    CONNECTABLE_ODU_TYPE?: boolean
+    TYPE_PRODUCT?: boolean
+    SYMBOL_INDEX?: boolean
+    T_HEAT_KCAL_H?: boolean
+    T_HEAT_W?: boolean
+    BREAKER?: boolean
+    T_REHEAT_W?: boolean
+    T_COOL_W?: boolean
+    IMAGE_INDEX?: boolean
+    T_COOL_KCAL_H?: boolean
+    T_REHEAT_KCAL_H?: boolean
+    RUN_CURRENT_HEATING?: boolean
+    RUN_CURRENT_COOLING?: boolean
+    DRAIN_DIAMETER?: boolean
+    WIRE_POWER_H07RN_F?: boolean
+    FAN_TYPE?: boolean
+    FAN_POWER?: boolean
+    POWER_SUPPLY?: boolean
+    WIRE_COMM?: boolean
+    EQUIP_TABLE_KO?: boolean
   }
 
 
@@ -36145,6 +32113,26 @@ export namespace Prisma {
       DOAS_DOAS_HEIGHT: Prisma.Decimal | null
       INTERNAL_STATIC_PRESSURE: number | null
       REVIT_FAMILY_NAME: string | null
+      CONNECTABLE_ODU_TYPE: string | null
+      TYPE_PRODUCT: string | null
+      SYMBOL_INDEX: number | null
+      T_HEAT_KCAL_H: Prisma.Decimal | null
+      T_HEAT_W: Prisma.Decimal | null
+      BREAKER: Prisma.Decimal | null
+      T_REHEAT_W: Prisma.Decimal | null
+      T_COOL_W: Prisma.Decimal | null
+      IMAGE_INDEX: number | null
+      T_COOL_KCAL_H: Prisma.Decimal | null
+      T_REHEAT_KCAL_H: Prisma.Decimal | null
+      RUN_CURRENT_HEATING: Prisma.Decimal | null
+      RUN_CURRENT_COOLING: Prisma.Decimal | null
+      DRAIN_DIAMETER: number | null
+      WIRE_POWER_H07RN_F: string | null
+      FAN_TYPE: string | null
+      FAN_POWER: string | null
+      POWER_SUPPLY: string | null
+      WIRE_COMM: string | null
+      EQUIP_TABLE_KO: string | null
     }, ExtArgs["result"]["t_MASTER_MV_DOAS"]>
     composites: {}
   }
@@ -36598,6 +32586,26 @@ export namespace Prisma {
     readonly DOAS_DOAS_HEIGHT: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
     readonly INTERNAL_STATIC_PRESSURE: FieldRef<"T_MASTER_MV_DOAS", 'Int'>
     readonly REVIT_FAMILY_NAME: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly CONNECTABLE_ODU_TYPE: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly TYPE_PRODUCT: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly SYMBOL_INDEX: FieldRef<"T_MASTER_MV_DOAS", 'Int'>
+    readonly T_HEAT_KCAL_H: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly T_HEAT_W: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly BREAKER: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly T_REHEAT_W: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly T_COOL_W: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly IMAGE_INDEX: FieldRef<"T_MASTER_MV_DOAS", 'Int'>
+    readonly T_COOL_KCAL_H: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly T_REHEAT_KCAL_H: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly RUN_CURRENT_HEATING: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly RUN_CURRENT_COOLING: FieldRef<"T_MASTER_MV_DOAS", 'Decimal'>
+    readonly DRAIN_DIAMETER: FieldRef<"T_MASTER_MV_DOAS", 'Int'>
+    readonly WIRE_POWER_H07RN_F: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly FAN_TYPE: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly FAN_POWER: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly POWER_SUPPLY: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly WIRE_COMM: FieldRef<"T_MASTER_MV_DOAS", 'String'>
+    readonly EQUIP_TABLE_KO: FieldRef<"T_MASTER_MV_DOAS", 'String'>
   }
     
 
@@ -41048,7 +37056,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUAvgAggregateOutputType = {
     ID: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     IMAGE_INDEX: number | null
     SYMBOL_INDEX: number | null
     HZ: number | null
@@ -41072,7 +37079,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUSumAggregateOutputType = {
     ID: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     IMAGE_INDEX: number | null
     SYMBOL_INDEX: number | null
     HZ: number | null
@@ -41098,10 +37104,9 @@ export namespace Prisma {
     ID: number | null
     MODEL: string | null
     BUYER_MODEL_NAME: string | null
-    LOCATION: string | null
+    APP_LOCATION: string | null
     NOTUSEDCOUNTRY: string | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
     ACC_DEFAULT: string | null
@@ -41154,7 +37159,6 @@ export namespace Prisma {
     PIPE_INLET: string | null
     PIPE_OUTLET: string | null
     HEAT_EXCHANGER_TYPE: string | null
-    EQUIPMENT_TABLE_KO: string | null
     REVIT_FAMILY_NAME: string | null
     EQUIP_TABLE_KO: string | null
   }
@@ -41164,10 +37168,9 @@ export namespace Prisma {
     ID: number | null
     MODEL: string | null
     BUYER_MODEL_NAME: string | null
-    LOCATION: string | null
+    APP_LOCATION: string | null
     NOTUSEDCOUNTRY: string | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
     ACC_DEFAULT: string | null
@@ -41220,7 +37223,6 @@ export namespace Prisma {
     PIPE_INLET: string | null
     PIPE_OUTLET: string | null
     HEAT_EXCHANGER_TYPE: string | null
-    EQUIPMENT_TABLE_KO: string | null
     REVIT_FAMILY_NAME: string | null
     EQUIP_TABLE_KO: string | null
   }
@@ -41230,10 +37232,9 @@ export namespace Prisma {
     ID: number
     MODEL: number
     BUYER_MODEL_NAME: number
-    LOCATION: number
+    APP_LOCATION: number
     NOTUSEDCOUNTRY: number
     VISIBLE: number
-    VISIBLE_THERMAV: number
     DESCRIPTION: number
     ACCESSARY: number
     ACC_DEFAULT: number
@@ -41286,7 +37287,6 @@ export namespace Prisma {
     PIPE_INLET: number
     PIPE_OUTLET: number
     HEAT_EXCHANGER_TYPE: number
-    EQUIPMENT_TABLE_KO: number
     REVIT_FAMILY_NAME: number
     EQUIP_TABLE_KO: number
     _all: number
@@ -41296,7 +37296,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUAvgAggregateInputType = {
     ID?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     IMAGE_INDEX?: true
     SYMBOL_INDEX?: true
     HZ?: true
@@ -41320,7 +37319,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUSumAggregateInputType = {
     ID?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     IMAGE_INDEX?: true
     SYMBOL_INDEX?: true
     HZ?: true
@@ -41346,10 +37344,9 @@ export namespace Prisma {
     ID?: true
     MODEL?: true
     BUYER_MODEL_NAME?: true
-    LOCATION?: true
+    APP_LOCATION?: true
     NOTUSEDCOUNTRY?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     DESCRIPTION?: true
     ACCESSARY?: true
     ACC_DEFAULT?: true
@@ -41402,7 +37399,6 @@ export namespace Prisma {
     PIPE_INLET?: true
     PIPE_OUTLET?: true
     HEAT_EXCHANGER_TYPE?: true
-    EQUIPMENT_TABLE_KO?: true
     REVIT_FAMILY_NAME?: true
     EQUIP_TABLE_KO?: true
   }
@@ -41412,10 +37408,9 @@ export namespace Prisma {
     ID?: true
     MODEL?: true
     BUYER_MODEL_NAME?: true
-    LOCATION?: true
+    APP_LOCATION?: true
     NOTUSEDCOUNTRY?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     DESCRIPTION?: true
     ACCESSARY?: true
     ACC_DEFAULT?: true
@@ -41468,7 +37463,6 @@ export namespace Prisma {
     PIPE_INLET?: true
     PIPE_OUTLET?: true
     HEAT_EXCHANGER_TYPE?: true
-    EQUIPMENT_TABLE_KO?: true
     REVIT_FAMILY_NAME?: true
     EQUIP_TABLE_KO?: true
   }
@@ -41478,10 +37472,9 @@ export namespace Prisma {
     ID?: true
     MODEL?: true
     BUYER_MODEL_NAME?: true
-    LOCATION?: true
+    APP_LOCATION?: true
     NOTUSEDCOUNTRY?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     DESCRIPTION?: true
     ACCESSARY?: true
     ACC_DEFAULT?: true
@@ -41534,7 +37527,6 @@ export namespace Prisma {
     PIPE_INLET?: true
     PIPE_OUTLET?: true
     HEAT_EXCHANGER_TYPE?: true
-    EQUIPMENT_TABLE_KO?: true
     REVIT_FAMILY_NAME?: true
     EQUIP_TABLE_KO?: true
     _all?: true
@@ -41631,10 +37623,9 @@ export namespace Prisma {
     ID: number
     MODEL: string
     BUYER_MODEL_NAME: string | null
-    LOCATION: string | null
+    APP_LOCATION: string | null
     NOTUSEDCOUNTRY: string | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
     ACC_DEFAULT: string | null
@@ -41687,7 +37678,6 @@ export namespace Prisma {
     PIPE_INLET: string | null
     PIPE_OUTLET: string | null
     HEAT_EXCHANGER_TYPE: string | null
-    EQUIPMENT_TABLE_KO: string | null
     REVIT_FAMILY_NAME: string | null
     EQUIP_TABLE_KO: string | null
     _count: T_MASTER_THERMAV_IDUCountAggregateOutputType | null
@@ -41716,10 +37706,9 @@ export namespace Prisma {
     ID?: boolean
     MODEL?: boolean
     BUYER_MODEL_NAME?: boolean
-    LOCATION?: boolean
+    APP_LOCATION?: boolean
     NOTUSEDCOUNTRY?: boolean
     VISIBLE?: boolean
-    VISIBLE_THERMAV?: boolean
     DESCRIPTION?: boolean
     ACCESSARY?: boolean
     ACC_DEFAULT?: boolean
@@ -41772,7 +37761,6 @@ export namespace Prisma {
     PIPE_INLET?: boolean
     PIPE_OUTLET?: boolean
     HEAT_EXCHANGER_TYPE?: boolean
-    EQUIPMENT_TABLE_KO?: boolean
     REVIT_FAMILY_NAME?: boolean
     EQUIP_TABLE_KO?: boolean
   }, ExtArgs["result"]["t_MASTER_THERMAV_IDU"]>
@@ -41782,10 +37770,9 @@ export namespace Prisma {
     ID?: boolean
     MODEL?: boolean
     BUYER_MODEL_NAME?: boolean
-    LOCATION?: boolean
+    APP_LOCATION?: boolean
     NOTUSEDCOUNTRY?: boolean
     VISIBLE?: boolean
-    VISIBLE_THERMAV?: boolean
     DESCRIPTION?: boolean
     ACCESSARY?: boolean
     ACC_DEFAULT?: boolean
@@ -41838,7 +37825,6 @@ export namespace Prisma {
     PIPE_INLET?: boolean
     PIPE_OUTLET?: boolean
     HEAT_EXCHANGER_TYPE?: boolean
-    EQUIPMENT_TABLE_KO?: boolean
     REVIT_FAMILY_NAME?: boolean
     EQUIP_TABLE_KO?: boolean
   }
@@ -41852,10 +37838,9 @@ export namespace Prisma {
       ID: number
       MODEL: string
       BUYER_MODEL_NAME: string | null
-      LOCATION: string | null
+      APP_LOCATION: string | null
       NOTUSEDCOUNTRY: string | null
       VISIBLE: number | null
-      VISIBLE_THERMAV: number | null
       DESCRIPTION: string | null
       ACCESSARY: string | null
       ACC_DEFAULT: string | null
@@ -41908,7 +37893,6 @@ export namespace Prisma {
       PIPE_INLET: string | null
       PIPE_OUTLET: string | null
       HEAT_EXCHANGER_TYPE: string | null
-      EQUIPMENT_TABLE_KO: string | null
       REVIT_FAMILY_NAME: string | null
       EQUIP_TABLE_KO: string | null
     }, ExtArgs["result"]["t_MASTER_THERMAV_IDU"]>
@@ -42309,10 +38293,9 @@ export namespace Prisma {
     readonly ID: FieldRef<"T_MASTER_THERMAV_IDU", 'Int'>
     readonly MODEL: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly BUYER_MODEL_NAME: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
-    readonly LOCATION: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
+    readonly APP_LOCATION: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly NOTUSEDCOUNTRY: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly VISIBLE: FieldRef<"T_MASTER_THERMAV_IDU", 'Int'>
-    readonly VISIBLE_THERMAV: FieldRef<"T_MASTER_THERMAV_IDU", 'Int'>
     readonly DESCRIPTION: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly ACCESSARY: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly ACC_DEFAULT: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
@@ -42365,7 +38348,6 @@ export namespace Prisma {
     readonly PIPE_INLET: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly PIPE_OUTLET: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly HEAT_EXCHANGER_TYPE: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
-    readonly EQUIPMENT_TABLE_KO: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly REVIT_FAMILY_NAME: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
     readonly EQUIP_TABLE_KO: FieldRef<"T_MASTER_THERMAV_IDU", 'String'>
   }
@@ -42669,8 +38651,8 @@ export namespace Prisma {
 
   export type T_MASTER_THERMAV_ODUAvgAggregateOutputType = {
     ID: number | null
+    VISIBLE_CAD: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     HZ: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
@@ -42716,8 +38698,8 @@ export namespace Prisma {
 
   export type T_MASTER_THERMAV_ODUSumAggregateOutputType = {
     ID: number | null
+    VISIBLE_CAD: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     HZ: number | null
     NOMINAL_CAPACITY: Decimal | null
     COOLING_CAPACITY: Decimal | null
@@ -42767,9 +38749,11 @@ export namespace Prisma {
     MODEL: string | null
     BUYER_MODEL_NAME: string | null
     APP_LOCATION: string | null
+    NOTUSEDCOUNTRY: string | null
+    VISIBLE_CAD: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     TYPE_ODU: string | null
+    TYPE_ODU_THERMAV: string | null
     TYPE_TEMP: string | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
@@ -42826,7 +38810,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE: string | null
     WATER_FLOW_LPM: Decimal | null
     WATER_FLOW_GPM: Decimal | null
-    EQUIPMENT_TABLE_KO: string | null
     SYSTEM_REF_AMOUNT: Decimal | null
     REVIT_FAMILY_NAME: string | null
     COOLING_EER: Decimal | null
@@ -42841,10 +38824,6 @@ export namespace Prisma {
     SOUND_MAX: Decimal | null
     HEATING_INDOOR_LOW: string | null
     EQUIP_TABLE_KO: string | null
-    COOLING_LEAVING_TEMP_LOW: string | null
-    COOLING_LEAVING_TEMP_HIGH: string | null
-    HEATING_LEAVING_TEMP_LOW: string | null
-    HEATING_LEAVING_TEMP_HIGH: string | null
   }
 
   export type T_MASTER_THERMAV_ODUMaxAggregateOutputType = {
@@ -42853,9 +38832,11 @@ export namespace Prisma {
     MODEL: string | null
     BUYER_MODEL_NAME: string | null
     APP_LOCATION: string | null
+    NOTUSEDCOUNTRY: string | null
+    VISIBLE_CAD: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     TYPE_ODU: string | null
+    TYPE_ODU_THERMAV: string | null
     TYPE_TEMP: string | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
@@ -42912,7 +38893,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE: string | null
     WATER_FLOW_LPM: Decimal | null
     WATER_FLOW_GPM: Decimal | null
-    EQUIPMENT_TABLE_KO: string | null
     SYSTEM_REF_AMOUNT: Decimal | null
     REVIT_FAMILY_NAME: string | null
     COOLING_EER: Decimal | null
@@ -42927,10 +38907,6 @@ export namespace Prisma {
     SOUND_MAX: Decimal | null
     HEATING_INDOOR_LOW: string | null
     EQUIP_TABLE_KO: string | null
-    COOLING_LEAVING_TEMP_LOW: string | null
-    COOLING_LEAVING_TEMP_HIGH: string | null
-    HEATING_LEAVING_TEMP_LOW: string | null
-    HEATING_LEAVING_TEMP_HIGH: string | null
   }
 
   export type T_MASTER_THERMAV_ODUCountAggregateOutputType = {
@@ -42939,9 +38915,11 @@ export namespace Prisma {
     MODEL: number
     BUYER_MODEL_NAME: number
     APP_LOCATION: number
+    NOTUSEDCOUNTRY: number
+    VISIBLE_CAD: number
     VISIBLE: number
-    VISIBLE_THERMAV: number
     TYPE_ODU: number
+    TYPE_ODU_THERMAV: number
     TYPE_TEMP: number
     DESCRIPTION: number
     ACCESSARY: number
@@ -42998,7 +38976,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE: number
     WATER_FLOW_LPM: number
     WATER_FLOW_GPM: number
-    EQUIPMENT_TABLE_KO: number
     SYSTEM_REF_AMOUNT: number
     REVIT_FAMILY_NAME: number
     COOLING_EER: number
@@ -43013,18 +38990,14 @@ export namespace Prisma {
     SOUND_MAX: number
     HEATING_INDOOR_LOW: number
     EQUIP_TABLE_KO: number
-    COOLING_LEAVING_TEMP_LOW: number
-    COOLING_LEAVING_TEMP_HIGH: number
-    HEATING_LEAVING_TEMP_LOW: number
-    HEATING_LEAVING_TEMP_HIGH: number
     _all: number
   }
 
 
   export type T_MASTER_THERMAV_ODUAvgAggregateInputType = {
     ID?: true
+    VISIBLE_CAD?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     HZ?: true
     NOMINAL_CAPACITY?: true
     COOLING_CAPACITY?: true
@@ -43070,8 +39043,8 @@ export namespace Prisma {
 
   export type T_MASTER_THERMAV_ODUSumAggregateInputType = {
     ID?: true
+    VISIBLE_CAD?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     HZ?: true
     NOMINAL_CAPACITY?: true
     COOLING_CAPACITY?: true
@@ -43121,9 +39094,11 @@ export namespace Prisma {
     MODEL?: true
     BUYER_MODEL_NAME?: true
     APP_LOCATION?: true
+    NOTUSEDCOUNTRY?: true
+    VISIBLE_CAD?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     TYPE_ODU?: true
+    TYPE_ODU_THERMAV?: true
     TYPE_TEMP?: true
     DESCRIPTION?: true
     ACCESSARY?: true
@@ -43180,7 +39155,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: true
     WATER_FLOW_LPM?: true
     WATER_FLOW_GPM?: true
-    EQUIPMENT_TABLE_KO?: true
     SYSTEM_REF_AMOUNT?: true
     REVIT_FAMILY_NAME?: true
     COOLING_EER?: true
@@ -43195,10 +39169,6 @@ export namespace Prisma {
     SOUND_MAX?: true
     HEATING_INDOOR_LOW?: true
     EQUIP_TABLE_KO?: true
-    COOLING_LEAVING_TEMP_LOW?: true
-    COOLING_LEAVING_TEMP_HIGH?: true
-    HEATING_LEAVING_TEMP_LOW?: true
-    HEATING_LEAVING_TEMP_HIGH?: true
   }
 
   export type T_MASTER_THERMAV_ODUMaxAggregateInputType = {
@@ -43207,9 +39177,11 @@ export namespace Prisma {
     MODEL?: true
     BUYER_MODEL_NAME?: true
     APP_LOCATION?: true
+    NOTUSEDCOUNTRY?: true
+    VISIBLE_CAD?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     TYPE_ODU?: true
+    TYPE_ODU_THERMAV?: true
     TYPE_TEMP?: true
     DESCRIPTION?: true
     ACCESSARY?: true
@@ -43266,7 +39238,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: true
     WATER_FLOW_LPM?: true
     WATER_FLOW_GPM?: true
-    EQUIPMENT_TABLE_KO?: true
     SYSTEM_REF_AMOUNT?: true
     REVIT_FAMILY_NAME?: true
     COOLING_EER?: true
@@ -43281,10 +39252,6 @@ export namespace Prisma {
     SOUND_MAX?: true
     HEATING_INDOOR_LOW?: true
     EQUIP_TABLE_KO?: true
-    COOLING_LEAVING_TEMP_LOW?: true
-    COOLING_LEAVING_TEMP_HIGH?: true
-    HEATING_LEAVING_TEMP_LOW?: true
-    HEATING_LEAVING_TEMP_HIGH?: true
   }
 
   export type T_MASTER_THERMAV_ODUCountAggregateInputType = {
@@ -43293,9 +39260,11 @@ export namespace Prisma {
     MODEL?: true
     BUYER_MODEL_NAME?: true
     APP_LOCATION?: true
+    NOTUSEDCOUNTRY?: true
+    VISIBLE_CAD?: true
     VISIBLE?: true
-    VISIBLE_THERMAV?: true
     TYPE_ODU?: true
+    TYPE_ODU_THERMAV?: true
     TYPE_TEMP?: true
     DESCRIPTION?: true
     ACCESSARY?: true
@@ -43352,7 +39321,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: true
     WATER_FLOW_LPM?: true
     WATER_FLOW_GPM?: true
-    EQUIPMENT_TABLE_KO?: true
     SYSTEM_REF_AMOUNT?: true
     REVIT_FAMILY_NAME?: true
     COOLING_EER?: true
@@ -43367,10 +39335,6 @@ export namespace Prisma {
     SOUND_MAX?: true
     HEATING_INDOOR_LOW?: true
     EQUIP_TABLE_KO?: true
-    COOLING_LEAVING_TEMP_LOW?: true
-    COOLING_LEAVING_TEMP_HIGH?: true
-    HEATING_LEAVING_TEMP_LOW?: true
-    HEATING_LEAVING_TEMP_HIGH?: true
     _all?: true
   }
 
@@ -43466,9 +39430,11 @@ export namespace Prisma {
     MODEL: string
     BUYER_MODEL_NAME: string | null
     APP_LOCATION: string | null
+    NOTUSEDCOUNTRY: string | null
+    VISIBLE_CAD: number | null
     VISIBLE: number | null
-    VISIBLE_THERMAV: number | null
     TYPE_ODU: string | null
+    TYPE_ODU_THERMAV: string | null
     TYPE_TEMP: string | null
     DESCRIPTION: string | null
     ACCESSARY: string | null
@@ -43525,7 +39491,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE: string | null
     WATER_FLOW_LPM: Decimal | null
     WATER_FLOW_GPM: Decimal | null
-    EQUIPMENT_TABLE_KO: string | null
     SYSTEM_REF_AMOUNT: Decimal | null
     REVIT_FAMILY_NAME: string | null
     COOLING_EER: Decimal | null
@@ -43540,10 +39505,6 @@ export namespace Prisma {
     SOUND_MAX: Decimal | null
     HEATING_INDOOR_LOW: string | null
     EQUIP_TABLE_KO: string | null
-    COOLING_LEAVING_TEMP_LOW: string | null
-    COOLING_LEAVING_TEMP_HIGH: string | null
-    HEATING_LEAVING_TEMP_LOW: string | null
-    HEATING_LEAVING_TEMP_HIGH: string | null
     _count: T_MASTER_THERMAV_ODUCountAggregateOutputType | null
     _avg: T_MASTER_THERMAV_ODUAvgAggregateOutputType | null
     _sum: T_MASTER_THERMAV_ODUSumAggregateOutputType | null
@@ -43571,9 +39532,11 @@ export namespace Prisma {
     MODEL?: boolean
     BUYER_MODEL_NAME?: boolean
     APP_LOCATION?: boolean
+    NOTUSEDCOUNTRY?: boolean
+    VISIBLE_CAD?: boolean
     VISIBLE?: boolean
-    VISIBLE_THERMAV?: boolean
     TYPE_ODU?: boolean
+    TYPE_ODU_THERMAV?: boolean
     TYPE_TEMP?: boolean
     DESCRIPTION?: boolean
     ACCESSARY?: boolean
@@ -43630,7 +39593,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: boolean
     WATER_FLOW_LPM?: boolean
     WATER_FLOW_GPM?: boolean
-    EQUIPMENT_TABLE_KO?: boolean
     SYSTEM_REF_AMOUNT?: boolean
     REVIT_FAMILY_NAME?: boolean
     COOLING_EER?: boolean
@@ -43645,10 +39607,6 @@ export namespace Prisma {
     SOUND_MAX?: boolean
     HEATING_INDOOR_LOW?: boolean
     EQUIP_TABLE_KO?: boolean
-    COOLING_LEAVING_TEMP_LOW?: boolean
-    COOLING_LEAVING_TEMP_HIGH?: boolean
-    HEATING_LEAVING_TEMP_LOW?: boolean
-    HEATING_LEAVING_TEMP_HIGH?: boolean
   }, ExtArgs["result"]["t_MASTER_THERMAV_ODU"]>
 
   export type T_MASTER_THERMAV_ODUSelectScalar = {
@@ -43657,9 +39615,11 @@ export namespace Prisma {
     MODEL?: boolean
     BUYER_MODEL_NAME?: boolean
     APP_LOCATION?: boolean
+    NOTUSEDCOUNTRY?: boolean
+    VISIBLE_CAD?: boolean
     VISIBLE?: boolean
-    VISIBLE_THERMAV?: boolean
     TYPE_ODU?: boolean
+    TYPE_ODU_THERMAV?: boolean
     TYPE_TEMP?: boolean
     DESCRIPTION?: boolean
     ACCESSARY?: boolean
@@ -43716,7 +39676,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: boolean
     WATER_FLOW_LPM?: boolean
     WATER_FLOW_GPM?: boolean
-    EQUIPMENT_TABLE_KO?: boolean
     SYSTEM_REF_AMOUNT?: boolean
     REVIT_FAMILY_NAME?: boolean
     COOLING_EER?: boolean
@@ -43731,10 +39690,6 @@ export namespace Prisma {
     SOUND_MAX?: boolean
     HEATING_INDOOR_LOW?: boolean
     EQUIP_TABLE_KO?: boolean
-    COOLING_LEAVING_TEMP_LOW?: boolean
-    COOLING_LEAVING_TEMP_HIGH?: boolean
-    HEATING_LEAVING_TEMP_LOW?: boolean
-    HEATING_LEAVING_TEMP_HIGH?: boolean
   }
 
 
@@ -43747,9 +39702,11 @@ export namespace Prisma {
       MODEL: string
       BUYER_MODEL_NAME: string | null
       APP_LOCATION: string | null
+      NOTUSEDCOUNTRY: string | null
+      VISIBLE_CAD: number | null
       VISIBLE: number | null
-      VISIBLE_THERMAV: number | null
       TYPE_ODU: string | null
+      TYPE_ODU_THERMAV: string | null
       TYPE_TEMP: string | null
       DESCRIPTION: string | null
       ACCESSARY: string | null
@@ -43806,7 +39763,6 @@ export namespace Prisma {
       HEAT_EXCHANGER_TYPE: string | null
       WATER_FLOW_LPM: Prisma.Decimal | null
       WATER_FLOW_GPM: Prisma.Decimal | null
-      EQUIPMENT_TABLE_KO: string | null
       SYSTEM_REF_AMOUNT: Prisma.Decimal | null
       REVIT_FAMILY_NAME: string | null
       COOLING_EER: Prisma.Decimal | null
@@ -43821,10 +39777,6 @@ export namespace Prisma {
       SOUND_MAX: Prisma.Decimal | null
       HEATING_INDOOR_LOW: string | null
       EQUIP_TABLE_KO: string | null
-      COOLING_LEAVING_TEMP_LOW: string | null
-      COOLING_LEAVING_TEMP_HIGH: string | null
-      HEATING_LEAVING_TEMP_LOW: string | null
-      HEATING_LEAVING_TEMP_HIGH: string | null
     }, ExtArgs["result"]["t_MASTER_THERMAV_ODU"]>
     composites: {}
   }
@@ -44224,9 +40176,11 @@ export namespace Prisma {
     readonly MODEL: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly BUYER_MODEL_NAME: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly APP_LOCATION: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
+    readonly NOTUSEDCOUNTRY: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
+    readonly VISIBLE_CAD: FieldRef<"T_MASTER_THERMAV_ODU", 'Int'>
     readonly VISIBLE: FieldRef<"T_MASTER_THERMAV_ODU", 'Int'>
-    readonly VISIBLE_THERMAV: FieldRef<"T_MASTER_THERMAV_ODU", 'Int'>
     readonly TYPE_ODU: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
+    readonly TYPE_ODU_THERMAV: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly TYPE_TEMP: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly DESCRIPTION: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly ACCESSARY: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
@@ -44283,7 +40237,6 @@ export namespace Prisma {
     readonly HEAT_EXCHANGER_TYPE: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly WATER_FLOW_LPM: FieldRef<"T_MASTER_THERMAV_ODU", 'Decimal'>
     readonly WATER_FLOW_GPM: FieldRef<"T_MASTER_THERMAV_ODU", 'Decimal'>
-    readonly EQUIPMENT_TABLE_KO: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly SYSTEM_REF_AMOUNT: FieldRef<"T_MASTER_THERMAV_ODU", 'Decimal'>
     readonly REVIT_FAMILY_NAME: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly COOLING_EER: FieldRef<"T_MASTER_THERMAV_ODU", 'Decimal'>
@@ -44298,10 +40251,6 @@ export namespace Prisma {
     readonly SOUND_MAX: FieldRef<"T_MASTER_THERMAV_ODU", 'Decimal'>
     readonly HEATING_INDOOR_LOW: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
     readonly EQUIP_TABLE_KO: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
-    readonly COOLING_LEAVING_TEMP_LOW: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
-    readonly COOLING_LEAVING_TEMP_HIGH: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
-    readonly HEATING_LEAVING_TEMP_LOW: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
-    readonly HEATING_LEAVING_TEMP_HIGH: FieldRef<"T_MASTER_THERMAV_ODU", 'String'>
   }
     
 
@@ -45546,6 +41495,2792 @@ export namespace Prisma {
 
 
   /**
+   * Model T_CMN_LATS_SUPPORT
+   */
+
+  export type AggregateT_CMN_LATS_SUPPORT = {
+    _count: T_CMN_LATS_SUPPORTCountAggregateOutputType | null
+    _avg: T_CMN_LATS_SUPPORTAvgAggregateOutputType | null
+    _sum: T_CMN_LATS_SUPPORTSumAggregateOutputType | null
+    _min: T_CMN_LATS_SUPPORTMinAggregateOutputType | null
+    _max: T_CMN_LATS_SUPPORTMaxAggregateOutputType | null
+  }
+
+  export type T_CMN_LATS_SUPPORTAvgAggregateOutputType = {
+    SEQ: number | null
+    TYPE: number | null
+    PROJECT_SEQ: number | null
+  }
+
+  export type T_CMN_LATS_SUPPORTSumAggregateOutputType = {
+    SEQ: number | null
+    TYPE: number | null
+    PROJECT_SEQ: number | null
+  }
+
+  export type T_CMN_LATS_SUPPORTMinAggregateOutputType = {
+    SEQ: number | null
+    PROGRAM: string | null
+    TYPE: number | null
+    PROJECT_SEQ: number | null
+    TITLE: string | null
+    CONTENTS: string | null
+    CREATE_DATE: Date | null
+    CREATE_BY_ID: string | null
+    UPDATE_DATE: Date | null
+    UPDATE_BY_ID: string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTMaxAggregateOutputType = {
+    SEQ: number | null
+    PROGRAM: string | null
+    TYPE: number | null
+    PROJECT_SEQ: number | null
+    TITLE: string | null
+    CONTENTS: string | null
+    CREATE_DATE: Date | null
+    CREATE_BY_ID: string | null
+    UPDATE_DATE: Date | null
+    UPDATE_BY_ID: string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTCountAggregateOutputType = {
+    SEQ: number
+    PROGRAM: number
+    TYPE: number
+    PROJECT_SEQ: number
+    TITLE: number
+    CONTENTS: number
+    CREATE_DATE: number
+    CREATE_BY_ID: number
+    UPDATE_DATE: number
+    UPDATE_BY_ID: number
+    _all: number
+  }
+
+
+  export type T_CMN_LATS_SUPPORTAvgAggregateInputType = {
+    SEQ?: true
+    TYPE?: true
+    PROJECT_SEQ?: true
+  }
+
+  export type T_CMN_LATS_SUPPORTSumAggregateInputType = {
+    SEQ?: true
+    TYPE?: true
+    PROJECT_SEQ?: true
+  }
+
+  export type T_CMN_LATS_SUPPORTMinAggregateInputType = {
+    SEQ?: true
+    PROGRAM?: true
+    TYPE?: true
+    PROJECT_SEQ?: true
+    TITLE?: true
+    CONTENTS?: true
+    CREATE_DATE?: true
+    CREATE_BY_ID?: true
+    UPDATE_DATE?: true
+    UPDATE_BY_ID?: true
+  }
+
+  export type T_CMN_LATS_SUPPORTMaxAggregateInputType = {
+    SEQ?: true
+    PROGRAM?: true
+    TYPE?: true
+    PROJECT_SEQ?: true
+    TITLE?: true
+    CONTENTS?: true
+    CREATE_DATE?: true
+    CREATE_BY_ID?: true
+    UPDATE_DATE?: true
+    UPDATE_BY_ID?: true
+  }
+
+  export type T_CMN_LATS_SUPPORTCountAggregateInputType = {
+    SEQ?: true
+    PROGRAM?: true
+    TYPE?: true
+    PROJECT_SEQ?: true
+    TITLE?: true
+    CONTENTS?: true
+    CREATE_DATE?: true
+    CREATE_BY_ID?: true
+    UPDATE_DATE?: true
+    UPDATE_BY_ID?: true
+    _all?: true
+  }
+
+  export type T_CMN_LATS_SUPPORTAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_LATS_SUPPORT to aggregate.
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_SUPPORTS to fetch.
+     */
+    orderBy?: T_CMN_LATS_SUPPORTOrderByWithRelationInput | T_CMN_LATS_SUPPORTOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: T_CMN_LATS_SUPPORTWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_SUPPORTS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_SUPPORTS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned T_CMN_LATS_SUPPORTS
+    **/
+    _count?: true | T_CMN_LATS_SUPPORTCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: T_CMN_LATS_SUPPORTAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: T_CMN_LATS_SUPPORTSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: T_CMN_LATS_SUPPORTMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: T_CMN_LATS_SUPPORTMaxAggregateInputType
+  }
+
+  export type GetT_CMN_LATS_SUPPORTAggregateType<T extends T_CMN_LATS_SUPPORTAggregateArgs> = {
+        [P in keyof T & keyof AggregateT_CMN_LATS_SUPPORT]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateT_CMN_LATS_SUPPORT[P]>
+      : GetScalarType<T[P], AggregateT_CMN_LATS_SUPPORT[P]>
+  }
+
+
+
+
+  export type T_CMN_LATS_SUPPORTGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: T_CMN_LATS_SUPPORTWhereInput
+    orderBy?: T_CMN_LATS_SUPPORTOrderByWithAggregationInput | T_CMN_LATS_SUPPORTOrderByWithAggregationInput[]
+    by: T_CMN_LATS_SUPPORTScalarFieldEnum[] | T_CMN_LATS_SUPPORTScalarFieldEnum
+    having?: T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: T_CMN_LATS_SUPPORTCountAggregateInputType | true
+    _avg?: T_CMN_LATS_SUPPORTAvgAggregateInputType
+    _sum?: T_CMN_LATS_SUPPORTSumAggregateInputType
+    _min?: T_CMN_LATS_SUPPORTMinAggregateInputType
+    _max?: T_CMN_LATS_SUPPORTMaxAggregateInputType
+  }
+
+  export type T_CMN_LATS_SUPPORTGroupByOutputType = {
+    SEQ: number
+    PROGRAM: string
+    TYPE: number
+    PROJECT_SEQ: number | null
+    TITLE: string
+    CONTENTS: string | null
+    CREATE_DATE: Date | null
+    CREATE_BY_ID: string
+    UPDATE_DATE: Date | null
+    UPDATE_BY_ID: string | null
+    _count: T_CMN_LATS_SUPPORTCountAggregateOutputType | null
+    _avg: T_CMN_LATS_SUPPORTAvgAggregateOutputType | null
+    _sum: T_CMN_LATS_SUPPORTSumAggregateOutputType | null
+    _min: T_CMN_LATS_SUPPORTMinAggregateOutputType | null
+    _max: T_CMN_LATS_SUPPORTMaxAggregateOutputType | null
+  }
+
+  type GetT_CMN_LATS_SUPPORTGroupByPayload<T extends T_CMN_LATS_SUPPORTGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<T_CMN_LATS_SUPPORTGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof T_CMN_LATS_SUPPORTGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], T_CMN_LATS_SUPPORTGroupByOutputType[P]>
+            : GetScalarType<T[P], T_CMN_LATS_SUPPORTGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type T_CMN_LATS_SUPPORTSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    SEQ?: boolean
+    PROGRAM?: boolean
+    TYPE?: boolean
+    PROJECT_SEQ?: boolean
+    TITLE?: boolean
+    CONTENTS?: boolean
+    CREATE_DATE?: boolean
+    CREATE_BY_ID?: boolean
+    UPDATE_DATE?: boolean
+    UPDATE_BY_ID?: boolean
+  }, ExtArgs["result"]["t_CMN_LATS_SUPPORT"]>
+
+  export type T_CMN_LATS_SUPPORTSelectScalar = {
+    SEQ?: boolean
+    PROGRAM?: boolean
+    TYPE?: boolean
+    PROJECT_SEQ?: boolean
+    TITLE?: boolean
+    CONTENTS?: boolean
+    CREATE_DATE?: boolean
+    CREATE_BY_ID?: boolean
+    UPDATE_DATE?: boolean
+    UPDATE_BY_ID?: boolean
+  }
+
+
+  export type $T_CMN_LATS_SUPPORTPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "T_CMN_LATS_SUPPORT"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      SEQ: number
+      PROGRAM: string
+      TYPE: number
+      PROJECT_SEQ: number | null
+      TITLE: string
+      CONTENTS: string | null
+      CREATE_DATE: Date | null
+      CREATE_BY_ID: string
+      UPDATE_DATE: Date | null
+      UPDATE_BY_ID: string | null
+    }, ExtArgs["result"]["t_CMN_LATS_SUPPORT"]>
+    composites: {}
+  }
+
+
+  type T_CMN_LATS_SUPPORTGetPayload<S extends boolean | null | undefined | T_CMN_LATS_SUPPORTDefaultArgs> = $Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload, S>
+
+  type T_CMN_LATS_SUPPORTCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<T_CMN_LATS_SUPPORTFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: T_CMN_LATS_SUPPORTCountAggregateInputType | true
+    }
+
+  export interface T_CMN_LATS_SUPPORTDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_LATS_SUPPORT'], meta: { name: 'T_CMN_LATS_SUPPORT' } }
+    /**
+     * Find zero or one T_CMN_LATS_SUPPORT that matches the filter.
+     * @param {T_CMN_LATS_SUPPORTFindUniqueArgs} args - Arguments to find a T_CMN_LATS_SUPPORT
+     * @example
+     * // Get one T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends T_CMN_LATS_SUPPORTFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTFindUniqueArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one T_CMN_LATS_SUPPORT that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {T_CMN_LATS_SUPPORTFindUniqueOrThrowArgs} args - Arguments to find a T_CMN_LATS_SUPPORT
+     * @example
+     * // Get one T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends T_CMN_LATS_SUPPORTFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first T_CMN_LATS_SUPPORT that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTFindFirstArgs} args - Arguments to find a T_CMN_LATS_SUPPORT
+     * @example
+     * // Get one T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends T_CMN_LATS_SUPPORTFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTFindFirstArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first T_CMN_LATS_SUPPORT that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTFindFirstOrThrowArgs} args - Arguments to find a T_CMN_LATS_SUPPORT
+     * @example
+     * // Get one T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends T_CMN_LATS_SUPPORTFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more T_CMN_LATS_SUPPORTS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all T_CMN_LATS_SUPPORTS
+     * const t_CMN_LATS_SUPPORTS = await prisma.t_CMN_LATS_SUPPORT.findMany()
+     * 
+     * // Get first 10 T_CMN_LATS_SUPPORTS
+     * const t_CMN_LATS_SUPPORTS = await prisma.t_CMN_LATS_SUPPORT.findMany({ take: 10 })
+     * 
+     * // Only select the `SEQ`
+     * const t_CMN_LATS_SUPPORTWithSEQOnly = await prisma.t_CMN_LATS_SUPPORT.findMany({ select: { SEQ: true } })
+     * 
+    **/
+    findMany<T extends T_CMN_LATS_SUPPORTFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a T_CMN_LATS_SUPPORT.
+     * @param {T_CMN_LATS_SUPPORTCreateArgs} args - Arguments to create a T_CMN_LATS_SUPPORT.
+     * @example
+     * // Create one T_CMN_LATS_SUPPORT
+     * const T_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.create({
+     *   data: {
+     *     // ... data to create a T_CMN_LATS_SUPPORT
+     *   }
+     * })
+     * 
+    **/
+    create<T extends T_CMN_LATS_SUPPORTCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTCreateArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many T_CMN_LATS_SUPPORTS.
+     *     @param {T_CMN_LATS_SUPPORTCreateManyArgs} args - Arguments to create many T_CMN_LATS_SUPPORTS.
+     *     @example
+     *     // Create many T_CMN_LATS_SUPPORTS
+     *     const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends T_CMN_LATS_SUPPORTCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a T_CMN_LATS_SUPPORT.
+     * @param {T_CMN_LATS_SUPPORTDeleteArgs} args - Arguments to delete one T_CMN_LATS_SUPPORT.
+     * @example
+     * // Delete one T_CMN_LATS_SUPPORT
+     * const T_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.delete({
+     *   where: {
+     *     // ... filter to delete one T_CMN_LATS_SUPPORT
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends T_CMN_LATS_SUPPORTDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTDeleteArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one T_CMN_LATS_SUPPORT.
+     * @param {T_CMN_LATS_SUPPORTUpdateArgs} args - Arguments to update one T_CMN_LATS_SUPPORT.
+     * @example
+     * // Update one T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends T_CMN_LATS_SUPPORTUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTUpdateArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more T_CMN_LATS_SUPPORTS.
+     * @param {T_CMN_LATS_SUPPORTDeleteManyArgs} args - Arguments to filter T_CMN_LATS_SUPPORTS to delete.
+     * @example
+     * // Delete a few T_CMN_LATS_SUPPORTS
+     * const { count } = await prisma.t_CMN_LATS_SUPPORT.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends T_CMN_LATS_SUPPORTDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_SUPPORTDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more T_CMN_LATS_SUPPORTS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many T_CMN_LATS_SUPPORTS
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends T_CMN_LATS_SUPPORTUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one T_CMN_LATS_SUPPORT.
+     * @param {T_CMN_LATS_SUPPORTUpsertArgs} args - Arguments to update or create a T_CMN_LATS_SUPPORT.
+     * @example
+     * // Update or create a T_CMN_LATS_SUPPORT
+     * const t_CMN_LATS_SUPPORT = await prisma.t_CMN_LATS_SUPPORT.upsert({
+     *   create: {
+     *     // ... data to create a T_CMN_LATS_SUPPORT
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the T_CMN_LATS_SUPPORT we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends T_CMN_LATS_SUPPORTUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_SUPPORTUpsertArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_SUPPORTClient<$Result.GetResult<Prisma.$T_CMN_LATS_SUPPORTPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of T_CMN_LATS_SUPPORTS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTCountArgs} args - Arguments to filter T_CMN_LATS_SUPPORTS to count.
+     * @example
+     * // Count the number of T_CMN_LATS_SUPPORTS
+     * const count = await prisma.t_CMN_LATS_SUPPORT.count({
+     *   where: {
+     *     // ... the filter for the T_CMN_LATS_SUPPORTS we want to count
+     *   }
+     * })
+    **/
+    count<T extends T_CMN_LATS_SUPPORTCountArgs>(
+      args?: Subset<T, T_CMN_LATS_SUPPORTCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], T_CMN_LATS_SUPPORTCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a T_CMN_LATS_SUPPORT.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends T_CMN_LATS_SUPPORTAggregateArgs>(args: Subset<T, T_CMN_LATS_SUPPORTAggregateArgs>): Prisma.PrismaPromise<GetT_CMN_LATS_SUPPORTAggregateType<T>>
+
+    /**
+     * Group by T_CMN_LATS_SUPPORT.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_SUPPORTGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends T_CMN_LATS_SUPPORTGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: T_CMN_LATS_SUPPORTGroupByArgs['orderBy'] }
+        : { orderBy?: T_CMN_LATS_SUPPORTGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, T_CMN_LATS_SUPPORTGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_LATS_SUPPORTGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the T_CMN_LATS_SUPPORT model
+   */
+  readonly fields: T_CMN_LATS_SUPPORTFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for T_CMN_LATS_SUPPORT.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__T_CMN_LATS_SUPPORTClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the T_CMN_LATS_SUPPORT model
+   */ 
+  interface T_CMN_LATS_SUPPORTFieldRefs {
+    readonly SEQ: FieldRef<"T_CMN_LATS_SUPPORT", 'Int'>
+    readonly PROGRAM: FieldRef<"T_CMN_LATS_SUPPORT", 'String'>
+    readonly TYPE: FieldRef<"T_CMN_LATS_SUPPORT", 'Int'>
+    readonly PROJECT_SEQ: FieldRef<"T_CMN_LATS_SUPPORT", 'Int'>
+    readonly TITLE: FieldRef<"T_CMN_LATS_SUPPORT", 'String'>
+    readonly CONTENTS: FieldRef<"T_CMN_LATS_SUPPORT", 'String'>
+    readonly CREATE_DATE: FieldRef<"T_CMN_LATS_SUPPORT", 'DateTime'>
+    readonly CREATE_BY_ID: FieldRef<"T_CMN_LATS_SUPPORT", 'String'>
+    readonly UPDATE_DATE: FieldRef<"T_CMN_LATS_SUPPORT", 'DateTime'>
+    readonly UPDATE_BY_ID: FieldRef<"T_CMN_LATS_SUPPORT", 'String'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * T_CMN_LATS_SUPPORT findUnique
+   */
+  export type T_CMN_LATS_SUPPORTFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_SUPPORT to fetch.
+     */
+    where: T_CMN_LATS_SUPPORTWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT findUniqueOrThrow
+   */
+  export type T_CMN_LATS_SUPPORTFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_SUPPORT to fetch.
+     */
+    where: T_CMN_LATS_SUPPORTWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT findFirst
+   */
+  export type T_CMN_LATS_SUPPORTFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_SUPPORT to fetch.
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_SUPPORTS to fetch.
+     */
+    orderBy?: T_CMN_LATS_SUPPORTOrderByWithRelationInput | T_CMN_LATS_SUPPORTOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_LATS_SUPPORTS.
+     */
+    cursor?: T_CMN_LATS_SUPPORTWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_SUPPORTS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_SUPPORTS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_LATS_SUPPORTS.
+     */
+    distinct?: T_CMN_LATS_SUPPORTScalarFieldEnum | T_CMN_LATS_SUPPORTScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT findFirstOrThrow
+   */
+  export type T_CMN_LATS_SUPPORTFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_SUPPORT to fetch.
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_SUPPORTS to fetch.
+     */
+    orderBy?: T_CMN_LATS_SUPPORTOrderByWithRelationInput | T_CMN_LATS_SUPPORTOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_LATS_SUPPORTS.
+     */
+    cursor?: T_CMN_LATS_SUPPORTWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_SUPPORTS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_SUPPORTS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_LATS_SUPPORTS.
+     */
+    distinct?: T_CMN_LATS_SUPPORTScalarFieldEnum | T_CMN_LATS_SUPPORTScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT findMany
+   */
+  export type T_CMN_LATS_SUPPORTFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_SUPPORTS to fetch.
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_SUPPORTS to fetch.
+     */
+    orderBy?: T_CMN_LATS_SUPPORTOrderByWithRelationInput | T_CMN_LATS_SUPPORTOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing T_CMN_LATS_SUPPORTS.
+     */
+    cursor?: T_CMN_LATS_SUPPORTWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_SUPPORTS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_SUPPORTS.
+     */
+    skip?: number
+    distinct?: T_CMN_LATS_SUPPORTScalarFieldEnum | T_CMN_LATS_SUPPORTScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT create
+   */
+  export type T_CMN_LATS_SUPPORTCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * The data needed to create a T_CMN_LATS_SUPPORT.
+     */
+    data: XOR<T_CMN_LATS_SUPPORTCreateInput, T_CMN_LATS_SUPPORTUncheckedCreateInput>
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT createMany
+   */
+  export type T_CMN_LATS_SUPPORTCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many T_CMN_LATS_SUPPORTS.
+     */
+    data: T_CMN_LATS_SUPPORTCreateManyInput | T_CMN_LATS_SUPPORTCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT update
+   */
+  export type T_CMN_LATS_SUPPORTUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * The data needed to update a T_CMN_LATS_SUPPORT.
+     */
+    data: XOR<T_CMN_LATS_SUPPORTUpdateInput, T_CMN_LATS_SUPPORTUncheckedUpdateInput>
+    /**
+     * Choose, which T_CMN_LATS_SUPPORT to update.
+     */
+    where: T_CMN_LATS_SUPPORTWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT updateMany
+   */
+  export type T_CMN_LATS_SUPPORTUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update T_CMN_LATS_SUPPORTS.
+     */
+    data: XOR<T_CMN_LATS_SUPPORTUpdateManyMutationInput, T_CMN_LATS_SUPPORTUncheckedUpdateManyInput>
+    /**
+     * Filter which T_CMN_LATS_SUPPORTS to update
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT upsert
+   */
+  export type T_CMN_LATS_SUPPORTUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * The filter to search for the T_CMN_LATS_SUPPORT to update in case it exists.
+     */
+    where: T_CMN_LATS_SUPPORTWhereUniqueInput
+    /**
+     * In case the T_CMN_LATS_SUPPORT found by the `where` argument doesn't exist, create a new T_CMN_LATS_SUPPORT with this data.
+     */
+    create: XOR<T_CMN_LATS_SUPPORTCreateInput, T_CMN_LATS_SUPPORTUncheckedCreateInput>
+    /**
+     * In case the T_CMN_LATS_SUPPORT was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<T_CMN_LATS_SUPPORTUpdateInput, T_CMN_LATS_SUPPORTUncheckedUpdateInput>
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT delete
+   */
+  export type T_CMN_LATS_SUPPORTDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+    /**
+     * Filter which T_CMN_LATS_SUPPORT to delete.
+     */
+    where: T_CMN_LATS_SUPPORTWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT deleteMany
+   */
+  export type T_CMN_LATS_SUPPORTDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_LATS_SUPPORTS to delete
+     */
+    where?: T_CMN_LATS_SUPPORTWhereInput
+  }
+
+
+  /**
+   * T_CMN_LATS_SUPPORT without action
+   */
+  export type T_CMN_LATS_SUPPORTDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_SUPPORT
+     */
+    select?: T_CMN_LATS_SUPPORTSelect<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model T_CMN_LATS_VERSION
+   */
+
+  export type AggregateT_CMN_LATS_VERSION = {
+    _count: T_CMN_LATS_VERSIONCountAggregateOutputType | null
+    _avg: T_CMN_LATS_VERSIONAvgAggregateOutputType | null
+    _sum: T_CMN_LATS_VERSIONSumAggregateOutputType | null
+    _min: T_CMN_LATS_VERSIONMinAggregateOutputType | null
+    _max: T_CMN_LATS_VERSIONMaxAggregateOutputType | null
+  }
+
+  export type T_CMN_LATS_VERSIONAvgAggregateOutputType = {
+    SEQ: number | null
+  }
+
+  export type T_CMN_LATS_VERSIONSumAggregateOutputType = {
+    SEQ: number | null
+  }
+
+  export type T_CMN_LATS_VERSIONMinAggregateOutputType = {
+    SEQ: number | null
+    PROGRAM_NAME: string | null
+    VERSION: string | null
+    RELEASE_NOTE: string | null
+    CREATE_DATE: Date | null
+    UPDATE_DATE: Date | null
+  }
+
+  export type T_CMN_LATS_VERSIONMaxAggregateOutputType = {
+    SEQ: number | null
+    PROGRAM_NAME: string | null
+    VERSION: string | null
+    RELEASE_NOTE: string | null
+    CREATE_DATE: Date | null
+    UPDATE_DATE: Date | null
+  }
+
+  export type T_CMN_LATS_VERSIONCountAggregateOutputType = {
+    SEQ: number
+    PROGRAM_NAME: number
+    VERSION: number
+    RELEASE_NOTE: number
+    CREATE_DATE: number
+    UPDATE_DATE: number
+    _all: number
+  }
+
+
+  export type T_CMN_LATS_VERSIONAvgAggregateInputType = {
+    SEQ?: true
+  }
+
+  export type T_CMN_LATS_VERSIONSumAggregateInputType = {
+    SEQ?: true
+  }
+
+  export type T_CMN_LATS_VERSIONMinAggregateInputType = {
+    SEQ?: true
+    PROGRAM_NAME?: true
+    VERSION?: true
+    RELEASE_NOTE?: true
+    CREATE_DATE?: true
+    UPDATE_DATE?: true
+  }
+
+  export type T_CMN_LATS_VERSIONMaxAggregateInputType = {
+    SEQ?: true
+    PROGRAM_NAME?: true
+    VERSION?: true
+    RELEASE_NOTE?: true
+    CREATE_DATE?: true
+    UPDATE_DATE?: true
+  }
+
+  export type T_CMN_LATS_VERSIONCountAggregateInputType = {
+    SEQ?: true
+    PROGRAM_NAME?: true
+    VERSION?: true
+    RELEASE_NOTE?: true
+    CREATE_DATE?: true
+    UPDATE_DATE?: true
+    _all?: true
+  }
+
+  export type T_CMN_LATS_VERSIONAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_LATS_VERSION to aggregate.
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_VERSIONS to fetch.
+     */
+    orderBy?: T_CMN_LATS_VERSIONOrderByWithRelationInput | T_CMN_LATS_VERSIONOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: T_CMN_LATS_VERSIONWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_VERSIONS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_VERSIONS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned T_CMN_LATS_VERSIONS
+    **/
+    _count?: true | T_CMN_LATS_VERSIONCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: T_CMN_LATS_VERSIONAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: T_CMN_LATS_VERSIONSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: T_CMN_LATS_VERSIONMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: T_CMN_LATS_VERSIONMaxAggregateInputType
+  }
+
+  export type GetT_CMN_LATS_VERSIONAggregateType<T extends T_CMN_LATS_VERSIONAggregateArgs> = {
+        [P in keyof T & keyof AggregateT_CMN_LATS_VERSION]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateT_CMN_LATS_VERSION[P]>
+      : GetScalarType<T[P], AggregateT_CMN_LATS_VERSION[P]>
+  }
+
+
+
+
+  export type T_CMN_LATS_VERSIONGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: T_CMN_LATS_VERSIONWhereInput
+    orderBy?: T_CMN_LATS_VERSIONOrderByWithAggregationInput | T_CMN_LATS_VERSIONOrderByWithAggregationInput[]
+    by: T_CMN_LATS_VERSIONScalarFieldEnum[] | T_CMN_LATS_VERSIONScalarFieldEnum
+    having?: T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: T_CMN_LATS_VERSIONCountAggregateInputType | true
+    _avg?: T_CMN_LATS_VERSIONAvgAggregateInputType
+    _sum?: T_CMN_LATS_VERSIONSumAggregateInputType
+    _min?: T_CMN_LATS_VERSIONMinAggregateInputType
+    _max?: T_CMN_LATS_VERSIONMaxAggregateInputType
+  }
+
+  export type T_CMN_LATS_VERSIONGroupByOutputType = {
+    SEQ: number
+    PROGRAM_NAME: string
+    VERSION: string
+    RELEASE_NOTE: string | null
+    CREATE_DATE: Date | null
+    UPDATE_DATE: Date | null
+    _count: T_CMN_LATS_VERSIONCountAggregateOutputType | null
+    _avg: T_CMN_LATS_VERSIONAvgAggregateOutputType | null
+    _sum: T_CMN_LATS_VERSIONSumAggregateOutputType | null
+    _min: T_CMN_LATS_VERSIONMinAggregateOutputType | null
+    _max: T_CMN_LATS_VERSIONMaxAggregateOutputType | null
+  }
+
+  type GetT_CMN_LATS_VERSIONGroupByPayload<T extends T_CMN_LATS_VERSIONGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<T_CMN_LATS_VERSIONGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof T_CMN_LATS_VERSIONGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], T_CMN_LATS_VERSIONGroupByOutputType[P]>
+            : GetScalarType<T[P], T_CMN_LATS_VERSIONGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type T_CMN_LATS_VERSIONSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    SEQ?: boolean
+    PROGRAM_NAME?: boolean
+    VERSION?: boolean
+    RELEASE_NOTE?: boolean
+    CREATE_DATE?: boolean
+    UPDATE_DATE?: boolean
+  }, ExtArgs["result"]["t_CMN_LATS_VERSION"]>
+
+  export type T_CMN_LATS_VERSIONSelectScalar = {
+    SEQ?: boolean
+    PROGRAM_NAME?: boolean
+    VERSION?: boolean
+    RELEASE_NOTE?: boolean
+    CREATE_DATE?: boolean
+    UPDATE_DATE?: boolean
+  }
+
+
+  export type $T_CMN_LATS_VERSIONPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "T_CMN_LATS_VERSION"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      SEQ: number
+      PROGRAM_NAME: string
+      VERSION: string
+      RELEASE_NOTE: string | null
+      CREATE_DATE: Date | null
+      UPDATE_DATE: Date | null
+    }, ExtArgs["result"]["t_CMN_LATS_VERSION"]>
+    composites: {}
+  }
+
+
+  type T_CMN_LATS_VERSIONGetPayload<S extends boolean | null | undefined | T_CMN_LATS_VERSIONDefaultArgs> = $Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload, S>
+
+  type T_CMN_LATS_VERSIONCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<T_CMN_LATS_VERSIONFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: T_CMN_LATS_VERSIONCountAggregateInputType | true
+    }
+
+  export interface T_CMN_LATS_VERSIONDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_LATS_VERSION'], meta: { name: 'T_CMN_LATS_VERSION' } }
+    /**
+     * Find zero or one T_CMN_LATS_VERSION that matches the filter.
+     * @param {T_CMN_LATS_VERSIONFindUniqueArgs} args - Arguments to find a T_CMN_LATS_VERSION
+     * @example
+     * // Get one T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends T_CMN_LATS_VERSIONFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONFindUniqueArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one T_CMN_LATS_VERSION that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {T_CMN_LATS_VERSIONFindUniqueOrThrowArgs} args - Arguments to find a T_CMN_LATS_VERSION
+     * @example
+     * // Get one T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends T_CMN_LATS_VERSIONFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first T_CMN_LATS_VERSION that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONFindFirstArgs} args - Arguments to find a T_CMN_LATS_VERSION
+     * @example
+     * // Get one T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends T_CMN_LATS_VERSIONFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONFindFirstArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first T_CMN_LATS_VERSION that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONFindFirstOrThrowArgs} args - Arguments to find a T_CMN_LATS_VERSION
+     * @example
+     * // Get one T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends T_CMN_LATS_VERSIONFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more T_CMN_LATS_VERSIONS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all T_CMN_LATS_VERSIONS
+     * const t_CMN_LATS_VERSIONS = await prisma.t_CMN_LATS_VERSION.findMany()
+     * 
+     * // Get first 10 T_CMN_LATS_VERSIONS
+     * const t_CMN_LATS_VERSIONS = await prisma.t_CMN_LATS_VERSION.findMany({ take: 10 })
+     * 
+     * // Only select the `SEQ`
+     * const t_CMN_LATS_VERSIONWithSEQOnly = await prisma.t_CMN_LATS_VERSION.findMany({ select: { SEQ: true } })
+     * 
+    **/
+    findMany<T extends T_CMN_LATS_VERSIONFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a T_CMN_LATS_VERSION.
+     * @param {T_CMN_LATS_VERSIONCreateArgs} args - Arguments to create a T_CMN_LATS_VERSION.
+     * @example
+     * // Create one T_CMN_LATS_VERSION
+     * const T_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.create({
+     *   data: {
+     *     // ... data to create a T_CMN_LATS_VERSION
+     *   }
+     * })
+     * 
+    **/
+    create<T extends T_CMN_LATS_VERSIONCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONCreateArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many T_CMN_LATS_VERSIONS.
+     *     @param {T_CMN_LATS_VERSIONCreateManyArgs} args - Arguments to create many T_CMN_LATS_VERSIONS.
+     *     @example
+     *     // Create many T_CMN_LATS_VERSIONS
+     *     const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends T_CMN_LATS_VERSIONCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a T_CMN_LATS_VERSION.
+     * @param {T_CMN_LATS_VERSIONDeleteArgs} args - Arguments to delete one T_CMN_LATS_VERSION.
+     * @example
+     * // Delete one T_CMN_LATS_VERSION
+     * const T_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.delete({
+     *   where: {
+     *     // ... filter to delete one T_CMN_LATS_VERSION
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends T_CMN_LATS_VERSIONDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONDeleteArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one T_CMN_LATS_VERSION.
+     * @param {T_CMN_LATS_VERSIONUpdateArgs} args - Arguments to update one T_CMN_LATS_VERSION.
+     * @example
+     * // Update one T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends T_CMN_LATS_VERSIONUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONUpdateArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more T_CMN_LATS_VERSIONS.
+     * @param {T_CMN_LATS_VERSIONDeleteManyArgs} args - Arguments to filter T_CMN_LATS_VERSIONS to delete.
+     * @example
+     * // Delete a few T_CMN_LATS_VERSIONS
+     * const { count } = await prisma.t_CMN_LATS_VERSION.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends T_CMN_LATS_VERSIONDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_LATS_VERSIONDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more T_CMN_LATS_VERSIONS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many T_CMN_LATS_VERSIONS
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends T_CMN_LATS_VERSIONUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one T_CMN_LATS_VERSION.
+     * @param {T_CMN_LATS_VERSIONUpsertArgs} args - Arguments to update or create a T_CMN_LATS_VERSION.
+     * @example
+     * // Update or create a T_CMN_LATS_VERSION
+     * const t_CMN_LATS_VERSION = await prisma.t_CMN_LATS_VERSION.upsert({
+     *   create: {
+     *     // ... data to create a T_CMN_LATS_VERSION
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the T_CMN_LATS_VERSION we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends T_CMN_LATS_VERSIONUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_LATS_VERSIONUpsertArgs<ExtArgs>>
+    ): Prisma__T_CMN_LATS_VERSIONClient<$Result.GetResult<Prisma.$T_CMN_LATS_VERSIONPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of T_CMN_LATS_VERSIONS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONCountArgs} args - Arguments to filter T_CMN_LATS_VERSIONS to count.
+     * @example
+     * // Count the number of T_CMN_LATS_VERSIONS
+     * const count = await prisma.t_CMN_LATS_VERSION.count({
+     *   where: {
+     *     // ... the filter for the T_CMN_LATS_VERSIONS we want to count
+     *   }
+     * })
+    **/
+    count<T extends T_CMN_LATS_VERSIONCountArgs>(
+      args?: Subset<T, T_CMN_LATS_VERSIONCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], T_CMN_LATS_VERSIONCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a T_CMN_LATS_VERSION.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends T_CMN_LATS_VERSIONAggregateArgs>(args: Subset<T, T_CMN_LATS_VERSIONAggregateArgs>): Prisma.PrismaPromise<GetT_CMN_LATS_VERSIONAggregateType<T>>
+
+    /**
+     * Group by T_CMN_LATS_VERSION.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_LATS_VERSIONGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends T_CMN_LATS_VERSIONGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: T_CMN_LATS_VERSIONGroupByArgs['orderBy'] }
+        : { orderBy?: T_CMN_LATS_VERSIONGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, T_CMN_LATS_VERSIONGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_LATS_VERSIONGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the T_CMN_LATS_VERSION model
+   */
+  readonly fields: T_CMN_LATS_VERSIONFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for T_CMN_LATS_VERSION.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__T_CMN_LATS_VERSIONClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the T_CMN_LATS_VERSION model
+   */ 
+  interface T_CMN_LATS_VERSIONFieldRefs {
+    readonly SEQ: FieldRef<"T_CMN_LATS_VERSION", 'Int'>
+    readonly PROGRAM_NAME: FieldRef<"T_CMN_LATS_VERSION", 'String'>
+    readonly VERSION: FieldRef<"T_CMN_LATS_VERSION", 'String'>
+    readonly RELEASE_NOTE: FieldRef<"T_CMN_LATS_VERSION", 'String'>
+    readonly CREATE_DATE: FieldRef<"T_CMN_LATS_VERSION", 'DateTime'>
+    readonly UPDATE_DATE: FieldRef<"T_CMN_LATS_VERSION", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * T_CMN_LATS_VERSION findUnique
+   */
+  export type T_CMN_LATS_VERSIONFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_VERSION to fetch.
+     */
+    where: T_CMN_LATS_VERSIONWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION findUniqueOrThrow
+   */
+  export type T_CMN_LATS_VERSIONFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_VERSION to fetch.
+     */
+    where: T_CMN_LATS_VERSIONWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION findFirst
+   */
+  export type T_CMN_LATS_VERSIONFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_VERSION to fetch.
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_VERSIONS to fetch.
+     */
+    orderBy?: T_CMN_LATS_VERSIONOrderByWithRelationInput | T_CMN_LATS_VERSIONOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_LATS_VERSIONS.
+     */
+    cursor?: T_CMN_LATS_VERSIONWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_VERSIONS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_VERSIONS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_LATS_VERSIONS.
+     */
+    distinct?: T_CMN_LATS_VERSIONScalarFieldEnum | T_CMN_LATS_VERSIONScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION findFirstOrThrow
+   */
+  export type T_CMN_LATS_VERSIONFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_VERSION to fetch.
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_VERSIONS to fetch.
+     */
+    orderBy?: T_CMN_LATS_VERSIONOrderByWithRelationInput | T_CMN_LATS_VERSIONOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_LATS_VERSIONS.
+     */
+    cursor?: T_CMN_LATS_VERSIONWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_VERSIONS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_VERSIONS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_LATS_VERSIONS.
+     */
+    distinct?: T_CMN_LATS_VERSIONScalarFieldEnum | T_CMN_LATS_VERSIONScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION findMany
+   */
+  export type T_CMN_LATS_VERSIONFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_LATS_VERSIONS to fetch.
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_LATS_VERSIONS to fetch.
+     */
+    orderBy?: T_CMN_LATS_VERSIONOrderByWithRelationInput | T_CMN_LATS_VERSIONOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing T_CMN_LATS_VERSIONS.
+     */
+    cursor?: T_CMN_LATS_VERSIONWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_LATS_VERSIONS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_LATS_VERSIONS.
+     */
+    skip?: number
+    distinct?: T_CMN_LATS_VERSIONScalarFieldEnum | T_CMN_LATS_VERSIONScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION create
+   */
+  export type T_CMN_LATS_VERSIONCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * The data needed to create a T_CMN_LATS_VERSION.
+     */
+    data?: XOR<T_CMN_LATS_VERSIONCreateInput, T_CMN_LATS_VERSIONUncheckedCreateInput>
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION createMany
+   */
+  export type T_CMN_LATS_VERSIONCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many T_CMN_LATS_VERSIONS.
+     */
+    data: T_CMN_LATS_VERSIONCreateManyInput | T_CMN_LATS_VERSIONCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION update
+   */
+  export type T_CMN_LATS_VERSIONUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * The data needed to update a T_CMN_LATS_VERSION.
+     */
+    data: XOR<T_CMN_LATS_VERSIONUpdateInput, T_CMN_LATS_VERSIONUncheckedUpdateInput>
+    /**
+     * Choose, which T_CMN_LATS_VERSION to update.
+     */
+    where: T_CMN_LATS_VERSIONWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION updateMany
+   */
+  export type T_CMN_LATS_VERSIONUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update T_CMN_LATS_VERSIONS.
+     */
+    data: XOR<T_CMN_LATS_VERSIONUpdateManyMutationInput, T_CMN_LATS_VERSIONUncheckedUpdateManyInput>
+    /**
+     * Filter which T_CMN_LATS_VERSIONS to update
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION upsert
+   */
+  export type T_CMN_LATS_VERSIONUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * The filter to search for the T_CMN_LATS_VERSION to update in case it exists.
+     */
+    where: T_CMN_LATS_VERSIONWhereUniqueInput
+    /**
+     * In case the T_CMN_LATS_VERSION found by the `where` argument doesn't exist, create a new T_CMN_LATS_VERSION with this data.
+     */
+    create: XOR<T_CMN_LATS_VERSIONCreateInput, T_CMN_LATS_VERSIONUncheckedCreateInput>
+    /**
+     * In case the T_CMN_LATS_VERSION was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<T_CMN_LATS_VERSIONUpdateInput, T_CMN_LATS_VERSIONUncheckedUpdateInput>
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION delete
+   */
+  export type T_CMN_LATS_VERSIONDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+    /**
+     * Filter which T_CMN_LATS_VERSION to delete.
+     */
+    where: T_CMN_LATS_VERSIONWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION deleteMany
+   */
+  export type T_CMN_LATS_VERSIONDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_LATS_VERSIONS to delete
+     */
+    where?: T_CMN_LATS_VERSIONWhereInput
+  }
+
+
+  /**
+   * T_CMN_LATS_VERSION without action
+   */
+  export type T_CMN_LATS_VERSIONDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_LATS_VERSION
+     */
+    select?: T_CMN_LATS_VERSIONSelect<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model T_CMN_USAGE_ERROR_LOG
+   */
+
+  export type AggregateT_CMN_USAGE_ERROR_LOG = {
+    _count: T_CMN_USAGE_ERROR_LOGCountAggregateOutputType | null
+    _avg: T_CMN_USAGE_ERROR_LOGAvgAggregateOutputType | null
+    _sum: T_CMN_USAGE_ERROR_LOGSumAggregateOutputType | null
+    _min: T_CMN_USAGE_ERROR_LOGMinAggregateOutputType | null
+    _max: T_CMN_USAGE_ERROR_LOGMaxAggregateOutputType | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGAvgAggregateOutputType = {
+    ID: number | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGSumAggregateOutputType = {
+    ID: bigint | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMinAggregateOutputType = {
+    ID: bigint | null
+    ERROR_DATA: string | null
+    ERROR_MESSAGE: string | null
+    ERROR_TIMESTAMP: Date | null
+    PROCESSED: boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMaxAggregateOutputType = {
+    ID: bigint | null
+    ERROR_DATA: string | null
+    ERROR_MESSAGE: string | null
+    ERROR_TIMESTAMP: Date | null
+    PROCESSED: boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGCountAggregateOutputType = {
+    ID: number
+    ERROR_DATA: number
+    ERROR_MESSAGE: number
+    ERROR_TIMESTAMP: number
+    PROCESSED: number
+    _all: number
+  }
+
+
+  export type T_CMN_USAGE_ERROR_LOGAvgAggregateInputType = {
+    ID?: true
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGSumAggregateInputType = {
+    ID?: true
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMinAggregateInputType = {
+    ID?: true
+    ERROR_DATA?: true
+    ERROR_MESSAGE?: true
+    ERROR_TIMESTAMP?: true
+    PROCESSED?: true
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMaxAggregateInputType = {
+    ID?: true
+    ERROR_DATA?: true
+    ERROR_MESSAGE?: true
+    ERROR_TIMESTAMP?: true
+    PROCESSED?: true
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGCountAggregateInputType = {
+    ID?: true
+    ERROR_DATA?: true
+    ERROR_MESSAGE?: true
+    ERROR_TIMESTAMP?: true
+    PROCESSED?: true
+    _all?: true
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_USAGE_ERROR_LOG to aggregate.
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_USAGE_ERROR_LOGS to fetch.
+     */
+    orderBy?: T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput | T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_USAGE_ERROR_LOGS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_USAGE_ERROR_LOGS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned T_CMN_USAGE_ERROR_LOGS
+    **/
+    _count?: true | T_CMN_USAGE_ERROR_LOGCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: T_CMN_USAGE_ERROR_LOGAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: T_CMN_USAGE_ERROR_LOGSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: T_CMN_USAGE_ERROR_LOGMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: T_CMN_USAGE_ERROR_LOGMaxAggregateInputType
+  }
+
+  export type GetT_CMN_USAGE_ERROR_LOGAggregateType<T extends T_CMN_USAGE_ERROR_LOGAggregateArgs> = {
+        [P in keyof T & keyof AggregateT_CMN_USAGE_ERROR_LOG]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateT_CMN_USAGE_ERROR_LOG[P]>
+      : GetScalarType<T[P], AggregateT_CMN_USAGE_ERROR_LOG[P]>
+  }
+
+
+
+
+  export type T_CMN_USAGE_ERROR_LOGGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+    orderBy?: T_CMN_USAGE_ERROR_LOGOrderByWithAggregationInput | T_CMN_USAGE_ERROR_LOGOrderByWithAggregationInput[]
+    by: T_CMN_USAGE_ERROR_LOGScalarFieldEnum[] | T_CMN_USAGE_ERROR_LOGScalarFieldEnum
+    having?: T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: T_CMN_USAGE_ERROR_LOGCountAggregateInputType | true
+    _avg?: T_CMN_USAGE_ERROR_LOGAvgAggregateInputType
+    _sum?: T_CMN_USAGE_ERROR_LOGSumAggregateInputType
+    _min?: T_CMN_USAGE_ERROR_LOGMinAggregateInputType
+    _max?: T_CMN_USAGE_ERROR_LOGMaxAggregateInputType
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGGroupByOutputType = {
+    ID: bigint
+    ERROR_DATA: string | null
+    ERROR_MESSAGE: string | null
+    ERROR_TIMESTAMP: Date | null
+    PROCESSED: boolean | null
+    _count: T_CMN_USAGE_ERROR_LOGCountAggregateOutputType | null
+    _avg: T_CMN_USAGE_ERROR_LOGAvgAggregateOutputType | null
+    _sum: T_CMN_USAGE_ERROR_LOGSumAggregateOutputType | null
+    _min: T_CMN_USAGE_ERROR_LOGMinAggregateOutputType | null
+    _max: T_CMN_USAGE_ERROR_LOGMaxAggregateOutputType | null
+  }
+
+  type GetT_CMN_USAGE_ERROR_LOGGroupByPayload<T extends T_CMN_USAGE_ERROR_LOGGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<T_CMN_USAGE_ERROR_LOGGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof T_CMN_USAGE_ERROR_LOGGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], T_CMN_USAGE_ERROR_LOGGroupByOutputType[P]>
+            : GetScalarType<T[P], T_CMN_USAGE_ERROR_LOGGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type T_CMN_USAGE_ERROR_LOGSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID?: boolean
+    ERROR_DATA?: boolean
+    ERROR_MESSAGE?: boolean
+    ERROR_TIMESTAMP?: boolean
+    PROCESSED?: boolean
+  }, ExtArgs["result"]["t_CMN_USAGE_ERROR_LOG"]>
+
+  export type T_CMN_USAGE_ERROR_LOGSelectScalar = {
+    ID?: boolean
+    ERROR_DATA?: boolean
+    ERROR_MESSAGE?: boolean
+    ERROR_TIMESTAMP?: boolean
+    PROCESSED?: boolean
+  }
+
+
+  export type $T_CMN_USAGE_ERROR_LOGPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "T_CMN_USAGE_ERROR_LOG"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      ID: bigint
+      ERROR_DATA: string | null
+      ERROR_MESSAGE: string | null
+      ERROR_TIMESTAMP: Date | null
+      PROCESSED: boolean | null
+    }, ExtArgs["result"]["t_CMN_USAGE_ERROR_LOG"]>
+    composites: {}
+  }
+
+
+  type T_CMN_USAGE_ERROR_LOGGetPayload<S extends boolean | null | undefined | T_CMN_USAGE_ERROR_LOGDefaultArgs> = $Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload, S>
+
+  type T_CMN_USAGE_ERROR_LOGCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<T_CMN_USAGE_ERROR_LOGFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: T_CMN_USAGE_ERROR_LOGCountAggregateInputType | true
+    }
+
+  export interface T_CMN_USAGE_ERROR_LOGDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_CMN_USAGE_ERROR_LOG'], meta: { name: 'T_CMN_USAGE_ERROR_LOG' } }
+    /**
+     * Find zero or one T_CMN_USAGE_ERROR_LOG that matches the filter.
+     * @param {T_CMN_USAGE_ERROR_LOGFindUniqueArgs} args - Arguments to find a T_CMN_USAGE_ERROR_LOG
+     * @example
+     * // Get one T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends T_CMN_USAGE_ERROR_LOGFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGFindUniqueArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one T_CMN_USAGE_ERROR_LOG that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {T_CMN_USAGE_ERROR_LOGFindUniqueOrThrowArgs} args - Arguments to find a T_CMN_USAGE_ERROR_LOG
+     * @example
+     * // Get one T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends T_CMN_USAGE_ERROR_LOGFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first T_CMN_USAGE_ERROR_LOG that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGFindFirstArgs} args - Arguments to find a T_CMN_USAGE_ERROR_LOG
+     * @example
+     * // Get one T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends T_CMN_USAGE_ERROR_LOGFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGFindFirstArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first T_CMN_USAGE_ERROR_LOG that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGFindFirstOrThrowArgs} args - Arguments to find a T_CMN_USAGE_ERROR_LOG
+     * @example
+     * // Get one T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends T_CMN_USAGE_ERROR_LOGFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more T_CMN_USAGE_ERROR_LOGS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all T_CMN_USAGE_ERROR_LOGS
+     * const t_CMN_USAGE_ERROR_LOGS = await prisma.t_CMN_USAGE_ERROR_LOG.findMany()
+     * 
+     * // Get first 10 T_CMN_USAGE_ERROR_LOGS
+     * const t_CMN_USAGE_ERROR_LOGS = await prisma.t_CMN_USAGE_ERROR_LOG.findMany({ take: 10 })
+     * 
+     * // Only select the `ID`
+     * const t_CMN_USAGE_ERROR_LOGWithIDOnly = await prisma.t_CMN_USAGE_ERROR_LOG.findMany({ select: { ID: true } })
+     * 
+    **/
+    findMany<T extends T_CMN_USAGE_ERROR_LOGFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a T_CMN_USAGE_ERROR_LOG.
+     * @param {T_CMN_USAGE_ERROR_LOGCreateArgs} args - Arguments to create a T_CMN_USAGE_ERROR_LOG.
+     * @example
+     * // Create one T_CMN_USAGE_ERROR_LOG
+     * const T_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.create({
+     *   data: {
+     *     // ... data to create a T_CMN_USAGE_ERROR_LOG
+     *   }
+     * })
+     * 
+    **/
+    create<T extends T_CMN_USAGE_ERROR_LOGCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGCreateArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many T_CMN_USAGE_ERROR_LOGS.
+     *     @param {T_CMN_USAGE_ERROR_LOGCreateManyArgs} args - Arguments to create many T_CMN_USAGE_ERROR_LOGS.
+     *     @example
+     *     // Create many T_CMN_USAGE_ERROR_LOGS
+     *     const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends T_CMN_USAGE_ERROR_LOGCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a T_CMN_USAGE_ERROR_LOG.
+     * @param {T_CMN_USAGE_ERROR_LOGDeleteArgs} args - Arguments to delete one T_CMN_USAGE_ERROR_LOG.
+     * @example
+     * // Delete one T_CMN_USAGE_ERROR_LOG
+     * const T_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.delete({
+     *   where: {
+     *     // ... filter to delete one T_CMN_USAGE_ERROR_LOG
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends T_CMN_USAGE_ERROR_LOGDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGDeleteArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one T_CMN_USAGE_ERROR_LOG.
+     * @param {T_CMN_USAGE_ERROR_LOGUpdateArgs} args - Arguments to update one T_CMN_USAGE_ERROR_LOG.
+     * @example
+     * // Update one T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends T_CMN_USAGE_ERROR_LOGUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGUpdateArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more T_CMN_USAGE_ERROR_LOGS.
+     * @param {T_CMN_USAGE_ERROR_LOGDeleteManyArgs} args - Arguments to filter T_CMN_USAGE_ERROR_LOGS to delete.
+     * @example
+     * // Delete a few T_CMN_USAGE_ERROR_LOGS
+     * const { count } = await prisma.t_CMN_USAGE_ERROR_LOG.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends T_CMN_USAGE_ERROR_LOGDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_CMN_USAGE_ERROR_LOGDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more T_CMN_USAGE_ERROR_LOGS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many T_CMN_USAGE_ERROR_LOGS
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends T_CMN_USAGE_ERROR_LOGUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one T_CMN_USAGE_ERROR_LOG.
+     * @param {T_CMN_USAGE_ERROR_LOGUpsertArgs} args - Arguments to update or create a T_CMN_USAGE_ERROR_LOG.
+     * @example
+     * // Update or create a T_CMN_USAGE_ERROR_LOG
+     * const t_CMN_USAGE_ERROR_LOG = await prisma.t_CMN_USAGE_ERROR_LOG.upsert({
+     *   create: {
+     *     // ... data to create a T_CMN_USAGE_ERROR_LOG
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the T_CMN_USAGE_ERROR_LOG we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends T_CMN_USAGE_ERROR_LOGUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, T_CMN_USAGE_ERROR_LOGUpsertArgs<ExtArgs>>
+    ): Prisma__T_CMN_USAGE_ERROR_LOGClient<$Result.GetResult<Prisma.$T_CMN_USAGE_ERROR_LOGPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of T_CMN_USAGE_ERROR_LOGS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGCountArgs} args - Arguments to filter T_CMN_USAGE_ERROR_LOGS to count.
+     * @example
+     * // Count the number of T_CMN_USAGE_ERROR_LOGS
+     * const count = await prisma.t_CMN_USAGE_ERROR_LOG.count({
+     *   where: {
+     *     // ... the filter for the T_CMN_USAGE_ERROR_LOGS we want to count
+     *   }
+     * })
+    **/
+    count<T extends T_CMN_USAGE_ERROR_LOGCountArgs>(
+      args?: Subset<T, T_CMN_USAGE_ERROR_LOGCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], T_CMN_USAGE_ERROR_LOGCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a T_CMN_USAGE_ERROR_LOG.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends T_CMN_USAGE_ERROR_LOGAggregateArgs>(args: Subset<T, T_CMN_USAGE_ERROR_LOGAggregateArgs>): Prisma.PrismaPromise<GetT_CMN_USAGE_ERROR_LOGAggregateType<T>>
+
+    /**
+     * Group by T_CMN_USAGE_ERROR_LOG.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_CMN_USAGE_ERROR_LOGGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends T_CMN_USAGE_ERROR_LOGGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: T_CMN_USAGE_ERROR_LOGGroupByArgs['orderBy'] }
+        : { orderBy?: T_CMN_USAGE_ERROR_LOGGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, T_CMN_USAGE_ERROR_LOGGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_CMN_USAGE_ERROR_LOGGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the T_CMN_USAGE_ERROR_LOG model
+   */
+  readonly fields: T_CMN_USAGE_ERROR_LOGFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for T_CMN_USAGE_ERROR_LOG.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__T_CMN_USAGE_ERROR_LOGClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the T_CMN_USAGE_ERROR_LOG model
+   */ 
+  interface T_CMN_USAGE_ERROR_LOGFieldRefs {
+    readonly ID: FieldRef<"T_CMN_USAGE_ERROR_LOG", 'BigInt'>
+    readonly ERROR_DATA: FieldRef<"T_CMN_USAGE_ERROR_LOG", 'String'>
+    readonly ERROR_MESSAGE: FieldRef<"T_CMN_USAGE_ERROR_LOG", 'String'>
+    readonly ERROR_TIMESTAMP: FieldRef<"T_CMN_USAGE_ERROR_LOG", 'DateTime'>
+    readonly PROCESSED: FieldRef<"T_CMN_USAGE_ERROR_LOG", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG findUnique
+   */
+  export type T_CMN_USAGE_ERROR_LOGFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_USAGE_ERROR_LOG to fetch.
+     */
+    where: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG findUniqueOrThrow
+   */
+  export type T_CMN_USAGE_ERROR_LOGFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_USAGE_ERROR_LOG to fetch.
+     */
+    where: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG findFirst
+   */
+  export type T_CMN_USAGE_ERROR_LOGFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_USAGE_ERROR_LOG to fetch.
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_USAGE_ERROR_LOGS to fetch.
+     */
+    orderBy?: T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput | T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_USAGE_ERROR_LOGS.
+     */
+    cursor?: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_USAGE_ERROR_LOGS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_USAGE_ERROR_LOGS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_USAGE_ERROR_LOGS.
+     */
+    distinct?: T_CMN_USAGE_ERROR_LOGScalarFieldEnum | T_CMN_USAGE_ERROR_LOGScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG findFirstOrThrow
+   */
+  export type T_CMN_USAGE_ERROR_LOGFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_USAGE_ERROR_LOG to fetch.
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_USAGE_ERROR_LOGS to fetch.
+     */
+    orderBy?: T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput | T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_CMN_USAGE_ERROR_LOGS.
+     */
+    cursor?: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_USAGE_ERROR_LOGS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_USAGE_ERROR_LOGS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_CMN_USAGE_ERROR_LOGS.
+     */
+    distinct?: T_CMN_USAGE_ERROR_LOGScalarFieldEnum | T_CMN_USAGE_ERROR_LOGScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG findMany
+   */
+  export type T_CMN_USAGE_ERROR_LOGFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter, which T_CMN_USAGE_ERROR_LOGS to fetch.
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_CMN_USAGE_ERROR_LOGS to fetch.
+     */
+    orderBy?: T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput | T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing T_CMN_USAGE_ERROR_LOGS.
+     */
+    cursor?: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_CMN_USAGE_ERROR_LOGS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_CMN_USAGE_ERROR_LOGS.
+     */
+    skip?: number
+    distinct?: T_CMN_USAGE_ERROR_LOGScalarFieldEnum | T_CMN_USAGE_ERROR_LOGScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG create
+   */
+  export type T_CMN_USAGE_ERROR_LOGCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * The data needed to create a T_CMN_USAGE_ERROR_LOG.
+     */
+    data?: XOR<T_CMN_USAGE_ERROR_LOGCreateInput, T_CMN_USAGE_ERROR_LOGUncheckedCreateInput>
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG createMany
+   */
+  export type T_CMN_USAGE_ERROR_LOGCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many T_CMN_USAGE_ERROR_LOGS.
+     */
+    data: T_CMN_USAGE_ERROR_LOGCreateManyInput | T_CMN_USAGE_ERROR_LOGCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG update
+   */
+  export type T_CMN_USAGE_ERROR_LOGUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * The data needed to update a T_CMN_USAGE_ERROR_LOG.
+     */
+    data: XOR<T_CMN_USAGE_ERROR_LOGUpdateInput, T_CMN_USAGE_ERROR_LOGUncheckedUpdateInput>
+    /**
+     * Choose, which T_CMN_USAGE_ERROR_LOG to update.
+     */
+    where: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG updateMany
+   */
+  export type T_CMN_USAGE_ERROR_LOGUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update T_CMN_USAGE_ERROR_LOGS.
+     */
+    data: XOR<T_CMN_USAGE_ERROR_LOGUpdateManyMutationInput, T_CMN_USAGE_ERROR_LOGUncheckedUpdateManyInput>
+    /**
+     * Filter which T_CMN_USAGE_ERROR_LOGS to update
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG upsert
+   */
+  export type T_CMN_USAGE_ERROR_LOGUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * The filter to search for the T_CMN_USAGE_ERROR_LOG to update in case it exists.
+     */
+    where: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+    /**
+     * In case the T_CMN_USAGE_ERROR_LOG found by the `where` argument doesn't exist, create a new T_CMN_USAGE_ERROR_LOG with this data.
+     */
+    create: XOR<T_CMN_USAGE_ERROR_LOGCreateInput, T_CMN_USAGE_ERROR_LOGUncheckedCreateInput>
+    /**
+     * In case the T_CMN_USAGE_ERROR_LOG was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<T_CMN_USAGE_ERROR_LOGUpdateInput, T_CMN_USAGE_ERROR_LOGUncheckedUpdateInput>
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG delete
+   */
+  export type T_CMN_USAGE_ERROR_LOGDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+    /**
+     * Filter which T_CMN_USAGE_ERROR_LOG to delete.
+     */
+    where: T_CMN_USAGE_ERROR_LOGWhereUniqueInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG deleteMany
+   */
+  export type T_CMN_USAGE_ERROR_LOGDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_CMN_USAGE_ERROR_LOGS to delete
+     */
+    where?: T_CMN_USAGE_ERROR_LOGWhereInput
+  }
+
+
+  /**
+   * T_CMN_USAGE_ERROR_LOG without action
+   */
+  export type T_CMN_USAGE_ERROR_LOGDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_CMN_USAGE_ERROR_LOG
+     */
+    select?: T_CMN_USAGE_ERROR_LOGSelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model V_CMN_LANGUAGE
    */
 
@@ -46555,7 +45290,15 @@ export namespace Prisma {
     MEMBER_EMAIL: 'MEMBER_EMAIL',
     BPP_REGION_CODE: 'BPP_REGION_CODE',
     PARTNER_TYPE_CODE: 'PARTNER_TYPE_CODE',
-    PARTNER_GRADE_CODE: 'PARTNER_GRADE_CODE'
+    PARTNER_GRADE_CODE: 'PARTNER_GRADE_CODE',
+    US_FEDERATION_ID: 'US_FEDERATION_ID',
+    US_SFDC_ID: 'US_SFDC_ID',
+    US_CONTACT_ID: 'US_CONTACT_ID',
+    US_JOB_TYPE: 'US_JOB_TYPE',
+    US_ACCOUNT_ID: 'US_ACCOUNT_ID',
+    US_ACCOUNT_CODE: 'US_ACCOUNT_CODE',
+    LOGIN_TYPE: 'LOGIN_TYPE',
+    LOGIN_TOKEN: 'LOGIN_TOKEN'
   };
 
   export type T_CMN_COM_MEMBERScalarFieldEnum = (typeof T_CMN_COM_MEMBERScalarFieldEnum)[keyof typeof T_CMN_COM_MEMBERScalarFieldEnum]
@@ -46655,7 +45398,8 @@ export namespace Prisma {
     CONTENT_VERSION: 'CONTENT_VERSION',
     LOCALE_TYPE: 'LOCALE_TYPE',
     CORPORATION_CODE: 'CORPORATION_CODE',
-    QUESTION_CONTENT: 'QUESTION_CONTENT'
+    QUESTION_CONTENT: 'QUESTION_CONTENT',
+    AGREE_YN: 'AGREE_YN'
   };
 
   export type T_CMN_MEM_TERMSScalarFieldEnum = (typeof T_CMN_MEM_TERMSScalarFieldEnum)[keyof typeof T_CMN_MEM_TERMSScalarFieldEnum]
@@ -46899,110 +45643,6 @@ export namespace Prisma {
   };
 
   export type T_CMN_USAGEScalarFieldEnum = (typeof T_CMN_USAGEScalarFieldEnum)[keyof typeof T_CMN_USAGEScalarFieldEnum]
-
-
-  export const T_CMN_USAGE_2021ScalarFieldEnum: {
-    SEQ: 'SEQ',
-    PROGRAM: 'PROGRAM',
-    USER: 'USER',
-    EMAIL: 'EMAIL',
-    IP: 'IP',
-    COMPANY: 'COMPANY',
-    COUNTRY: 'COUNTRY',
-    REGION: 'REGION',
-    OS_VERSION: 'OS_VERSION',
-    PROGRAM_VERSION: 'PROGRAM_VERSION',
-    OFFICE_VERSION: 'OFFICE_VERSION',
-    AUTODESK_VERSION: 'AUTODESK_VERSION',
-    REQUEST_CODE: 'REQUEST_CODE',
-    JOBTYPE: 'JOBTYPE',
-    MARKETING: 'MARKETING',
-    LOGTYPE: 'LOGTYPE',
-    USAGETYPE: 'USAGETYPE',
-    CREATE_DATE: 'CREATE_DATE',
-    ENTITY: 'ENTITY',
-    OS_LOCALE: 'OS_LOCALE'
-  };
-
-  export type T_CMN_USAGE_2021ScalarFieldEnum = (typeof T_CMN_USAGE_2021ScalarFieldEnum)[keyof typeof T_CMN_USAGE_2021ScalarFieldEnum]
-
-
-  export const T_CMN_USAGE_2022ScalarFieldEnum: {
-    SEQ: 'SEQ',
-    PROGRAM: 'PROGRAM',
-    USER: 'USER',
-    EMAIL: 'EMAIL',
-    IP: 'IP',
-    COMPANY: 'COMPANY',
-    COUNTRY: 'COUNTRY',
-    REGION: 'REGION',
-    OS_VERSION: 'OS_VERSION',
-    PROGRAM_VERSION: 'PROGRAM_VERSION',
-    OFFICE_VERSION: 'OFFICE_VERSION',
-    AUTODESK_VERSION: 'AUTODESK_VERSION',
-    REQUEST_CODE: 'REQUEST_CODE',
-    JOBTYPE: 'JOBTYPE',
-    MARKETING: 'MARKETING',
-    LOGTYPE: 'LOGTYPE',
-    USAGETYPE: 'USAGETYPE',
-    CREATE_DATE: 'CREATE_DATE',
-    ENTITY: 'ENTITY',
-    OS_LOCALE: 'OS_LOCALE'
-  };
-
-  export type T_CMN_USAGE_2022ScalarFieldEnum = (typeof T_CMN_USAGE_2022ScalarFieldEnum)[keyof typeof T_CMN_USAGE_2022ScalarFieldEnum]
-
-
-  export const T_CMN_USAGE_2023_REVITScalarFieldEnum: {
-    SEQ: 'SEQ',
-    PROGRAM: 'PROGRAM',
-    USER: 'USER',
-    EMAIL: 'EMAIL',
-    IP: 'IP',
-    COMPANY: 'COMPANY',
-    COUNTRY: 'COUNTRY',
-    REGION: 'REGION',
-    OS_VERSION: 'OS_VERSION',
-    PROGRAM_VERSION: 'PROGRAM_VERSION',
-    OFFICE_VERSION: 'OFFICE_VERSION',
-    AUTODESK_VERSION: 'AUTODESK_VERSION',
-    REQUEST_CODE: 'REQUEST_CODE',
-    JOBTYPE: 'JOBTYPE',
-    MARKETING: 'MARKETING',
-    LOGTYPE: 'LOGTYPE',
-    USAGETYPE: 'USAGETYPE',
-    CREATE_DATE: 'CREATE_DATE',
-    ENTITY: 'ENTITY',
-    OS_LOCALE: 'OS_LOCALE'
-  };
-
-  export type T_CMN_USAGE_2023_REVITScalarFieldEnum = (typeof T_CMN_USAGE_2023_REVITScalarFieldEnum)[keyof typeof T_CMN_USAGE_2023_REVITScalarFieldEnum]
-
-
-  export const T_CMN_USAGE_BACKUPScalarFieldEnum: {
-    SEQ: 'SEQ',
-    PROGRAM: 'PROGRAM',
-    USER: 'USER',
-    EMAIL: 'EMAIL',
-    IP: 'IP',
-    COMPANY: 'COMPANY',
-    COUNTRY: 'COUNTRY',
-    REGION: 'REGION',
-    OS_VERSION: 'OS_VERSION',
-    PROGRAM_VERSION: 'PROGRAM_VERSION',
-    OFFICE_VERSION: 'OFFICE_VERSION',
-    AUTODESK_VERSION: 'AUTODESK_VERSION',
-    REQUEST_CODE: 'REQUEST_CODE',
-    JOBTYPE: 'JOBTYPE',
-    MARKETING: 'MARKETING',
-    LOGTYPE: 'LOGTYPE',
-    USAGETYPE: 'USAGETYPE',
-    CREATE_DATE: 'CREATE_DATE',
-    ENTITY: 'ENTITY',
-    OS_LOCALE: 'OS_LOCALE'
-  };
-
-  export type T_CMN_USAGE_BACKUPScalarFieldEnum = (typeof T_CMN_USAGE_BACKUPScalarFieldEnum)[keyof typeof T_CMN_USAGE_BACKUPScalarFieldEnum]
 
 
   export const T_CMN_USAGE_EMP_CNTRY_ENTScalarFieldEnum: {
@@ -47273,6 +45913,7 @@ export namespace Prisma {
     CONVERTIBLE: 'CONVERTIBLE',
     DUCT_HIGH_STATIC: 'DUCT_HIGH_STATIC',
     DUCT_MID_STATIC: 'DUCT_MID_STATIC',
+    COOLING_CAPACITY: 'COOLING_CAPACITY',
     DUCT_LOW_STATIC: 'DUCT_LOW_STATIC',
     DUCT_BUILT_IN: 'DUCT_BUILT_IN',
     FLOOR_STANDING: 'FLOOR_STANDING',
@@ -47281,7 +45922,7 @@ export namespace Prisma {
     VAHU_4WAY: 'VAHU_4WAY',
     A_COIL: 'A_COIL',
     CASSETTE_ROUND: 'CASSETTE_ROUND',
-    COOLING_CAPACITY: 'COOLING_CAPACITY',
+    DX_AHU: 'DX_AHU',
     HEATING_CAPACITY: 'HEATING_CAPACITY',
     COOLING_INPUT_POWER: 'COOLING_INPUT_POWER',
     HEATING_INPUT_POWER: 'HEATING_INPUT_POWER',
@@ -47466,7 +46107,27 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT: 'ODU_DOAS_BELOW_HEIGHT',
     DOAS_DOAS_HEIGHT: 'DOAS_DOAS_HEIGHT',
     INTERNAL_STATIC_PRESSURE: 'INTERNAL_STATIC_PRESSURE',
-    REVIT_FAMILY_NAME: 'REVIT_FAMILY_NAME'
+    REVIT_FAMILY_NAME: 'REVIT_FAMILY_NAME',
+    CONNECTABLE_ODU_TYPE: 'CONNECTABLE_ODU_TYPE',
+    TYPE_PRODUCT: 'TYPE_PRODUCT',
+    SYMBOL_INDEX: 'SYMBOL_INDEX',
+    T_HEAT_KCAL_H: 'T_HEAT_KCAL_H',
+    T_HEAT_W: 'T_HEAT_W',
+    BREAKER: 'BREAKER',
+    T_REHEAT_W: 'T_REHEAT_W',
+    T_COOL_W: 'T_COOL_W',
+    IMAGE_INDEX: 'IMAGE_INDEX',
+    T_COOL_KCAL_H: 'T_COOL_KCAL_H',
+    T_REHEAT_KCAL_H: 'T_REHEAT_KCAL_H',
+    RUN_CURRENT_HEATING: 'RUN_CURRENT_HEATING',
+    RUN_CURRENT_COOLING: 'RUN_CURRENT_COOLING',
+    DRAIN_DIAMETER: 'DRAIN_DIAMETER',
+    WIRE_POWER_H07RN_F: 'WIRE_POWER_H07RN_F',
+    FAN_TYPE: 'FAN_TYPE',
+    FAN_POWER: 'FAN_POWER',
+    POWER_SUPPLY: 'POWER_SUPPLY',
+    WIRE_COMM: 'WIRE_COMM',
+    EQUIP_TABLE_KO: 'EQUIP_TABLE_KO'
   };
 
   export type T_MASTER_MV_DOASScalarFieldEnum = (typeof T_MASTER_MV_DOASScalarFieldEnum)[keyof typeof T_MASTER_MV_DOASScalarFieldEnum]
@@ -47679,10 +46340,9 @@ export namespace Prisma {
     ID: 'ID',
     MODEL: 'MODEL',
     BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
-    LOCATION: 'LOCATION',
+    APP_LOCATION: 'APP_LOCATION',
     NOTUSEDCOUNTRY: 'NOTUSEDCOUNTRY',
     VISIBLE: 'VISIBLE',
-    VISIBLE_THERMAV: 'VISIBLE_THERMAV',
     DESCRIPTION: 'DESCRIPTION',
     ACCESSARY: 'ACCESSARY',
     ACC_DEFAULT: 'ACC_DEFAULT',
@@ -47735,7 +46395,6 @@ export namespace Prisma {
     PIPE_INLET: 'PIPE_INLET',
     PIPE_OUTLET: 'PIPE_OUTLET',
     HEAT_EXCHANGER_TYPE: 'HEAT_EXCHANGER_TYPE',
-    EQUIPMENT_TABLE_KO: 'EQUIPMENT_TABLE_KO',
     REVIT_FAMILY_NAME: 'REVIT_FAMILY_NAME',
     EQUIP_TABLE_KO: 'EQUIP_TABLE_KO'
   };
@@ -47749,9 +46408,11 @@ export namespace Prisma {
     MODEL: 'MODEL',
     BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
     APP_LOCATION: 'APP_LOCATION',
+    NOTUSEDCOUNTRY: 'NOTUSEDCOUNTRY',
+    VISIBLE_CAD: 'VISIBLE_CAD',
     VISIBLE: 'VISIBLE',
-    VISIBLE_THERMAV: 'VISIBLE_THERMAV',
     TYPE_ODU: 'TYPE_ODU',
+    TYPE_ODU_THERMAV: 'TYPE_ODU_THERMAV',
     TYPE_TEMP: 'TYPE_TEMP',
     DESCRIPTION: 'DESCRIPTION',
     ACCESSARY: 'ACCESSARY',
@@ -47808,7 +46469,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE: 'HEAT_EXCHANGER_TYPE',
     WATER_FLOW_LPM: 'WATER_FLOW_LPM',
     WATER_FLOW_GPM: 'WATER_FLOW_GPM',
-    EQUIPMENT_TABLE_KO: 'EQUIPMENT_TABLE_KO',
     SYSTEM_REF_AMOUNT: 'SYSTEM_REF_AMOUNT',
     REVIT_FAMILY_NAME: 'REVIT_FAMILY_NAME',
     COOLING_EER: 'COOLING_EER',
@@ -47822,11 +46482,7 @@ export namespace Prisma {
     SOUND_LOW: 'SOUND_LOW',
     SOUND_MAX: 'SOUND_MAX',
     HEATING_INDOOR_LOW: 'HEATING_INDOOR_LOW',
-    EQUIP_TABLE_KO: 'EQUIP_TABLE_KO',
-    COOLING_LEAVING_TEMP_LOW: 'COOLING_LEAVING_TEMP_LOW',
-    COOLING_LEAVING_TEMP_HIGH: 'COOLING_LEAVING_TEMP_HIGH',
-    HEATING_LEAVING_TEMP_LOW: 'HEATING_LEAVING_TEMP_LOW',
-    HEATING_LEAVING_TEMP_HIGH: 'HEATING_LEAVING_TEMP_HIGH'
+    EQUIP_TABLE_KO: 'EQUIP_TABLE_KO'
   };
 
   export type T_MASTER_THERMAV_ODUScalarFieldEnum = (typeof T_MASTER_THERMAV_ODUScalarFieldEnum)[keyof typeof T_MASTER_THERMAV_ODUScalarFieldEnum]
@@ -47845,6 +46501,45 @@ export namespace Prisma {
   };
 
   export type Error_logScalarFieldEnum = (typeof Error_logScalarFieldEnum)[keyof typeof Error_logScalarFieldEnum]
+
+
+  export const T_CMN_LATS_SUPPORTScalarFieldEnum: {
+    SEQ: 'SEQ',
+    PROGRAM: 'PROGRAM',
+    TYPE: 'TYPE',
+    PROJECT_SEQ: 'PROJECT_SEQ',
+    TITLE: 'TITLE',
+    CONTENTS: 'CONTENTS',
+    CREATE_DATE: 'CREATE_DATE',
+    CREATE_BY_ID: 'CREATE_BY_ID',
+    UPDATE_DATE: 'UPDATE_DATE',
+    UPDATE_BY_ID: 'UPDATE_BY_ID'
+  };
+
+  export type T_CMN_LATS_SUPPORTScalarFieldEnum = (typeof T_CMN_LATS_SUPPORTScalarFieldEnum)[keyof typeof T_CMN_LATS_SUPPORTScalarFieldEnum]
+
+
+  export const T_CMN_LATS_VERSIONScalarFieldEnum: {
+    SEQ: 'SEQ',
+    PROGRAM_NAME: 'PROGRAM_NAME',
+    VERSION: 'VERSION',
+    RELEASE_NOTE: 'RELEASE_NOTE',
+    CREATE_DATE: 'CREATE_DATE',
+    UPDATE_DATE: 'UPDATE_DATE'
+  };
+
+  export type T_CMN_LATS_VERSIONScalarFieldEnum = (typeof T_CMN_LATS_VERSIONScalarFieldEnum)[keyof typeof T_CMN_LATS_VERSIONScalarFieldEnum]
+
+
+  export const T_CMN_USAGE_ERROR_LOGScalarFieldEnum: {
+    ID: 'ID',
+    ERROR_DATA: 'ERROR_DATA',
+    ERROR_MESSAGE: 'ERROR_MESSAGE',
+    ERROR_TIMESTAMP: 'ERROR_TIMESTAMP',
+    PROCESSED: 'PROCESSED'
+  };
+
+  export type T_CMN_USAGE_ERROR_LOGScalarFieldEnum = (typeof T_CMN_USAGE_ERROR_LOGScalarFieldEnum)[keyof typeof T_CMN_USAGE_ERROR_LOGScalarFieldEnum]
 
 
   export const V_CMN_LANGUAGEScalarFieldEnum: {
@@ -47903,6 +46598,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -48465,6 +47174,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_TYPE_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_GRADE_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_FEDERATION_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_SFDC_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_CONTACT_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_JOB_TYPE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TYPE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TOKEN?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
   }
 
   export type T_CMN_COM_MEMBEROrderByWithRelationInput = {
@@ -48503,6 +47220,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: SortOrderInput | SortOrder
     PARTNER_TYPE_CODE?: SortOrderInput | SortOrder
     PARTNER_GRADE_CODE?: SortOrderInput | SortOrder
+    US_FEDERATION_ID?: SortOrderInput | SortOrder
+    US_SFDC_ID?: SortOrderInput | SortOrder
+    US_CONTACT_ID?: SortOrderInput | SortOrder
+    US_JOB_TYPE?: SortOrderInput | SortOrder
+    US_ACCOUNT_ID?: SortOrderInput | SortOrder
+    US_ACCOUNT_CODE?: SortOrderInput | SortOrder
+    LOGIN_TYPE?: SortOrderInput | SortOrder
+    LOGIN_TOKEN?: SortOrderInput | SortOrder
   }
 
   export type T_CMN_COM_MEMBERWhereUniqueInput = Prisma.AtLeast<{
@@ -48544,6 +47269,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_TYPE_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_GRADE_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_FEDERATION_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_SFDC_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_CONTACT_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_JOB_TYPE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_ID?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_CODE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TYPE?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TOKEN?: StringNullableFilter<"T_CMN_COM_MEMBER"> | string | null
   }, "MEMBER_ID">
 
   export type T_CMN_COM_MEMBEROrderByWithAggregationInput = {
@@ -48582,6 +47315,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: SortOrderInput | SortOrder
     PARTNER_TYPE_CODE?: SortOrderInput | SortOrder
     PARTNER_GRADE_CODE?: SortOrderInput | SortOrder
+    US_FEDERATION_ID?: SortOrderInput | SortOrder
+    US_SFDC_ID?: SortOrderInput | SortOrder
+    US_CONTACT_ID?: SortOrderInput | SortOrder
+    US_JOB_TYPE?: SortOrderInput | SortOrder
+    US_ACCOUNT_ID?: SortOrderInput | SortOrder
+    US_ACCOUNT_CODE?: SortOrderInput | SortOrder
+    LOGIN_TYPE?: SortOrderInput | SortOrder
+    LOGIN_TOKEN?: SortOrderInput | SortOrder
     _count?: T_CMN_COM_MEMBERCountOrderByAggregateInput
     _avg?: T_CMN_COM_MEMBERAvgOrderByAggregateInput
     _max?: T_CMN_COM_MEMBERMaxOrderByAggregateInput
@@ -48628,6 +47369,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_TYPE_CODE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
     PARTNER_GRADE_CODE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_FEDERATION_ID?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_SFDC_ID?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_CONTACT_ID?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_JOB_TYPE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_ID?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    US_ACCOUNT_CODE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TYPE?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
+    LOGIN_TOKEN?: StringNullableWithAggregatesFilter<"T_CMN_COM_MEMBER"> | string | null
   }
 
   export type T_CMN_LANGUAGEWhereInput = {
@@ -49051,6 +47800,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFilter<"T_CMN_MEM_TERMS"> | string
     CORPORATION_CODE?: StringNullableFilter<"T_CMN_MEM_TERMS"> | string | null
     QUESTION_CONTENT?: StringNullableFilter<"T_CMN_MEM_TERMS"> | string | null
+    AGREE_YN?: StringFilter<"T_CMN_MEM_TERMS"> | string
   }
 
   export type T_CMN_MEM_TERMSOrderByWithRelationInput = {
@@ -49066,6 +47816,7 @@ export namespace Prisma {
     LOCALE_TYPE?: SortOrder
     CORPORATION_CODE?: SortOrderInput | SortOrder
     QUESTION_CONTENT?: SortOrderInput | SortOrder
+    AGREE_YN?: SortOrder
   }
 
   export type T_CMN_MEM_TERMSWhereUniqueInput = Prisma.AtLeast<{
@@ -49085,6 +47836,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFilter<"T_CMN_MEM_TERMS"> | string
     CORPORATION_CODE?: StringNullableFilter<"T_CMN_MEM_TERMS"> | string | null
     QUESTION_CONTENT?: StringNullableFilter<"T_CMN_MEM_TERMS"> | string | null
+    AGREE_YN?: StringFilter<"T_CMN_MEM_TERMS"> | string
   }, "TERMS_SEQ_NO_REGION_CODE_LOCALE_TYPE">
 
   export type T_CMN_MEM_TERMSOrderByWithAggregationInput = {
@@ -49100,6 +47852,7 @@ export namespace Prisma {
     LOCALE_TYPE?: SortOrder
     CORPORATION_CODE?: SortOrderInput | SortOrder
     QUESTION_CONTENT?: SortOrderInput | SortOrder
+    AGREE_YN?: SortOrder
     _count?: T_CMN_MEM_TERMSCountOrderByAggregateInput
     _avg?: T_CMN_MEM_TERMSAvgOrderByAggregateInput
     _max?: T_CMN_MEM_TERMSMaxOrderByAggregateInput
@@ -49123,6 +47876,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringWithAggregatesFilter<"T_CMN_MEM_TERMS"> | string
     CORPORATION_CODE?: StringNullableWithAggregatesFilter<"T_CMN_MEM_TERMS"> | string | null
     QUESTION_CONTENT?: StringNullableWithAggregatesFilter<"T_CMN_MEM_TERMS"> | string | null
+    AGREE_YN?: StringWithAggregatesFilter<"T_CMN_MEM_TERMS"> | string
   }
 
   export type T_CMN_MEM_TERMS_MAPPINGWhereInput = {
@@ -50321,522 +49075,6 @@ export namespace Prisma {
     OS_LOCALE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE"> | string | null
   }
 
-  export type T_CMN_USAGE_2021WhereInput = {
-    AND?: T_CMN_USAGE_2021WhereInput | T_CMN_USAGE_2021WhereInput[]
-    OR?: T_CMN_USAGE_2021WhereInput[]
-    NOT?: T_CMN_USAGE_2021WhereInput | T_CMN_USAGE_2021WhereInput[]
-    SEQ?: IntFilter<"T_CMN_USAGE_2021"> | number
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2021"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2021"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-  }
-
-  export type T_CMN_USAGE_2021OrderByWithRelationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-  }
-
-  export type T_CMN_USAGE_2021WhereUniqueInput = Prisma.AtLeast<{
-    SEQ?: number
-    AND?: T_CMN_USAGE_2021WhereInput | T_CMN_USAGE_2021WhereInput[]
-    OR?: T_CMN_USAGE_2021WhereInput[]
-    NOT?: T_CMN_USAGE_2021WhereInput | T_CMN_USAGE_2021WhereInput[]
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2021"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2021"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2021"> | string | null
-  }, "SEQ">
-
-  export type T_CMN_USAGE_2021OrderByWithAggregationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-    _count?: T_CMN_USAGE_2021CountOrderByAggregateInput
-    _avg?: T_CMN_USAGE_2021AvgOrderByAggregateInput
-    _max?: T_CMN_USAGE_2021MaxOrderByAggregateInput
-    _min?: T_CMN_USAGE_2021MinOrderByAggregateInput
-    _sum?: T_CMN_USAGE_2021SumOrderByAggregateInput
-  }
-
-  export type T_CMN_USAGE_2021ScalarWhereWithAggregatesInput = {
-    AND?: T_CMN_USAGE_2021ScalarWhereWithAggregatesInput | T_CMN_USAGE_2021ScalarWhereWithAggregatesInput[]
-    OR?: T_CMN_USAGE_2021ScalarWhereWithAggregatesInput[]
-    NOT?: T_CMN_USAGE_2021ScalarWhereWithAggregatesInput | T_CMN_USAGE_2021ScalarWhereWithAggregatesInput[]
-    SEQ?: IntWithAggregatesFilter<"T_CMN_USAGE_2021"> | number
-    PROGRAM?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    USER?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    EMAIL?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    IP?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    COMPANY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    COUNTRY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    REGION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    PROGRAM_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    OFFICE_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    AUTODESK_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    REQUEST_CODE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    JOBTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    MARKETING?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    LOGTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    USAGETYPE?: IntNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | number | null
-    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | Date | string | null
-    ENTITY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-    OS_LOCALE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2021"> | string | null
-  }
-
-  export type T_CMN_USAGE_2022WhereInput = {
-    AND?: T_CMN_USAGE_2022WhereInput | T_CMN_USAGE_2022WhereInput[]
-    OR?: T_CMN_USAGE_2022WhereInput[]
-    NOT?: T_CMN_USAGE_2022WhereInput | T_CMN_USAGE_2022WhereInput[]
-    SEQ?: IntFilter<"T_CMN_USAGE_2022"> | number
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2022"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2022"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-  }
-
-  export type T_CMN_USAGE_2022OrderByWithRelationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-  }
-
-  export type T_CMN_USAGE_2022WhereUniqueInput = Prisma.AtLeast<{
-    SEQ?: number
-    AND?: T_CMN_USAGE_2022WhereInput | T_CMN_USAGE_2022WhereInput[]
-    OR?: T_CMN_USAGE_2022WhereInput[]
-    NOT?: T_CMN_USAGE_2022WhereInput | T_CMN_USAGE_2022WhereInput[]
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2022"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2022"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2022"> | string | null
-  }, "SEQ">
-
-  export type T_CMN_USAGE_2022OrderByWithAggregationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-    _count?: T_CMN_USAGE_2022CountOrderByAggregateInput
-    _avg?: T_CMN_USAGE_2022AvgOrderByAggregateInput
-    _max?: T_CMN_USAGE_2022MaxOrderByAggregateInput
-    _min?: T_CMN_USAGE_2022MinOrderByAggregateInput
-    _sum?: T_CMN_USAGE_2022SumOrderByAggregateInput
-  }
-
-  export type T_CMN_USAGE_2022ScalarWhereWithAggregatesInput = {
-    AND?: T_CMN_USAGE_2022ScalarWhereWithAggregatesInput | T_CMN_USAGE_2022ScalarWhereWithAggregatesInput[]
-    OR?: T_CMN_USAGE_2022ScalarWhereWithAggregatesInput[]
-    NOT?: T_CMN_USAGE_2022ScalarWhereWithAggregatesInput | T_CMN_USAGE_2022ScalarWhereWithAggregatesInput[]
-    SEQ?: IntWithAggregatesFilter<"T_CMN_USAGE_2022"> | number
-    PROGRAM?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    USER?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    EMAIL?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    IP?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    COMPANY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    COUNTRY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    REGION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    PROGRAM_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    OFFICE_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    AUTODESK_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    REQUEST_CODE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    JOBTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    MARKETING?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    LOGTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    USAGETYPE?: IntNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | number | null
-    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | Date | string | null
-    ENTITY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-    OS_LOCALE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2022"> | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITWhereInput = {
-    AND?: T_CMN_USAGE_2023_REVITWhereInput | T_CMN_USAGE_2023_REVITWhereInput[]
-    OR?: T_CMN_USAGE_2023_REVITWhereInput[]
-    NOT?: T_CMN_USAGE_2023_REVITWhereInput | T_CMN_USAGE_2023_REVITWhereInput[]
-    SEQ?: IntFilter<"T_CMN_USAGE_2023_REVIT"> | number
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2023_REVIT"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2023_REVIT"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITOrderByWithRelationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITWhereUniqueInput = Prisma.AtLeast<{
-    SEQ?: number
-    AND?: T_CMN_USAGE_2023_REVITWhereInput | T_CMN_USAGE_2023_REVITWhereInput[]
-    OR?: T_CMN_USAGE_2023_REVITWhereInput[]
-    NOT?: T_CMN_USAGE_2023_REVITWhereInput | T_CMN_USAGE_2023_REVITWhereInput[]
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_2023_REVIT"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_2023_REVIT"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-  }, "SEQ">
-
-  export type T_CMN_USAGE_2023_REVITOrderByWithAggregationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-    _count?: T_CMN_USAGE_2023_REVITCountOrderByAggregateInput
-    _avg?: T_CMN_USAGE_2023_REVITAvgOrderByAggregateInput
-    _max?: T_CMN_USAGE_2023_REVITMaxOrderByAggregateInput
-    _min?: T_CMN_USAGE_2023_REVITMinOrderByAggregateInput
-    _sum?: T_CMN_USAGE_2023_REVITSumOrderByAggregateInput
-  }
-
-  export type T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput = {
-    AND?: T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput | T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput[]
-    OR?: T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput[]
-    NOT?: T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput | T_CMN_USAGE_2023_REVITScalarWhereWithAggregatesInput[]
-    SEQ?: IntWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | number
-    PROGRAM?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USER?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    EMAIL?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    IP?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COMPANY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    COUNTRY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REGION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    PROGRAM_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OFFICE_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    AUTODESK_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    REQUEST_CODE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    JOBTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    MARKETING?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    LOGTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    USAGETYPE?: IntNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | number | null
-    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | Date | string | null
-    ENTITY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-    OS_LOCALE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_2023_REVIT"> | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPWhereInput = {
-    AND?: T_CMN_USAGE_BACKUPWhereInput | T_CMN_USAGE_BACKUPWhereInput[]
-    OR?: T_CMN_USAGE_BACKUPWhereInput[]
-    NOT?: T_CMN_USAGE_BACKUPWhereInput | T_CMN_USAGE_BACKUPWhereInput[]
-    SEQ?: IntFilter<"T_CMN_USAGE_BACKUP"> | number
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_BACKUP"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_BACKUP"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPOrderByWithRelationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPWhereUniqueInput = Prisma.AtLeast<{
-    SEQ?: number
-    AND?: T_CMN_USAGE_BACKUPWhereInput | T_CMN_USAGE_BACKUPWhereInput[]
-    OR?: T_CMN_USAGE_BACKUPWhereInput[]
-    NOT?: T_CMN_USAGE_BACKUPWhereInput | T_CMN_USAGE_BACKUPWhereInput[]
-    PROGRAM?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USER?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    EMAIL?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    IP?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COMPANY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COUNTRY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REGION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    PROGRAM_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OFFICE_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    AUTODESK_VERSION?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REQUEST_CODE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    JOBTYPE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    MARKETING?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    LOGTYPE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USAGETYPE?: IntNullableFilter<"T_CMN_USAGE_BACKUP"> | number | null
-    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_USAGE_BACKUP"> | Date | string | null
-    ENTITY?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_LOCALE?: StringNullableFilter<"T_CMN_USAGE_BACKUP"> | string | null
-  }, "SEQ">
-
-  export type T_CMN_USAGE_BACKUPOrderByWithAggregationInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrderInput | SortOrder
-    USER?: SortOrderInput | SortOrder
-    EMAIL?: SortOrderInput | SortOrder
-    IP?: SortOrderInput | SortOrder
-    COMPANY?: SortOrderInput | SortOrder
-    COUNTRY?: SortOrderInput | SortOrder
-    REGION?: SortOrderInput | SortOrder
-    OS_VERSION?: SortOrderInput | SortOrder
-    PROGRAM_VERSION?: SortOrderInput | SortOrder
-    OFFICE_VERSION?: SortOrderInput | SortOrder
-    AUTODESK_VERSION?: SortOrderInput | SortOrder
-    REQUEST_CODE?: SortOrderInput | SortOrder
-    JOBTYPE?: SortOrderInput | SortOrder
-    MARKETING?: SortOrderInput | SortOrder
-    LOGTYPE?: SortOrderInput | SortOrder
-    USAGETYPE?: SortOrderInput | SortOrder
-    CREATE_DATE?: SortOrderInput | SortOrder
-    ENTITY?: SortOrderInput | SortOrder
-    OS_LOCALE?: SortOrderInput | SortOrder
-    _count?: T_CMN_USAGE_BACKUPCountOrderByAggregateInput
-    _avg?: T_CMN_USAGE_BACKUPAvgOrderByAggregateInput
-    _max?: T_CMN_USAGE_BACKUPMaxOrderByAggregateInput
-    _min?: T_CMN_USAGE_BACKUPMinOrderByAggregateInput
-    _sum?: T_CMN_USAGE_BACKUPSumOrderByAggregateInput
-  }
-
-  export type T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput = {
-    AND?: T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput | T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput[]
-    OR?: T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput[]
-    NOT?: T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput | T_CMN_USAGE_BACKUPScalarWhereWithAggregatesInput[]
-    SEQ?: IntWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | number
-    PROGRAM?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USER?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    EMAIL?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    IP?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COMPANY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    COUNTRY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REGION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    PROGRAM_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OFFICE_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    AUTODESK_VERSION?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    REQUEST_CODE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    JOBTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    MARKETING?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    LOGTYPE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    USAGETYPE?: IntNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | number | null
-    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | Date | string | null
-    ENTITY?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-    OS_LOCALE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_BACKUP"> | string | null
-  }
-
   export type T_CMN_USAGE_EMP_CNTRY_ENTWhereInput = {
     AND?: T_CMN_USAGE_EMP_CNTRY_ENTWhereInput | T_CMN_USAGE_EMP_CNTRY_ENTWhereInput[]
     OR?: T_CMN_USAGE_EMP_CNTRY_ENTWhereInput[]
@@ -51676,11 +49914,11 @@ export namespace Prisma {
     OPER_TYPE?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
     NOMINAL_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
-    T_COOL_KCAL_H?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
+    T_COOL_W?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
-    T_HEAT_KCAL_H?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
+    T_HEAT_W?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: StringNullableFilter<"T_MASTER_MS_IDU"> | string | null
@@ -51815,11 +50053,11 @@ export namespace Prisma {
     OPER_TYPE?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
     NOMINAL_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
-    T_COOL_KCAL_H?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
+    T_COOL_W?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
-    T_HEAT_KCAL_H?: IntNullableFilter<"T_MASTER_MS_IDU"> | number | null
+    T_HEAT_W?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: DecimalNullableFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: StringNullableFilter<"T_MASTER_MS_IDU"> | string | null
@@ -51959,11 +50197,11 @@ export namespace Prisma {
     OPER_TYPE?: IntNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | number | null
     NOMINAL_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: IntNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | number | null
-    T_COOL_KCAL_H?: IntNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | number | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: IntNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | number | null
-    T_HEAT_KCAL_H?: IntNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | number | null
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: StringNullableWithAggregatesFilter<"T_MASTER_MS_IDU"> | string | null
@@ -52080,17 +50318,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_HIGH_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_MID_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_LOW_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_BUILT_IN?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    FLOOR_STANDING?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    CONSOLE?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_2WAY?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_4WAY?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    A_COIL?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    CASSETTE_ROUND?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
+    DUCT_HIGH_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
+    CASSETTE_ROUND?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_INPUT_POWER?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
@@ -52196,6 +50435,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrderInput | SortOrder
     DUCT_HIGH_STATIC?: SortOrderInput | SortOrder
     DUCT_MID_STATIC?: SortOrderInput | SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
     DUCT_LOW_STATIC?: SortOrderInput | SortOrder
     DUCT_BUILT_IN?: SortOrderInput | SortOrder
     FLOOR_STANDING?: SortOrderInput | SortOrder
@@ -52204,7 +50444,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrderInput | SortOrder
     A_COIL?: SortOrderInput | SortOrder
     CASSETTE_ROUND?: SortOrderInput | SortOrder
-    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    DX_AHU?: SortOrderInput | SortOrder
     HEATING_CAPACITY?: SortOrderInput | SortOrder
     COOLING_INPUT_POWER?: SortOrderInput | SortOrder
     HEATING_INPUT_POWER?: SortOrderInput | SortOrder
@@ -52311,17 +50551,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_HIGH_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_MID_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_LOW_STATIC?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_BUILT_IN?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    FLOOR_STANDING?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    CONSOLE?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_2WAY?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_4WAY?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    A_COIL?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
-    CASSETTE_ROUND?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
+    DUCT_HIGH_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
+    CASSETTE_ROUND?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_CAPACITY?: DecimalNullableFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_INPUT_POWER?: IntNullableFilter<"T_MASTER_MS_ODU"> | number | null
@@ -52427,6 +50668,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrderInput | SortOrder
     DUCT_HIGH_STATIC?: SortOrderInput | SortOrder
     DUCT_MID_STATIC?: SortOrderInput | SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
     DUCT_LOW_STATIC?: SortOrderInput | SortOrder
     DUCT_BUILT_IN?: SortOrderInput | SortOrder
     FLOOR_STANDING?: SortOrderInput | SortOrder
@@ -52435,7 +50677,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrderInput | SortOrder
     A_COIL?: SortOrderInput | SortOrder
     CASSETTE_ROUND?: SortOrderInput | SortOrder
-    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    DX_AHU?: SortOrderInput | SortOrder
     HEATING_CAPACITY?: SortOrderInput | SortOrder
     COOLING_INPUT_POWER?: SortOrderInput | SortOrder
     HEATING_INPUT_POWER?: SortOrderInput | SortOrder
@@ -52547,17 +50789,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_HIGH_STATIC?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_MID_STATIC?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_LOW_STATIC?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    DUCT_BUILT_IN?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    FLOOR_STANDING?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    CONSOLE?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_2WAY?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    VAHU_4WAY?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    A_COIL?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
-    CASSETTE_ROUND?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
+    DUCT_HIGH_STATIC?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
+    CASSETTE_ROUND?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
     HEATING_INPUT_POWER?: IntNullableWithAggregatesFilter<"T_MASTER_MS_ODU"> | number | null
@@ -52899,6 +51142,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    CONNECTABLE_ODU_TYPE?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    TYPE_PRODUCT?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    SYMBOL_INDEX?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_HEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_COOL_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    WIRE_POWER_H07RN_F?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_TYPE?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_POWER?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    POWER_SUPPLY?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    WIRE_COMM?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
   }
 
   export type T_MASTER_MV_DOASOrderByWithRelationInput = {
@@ -52961,6 +51224,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: SortOrderInput | SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
+    CONNECTABLE_ODU_TYPE?: SortOrderInput | SortOrder
+    TYPE_PRODUCT?: SortOrderInput | SortOrder
+    SYMBOL_INDEX?: SortOrderInput | SortOrder
+    T_HEAT_KCAL_H?: SortOrderInput | SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    BREAKER?: SortOrderInput | SortOrder
+    T_REHEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    IMAGE_INDEX?: SortOrderInput | SortOrder
+    T_COOL_KCAL_H?: SortOrderInput | SortOrder
+    T_REHEAT_KCAL_H?: SortOrderInput | SortOrder
+    RUN_CURRENT_HEATING?: SortOrderInput | SortOrder
+    RUN_CURRENT_COOLING?: SortOrderInput | SortOrder
+    DRAIN_DIAMETER?: SortOrderInput | SortOrder
+    WIRE_POWER_H07RN_F?: SortOrderInput | SortOrder
+    FAN_TYPE?: SortOrderInput | SortOrder
+    FAN_POWER?: SortOrderInput | SortOrder
+    POWER_SUPPLY?: SortOrderInput | SortOrder
+    WIRE_COMM?: SortOrderInput | SortOrder
+    EQUIP_TABLE_KO?: SortOrderInput | SortOrder
   }
 
   export type T_MASTER_MV_DOASWhereUniqueInput = Prisma.AtLeast<{
@@ -53026,6 +51309,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    CONNECTABLE_ODU_TYPE?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    TYPE_PRODUCT?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    SYMBOL_INDEX?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_HEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_COOL_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: DecimalNullableFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: IntNullableFilter<"T_MASTER_MV_DOAS"> | number | null
+    WIRE_POWER_H07RN_F?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_TYPE?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_POWER?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    POWER_SUPPLY?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    WIRE_COMM?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
+    EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_MV_DOAS"> | string | null
   }, "ID">
 
   export type T_MASTER_MV_DOASOrderByWithAggregationInput = {
@@ -53088,6 +51391,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: SortOrderInput | SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
+    CONNECTABLE_ODU_TYPE?: SortOrderInput | SortOrder
+    TYPE_PRODUCT?: SortOrderInput | SortOrder
+    SYMBOL_INDEX?: SortOrderInput | SortOrder
+    T_HEAT_KCAL_H?: SortOrderInput | SortOrder
+    T_HEAT_W?: SortOrderInput | SortOrder
+    BREAKER?: SortOrderInput | SortOrder
+    T_REHEAT_W?: SortOrderInput | SortOrder
+    T_COOL_W?: SortOrderInput | SortOrder
+    IMAGE_INDEX?: SortOrderInput | SortOrder
+    T_COOL_KCAL_H?: SortOrderInput | SortOrder
+    T_REHEAT_KCAL_H?: SortOrderInput | SortOrder
+    RUN_CURRENT_HEATING?: SortOrderInput | SortOrder
+    RUN_CURRENT_COOLING?: SortOrderInput | SortOrder
+    DRAIN_DIAMETER?: SortOrderInput | SortOrder
+    WIRE_POWER_H07RN_F?: SortOrderInput | SortOrder
+    FAN_TYPE?: SortOrderInput | SortOrder
+    FAN_POWER?: SortOrderInput | SortOrder
+    POWER_SUPPLY?: SortOrderInput | SortOrder
+    WIRE_COMM?: SortOrderInput | SortOrder
+    EQUIP_TABLE_KO?: SortOrderInput | SortOrder
     _count?: T_MASTER_MV_DOASCountOrderByAggregateInput
     _avg?: T_MASTER_MV_DOASAvgOrderByAggregateInput
     _max?: T_MASTER_MV_DOASMaxOrderByAggregateInput
@@ -53158,6 +51481,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: IntNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | number | null
     REVIT_FAMILY_NAME?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    CONNECTABLE_ODU_TYPE?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    TYPE_PRODUCT?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    SYMBOL_INDEX?: IntNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_HEAT_KCAL_H?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: IntNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | number | null
+    T_COOL_KCAL_H?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: DecimalNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: IntNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | number | null
+    WIRE_POWER_H07RN_F?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_TYPE?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    FAN_POWER?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    POWER_SUPPLY?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    WIRE_COMM?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
+    EQUIP_TABLE_KO?: StringNullableWithAggregatesFilter<"T_MASTER_MV_DOAS"> | string | null
   }
 
   export type T_MASTER_MV_HEADERWhereInput = {
@@ -54177,10 +52520,9 @@ export namespace Prisma {
     ID?: IntFilter<"T_MASTER_THERMAV_IDU"> | number
     MODEL?: StringFilter<"T_MASTER_THERMAV_IDU"> | string
     BUYER_MODEL_NAME?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
+    APP_LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     NOTUSEDCOUNTRY?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     VISIBLE?: IntNullableFilter<"T_MASTER_THERMAV_IDU"> | number | null
-    VISIBLE_THERMAV?: IntNullableFilter<"T_MASTER_THERMAV_IDU"> | number | null
     DESCRIPTION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACCESSARY?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACC_DEFAULT?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
@@ -54233,7 +52575,6 @@ export namespace Prisma {
     PIPE_INLET?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     PIPE_OUTLET?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     HEAT_EXCHANGER_TYPE?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
   }
@@ -54243,10 +52584,9 @@ export namespace Prisma {
     ID?: SortOrder
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrderInput | SortOrder
-    LOCATION?: SortOrderInput | SortOrder
+    APP_LOCATION?: SortOrderInput | SortOrder
     NOTUSEDCOUNTRY?: SortOrderInput | SortOrder
     VISIBLE?: SortOrderInput | SortOrder
-    VISIBLE_THERMAV?: SortOrderInput | SortOrder
     DESCRIPTION?: SortOrderInput | SortOrder
     ACCESSARY?: SortOrderInput | SortOrder
     ACC_DEFAULT?: SortOrderInput | SortOrder
@@ -54299,7 +52639,6 @@ export namespace Prisma {
     PIPE_INLET?: SortOrderInput | SortOrder
     PIPE_OUTLET?: SortOrderInput | SortOrder
     HEAT_EXCHANGER_TYPE?: SortOrderInput | SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
     EQUIP_TABLE_KO?: SortOrderInput | SortOrder
   }
@@ -54312,10 +52651,9 @@ export namespace Prisma {
     NOT?: T_MASTER_THERMAV_IDUWhereInput | T_MASTER_THERMAV_IDUWhereInput[]
     PROGRAM?: StringFilter<"T_MASTER_THERMAV_IDU"> | string
     BUYER_MODEL_NAME?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
+    APP_LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     NOTUSEDCOUNTRY?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     VISIBLE?: IntNullableFilter<"T_MASTER_THERMAV_IDU"> | number | null
-    VISIBLE_THERMAV?: IntNullableFilter<"T_MASTER_THERMAV_IDU"> | number | null
     DESCRIPTION?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACCESSARY?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACC_DEFAULT?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
@@ -54368,7 +52706,6 @@ export namespace Prisma {
     PIPE_INLET?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     PIPE_OUTLET?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     HEAT_EXCHANGER_TYPE?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
     EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_IDU"> | string | null
   }, "ID" | "MODEL">
@@ -54378,10 +52715,9 @@ export namespace Prisma {
     ID?: SortOrder
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrderInput | SortOrder
-    LOCATION?: SortOrderInput | SortOrder
+    APP_LOCATION?: SortOrderInput | SortOrder
     NOTUSEDCOUNTRY?: SortOrderInput | SortOrder
     VISIBLE?: SortOrderInput | SortOrder
-    VISIBLE_THERMAV?: SortOrderInput | SortOrder
     DESCRIPTION?: SortOrderInput | SortOrder
     ACCESSARY?: SortOrderInput | SortOrder
     ACC_DEFAULT?: SortOrderInput | SortOrder
@@ -54434,7 +52770,6 @@ export namespace Prisma {
     PIPE_INLET?: SortOrderInput | SortOrder
     PIPE_OUTLET?: SortOrderInput | SortOrder
     HEAT_EXCHANGER_TYPE?: SortOrderInput | SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
     EQUIP_TABLE_KO?: SortOrderInput | SortOrder
     _count?: T_MASTER_THERMAV_IDUCountOrderByAggregateInput
@@ -54452,10 +52787,9 @@ export namespace Prisma {
     ID?: IntWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | number
     MODEL?: StringWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string
     BUYER_MODEL_NAME?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    LOCATION?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
+    APP_LOCATION?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     NOTUSEDCOUNTRY?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     VISIBLE?: IntNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | number | null
-    VISIBLE_THERMAV?: IntNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | number | null
     DESCRIPTION?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACCESSARY?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     ACC_DEFAULT?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
@@ -54508,7 +52842,6 @@ export namespace Prisma {
     PIPE_INLET?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     PIPE_OUTLET?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     HEAT_EXCHANGER_TYPE?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     REVIT_FAMILY_NAME?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
     EQUIP_TABLE_KO?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_IDU"> | string | null
   }
@@ -54522,9 +52855,11 @@ export namespace Prisma {
     MODEL?: StringFilter<"T_MASTER_THERMAV_ODU"> | string
     BUYER_MODEL_NAME?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     APP_LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    NOTUSEDCOUNTRY?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    VISIBLE_CAD?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
     VISIBLE?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
-    VISIBLE_THERMAV?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
     TYPE_ODU?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    TYPE_ODU_THERMAV?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     TYPE_TEMP?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     DESCRIPTION?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     ACCESSARY?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
@@ -54581,7 +52916,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     WATER_FLOW_LPM?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     SYSTEM_REF_AMOUNT?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     COOLING_EER?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
@@ -54596,10 +52930,6 @@ export namespace Prisma {
     SOUND_MAX?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_HIGH?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_HIGH?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
   }
 
   export type T_MASTER_THERMAV_ODUOrderByWithRelationInput = {
@@ -54608,9 +52938,11 @@ export namespace Prisma {
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrderInput | SortOrder
     APP_LOCATION?: SortOrderInput | SortOrder
+    NOTUSEDCOUNTRY?: SortOrderInput | SortOrder
+    VISIBLE_CAD?: SortOrderInput | SortOrder
     VISIBLE?: SortOrderInput | SortOrder
-    VISIBLE_THERMAV?: SortOrderInput | SortOrder
     TYPE_ODU?: SortOrderInput | SortOrder
+    TYPE_ODU_THERMAV?: SortOrderInput | SortOrder
     TYPE_TEMP?: SortOrderInput | SortOrder
     DESCRIPTION?: SortOrderInput | SortOrder
     ACCESSARY?: SortOrderInput | SortOrder
@@ -54667,7 +52999,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: SortOrderInput | SortOrder
     WATER_FLOW_LPM?: SortOrderInput | SortOrder
     WATER_FLOW_GPM?: SortOrderInput | SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrderInput | SortOrder
     SYSTEM_REF_AMOUNT?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
     COOLING_EER?: SortOrderInput | SortOrder
@@ -54682,10 +53013,6 @@ export namespace Prisma {
     SOUND_MAX?: SortOrderInput | SortOrder
     HEATING_INDOOR_LOW?: SortOrderInput | SortOrder
     EQUIP_TABLE_KO?: SortOrderInput | SortOrder
-    COOLING_LEAVING_TEMP_LOW?: SortOrderInput | SortOrder
-    COOLING_LEAVING_TEMP_HIGH?: SortOrderInput | SortOrder
-    HEATING_LEAVING_TEMP_LOW?: SortOrderInput | SortOrder
-    HEATING_LEAVING_TEMP_HIGH?: SortOrderInput | SortOrder
   }
 
   export type T_MASTER_THERMAV_ODUWhereUniqueInput = Prisma.AtLeast<{
@@ -54697,9 +53024,11 @@ export namespace Prisma {
     PROGRAM?: StringFilter<"T_MASTER_THERMAV_ODU"> | string
     BUYER_MODEL_NAME?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     APP_LOCATION?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    NOTUSEDCOUNTRY?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    VISIBLE_CAD?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
     VISIBLE?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
-    VISIBLE_THERMAV?: IntNullableFilter<"T_MASTER_THERMAV_ODU"> | number | null
     TYPE_ODU?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    TYPE_ODU_THERMAV?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     TYPE_TEMP?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     DESCRIPTION?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     ACCESSARY?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
@@ -54756,7 +53085,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     WATER_FLOW_LPM?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     SYSTEM_REF_AMOUNT?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     COOLING_EER?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
@@ -54771,10 +53099,6 @@ export namespace Prisma {
     SOUND_MAX?: DecimalNullableFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
     EQUIP_TABLE_KO?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_HIGH?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_LOW?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_HIGH?: StringNullableFilter<"T_MASTER_THERMAV_ODU"> | string | null
   }, "ID" | "MODEL">
 
   export type T_MASTER_THERMAV_ODUOrderByWithAggregationInput = {
@@ -54783,9 +53107,11 @@ export namespace Prisma {
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrderInput | SortOrder
     APP_LOCATION?: SortOrderInput | SortOrder
+    NOTUSEDCOUNTRY?: SortOrderInput | SortOrder
+    VISIBLE_CAD?: SortOrderInput | SortOrder
     VISIBLE?: SortOrderInput | SortOrder
-    VISIBLE_THERMAV?: SortOrderInput | SortOrder
     TYPE_ODU?: SortOrderInput | SortOrder
+    TYPE_ODU_THERMAV?: SortOrderInput | SortOrder
     TYPE_TEMP?: SortOrderInput | SortOrder
     DESCRIPTION?: SortOrderInput | SortOrder
     ACCESSARY?: SortOrderInput | SortOrder
@@ -54842,7 +53168,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: SortOrderInput | SortOrder
     WATER_FLOW_LPM?: SortOrderInput | SortOrder
     WATER_FLOW_GPM?: SortOrderInput | SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrderInput | SortOrder
     SYSTEM_REF_AMOUNT?: SortOrderInput | SortOrder
     REVIT_FAMILY_NAME?: SortOrderInput | SortOrder
     COOLING_EER?: SortOrderInput | SortOrder
@@ -54857,10 +53182,6 @@ export namespace Prisma {
     SOUND_MAX?: SortOrderInput | SortOrder
     HEATING_INDOOR_LOW?: SortOrderInput | SortOrder
     EQUIP_TABLE_KO?: SortOrderInput | SortOrder
-    COOLING_LEAVING_TEMP_LOW?: SortOrderInput | SortOrder
-    COOLING_LEAVING_TEMP_HIGH?: SortOrderInput | SortOrder
-    HEATING_LEAVING_TEMP_LOW?: SortOrderInput | SortOrder
-    HEATING_LEAVING_TEMP_HIGH?: SortOrderInput | SortOrder
     _count?: T_MASTER_THERMAV_ODUCountOrderByAggregateInput
     _avg?: T_MASTER_THERMAV_ODUAvgOrderByAggregateInput
     _max?: T_MASTER_THERMAV_ODUMaxOrderByAggregateInput
@@ -54877,9 +53198,11 @@ export namespace Prisma {
     MODEL?: StringWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string
     BUYER_MODEL_NAME?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     APP_LOCATION?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    NOTUSEDCOUNTRY?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    VISIBLE_CAD?: IntNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | number | null
     VISIBLE?: IntNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | number | null
-    VISIBLE_THERMAV?: IntNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | number | null
     TYPE_ODU?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
+    TYPE_ODU_THERMAV?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     TYPE_TEMP?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     DESCRIPTION?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     ACCESSARY?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
@@ -54936,7 +53259,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     WATER_FLOW_LPM?: DecimalNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: DecimalNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     SYSTEM_REF_AMOUNT?: DecimalNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     COOLING_EER?: DecimalNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
@@ -54951,10 +53273,6 @@ export namespace Prisma {
     SOUND_MAX?: DecimalNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
     EQUIP_TABLE_KO?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_LOW?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    COOLING_LEAVING_TEMP_HIGH?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_LOW?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
-    HEATING_LEAVING_TEMP_HIGH?: StringNullableWithAggregatesFilter<"T_MASTER_THERMAV_ODU"> | string | null
   }
 
   export type error_logWhereInput = {
@@ -55029,6 +53347,198 @@ export namespace Prisma {
     call_stack?: StringNullableWithAggregatesFilter<"error_log"> | string | null
     proc_call_date?: DateTimeWithAggregatesFilter<"error_log"> | Date | string
     log_date?: DateTimeWithAggregatesFilter<"error_log"> | Date | string
+  }
+
+  export type T_CMN_LATS_SUPPORTWhereInput = {
+    AND?: T_CMN_LATS_SUPPORTWhereInput | T_CMN_LATS_SUPPORTWhereInput[]
+    OR?: T_CMN_LATS_SUPPORTWhereInput[]
+    NOT?: T_CMN_LATS_SUPPORTWhereInput | T_CMN_LATS_SUPPORTWhereInput[]
+    SEQ?: IntFilter<"T_CMN_LATS_SUPPORT"> | number
+    PROGRAM?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    TYPE?: IntFilter<"T_CMN_LATS_SUPPORT"> | number
+    PROJECT_SEQ?: IntNullableFilter<"T_CMN_LATS_SUPPORT"> | number | null
+    TITLE?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    CONTENTS?: StringNullableFilter<"T_CMN_LATS_SUPPORT"> | string | null
+    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    CREATE_BY_ID?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    UPDATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    UPDATE_BY_ID?: StringNullableFilter<"T_CMN_LATS_SUPPORT"> | string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTOrderByWithRelationInput = {
+    SEQ?: SortOrder
+    PROGRAM?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrderInput | SortOrder
+    TITLE?: SortOrder
+    CONTENTS?: SortOrderInput | SortOrder
+    CREATE_DATE?: SortOrderInput | SortOrder
+    CREATE_BY_ID?: SortOrder
+    UPDATE_DATE?: SortOrderInput | SortOrder
+    UPDATE_BY_ID?: SortOrderInput | SortOrder
+  }
+
+  export type T_CMN_LATS_SUPPORTWhereUniqueInput = Prisma.AtLeast<{
+    SEQ?: number
+    AND?: T_CMN_LATS_SUPPORTWhereInput | T_CMN_LATS_SUPPORTWhereInput[]
+    OR?: T_CMN_LATS_SUPPORTWhereInput[]
+    NOT?: T_CMN_LATS_SUPPORTWhereInput | T_CMN_LATS_SUPPORTWhereInput[]
+    PROGRAM?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    TYPE?: IntFilter<"T_CMN_LATS_SUPPORT"> | number
+    PROJECT_SEQ?: IntNullableFilter<"T_CMN_LATS_SUPPORT"> | number | null
+    TITLE?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    CONTENTS?: StringNullableFilter<"T_CMN_LATS_SUPPORT"> | string | null
+    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    CREATE_BY_ID?: StringFilter<"T_CMN_LATS_SUPPORT"> | string
+    UPDATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    UPDATE_BY_ID?: StringNullableFilter<"T_CMN_LATS_SUPPORT"> | string | null
+  }, "SEQ">
+
+  export type T_CMN_LATS_SUPPORTOrderByWithAggregationInput = {
+    SEQ?: SortOrder
+    PROGRAM?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrderInput | SortOrder
+    TITLE?: SortOrder
+    CONTENTS?: SortOrderInput | SortOrder
+    CREATE_DATE?: SortOrderInput | SortOrder
+    CREATE_BY_ID?: SortOrder
+    UPDATE_DATE?: SortOrderInput | SortOrder
+    UPDATE_BY_ID?: SortOrderInput | SortOrder
+    _count?: T_CMN_LATS_SUPPORTCountOrderByAggregateInput
+    _avg?: T_CMN_LATS_SUPPORTAvgOrderByAggregateInput
+    _max?: T_CMN_LATS_SUPPORTMaxOrderByAggregateInput
+    _min?: T_CMN_LATS_SUPPORTMinOrderByAggregateInput
+    _sum?: T_CMN_LATS_SUPPORTSumOrderByAggregateInput
+  }
+
+  export type T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput = {
+    AND?: T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput | T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput[]
+    OR?: T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput[]
+    NOT?: T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput | T_CMN_LATS_SUPPORTScalarWhereWithAggregatesInput[]
+    SEQ?: IntWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | number
+    PROGRAM?: StringWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | string
+    TYPE?: IntWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | number
+    PROJECT_SEQ?: IntNullableWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | number | null
+    TITLE?: StringWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | string
+    CONTENTS?: StringNullableWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | string | null
+    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    CREATE_BY_ID?: StringWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | string
+    UPDATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | Date | string | null
+    UPDATE_BY_ID?: StringNullableWithAggregatesFilter<"T_CMN_LATS_SUPPORT"> | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONWhereInput = {
+    AND?: T_CMN_LATS_VERSIONWhereInput | T_CMN_LATS_VERSIONWhereInput[]
+    OR?: T_CMN_LATS_VERSIONWhereInput[]
+    NOT?: T_CMN_LATS_VERSIONWhereInput | T_CMN_LATS_VERSIONWhereInput[]
+    SEQ?: IntFilter<"T_CMN_LATS_VERSION"> | number
+    PROGRAM_NAME?: StringFilter<"T_CMN_LATS_VERSION"> | string
+    VERSION?: StringFilter<"T_CMN_LATS_VERSION"> | string
+    RELEASE_NOTE?: StringNullableFilter<"T_CMN_LATS_VERSION"> | string | null
+    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+    UPDATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONOrderByWithRelationInput = {
+    SEQ?: SortOrder
+    PROGRAM_NAME?: SortOrder
+    VERSION?: SortOrder
+    RELEASE_NOTE?: SortOrderInput | SortOrder
+    CREATE_DATE?: SortOrderInput | SortOrder
+    UPDATE_DATE?: SortOrderInput | SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONWhereUniqueInput = Prisma.AtLeast<{
+    SEQ?: number
+    AND?: T_CMN_LATS_VERSIONWhereInput | T_CMN_LATS_VERSIONWhereInput[]
+    OR?: T_CMN_LATS_VERSIONWhereInput[]
+    NOT?: T_CMN_LATS_VERSIONWhereInput | T_CMN_LATS_VERSIONWhereInput[]
+    PROGRAM_NAME?: StringFilter<"T_CMN_LATS_VERSION"> | string
+    VERSION?: StringFilter<"T_CMN_LATS_VERSION"> | string
+    RELEASE_NOTE?: StringNullableFilter<"T_CMN_LATS_VERSION"> | string | null
+    CREATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+    UPDATE_DATE?: DateTimeNullableFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+  }, "SEQ">
+
+  export type T_CMN_LATS_VERSIONOrderByWithAggregationInput = {
+    SEQ?: SortOrder
+    PROGRAM_NAME?: SortOrder
+    VERSION?: SortOrder
+    RELEASE_NOTE?: SortOrderInput | SortOrder
+    CREATE_DATE?: SortOrderInput | SortOrder
+    UPDATE_DATE?: SortOrderInput | SortOrder
+    _count?: T_CMN_LATS_VERSIONCountOrderByAggregateInput
+    _avg?: T_CMN_LATS_VERSIONAvgOrderByAggregateInput
+    _max?: T_CMN_LATS_VERSIONMaxOrderByAggregateInput
+    _min?: T_CMN_LATS_VERSIONMinOrderByAggregateInput
+    _sum?: T_CMN_LATS_VERSIONSumOrderByAggregateInput
+  }
+
+  export type T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput = {
+    AND?: T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput | T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput[]
+    OR?: T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput[]
+    NOT?: T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput | T_CMN_LATS_VERSIONScalarWhereWithAggregatesInput[]
+    SEQ?: IntWithAggregatesFilter<"T_CMN_LATS_VERSION"> | number
+    PROGRAM_NAME?: StringWithAggregatesFilter<"T_CMN_LATS_VERSION"> | string
+    VERSION?: StringWithAggregatesFilter<"T_CMN_LATS_VERSION"> | string
+    RELEASE_NOTE?: StringNullableWithAggregatesFilter<"T_CMN_LATS_VERSION"> | string | null
+    CREATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+    UPDATE_DATE?: DateTimeNullableWithAggregatesFilter<"T_CMN_LATS_VERSION"> | Date | string | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGWhereInput = {
+    AND?: T_CMN_USAGE_ERROR_LOGWhereInput | T_CMN_USAGE_ERROR_LOGWhereInput[]
+    OR?: T_CMN_USAGE_ERROR_LOGWhereInput[]
+    NOT?: T_CMN_USAGE_ERROR_LOGWhereInput | T_CMN_USAGE_ERROR_LOGWhereInput[]
+    ID?: BigIntFilter<"T_CMN_USAGE_ERROR_LOG"> | bigint | number
+    ERROR_DATA?: StringNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_MESSAGE?: StringNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_TIMESTAMP?: DateTimeNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | Date | string | null
+    PROCESSED?: BoolNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGOrderByWithRelationInput = {
+    ID?: SortOrder
+    ERROR_DATA?: SortOrderInput | SortOrder
+    ERROR_MESSAGE?: SortOrderInput | SortOrder
+    ERROR_TIMESTAMP?: SortOrderInput | SortOrder
+    PROCESSED?: SortOrderInput | SortOrder
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGWhereUniqueInput = Prisma.AtLeast<{
+    ID?: bigint | number
+    AND?: T_CMN_USAGE_ERROR_LOGWhereInput | T_CMN_USAGE_ERROR_LOGWhereInput[]
+    OR?: T_CMN_USAGE_ERROR_LOGWhereInput[]
+    NOT?: T_CMN_USAGE_ERROR_LOGWhereInput | T_CMN_USAGE_ERROR_LOGWhereInput[]
+    ERROR_DATA?: StringNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_MESSAGE?: StringNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_TIMESTAMP?: DateTimeNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | Date | string | null
+    PROCESSED?: BoolNullableFilter<"T_CMN_USAGE_ERROR_LOG"> | boolean | null
+  }, "ID">
+
+  export type T_CMN_USAGE_ERROR_LOGOrderByWithAggregationInput = {
+    ID?: SortOrder
+    ERROR_DATA?: SortOrderInput | SortOrder
+    ERROR_MESSAGE?: SortOrderInput | SortOrder
+    ERROR_TIMESTAMP?: SortOrderInput | SortOrder
+    PROCESSED?: SortOrderInput | SortOrder
+    _count?: T_CMN_USAGE_ERROR_LOGCountOrderByAggregateInput
+    _avg?: T_CMN_USAGE_ERROR_LOGAvgOrderByAggregateInput
+    _max?: T_CMN_USAGE_ERROR_LOGMaxOrderByAggregateInput
+    _min?: T_CMN_USAGE_ERROR_LOGMinOrderByAggregateInput
+    _sum?: T_CMN_USAGE_ERROR_LOGSumOrderByAggregateInput
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput = {
+    AND?: T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput | T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput[]
+    OR?: T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput[]
+    NOT?: T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput | T_CMN_USAGE_ERROR_LOGScalarWhereWithAggregatesInput[]
+    ID?: BigIntWithAggregatesFilter<"T_CMN_USAGE_ERROR_LOG"> | bigint | number
+    ERROR_DATA?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_MESSAGE?: StringNullableWithAggregatesFilter<"T_CMN_USAGE_ERROR_LOG"> | string | null
+    ERROR_TIMESTAMP?: DateTimeNullableWithAggregatesFilter<"T_CMN_USAGE_ERROR_LOG"> | Date | string | null
+    PROCESSED?: BoolNullableWithAggregatesFilter<"T_CMN_USAGE_ERROR_LOG"> | boolean | null
   }
 
   export type V_CMN_LANGUAGEWhereInput = {
@@ -55765,6 +54275,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: string | null
     PARTNER_TYPE_CODE?: string | null
     PARTNER_GRADE_CODE?: string | null
+    US_FEDERATION_ID?: string | null
+    US_SFDC_ID?: string | null
+    US_CONTACT_ID?: string | null
+    US_JOB_TYPE?: string | null
+    US_ACCOUNT_ID?: string | null
+    US_ACCOUNT_CODE?: string | null
+    LOGIN_TYPE?: string | null
+    LOGIN_TOKEN?: string | null
   }
 
   export type T_CMN_COM_MEMBERUncheckedCreateInput = {
@@ -55803,6 +54321,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: string | null
     PARTNER_TYPE_CODE?: string | null
     PARTNER_GRADE_CODE?: string | null
+    US_FEDERATION_ID?: string | null
+    US_SFDC_ID?: string | null
+    US_CONTACT_ID?: string | null
+    US_JOB_TYPE?: string | null
+    US_ACCOUNT_ID?: string | null
+    US_ACCOUNT_CODE?: string | null
+    LOGIN_TYPE?: string | null
+    LOGIN_TOKEN?: string | null
   }
 
   export type T_CMN_COM_MEMBERUpdateInput = {
@@ -55841,6 +54367,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_TYPE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_GRADE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_FEDERATION_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_SFDC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_CONTACT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_JOB_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TOKEN?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_CMN_COM_MEMBERUncheckedUpdateInput = {
@@ -55879,6 +54413,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_TYPE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_GRADE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_FEDERATION_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_SFDC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_CONTACT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_JOB_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TOKEN?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_CMN_COM_MEMBERCreateManyInput = {
@@ -55917,6 +54459,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: string | null
     PARTNER_TYPE_CODE?: string | null
     PARTNER_GRADE_CODE?: string | null
+    US_FEDERATION_ID?: string | null
+    US_SFDC_ID?: string | null
+    US_CONTACT_ID?: string | null
+    US_JOB_TYPE?: string | null
+    US_ACCOUNT_ID?: string | null
+    US_ACCOUNT_CODE?: string | null
+    LOGIN_TYPE?: string | null
+    LOGIN_TOKEN?: string | null
   }
 
   export type T_CMN_COM_MEMBERUpdateManyMutationInput = {
@@ -55955,6 +54505,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_TYPE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_GRADE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_FEDERATION_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_SFDC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_CONTACT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_JOB_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TOKEN?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_CMN_COM_MEMBERUncheckedUpdateManyInput = {
@@ -55993,6 +54551,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_TYPE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     PARTNER_GRADE_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_FEDERATION_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_SFDC_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_CONTACT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_JOB_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_ID?: NullableStringFieldUpdateOperationsInput | string | null
+    US_ACCOUNT_CODE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    LOGIN_TOKEN?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_CMN_LANGUAGECreateInput = {
@@ -56517,6 +55083,7 @@ export namespace Prisma {
     LOCALE_TYPE?: string
     CORPORATION_CODE?: string | null
     QUESTION_CONTENT?: string | null
+    AGREE_YN?: string
   }
 
   export type T_CMN_MEM_TERMSUncheckedCreateInput = {
@@ -56532,6 +55099,7 @@ export namespace Prisma {
     LOCALE_TYPE?: string
     CORPORATION_CODE?: string | null
     QUESTION_CONTENT?: string | null
+    AGREE_YN?: string
   }
 
   export type T_CMN_MEM_TERMSUpdateInput = {
@@ -56547,6 +55115,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFieldUpdateOperationsInput | string
     CORPORATION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     QUESTION_CONTENT?: NullableStringFieldUpdateOperationsInput | string | null
+    AGREE_YN?: StringFieldUpdateOperationsInput | string
   }
 
   export type T_CMN_MEM_TERMSUncheckedUpdateInput = {
@@ -56562,6 +55131,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFieldUpdateOperationsInput | string
     CORPORATION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     QUESTION_CONTENT?: NullableStringFieldUpdateOperationsInput | string | null
+    AGREE_YN?: StringFieldUpdateOperationsInput | string
   }
 
   export type T_CMN_MEM_TERMSCreateManyInput = {
@@ -56577,6 +55147,7 @@ export namespace Prisma {
     LOCALE_TYPE?: string
     CORPORATION_CODE?: string | null
     QUESTION_CONTENT?: string | null
+    AGREE_YN?: string
   }
 
   export type T_CMN_MEM_TERMSUpdateManyMutationInput = {
@@ -56592,6 +55163,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFieldUpdateOperationsInput | string
     CORPORATION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     QUESTION_CONTENT?: NullableStringFieldUpdateOperationsInput | string | null
+    AGREE_YN?: StringFieldUpdateOperationsInput | string
   }
 
   export type T_CMN_MEM_TERMSUncheckedUpdateManyInput = {
@@ -56607,6 +55179,7 @@ export namespace Prisma {
     LOCALE_TYPE?: StringFieldUpdateOperationsInput | string
     CORPORATION_CODE?: NullableStringFieldUpdateOperationsInput | string | null
     QUESTION_CONTENT?: NullableStringFieldUpdateOperationsInput | string | null
+    AGREE_YN?: StringFieldUpdateOperationsInput | string
   }
 
   export type T_CMN_MEM_TERMS_MAPPINGCreateInput = {
@@ -58184,650 +56757,6 @@ export namespace Prisma {
     OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type T_CMN_USAGE_2021CreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2021UncheckedCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2021UpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2021UncheckedUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2021CreateManyInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2021UpdateManyMutationInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2021UncheckedUpdateManyInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2022CreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2022UncheckedCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2022UpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2022UncheckedUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2022CreateManyInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2022UpdateManyMutationInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2022UncheckedUpdateManyInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITUncheckedCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITUncheckedUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITCreateManyInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITUpdateManyMutationInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_2023_REVITUncheckedUpdateManyInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPUncheckedCreateInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPUncheckedUpdateInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPCreateManyInput = {
-    SEQ: number
-    PROGRAM?: string | null
-    USER?: string | null
-    EMAIL?: string | null
-    IP?: string | null
-    COMPANY?: string | null
-    COUNTRY?: string | null
-    REGION?: string | null
-    OS_VERSION?: string | null
-    PROGRAM_VERSION?: string | null
-    OFFICE_VERSION?: string | null
-    AUTODESK_VERSION?: string | null
-    REQUEST_CODE?: string | null
-    JOBTYPE?: string | null
-    MARKETING?: string | null
-    LOGTYPE?: string | null
-    USAGETYPE?: number | null
-    CREATE_DATE?: Date | string | null
-    ENTITY?: string | null
-    OS_LOCALE?: string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPUpdateManyMutationInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type T_CMN_USAGE_BACKUPUncheckedUpdateManyInput = {
-    SEQ?: IntFieldUpdateOperationsInput | number
-    PROGRAM?: NullableStringFieldUpdateOperationsInput | string | null
-    USER?: NullableStringFieldUpdateOperationsInput | string | null
-    EMAIL?: NullableStringFieldUpdateOperationsInput | string | null
-    IP?: NullableStringFieldUpdateOperationsInput | string | null
-    COMPANY?: NullableStringFieldUpdateOperationsInput | string | null
-    COUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
-    REGION?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    PROGRAM_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    OFFICE_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    AUTODESK_VERSION?: NullableStringFieldUpdateOperationsInput | string | null
-    REQUEST_CODE?: NullableStringFieldUpdateOperationsInput | string | null
-    JOBTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    MARKETING?: NullableStringFieldUpdateOperationsInput | string | null
-    LOGTYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    USAGETYPE?: NullableIntFieldUpdateOperationsInput | number | null
-    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    ENTITY?: NullableStringFieldUpdateOperationsInput | string | null
-    OS_LOCALE?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type T_CMN_USAGE_EMP_CNTRY_ENTCreateInput = {
     USER: string
     COUNTRY: string
@@ -59897,11 +57826,11 @@ export namespace Prisma {
     OPER_TYPE?: number | null
     NOMINAL_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: number | null
-    T_COOL_KCAL_H?: number | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: number | null
-    T_HEAT_KCAL_H?: number | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: string | null
@@ -59965,11 +57894,11 @@ export namespace Prisma {
     OPER_TYPE?: number | null
     NOMINAL_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: number | null
-    T_COOL_KCAL_H?: number | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: number | null
-    T_HEAT_KCAL_H?: number | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: string | null
@@ -60033,11 +57962,11 @@ export namespace Prisma {
     OPER_TYPE?: NullableIntFieldUpdateOperationsInput | number | null
     NOMINAL_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_COOL_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_HEAT_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60101,11 +58030,11 @@ export namespace Prisma {
     OPER_TYPE?: NullableIntFieldUpdateOperationsInput | number | null
     NOMINAL_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_COOL_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_HEAT_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60169,11 +58098,11 @@ export namespace Prisma {
     OPER_TYPE?: number | null
     NOMINAL_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: number | null
-    T_COOL_KCAL_H?: number | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: number | null
-    T_HEAT_KCAL_H?: number | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: string | null
@@ -60237,11 +58166,11 @@ export namespace Prisma {
     OPER_TYPE?: NullableIntFieldUpdateOperationsInput | number | null
     NOMINAL_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_COOL_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_HEAT_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60305,11 +58234,11 @@ export namespace Prisma {
     OPER_TYPE?: NullableIntFieldUpdateOperationsInput | number | null
     NOMINAL_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_COOL_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_COOL_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    T_HEAT_W?: NullableIntFieldUpdateOperationsInput | number | null
-    T_HEAT_KCAL_H?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60423,17 +58352,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: number | null
-    DUCT_HIGH_STATIC?: number | null
-    DUCT_MID_STATIC?: number | null
-    DUCT_LOW_STATIC?: number | null
-    DUCT_BUILT_IN?: number | null
-    FLOOR_STANDING?: number | null
-    CONSOLE?: number | null
-    VAHU_2WAY?: number | null
-    VAHU_4WAY?: number | null
-    A_COIL?: number | null
-    CASSETTE_ROUND?: number | null
+    DUCT_HIGH_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: Decimal | DecimalJsLike | number | string | null
+    A_COIL?: number | null
+    CASSETTE_ROUND?: Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: number | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: number | null
     HEATING_INPUT_POWER?: number | null
@@ -60537,17 +58467,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: number | null
-    DUCT_HIGH_STATIC?: number | null
-    DUCT_MID_STATIC?: number | null
-    DUCT_LOW_STATIC?: number | null
-    DUCT_BUILT_IN?: number | null
-    FLOOR_STANDING?: number | null
-    CONSOLE?: number | null
-    VAHU_2WAY?: number | null
-    VAHU_4WAY?: number | null
-    A_COIL?: number | null
-    CASSETTE_ROUND?: number | null
+    DUCT_HIGH_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: Decimal | DecimalJsLike | number | string | null
+    A_COIL?: number | null
+    CASSETTE_ROUND?: Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: number | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: number | null
     HEATING_INPUT_POWER?: number | null
@@ -60651,17 +58582,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_HIGH_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_MID_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_LOW_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_BUILT_IN?: NullableIntFieldUpdateOperationsInput | number | null
-    FLOOR_STANDING?: NullableIntFieldUpdateOperationsInput | number | null
-    CONSOLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_2WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_4WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
-    CASSETTE_ROUND?: NullableIntFieldUpdateOperationsInput | number | null
+    DUCT_HIGH_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
+    CASSETTE_ROUND?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60765,17 +58697,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_HIGH_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_MID_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_LOW_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_BUILT_IN?: NullableIntFieldUpdateOperationsInput | number | null
-    FLOOR_STANDING?: NullableIntFieldUpdateOperationsInput | number | null
-    CONSOLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_2WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_4WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
-    CASSETTE_ROUND?: NullableIntFieldUpdateOperationsInput | number | null
+    DUCT_HIGH_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
+    CASSETTE_ROUND?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60879,17 +58812,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: number | null
-    DUCT_HIGH_STATIC?: number | null
-    DUCT_MID_STATIC?: number | null
-    DUCT_LOW_STATIC?: number | null
-    DUCT_BUILT_IN?: number | null
-    FLOOR_STANDING?: number | null
-    CONSOLE?: number | null
-    VAHU_2WAY?: number | null
-    VAHU_4WAY?: number | null
-    A_COIL?: number | null
-    CASSETTE_ROUND?: number | null
+    DUCT_HIGH_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: Decimal | DecimalJsLike | number | string | null
+    A_COIL?: number | null
+    CASSETTE_ROUND?: Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: number | null
     HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: number | null
     HEATING_INPUT_POWER?: number | null
@@ -60993,17 +58927,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_HIGH_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_MID_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_LOW_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_BUILT_IN?: NullableIntFieldUpdateOperationsInput | number | null
-    FLOOR_STANDING?: NullableIntFieldUpdateOperationsInput | number | null
-    CONSOLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_2WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_4WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
-    CASSETTE_ROUND?: NullableIntFieldUpdateOperationsInput | number | null
+    DUCT_HIGH_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
+    CASSETTE_ROUND?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61107,17 +59042,18 @@ export namespace Prisma {
     CASSETTE_1WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CASSETTE_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     CONVERTIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_HIGH_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_MID_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_LOW_STATIC?: NullableIntFieldUpdateOperationsInput | number | null
-    DUCT_BUILT_IN?: NullableIntFieldUpdateOperationsInput | number | null
-    FLOOR_STANDING?: NullableIntFieldUpdateOperationsInput | number | null
-    CONSOLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_2WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    VAHU_4WAY?: NullableIntFieldUpdateOperationsInput | number | null
-    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
-    CASSETTE_ROUND?: NullableIntFieldUpdateOperationsInput | number | null
+    DUCT_HIGH_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_MID_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_LOW_STATIC?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DUCT_BUILT_IN?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    FLOOR_STANDING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    CONSOLE?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_2WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    VAHU_4WAY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    A_COIL?: NullableIntFieldUpdateOperationsInput | number | null
+    CASSETTE_ROUND?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DX_AHU?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     COOLING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
     HEATING_INPUT_POWER?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61513,6 +59449,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: number | null
     REVIT_FAMILY_NAME?: string | null
+    CONNECTABLE_ODU_TYPE?: string | null
+    TYPE_PRODUCT?: string | null
+    SYMBOL_INDEX?: number | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    BREAKER?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: number | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: number | null
+    WIRE_POWER_H07RN_F?: string | null
+    FAN_TYPE?: string | null
+    FAN_POWER?: string | null
+    POWER_SUPPLY?: string | null
+    WIRE_COMM?: string | null
+    EQUIP_TABLE_KO?: string | null
   }
 
   export type T_MASTER_MV_DOASUncheckedCreateInput = {
@@ -61575,6 +59531,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: number | null
     REVIT_FAMILY_NAME?: string | null
+    CONNECTABLE_ODU_TYPE?: string | null
+    TYPE_PRODUCT?: string | null
+    SYMBOL_INDEX?: number | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    BREAKER?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: number | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: number | null
+    WIRE_POWER_H07RN_F?: string | null
+    FAN_TYPE?: string | null
+    FAN_POWER?: string | null
+    POWER_SUPPLY?: string | null
+    WIRE_COMM?: string | null
+    EQUIP_TABLE_KO?: string | null
   }
 
   export type T_MASTER_MV_DOASUpdateInput = {
@@ -61637,6 +59613,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: NullableIntFieldUpdateOperationsInput | number | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
+    CONNECTABLE_ODU_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_PRODUCT?: NullableStringFieldUpdateOperationsInput | string | null
+    SYMBOL_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: NullableIntFieldUpdateOperationsInput | number | null
+    WIRE_POWER_H07RN_F?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_POWER?: NullableStringFieldUpdateOperationsInput | string | null
+    POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
+    WIRE_COMM?: NullableStringFieldUpdateOperationsInput | string | null
+    EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_MV_DOASUncheckedUpdateInput = {
@@ -61699,6 +59695,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: NullableIntFieldUpdateOperationsInput | number | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
+    CONNECTABLE_ODU_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_PRODUCT?: NullableStringFieldUpdateOperationsInput | string | null
+    SYMBOL_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: NullableIntFieldUpdateOperationsInput | number | null
+    WIRE_POWER_H07RN_F?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_POWER?: NullableStringFieldUpdateOperationsInput | string | null
+    POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
+    WIRE_COMM?: NullableStringFieldUpdateOperationsInput | string | null
+    EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_MV_DOASCreateManyInput = {
@@ -61761,6 +59777,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: number | null
     REVIT_FAMILY_NAME?: string | null
+    CONNECTABLE_ODU_TYPE?: string | null
+    TYPE_PRODUCT?: string | null
+    SYMBOL_INDEX?: number | null
+    T_HEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: Decimal | DecimalJsLike | number | string | null
+    BREAKER?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: number | null
+    T_COOL_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: number | null
+    WIRE_POWER_H07RN_F?: string | null
+    FAN_TYPE?: string | null
+    FAN_POWER?: string | null
+    POWER_SUPPLY?: string | null
+    WIRE_COMM?: string | null
+    EQUIP_TABLE_KO?: string | null
   }
 
   export type T_MASTER_MV_DOASUpdateManyMutationInput = {
@@ -61823,6 +59859,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: NullableIntFieldUpdateOperationsInput | number | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
+    CONNECTABLE_ODU_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_PRODUCT?: NullableStringFieldUpdateOperationsInput | string | null
+    SYMBOL_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: NullableIntFieldUpdateOperationsInput | number | null
+    WIRE_POWER_H07RN_F?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_POWER?: NullableStringFieldUpdateOperationsInput | string | null
+    POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
+    WIRE_COMM?: NullableStringFieldUpdateOperationsInput | string | null
+    EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_MV_DOASUncheckedUpdateManyInput = {
@@ -61885,6 +59941,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     INTERNAL_STATIC_PRESSURE?: NullableIntFieldUpdateOperationsInput | number | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
+    CONNECTABLE_ODU_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_PRODUCT?: NullableStringFieldUpdateOperationsInput | string | null
+    SYMBOL_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_HEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_HEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    BREAKER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IMAGE_INDEX?: NullableIntFieldUpdateOperationsInput | number | null
+    T_COOL_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    T_REHEAT_KCAL_H?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_HEATING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    RUN_CURRENT_COOLING?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DRAIN_DIAMETER?: NullableIntFieldUpdateOperationsInput | number | null
+    WIRE_POWER_H07RN_F?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_POWER?: NullableStringFieldUpdateOperationsInput | string | null
+    POWER_SUPPLY?: NullableStringFieldUpdateOperationsInput | string | null
+    WIRE_COMM?: NullableStringFieldUpdateOperationsInput | string | null
+    EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_MV_HEADERCreateInput = {
@@ -63264,10 +61340,9 @@ export namespace Prisma {
     ID: number
     MODEL: string
     BUYER_MODEL_NAME?: string | null
-    LOCATION?: string | null
+    APP_LOCATION?: string | null
     NOTUSEDCOUNTRY?: string | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
     ACC_DEFAULT?: string | null
@@ -63320,7 +61395,6 @@ export namespace Prisma {
     PIPE_INLET?: string | null
     PIPE_OUTLET?: string | null
     HEAT_EXCHANGER_TYPE?: string | null
-    EQUIPMENT_TABLE_KO?: string | null
     REVIT_FAMILY_NAME?: string | null
     EQUIP_TABLE_KO?: string | null
   }
@@ -63330,10 +61404,9 @@ export namespace Prisma {
     ID: number
     MODEL: string
     BUYER_MODEL_NAME?: string | null
-    LOCATION?: string | null
+    APP_LOCATION?: string | null
     NOTUSEDCOUNTRY?: string | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
     ACC_DEFAULT?: string | null
@@ -63386,7 +61459,6 @@ export namespace Prisma {
     PIPE_INLET?: string | null
     PIPE_OUTLET?: string | null
     HEAT_EXCHANGER_TYPE?: string | null
-    EQUIPMENT_TABLE_KO?: string | null
     REVIT_FAMILY_NAME?: string | null
     EQUIP_TABLE_KO?: string | null
   }
@@ -63396,10 +61468,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
-    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
     NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
     ACC_DEFAULT?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63452,7 +61523,6 @@ export namespace Prisma {
     PIPE_INLET?: NullableStringFieldUpdateOperationsInput | string | null
     PIPE_OUTLET?: NullableStringFieldUpdateOperationsInput | string | null
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -63462,10 +61532,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
-    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
     NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
     ACC_DEFAULT?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63518,7 +61587,6 @@ export namespace Prisma {
     PIPE_INLET?: NullableStringFieldUpdateOperationsInput | string | null
     PIPE_OUTLET?: NullableStringFieldUpdateOperationsInput | string | null
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -63528,10 +61596,9 @@ export namespace Prisma {
     ID: number
     MODEL: string
     BUYER_MODEL_NAME?: string | null
-    LOCATION?: string | null
+    APP_LOCATION?: string | null
     NOTUSEDCOUNTRY?: string | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
     ACC_DEFAULT?: string | null
@@ -63584,7 +61651,6 @@ export namespace Prisma {
     PIPE_INLET?: string | null
     PIPE_OUTLET?: string | null
     HEAT_EXCHANGER_TYPE?: string | null
-    EQUIPMENT_TABLE_KO?: string | null
     REVIT_FAMILY_NAME?: string | null
     EQUIP_TABLE_KO?: string | null
   }
@@ -63594,10 +61660,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
-    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
     NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
     ACC_DEFAULT?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63650,7 +61715,6 @@ export namespace Prisma {
     PIPE_INLET?: NullableStringFieldUpdateOperationsInput | string | null
     PIPE_OUTLET?: NullableStringFieldUpdateOperationsInput | string | null
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -63660,10 +61724,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
-    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
     NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
     ACC_DEFAULT?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63716,7 +61779,6 @@ export namespace Prisma {
     PIPE_INLET?: NullableStringFieldUpdateOperationsInput | string | null
     PIPE_OUTLET?: NullableStringFieldUpdateOperationsInput | string | null
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -63727,9 +61789,11 @@ export namespace Prisma {
     MODEL: string
     BUYER_MODEL_NAME?: string | null
     APP_LOCATION?: string | null
+    NOTUSEDCOUNTRY?: string | null
+    VISIBLE_CAD?: number | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     TYPE_ODU?: string | null
+    TYPE_ODU_THERMAV?: string | null
     TYPE_TEMP?: string | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
@@ -63786,7 +61850,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: string | null
     WATER_FLOW_LPM?: Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: string | null
     SYSTEM_REF_AMOUNT?: Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: string | null
     COOLING_EER?: Decimal | DecimalJsLike | number | string | null
@@ -63801,10 +61864,6 @@ export namespace Prisma {
     SOUND_MAX?: Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: string | null
     EQUIP_TABLE_KO?: string | null
-    COOLING_LEAVING_TEMP_LOW?: string | null
-    COOLING_LEAVING_TEMP_HIGH?: string | null
-    HEATING_LEAVING_TEMP_LOW?: string | null
-    HEATING_LEAVING_TEMP_HIGH?: string | null
   }
 
   export type T_MASTER_THERMAV_ODUUncheckedCreateInput = {
@@ -63813,9 +61872,11 @@ export namespace Prisma {
     MODEL: string
     BUYER_MODEL_NAME?: string | null
     APP_LOCATION?: string | null
+    NOTUSEDCOUNTRY?: string | null
+    VISIBLE_CAD?: number | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     TYPE_ODU?: string | null
+    TYPE_ODU_THERMAV?: string | null
     TYPE_TEMP?: string | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
@@ -63872,7 +61933,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: string | null
     WATER_FLOW_LPM?: Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: string | null
     SYSTEM_REF_AMOUNT?: Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: string | null
     COOLING_EER?: Decimal | DecimalJsLike | number | string | null
@@ -63887,10 +61947,6 @@ export namespace Prisma {
     SOUND_MAX?: Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: string | null
     EQUIP_TABLE_KO?: string | null
-    COOLING_LEAVING_TEMP_LOW?: string | null
-    COOLING_LEAVING_TEMP_HIGH?: string | null
-    HEATING_LEAVING_TEMP_LOW?: string | null
-    HEATING_LEAVING_TEMP_HIGH?: string | null
   }
 
   export type T_MASTER_THERMAV_ODUUpdateInput = {
@@ -63899,9 +61955,11 @@ export namespace Prisma {
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
+    VISIBLE_CAD?: NullableIntFieldUpdateOperationsInput | number | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     TYPE_ODU?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_ODU_THERMAV?: NullableStringFieldUpdateOperationsInput | string | null
     TYPE_TEMP?: NullableStringFieldUpdateOperationsInput | string | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -63958,7 +62016,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
     WATER_FLOW_LPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     SYSTEM_REF_AMOUNT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     COOLING_EER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -63973,10 +62030,6 @@ export namespace Prisma {
     SOUND_MAX?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_THERMAV_ODUUncheckedUpdateInput = {
@@ -63985,9 +62038,11 @@ export namespace Prisma {
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
+    VISIBLE_CAD?: NullableIntFieldUpdateOperationsInput | number | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     TYPE_ODU?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_ODU_THERMAV?: NullableStringFieldUpdateOperationsInput | string | null
     TYPE_TEMP?: NullableStringFieldUpdateOperationsInput | string | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64044,7 +62099,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
     WATER_FLOW_LPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     SYSTEM_REF_AMOUNT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     COOLING_EER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -64059,10 +62113,6 @@ export namespace Prisma {
     SOUND_MAX?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_THERMAV_ODUCreateManyInput = {
@@ -64071,9 +62121,11 @@ export namespace Prisma {
     MODEL: string
     BUYER_MODEL_NAME?: string | null
     APP_LOCATION?: string | null
+    NOTUSEDCOUNTRY?: string | null
+    VISIBLE_CAD?: number | null
     VISIBLE?: number | null
-    VISIBLE_THERMAV?: number | null
     TYPE_ODU?: string | null
+    TYPE_ODU_THERMAV?: string | null
     TYPE_TEMP?: string | null
     DESCRIPTION?: string | null
     ACCESSARY?: string | null
@@ -64130,7 +62182,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: string | null
     WATER_FLOW_LPM?: Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: string | null
     SYSTEM_REF_AMOUNT?: Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: string | null
     COOLING_EER?: Decimal | DecimalJsLike | number | string | null
@@ -64145,10 +62196,6 @@ export namespace Prisma {
     SOUND_MAX?: Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: string | null
     EQUIP_TABLE_KO?: string | null
-    COOLING_LEAVING_TEMP_LOW?: string | null
-    COOLING_LEAVING_TEMP_HIGH?: string | null
-    HEATING_LEAVING_TEMP_LOW?: string | null
-    HEATING_LEAVING_TEMP_HIGH?: string | null
   }
 
   export type T_MASTER_THERMAV_ODUUpdateManyMutationInput = {
@@ -64157,9 +62204,11 @@ export namespace Prisma {
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
+    VISIBLE_CAD?: NullableIntFieldUpdateOperationsInput | number | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     TYPE_ODU?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_ODU_THERMAV?: NullableStringFieldUpdateOperationsInput | string | null
     TYPE_TEMP?: NullableStringFieldUpdateOperationsInput | string | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64216,7 +62265,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
     WATER_FLOW_LPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     SYSTEM_REF_AMOUNT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     COOLING_EER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -64231,10 +62279,6 @@ export namespace Prisma {
     SOUND_MAX?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type T_MASTER_THERMAV_ODUUncheckedUpdateManyInput = {
@@ -64243,9 +62287,11 @@ export namespace Prisma {
     MODEL?: StringFieldUpdateOperationsInput | string
     BUYER_MODEL_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     APP_LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    NOTUSEDCOUNTRY?: NullableStringFieldUpdateOperationsInput | string | null
+    VISIBLE_CAD?: NullableIntFieldUpdateOperationsInput | number | null
     VISIBLE?: NullableIntFieldUpdateOperationsInput | number | null
-    VISIBLE_THERMAV?: NullableIntFieldUpdateOperationsInput | number | null
     TYPE_ODU?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_ODU_THERMAV?: NullableStringFieldUpdateOperationsInput | string | null
     TYPE_TEMP?: NullableStringFieldUpdateOperationsInput | string | null
     DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
     ACCESSARY?: NullableStringFieldUpdateOperationsInput | string | null
@@ -64302,7 +62348,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
     WATER_FLOW_LPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     WATER_FLOW_GPM?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    EQUIPMENT_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
     SYSTEM_REF_AMOUNT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     REVIT_FAMILY_NAME?: NullableStringFieldUpdateOperationsInput | string | null
     COOLING_EER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -64317,10 +62362,6 @@ export namespace Prisma {
     SOUND_MAX?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     HEATING_INDOOR_LOW?: NullableStringFieldUpdateOperationsInput | string | null
     EQUIP_TABLE_KO?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    COOLING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_LOW?: NullableStringFieldUpdateOperationsInput | string | null
-    HEATING_LEAVING_TEMP_HIGH?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type error_logCreateInput = {
@@ -64402,6 +62443,210 @@ export namespace Prisma {
     call_stack?: NullableStringFieldUpdateOperationsInput | string | null
     proc_call_date?: DateTimeFieldUpdateOperationsInput | Date | string
     log_date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type T_CMN_LATS_SUPPORTCreateInput = {
+    PROGRAM?: string
+    TYPE: number
+    PROJECT_SEQ?: number | null
+    TITLE?: string
+    CONTENTS?: string | null
+    CREATE_DATE?: Date | string | null
+    CREATE_BY_ID?: string
+    UPDATE_DATE?: Date | string | null
+    UPDATE_BY_ID?: string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTUncheckedCreateInput = {
+    SEQ?: number
+    PROGRAM?: string
+    TYPE: number
+    PROJECT_SEQ?: number | null
+    TITLE?: string
+    CONTENTS?: string | null
+    CREATE_DATE?: Date | string | null
+    CREATE_BY_ID?: string
+    UPDATE_DATE?: Date | string | null
+    UPDATE_BY_ID?: string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTUpdateInput = {
+    PROGRAM?: StringFieldUpdateOperationsInput | string
+    TYPE?: IntFieldUpdateOperationsInput | number
+    PROJECT_SEQ?: NullableIntFieldUpdateOperationsInput | number | null
+    TITLE?: StringFieldUpdateOperationsInput | string
+    CONTENTS?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CREATE_BY_ID?: StringFieldUpdateOperationsInput | string
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_BY_ID?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTUncheckedUpdateInput = {
+    SEQ?: IntFieldUpdateOperationsInput | number
+    PROGRAM?: StringFieldUpdateOperationsInput | string
+    TYPE?: IntFieldUpdateOperationsInput | number
+    PROJECT_SEQ?: NullableIntFieldUpdateOperationsInput | number | null
+    TITLE?: StringFieldUpdateOperationsInput | string
+    CONTENTS?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CREATE_BY_ID?: StringFieldUpdateOperationsInput | string
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_BY_ID?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTCreateManyInput = {
+    SEQ?: number
+    PROGRAM?: string
+    TYPE: number
+    PROJECT_SEQ?: number | null
+    TITLE?: string
+    CONTENTS?: string | null
+    CREATE_DATE?: Date | string | null
+    CREATE_BY_ID?: string
+    UPDATE_DATE?: Date | string | null
+    UPDATE_BY_ID?: string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTUpdateManyMutationInput = {
+    PROGRAM?: StringFieldUpdateOperationsInput | string
+    TYPE?: IntFieldUpdateOperationsInput | number
+    PROJECT_SEQ?: NullableIntFieldUpdateOperationsInput | number | null
+    TITLE?: StringFieldUpdateOperationsInput | string
+    CONTENTS?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CREATE_BY_ID?: StringFieldUpdateOperationsInput | string
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_BY_ID?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type T_CMN_LATS_SUPPORTUncheckedUpdateManyInput = {
+    SEQ?: IntFieldUpdateOperationsInput | number
+    PROGRAM?: StringFieldUpdateOperationsInput | string
+    TYPE?: IntFieldUpdateOperationsInput | number
+    PROJECT_SEQ?: NullableIntFieldUpdateOperationsInput | number | null
+    TITLE?: StringFieldUpdateOperationsInput | string
+    CONTENTS?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CREATE_BY_ID?: StringFieldUpdateOperationsInput | string
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_BY_ID?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONCreateInput = {
+    PROGRAM_NAME?: string
+    VERSION?: string
+    RELEASE_NOTE?: string | null
+    CREATE_DATE?: Date | string | null
+    UPDATE_DATE?: Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONUncheckedCreateInput = {
+    SEQ?: number
+    PROGRAM_NAME?: string
+    VERSION?: string
+    RELEASE_NOTE?: string | null
+    CREATE_DATE?: Date | string | null
+    UPDATE_DATE?: Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONUpdateInput = {
+    PROGRAM_NAME?: StringFieldUpdateOperationsInput | string
+    VERSION?: StringFieldUpdateOperationsInput | string
+    RELEASE_NOTE?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONUncheckedUpdateInput = {
+    SEQ?: IntFieldUpdateOperationsInput | number
+    PROGRAM_NAME?: StringFieldUpdateOperationsInput | string
+    VERSION?: StringFieldUpdateOperationsInput | string
+    RELEASE_NOTE?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONCreateManyInput = {
+    SEQ?: number
+    PROGRAM_NAME?: string
+    VERSION?: string
+    RELEASE_NOTE?: string | null
+    CREATE_DATE?: Date | string | null
+    UPDATE_DATE?: Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONUpdateManyMutationInput = {
+    PROGRAM_NAME?: StringFieldUpdateOperationsInput | string
+    VERSION?: StringFieldUpdateOperationsInput | string
+    RELEASE_NOTE?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type T_CMN_LATS_VERSIONUncheckedUpdateManyInput = {
+    SEQ?: IntFieldUpdateOperationsInput | number
+    PROGRAM_NAME?: StringFieldUpdateOperationsInput | string
+    VERSION?: StringFieldUpdateOperationsInput | string
+    RELEASE_NOTE?: NullableStringFieldUpdateOperationsInput | string | null
+    CREATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UPDATE_DATE?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGCreateInput = {
+    ID?: bigint | number
+    ERROR_DATA?: string | null
+    ERROR_MESSAGE?: string | null
+    ERROR_TIMESTAMP?: Date | string | null
+    PROCESSED?: boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGUncheckedCreateInput = {
+    ID?: bigint | number
+    ERROR_DATA?: string | null
+    ERROR_MESSAGE?: string | null
+    ERROR_TIMESTAMP?: Date | string | null
+    PROCESSED?: boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGUpdateInput = {
+    ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    ERROR_DATA?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_TIMESTAMP?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    PROCESSED?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGUncheckedUpdateInput = {
+    ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    ERROR_DATA?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_TIMESTAMP?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    PROCESSED?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGCreateManyInput = {
+    ID?: bigint | number
+    ERROR_DATA?: string | null
+    ERROR_MESSAGE?: string | null
+    ERROR_TIMESTAMP?: Date | string | null
+    PROCESSED?: boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGUpdateManyMutationInput = {
+    ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    ERROR_DATA?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_TIMESTAMP?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    PROCESSED?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGUncheckedUpdateManyInput = {
+    ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    ERROR_DATA?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_MESSAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    ERROR_TIMESTAMP?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    PROCESSED?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type V_CMN_LANGUAGECreateInput = {
@@ -65085,6 +63330,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: SortOrder
     PARTNER_TYPE_CODE?: SortOrder
     PARTNER_GRADE_CODE?: SortOrder
+    US_FEDERATION_ID?: SortOrder
+    US_SFDC_ID?: SortOrder
+    US_CONTACT_ID?: SortOrder
+    US_JOB_TYPE?: SortOrder
+    US_ACCOUNT_ID?: SortOrder
+    US_ACCOUNT_CODE?: SortOrder
+    LOGIN_TYPE?: SortOrder
+    LOGIN_TOKEN?: SortOrder
   }
 
   export type T_CMN_COM_MEMBERAvgOrderByAggregateInput = {
@@ -65127,6 +63380,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: SortOrder
     PARTNER_TYPE_CODE?: SortOrder
     PARTNER_GRADE_CODE?: SortOrder
+    US_FEDERATION_ID?: SortOrder
+    US_SFDC_ID?: SortOrder
+    US_CONTACT_ID?: SortOrder
+    US_JOB_TYPE?: SortOrder
+    US_ACCOUNT_ID?: SortOrder
+    US_ACCOUNT_CODE?: SortOrder
+    LOGIN_TYPE?: SortOrder
+    LOGIN_TOKEN?: SortOrder
   }
 
   export type T_CMN_COM_MEMBERMinOrderByAggregateInput = {
@@ -65165,6 +63426,14 @@ export namespace Prisma {
     BPP_REGION_CODE?: SortOrder
     PARTNER_TYPE_CODE?: SortOrder
     PARTNER_GRADE_CODE?: SortOrder
+    US_FEDERATION_ID?: SortOrder
+    US_SFDC_ID?: SortOrder
+    US_CONTACT_ID?: SortOrder
+    US_JOB_TYPE?: SortOrder
+    US_ACCOUNT_ID?: SortOrder
+    US_ACCOUNT_CODE?: SortOrder
+    LOGIN_TYPE?: SortOrder
+    LOGIN_TOKEN?: SortOrder
   }
 
   export type T_CMN_COM_MEMBERSumOrderByAggregateInput = {
@@ -65439,6 +63708,7 @@ export namespace Prisma {
     LOCALE_TYPE?: SortOrder
     CORPORATION_CODE?: SortOrder
     QUESTION_CONTENT?: SortOrder
+    AGREE_YN?: SortOrder
   }
 
   export type T_CMN_MEM_TERMSAvgOrderByAggregateInput = {
@@ -65458,6 +63728,7 @@ export namespace Prisma {
     LOCALE_TYPE?: SortOrder
     CORPORATION_CODE?: SortOrder
     QUESTION_CONTENT?: SortOrder
+    AGREE_YN?: SortOrder
   }
 
   export type T_CMN_MEM_TERMSMinOrderByAggregateInput = {
@@ -65473,6 +63744,7 @@ export namespace Prisma {
     LOCALE_TYPE?: SortOrder
     CORPORATION_CODE?: SortOrder
     QUESTION_CONTENT?: SortOrder
+    AGREE_YN?: SortOrder
   }
 
   export type T_CMN_MEM_TERMSSumOrderByAggregateInput = {
@@ -66200,322 +64472,6 @@ export namespace Prisma {
   }
 
   export type T_CMN_USAGESumOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2021CountOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2021AvgOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2021MaxOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2021MinOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2021SumOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2022CountOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2022AvgOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2022MaxOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2022MinOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2022SumOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITCountOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITAvgOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITMaxOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITMinOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_2023_REVITSumOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPCountOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPAvgOrderByAggregateInput = {
-    SEQ?: SortOrder
-    USAGETYPE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPMaxOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPMinOrderByAggregateInput = {
-    SEQ?: SortOrder
-    PROGRAM?: SortOrder
-    USER?: SortOrder
-    EMAIL?: SortOrder
-    IP?: SortOrder
-    COMPANY?: SortOrder
-    COUNTRY?: SortOrder
-    REGION?: SortOrder
-    OS_VERSION?: SortOrder
-    PROGRAM_VERSION?: SortOrder
-    OFFICE_VERSION?: SortOrder
-    AUTODESK_VERSION?: SortOrder
-    REQUEST_CODE?: SortOrder
-    JOBTYPE?: SortOrder
-    MARKETING?: SortOrder
-    LOGTYPE?: SortOrder
-    USAGETYPE?: SortOrder
-    CREATE_DATE?: SortOrder
-    ENTITY?: SortOrder
-    OS_LOCALE?: SortOrder
-  }
-
-  export type T_CMN_USAGE_BACKUPSumOrderByAggregateInput = {
     SEQ?: SortOrder
     USAGETYPE?: SortOrder
   }
@@ -67333,6 +65289,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrder
     DUCT_HIGH_STATIC?: SortOrder
     DUCT_MID_STATIC?: SortOrder
+    COOLING_CAPACITY?: SortOrder
     DUCT_LOW_STATIC?: SortOrder
     DUCT_BUILT_IN?: SortOrder
     FLOOR_STANDING?: SortOrder
@@ -67341,7 +65298,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrder
     A_COIL?: SortOrder
     CASSETTE_ROUND?: SortOrder
-    COOLING_CAPACITY?: SortOrder
+    DX_AHU?: SortOrder
     HEATING_CAPACITY?: SortOrder
     COOLING_INPUT_POWER?: SortOrder
     HEATING_INPUT_POWER?: SortOrder
@@ -67443,6 +65400,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrder
     DUCT_HIGH_STATIC?: SortOrder
     DUCT_MID_STATIC?: SortOrder
+    COOLING_CAPACITY?: SortOrder
     DUCT_LOW_STATIC?: SortOrder
     DUCT_BUILT_IN?: SortOrder
     FLOOR_STANDING?: SortOrder
@@ -67451,7 +65409,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrder
     A_COIL?: SortOrder
     CASSETTE_ROUND?: SortOrder
-    COOLING_CAPACITY?: SortOrder
+    DX_AHU?: SortOrder
     HEATING_CAPACITY?: SortOrder
     COOLING_INPUT_POWER?: SortOrder
     HEATING_INPUT_POWER?: SortOrder
@@ -67519,6 +65477,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrder
     DUCT_HIGH_STATIC?: SortOrder
     DUCT_MID_STATIC?: SortOrder
+    COOLING_CAPACITY?: SortOrder
     DUCT_LOW_STATIC?: SortOrder
     DUCT_BUILT_IN?: SortOrder
     FLOOR_STANDING?: SortOrder
@@ -67527,7 +65486,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrder
     A_COIL?: SortOrder
     CASSETTE_ROUND?: SortOrder
-    COOLING_CAPACITY?: SortOrder
+    DX_AHU?: SortOrder
     HEATING_CAPACITY?: SortOrder
     COOLING_INPUT_POWER?: SortOrder
     HEATING_INPUT_POWER?: SortOrder
@@ -67633,6 +65592,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrder
     DUCT_HIGH_STATIC?: SortOrder
     DUCT_MID_STATIC?: SortOrder
+    COOLING_CAPACITY?: SortOrder
     DUCT_LOW_STATIC?: SortOrder
     DUCT_BUILT_IN?: SortOrder
     FLOOR_STANDING?: SortOrder
@@ -67641,7 +65601,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrder
     A_COIL?: SortOrder
     CASSETTE_ROUND?: SortOrder
-    COOLING_CAPACITY?: SortOrder
+    DX_AHU?: SortOrder
     HEATING_CAPACITY?: SortOrder
     COOLING_INPUT_POWER?: SortOrder
     HEATING_INPUT_POWER?: SortOrder
@@ -67743,6 +65703,7 @@ export namespace Prisma {
     CONVERTIBLE?: SortOrder
     DUCT_HIGH_STATIC?: SortOrder
     DUCT_MID_STATIC?: SortOrder
+    COOLING_CAPACITY?: SortOrder
     DUCT_LOW_STATIC?: SortOrder
     DUCT_BUILT_IN?: SortOrder
     FLOOR_STANDING?: SortOrder
@@ -67751,7 +65712,7 @@ export namespace Prisma {
     VAHU_4WAY?: SortOrder
     A_COIL?: SortOrder
     CASSETTE_ROUND?: SortOrder
-    COOLING_CAPACITY?: SortOrder
+    DX_AHU?: SortOrder
     HEATING_CAPACITY?: SortOrder
     COOLING_INPUT_POWER?: SortOrder
     HEATING_INPUT_POWER?: SortOrder
@@ -67988,6 +65949,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
+    CONNECTABLE_ODU_TYPE?: SortOrder
+    TYPE_PRODUCT?: SortOrder
+    SYMBOL_INDEX?: SortOrder
+    T_HEAT_KCAL_H?: SortOrder
+    T_HEAT_W?: SortOrder
+    BREAKER?: SortOrder
+    T_REHEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+    IMAGE_INDEX?: SortOrder
+    T_COOL_KCAL_H?: SortOrder
+    T_REHEAT_KCAL_H?: SortOrder
+    RUN_CURRENT_HEATING?: SortOrder
+    RUN_CURRENT_COOLING?: SortOrder
+    DRAIN_DIAMETER?: SortOrder
+    WIRE_POWER_H07RN_F?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_POWER?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    WIRE_COMM?: SortOrder
+    EQUIP_TABLE_KO?: SortOrder
   }
 
   export type T_MASTER_MV_DOASAvgOrderByAggregateInput = {
@@ -68037,6 +66018,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT?: SortOrder
     DOAS_DOAS_HEIGHT?: SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrder
+    SYMBOL_INDEX?: SortOrder
+    T_HEAT_KCAL_H?: SortOrder
+    T_HEAT_W?: SortOrder
+    BREAKER?: SortOrder
+    T_REHEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+    IMAGE_INDEX?: SortOrder
+    T_COOL_KCAL_H?: SortOrder
+    T_REHEAT_KCAL_H?: SortOrder
+    RUN_CURRENT_HEATING?: SortOrder
+    RUN_CURRENT_COOLING?: SortOrder
+    DRAIN_DIAMETER?: SortOrder
   }
 
   export type T_MASTER_MV_DOASMaxOrderByAggregateInput = {
@@ -68099,6 +66092,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
+    CONNECTABLE_ODU_TYPE?: SortOrder
+    TYPE_PRODUCT?: SortOrder
+    SYMBOL_INDEX?: SortOrder
+    T_HEAT_KCAL_H?: SortOrder
+    T_HEAT_W?: SortOrder
+    BREAKER?: SortOrder
+    T_REHEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+    IMAGE_INDEX?: SortOrder
+    T_COOL_KCAL_H?: SortOrder
+    T_REHEAT_KCAL_H?: SortOrder
+    RUN_CURRENT_HEATING?: SortOrder
+    RUN_CURRENT_COOLING?: SortOrder
+    DRAIN_DIAMETER?: SortOrder
+    WIRE_POWER_H07RN_F?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_POWER?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    WIRE_COMM?: SortOrder
+    EQUIP_TABLE_KO?: SortOrder
   }
 
   export type T_MASTER_MV_DOASMinOrderByAggregateInput = {
@@ -68161,6 +66174,26 @@ export namespace Prisma {
     DOAS_DOAS_HEIGHT?: SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
+    CONNECTABLE_ODU_TYPE?: SortOrder
+    TYPE_PRODUCT?: SortOrder
+    SYMBOL_INDEX?: SortOrder
+    T_HEAT_KCAL_H?: SortOrder
+    T_HEAT_W?: SortOrder
+    BREAKER?: SortOrder
+    T_REHEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+    IMAGE_INDEX?: SortOrder
+    T_COOL_KCAL_H?: SortOrder
+    T_REHEAT_KCAL_H?: SortOrder
+    RUN_CURRENT_HEATING?: SortOrder
+    RUN_CURRENT_COOLING?: SortOrder
+    DRAIN_DIAMETER?: SortOrder
+    WIRE_POWER_H07RN_F?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_POWER?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    WIRE_COMM?: SortOrder
+    EQUIP_TABLE_KO?: SortOrder
   }
 
   export type T_MASTER_MV_DOASSumOrderByAggregateInput = {
@@ -68210,6 +66243,18 @@ export namespace Prisma {
     ODU_DOAS_BELOW_HEIGHT?: SortOrder
     DOAS_DOAS_HEIGHT?: SortOrder
     INTERNAL_STATIC_PRESSURE?: SortOrder
+    SYMBOL_INDEX?: SortOrder
+    T_HEAT_KCAL_H?: SortOrder
+    T_HEAT_W?: SortOrder
+    BREAKER?: SortOrder
+    T_REHEAT_W?: SortOrder
+    T_COOL_W?: SortOrder
+    IMAGE_INDEX?: SortOrder
+    T_COOL_KCAL_H?: SortOrder
+    T_REHEAT_KCAL_H?: SortOrder
+    RUN_CURRENT_HEATING?: SortOrder
+    RUN_CURRENT_COOLING?: SortOrder
+    DRAIN_DIAMETER?: SortOrder
   }
 
   export type T_MASTER_MV_HEADERHVAC_IDCAD_IDCompoundUniqueInput = {
@@ -69006,10 +67051,9 @@ export namespace Prisma {
     ID?: SortOrder
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
-    LOCATION?: SortOrder
+    APP_LOCATION?: SortOrder
     NOTUSEDCOUNTRY?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
     ACC_DEFAULT?: SortOrder
@@ -69062,7 +67106,6 @@ export namespace Prisma {
     PIPE_INLET?: SortOrder
     PIPE_OUTLET?: SortOrder
     HEAT_EXCHANGER_TYPE?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
   }
@@ -69070,7 +67113,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUAvgOrderByAggregateInput = {
     ID?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     IMAGE_INDEX?: SortOrder
     SYMBOL_INDEX?: SortOrder
     HZ?: SortOrder
@@ -69096,10 +67138,9 @@ export namespace Prisma {
     ID?: SortOrder
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
-    LOCATION?: SortOrder
+    APP_LOCATION?: SortOrder
     NOTUSEDCOUNTRY?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
     ACC_DEFAULT?: SortOrder
@@ -69152,7 +67193,6 @@ export namespace Prisma {
     PIPE_INLET?: SortOrder
     PIPE_OUTLET?: SortOrder
     HEAT_EXCHANGER_TYPE?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
   }
@@ -69162,10 +67202,9 @@ export namespace Prisma {
     ID?: SortOrder
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
-    LOCATION?: SortOrder
+    APP_LOCATION?: SortOrder
     NOTUSEDCOUNTRY?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
     ACC_DEFAULT?: SortOrder
@@ -69218,7 +67257,6 @@ export namespace Prisma {
     PIPE_INLET?: SortOrder
     PIPE_OUTLET?: SortOrder
     HEAT_EXCHANGER_TYPE?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
   }
@@ -69226,7 +67264,6 @@ export namespace Prisma {
   export type T_MASTER_THERMAV_IDUSumOrderByAggregateInput = {
     ID?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     IMAGE_INDEX?: SortOrder
     SYMBOL_INDEX?: SortOrder
     HZ?: SortOrder
@@ -69253,9 +67290,11 @@ export namespace Prisma {
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
     APP_LOCATION?: SortOrder
+    NOTUSEDCOUNTRY?: SortOrder
+    VISIBLE_CAD?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     TYPE_ODU?: SortOrder
+    TYPE_ODU_THERMAV?: SortOrder
     TYPE_TEMP?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
@@ -69312,7 +67351,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: SortOrder
     WATER_FLOW_LPM?: SortOrder
     WATER_FLOW_GPM?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     SYSTEM_REF_AMOUNT?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     COOLING_EER?: SortOrder
@@ -69327,16 +67365,12 @@ export namespace Prisma {
     SOUND_MAX?: SortOrder
     HEATING_INDOOR_LOW?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
-    COOLING_LEAVING_TEMP_LOW?: SortOrder
-    COOLING_LEAVING_TEMP_HIGH?: SortOrder
-    HEATING_LEAVING_TEMP_LOW?: SortOrder
-    HEATING_LEAVING_TEMP_HIGH?: SortOrder
   }
 
   export type T_MASTER_THERMAV_ODUAvgOrderByAggregateInput = {
     ID?: SortOrder
+    VISIBLE_CAD?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     HZ?: SortOrder
     NOMINAL_CAPACITY?: SortOrder
     COOLING_CAPACITY?: SortOrder
@@ -69386,9 +67420,11 @@ export namespace Prisma {
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
     APP_LOCATION?: SortOrder
+    NOTUSEDCOUNTRY?: SortOrder
+    VISIBLE_CAD?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     TYPE_ODU?: SortOrder
+    TYPE_ODU_THERMAV?: SortOrder
     TYPE_TEMP?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
@@ -69445,7 +67481,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: SortOrder
     WATER_FLOW_LPM?: SortOrder
     WATER_FLOW_GPM?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     SYSTEM_REF_AMOUNT?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     COOLING_EER?: SortOrder
@@ -69460,10 +67495,6 @@ export namespace Prisma {
     SOUND_MAX?: SortOrder
     HEATING_INDOOR_LOW?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
-    COOLING_LEAVING_TEMP_LOW?: SortOrder
-    COOLING_LEAVING_TEMP_HIGH?: SortOrder
-    HEATING_LEAVING_TEMP_LOW?: SortOrder
-    HEATING_LEAVING_TEMP_HIGH?: SortOrder
   }
 
   export type T_MASTER_THERMAV_ODUMinOrderByAggregateInput = {
@@ -69472,9 +67503,11 @@ export namespace Prisma {
     MODEL?: SortOrder
     BUYER_MODEL_NAME?: SortOrder
     APP_LOCATION?: SortOrder
+    NOTUSEDCOUNTRY?: SortOrder
+    VISIBLE_CAD?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     TYPE_ODU?: SortOrder
+    TYPE_ODU_THERMAV?: SortOrder
     TYPE_TEMP?: SortOrder
     DESCRIPTION?: SortOrder
     ACCESSARY?: SortOrder
@@ -69531,7 +67564,6 @@ export namespace Prisma {
     HEAT_EXCHANGER_TYPE?: SortOrder
     WATER_FLOW_LPM?: SortOrder
     WATER_FLOW_GPM?: SortOrder
-    EQUIPMENT_TABLE_KO?: SortOrder
     SYSTEM_REF_AMOUNT?: SortOrder
     REVIT_FAMILY_NAME?: SortOrder
     COOLING_EER?: SortOrder
@@ -69546,16 +67578,12 @@ export namespace Prisma {
     SOUND_MAX?: SortOrder
     HEATING_INDOOR_LOW?: SortOrder
     EQUIP_TABLE_KO?: SortOrder
-    COOLING_LEAVING_TEMP_LOW?: SortOrder
-    COOLING_LEAVING_TEMP_HIGH?: SortOrder
-    HEATING_LEAVING_TEMP_LOW?: SortOrder
-    HEATING_LEAVING_TEMP_HIGH?: SortOrder
   }
 
   export type T_MASTER_THERMAV_ODUSumOrderByAggregateInput = {
     ID?: SortOrder
+    VISIBLE_CAD?: SortOrder
     VISIBLE?: SortOrder
-    VISIBLE_THERMAV?: SortOrder
     HZ?: SortOrder
     NOMINAL_CAPACITY?: SortOrder
     COOLING_CAPACITY?: SortOrder
@@ -69672,6 +67700,164 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type T_CMN_LATS_SUPPORTCountOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrder
+    TITLE?: SortOrder
+    CONTENTS?: SortOrder
+    CREATE_DATE?: SortOrder
+    CREATE_BY_ID?: SortOrder
+    UPDATE_DATE?: SortOrder
+    UPDATE_BY_ID?: SortOrder
+  }
+
+  export type T_CMN_LATS_SUPPORTAvgOrderByAggregateInput = {
+    SEQ?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrder
+  }
+
+  export type T_CMN_LATS_SUPPORTMaxOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrder
+    TITLE?: SortOrder
+    CONTENTS?: SortOrder
+    CREATE_DATE?: SortOrder
+    CREATE_BY_ID?: SortOrder
+    UPDATE_DATE?: SortOrder
+    UPDATE_BY_ID?: SortOrder
+  }
+
+  export type T_CMN_LATS_SUPPORTMinOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrder
+    TITLE?: SortOrder
+    CONTENTS?: SortOrder
+    CREATE_DATE?: SortOrder
+    CREATE_BY_ID?: SortOrder
+    UPDATE_DATE?: SortOrder
+    UPDATE_BY_ID?: SortOrder
+  }
+
+  export type T_CMN_LATS_SUPPORTSumOrderByAggregateInput = {
+    SEQ?: SortOrder
+    TYPE?: SortOrder
+    PROJECT_SEQ?: SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONCountOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM_NAME?: SortOrder
+    VERSION?: SortOrder
+    RELEASE_NOTE?: SortOrder
+    CREATE_DATE?: SortOrder
+    UPDATE_DATE?: SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONAvgOrderByAggregateInput = {
+    SEQ?: SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONMaxOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM_NAME?: SortOrder
+    VERSION?: SortOrder
+    RELEASE_NOTE?: SortOrder
+    CREATE_DATE?: SortOrder
+    UPDATE_DATE?: SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONMinOrderByAggregateInput = {
+    SEQ?: SortOrder
+    PROGRAM_NAME?: SortOrder
+    VERSION?: SortOrder
+    RELEASE_NOTE?: SortOrder
+    CREATE_DATE?: SortOrder
+    UPDATE_DATE?: SortOrder
+  }
+
+  export type T_CMN_LATS_VERSIONSumOrderByAggregateInput = {
+    SEQ?: SortOrder
+  }
+
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGCountOrderByAggregateInput = {
+    ID?: SortOrder
+    ERROR_DATA?: SortOrder
+    ERROR_MESSAGE?: SortOrder
+    ERROR_TIMESTAMP?: SortOrder
+    PROCESSED?: SortOrder
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGAvgOrderByAggregateInput = {
+    ID?: SortOrder
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMaxOrderByAggregateInput = {
+    ID?: SortOrder
+    ERROR_DATA?: SortOrder
+    ERROR_MESSAGE?: SortOrder
+    ERROR_TIMESTAMP?: SortOrder
+    PROCESSED?: SortOrder
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGMinOrderByAggregateInput = {
+    ID?: SortOrder
+    ERROR_DATA?: SortOrder
+    ERROR_MESSAGE?: SortOrder
+    ERROR_TIMESTAMP?: SortOrder
+    PROCESSED?: SortOrder
+  }
+
+  export type T_CMN_USAGE_ERROR_LOGSumOrderByAggregateInput = {
+    ID?: SortOrder
+  }
+
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type V_CMN_LANGUAGECountOrderByAggregateInput = {
     CODE?: SortOrder
     HVAC_ID?: SortOrder
@@ -69739,6 +67925,18 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -69983,6 +68181,46 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[]
+    notIn?: bigint[] | number[]
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
 
 
   /**
@@ -70040,22 +68278,6 @@ export namespace Prisma {
      * @deprecated Use T_CMN_USAGEDefaultArgs instead
      */
     export type T_CMN_USAGEArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGEDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use T_CMN_USAGE_2021DefaultArgs instead
-     */
-    export type T_CMN_USAGE_2021Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGE_2021DefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use T_CMN_USAGE_2022DefaultArgs instead
-     */
-    export type T_CMN_USAGE_2022Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGE_2022DefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use T_CMN_USAGE_2023_REVITDefaultArgs instead
-     */
-    export type T_CMN_USAGE_2023_REVITArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGE_2023_REVITDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use T_CMN_USAGE_BACKUPDefaultArgs instead
-     */
-    export type T_CMN_USAGE_BACKUPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGE_BACKUPDefaultArgs<ExtArgs>
     /**
      * @deprecated Use T_CMN_USAGE_EMP_CNTRY_ENTDefaultArgs instead
      */
@@ -70116,6 +68338,18 @@ export namespace Prisma {
      * @deprecated Use error_logDefaultArgs instead
      */
     export type error_logArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = error_logDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use T_CMN_LATS_SUPPORTDefaultArgs instead
+     */
+    export type T_CMN_LATS_SUPPORTArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_LATS_SUPPORTDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use T_CMN_LATS_VERSIONDefaultArgs instead
+     */
+    export type T_CMN_LATS_VERSIONArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_LATS_VERSIONDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use T_CMN_USAGE_ERROR_LOGDefaultArgs instead
+     */
+    export type T_CMN_USAGE_ERROR_LOGArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_CMN_USAGE_ERROR_LOGDefaultArgs<ExtArgs>
     /**
      * @deprecated Use V_CMN_LANGUAGEDefaultArgs instead
      */

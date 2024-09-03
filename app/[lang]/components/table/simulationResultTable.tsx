@@ -6,7 +6,7 @@ import {
 import { cloneObject } from "@/app/utils/utils";
 import { useEffect, useState } from "react";
 
-export default function SimulationResultTable({ simulateData, detailData }: any) {
+export default function SimulationResultTable({ simulateData, detailData, t }: any) {
   {
     /* 반응형 */
   }
@@ -41,6 +41,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
       </div>
     );
   };
+
   return (
     <>
       {/* 반응형 */}
@@ -52,7 +53,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
           <thead>
             <tr>
               <th colSpan={9} className={"tableTh noLine"}>
-                Detail information
+                {t("NOISE_0013")}
               </th>
             </tr>
             <tr>
@@ -67,7 +68,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
           <tbody>
             {detailData.data.map((row: any, index: number) => (
               <tr key={index}>
-                <td className={"tableTd noLine bg-gray_100"}>{row.title}</td>
+                <td className={"tableTd noLine bg-gray_100"}>{t(row.title)}</td>
                 {row.content.map((item: any, idx: number) => (
                   <td key={idx} className={`tableTd ${item.noLine ? "noLine" : ""}`}>
                     {item.content}
@@ -84,14 +85,14 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
           <thead>
             <tr>
               <th colSpan={9} className={"tableTh noLine"}>
-                Sound pressure level (at receiver)
+                {t("NOISE_0017")}
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td rowSpan={2} className={"tableTd noLine bg-gray_100 w-[8.75rem] "}>
-                Octave Band
+                {t("NOISE_0012")}
               </td>
               {soundPressureReceiverDummyData.headings.map((heading, index) => {
                 const noLineStyle = heading.noLine ? "noLine" : "";
@@ -114,7 +115,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
               })}
             </tr>
             <tr>
-              <td className={"tableTd bg-gray_100 noLine"}>Overall</td>
+              <td className={"tableTd bg-gray_100 noLine"}>{t("NOISE_0018")}</td>
               <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
               <td className={"!pt-3 !pb-0 !pl-1 !border-0 !text-[0.625rem] !text-left"}>
                 Unit : dB(A)
@@ -126,11 +127,11 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
       {/* 반응형 */}
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.938rem]"}>
         {renderMobileTableItem(
-          "Detail information",
+          t("NOISE_0013"),
           detailData.data.map((item: any, index: number) => (
             <div key={"detailInformationDummyData-" + index} className={"flex flex-col gap-[1rem]"}>
               <p className={"leading-[1.125rem] text-[0.875rem] font-LGSMHATB text-left"}>
-                {item.title}
+                {t(item.title)}
               </p>
               <table className={"table-fixed"}>
                 <tbody>
@@ -157,11 +158,11 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
           ))
         )}
         {renderMobileTableItem(
-          "Sound pessure level (at receiver)",
+          t("NOISE_0017"),
           <>
             <div className={"flex flex-col gap-[1rem]"}>
               <p className={"leading-[1.125rem] text-[0.875rem] font-LGSMHATB text-left"}>
-                Octave Band
+                {t("NOISE_0012")}
               </p>
               <table className={"table-fixed"}>
                 <tbody>
@@ -194,7 +195,7 @@ export default function SimulationResultTable({ simulateData, detailData }: any)
             <table className={"table-fixed"}>
               <tbody>
                 <tr>
-                  <td className={"tableTh !font-LGSMHATR !text-[#000]"}>Overall</td>
+                  <td className={"tableTh !font-LGSMHATR !text-[#000]"}>{t("NOISE_0018")}</td>
                   <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
                 </tr>
               </tbody>

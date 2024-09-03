@@ -12,7 +12,7 @@ import {
   pageIndex,
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import IG_REPORT from "@/app/assets/images/ig_report.svg";
 import IC_BUTTON_LEFT_ARROW from "@/app/assets/icons/ic_button_left_arrow.png";
 import CButton from "@/app/[lang]/components/_atoms/cButton";
@@ -25,27 +25,52 @@ import ResultChart from "../../components/chart/resultChart";
 import dynamic from "next/dynamic";
 import LoadingChart from "../../components/loadingSkeleton/loadingChart";
 import { useTranslation } from "react-i18next";
+import RenderReportPdfImage from "../../components/baseResultPage/renderReportPdf_img";
+import EditUnit, { EditUnitType } from "@/lib/editUnit";
+import { ProjectInfoContext } from "@/app/context/projectInfoContext";
+import CReportPopUp from "../../components/_atoms/cReportPopUp";
 
 export default function Result({ params: { lang } }: any) {
   const { t } = useTranslation(lang);
+  const editUnit = new EditUnit();
+  const chartDivRef = useRef<HTMLDivElement>(null);
   const [isAccordionOpen1, setIsAccordionOpen1] = useState<boolean>(true);
   const [isAccordionOpen2, setIsAccordionOpen2] = useState<boolean>(true);
   const [isActiveReportPopup, setIsActiveReportPopup] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [reportPdfOpen, setReportPdfOpen] = useState(false);
+  const [emailOpen, setEmailOpen] = useState(false);
   const [simulateData, setSimulateData] = useState(soundPressureReceiverDummyData);
   const reportPopupRef = useRef<HTMLDivElement>(null);
   const [detailData, setDetailData] = useState(detailInformationDummyData);
   const [octaveBand, setOctaveBand] = useState([]);
-  // const ResultChart = dynamic(() => import("../../components/chart/resultChart"), {
-  //   ssr: false,
-  //   loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
-  // });
+  const ResultChart = dynamic(() => import("@/app/[lang]/components/chart/resultChart"), {
+    ssr: false,
+    loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
+  });
+  const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
+  const [resultData, setResultData] = useState();
+  const handleReportPdfOpen = () => {
+    setReportPdfOpen(true);
+  };
+  const handleReportPdfClose = () => {
+    setReportPdfOpen(false);
+  };
+  const handleSendEmailOpen = () => {
+    setEmailOpen(true);
+  };
+  const handleSendEmailClose = () => {
+    setEmailOpen(false);
+  };
   {
     /* 반응형 */
   }
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("simulate")!);
     const data2 = JSON.parse(localStorage.getItem("simulate2")!);
+    setResultData(data);
     setOctaveBand(data2);
+    setProjectInfoData(data.projectInfoData);
     const copySimulateData = cloneObject(simulateData);
     for (let i = 0; i < simulateData.data.length; i++) {
       copySimulateData.data[i].content = data.data[i];
@@ -73,42 +98,11 @@ export default function Result({ params: { lang } }: any) {
     setDetailData(copyDetailData);
   }, [lang]);
 
-  const renderReportPopup = () => {
-    return (
-      <CPopUp ref={reportPopupRef} isActive={isActiveReportPopup}>
-        <CPopHeader label={"Report"} onClick={() => setIsActiveReportPopup(false)} />
-        {/* 반응형 */}
-        <div className={"p-[2.5rem] mobile:p-[1.25rem_1rem_2.5rem_1rem]"}>
-          <div className={"max-h-[32.5rem] overflow-y-auto mb-[1.875rem] mobile:max-h-none"}>
-            <Image src={IG_REPORT} alt={"report"} className={"mobile:mx-auto"} />
-          </div>
-          {/* 반응형 */}
-          <div
-            className={"flex justify-center items-center w-full gap-[1.25rem] mobile:gap-[0.75rem]"}
-          >
-            <button
-              className={"blackLineButton w-[8.75rem] mobile:w-[calc(100%/2)] mobile:h-[2.25rem]"}
-              onClick={() => {
-                setIsActiveReportPopup(false);
-              }}
-            >
-              Cancel
-            </button>
-            <button
-              className={"primaryButton  w-[8.75rem] mobile:w-[calc(100%/2)] mobile:h-[2.25rem]"}
-            >
-              Download
-            </button>
-          </div>
-        </div>
-      </CPopUp>
-    );
-  };
   return (
     <main className={"container"}>
       {/* 반응형 */}
       <ContainerBox classList={"mt-6 mb-[3.125rem] mobile:mt-[0.625rem] mobile:mb-[2.5rem]"}>
-        <ContainerBoxTitle title={"Results"} />
+        <ContainerBoxTitle title={t("NOISE_0010")} />
         {/* 반응형 */}
         <ContainerBoxRow
           justifyContent={"start"}
@@ -122,21 +116,21 @@ export default function Result({ params: { lang } }: any) {
               className={`font-LGSMHATB leading-[1.115rem] text-gray_700 mb-[0.625rem] text-left
                             mobile:mb-[1.25rem]`}
             >
-              Simulation Result
+              {t("NOISE_0011")}
             </div>
-            <SimulationResultTable simulateData={simulateData} detailData={detailData} />
+            <SimulationResultTable simulateData={simulateData} detailData={detailData} t={t} />
           </section>
           {/* 반응형 */}
-          <section>
+          <section className="mobile:w-full mobile:max-w-[29rem]">
             <div
               className={
                 "font-LGSMHATB leading-[1.115rem] text-gray_700 mb-5 text-left mobile:text-[0.875rem] mobile:leading-[0.976rem]"
               }
             >
-              Octave Band
+              {t("NOISE_0012")}
             </div>
 
-            <ResultChart simulateData={octaveBand} t={t} />
+            <ResultChart simulateData={octaveBand} t={t} chartDivRef={chartDivRef} />
 
             {/* <Image
               src={IG_OCTAVE_BAND}
@@ -151,6 +145,7 @@ export default function Result({ params: { lang } }: any) {
           isOpen={isAccordionOpen1}
           setIsOpen={setIsAccordionOpen1}
           classList={"mb-5"}
+          t={t}
         />
         <CAccordionBox
           title={accordionDummyData[1]!.title}
@@ -158,6 +153,7 @@ export default function Result({ params: { lang } }: any) {
           isOpen={isAccordionOpen2}
           setIsOpen={setIsAccordionOpen2}
           image={accordionDummyData[1]!.image}
+          t={t}
         />
         {/* 반응형 */}
         <ContainerBoxRow
@@ -177,12 +173,21 @@ export default function Result({ params: { lang } }: any) {
             type={"submit"}
             className={"primaryButton w-[7.5rem] mobile:w-[calc(100%/2)]"}
             onClick={() => {
-              setIsActiveReportPopup(true);
+              // setIsActiveReportPopup(true);
+              handleReportPdfOpen();
             }}
           />
         </ContainerBoxRow>
       </ContainerBox>
-      {renderReportPopup()}
+      {reportPdfOpen && (
+        <RenderReportPdfImage
+          setIsLoading={setIsLoading}
+          handleReportPdfClose={handleReportPdfClose}
+          handleSendEmailOpen={handleSendEmailOpen}
+          inputData={resultData}
+          octaveBand={octaveBand}
+        />
+      )}
     </main>
   );
 }
