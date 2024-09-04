@@ -163,7 +163,7 @@ export default function ProductInformationTable({
                 t("COMMON_563") + " (EA)",
                 <CCustomInput
                   type={"number"}
-                  placeholder={"1"}
+                  placeholder={"0"}
                   value={1}
                   classList={"w-[12.5rem]"}
                   onChange={(changedValue: string) => {
@@ -323,7 +323,7 @@ export default function ProductInformationTable({
                     key={`qty_${item.id}`}
                     name={`qty_${item.id}`}
                     type={"number"}
-                    placeholder={"1"}
+                    placeholder={"0"}
                     value={1}
                     classList={"w-full px-3 !h-7"}
                     onChange={(changedValue: string) => {
