@@ -43,8 +43,8 @@ const Noisetools = forwardRef((props: any, ref) => {
             enabled: barrierEn,
           });
 
-          setLeftWallState(leftWallEn ? 1 : 0);
-          setTopWallState(topWallEn ? 1 : 0);
+          setLeftWallState(leftWallEn ? 0 : 1);
+          setTopWallState(topWallEn ? 0 : 1);
 
           console.log(
             `horizontalD = ${horizontalD}, sourceH = ${sourceH}, receiverH = ${receiverH}, barrierD = ${barrierD}, barrierH = ${barrierH}, barrierEn = ${barrierEn}, leftWallEn = ${leftWallEn}, topWallEn = ${topWallEn}`
@@ -1247,6 +1247,11 @@ const Noisetools = forwardRef((props: any, ref) => {
       }
     }
   }
+
+  useEffect(() => {
+    if (leftWallRef.current) leftWallRef.current.style.display = leftWallState == 0 ? "none" : "";
+    if (rightWallRef.current) rightWallRef.current.style.display = topWallState == 0 ? "none" : "";
+  }, [leftWallState, topWallState]);
 
   const onLeftWallClick: React.MouseEventHandler<SVGElement> = (e) => {
     if (leftWallRef.current) {

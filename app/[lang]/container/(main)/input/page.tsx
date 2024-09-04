@@ -116,6 +116,16 @@ export default function Input() {
   //noisetools add
   const ntRef = useRef<NoisetoolsForwardRef>(null);
   interface NoisetoolsForwardRef {
+    setAllValues(
+      horizontalD: number,
+      sourceH: number,
+      receiverH: number,
+      barrierD: number,
+      barrierH: number,
+      barrierEn: boolean,
+      leftWallEn: boolean,
+      topWallEn: boolean
+    ): void;
     setHorizontalDistance(dist: number): void;
     setBarrierFromSource(dist: number): void;
     setBarrierHeight(hegiht: number): void;
@@ -151,6 +161,28 @@ export default function Input() {
     ntRef.current?.setUnit(unit);
   };
 
+  const setNTAllValues = (
+    horizontalD: number,
+    sourceH: number,
+    receiverH: number,
+    barrierD: number,
+    barrierH: number,
+    barrierEn: boolean,
+    leftWallEn: boolean,
+    topWallEn: boolean
+  ) => {
+    ntRef.current?.setAllValues(
+      horizontalD,
+      sourceH,
+      receiverH,
+      barrierD,
+      barrierH,
+      barrierEn,
+      leftWallEn,
+      topWallEn
+    );
+  };
+
   const [outdoorUnit, setOutdoorUnit] = useState<number>(4);
   const [receiver, setReceiver] = useState<number>(2);
   const [horizontal, setHorizontal] = useState<number>(20);
@@ -173,10 +205,10 @@ export default function Input() {
         setOdus(value2!);
         break;
       case "LEFT_WALL":
-        setLeftWall(value1);
+        setLeftWall(value1 == 0 ? 1 : 0);
         break;
-      case "RIGHT_WALL":
-        setTopWall(value1);
+      case "TOP_WALL":
+        setTopWall(value1 == 0 ? 1 : 0);
         break;
       case "HORIZONTAL_DISTANCE":
         setHorizontal(value1);
@@ -244,11 +276,17 @@ export default function Input() {
           setBarrierFromSource(projectInfoData?.inputData?.odus);
           setBarrierHeight(projectInfoData?.inputData?.barrierH);
         }
-        //noisetool
-        setSourceHeight(projectInfoData?.inputData?.outdoorUnit + 1);
-        setReceiverHeight(projectInfoData?.inputData?.receiver);
 
-        // Enclosed Space (Machine Room)
+        setNTAllValues(
+          projectInfoData?.inputData?.horizontal,
+          projectInfoData?.inputData?.outdoorUnit + 1,
+          projectInfoData?.inputData?.receiver,
+          projectInfoData?.inputData?.odus,
+          projectInfoData?.inputData?.barrierH,
+          projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false,
+          projectInfoData?.inputData?.leftWall == 0 ? true : false,
+          projectInfoData?.inputData?.topWall == 0 ? true : false
+        );
       } else {
         setDirectDistance(
           projectInfoData?.inputData?.directDistance
