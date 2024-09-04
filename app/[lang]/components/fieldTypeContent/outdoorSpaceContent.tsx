@@ -128,6 +128,7 @@ export default function OutdoorSpaceContent({
             name="elevation_of_outdoor_unit"
             type={"number"}
             classList={`${inputSelectStyle}`}
+            placeholder={"0"}
             value={outdoorUnit || ""}
             unit={unitData?.length}
             required={true}
