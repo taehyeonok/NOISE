@@ -43,8 +43,8 @@ const Noisetools = forwardRef((props: any, ref) => {
             enabled: barrierEn,
           });
 
-          setLeftWallState(leftWallEn ? 0 : 1);
-          setTopWallState(topWallEn ? 0 : 1);
+          setLeftWallState(leftWallEn ? 1 : 0);
+          setTopWallState(topWallEn ? 1 : 0);
 
           console.log(
             `horizontalD = ${horizontalD}, sourceH = ${sourceH}, receiverH = ${receiverH}, barrierD = ${barrierD}, barrierH = ${barrierH}, barrierEn = ${barrierEn}, leftWallEn = ${leftWallEn}, topWallEn = ${topWallEn}`
@@ -805,6 +805,20 @@ const Noisetools = forwardRef((props: any, ref) => {
     recvTransform.current = updateRecvTransform();
     //drawSoundWaves();
   }, [receiverData]);
+  //left Wall
+  useEffect(() => {
+    if (leftWallRef.current) {
+      leftWallRef.current.style.display = leftWallState == 0 ? "none" : "";
+      notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
+    }
+  }, [leftWallState]);
+  //top Wall
+  useEffect(() => {
+    if (topWallRef.current) {
+      topWallRef.current.style.display = topWallState == 0 ? "none" : "";
+      notifyNtFactorChanged(FIELD_OBJECT.TopWall);
+    }
+  }, [topWallState]);
 
   function setLineSourceToReceiver() {
     let sTorEq = getLineEquation(FIELD_OBJECT.Source, FIELD_OBJECT.Receiver);
@@ -1248,15 +1262,10 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
   }
 
-  useEffect(() => {
-    if (leftWallRef.current) leftWallRef.current.style.display = leftWallState == 0 ? "none" : "";
-    if (rightWallRef.current) rightWallRef.current.style.display = topWallState == 0 ? "none" : "";
-  }, [leftWallState, topWallState]);
-
   const onLeftWallClick: React.MouseEventHandler<SVGElement> = (e) => {
     if (leftWallRef.current) {
       toggleLeftWall();
-      notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
+      // notifyNtFactorChanged(FIELD_OBJECT.LeftWall);
     }
   };
 
@@ -1271,15 +1280,15 @@ const Noisetools = forwardRef((props: any, ref) => {
     }
   };
 
-  const onRightWallClick: React.MouseEventHandler<SVGElement> = (e) => {
-    if (rightWallRef.current) {
-      rightWallRef.current.style.setProperty(
+  const onTopWallClick: React.MouseEventHandler<SVGElement> = (e) => {
+    if (topWallRef.current) {
+      topWallRef.current.style.setProperty(
         "display",
-        rightWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
+        topWallRef.current.style.getPropertyValue("display") != "none" ? "none" : ""
       );
 
-      setTopWallState(rightWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1);
-      notifyNtFactorChanged(FIELD_OBJECT.TopWall);
+      setTopWallState(topWallRef.current.style.getPropertyValue("display") === "none" ? 0 : 1);
+      // notifyNtFactorChanged(FIELD_OBJECT.TopWall);
     }
   };
 
@@ -1339,7 +1348,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   let parentRef: React.RefObject<HTMLDivElement> = useRef(null);
   let svgRef: React.RefObject<SVGSVGElement> = useRef(null);
   let leftWallRef: React.RefObject<SVGGElement> = useRef(null);
-  let rightWallRef: React.RefObject<SVGGElement> = useRef(null);
+  let topWallRef: React.RefObject<SVGGElement> = useRef(null);
 
   let toolPopupRef: React.RefObject<HTMLDivElement> = useRef(null);
   let toolPopupHDInputRef: React.RefObject<HTMLInputElement> = useRef(null);
@@ -1688,9 +1697,9 @@ const Noisetools = forwardRef((props: any, ref) => {
               </text>
             </g>
           </g>
-          <g id="wall_area_right">
+          <g id="wall_area_top">
             <g
-              id="right_wall_add"
+              id="top_wall_add"
               transform={`translate(${
                 (sourceDataRef.current.fromLeft -
                   distSourceFromWall -
@@ -1705,7 +1714,7 @@ const Noisetools = forwardRef((props: any, ref) => {
               })`}
               className={`wall_btn ${topWallState == 1 ? "hide" : ""}`}
               strokeWidth="0"
-              onClick={onRightWallClick}
+              onClick={onTopWallClick}
             >
               <rect
                 x="-25"
@@ -1729,11 +1738,11 @@ const Noisetools = forwardRef((props: any, ref) => {
               </text>
             </g>
             <g
-              ref={rightWallRef}
-              id="right_wall"
+              ref={topWallRef}
+              id="top_wall"
               className={`wall_btn`}
               strokeWidth="0"
-              onClick={onRightWallClick}
+              onClick={onTopWallClick}
             >
               <rect
                 x={

@@ -205,10 +205,10 @@ export default function Input() {
         setOdus(value2!);
         break;
       case "LEFT_WALL":
-        setLeftWall(value1 == 0 ? 1 : 0);
+        setLeftWall(value1);
         break;
       case "TOP_WALL":
-        setTopWall(value1 == 0 ? 1 : 0);
+        setTopWall(value1);
         break;
       case "HORIZONTAL_DISTANCE":
         setHorizontal(value1);
@@ -284,8 +284,8 @@ export default function Input() {
           projectInfoData?.inputData?.odus,
           projectInfoData?.inputData?.barrierH,
           projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false,
-          projectInfoData?.inputData?.leftWall == 0 ? true : false,
-          projectInfoData?.inputData?.topWall == 0 ? true : false
+          projectInfoData?.inputData?.leftWall == 1 ? true : false,
+          projectInfoData?.inputData?.topWall == 1 ? true : false
         );
       } else {
         setDirectDistance(
@@ -777,6 +777,8 @@ export default function Input() {
                 barrierFromSource={odus}
                 barrierHeight={barrierH}
                 distanceUnit={unitData?.length}
+                leftWall={leftWall}
+                topWall={topWall}
               />
             )}
           </div>
