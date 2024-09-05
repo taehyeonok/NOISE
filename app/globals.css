@@ -569,6 +569,14 @@ body {
     opacity: 1;
     font-family: var(--font-LGSMHATR), sans-serif;
 }
+
+.nts_ruler_dist_s_to_r_text_mobile{
+    font: normal 8px LGSMHATL;
+    user-select: none;
+    opacity: 1;
+    font-family: var(--font-LGSMHATR), sans-serif;
+}
+
 .nts_ruler_line:hover{
     fill: rgb(39, 132, 193);
     stroke: rgb(39, 132, 193);
@@ -603,6 +611,10 @@ body {
 
 .nts_svg_parent {
     aspect-ratio: 1100/ 500;
+}
+
+.nts_svg_parent_mobile {
+    aspect-ratio: 1100/ 800;
 }
 
 .nts_inupt_popup {
