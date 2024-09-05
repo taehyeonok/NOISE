@@ -20,7 +20,10 @@ export async function middleware(req: NextRequest) {
     lang = acceptLanguage.get(req.headers.get("Accept-Language"));
   } else if (!lang) lang = fallbackLng;
 
-  if (!req.cookies.get("lats_sso_token")) {
+  const lats_sso_token = req.cookies.get("r_lats_sso_token")
+    ? (req.cookies.get("r_lats_sso_token")?.value as string)
+    : (req.cookies.get("lats_sso_token")?.value as string);
+  if (!lats_sso_token) {
     //비로그인 처리
     response.cookies.set("r_lats_sso_token", "", {
       expires: new Date(0),
@@ -61,12 +64,13 @@ export async function middleware(req: NextRequest) {
       });
     } else if (payload?.jti == "diffIP") {
       // 로그인 jwt invalid 처리
-      const url = req.nextUrl.clone();
-      const protocol = url.protocol;
-      const host = url.host;
-      return NextResponse.redirect(new URL(`/login/logout.lge?logoutStatus=diffIP`, req.url), {
-        status: 301,
-      });
+      const ssolgenet = req.cookies.get("ssolgenet");
+      const login_success = req.cookies.get("login_success");
+      if (!ssolgenet || !login_success || login_success?.value != "T") {
+        return NextResponse.redirect(new URL(`/login/logout.lge?logoutStatus=diffIP`, req.url), {
+          status: 301,
+        });
+      }
     } else if (payload) {
       // jwt 검증
       //로그인 처리
