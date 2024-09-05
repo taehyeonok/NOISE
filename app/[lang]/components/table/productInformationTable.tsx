@@ -185,8 +185,18 @@ export default function ProductInformationTable({
                   selected
                   className={"mobileTableSelectStyle"}
                   onChange={(changedValue: { title: string; value: string }) => {
+                    const deleteSoundPressure = cloneObject(soundPressureLevel);
+                    deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                    const deleteSoundPower = cloneObject(soundPowerLevel);
+                    deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                    setSoundPressureLevel(deleteSoundPressure);
+                    setSoundPowerLevel(deleteSoundPower);
+
                     data[index]!.function = changedValue.title;
                     data[index]!.step = "";
+                    data[index]!.capacity = "%";
                     setData([...data]);
 
                     const copyStep = cloneObject(stepData);
@@ -344,8 +354,18 @@ export default function ProductInformationTable({
                     selected
                     classList={"tableSelectStyle"}
                     onChange={(changedValue: { title: string; value: string }) => {
+                      const deleteSoundPressure = cloneObject(soundPressureLevel);
+                      deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                      const deleteSoundPower = cloneObject(soundPowerLevel);
+                      deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                      setSoundPressureLevel(deleteSoundPressure);
+                      setSoundPowerLevel(deleteSoundPower);
+
                       data[index]!.function = changedValue.title;
                       data[index]!.step = "";
+                      data[index]!.capacity = "%";
                       setData([...data]);
 
                       const copyStep = cloneObject(stepData);
