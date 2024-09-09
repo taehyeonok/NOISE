@@ -19,12 +19,9 @@ interface ProductInformationTableProps {
   setFunctionNoiseData: Function;
   stepData: string[];
   setStepData: Function;
-  setSoundPressureLevel: Function;
-  setSoundPowerLevel: Function;
   soundPressureLevel: object[];
   soundPowerLevel: object[];
   projectInfoData: any;
-  setProjectInfoData: Function;
 }
 
 export default function ProductInformationTable({
@@ -38,12 +35,9 @@ export default function ProductInformationTable({
   setFunctionNoiseData,
   stepData,
   setStepData,
-  setSoundPressureLevel,
-  setSoundPowerLevel,
   soundPressureLevel,
   soundPowerLevel,
   projectInfoData,
-  setProjectInfoData,
 }: ProductInformationTableProps) {
   const [tableData, setTableData] = useState<ProductItem[]>(data);
   const [isMobile, setIsMobile] = useState(false);
@@ -115,15 +109,9 @@ export default function ProductInformationTable({
                     data[index]!.step = "";
                     data[index]!.capacity = "%";
                     setData([...data]);
-                    //sound source data reset
-                    const deleteSoundPressure = cloneObject(soundPressureLevel);
-                    deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    const deleteSoundPower = cloneObject(soundPowerLevel);
-                    deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    setSoundPressureLevel(deleteSoundPressure);
-                    setSoundPowerLevel(deleteSoundPower);
+                    //Sound Spec Data reset
+                    soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                    soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                     const copyProduct = cloneObject(productTypeData);
                     copyProduct[index] = changedValue.title;
@@ -185,14 +173,9 @@ export default function ProductInformationTable({
                   selected
                   className={"mobileTableSelectStyle"}
                   onChange={(changedValue: { title: string; value: string }) => {
-                    const deleteSoundPressure = cloneObject(soundPressureLevel);
-                    deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    const deleteSoundPower = cloneObject(soundPowerLevel);
-                    deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                    setSoundPressureLevel(deleteSoundPressure);
-                    setSoundPowerLevel(deleteSoundPower);
+                    //Sound Spec Data reset
+                    soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                    soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                     data[index]!.function = changedValue.title;
                     data[index]!.step = "";
@@ -284,15 +267,9 @@ export default function ProductInformationTable({
                       data[index]!.step = "";
                       data[index]!.capacity = "%";
                       setData([...data]);
-                      //sound source data reset
-                      const deleteSoundPressure = cloneObject(soundPressureLevel);
-                      deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      const deleteSoundPower = cloneObject(soundPowerLevel);
-                      deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      setSoundPressureLevel(deleteSoundPressure);
-                      setSoundPowerLevel(deleteSoundPower);
+                      //Sound Spec Data reset
+                      soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                      soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                       const copyProduct = cloneObject(productTypeData);
                       copyProduct[index] = changedValue.title;
@@ -354,14 +331,9 @@ export default function ProductInformationTable({
                     selected
                     classList={"tableSelectStyle"}
                     onChange={(changedValue: { title: string; value: string }) => {
-                      const deleteSoundPressure = cloneObject(soundPressureLevel);
-                      deleteSoundPressure.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      const deleteSoundPower = cloneObject(soundPowerLevel);
-                      deleteSoundPower.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      setSoundPressureLevel(deleteSoundPressure);
-                      setSoundPowerLevel(deleteSoundPower);
+                      //Sound Spec Data reset
+                      soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                      soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                       data[index]!.function = changedValue.title;
                       data[index]!.step = "";
