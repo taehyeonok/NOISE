@@ -59,8 +59,9 @@ export const validateFormData = (
   //Enclosed Space (Machine Room) 모델 4대 제한
   if (checkDataObj.field_type_text === "Enclosed Space (Machine Room)") {
     if (Number(productTableData.length) > 4) {
+      const index = productTableData[productTableData.length - 1].id;
       const number_of_point_sound_sources_input = elements.namedItem(
-        "product_type_4_text"
+        `productType_${index}_text`
       ) as HTMLInputElement;
       number_of_point_sound_sources_input.setCustomValidity(trans("NOISE_0001"));
       number_of_point_sound_sources_input.reportValidity();

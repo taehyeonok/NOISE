@@ -3,7 +3,7 @@
 import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 import IC_ROUND_PLUS from "@/app/assets/icons/ic_round_plus.svg";
 import Image from "next/image";
@@ -100,15 +100,15 @@ export default function Input() {
     if (productTableData.length > MIN_ROWS) {
       const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
 
-      const deleteSoundPressure = cloneObject(soundPressureLevel);
-      deleteSoundPressure.map((item: any) => delete item[rowId]);
+      soundPressureLevel.map((item: any) => delete item[rowId]);
 
-      const deleteSoundPower = cloneObject(soundPowerLevel);
-      deleteSoundPower.map((item: any) => delete item[rowId]);
+      soundPowerLevel.map((item: any) => delete item[rowId]);
+
+      delete productTypeData[rowId];
+      delete functionNoiseData[rowId];
+      delete stepData[rowId];
 
       setProductTableData(updatedTableRows);
-      setSoundPressureLevel(deleteSoundPressure);
-      setSoundPowerLevel(deleteSoundPower);
     }
   };
 
@@ -369,121 +369,131 @@ export default function Input() {
   useEffect(() => {
     const copySoundPressure = cloneObject(soundPressureLevel);
     const copySoundPower = cloneObject(soundPowerLevel);
-    const copyTotal = cloneObject(totalCapacityTableData);
 
     let totalRated: number = 0;
     let totalSimulated: number = 0;
-    productTableData.map(async (data: any) => {
-      if (data.productType !== "") {
-        const res = await fetch(`${basePath}/api/common-select-modelspec`, {
-          method: "post",
-          body: JSON.stringify(data),
-        });
-        const result = await res.json();
-        result.data.map((item: any) => {
-          data.capacity = item.capacity + "%";
-          if (item.dataType === "SPL") {
-            copySoundPressure[0][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[1][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[2][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[3][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[4][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[5][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[6][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[7][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPressure[8][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
-              0
-            );
-          } else {
-            copySoundPower[0][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[1][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[2][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[3][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[4][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[5][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[6][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[7][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
-              0
-            );
-            copySoundPower[8][item.id] = Math.max(
-              10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
-              0
-            );
-          }
-        });
-        setSoundPressureLevel(copySoundPressure);
-        setSoundPowerLevel(copySoundPower);
 
-        const capacity = Number(data.capacity.replace("%", ""));
-        const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
-          method: "post",
-          body: JSON.stringify(data),
-        });
-        const resultData = await response.json();
-        const coolData = resultData.data.map((item: any) =>
-          item.t_cool_w == null ? 0 : item.t_cool_w
-        );
-        totalRated += coolData * Number(data.qty);
-        totalSimulated += coolData * 0.001 * capacity * Number(data.qty);
-        setTotalRatedData(totalRated);
-        setTotalSimulatedData(totalSimulated);
-        copyTotal[0].first = Number(totalRated * 0.001).toFixed(1) + "kW";
-        copyTotal[1].first = Number(totalSimulated * 0.01).toFixed(1) + "kW";
-        copyTotal[1].second =
-          totalSimulated == 0
-            ? "0%"
-            : Number(((totalSimulated * 0.01) / (totalRated * 0.001)) * 100).toFixed(0) + "%";
-        setTotalCapacityTableData(copyTotal);
-      }
-    });
+    const fetchData = async () => {
+      await Promise.all(
+        productTableData.map(async (data: any) => {
+          if (data.productType !== "") {
+            const res = await fetch(`${basePath}/api/common-select-modelspec`, {
+              method: "post",
+              body: JSON.stringify(data),
+            });
+            const result = await res.json();
+            result.data.map((item: any) => {
+              data.capacity = item.capacity + "%";
+              if (item.dataType === "SPL") {
+                copySoundPressure[0][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[1][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[2][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[3][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[4][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[5][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[6][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[7][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPressure[8][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
+                  0
+                );
+              } else {
+                copySoundPower[0][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise63hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[1][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise125hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[2][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise250hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[3][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise500hz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[4][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise1khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[5][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise2khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[6][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise4khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[7][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.noise8khz) / 10) * Number(data.qty)),
+                  0
+                );
+                copySoundPower[8][item.id] = Math.max(
+                  10 * Math.log10(10 ** (Number(item.overall) / 10) * Number(data.qty)),
+                  0
+                );
+              }
+            });
+            setSoundPressureLevel(copySoundPressure);
+            setSoundPowerLevel(copySoundPower);
+
+            const capacity = Number(data.capacity.replace("%", ""));
+            const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
+              method: "post",
+              body: JSON.stringify(data),
+            });
+            const resultData = await response.json();
+            const coolData = resultData.data.map((item: any) =>
+              item.t_cool_w == null ? 0 : item.t_cool_w
+            );
+            totalRated += coolData * Number(data.qty);
+            totalSimulated += coolData * 0.001 * capacity * Number(data.qty);
+          }
+        })
+      );
+      setTotalRatedData(totalRated);
+      setTotalSimulatedData(totalSimulated);
+    };
+    fetchData();
   }, [productTableData]);
+  //Total Capacity
+  useEffect(() => {
+    const copyTotal = cloneObject(totalCapacityTableData);
+
+    copyTotal[0].first = Number(totalRatedData * 0.001).toFixed(1) + "kW";
+    copyTotal[1].first = Number(totalSimulatedData * 0.01).toFixed(1) + "kW";
+    copyTotal[1].second =
+      totalSimulatedData == 0
+        ? "0%"
+        : Number(((totalSimulatedData * 0.01) / (totalRatedData * 0.001)) * 100).toFixed(0) + "%";
+    setTotalCapacityTableData(copyTotal);
+  }, [totalRatedData, totalSimulatedData]);
 
   //SPL to PWL Processing => Total Summation Result (Estimated Sound Power Data)
   useEffect(() => {
@@ -599,6 +609,34 @@ export default function Input() {
     router.push("/container/result");
   }
 
+  const memoProductInformationTable = useMemo(() => {
+    return (
+      <ProductInformationTable
+        data={productTableData}
+        setData={setProductTableData}
+        removeTableRow={removeTableRow}
+        t={t}
+        productTypeData={productTypeData}
+        setProductTypeData={setProductTypeData}
+        functionNoiseData={functionNoiseData}
+        setFunctionNoiseData={setFunctionNoiseData}
+        stepData={stepData}
+        setStepData={setStepData}
+        soundPressureLevel={soundPressureLevel}
+        soundPowerLevel={soundPowerLevel}
+        projectInfoData={projectInfoData}
+      />
+    );
+  }, [
+    productTableData,
+    productTypeData,
+    functionNoiseData,
+    stepData,
+    soundPowerLevel,
+    soundPressureLevel,
+    totalCapacityTableData,
+  ]);
+
   return (
     <form ref={formRef} action={actionSimulate} className={"w-full h-full"}>
       {isLoading && <LoadingPage />}
@@ -669,7 +707,8 @@ export default function Input() {
               </span>
             </button>
           </ContainerBoxRow>
-          <ProductInformationTable
+          {memoProductInformationTable}
+          {/* <ProductInformationTable
             data={productTableData}
             setData={setProductTableData}
             removeTableRow={removeTableRow}
@@ -680,13 +719,10 @@ export default function Input() {
             setFunctionNoiseData={setFunctionNoiseData}
             stepData={stepData}
             setStepData={setStepData}
-            setSoundPressureLevel={setSoundPressureLevel}
-            setSoundPowerLevel={setSoundPowerLevel}
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
             projectInfoData={projectInfoData}
-            setProjectInfoData={setProjectInfoData}
-          />
+          /> */}
           {/* 반응형 */}
           <ContainerBoxRow
             justifyContent={"end"}

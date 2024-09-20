@@ -114,11 +114,11 @@ export default function ProductInformationTable({
                     soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                     const copyProduct = cloneObject(productTypeData);
-                    copyProduct[index] = changedValue.title;
+                    copyProduct[item.id] = changedValue.title;
                     setProductTypeData(copyProduct);
 
                     const copyFunction = cloneObject(functionNoiseData);
-                    copyFunction[index] = changedValue.value.slice(1).split("/");
+                    copyFunction[item.id] = changedValue.value.slice(1).split("/");
                     setFunctionNoiseData(copyFunction);
                     projectInfoData.functionNoise = copyFunction;
                   }}
@@ -140,7 +140,7 @@ export default function ProductInformationTable({
                     data[index]!.modelName = changedValue.title;
                     setData([...data]);
                   }}
-                  params={{ productTypeData: productTypeData[index] }}
+                  params={{ productTypeData: productTypeData[item.id] }}
                   data={item.modelName}
                   number={item.id}
                   validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
@@ -183,12 +183,12 @@ export default function ProductInformationTable({
                     setData([...data]);
 
                     const copyStep = cloneObject(stepData);
-                    copyStep[index] = changedValue.value.slice(1).split("/");
+                    copyStep[item.id] = changedValue.value.slice(1).split("/");
                     setStepData(copyStep);
                     projectInfoData.step = copyStep;
                   }}
                   data={item.function}
-                  params={{ functionData: functionNoiseData[index] }}
+                  params={{ functionData: functionNoiseData[item.id] }}
                   number={item.id}
                   validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
                   required
@@ -206,7 +206,7 @@ export default function ProductInformationTable({
                     data[index]!.step = changedValue.title;
                     setData([...data]);
                   }}
-                  params={{ stepData: stepData[index] }}
+                  params={{ stepData: stepData[item.id] }}
                   data={item.step}
                   number={item.id}
                   validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
@@ -272,11 +272,11 @@ export default function ProductInformationTable({
                       soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                       const copyProduct = cloneObject(productTypeData);
-                      copyProduct[index] = changedValue.title;
+                      copyProduct[item.id] = changedValue.title;
                       setProductTypeData(copyProduct);
 
                       const copyFunction = cloneObject(functionNoiseData);
-                      copyFunction[index] = changedValue.value.slice(1).split("/");
+                      copyFunction[item.id] = changedValue.value.slice(1).split("/");
                       projectInfoData.functionNoise = copyFunction;
                       setFunctionNoiseData(copyFunction);
                     }}
@@ -298,7 +298,7 @@ export default function ProductInformationTable({
                       data[index]!.modelName = changedValue.title;
                       setData([...data]);
                     }}
-                    params={{ productTypeData: productTypeData[index] }}
+                    params={{ productTypeData: productTypeData[item.id] }}
                     data={item.modelName}
                     number={item.id}
                     validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
@@ -341,12 +341,12 @@ export default function ProductInformationTable({
                       setData([...data]);
 
                       const copyStep = cloneObject(stepData);
-                      copyStep[index] = changedValue.value.slice(1).split("/");
+                      copyStep[item.id] = changedValue.value.slice(1).split("/");
                       setStepData(copyStep);
                       projectInfoData.step = copyStep;
                     }}
                     data={item.function}
-                    params={{ functionData: functionNoiseData[index] }}
+                    params={{ functionData: functionNoiseData[item.id] }}
                     number={item.id}
                     validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
                     required
@@ -365,7 +365,7 @@ export default function ProductInformationTable({
                       data[index]!.step = changedValue.title;
                       setData([...data]);
                     }}
-                    params={{ stepData: stepData[index] }}
+                    params={{ stepData: stepData[item.id] }}
                     data={item.step}
                     number={item.id}
                     validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
