@@ -92,6 +92,16 @@ const RenderReportPdfImage = ({
   //Noise tools
   const ntRef = useRef<NoisetoolsForwardRef>(null);
   interface NoisetoolsForwardRef {
+    setAllValues(
+      horizontalD: number,
+      sourceH: number,
+      receiverH: number,
+      barrierD: number,
+      barrierH: number,
+      barrierEn: boolean,
+      leftWallEn: boolean,
+      topWallEn: boolean
+    ): void;
     setHorizontalDistance(dist: number): void;
     setBarrierFromSource(dist: number): void;
     setBarrierHeight(hegiht: number): void;
@@ -101,6 +111,37 @@ const RenderReportPdfImage = ({
     setUnit(unit: string): void;
   }
 
+  const setNTAllValues = (
+    horizontalD: number,
+    sourceH: number,
+    receiverH: number,
+    barrierD: number,
+    barrierH: number,
+    barrierEn: boolean,
+    leftWallEn: boolean,
+    topWallEn: boolean
+  ) => {
+    ntRef.current?.setAllValues(
+      horizontalD,
+      sourceH,
+      receiverH,
+      barrierD,
+      barrierH,
+      barrierEn,
+      leftWallEn,
+      topWallEn
+    );
+  };
+  setNTAllValues(
+    inputData?.projectInfoData?.inputData?.horizontal,
+    inputData?.projectInfoData?.inputData?.outdoorUnit + 1,
+    inputData?.projectInfoData?.inputData?.receiver,
+    inputData?.projectInfoData?.inputData?.odus,
+    inputData?.projectInfoData?.inputData?.barrierH,
+    inputData?.projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false,
+    inputData?.projectInfoData?.inputData?.leftWall == 1 ? true : false,
+    inputData?.projectInfoData?.inputData?.topWall == 1 ? true : false
+  );
   // Report PDF 다운로드
   const downloadPdfDocument = async () => {
     setIsLoading(true);
