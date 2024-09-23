@@ -477,11 +477,11 @@ const RenderReportPdfImage = ({
               </div>
             ))}
             {/**totalData */}
-            <div className="pdf-content-table-40 float-right">
+            <div className="pdf-content-table-40 ml-auto">
               <div className="text-center text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black">
                 {t("Total Capacity")}
               </div>
-              <div className="pdf-content-table-row  ">
+              <div className="pdf-content-table-row">
                 <div className="td w-[30%]">{t("NOISE_0042")}</div>
                 <div className="td w-[30%]">
                   {inputData?.soundData?.totalCapacityTableData[0]["first"].split("k")[0]}
@@ -503,10 +503,8 @@ const RenderReportPdfImage = ({
               </div>
             </div>
             {/**Sound Spec Data */}
-            <div className="pdf-content-table mt-28">
+            <div className="pdf-content-table">
               <div className="pdf-content-table-th">{t("NOISE_0044")}</div>
-            </div>
-            <div>
               <div className="pdf-content-table-td justify-center">
                 <div>{t("NOISE_0045")} (dB)</div>
               </div>
