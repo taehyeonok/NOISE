@@ -46,9 +46,9 @@ const Noisetools = forwardRef((props: any, ref) => {
           setLeftWallState(leftWallEn ? 1 : 0);
           setTopWallState(topWallEn ? 1 : 0);
 
-          console.log(
-            `horizontalD = ${horizontalD}, sourceH = ${sourceH}, receiverH = ${receiverH}, barrierD = ${barrierD}, barrierH = ${barrierH}, barrierEn = ${barrierEn}, leftWallEn = ${leftWallEn}, topWallEn = ${topWallEn}`
-          );
+          // console.log(
+          //   `horizontalD = ${horizontalD}, sourceH = ${sourceH}, receiverH = ${receiverH}, barrierD = ${barrierD}, barrierH = ${barrierH}, barrierEn = ${barrierEn}, leftWallEn = ${leftWallEn}, topWallEn = ${topWallEn}`
+          // );
         },
 
         setHorizontalDistance(dist: number) {
@@ -702,7 +702,7 @@ const Noisetools = forwardRef((props: any, ref) => {
 
   function RecalcFiledPos(width: number, height: number) {
     if (parentRef.current) {
-      console.log(`RecalcFiledPos(width: ${width}, height: ${height})`);
+      // console.log(`RecalcFiledPos(width: ${width}, height: ${height})`);
       fieldData.current.width = width;
       fieldData.current.height = height;
 
@@ -1088,11 +1088,11 @@ const Noisetools = forwardRef((props: any, ref) => {
     e.preventDefault();
 
     if (prevTouch.current != null) {
-      console.log(
-        `movement x = ${e.touches[0]!.pageX - prevTouch.current.pageX} , movement y = ${
-          e.touches[0]!.pageY - prevTouch.current.pageY
-        }`
-      );
+      // console.log(
+      //   `movement x = ${e.touches[0]!.pageX - prevTouch.current.pageX} , movement y = ${
+      //     e.touches[0]!.pageY - prevTouch.current.pageY
+      //   }`
+      // );
     }
 
     prevTouch.current = e.touches[0];
