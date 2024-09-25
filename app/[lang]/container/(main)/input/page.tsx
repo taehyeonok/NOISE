@@ -253,6 +253,7 @@ export default function Input() {
               value: "1",
             }
       );
+      setSoundPowerLevel(projectInfoData.soundPowerLevel);
       //Outdoor Space
       if (projectInfoData?.selectFieldType?.value == "1") {
         setBarrierSelected(projectInfoData?.inputData?.barrierSelected);
@@ -364,6 +365,11 @@ export default function Input() {
     productTableData,
     selectFieldType,
   ]);
+  //수기 입력 데이터 유지
+  useEffect(() => {
+    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    if (!isBack) projectInfoData.soundPowerLevel = soundPowerLevel;
+  }, [soundPowerLevel]);
 
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
@@ -377,6 +383,18 @@ export default function Input() {
       await Promise.all(
         productTableData.map(async (data: any) => {
           if (data.productType !== "") {
+            //수기 입력 데이터 생성
+            if (data.productType === "Manual" && copySoundPower[0][data.id] == null) {
+              copySoundPower[0][data.id] = "";
+              copySoundPower[1][data.id] = "";
+              copySoundPower[2][data.id] = "";
+              copySoundPower[3][data.id] = "";
+              copySoundPower[4][data.id] = "";
+              copySoundPower[5][data.id] = "";
+              copySoundPower[6][data.id] = "";
+              copySoundPower[7][data.id] = "";
+              copySoundPower[8][data.id] = "";
+            }
             const res = await fetch(`${basePath}/api/common-select-modelspec`, {
               method: "post",
               body: JSON.stringify(data),
@@ -481,7 +499,7 @@ export default function Input() {
       setTotalSimulatedData(totalSimulated);
     };
     fetchData();
-  }, [productTableData]);
+  }, [productTableData, productTypeData]);
   //Total Capacity
   useEffect(() => {
     const copyTotal = cloneObject(totalCapacityTableData);
@@ -511,7 +529,7 @@ export default function Input() {
           })
       )
       .map((item) => {
-        if (item.productType == "AWHP") {
+        if (item.productType == "AWHP" || item.productType == "Manual") {
           adjustment += Number(item.qty) * 0;
           totalQty += Number(item.qty);
         } else {
@@ -757,6 +775,7 @@ export default function Input() {
           <SoundSpecDataTable
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
+            setSoundPowerLevel={setSoundPowerLevel}
             t={t}
           />
           {/* 반응형 */}

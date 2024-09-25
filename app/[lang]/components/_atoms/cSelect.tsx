@@ -169,10 +169,10 @@ export default function CSelect({
     <div
       tabIndex={0}
       className={`${
-        isSelect || selected
-          ? "selectBoxSelected"
-          : disabled
+        disabled
           ? "selectBoxDisabled"
+          : isSelect || selected
+          ? "selectBoxSelected"
           : "selectDefaultBox"
       } 
                      ${className}
@@ -184,13 +184,17 @@ export default function CSelect({
       <input ref={inputRef} type={"hidden"} name={name} value={selectValue ? selectValue : ""} />
       <div
         id={id}
-        className={`selectTitleBox 
+        className={
+          disabled
+            ? `selectTitleBox border border-gray_200 rounded-[3px] justify-end ${commonStyle}`
+            : `selectTitleBox 
             ${
               active
                 ? "border-t border-l border-r border-gray_700 rounded-[3px_3px_0_0]"
                 : "border border-gray_200 rounded-[3px]"
             }
-                ${title === "" && !isSelect ? "justify-end" : "justify-between"} ${commonStyle}`}
+                ${title === "" && !isSelect ? "justify-end" : "justify-between"} ${commonStyle}`
+        }
         data-sel-value={data}
       >
         {/* 반응형 */}
@@ -208,13 +212,18 @@ export default function CSelect({
           name={name + "_text"}
           spellCheck={false}
           autoComplete={"off"}
+          disabled={disabled}
           onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
             validateMsg({
               event: e,
               validMessage: validMessage,
             })
           }
-          className="bg-white cursor-pointer outline-none caret-transparent w-full"
+          className={
+            disabled
+              ? "!bg-gray_100 !text-gray_400 w-full  "
+              : "bg-white cursor-pointer outline-none caret-transparent w-full"
+          }
         />
         <Image src={arrowImage} alt={arrowImageAlt} />
       </div>

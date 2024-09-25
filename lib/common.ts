@@ -23,11 +23,20 @@ export const getSelectItemData = async ({
       param: selectBoxParam,
     }),
   });
-
   const result = await res.json();
-  const selectBoxDummyData = result.data.map((item: any) => {
-    return { title: item.title, value: item.value };
-  });
-
-  if (setSelectBoxData) setSelectBoxData(selectBoxDummyData);
+  if (pCode == "productType") {
+    const selectBoxDummyData = result.data.map((item: any) => {
+      return { title: item.title, value: item.value };
+    });
+    const Manual = { title: "Manual", value: "Manual" };
+    selectBoxDummyData.push(Manual);
+    if (setSelectBoxData) setSelectBoxData(selectBoxDummyData);
+  } else {
+    const selectBoxDummyData = result.data
+      .filter((item: any) => item.title != "Manual")
+      .map((item: any) => {
+        return { title: item.title, value: item.value };
+      });
+    if (setSelectBoxData) setSelectBoxData(selectBoxDummyData);
+  }
 };

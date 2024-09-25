@@ -132,16 +132,18 @@ const RenderReportPdfImage = ({
       topWallEn
     );
   };
-  setNTAllValues(
-    inputData?.projectInfoData?.inputData?.horizontal,
-    inputData?.projectInfoData?.inputData?.outdoorUnit + 1,
-    inputData?.projectInfoData?.inputData?.receiver,
-    inputData?.projectInfoData?.inputData?.odus,
-    inputData?.projectInfoData?.inputData?.barrierH,
-    inputData?.projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false,
-    inputData?.projectInfoData?.inputData?.leftWall == 1 ? true : false,
-    inputData?.projectInfoData?.inputData?.topWall == 1 ? true : false
-  );
+  useEffect(() => {
+    setNTAllValues(
+      inputData?.projectInfoData?.inputData?.horizontal,
+      inputData?.projectInfoData?.inputData?.outdoorUnit + 1,
+      inputData?.projectInfoData?.inputData?.receiver,
+      inputData?.projectInfoData?.inputData?.odus,
+      inputData?.projectInfoData?.inputData?.barrierH,
+      inputData?.projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false,
+      inputData?.projectInfoData?.inputData?.leftWall == 1 ? true : false,
+      inputData?.projectInfoData?.inputData?.topWall == 1 ? true : false
+    );
+  }, []);
   // Report PDF 다운로드
   const downloadPdfDocument = async () => {
     setIsLoading(true);

@@ -113,14 +113,16 @@ export default function ProductInformationTable({
                     soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
                     soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
-                    const copyProduct = cloneObject(productTypeData);
-                    copyProduct[item.id] = changedValue.title;
-                    setProductTypeData(copyProduct);
+                    if (item.productType != "Manual") {
+                      const copyProduct = cloneObject(productTypeData);
+                      copyProduct[item.id] = changedValue.title;
+                      setProductTypeData(copyProduct);
 
-                    const copyFunction = cloneObject(functionNoiseData);
-                    copyFunction[item.id] = changedValue.value.slice(1).split("/");
-                    setFunctionNoiseData(copyFunction);
-                    projectInfoData.functionNoise = copyFunction;
+                      const copyFunction = cloneObject(functionNoiseData);
+                      copyFunction[item.id] = changedValue.value.slice(1).split("/");
+                      projectInfoData.functionNoise = copyFunction;
+                      setFunctionNoiseData(copyFunction);
+                    }
                   }}
                   data={item.productType}
                   number={item.id}
@@ -145,6 +147,7 @@ export default function ProductInformationTable({
                   number={item.id}
                   validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
                   required
+                  disabled={item.productType == "Manual" ? true : false}
                 />
               )}
               {renderTableItem(
@@ -160,6 +163,7 @@ export default function ProductInformationTable({
                   }}
                   validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                   required
+                  disabled={item.productType == "Manual" ? true : false}
                 />
               )}
               {renderTableItem(
@@ -192,6 +196,7 @@ export default function ProductInformationTable({
                   number={item.id}
                   validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
                   required
+                  disabled={item.productType == "Manual" ? true : false}
                 />
               )}
               {renderTableItem(
@@ -211,6 +216,7 @@ export default function ProductInformationTable({
                   number={item.id}
                   validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
                   required
+                  disabled={item.productType == "Manual" ? true : false}
                 />
               )}
               {renderTableItem(
@@ -271,14 +277,16 @@ export default function ProductInformationTable({
                       soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
                       soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
-                      const copyProduct = cloneObject(productTypeData);
-                      copyProduct[item.id] = changedValue.title;
-                      setProductTypeData(copyProduct);
+                      if (item.productType != "Manual") {
+                        const copyProduct = cloneObject(productTypeData);
+                        copyProduct[item.id] = changedValue.title;
+                        setProductTypeData(copyProduct);
 
-                      const copyFunction = cloneObject(functionNoiseData);
-                      copyFunction[item.id] = changedValue.value.slice(1).split("/");
-                      projectInfoData.functionNoise = copyFunction;
-                      setFunctionNoiseData(copyFunction);
+                        const copyFunction = cloneObject(functionNoiseData);
+                        copyFunction[item.id] = changedValue.value.slice(1).split("/");
+                        projectInfoData.functionNoise = copyFunction;
+                        setFunctionNoiseData(copyFunction);
+                      }
                     }}
                     data={item.productType}
                     number={item.id}
@@ -303,6 +311,7 @@ export default function ProductInformationTable({
                     number={item.id}
                     validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
                     required
+                    disabled={item.productType == "Manual" ? true : false}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -317,6 +326,7 @@ export default function ProductInformationTable({
                       data[index]!.qty = changedValue;
                       setData([...data]);
                     }}
+                    disabled={item.productType == "Manual" ? true : false}
                     validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                     required
                   />
@@ -350,6 +360,7 @@ export default function ProductInformationTable({
                     number={item.id}
                     validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
                     required
+                    disabled={item.productType == "Manual" ? true : false}
                   />
                 </td>
                 <td className={"tableTd"}>
@@ -370,6 +381,7 @@ export default function ProductInformationTable({
                     number={item.id}
                     validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
                     required
+                    disabled={item.productType == "Manual" ? true : false}
                   />
                 </td>
                 <td className={"tableTd"}>

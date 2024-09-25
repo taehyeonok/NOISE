@@ -1,10 +1,15 @@
+import { validateMsg } from "@/lib/validation";
+import { dBAF } from "../../constants/const";
+
 export default function SoundSpecDataTable({
   soundPressureLevel,
   soundPowerLevel,
+  setSoundPowerLevel,
   t,
 }: {
   soundPressureLevel: any;
   soundPowerLevel: any;
+  setSoundPowerLevel: Function;
   t: any;
 }) {
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
@@ -36,7 +41,37 @@ export default function SoundSpecDataTable({
         <td className={`tableTd bg-gray_100`}>{title}</td>
         {data.map((item, index: number) => (
           <td className={"tableTd"} key={`${item.dataType}-${index}`}>
-            {Number(item[productType]).toFixed(1)}
+            {item[productType] == "" ? (
+              item.dataType == "Overall (dB(A))" ? (
+                data[0][productType] == "" ? (
+                  0
+                ) : (
+                  Number(Number(dBAF(soundPowerLevel, productType as string)).toFixed(1))
+                )
+              ) : (
+                <input
+                  className={"tableTd w-full"}
+                  onChange={(e) => {
+                    item[productType] = Number(e.target.value);
+                    data[8][productType] = Number(
+                      Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                    );
+                  }}
+                  onBlur={() => {
+                    setSoundPowerLevel([...soundPowerLevel]);
+                  }}
+                  required
+                  onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
+                    validateMsg({
+                      event: e,
+                      validMessage: { message: t("NOISE_0006"), format: [t("MULTIV_1261")] },
+                    })
+                  }
+                />
+              )
+            ) : (
+              Number(item[productType]).toFixed(1)
+            )}
           </td>
         ))}
       </tr>
@@ -84,12 +119,84 @@ export default function SoundSpecDataTable({
                 return (
                   <tr key={index}>
                     <th className={`tableTh`}>{item.dataType}</th>
-                    <td className={`tableTd`}>{Number(item[productType]).toFixed(1)}</td>
+                    <td className={`tableTd`}>
+                      {item[productType] == "" ? (
+                        item.dataType == "Overall (dB(A))" ? (
+                          data[0][productType] == "" ? (
+                            0
+                          ) : (
+                            Number(Number(dBAF(soundPowerLevel, productType as string)).toFixed(1))
+                          )
+                        ) : (
+                          <input
+                            className={"tableTd mobile:w-full"}
+                            onChange={(e) => {
+                              item[productType] = Number(e.target.value);
+                              data[8][productType] = Number(
+                                Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                              );
+                            }}
+                            onBlur={() => {
+                              setSoundPowerLevel([...soundPowerLevel]);
+                            }}
+                            required
+                            onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
+                              validateMsg({
+                                event: e,
+                                validMessage: {
+                                  message: t("NOISE_0006"),
+                                  format: [t("MULTIV_1261")],
+                                },
+                              })
+                            }
+                          />
+                        )
+                      ) : (
+                        Number(item[productType]).toFixed(1)
+                      )}
+                      {/* Number(item[productType]).toFixed(1) */}
+                    </td>
                     {index + 1 < data.length && (
                       <>
                         <th className={`tableTh`}>{tempData?.dataType}</th>
                         <td className={`tableTd`}>
-                          {tempData ? Number(tempData[productType]).toFixed(1) : ""}
+                          {tempData[productType] == "" ? (
+                            item.dataType == "Overall (dB(A))" ? (
+                              data[0][productType] == "" ? (
+                                0
+                              ) : (
+                                Number(
+                                  Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                                )
+                              )
+                            ) : (
+                              <input
+                                className={"tableTd mobile:w-full"}
+                                onChange={(e) => {
+                                  tempData[productType] = Number(e.target.value);
+                                  data[8][productType] = Number(
+                                    Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                                  );
+                                }}
+                                onBlur={() => {
+                                  setSoundPowerLevel([...soundPowerLevel]);
+                                }}
+                                required
+                                onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
+                                  validateMsg({
+                                    event: e,
+                                    validMessage: {
+                                      message: t("NOISE_0006"),
+                                      format: [t("MULTIV_1261")],
+                                    },
+                                  })
+                                }
+                              />
+                            )
+                          ) : (
+                            Number(tempData[productType]).toFixed(1)
+                          )}
+                          {/* {tempData ? Number(tempData[productType]).toFixed(1) : ""} */}
                         </td>
                       </>
                     )}
