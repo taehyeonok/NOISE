@@ -533,25 +533,25 @@ export default function Input() {
     ]; // 제품특성별 측정환경
 
     const soundSpecData: any[] = [];
-    let number = 0;
     soundPressureLevel.slice(0, 8).forEach((data: any, i: number) => {
       let newItem: any = {};
 
       Object.values(data).map((item: any, index: number) => {
         if (index < Object.keys(data).length - 1) {
-          newItem[number] = Number(item + distance_attenuation + correction[i]);
-          number++;
+          newItem[Object.keys(data)[index]] = Number(item + distance_attenuation + correction[i]);
         }
       });
       soundSpecData.push(newItem);
     });
 
     soundPowerLevel.slice(0, 8).forEach((data: any, i: number) => {
-      Object.values(data).map((item: any, index: number) => {
-        if (index < Object.keys(data).length - 1) {
-          soundSpecData[i] = { ...soundSpecData[i], item };
-        }
-      });
+      const newSoundPowerLevel = Object.keys(soundPowerLevel[0])
+        .filter((key) => key != "dataType")
+        .reduce((newObj: any, key: string) => {
+          newObj[key] = data[key];
+          return newObj;
+        }, {});
+      soundSpecData[i] = { ...soundSpecData[i], ...newSoundPowerLevel };
     });
     const columnSum: any[] = [];
     let num = 0;
