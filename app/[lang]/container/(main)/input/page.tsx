@@ -220,6 +220,12 @@ export default function Input() {
     //   }`
     // );
   };
+
+  const [isBackData, setIsBackData] = useState(false);
+  useEffect(() => {
+    setSoundPowerLevel(projectInfoData.soundPowerLevel);
+  }, [isBackData]);
+
   useEffect(() => {
     setUnit(unitData?.length);
   }, [unitData]);
@@ -231,8 +237,9 @@ export default function Input() {
     localStorage.removeItem("simulate2");
 
     //뒤로가기 시 이전 data 세팅
-    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    const isBack = localStorage.getItem("isBack");
     if (isBack) {
+      setIsBackData(true);
       setProjectName(projectInfoData?.projectName);
       setProductTableData(
         projectInfoData?.productTable
@@ -307,10 +314,10 @@ export default function Input() {
       copyProduct[0].capacity = "%";
       setProductTableData(copyProduct);
     }
-    const searchParam = new URLSearchParams(window.location.search);
+
     const time = setTimeout(() => {
-      searchParam.delete("isBack");
       localStorage.removeItem("isBack");
+      setIsBackData(false);
       window.history.replaceState({}, "", `${window.location.pathname}`);
     }, 1000);
     return () => {
@@ -320,7 +327,7 @@ export default function Input() {
 
   //Context Data 세팅
   useEffect(() => {
-    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    const isBack = localStorage.getItem("isBack");
     const systemObject = cloneObject(projectInfoData);
 
     const inpuOutdoorObj = {
@@ -367,7 +374,7 @@ export default function Input() {
   ]);
   //수기 입력 데이터 유지
   useEffect(() => {
-    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    const isBack = localStorage.getItem("isBack");
     if (!isBack) projectInfoData.soundPowerLevel = soundPowerLevel;
   }, [soundPowerLevel]);
 
@@ -382,19 +389,19 @@ export default function Input() {
     const fetchData = async () => {
       await Promise.all(
         productTableData.map(async (data: any) => {
-          if (data.productType !== "") {
+          if (data.productType === "Manual" && copySoundPower[0][data.id] == null) {
+            copySoundPower[0][data.id] = "";
+            copySoundPower[1][data.id] = "";
+            copySoundPower[2][data.id] = "";
+            copySoundPower[3][data.id] = "";
+            copySoundPower[4][data.id] = "";
+            copySoundPower[5][data.id] = "";
+            copySoundPower[6][data.id] = "";
+            copySoundPower[7][data.id] = "";
+            copySoundPower[8][data.id] = "";
+            copySoundPower[9][data.id] = "Manual";
+          } else if (data.productType !== "" && data.productType !== "Manual") {
             //수기 입력 데이터 생성
-            if (data.productType === "Manual" && copySoundPower[0][data.id] == null) {
-              copySoundPower[0][data.id] = "";
-              copySoundPower[1][data.id] = "";
-              copySoundPower[2][data.id] = "";
-              copySoundPower[3][data.id] = "";
-              copySoundPower[4][data.id] = "";
-              copySoundPower[5][data.id] = "";
-              copySoundPower[6][data.id] = "";
-              copySoundPower[7][data.id] = "";
-              copySoundPower[8][data.id] = "";
-            }
             const res = await fetch(`${basePath}/api/common-select-modelspec`, {
               method: "post",
               body: JSON.stringify(data),
@@ -478,8 +485,6 @@ export default function Input() {
                 );
               }
             });
-            setSoundPressureLevel(copySoundPressure);
-            setSoundPowerLevel(copySoundPower);
 
             const capacity = Number(data.capacity.replace("%", ""));
             const response = await fetch(`${basePath}/api/common-select-modeltotal`, {
@@ -493,6 +498,8 @@ export default function Input() {
             totalRated += coolData * Number(data.qty);
             totalSimulated += coolData * 0.001 * capacity * Number(data.qty);
           }
+          setSoundPressureLevel(copySoundPressure);
+          setSoundPowerLevel(copySoundPower);
         })
       );
       setTotalRatedData(totalRated);
@@ -688,7 +695,7 @@ export default function Input() {
                   setProjectName(changeValue);
                 }}
                 validMessage={{ message: t("NOISE_0006"), format: [t("project_name")] }}
-                required={projectName == "" ? true : false}
+                required
               />
             </div>
             {/* 반응형 */}
@@ -776,6 +783,7 @@ export default function Input() {
             soundPressureLevel={soundPressureLevel}
             soundPowerLevel={soundPowerLevel}
             setSoundPowerLevel={setSoundPowerLevel}
+            projectInfoData={projectInfoData}
             t={t}
           />
           {/* 반응형 */}

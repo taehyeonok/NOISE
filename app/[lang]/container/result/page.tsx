@@ -161,7 +161,13 @@ export default function Result({ params: { lang } }: any) {
           alignItems={"center"}
           classList={"pt-[2.5rem] mobile:gap-[0.75rem]"}
         >
-          <Link href={"/container/input?isBack=true"} className={"mobile:w-[calc(100%/2)]"}>
+          <Link
+            href={"/container/input"}
+            className={"mobile:w-[calc(100%/2)]"}
+            onClick={() => {
+              localStorage.setItem("isBack", "true");
+            }}
+          >
             <CImageButton
               image={IC_BUTTON_LEFT_ARROW}
               title={"Previous"}

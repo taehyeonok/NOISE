@@ -241,6 +241,9 @@ export const soundPowerLevelDummyData = [
   {
     dataType: "Overall (dB(A))",
   },
+  {
+    dataType: "",
+  },
 ];
 
 export const estimatedSoundDummyData = [

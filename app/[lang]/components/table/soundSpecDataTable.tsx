@@ -1,17 +1,21 @@
-import { validateMsg } from "@/lib/validation";
 import { dBAF } from "../../constants/const";
+import CCustomInput from "../_atoms/cCustomInput";
 
 export default function SoundSpecDataTable({
   soundPressureLevel,
   soundPowerLevel,
   setSoundPowerLevel,
+  projectInfoData,
   t,
 }: {
   soundPressureLevel: any;
   soundPowerLevel: any;
   setSoundPowerLevel: Function;
+  projectInfoData: any;
   t: any;
 }) {
+  const isBack = typeof window !== "undefined" ? localStorage!.getItem("isBack") : undefined;
+
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
       <table>
@@ -39,41 +43,39 @@ export default function SoundSpecDataTable({
     return (
       <tr className={"mobile:hidden"} key={title}>
         <td className={`tableTd bg-gray_100`}>{title}</td>
-        {data.map((item, index: number) => (
-          <td className={"tableTd"} key={`${item.dataType}-${index}`}>
-            {item[productType] == "" ? (
-              item.dataType == "Overall (dB(A))" ? (
-                data[0][productType] == "" ? (
-                  0
-                ) : (
+        {data
+          .filter((key, i) => i != 9)
+          .map((item, index: number) => (
+            <td className={"tableTd"} key={`${item.dataType}-${index}`}>
+              {title == `Product ${productType as any} / Type : PWL` &&
+              data[9][productType] == "Manual" ? (
+                item.dataType == "Overall (dB(A))" ? (
                   Number(Number(dBAF(soundPowerLevel, productType as string)).toFixed(1))
+                ) : (
+                  <CCustomInput
+                    type="number"
+                    classList={"tableTd w-full"}
+                    value={
+                      isBack
+                        ? projectInfoData.soundPowerLevel[index][productType]
+                        : item[productType]
+                    }
+                    onChange={(changeValue: any) => {
+                      item[productType] = Number(Number(changeValue).toFixed(1));
+                      data[8][productType] = Number(
+                        Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                      );
+                      setSoundPowerLevel([...soundPowerLevel]);
+                    }}
+                    required
+                    validMessage={{ message: t("NOISE_0006"), format: [t("MULTIV_1261")] }}
+                  />
                 )
               ) : (
-                <input
-                  className={"tableTd w-full"}
-                  onChange={(e) => {
-                    item[productType] = Number(e.target.value);
-                    data[8][productType] = Number(
-                      Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
-                    );
-                  }}
-                  onBlur={() => {
-                    setSoundPowerLevel([...soundPowerLevel]);
-                  }}
-                  required
-                  onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
-                    validateMsg({
-                      event: e,
-                      validMessage: { message: t("NOISE_0006"), format: [t("MULTIV_1261")] },
-                    })
-                  }
-                />
-              )
-            ) : (
-              Number(item[productType]).toFixed(1)
-            )}
-          </td>
-        ))}
+                Number(item[productType]).toFixed(1)
+              )}
+            </td>
+          ))}
       </tr>
     );
   };
@@ -102,7 +104,10 @@ export default function SoundSpecDataTable({
     /* 반응형 */
   }
   const renderMobileTableItem = (title: string, data: any[], productType: any) => {
-    const lastData = data[data.length - 1];
+    const lastData =
+      title == `Product ${productType as any} / Type : PWL`
+        ? data[data.length - 2]
+        : data[data.length - 1];
     return (
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.75rem]"}>
         <div className={`text-[0.875rem] leading-[1.125rem] font-LGSMHATB text-gray_700 text-left`}>
@@ -111,105 +116,114 @@ export default function SoundSpecDataTable({
         <div className={"flex flex-col gap-[1.5rem]"}>
           <table className={"table-fixed"}>
             <tbody>
-              {data.slice(0, -1).map((item, index: number) => {
-                const tempData = data[index + 1];
-                if (index % 2 !== 0) {
-                  return null;
-                }
-                return (
-                  <tr key={index}>
-                    <th className={`tableTh`}>{item.dataType}</th>
-                    <td className={`tableTd`}>
-                      {item[productType] == "" ? (
-                        item.dataType == "Overall (dB(A))" ? (
-                          data[0][productType] == "" ? (
-                            0
-                          ) : (
-                            Number(Number(dBAF(soundPowerLevel, productType as string)).toFixed(1))
-                          )
-                        ) : (
-                          <input
-                            className={"tableTd mobile:w-full"}
-                            onChange={(e) => {
-                              item[productType] = Number(e.target.value);
-                              data[8][productType] = Number(
-                                Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
-                              );
-                            }}
-                            onBlur={() => {
-                              setSoundPowerLevel([...soundPowerLevel]);
-                            }}
-                            required
-                            onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
-                              validateMsg({
-                                event: e,
-                                validMessage: {
-                                  message: t("NOISE_0006"),
-                                  format: [t("MULTIV_1261")],
-                                },
-                              })
-                            }
-                          />
-                        )
-                      ) : (
-                        Number(item[productType]).toFixed(1)
-                      )}
-                      {/* Number(item[productType]).toFixed(1) */}
-                    </td>
-                    {index + 1 < data.length && (
-                      <>
-                        <th className={`tableTh`}>{tempData?.dataType}</th>
-                        <td className={`tableTd`}>
-                          {tempData[productType] == "" ? (
-                            item.dataType == "Overall (dB(A))" ? (
-                              data[0][productType] == "" ? (
-                                0
-                              ) : (
-                                Number(
-                                  Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
-                                )
-                              )
+              {data
+                .slice(0, -1)
+                .filter((k, i) => i != 8)
+                .map((item, index: number) => {
+                  const tempData = data[index + 1];
+                  if (index % 2 !== 0) {
+                    return null;
+                  }
+                  return (
+                    <tr key={index}>
+                      <th className={`tableTh`}>{item.dataType}</th>
+                      <td className={`tableTd`}>
+                        {title == `Product ${productType as any} / Type : PWL` &&
+                        data[9][productType] == "Manual" ? (
+                          item.dataType == "Overall (dB(A))" ? (
+                            data[0][productType] == "" ? (
+                              0
                             ) : (
-                              <input
-                                className={"tableTd mobile:w-full"}
-                                onChange={(e) => {
-                                  tempData[productType] = Number(e.target.value);
-                                  data[8][productType] = Number(
-                                    Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
-                                  );
-                                }}
-                                onBlur={() => {
-                                  setSoundPowerLevel([...soundPowerLevel]);
-                                }}
-                                required
-                                onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
-                                  validateMsg({
-                                    event: e,
-                                    validMessage: {
-                                      message: t("NOISE_0006"),
-                                      format: [t("MULTIV_1261")],
-                                    },
-                                  })
-                                }
-                              />
+                              Number(
+                                Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                              )
                             )
                           ) : (
-                            Number(tempData[productType]).toFixed(1)
-                          )}
-                          {/* {tempData ? Number(tempData[productType]).toFixed(1) : ""} */}
-                        </td>
-                      </>
-                    )}
-                  </tr>
-                );
-              })}
+                            <CCustomInput
+                              type="number"
+                              classList={"tableTd w-full"}
+                              value={
+                                isBack
+                                  ? projectInfoData.soundPowerLevel[index][productType]
+                                  : item[productType]
+                              }
+                              onChange={(changeValue: any) => {
+                                item[productType] = Number(Number(changeValue).toFixed(1));
+                                data[8][productType] = Number(
+                                  Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                                );
+                                setSoundPowerLevel([...soundPowerLevel]);
+                              }}
+                              required
+                              validMessage={{
+                                message: t("NOISE_0006"),
+                                format: [t("MULTIV_1261")],
+                              }}
+                            />
+                          )
+                        ) : (
+                          Number(item[productType]).toFixed(1)
+                        )}
+                        {/* Number(item[productType]).toFixed(1) */}
+                      </td>
+                      {index + 1 < data.length && (
+                        <>
+                          <th className={`tableTh`}>{tempData?.dataType}</th>
+                          <td className={`tableTd`}>
+                            {title == `Product ${productType as any} / Type : PWL` &&
+                            data[9][productType] == "Manual" ? (
+                              item.dataType == "Overall (dB(A))" ? (
+                                data[0][productType] == "" ? (
+                                  0
+                                ) : (
+                                  Number(
+                                    Number(dBAF(soundPowerLevel, productType as string)).toFixed(1)
+                                  )
+                                )
+                              ) : (
+                                <CCustomInput
+                                  type="number"
+                                  classList={"tableTd w-full"}
+                                  value={
+                                    isBack
+                                      ? projectInfoData.soundPowerLevel[index + 1][productType]
+                                      : tempData[productType]
+                                  }
+                                  onChange={(changeValue: any) => {
+                                    tempData[productType] = Number(Number(changeValue).toFixed(1));
+                                    data[8][productType] = Number(
+                                      Number(dBAF(soundPowerLevel, productType as string)).toFixed(
+                                        1
+                                      )
+                                    );
+                                    setSoundPowerLevel([...soundPowerLevel]);
+                                  }}
+                                  required
+                                  validMessage={{
+                                    message: t("NOISE_0006"),
+                                    format: [t("MULTIV_1261")],
+                                  }}
+                                />
+                              )
+                            ) : (
+                              Number(tempData[productType]).toFixed(1)
+                            )}
+                            {/* {tempData ? Number(tempData[productType]).toFixed(1) : ""} */}
+                          </td>
+                        </>
+                      )}
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
           <table className={"table-fixed "}>
             <tbody>
               <tr>
                 <th className={"tableTh !font-LGSMHATR !text-[#000]"}>
-                  {data[data.length - 1]?.dataType}
+                  {title == `Product ${productType as any} / Type : PWL`
+                    ? data[data.length - 2]?.dataType
+                    : data[data.length - 1]?.dataType}
                 </th>
                 <td className={"tableTd"}>{lastData ? lastData[productType] : ""}</td>
               </tr>
@@ -238,12 +252,12 @@ export default function SoundSpecDataTable({
           </>
         )}
         {renderTableBox(
-          soundPowerLevel,
+          soundPowerLevel.filter((item: any, index: number) => index !== 9),
           t("NOISE_0069"),
           <>
             {Object.keys(soundPowerLevel[0]).map((key, index) => {
               if (index < Object.keys(soundPowerLevel[0]).length - 1) {
-                return renderTdItem(`Product ${key} / Type : SPL`, soundPowerLevel, key);
+                return renderTdItem(`Product ${key} / Type : PWL`, soundPowerLevel, key);
               }
             })}
           </>
@@ -279,7 +293,7 @@ export default function SoundSpecDataTable({
               if (index < Object.keys(soundPowerLevel[0]).length - 1) {
                 return (
                   <div key={index}>
-                    {renderMobileTableItem(`Product ${key} / Type : SPL`, soundPowerLevel, key)}
+                    {renderMobileTableItem(`Product ${key} / Type : PWL`, soundPowerLevel, key)}
                   </div>
                 );
               }

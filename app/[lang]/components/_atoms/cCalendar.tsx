@@ -1,10 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { cCalendarProps } from "@/@types/components";
 import { ProjectInfoContext } from "@/app/context/projectInfoContext";
-import { useSearchParams } from "next/navigation";
 
 export default function CCalendar({ label }: cCalendarProps) {
-  const searchParams = useSearchParams();
   const newDate = new Date();
   const nowMonth = newDate.toLocaleDateString("en-US", { month: "long" });
   const nowDay = ("00" + newDate.getUTCDate().toString()).slice(-2);
@@ -20,7 +18,7 @@ export default function CCalendar({ label }: cCalendarProps) {
     projectInfoData.calendar = `${_newMonth} ${_dateArr[2]} ${_dateArr[0]}`;
   };
   useEffect(() => {
-    const isBack = searchParams.get("isBack") || localStorage.getItem("isBack");
+    const isBack = localStorage.getItem("isBack");
     if (isBack) setDate(projectInfoData.calendar ? projectInfoData.calendar : date);
   }, []);
   return (

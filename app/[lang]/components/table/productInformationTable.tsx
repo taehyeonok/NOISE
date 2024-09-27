@@ -268,7 +268,7 @@ export default function ProductInformationTable({
                     onChange={(changedValue: { title: string; value: string }) => {
                       data[index]!.productType = changedValue.title;
                       data[index]!.modelName = "";
-                      data[index]!.qty = "1";
+                      data[index]!.qty = item.qty;
                       data[index]!.function = "";
                       data[index]!.step = "";
                       data[index]!.capacity = "%";

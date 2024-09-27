@@ -146,7 +146,7 @@ export default function CCustomInput({
         name={name}
         type={type}
         placeholder={placeholder}
-        value={input}
+        value={value == 1 && disabled ? 1 : input}
         id={label}
         onChange={onChangeInput}
         onBlur={onBlurInput}
