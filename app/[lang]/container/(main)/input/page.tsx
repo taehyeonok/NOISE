@@ -3,7 +3,7 @@
 import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 import IC_ROUND_PLUS from "@/app/assets/icons/ic_round_plus.svg";
 import Image from "next/image";
@@ -96,21 +96,23 @@ export default function Input() {
     setProductTableData([...productTableData, newRow]);
   };
 
-  const removeTableRow = (rowId: number) => {
-    if (productTableData.length > MIN_ROWS) {
-      const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
+  const removeTableRow = useCallback(
+    (rowId: number) => {
+      if (productTableData.length > MIN_ROWS) {
+        const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
 
-      soundPressureLevel.map((item: any) => delete item[rowId]);
+        soundPressureLevel.map((item: any) => delete item[rowId]);
 
-      soundPowerLevel.map((item: any) => delete item[rowId]);
+        soundPowerLevel.map((item: any) => delete item[rowId]);
+        delete productTypeData[rowId];
+        delete functionNoiseData[rowId];
+        delete stepData[rowId];
 
-      delete productTypeData[rowId];
-      delete functionNoiseData[rowId];
-      delete stepData[rowId];
-
-      setProductTableData(updatedTableRows);
-    }
-  };
+        setProductTableData(updatedTableRows);
+      }
+    },
+    [productTableData, soundPressureLevel, soundPowerLevel]
+  );
 
   ////////////////////// Noisetools Component Test Code From //////////////////////
   //noisetools add

@@ -326,9 +326,9 @@ export default function ProductInformationTable({
                       data[index]!.qty = changedValue;
                       setData([...data]);
                     }}
-                    disabled={item.productType == "Manual" ? true : false}
                     validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                     required
+                    disabled={item.productType == "Manual" ? true : false}
                   />
                 </td>
                 <td className={"tableTd"}>
