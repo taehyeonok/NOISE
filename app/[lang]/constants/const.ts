@@ -465,9 +465,8 @@ export const unitSettingDefaultData: Record<string, Record<string, string>> = {
 
 export const headerManualDummyData = [
   {
-    // title: "LATS_Noise_User_Manual.pdf",
-    title: "pdf 제작 중",
-    date: "2024.08.21",
+    title: "LATS_Noise_User_Manual.pdf",
+    date: "2024.10",
   },
 ];
 
