@@ -97,10 +97,22 @@ export default function Header({ lang, selectedLanguage }: any) {
     //   localStorage.removeItem(UnitStorageName_old);
     if (localStorage.getItem(UnitStorageName) == null) {
       const unitData = JSON.stringify({
-        unitClss: "IP",
+        unitClss: "SI",
         ...unitSettingDefaultData,
       });
       localStorage.setItem(UnitStorageName, unitData);
+    }
+    if (localStorage.getItem(UnitStorageName)) {
+      if (
+        Object.entries(JSON.parse(localStorage.getItem(UnitStorageName)!).SI).toString() !==
+        Object.entries(unitSettingDefaultData.SI).toString()
+      ) {
+        const unitData = JSON.stringify({
+          unitClss: "SI",
+          ...unitSettingDefaultData,
+        });
+        localStorage.setItem(UnitStorageName, unitData);
+      }
     }
     // setLoginUserRegion(
     //   `${localStorage.getItem("user_region")} / ${localStorage.getItem("user_country")}`
