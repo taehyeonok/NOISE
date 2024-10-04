@@ -40,7 +40,11 @@ export default function CSelect({
   useEffect(() => {
     if (code === "productType") {
       getSelectItemData({ pCode: code, selectBoxParam: params, setSelectBoxData });
-    } else if (code === "modelName") {
+    }
+  }, []);
+
+  useEffect(() => {
+    if (code === "modelName") {
       const productType_val = document
         .querySelector(`#productType_${number}`)
         ?.getAttribute("data-sel-value");
