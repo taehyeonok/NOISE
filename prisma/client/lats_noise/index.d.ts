@@ -357,8 +357,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.14.0
-   * Query Engine version: e9771e62de70f79a5e1c604a2d7c8e2a0a874b48
+   * Prisma Client JS version: 5.12.1
+   * Query Engine version: 473ed3124229e22d881cb7addf559799debae1ab
    */
   export type PrismaVersion = {
     client: string
@@ -485,11 +485,6 @@ export namespace Prisma {
     include: any
   }
 
-  type SelectAndOmit = {
-    select: any
-    omit: any
-  }
-
   /**
    * Get the type of the value, that the Promise holds.
    */
@@ -538,9 +533,7 @@ export namespace Prisma {
   } &
     (T extends SelectAndInclude
       ? 'Please either choose `select` or `include`.'
-      : T extends SelectAndOmit
-        ? 'Please either choose `select` or `omit`.'
-        : {})
+      : {})
 
   /**
    * Subset + Intersection
@@ -1639,7 +1632,6 @@ export namespace Prisma {
     | 'findFirstOrThrow'
     | 'create'
     | 'createMany'
-    | 'createManyAndReturn'
     | 'update'
     | 'updateMany'
     | 'upsert'
@@ -1885,7 +1877,6 @@ export namespace Prisma {
   }
 
 
-
   export type $T_NOISE_FUNCNAMEPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "T_NOISE_FUNCNAME"
     objects: {}
@@ -1923,8 +1914,8 @@ export namespace Prisma {
     ): Prisma__T_NOISE_FUNCNAMEClient<$Result.GetResult<Prisma.$T_NOISE_FUNCNAMEPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one T_NOISE_FUNCNAME that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one T_NOISE_FUNCNAME that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {T_NOISE_FUNCNAMEFindUniqueOrThrowArgs} args - Arguments to find a T_NOISE_FUNCNAME
      * @example
      * // Get one T_NOISE_FUNCNAME
@@ -1977,7 +1968,7 @@ export namespace Prisma {
      * Find zero or more T_NOISE_FUNCNAMES that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_NOISE_FUNCNAMEFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {T_NOISE_FUNCNAMEFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all T_NOISE_FUNCNAMES
      * const t_NOISE_FUNCNAMES = await prisma.t_NOISE_FUNCNAME.findMany()
@@ -2011,14 +2002,14 @@ export namespace Prisma {
 
     /**
      * Create many T_NOISE_FUNCNAMES.
-     * @param {T_NOISE_FUNCNAMECreateManyArgs} args - Arguments to create many T_NOISE_FUNCNAMES.
-     * @example
-     * // Create many T_NOISE_FUNCNAMES
-     * const t_NOISE_FUNCNAME = await prisma.t_NOISE_FUNCNAME.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {T_NOISE_FUNCNAMECreateManyArgs} args - Arguments to create many T_NOISE_FUNCNAMES.
+     *     @example
+     *     // Create many T_NOISE_FUNCNAMES
+     *     const t_NOISE_FUNCNAME = await prisma.t_NOISE_FUNCNAME.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends T_NOISE_FUNCNAMECreateManyArgs<ExtArgs>>(
@@ -2294,6 +2285,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * T_NOISE_FUNCNAME findUnique
    */
@@ -2308,6 +2300,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCNAMEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCNAME findUniqueOrThrow
    */
@@ -2321,6 +2314,7 @@ export namespace Prisma {
      */
     where: T_NOISE_FUNCNAMEWhereUniqueInput
   }
+
 
   /**
    * T_NOISE_FUNCNAME findFirst
@@ -2366,6 +2360,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCNAMEScalarFieldEnum | T_NOISE_FUNCNAMEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCNAME findFirstOrThrow
    */
@@ -2410,6 +2405,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCNAMEScalarFieldEnum | T_NOISE_FUNCNAMEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCNAME findMany
    */
@@ -2449,6 +2445,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCNAMEScalarFieldEnum | T_NOISE_FUNCNAMEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCNAME create
    */
@@ -2463,6 +2460,7 @@ export namespace Prisma {
     data: XOR<T_NOISE_FUNCNAMECreateInput, T_NOISE_FUNCNAMEUncheckedCreateInput>
   }
 
+
   /**
    * T_NOISE_FUNCNAME createMany
    */
@@ -2473,6 +2471,7 @@ export namespace Prisma {
     data: T_NOISE_FUNCNAMECreateManyInput | T_NOISE_FUNCNAMECreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * T_NOISE_FUNCNAME update
@@ -2492,6 +2491,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCNAMEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCNAME updateMany
    */
@@ -2505,6 +2505,7 @@ export namespace Prisma {
      */
     where?: T_NOISE_FUNCNAMEWhereInput
   }
+
 
   /**
    * T_NOISE_FUNCNAME upsert
@@ -2528,6 +2529,7 @@ export namespace Prisma {
     update: XOR<T_NOISE_FUNCNAMEUpdateInput, T_NOISE_FUNCNAMEUncheckedUpdateInput>
   }
 
+
   /**
    * T_NOISE_FUNCNAME delete
    */
@@ -2542,6 +2544,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCNAMEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCNAME deleteMany
    */
@@ -2552,6 +2555,7 @@ export namespace Prisma {
     where?: T_NOISE_FUNCNAMEWhereInput
   }
 
+
   /**
    * T_NOISE_FUNCNAME without action
    */
@@ -2561,6 +2565,7 @@ export namespace Prisma {
      */
     select?: T_NOISE_FUNCNAMESelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -2745,7 +2750,6 @@ export namespace Prisma {
   }
 
 
-
   export type $T_NOISE_FUNCSTEPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "T_NOISE_FUNCSTEP"
     objects: {}
@@ -2782,8 +2786,8 @@ export namespace Prisma {
     ): Prisma__T_NOISE_FUNCSTEPClient<$Result.GetResult<Prisma.$T_NOISE_FUNCSTEPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one T_NOISE_FUNCSTEP that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one T_NOISE_FUNCSTEP that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {T_NOISE_FUNCSTEPFindUniqueOrThrowArgs} args - Arguments to find a T_NOISE_FUNCSTEP
      * @example
      * // Get one T_NOISE_FUNCSTEP
@@ -2836,7 +2840,7 @@ export namespace Prisma {
      * Find zero or more T_NOISE_FUNCSTEPS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_NOISE_FUNCSTEPFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {T_NOISE_FUNCSTEPFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all T_NOISE_FUNCSTEPS
      * const t_NOISE_FUNCSTEPS = await prisma.t_NOISE_FUNCSTEP.findMany()
@@ -2870,14 +2874,14 @@ export namespace Prisma {
 
     /**
      * Create many T_NOISE_FUNCSTEPS.
-     * @param {T_NOISE_FUNCSTEPCreateManyArgs} args - Arguments to create many T_NOISE_FUNCSTEPS.
-     * @example
-     * // Create many T_NOISE_FUNCSTEPS
-     * const t_NOISE_FUNCSTEP = await prisma.t_NOISE_FUNCSTEP.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {T_NOISE_FUNCSTEPCreateManyArgs} args - Arguments to create many T_NOISE_FUNCSTEPS.
+     *     @example
+     *     // Create many T_NOISE_FUNCSTEPS
+     *     const t_NOISE_FUNCSTEP = await prisma.t_NOISE_FUNCSTEP.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends T_NOISE_FUNCSTEPCreateManyArgs<ExtArgs>>(
@@ -3152,6 +3156,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * T_NOISE_FUNCSTEP findUnique
    */
@@ -3166,6 +3171,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCSTEPWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCSTEP findUniqueOrThrow
    */
@@ -3179,6 +3185,7 @@ export namespace Prisma {
      */
     where: T_NOISE_FUNCSTEPWhereUniqueInput
   }
+
 
   /**
    * T_NOISE_FUNCSTEP findFirst
@@ -3224,6 +3231,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCSTEPScalarFieldEnum | T_NOISE_FUNCSTEPScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCSTEP findFirstOrThrow
    */
@@ -3268,6 +3276,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCSTEPScalarFieldEnum | T_NOISE_FUNCSTEPScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCSTEP findMany
    */
@@ -3307,6 +3316,7 @@ export namespace Prisma {
     distinct?: T_NOISE_FUNCSTEPScalarFieldEnum | T_NOISE_FUNCSTEPScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_FUNCSTEP create
    */
@@ -3321,6 +3331,7 @@ export namespace Prisma {
     data: XOR<T_NOISE_FUNCSTEPCreateInput, T_NOISE_FUNCSTEPUncheckedCreateInput>
   }
 
+
   /**
    * T_NOISE_FUNCSTEP createMany
    */
@@ -3331,6 +3342,7 @@ export namespace Prisma {
     data: T_NOISE_FUNCSTEPCreateManyInput | T_NOISE_FUNCSTEPCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * T_NOISE_FUNCSTEP update
@@ -3350,6 +3362,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCSTEPWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCSTEP updateMany
    */
@@ -3363,6 +3376,7 @@ export namespace Prisma {
      */
     where?: T_NOISE_FUNCSTEPWhereInput
   }
+
 
   /**
    * T_NOISE_FUNCSTEP upsert
@@ -3386,6 +3400,7 @@ export namespace Prisma {
     update: XOR<T_NOISE_FUNCSTEPUpdateInput, T_NOISE_FUNCSTEPUncheckedUpdateInput>
   }
 
+
   /**
    * T_NOISE_FUNCSTEP delete
    */
@@ -3400,6 +3415,7 @@ export namespace Prisma {
     where: T_NOISE_FUNCSTEPWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_FUNCSTEP deleteMany
    */
@@ -3410,6 +3426,7 @@ export namespace Prisma {
     where?: T_NOISE_FUNCSTEPWhereInput
   }
 
+
   /**
    * T_NOISE_FUNCSTEP without action
    */
@@ -3419,6 +3436,7 @@ export namespace Prisma {
      */
     select?: T_NOISE_FUNCSTEPSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -3444,7 +3462,7 @@ export namespace Prisma {
     NOISE_4KHZ: Decimal | null
     NOISE_8KHZ: Decimal | null
     NOISE_OVERALL: Decimal | null
-    REDUCED_CAPA_RATIO: number | null
+    REDUCED_CAPA_RATIO: Decimal | null
   }
 
   export type T_NOISE_MODELSPECSumAggregateOutputType = {
@@ -3458,7 +3476,7 @@ export namespace Prisma {
     NOISE_4KHZ: Decimal | null
     NOISE_8KHZ: Decimal | null
     NOISE_OVERALL: Decimal | null
-    REDUCED_CAPA_RATIO: number | null
+    REDUCED_CAPA_RATIO: Decimal | null
   }
 
   export type T_NOISE_MODELSPECMinAggregateOutputType = {
@@ -3477,7 +3495,7 @@ export namespace Prisma {
     NOISE_4KHZ: Decimal | null
     NOISE_8KHZ: Decimal | null
     NOISE_OVERALL: Decimal | null
-    REDUCED_CAPA_RATIO: number | null
+    REDUCED_CAPA_RATIO: Decimal | null
     DISCHARGE: string | null
   }
 
@@ -3497,7 +3515,7 @@ export namespace Prisma {
     NOISE_4KHZ: Decimal | null
     NOISE_8KHZ: Decimal | null
     NOISE_OVERALL: Decimal | null
-    REDUCED_CAPA_RATIO: number | null
+    REDUCED_CAPA_RATIO: Decimal | null
     DISCHARGE: string | null
   }
 
@@ -3714,7 +3732,7 @@ export namespace Prisma {
     NOISE_4KHZ: Decimal | null
     NOISE_8KHZ: Decimal | null
     NOISE_OVERALL: Decimal | null
-    REDUCED_CAPA_RATIO: number | null
+    REDUCED_CAPA_RATIO: Decimal | null
     DISCHARGE: string | null
     _count: T_NOISE_MODELSPECCountAggregateOutputType | null
     _avg: T_NOISE_MODELSPECAvgAggregateOutputType | null
@@ -3778,7 +3796,6 @@ export namespace Prisma {
   }
 
 
-
   export type $T_NOISE_MODELSPECPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "T_NOISE_MODELSPEC"
     objects: {}
@@ -3798,7 +3815,7 @@ export namespace Prisma {
       NOISE_4KHZ: Prisma.Decimal | null
       NOISE_8KHZ: Prisma.Decimal | null
       NOISE_OVERALL: Prisma.Decimal | null
-      REDUCED_CAPA_RATIO: number | null
+      REDUCED_CAPA_RATIO: Prisma.Decimal | null
       DISCHARGE: string | null
     }, ExtArgs["result"]["t_NOISE_MODELSPEC"]>
     composites: {}
@@ -3830,8 +3847,8 @@ export namespace Prisma {
     ): Prisma__T_NOISE_MODELSPECClient<$Result.GetResult<Prisma.$T_NOISE_MODELSPECPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one T_NOISE_MODELSPEC that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one T_NOISE_MODELSPEC that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {T_NOISE_MODELSPECFindUniqueOrThrowArgs} args - Arguments to find a T_NOISE_MODELSPEC
      * @example
      * // Get one T_NOISE_MODELSPEC
@@ -3884,7 +3901,7 @@ export namespace Prisma {
      * Find zero or more T_NOISE_MODELSPECS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_NOISE_MODELSPECFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {T_NOISE_MODELSPECFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all T_NOISE_MODELSPECS
      * const t_NOISE_MODELSPECS = await prisma.t_NOISE_MODELSPEC.findMany()
@@ -3918,14 +3935,14 @@ export namespace Prisma {
 
     /**
      * Create many T_NOISE_MODELSPECS.
-     * @param {T_NOISE_MODELSPECCreateManyArgs} args - Arguments to create many T_NOISE_MODELSPECS.
-     * @example
-     * // Create many T_NOISE_MODELSPECS
-     * const t_NOISE_MODELSPEC = await prisma.t_NOISE_MODELSPEC.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {T_NOISE_MODELSPECCreateManyArgs} args - Arguments to create many T_NOISE_MODELSPECS.
+     *     @example
+     *     // Create many T_NOISE_MODELSPECS
+     *     const t_NOISE_MODELSPEC = await prisma.t_NOISE_MODELSPEC.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends T_NOISE_MODELSPECCreateManyArgs<ExtArgs>>(
@@ -4209,12 +4226,13 @@ export namespace Prisma {
     readonly NOISE_4KHZ: FieldRef<"T_NOISE_MODELSPEC", 'Decimal'>
     readonly NOISE_8KHZ: FieldRef<"T_NOISE_MODELSPEC", 'Decimal'>
     readonly NOISE_OVERALL: FieldRef<"T_NOISE_MODELSPEC", 'Decimal'>
-    readonly REDUCED_CAPA_RATIO: FieldRef<"T_NOISE_MODELSPEC", 'Int'>
+    readonly REDUCED_CAPA_RATIO: FieldRef<"T_NOISE_MODELSPEC", 'Decimal'>
     readonly DISCHARGE: FieldRef<"T_NOISE_MODELSPEC", 'String'>
   }
     
 
   // Custom InputTypes
+
   /**
    * T_NOISE_MODELSPEC findUnique
    */
@@ -4229,6 +4247,7 @@ export namespace Prisma {
     where: T_NOISE_MODELSPECWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_MODELSPEC findUniqueOrThrow
    */
@@ -4242,6 +4261,7 @@ export namespace Prisma {
      */
     where: T_NOISE_MODELSPECWhereUniqueInput
   }
+
 
   /**
    * T_NOISE_MODELSPEC findFirst
@@ -4287,6 +4307,7 @@ export namespace Prisma {
     distinct?: T_NOISE_MODELSPECScalarFieldEnum | T_NOISE_MODELSPECScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_MODELSPEC findFirstOrThrow
    */
@@ -4331,6 +4352,7 @@ export namespace Prisma {
     distinct?: T_NOISE_MODELSPECScalarFieldEnum | T_NOISE_MODELSPECScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_MODELSPEC findMany
    */
@@ -4370,6 +4392,7 @@ export namespace Prisma {
     distinct?: T_NOISE_MODELSPECScalarFieldEnum | T_NOISE_MODELSPECScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_MODELSPEC create
    */
@@ -4384,6 +4407,7 @@ export namespace Prisma {
     data: XOR<T_NOISE_MODELSPECCreateInput, T_NOISE_MODELSPECUncheckedCreateInput>
   }
 
+
   /**
    * T_NOISE_MODELSPEC createMany
    */
@@ -4394,6 +4418,7 @@ export namespace Prisma {
     data: T_NOISE_MODELSPECCreateManyInput | T_NOISE_MODELSPECCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * T_NOISE_MODELSPEC update
@@ -4413,6 +4438,7 @@ export namespace Prisma {
     where: T_NOISE_MODELSPECWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_MODELSPEC updateMany
    */
@@ -4426,6 +4452,7 @@ export namespace Prisma {
      */
     where?: T_NOISE_MODELSPECWhereInput
   }
+
 
   /**
    * T_NOISE_MODELSPEC upsert
@@ -4449,6 +4476,7 @@ export namespace Prisma {
     update: XOR<T_NOISE_MODELSPECUpdateInput, T_NOISE_MODELSPECUncheckedUpdateInput>
   }
 
+
   /**
    * T_NOISE_MODELSPEC delete
    */
@@ -4463,6 +4491,7 @@ export namespace Prisma {
     where: T_NOISE_MODELSPECWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_MODELSPEC deleteMany
    */
@@ -4473,6 +4502,7 @@ export namespace Prisma {
     where?: T_NOISE_MODELSPECWhereInput
   }
 
+
   /**
    * T_NOISE_MODELSPEC without action
    */
@@ -4482,6 +4512,7 @@ export namespace Prisma {
      */
     select?: T_NOISE_MODELSPECSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -4688,7 +4719,6 @@ export namespace Prisma {
   }
 
 
-
   export type $T_NOISE_PRODUCTTYPEPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "T_NOISE_PRODUCTTYPE"
     objects: {}
@@ -4727,8 +4757,8 @@ export namespace Prisma {
     ): Prisma__T_NOISE_PRODUCTTYPEClient<$Result.GetResult<Prisma.$T_NOISE_PRODUCTTYPEPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one T_NOISE_PRODUCTTYPE that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one T_NOISE_PRODUCTTYPE that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {T_NOISE_PRODUCTTYPEFindUniqueOrThrowArgs} args - Arguments to find a T_NOISE_PRODUCTTYPE
      * @example
      * // Get one T_NOISE_PRODUCTTYPE
@@ -4781,7 +4811,7 @@ export namespace Prisma {
      * Find zero or more T_NOISE_PRODUCTTYPES that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {T_NOISE_PRODUCTTYPEFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {T_NOISE_PRODUCTTYPEFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all T_NOISE_PRODUCTTYPES
      * const t_NOISE_PRODUCTTYPES = await prisma.t_NOISE_PRODUCTTYPE.findMany()
@@ -4815,14 +4845,14 @@ export namespace Prisma {
 
     /**
      * Create many T_NOISE_PRODUCTTYPES.
-     * @param {T_NOISE_PRODUCTTYPECreateManyArgs} args - Arguments to create many T_NOISE_PRODUCTTYPES.
-     * @example
-     * // Create many T_NOISE_PRODUCTTYPES
-     * const t_NOISE_PRODUCTTYPE = await prisma.t_NOISE_PRODUCTTYPE.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {T_NOISE_PRODUCTTYPECreateManyArgs} args - Arguments to create many T_NOISE_PRODUCTTYPES.
+     *     @example
+     *     // Create many T_NOISE_PRODUCTTYPES
+     *     const t_NOISE_PRODUCTTYPE = await prisma.t_NOISE_PRODUCTTYPE.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends T_NOISE_PRODUCTTYPECreateManyArgs<ExtArgs>>(
@@ -5099,6 +5129,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * T_NOISE_PRODUCTTYPE findUnique
    */
@@ -5113,6 +5144,7 @@ export namespace Prisma {
     where: T_NOISE_PRODUCTTYPEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE findUniqueOrThrow
    */
@@ -5126,6 +5158,7 @@ export namespace Prisma {
      */
     where: T_NOISE_PRODUCTTYPEWhereUniqueInput
   }
+
 
   /**
    * T_NOISE_PRODUCTTYPE findFirst
@@ -5171,6 +5204,7 @@ export namespace Prisma {
     distinct?: T_NOISE_PRODUCTTYPEScalarFieldEnum | T_NOISE_PRODUCTTYPEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE findFirstOrThrow
    */
@@ -5215,6 +5249,7 @@ export namespace Prisma {
     distinct?: T_NOISE_PRODUCTTYPEScalarFieldEnum | T_NOISE_PRODUCTTYPEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE findMany
    */
@@ -5254,6 +5289,7 @@ export namespace Prisma {
     distinct?: T_NOISE_PRODUCTTYPEScalarFieldEnum | T_NOISE_PRODUCTTYPEScalarFieldEnum[]
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE create
    */
@@ -5268,6 +5304,7 @@ export namespace Prisma {
     data: XOR<T_NOISE_PRODUCTTYPECreateInput, T_NOISE_PRODUCTTYPEUncheckedCreateInput>
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE createMany
    */
@@ -5278,6 +5315,7 @@ export namespace Prisma {
     data: T_NOISE_PRODUCTTYPECreateManyInput | T_NOISE_PRODUCTTYPECreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * T_NOISE_PRODUCTTYPE update
@@ -5297,6 +5335,7 @@ export namespace Prisma {
     where: T_NOISE_PRODUCTTYPEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE updateMany
    */
@@ -5310,6 +5349,7 @@ export namespace Prisma {
      */
     where?: T_NOISE_PRODUCTTYPEWhereInput
   }
+
 
   /**
    * T_NOISE_PRODUCTTYPE upsert
@@ -5333,6 +5373,7 @@ export namespace Prisma {
     update: XOR<T_NOISE_PRODUCTTYPEUpdateInput, T_NOISE_PRODUCTTYPEUncheckedUpdateInput>
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE delete
    */
@@ -5347,6 +5388,7 @@ export namespace Prisma {
     where: T_NOISE_PRODUCTTYPEWhereUniqueInput
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE deleteMany
    */
@@ -5357,6 +5399,7 @@ export namespace Prisma {
     where?: T_NOISE_PRODUCTTYPEWhereInput
   }
 
+
   /**
    * T_NOISE_PRODUCTTYPE without action
    */
@@ -5366,6 +5409,7 @@ export namespace Prisma {
      */
     select?: T_NOISE_PRODUCTTYPESelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -5563,7 +5607,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_MULTIV_IPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_MULTIV_I"
     objects: {}
@@ -5601,8 +5644,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_MULTIV_IClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_IPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_MULTIV_I that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_MULTIV_I that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_MULTIV_IFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_I
      * @example
      * // Get one V_NOISE_MULTIV_I
@@ -5655,7 +5698,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_MULTIV_IS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_MULTIV_IFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_MULTIV_IFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_MULTIV_IS
      * const v_NOISE_MULTIV_IS = await prisma.v_NOISE_MULTIV_I.findMany()
@@ -5689,14 +5732,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_MULTIV_IS.
-     * @param {V_NOISE_MULTIV_ICreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_IS.
-     * @example
-     * // Create many V_NOISE_MULTIV_IS
-     * const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_MULTIV_ICreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_IS.
+     *     @example
+     *     // Create many V_NOISE_MULTIV_IS
+     *     const v_NOISE_MULTIV_I = await prisma.v_NOISE_MULTIV_I.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_MULTIV_ICreateManyArgs<ExtArgs>>(
@@ -5972,6 +6015,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_MULTIV_I findUnique
    */
@@ -5986,6 +6030,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_IWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_I findUniqueOrThrow
    */
@@ -5999,6 +6044,7 @@ export namespace Prisma {
      */
     where: V_NOISE_MULTIV_IWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_MULTIV_I findFirst
@@ -6044,6 +6090,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_I findFirstOrThrow
    */
@@ -6088,6 +6135,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_I findMany
    */
@@ -6127,6 +6175,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_IScalarFieldEnum | V_NOISE_MULTIV_IScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_I create
    */
@@ -6141,6 +6190,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_MULTIV_ICreateInput, V_NOISE_MULTIV_IUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_I createMany
    */
@@ -6151,6 +6201,7 @@ export namespace Prisma {
     data: V_NOISE_MULTIV_ICreateManyInput | V_NOISE_MULTIV_ICreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_MULTIV_I update
@@ -6170,6 +6221,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_IWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_I updateMany
    */
@@ -6183,6 +6235,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_MULTIV_IWhereInput
   }
+
 
   /**
    * V_NOISE_MULTIV_I upsert
@@ -6206,6 +6259,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_MULTIV_IUpdateInput, V_NOISE_MULTIV_IUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_I delete
    */
@@ -6220,6 +6274,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_IWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_I deleteMany
    */
@@ -6230,6 +6285,7 @@ export namespace Prisma {
     where?: V_NOISE_MULTIV_IWhereInput
   }
 
+
   /**
    * V_NOISE_MULTIV_I without action
    */
@@ -6239,6 +6295,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_MULTIV_ISelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -6436,7 +6493,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_RACPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_RAC"
     objects: {}
@@ -6474,8 +6530,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_RACClient<$Result.GetResult<Prisma.$V_NOISE_RACPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_RAC that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_RAC that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_RACFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_RAC
      * @example
      * // Get one V_NOISE_RAC
@@ -6528,7 +6584,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_RACS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_RACFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_RACFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_RACS
      * const v_NOISE_RACS = await prisma.v_NOISE_RAC.findMany()
@@ -6562,14 +6618,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_RACS.
-     * @param {V_NOISE_RACCreateManyArgs} args - Arguments to create many V_NOISE_RACS.
-     * @example
-     * // Create many V_NOISE_RACS
-     * const v_NOISE_RAC = await prisma.v_NOISE_RAC.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_RACCreateManyArgs} args - Arguments to create many V_NOISE_RACS.
+     *     @example
+     *     // Create many V_NOISE_RACS
+     *     const v_NOISE_RAC = await prisma.v_NOISE_RAC.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_RACCreateManyArgs<ExtArgs>>(
@@ -6845,6 +6901,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_RAC findUnique
    */
@@ -6859,6 +6916,7 @@ export namespace Prisma {
     where: V_NOISE_RACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_RAC findUniqueOrThrow
    */
@@ -6872,6 +6930,7 @@ export namespace Prisma {
      */
     where: V_NOISE_RACWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_RAC findFirst
@@ -6917,6 +6976,7 @@ export namespace Prisma {
     distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_RAC findFirstOrThrow
    */
@@ -6961,6 +7021,7 @@ export namespace Prisma {
     distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_RAC findMany
    */
@@ -7000,6 +7061,7 @@ export namespace Prisma {
     distinct?: V_NOISE_RACScalarFieldEnum | V_NOISE_RACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_RAC create
    */
@@ -7014,6 +7076,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_RACCreateInput, V_NOISE_RACUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_RAC createMany
    */
@@ -7024,6 +7087,7 @@ export namespace Prisma {
     data: V_NOISE_RACCreateManyInput | V_NOISE_RACCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_RAC update
@@ -7043,6 +7107,7 @@ export namespace Prisma {
     where: V_NOISE_RACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_RAC updateMany
    */
@@ -7056,6 +7121,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_RACWhereInput
   }
+
 
   /**
    * V_NOISE_RAC upsert
@@ -7079,6 +7145,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_RACUpdateInput, V_NOISE_RACUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_RAC delete
    */
@@ -7093,6 +7160,7 @@ export namespace Prisma {
     where: V_NOISE_RACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_RAC deleteMany
    */
@@ -7103,6 +7171,7 @@ export namespace Prisma {
     where?: V_NOISE_RACWhereInput
   }
 
+
   /**
    * V_NOISE_RAC without action
    */
@@ -7112,6 +7181,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_RACSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -7309,7 +7379,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_MULTIV_SPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_MULTIV_S"
     objects: {}
@@ -7347,8 +7416,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_MULTIV_SClient<$Result.GetResult<Prisma.$V_NOISE_MULTIV_SPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_MULTIV_S that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_MULTIV_S that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_MULTIV_SFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_S
      * @example
      * // Get one V_NOISE_MULTIV_S
@@ -7401,7 +7470,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_MULTIV_S that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_MULTIV_SFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_MULTIV_SFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_MULTIV_S
      * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.findMany()
@@ -7435,14 +7504,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_MULTIV_S.
-     * @param {V_NOISE_MULTIV_SCreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_S.
-     * @example
-     * // Create many V_NOISE_MULTIV_S
-     * const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_MULTIV_SCreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_S.
+     *     @example
+     *     // Create many V_NOISE_MULTIV_S
+     *     const v_NOISE_MULTIV_S = await prisma.v_NOISE_MULTIV_S.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_MULTIV_SCreateManyArgs<ExtArgs>>(
@@ -7718,6 +7787,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_MULTIV_S findUnique
    */
@@ -7732,6 +7802,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_SWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_S findUniqueOrThrow
    */
@@ -7745,6 +7816,7 @@ export namespace Prisma {
      */
     where: V_NOISE_MULTIV_SWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_MULTIV_S findFirst
@@ -7790,6 +7862,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_S findFirstOrThrow
    */
@@ -7834,6 +7907,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_S findMany
    */
@@ -7873,6 +7947,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_SScalarFieldEnum | V_NOISE_MULTIV_SScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_S create
    */
@@ -7887,6 +7962,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_MULTIV_SCreateInput, V_NOISE_MULTIV_SUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_S createMany
    */
@@ -7897,6 +7973,7 @@ export namespace Prisma {
     data: V_NOISE_MULTIV_SCreateManyInput | V_NOISE_MULTIV_SCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_MULTIV_S update
@@ -7916,6 +7993,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_SWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_S updateMany
    */
@@ -7929,6 +8007,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_MULTIV_SWhereInput
   }
+
 
   /**
    * V_NOISE_MULTIV_S upsert
@@ -7952,6 +8031,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_MULTIV_SUpdateInput, V_NOISE_MULTIV_SUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_S delete
    */
@@ -7966,6 +8046,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_SWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_S deleteMany
    */
@@ -7976,6 +8057,7 @@ export namespace Prisma {
     where?: V_NOISE_MULTIV_SWhereInput
   }
 
+
   /**
    * V_NOISE_MULTIV_S without action
    */
@@ -7985,6 +8067,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_MULTIV_SSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -8182,7 +8265,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_SCACPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_SCAC"
     objects: {}
@@ -8220,8 +8302,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_SCACClient<$Result.GetResult<Prisma.$V_NOISE_SCACPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_SCAC that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_SCAC that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_SCACFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_SCAC
      * @example
      * // Get one V_NOISE_SCAC
@@ -8274,7 +8356,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_SCACS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_SCACFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_SCACFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_SCACS
      * const v_NOISE_SCACS = await prisma.v_NOISE_SCAC.findMany()
@@ -8308,14 +8390,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_SCACS.
-     * @param {V_NOISE_SCACCreateManyArgs} args - Arguments to create many V_NOISE_SCACS.
-     * @example
-     * // Create many V_NOISE_SCACS
-     * const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_SCACCreateManyArgs} args - Arguments to create many V_NOISE_SCACS.
+     *     @example
+     *     // Create many V_NOISE_SCACS
+     *     const v_NOISE_SCAC = await prisma.v_NOISE_SCAC.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_SCACCreateManyArgs<ExtArgs>>(
@@ -8591,6 +8673,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_SCAC findUnique
    */
@@ -8605,6 +8688,7 @@ export namespace Prisma {
     where: V_NOISE_SCACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_SCAC findUniqueOrThrow
    */
@@ -8618,6 +8702,7 @@ export namespace Prisma {
      */
     where: V_NOISE_SCACWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_SCAC findFirst
@@ -8663,6 +8748,7 @@ export namespace Prisma {
     distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_SCAC findFirstOrThrow
    */
@@ -8707,6 +8793,7 @@ export namespace Prisma {
     distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_SCAC findMany
    */
@@ -8746,6 +8833,7 @@ export namespace Prisma {
     distinct?: V_NOISE_SCACScalarFieldEnum | V_NOISE_SCACScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_SCAC create
    */
@@ -8760,6 +8848,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_SCACCreateInput, V_NOISE_SCACUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_SCAC createMany
    */
@@ -8770,6 +8859,7 @@ export namespace Prisma {
     data: V_NOISE_SCACCreateManyInput | V_NOISE_SCACCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_SCAC update
@@ -8789,6 +8879,7 @@ export namespace Prisma {
     where: V_NOISE_SCACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_SCAC updateMany
    */
@@ -8802,6 +8893,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_SCACWhereInput
   }
+
 
   /**
    * V_NOISE_SCAC upsert
@@ -8825,6 +8917,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_SCACUpdateInput, V_NOISE_SCACUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_SCAC delete
    */
@@ -8839,6 +8932,7 @@ export namespace Prisma {
     where: V_NOISE_SCACWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_SCAC deleteMany
    */
@@ -8849,6 +8943,7 @@ export namespace Prisma {
     where?: V_NOISE_SCACWhereInput
   }
 
+
   /**
    * V_NOISE_SCAC without action
    */
@@ -8858,6 +8953,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_SCACSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -9055,7 +9151,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_MULTIV_5Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_MULTIV_5"
     objects: {}
@@ -9093,8 +9188,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_MULTIV_5Client<$Result.GetResult<Prisma.$V_NOISE_MULTIV_5Payload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_MULTIV_5 that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_MULTIV_5 that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_MULTIV_5FindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTIV_5
      * @example
      * // Get one V_NOISE_MULTIV_5
@@ -9147,7 +9242,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_MULTIV_5s that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_MULTIV_5FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_MULTIV_5FindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_MULTIV_5s
      * const v_NOISE_MULTIV_5s = await prisma.v_NOISE_MULTIV_5.findMany()
@@ -9181,14 +9276,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_MULTIV_5s.
-     * @param {V_NOISE_MULTIV_5CreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_5s.
-     * @example
-     * // Create many V_NOISE_MULTIV_5s
-     * const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_MULTIV_5CreateManyArgs} args - Arguments to create many V_NOISE_MULTIV_5s.
+     *     @example
+     *     // Create many V_NOISE_MULTIV_5s
+     *     const v_NOISE_MULTIV_5 = await prisma.v_NOISE_MULTIV_5.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_MULTIV_5CreateManyArgs<ExtArgs>>(
@@ -9464,6 +9559,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_MULTIV_5 findUnique
    */
@@ -9478,6 +9574,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_5WhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_5 findUniqueOrThrow
    */
@@ -9491,6 +9588,7 @@ export namespace Prisma {
      */
     where: V_NOISE_MULTIV_5WhereUniqueInput
   }
+
 
   /**
    * V_NOISE_MULTIV_5 findFirst
@@ -9536,6 +9634,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_5 findFirstOrThrow
    */
@@ -9580,6 +9679,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_5 findMany
    */
@@ -9619,6 +9719,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIV_5ScalarFieldEnum | V_NOISE_MULTIV_5ScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTIV_5 create
    */
@@ -9633,6 +9734,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_MULTIV_5CreateInput, V_NOISE_MULTIV_5UncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_5 createMany
    */
@@ -9643,6 +9745,7 @@ export namespace Prisma {
     data: V_NOISE_MULTIV_5CreateManyInput | V_NOISE_MULTIV_5CreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_MULTIV_5 update
@@ -9662,6 +9765,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_5WhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_5 updateMany
    */
@@ -9675,6 +9779,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_MULTIV_5WhereInput
   }
+
 
   /**
    * V_NOISE_MULTIV_5 upsert
@@ -9698,6 +9803,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_MULTIV_5UpdateInput, V_NOISE_MULTIV_5UncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_MULTIV_5 delete
    */
@@ -9712,6 +9818,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIV_5WhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTIV_5 deleteMany
    */
@@ -9722,6 +9829,7 @@ export namespace Prisma {
     where?: V_NOISE_MULTIV_5WhereInput
   }
 
+
   /**
    * V_NOISE_MULTIV_5 without action
    */
@@ -9731,6 +9839,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_MULTIV_5Select<ExtArgs> | null
   }
+
 
 
   /**
@@ -9928,7 +10037,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_MULTIPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_MULTI"
     objects: {}
@@ -9966,8 +10074,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_MULTIClient<$Result.GetResult<Prisma.$V_NOISE_MULTIPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_MULTI that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_MULTI that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_MULTIFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_MULTI
      * @example
      * // Get one V_NOISE_MULTI
@@ -10020,7 +10128,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_MULTIS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_MULTIFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_MULTIFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_MULTIS
      * const v_NOISE_MULTIS = await prisma.v_NOISE_MULTI.findMany()
@@ -10054,14 +10162,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_MULTIS.
-     * @param {V_NOISE_MULTICreateManyArgs} args - Arguments to create many V_NOISE_MULTIS.
-     * @example
-     * // Create many V_NOISE_MULTIS
-     * const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_MULTICreateManyArgs} args - Arguments to create many V_NOISE_MULTIS.
+     *     @example
+     *     // Create many V_NOISE_MULTIS
+     *     const v_NOISE_MULTI = await prisma.v_NOISE_MULTI.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_MULTICreateManyArgs<ExtArgs>>(
@@ -10337,6 +10445,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_MULTI findUnique
    */
@@ -10351,6 +10460,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTI findUniqueOrThrow
    */
@@ -10364,6 +10474,7 @@ export namespace Prisma {
      */
     where: V_NOISE_MULTIWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_MULTI findFirst
@@ -10409,6 +10520,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTI findFirstOrThrow
    */
@@ -10453,6 +10565,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTI findMany
    */
@@ -10492,6 +10605,7 @@ export namespace Prisma {
     distinct?: V_NOISE_MULTIScalarFieldEnum | V_NOISE_MULTIScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_MULTI create
    */
@@ -10506,6 +10620,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_MULTICreateInput, V_NOISE_MULTIUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_MULTI createMany
    */
@@ -10516,6 +10631,7 @@ export namespace Prisma {
     data: V_NOISE_MULTICreateManyInput | V_NOISE_MULTICreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_MULTI update
@@ -10535,6 +10651,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTI updateMany
    */
@@ -10548,6 +10665,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_MULTIWhereInput
   }
+
 
   /**
    * V_NOISE_MULTI upsert
@@ -10571,6 +10689,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_MULTIUpdateInput, V_NOISE_MULTIUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_MULTI delete
    */
@@ -10585,6 +10704,7 @@ export namespace Prisma {
     where: V_NOISE_MULTIWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_MULTI deleteMany
    */
@@ -10595,6 +10715,7 @@ export namespace Prisma {
     where?: V_NOISE_MULTIWhereInput
   }
 
+
   /**
    * V_NOISE_MULTI without action
    */
@@ -10604,6 +10725,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_MULTISelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -10801,7 +10923,6 @@ export namespace Prisma {
   }
 
 
-
   export type $V_NOISE_AWHPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "V_NOISE_AWHP"
     objects: {}
@@ -10839,8 +10960,8 @@ export namespace Prisma {
     ): Prisma__V_NOISE_AWHPClient<$Result.GetResult<Prisma.$V_NOISE_AWHPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one V_NOISE_AWHP that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
+     * Find one V_NOISE_AWHP that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
      * @param {V_NOISE_AWHPFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_AWHP
      * @example
      * // Get one V_NOISE_AWHP
@@ -10893,7 +11014,7 @@ export namespace Prisma {
      * Find zero or more V_NOISE_AWHPS that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {V_NOISE_AWHPFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {V_NOISE_AWHPFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all V_NOISE_AWHPS
      * const v_NOISE_AWHPS = await prisma.v_NOISE_AWHP.findMany()
@@ -10927,14 +11048,14 @@ export namespace Prisma {
 
     /**
      * Create many V_NOISE_AWHPS.
-     * @param {V_NOISE_AWHPCreateManyArgs} args - Arguments to create many V_NOISE_AWHPS.
-     * @example
-     * // Create many V_NOISE_AWHPS
-     * const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
+     *     @param {V_NOISE_AWHPCreateManyArgs} args - Arguments to create many V_NOISE_AWHPS.
+     *     @example
+     *     // Create many V_NOISE_AWHPS
+     *     const v_NOISE_AWHP = await prisma.v_NOISE_AWHP.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
      *     
     **/
     createMany<T extends V_NOISE_AWHPCreateManyArgs<ExtArgs>>(
@@ -11210,6 +11331,7 @@ export namespace Prisma {
     
 
   // Custom InputTypes
+
   /**
    * V_NOISE_AWHP findUnique
    */
@@ -11224,6 +11346,7 @@ export namespace Prisma {
     where: V_NOISE_AWHPWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_AWHP findUniqueOrThrow
    */
@@ -11237,6 +11360,7 @@ export namespace Prisma {
      */
     where: V_NOISE_AWHPWhereUniqueInput
   }
+
 
   /**
    * V_NOISE_AWHP findFirst
@@ -11282,6 +11406,7 @@ export namespace Prisma {
     distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_AWHP findFirstOrThrow
    */
@@ -11326,6 +11451,7 @@ export namespace Prisma {
     distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_AWHP findMany
    */
@@ -11365,6 +11491,7 @@ export namespace Prisma {
     distinct?: V_NOISE_AWHPScalarFieldEnum | V_NOISE_AWHPScalarFieldEnum[]
   }
 
+
   /**
    * V_NOISE_AWHP create
    */
@@ -11379,6 +11506,7 @@ export namespace Prisma {
     data: XOR<V_NOISE_AWHPCreateInput, V_NOISE_AWHPUncheckedCreateInput>
   }
 
+
   /**
    * V_NOISE_AWHP createMany
    */
@@ -11389,6 +11517,7 @@ export namespace Prisma {
     data: V_NOISE_AWHPCreateManyInput | V_NOISE_AWHPCreateManyInput[]
     skipDuplicates?: boolean
   }
+
 
   /**
    * V_NOISE_AWHP update
@@ -11408,6 +11537,7 @@ export namespace Prisma {
     where: V_NOISE_AWHPWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_AWHP updateMany
    */
@@ -11421,6 +11551,7 @@ export namespace Prisma {
      */
     where?: V_NOISE_AWHPWhereInput
   }
+
 
   /**
    * V_NOISE_AWHP upsert
@@ -11444,6 +11575,7 @@ export namespace Prisma {
     update: XOR<V_NOISE_AWHPUpdateInput, V_NOISE_AWHPUncheckedUpdateInput>
   }
 
+
   /**
    * V_NOISE_AWHP delete
    */
@@ -11458,6 +11590,7 @@ export namespace Prisma {
     where: V_NOISE_AWHPWhereUniqueInput
   }
 
+
   /**
    * V_NOISE_AWHP deleteMany
    */
@@ -11468,6 +11601,7 @@ export namespace Prisma {
     where?: V_NOISE_AWHPWhereInput
   }
 
+
   /**
    * V_NOISE_AWHP without action
    */
@@ -11477,6 +11611,7 @@ export namespace Prisma {
      */
     select?: V_NOISE_AWHPSelect<ExtArgs> | null
   }
+
 
 
   /**
@@ -11760,7 +11895,7 @@ export namespace Prisma {
     NOISE_4KHZ?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: IntNullableFilter<"T_NOISE_MODELSPEC"> | number | null
+    REDUCED_CAPA_RATIO?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: StringNullableFilter<"T_NOISE_MODELSPEC"> | string | null
   }
 
@@ -11803,7 +11938,7 @@ export namespace Prisma {
     NOISE_4KHZ?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: IntNullableFilter<"T_NOISE_MODELSPEC"> | number | null
+    REDUCED_CAPA_RATIO?: DecimalNullableFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: StringNullableFilter<"T_NOISE_MODELSPEC"> | string | null
   }, "ID">
 
@@ -11851,7 +11986,7 @@ export namespace Prisma {
     NOISE_4KHZ?: DecimalNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: DecimalNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: DecimalNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: IntNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | number | null
+    REDUCED_CAPA_RATIO?: DecimalNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: StringNullableWithAggregatesFilter<"T_NOISE_MODELSPEC"> | string | null
   }
 
@@ -12305,7 +12440,7 @@ export namespace Prisma {
     NOISE_4KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: number | null
+    REDUCED_CAPA_RATIO?: Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: string | null
   }
 
@@ -12325,7 +12460,7 @@ export namespace Prisma {
     NOISE_4KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: number | null
+    REDUCED_CAPA_RATIO?: Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: string | null
   }
 
@@ -12345,7 +12480,7 @@ export namespace Prisma {
     NOISE_4KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: NullableIntFieldUpdateOperationsInput | number | null
+    REDUCED_CAPA_RATIO?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12365,7 +12500,7 @@ export namespace Prisma {
     NOISE_4KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: NullableIntFieldUpdateOperationsInput | number | null
+    REDUCED_CAPA_RATIO?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12385,7 +12520,7 @@ export namespace Prisma {
     NOISE_4KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: number | null
+    REDUCED_CAPA_RATIO?: Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: string | null
   }
 
@@ -12405,7 +12540,7 @@ export namespace Prisma {
     NOISE_4KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: NullableIntFieldUpdateOperationsInput | number | null
+    REDUCED_CAPA_RATIO?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12425,7 +12560,7 @@ export namespace Prisma {
     NOISE_4KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_8KHZ?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     NOISE_OVERALL?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    REDUCED_CAPA_RATIO?: NullableIntFieldUpdateOperationsInput | number | null
+    REDUCED_CAPA_RATIO?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     DISCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -12926,17 +13061,6 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type T_NOISE_MODELSPECCountOrderByAggregateInput = {
     ID?: SortOrder
     PRODUCT_TYPE?: SortOrder
@@ -13039,22 +13163,6 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type T_NOISE_PRODUCTTYPECountOrderByAggregateInput = {
@@ -13308,14 +13416,6 @@ export namespace Prisma {
     divide?: Decimal | DecimalJsLike | number | string
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -13452,33 +13552,6 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
 

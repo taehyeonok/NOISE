@@ -36,16 +36,16 @@ model T_NOISE_MODELSPEC {
   FUNCTION_STEP      String?  @db.Text
   MODEL_NAME         String   @db.Text
   DATA_TYPE          String   @db.Text
-  NOISE_63HZ         Decimal? @db.Decimal(15, 13)
-  NOISE_125HZ        Decimal? @db.Decimal(15, 13)
-  NOISE_250HZ        Decimal? @db.Decimal(15, 13)
-  NOISE_500HZ        Decimal? @db.Decimal(15, 13)
-  NOISE_1KHZ         Decimal? @db.Decimal(15, 13)
-  NOISE_2KHZ         Decimal? @db.Decimal(15, 13)
-  NOISE_4KHZ         Decimal? @db.Decimal(15, 13)
-  NOISE_8KHZ         Decimal? @db.Decimal(15, 13)
-  NOISE_OVERALL      Decimal? @db.Decimal(15, 13)
-  REDUCED_CAPA_RATIO Int?
+  NOISE_63HZ         Decimal? @db.Decimal(16, 13)
+  NOISE_125HZ        Decimal? @db.Decimal(16, 13)
+  NOISE_250HZ        Decimal? @db.Decimal(16, 13)
+  NOISE_500HZ        Decimal? @db.Decimal(16, 13)
+  NOISE_1KHZ         Decimal? @db.Decimal(16, 13)
+  NOISE_2KHZ         Decimal? @db.Decimal(16, 13)
+  NOISE_4KHZ         Decimal? @db.Decimal(16, 13)
+  NOISE_8KHZ         Decimal? @db.Decimal(16, 13)
+  NOISE_OVERALL      Decimal? @db.Decimal(16, 13)
+  REDUCED_CAPA_RATIO Decimal? @db.Decimal(4, 1)
   DISCHARGE          String?  @db.Text
 
   @@index([ID], map: "ID")

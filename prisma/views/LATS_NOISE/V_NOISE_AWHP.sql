@@ -1,0 +1,77 @@
+SELECT
+  DISTINCT `M`.`BUYER_MODEL_NAME` AS `BUYER_MODEL_NAME`,
+  `M`.`T_HEAT_W` AS `T_HEAT_W`,
+  `M`.`T_COOL_W` AS `T_COOL_W`
+FROM
+  (
+    `LATS_NOISE`.`T_NOISE_MODELSPEC` `N`
+    JOIN (
+      SELECT
+        substring_index(
+          `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`BUYER_MODEL_NAME`,
+          ' ',
+          1
+        ) AS `BUYER_MODEL_NAME`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_HEAT_W` AS `T_HEAT_W`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_COOL_W` AS `T_COOL_W`
+      FROM
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`
+      WHERE
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`DESCRIPTION` = 'ThermaV_IWT'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`APP_LOCATION` LIKE '%/7/%'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE_CAD` = 1
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE` = 1
+      UNION
+      ALL
+      SELECT
+        substring_index(
+          `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`BUYER_MODEL_NAME`,
+          ' ',
+          1
+        ) AS `BUYER_MODEL_NAME`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_HEAT_W` AS `T_HEAT_W`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_COOL_W` AS `T_COOL_W`
+      FROM
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`
+      WHERE
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`DESCRIPTION` = 'ThermaV_Split'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`APP_LOCATION` LIKE '%/7/%'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE_CAD` = 1
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE` = 1
+      UNION
+      ALL
+      SELECT
+        substring_index(
+          `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`BUYER_MODEL_NAME`,
+          ' ',
+          1
+        ) AS `BUYER_MODEL_NAME`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_HEAT_W` AS `T_HEAT_W`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_COOL_W` AS `T_COOL_W`
+      FROM
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`
+      WHERE
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`DESCRIPTION` = 'ThermaV_Split_R32'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`APP_LOCATION` LIKE '%/7/%'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE_CAD` = 1
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE` = 1
+      UNION
+      ALL
+      SELECT
+        substring_index(
+          `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`BUYER_MODEL_NAME`,
+          ' ',
+          1
+        ) AS `BUYER_MODEL_NAME`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_HEAT_W` AS `T_HEAT_W`,
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`T_COOL_W` AS `T_COOL_W`
+      FROM
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`
+      WHERE
+        `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`DESCRIPTION` = 'ThermaV_Monobloc_R32'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`APP_LOCATION` LIKE '%/7/%'
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE_CAD` = 1
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`VISIBLE` = 1
+        AND `LATS_CMN`.`T_MASTER_THERMAV_ODU`.`MODEL` NOT LIKE '%?%'
+    ) `M` ON(`N`.`MODEL_NAME` = `M`.`BUYER_MODEL_NAME`)
+  )
