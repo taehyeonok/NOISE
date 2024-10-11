@@ -320,7 +320,6 @@ export default function Input() {
     const time = setTimeout(() => {
       localStorage.removeItem("isBack");
       setIsBackData(false);
-      window.history.replaceState({}, "", `${window.location.pathname}`);
     }, 1000);
     return () => {
       clearTimeout(time);
@@ -374,7 +373,7 @@ export default function Input() {
     productTableData,
     selectFieldType,
   ]);
-  //수기 입력 데이터 유지
+  //Manual 수기 입력 데이터 유지
   useEffect(() => {
     const isBack = localStorage.getItem("isBack");
     if (!isBack) projectInfoData.soundPowerLevel = soundPowerLevel;
@@ -600,14 +599,15 @@ export default function Input() {
 
     setEstimatedSoundData(copyEstimated);
   }, [soundPressureLevel, soundPowerLevel, totalCapacityTableData]);
-  /**
-   * Noise 계산 로직 실행 후 결과창 이동
-   * @param formData
-   */
+
   useEffect(() => {
     localStorage.setItem("fieldType", JSON.stringify(selectFieldType));
   }, [selectFieldType]);
 
+  /**
+   * Noise 계산 로직 실행 후 결과창 이동
+   * @param formData
+   */
   async function actionSimulate(formData: FormData) {
     if (!validateFormData(formRef, productTableData, t)) return;
     setIsLoading(true);

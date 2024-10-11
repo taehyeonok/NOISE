@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   const data = await req.json();
   try {
-    if (data.productType === "MultiV_i") {
+    if (data.productType === "Multi V i") {
       const dataList = await client.v_NOISE_MULTIV_I.findMany({
         select: {
           T_COOL_W: true,
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         data: result,
       });
-    } else if (data.productType === "MultiV_5") {
+    } else if (data.productType === "Multi V 5") {
       const dataList = await client.v_NOISE_MULTIV_5.findMany({
         select: {
           T_COOL_W: true,
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         data: result,
       });
-    } else if (data.productType === "MultiV_S") {
+    } else if (data.productType === "Multi V S") {
       const dataList = await client.v_NOISE_MULTIV_S.findMany({
         select: {
           T_COOL_W: true,

@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
         data: result,
       });
     } else if (data.clss == "modelName") {
-      if (data?.param.productTypeData === "MultiV_i") {
+      if (data?.param.productTypeData === "Multi V i") {
         const dataList = await client.v_NOISE_MULTIV_I.findMany({
           select: {
             BUYER_MODEL_NAME: true,
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           data: result,
         });
-      } else if (data?.param.productTypeData === "MultiV_5") {
+      } else if (data?.param.productTypeData === "Multi V 5") {
         const dataList = await client.v_NOISE_MULTIV_5.findMany({
           select: {
             BUYER_MODEL_NAME: true,
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           data: result,
         });
-      } else if (data?.param.productTypeData === "MultiV_S") {
+      } else if (data?.param.productTypeData === "Multi V S") {
         const dataList = await client.v_NOISE_MULTIV_S.findMany({
           select: {
             BUYER_MODEL_NAME: true,
