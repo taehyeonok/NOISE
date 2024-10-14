@@ -26,7 +26,11 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
           key={"estimatedSoundDummyData-" + index}
           className={`tableTd w-[7.813rem] !h-[1.875rem] ${item.content1 ? "!font-LGSMHATSB" : ""}`}
         >
-          {productType === "content1" ? item.content1 : Number(item.content2).toFixed(1)}
+          {productType === "content1"
+            ? item.content1
+            : index === productType.length
+            ? Number(estimatedSoundDBA).toFixed(1)
+            : Number(item.content2).toFixed(1)}
         </td>
       );
     });
@@ -41,7 +45,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
         </caption>
         <thead>
           <tr>
-            <th colSpan={9} className={"tableTh"}>
+            <th colSpan={10} className={"tableTh"}>
               <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem]"}>
                 {t("NOISE_0069")}
               </span>
@@ -56,10 +60,10 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
             {renderTdItem("content1")}
           </tr>
           <tr>{renderTdItem("content2")}</tr>
-          <tr>
+          {/* <tr>
             <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>{t("NOISE_0018")} (dB(A))</td>
             <td className={"tableTd !h-[1.875rem]"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
       {/* 반응형 */}
@@ -83,25 +87,28 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
           <div className={"flex flex-col gap-[1.5rem]"}>
             <table className={"table-fixed"}>
               <tbody>
-                {estimatedSoundData.map((item: any, index: number) => {
-                  if (index % 2 !== 0) {
-                    return null;
-                  }
-                  return (
-                    <tr key={index}>
-                      <th className={`tableTh`}>{item.content1}</th>
-                      <td className={`tableTd`}>{Number(item.content2).toFixed(1)}</td>
-                      {index + 1 < estimatedSoundData.length && (
-                        <>
-                          <th className={`tableTh`}>{estimatedSoundData[index + 1]?.content1}</th>
-                          <td className={`tableTd`}>
-                            {Number(estimatedSoundData[index + 1]?.content2).toFixed(1)}
-                          </td>
-                        </>
-                      )}
-                    </tr>
-                  );
-                })}
+                {estimatedSoundData
+                  .filter((data: any) => data.content1 != "Overall (dB(A))")
+                  .map((item: any, index: number) => {
+                    if (index % 2 !== 0) {
+                      return null;
+                    }
+
+                    return (
+                      <tr key={index}>
+                        <th className={`tableTh`}>{item.content1}</th>
+                        <td className={`tableTd`}>{Number(item.content2).toFixed(1)}</td>
+                        {index + 1 < estimatedSoundData.length && (
+                          <>
+                            <th className={`tableTh`}>{estimatedSoundData[index + 1]?.content1}</th>
+                            <td className={`tableTd`}>
+                              {Number(estimatedSoundData[index + 1]?.content2).toFixed(1)}
+                            </td>
+                          </>
+                        )}
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
             <table className={"table-fixed "}>
