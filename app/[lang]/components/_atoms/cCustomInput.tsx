@@ -28,7 +28,7 @@ export default function CCustomInput({
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value;
-    if (name === "Project Name") {
+    if (name === "Project Name" || name === "modelName") {
       if (Number(inputValue) < 0) {
         inputValue = "0";
       }

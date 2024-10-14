@@ -5213,5 +5213,21 @@
   "THERMAV_959": "Please enter Cost.",
   "THERMAV_960": "Cost only accepts numbers.",
   "THERMAV_961": "The value entered is too large.",
-  "THERMAV_962": "This service will be available soon."
+  "THERMAV_962": "This service will be available soon.",
+  "RC_0362": "- Commercial : \r\na) One system serves more than one dwelling space\r\n- Residential : \r\na) One- and two- family dwellings and townhouses \r\nb) Detached outbuildings associated with a one- or two-family dwelling or townhouse and located on the same property included in a)  \r\nc) Individual dwelling units and sleeping units located in a multifamily dwelling",
+  "RC_0363": "Releasable Height",
+  "RC_0364": "The height shall be the lowest point of any opening in the supply air duct, the return air duct, or the equipment providing air circulation.",
+  "RC_0365": "Airflow rate",
+  "RC_0366": "Is institutional occupancy?",
+  "RC_0367": "Air Circulation",
+  "THERMAV_963": "Sorry, Page not found.",
+  "THERMAV_964": "An error has occurred.",
+  "THERMAV_965": "Ther page you were looking for appears to have been moved, deleted or does not exist.",
+  "THERMAV_966": "An error occurred while processing the requested page. Please contact the administrator.",
+  "THERMAV_967": "Return Home",
+  "THERMAV_968": "Error Page",
+  "THERMAV_969": "There is no simulation ID.",
+  "THERMAV_970": "Error",
+  "RC_0368": "Input Volume",
+  "NOISE_0081": "Capacity values are not reflected for products entered as 'Manual'."
 }

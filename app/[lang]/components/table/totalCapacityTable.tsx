@@ -5,11 +5,11 @@ interface totalCapacityTableData {
 }
 export default function TotalCapacityTable({
   totalCapacityTableData,
-  setTotalCapacityTableData,
+  isManual,
   t,
 }: {
   totalCapacityTableData: totalCapacityTableData[];
-  setTotalCapacityTableData: Function;
+  isManual: boolean;
   t: any;
 }) {
   return (
@@ -52,6 +52,15 @@ export default function TotalCapacityTable({
           );
         })}
       </tbody>
+      {isManual && (
+        <tfoot>
+          <tr>
+            <td colSpan={3} className=" pt-1 text-[0.875rem] text-[#ff0000]  ">
+              {t("NOISE_0081")}
+            </td>
+          </tr>
+        </tfoot>
+      )}
     </table>
   );
 }

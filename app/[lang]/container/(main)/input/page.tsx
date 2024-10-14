@@ -43,8 +43,9 @@ export default function Input() {
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
-  const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
+  const MIN_ROWS = 1;
   const [isLoading, setIsLoading] = useState(false);
+  const [isManual, setIsManual] = useState(false);
   const [productTableData, setProductTableData] = useState<ProductItem[]>(
     productInformationTableDummyData
   );
@@ -55,7 +56,6 @@ export default function Input() {
   const [projectName, setProjectName] = useState("");
   const [soundPressureLevel, setSoundPressureLevel] = useState(soundPressureLevelDummyData);
   const [soundPowerLevel, setSoundPowerLevel] = useState(soundPowerLevelDummyData);
-  const MIN_ROWS = 1;
   const [estimatedSoundData, setEstimatedSoundData] = useState(estimatedSoundDummyData);
   const [totalCapacityTableData, setTotalCapacityTableData] = useState(totalCapacityTableDummyData);
   const [barrierInfoTableData, setBarrierInfoTableData] = useState(barrierInfoTableDummyData);
@@ -381,6 +381,13 @@ export default function Input() {
 
   //Total Capacity Data & Sound Spec Data
   useEffect(() => {
+    const hasManual = productTableData.some((data: any) => data.productType === "Manual");
+    if (hasManual) {
+      setIsManual(true);
+    } else {
+      setIsManual(false);
+    }
+
     const copySoundPressure = cloneObject(soundPressureLevel);
     const copySoundPower = cloneObject(soundPowerLevel);
 
@@ -758,7 +765,7 @@ export default function Input() {
           >
             <TotalCapacityTable
               totalCapacityTableData={totalCapacityTableData}
-              setTotalCapacityTableData={setTotalCapacityTableData}
+              isManual={isManual}
               t={t}
             />
           </ContainerBoxRow>

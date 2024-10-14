@@ -107,7 +107,7 @@ export default function ProductInformationTable({
                     data[index]!.qty = "1";
                     data[index]!.function = "";
                     data[index]!.step = "";
-                    data[index]!.capacity = "%";
+                    data[index]!.capacity = item.productType === "Manual" ? "-%" : "%";
                     setData([...data]);
                     //Sound Spec Data reset
                     soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
@@ -132,23 +132,41 @@ export default function ProductInformationTable({
               )}
               {renderTableItem(
                 t("COMMON_509"),
-                <CSelect
-                  code="modelName"
-                  name={`modelName_${item.id}`}
-                  title={item.modelName}
-                  selected
-                  className={"mobileTableSelectStyle"}
-                  onChange={(changedValue: { title: string; value: string }) => {
-                    data[index]!.modelName = changedValue.title;
-                    setData([...data]);
-                  }}
-                  params={{ productTypeData: productTypeData[item.id] }}
-                  data={item.modelName}
-                  number={item.id}
-                  validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
-                  required
-                  disabled={item.productType == "Manual" ? true : false}
-                />
+                item.productType === "Manual" ? (
+                  <CCustomInput
+                    name={`modelName`}
+                    key={`modelName_${item.id}`}
+                    type={"text"}
+                    placeholder={t("COMMON_509")}
+                    value={item.modelName}
+                    classList={"mobileTableSelectStyle"}
+                    onChange={(changeValue: string) => {
+                      data[index]!.modelName = changeValue;
+                      setData([...data]);
+                    }}
+                    validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                    required
+                  />
+                ) : (
+                  <CSelect
+                    key={`modelName_${item.id}`}
+                    code="modelName"
+                    name={`modelName_${item.id}`}
+                    title={item.modelName}
+                    selected
+                    className={"mobileTableSelectStyle"}
+                    onChange={(changedValue: { title: string; value: string }) => {
+                      data[index]!.modelName = changedValue.title;
+                      setData([...data]);
+                    }}
+                    params={{ productTypeData: productTypeData[item.id] }}
+                    data={item.modelName}
+                    number={item.id}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                    required
+                    // disabled={item.productType == "Manual" ? true : false}
+                  />
+                )
               )}
               {renderTableItem(
                 t("COMMON_563") + " (EA)",
@@ -163,7 +181,7 @@ export default function ProductInformationTable({
                   }}
                   validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                   required
-                  disabled={item.productType == "Manual" ? true : false}
+                  // disabled={item.productType == "Manual" ? true : false}
                 />
               )}
               {renderTableItem(
@@ -271,7 +289,7 @@ export default function ProductInformationTable({
                       data[index]!.qty = item.qty;
                       data[index]!.function = "";
                       data[index]!.step = "";
-                      data[index]!.capacity = "%";
+                      data[index]!.capacity = item.productType === "Manual" ? "-%" : "%";
                       setData([...data]);
                       //Sound Spec Data reset
                       soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
@@ -295,24 +313,43 @@ export default function ProductInformationTable({
                   />
                 </td>
                 <td className={"tableTd"}>
-                  <CSelect
-                    key={`modelName_${item.id}`}
-                    code="modelName"
-                    name={`modelName_${item.id}`}
-                    title={item.modelName}
-                    selected
-                    classList={"tableSelectStyle"}
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      data[index]!.modelName = changedValue.title;
-                      setData([...data]);
-                    }}
-                    params={{ productTypeData: productTypeData[item.id] }}
-                    data={item.modelName}
-                    number={item.id}
-                    validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
-                    required
-                    disabled={item.productType == "Manual" ? true : false}
-                  />
+                  {item.productType === "Manual" ? (
+                    <CCustomInput
+                      name={`modelName`}
+                      key={`modelName_${item.id}`}
+                      type={"text"}
+                      placeholder={t("COMMON_509")}
+                      value={item.modelName}
+                      classList={
+                        "!h-[1.75rem] p-[0_0.375rem_0_0.625rem] text-[0.75rem] mobile:w-[12.5rem] w-full"
+                      }
+                      onChange={(changeValue: string) => {
+                        data[index]!.modelName = changeValue;
+                        setData([...data]);
+                      }}
+                      validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                      required
+                    />
+                  ) : (
+                    <CSelect
+                      key={`modelName_${item.id}`}
+                      code="modelName"
+                      name={`modelName_${item.id}`}
+                      title={item.modelName}
+                      selected
+                      classList={"tableSelectStyle"}
+                      onChange={(changedValue: { title: string; value: string }) => {
+                        data[index]!.modelName = changedValue.title;
+                        setData([...data]);
+                      }}
+                      params={{ productTypeData: productTypeData[item.id] }}
+                      data={item.modelName}
+                      number={item.id}
+                      validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                      required
+                      // disabled={item.productType == "Manual" ? true : false}
+                    />
+                  )}
                 </td>
                 <td className={"tableTd"}>
                   <CCustomInput
@@ -328,7 +365,7 @@ export default function ProductInformationTable({
                     }}
                     validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                     required
-                    disabled={item.productType == "Manual" ? true : false}
+                    // disabled={item.productType == "Manual" ? true : false}
                   />
                 </td>
                 <td className={"tableTd"}>
