@@ -835,7 +835,21 @@ export default function Input() {
                 setSelectFieldType(changeValue);
               }}
             />
+            {selectFieldType.value === "2" && (
+              <p className="mobile:hidden ml-3 pt-1 text-[0.875rem] text-[#ff0000]">
+                {t("NOISE_0001")}
+              </p>
+            )}
           </ContainerBoxRow>
+          {selectFieldType.value === "2" && (
+            <ContainerBoxRow
+              justifyContent={"start"}
+              alignItems={"center"}
+              classList={"mobile:justify-between"}
+            >
+              <p className="pc:hidden pt-1 text-[0.875rem] text-[#ff0000]">{t("NOISE_0001")}</p>
+            </ContainerBoxRow>
+          )}
           {/* 반응형 */}
           <div className={"mt-5 mb-10 mobile:my-[1.5rem]"}>
             {/* <Image src={IG_OUTDOOR_SPACE} alt={"outdoor space"} className={"mx-auto"} /> */}
