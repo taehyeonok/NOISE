@@ -115,11 +115,8 @@ export default function SimulationResultTable({ simulateData, detailData, t }: a
               })}
             </tr>
             <tr>
-              <td className={"tableTd bg-gray_100 noLine"}>{t("NOISE_0018")}</td>
+              <td className={"tableTd bg-gray_100 noLine font-bold"}>{t("NOISE_0018")} (dB(A))</td>
               <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
-              <td className={"!pt-3 !pb-0 !pl-1 !border-0 !text-[0.625rem] !text-left"}>
-                Unit : dB(A)
-              </td>
             </tr>
           </tbody>
         </table>
@@ -195,7 +192,9 @@ export default function SimulationResultTable({ simulateData, detailData, t }: a
             <table className={"table-fixed"}>
               <tbody>
                 <tr>
-                  <td className={"tableTh !font-LGSMHATR !text-[#000]"}>{t("NOISE_0018")}</td>
+                  <td className={"tableTh !font-LGSMHATR !text-[#000] font-bold"}>
+                    {t("NOISE_0018")} (dB(A))
+                  </td>
                   <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
                 </tr>
               </tbody>
