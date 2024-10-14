@@ -34,6 +34,11 @@ export type T_NOISE_MODELSPEC = $Result.DefaultSelection<Prisma.$T_NOISE_MODELSP
  */
 export type T_NOISE_PRODUCTTYPE = $Result.DefaultSelection<Prisma.$T_NOISE_PRODUCTTYPEPayload>
 /**
+ * Model T_NOISE_ISC_SPEC
+ * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type T_NOISE_ISC_SPEC = $Result.DefaultSelection<Prisma.$T_NOISE_ISC_SPECPayload>
+/**
  * Model V_NOISE_MULTIV_I
  * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
  */
@@ -68,6 +73,11 @@ export type V_NOISE_MULTI = $Result.DefaultSelection<Prisma.$V_NOISE_MULTIPayloa
  * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
  */
 export type V_NOISE_AWHP = $Result.DefaultSelection<Prisma.$V_NOISE_AWHPPayload>
+/**
+ * Model V_NOISE_ISC
+ * The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ */
+export type V_NOISE_ISC = $Result.DefaultSelection<Prisma.$V_NOISE_ISCPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -232,6 +242,16 @@ export class PrismaClient<
   get t_NOISE_PRODUCTTYPE(): Prisma.T_NOISE_PRODUCTTYPEDelegate<ExtArgs>;
 
   /**
+   * `prisma.t_NOISE_ISC_SPEC`: Exposes CRUD operations for the **T_NOISE_ISC_SPEC** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more T_NOISE_ISC_SPECS
+    * const t_NOISE_ISC_SPECS = await prisma.t_NOISE_ISC_SPEC.findMany()
+    * ```
+    */
+  get t_NOISE_ISC_SPEC(): Prisma.T_NOISE_ISC_SPECDelegate<ExtArgs>;
+
+  /**
    * `prisma.v_NOISE_MULTIV_I`: Exposes CRUD operations for the **V_NOISE_MULTIV_I** model.
     * Example usage:
     * ```ts
@@ -300,6 +320,16 @@ export class PrismaClient<
     * ```
     */
   get v_NOISE_AWHP(): Prisma.V_NOISE_AWHPDelegate<ExtArgs>;
+
+  /**
+   * `prisma.v_NOISE_ISC`: Exposes CRUD operations for the **V_NOISE_ISC** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more V_NOISE_ISCS
+    * const v_NOISE_ISCS = await prisma.v_NOISE_ISC.findMany()
+    * ```
+    */
+  get v_NOISE_ISC(): Prisma.V_NOISE_ISCDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -774,13 +804,15 @@ export namespace Prisma {
     T_NOISE_FUNCSTEP: 'T_NOISE_FUNCSTEP',
     T_NOISE_MODELSPEC: 'T_NOISE_MODELSPEC',
     T_NOISE_PRODUCTTYPE: 'T_NOISE_PRODUCTTYPE',
+    T_NOISE_ISC_SPEC: 'T_NOISE_ISC_SPEC',
     V_NOISE_MULTIV_I: 'V_NOISE_MULTIV_I',
     V_NOISE_RAC: 'V_NOISE_RAC',
     V_NOISE_MULTIV_S: 'V_NOISE_MULTIV_S',
     V_NOISE_SCAC: 'V_NOISE_SCAC',
     V_NOISE_MULTIV_5: 'V_NOISE_MULTIV_5',
     V_NOISE_MULTI: 'V_NOISE_MULTI',
-    V_NOISE_AWHP: 'V_NOISE_AWHP'
+    V_NOISE_AWHP: 'V_NOISE_AWHP',
+    V_NOISE_ISC: 'V_NOISE_ISC'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -797,7 +829,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 't_NOISE_FUNCNAME' | 't_NOISE_FUNCSTEP' | 't_NOISE_MODELSPEC' | 't_NOISE_PRODUCTTYPE' | 'v_NOISE_MULTIV_I' | 'v_NOISE_RAC' | 'v_NOISE_MULTIV_S' | 'v_NOISE_SCAC' | 'v_NOISE_MULTIV_5' | 'v_NOISE_MULTI' | 'v_NOISE_AWHP'
+      modelProps: 't_NOISE_FUNCNAME' | 't_NOISE_FUNCSTEP' | 't_NOISE_MODELSPEC' | 't_NOISE_PRODUCTTYPE' | 't_NOISE_ISC_SPEC' | 'v_NOISE_MULTIV_I' | 'v_NOISE_RAC' | 'v_NOISE_MULTIV_S' | 'v_NOISE_SCAC' | 'v_NOISE_MULTIV_5' | 'v_NOISE_MULTI' | 'v_NOISE_AWHP' | 'v_NOISE_ISC'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1062,6 +1094,72 @@ export namespace Prisma {
           count: {
             args: Prisma.T_NOISE_PRODUCTTYPECountArgs<ExtArgs>,
             result: $Utils.Optional<T_NOISE_PRODUCTTYPECountAggregateOutputType> | number
+          }
+        }
+      }
+      T_NOISE_ISC_SPEC: {
+        payload: Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>
+        fields: Prisma.T_NOISE_ISC_SPECFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.T_NOISE_ISC_SPECFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.T_NOISE_ISC_SPECFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          findFirst: {
+            args: Prisma.T_NOISE_ISC_SPECFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.T_NOISE_ISC_SPECFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          findMany: {
+            args: Prisma.T_NOISE_ISC_SPECFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>[]
+          }
+          create: {
+            args: Prisma.T_NOISE_ISC_SPECCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          createMany: {
+            args: Prisma.T_NOISE_ISC_SPECCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.T_NOISE_ISC_SPECDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          update: {
+            args: Prisma.T_NOISE_ISC_SPECUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          deleteMany: {
+            args: Prisma.T_NOISE_ISC_SPECDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.T_NOISE_ISC_SPECUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.T_NOISE_ISC_SPECUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$T_NOISE_ISC_SPECPayload>
+          }
+          aggregate: {
+            args: Prisma.T_NOISE_ISC_SPECAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateT_NOISE_ISC_SPEC>
+          }
+          groupBy: {
+            args: Prisma.T_NOISE_ISC_SPECGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<T_NOISE_ISC_SPECGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.T_NOISE_ISC_SPECCountArgs<ExtArgs>,
+            result: $Utils.Optional<T_NOISE_ISC_SPECCountAggregateOutputType> | number
           }
         }
       }
@@ -1524,6 +1622,72 @@ export namespace Prisma {
           count: {
             args: Prisma.V_NOISE_AWHPCountArgs<ExtArgs>,
             result: $Utils.Optional<V_NOISE_AWHPCountAggregateOutputType> | number
+          }
+        }
+      }
+      V_NOISE_ISC: {
+        payload: Prisma.$V_NOISE_ISCPayload<ExtArgs>
+        fields: Prisma.V_NOISE_ISCFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.V_NOISE_ISCFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.V_NOISE_ISCFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          findFirst: {
+            args: Prisma.V_NOISE_ISCFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.V_NOISE_ISCFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          findMany: {
+            args: Prisma.V_NOISE_ISCFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>[]
+          }
+          create: {
+            args: Prisma.V_NOISE_ISCCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          createMany: {
+            args: Prisma.V_NOISE_ISCCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.V_NOISE_ISCDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          update: {
+            args: Prisma.V_NOISE_ISCUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          deleteMany: {
+            args: Prisma.V_NOISE_ISCDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.V_NOISE_ISCUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.V_NOISE_ISCUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$V_NOISE_ISCPayload>
+          }
+          aggregate: {
+            args: Prisma.V_NOISE_ISCAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateV_NOISE_ISC>
+          }
+          groupBy: {
+            args: Prisma.V_NOISE_ISCGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_ISCGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.V_NOISE_ISCCountArgs<ExtArgs>,
+            result: $Utils.Optional<V_NOISE_ISCCountAggregateOutputType> | number
           }
         }
       }
@@ -5408,6 +5572,1815 @@ export namespace Prisma {
      * Select specific fields to fetch from the T_NOISE_PRODUCTTYPE
      */
     select?: T_NOISE_PRODUCTTYPESelect<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model T_NOISE_ISC_SPEC
+   */
+
+  export type AggregateT_NOISE_ISC_SPEC = {
+    _count: T_NOISE_ISC_SPECCountAggregateOutputType | null
+    _avg: T_NOISE_ISC_SPECAvgAggregateOutputType | null
+    _sum: T_NOISE_ISC_SPECSumAggregateOutputType | null
+    _min: T_NOISE_ISC_SPECMinAggregateOutputType | null
+    _max: T_NOISE_ISC_SPECMaxAggregateOutputType | null
+  }
+
+  export type T_NOISE_ISC_SPECAvgAggregateOutputType = {
+    ID: number | null
+    TYPE_COOLED: number | null
+    TYPE_REF: number | null
+    TYPE_EVAPORATOR: number | null
+    TYPE_RUNNING: number | null
+    POWER_SUPPLY: number | null
+    GENERATION: number | null
+    NOMINAL_TON: number | null
+    COOLING_CAPACITY: number | null
+    COOLING_CAPACITY_RT: Decimal | null
+    HEATING_CAPACITY: Decimal | null
+    HEATING_CAPACITY_RT: Decimal | null
+    COOLING_INPUT_POWER: Decimal | null
+    HEATING_INPUT_POWER: Decimal | null
+    ESEER: Decimal | null
+    IPLV: Decimal | null
+    IPLV100: Decimal | null
+    IPLV075: Decimal | null
+    IPLV050: Decimal | null
+    IPLV025: Decimal | null
+    SEER: Decimal | null
+    SCOP: Decimal | null
+    OBSOLETE: number | null
+    COOLING_SOUND_POWER: Decimal | null
+    HEATING_SOUND_POWER: Decimal | null
+    EVAPORATOR_EA: number | null
+    COOLING_HEAD_LOSS: Decimal | null
+    HEATING_HEAD_LOSS: Decimal | null
+    COOLING_WATER_FLOW: Decimal | null
+    HEATING_WATER_FLOW: Decimal | null
+    WEIGHT: number | null
+    WEIGHT_SHIPPING: number | null
+    DIMENSION_W: number | null
+    DIMENSION_H: number | null
+    DIMENSION_D: number | null
+    FOOTPRINT: Decimal | null
+    FAN_FLOW_RATE: number | null
+    FAN_MOTOR_POWER: number | null
+    MAX_CURRENT: number | null
+    MIN_VOLTAGE: number | null
+    MAX_VOLTAGE: number | null
+    PHASE: number | null
+    CIRCUIT: number | null
+  }
+
+  export type T_NOISE_ISC_SPECSumAggregateOutputType = {
+    ID: number | null
+    TYPE_COOLED: number | null
+    TYPE_REF: number | null
+    TYPE_EVAPORATOR: number | null
+    TYPE_RUNNING: number | null
+    POWER_SUPPLY: number | null
+    GENERATION: number | null
+    NOMINAL_TON: number | null
+    COOLING_CAPACITY: number | null
+    COOLING_CAPACITY_RT: Decimal | null
+    HEATING_CAPACITY: Decimal | null
+    HEATING_CAPACITY_RT: Decimal | null
+    COOLING_INPUT_POWER: Decimal | null
+    HEATING_INPUT_POWER: Decimal | null
+    ESEER: Decimal | null
+    IPLV: Decimal | null
+    IPLV100: Decimal | null
+    IPLV075: Decimal | null
+    IPLV050: Decimal | null
+    IPLV025: Decimal | null
+    SEER: Decimal | null
+    SCOP: Decimal | null
+    OBSOLETE: number | null
+    COOLING_SOUND_POWER: Decimal | null
+    HEATING_SOUND_POWER: Decimal | null
+    EVAPORATOR_EA: number | null
+    COOLING_HEAD_LOSS: Decimal | null
+    HEATING_HEAD_LOSS: Decimal | null
+    COOLING_WATER_FLOW: Decimal | null
+    HEATING_WATER_FLOW: Decimal | null
+    WEIGHT: number | null
+    WEIGHT_SHIPPING: number | null
+    DIMENSION_W: number | null
+    DIMENSION_H: number | null
+    DIMENSION_D: number | null
+    FOOTPRINT: Decimal | null
+    FAN_FLOW_RATE: number | null
+    FAN_MOTOR_POWER: number | null
+    MAX_CURRENT: number | null
+    MIN_VOLTAGE: number | null
+    MAX_VOLTAGE: number | null
+    PHASE: number | null
+    CIRCUIT: number | null
+  }
+
+  export type T_NOISE_ISC_SPECMinAggregateOutputType = {
+    ID: number | null
+    MODEL: string | null
+    TYPE_COOLED: number | null
+    TYPE_REF: number | null
+    TYPE_EVAPORATOR: number | null
+    TYPE_RUNNING: number | null
+    POWER_SUPPLY: number | null
+    GENERATION: number | null
+    NOMINAL_TON: number | null
+    COOLING_CAPACITY: number | null
+    COOLING_CAPACITY_RT: Decimal | null
+    HEATING_CAPACITY: Decimal | null
+    HEATING_CAPACITY_RT: Decimal | null
+    COOLING_INPUT_POWER: Decimal | null
+    HEATING_INPUT_POWER: Decimal | null
+    ESEER: Decimal | null
+    IPLV: Decimal | null
+    IPLV100: Decimal | null
+    IPLV075: Decimal | null
+    IPLV050: Decimal | null
+    IPLV025: Decimal | null
+    SEER: Decimal | null
+    SCOP: Decimal | null
+    DESCRIPTION: string | null
+    LOCATION: string | null
+    OBSOLETE: number | null
+    SOUND_PRESSURE: string | null
+    SOUND_PRESSURE_HEATING: string | null
+    COOLING_SOUND_POWER: Decimal | null
+    HEATING_SOUND_POWER: Decimal | null
+    EVAPORATOR_EA: number | null
+    COOLING_HEAD_LOSS: Decimal | null
+    HEATING_HEAD_LOSS: Decimal | null
+    COOLING_WATER_FLOW: Decimal | null
+    HEATING_WATER_FLOW: Decimal | null
+    WEIGHT: number | null
+    WEIGHT_SHIPPING: number | null
+    DIMENSION_W: number | null
+    DIMENSION_H: number | null
+    DIMENSION_D: number | null
+    FOOTPRINT: Decimal | null
+    COMP_TYPE: string | null
+    COMP_OILTYPE: string | null
+    COMP_OILCHARGE: string | null
+    COMP_HEATER: string | null
+    REFRIGERANT: string | null
+    REFRIGERANT_CHARGE: string | null
+    COND_TYPE: string | null
+    COND_MAX_PRESSURE: string | null
+    DIAMETER: string | null
+    FAN_TYPE: string | null
+    FAN_VANE: string | null
+    FAN_FLOW_RATE: number | null
+    FAN_MOTOR_POWER: number | null
+    MAX_CURRENT: number | null
+    POWER_LINE: string | null
+    REMOTE_CONTROL: string | null
+    BREAKER: string | null
+    IMAGE_DIMENSIONS: string | null
+    IMAGE_INSTALLATION: string | null
+    IMAGE_WIRING_M: string | null
+    IMAGE_WIRING_S1: string | null
+    IMAGE_WIRING_S2: string | null
+    MCA: string | null
+    MSC: string | null
+    RLA: string | null
+    MIN_VOLTAGE: number | null
+    MAX_VOLTAGE: number | null
+    VOLTAGE: string | null
+    PHASE: number | null
+    HZ: string | null
+    CIRCUIT: number | null
+  }
+
+  export type T_NOISE_ISC_SPECMaxAggregateOutputType = {
+    ID: number | null
+    MODEL: string | null
+    TYPE_COOLED: number | null
+    TYPE_REF: number | null
+    TYPE_EVAPORATOR: number | null
+    TYPE_RUNNING: number | null
+    POWER_SUPPLY: number | null
+    GENERATION: number | null
+    NOMINAL_TON: number | null
+    COOLING_CAPACITY: number | null
+    COOLING_CAPACITY_RT: Decimal | null
+    HEATING_CAPACITY: Decimal | null
+    HEATING_CAPACITY_RT: Decimal | null
+    COOLING_INPUT_POWER: Decimal | null
+    HEATING_INPUT_POWER: Decimal | null
+    ESEER: Decimal | null
+    IPLV: Decimal | null
+    IPLV100: Decimal | null
+    IPLV075: Decimal | null
+    IPLV050: Decimal | null
+    IPLV025: Decimal | null
+    SEER: Decimal | null
+    SCOP: Decimal | null
+    DESCRIPTION: string | null
+    LOCATION: string | null
+    OBSOLETE: number | null
+    SOUND_PRESSURE: string | null
+    SOUND_PRESSURE_HEATING: string | null
+    COOLING_SOUND_POWER: Decimal | null
+    HEATING_SOUND_POWER: Decimal | null
+    EVAPORATOR_EA: number | null
+    COOLING_HEAD_LOSS: Decimal | null
+    HEATING_HEAD_LOSS: Decimal | null
+    COOLING_WATER_FLOW: Decimal | null
+    HEATING_WATER_FLOW: Decimal | null
+    WEIGHT: number | null
+    WEIGHT_SHIPPING: number | null
+    DIMENSION_W: number | null
+    DIMENSION_H: number | null
+    DIMENSION_D: number | null
+    FOOTPRINT: Decimal | null
+    COMP_TYPE: string | null
+    COMP_OILTYPE: string | null
+    COMP_OILCHARGE: string | null
+    COMP_HEATER: string | null
+    REFRIGERANT: string | null
+    REFRIGERANT_CHARGE: string | null
+    COND_TYPE: string | null
+    COND_MAX_PRESSURE: string | null
+    DIAMETER: string | null
+    FAN_TYPE: string | null
+    FAN_VANE: string | null
+    FAN_FLOW_RATE: number | null
+    FAN_MOTOR_POWER: number | null
+    MAX_CURRENT: number | null
+    POWER_LINE: string | null
+    REMOTE_CONTROL: string | null
+    BREAKER: string | null
+    IMAGE_DIMENSIONS: string | null
+    IMAGE_INSTALLATION: string | null
+    IMAGE_WIRING_M: string | null
+    IMAGE_WIRING_S1: string | null
+    IMAGE_WIRING_S2: string | null
+    MCA: string | null
+    MSC: string | null
+    RLA: string | null
+    MIN_VOLTAGE: number | null
+    MAX_VOLTAGE: number | null
+    VOLTAGE: string | null
+    PHASE: number | null
+    HZ: string | null
+    CIRCUIT: number | null
+  }
+
+  export type T_NOISE_ISC_SPECCountAggregateOutputType = {
+    ID: number
+    MODEL: number
+    TYPE_COOLED: number
+    TYPE_REF: number
+    TYPE_EVAPORATOR: number
+    TYPE_RUNNING: number
+    POWER_SUPPLY: number
+    GENERATION: number
+    NOMINAL_TON: number
+    COOLING_CAPACITY: number
+    COOLING_CAPACITY_RT: number
+    HEATING_CAPACITY: number
+    HEATING_CAPACITY_RT: number
+    COOLING_INPUT_POWER: number
+    HEATING_INPUT_POWER: number
+    ESEER: number
+    IPLV: number
+    IPLV100: number
+    IPLV075: number
+    IPLV050: number
+    IPLV025: number
+    SEER: number
+    SCOP: number
+    DESCRIPTION: number
+    LOCATION: number
+    OBSOLETE: number
+    SOUND_PRESSURE: number
+    SOUND_PRESSURE_HEATING: number
+    COOLING_SOUND_POWER: number
+    HEATING_SOUND_POWER: number
+    EVAPORATOR_EA: number
+    COOLING_HEAD_LOSS: number
+    HEATING_HEAD_LOSS: number
+    COOLING_WATER_FLOW: number
+    HEATING_WATER_FLOW: number
+    WEIGHT: number
+    WEIGHT_SHIPPING: number
+    DIMENSION_W: number
+    DIMENSION_H: number
+    DIMENSION_D: number
+    FOOTPRINT: number
+    COMP_TYPE: number
+    COMP_OILTYPE: number
+    COMP_OILCHARGE: number
+    COMP_HEATER: number
+    REFRIGERANT: number
+    REFRIGERANT_CHARGE: number
+    COND_TYPE: number
+    COND_MAX_PRESSURE: number
+    DIAMETER: number
+    FAN_TYPE: number
+    FAN_VANE: number
+    FAN_FLOW_RATE: number
+    FAN_MOTOR_POWER: number
+    MAX_CURRENT: number
+    POWER_LINE: number
+    REMOTE_CONTROL: number
+    BREAKER: number
+    IMAGE_DIMENSIONS: number
+    IMAGE_INSTALLATION: number
+    IMAGE_WIRING_M: number
+    IMAGE_WIRING_S1: number
+    IMAGE_WIRING_S2: number
+    MCA: number
+    MSC: number
+    RLA: number
+    MIN_VOLTAGE: number
+    MAX_VOLTAGE: number
+    VOLTAGE: number
+    PHASE: number
+    HZ: number
+    CIRCUIT: number
+    _all: number
+  }
+
+
+  export type T_NOISE_ISC_SPECAvgAggregateInputType = {
+    ID?: true
+    TYPE_COOLED?: true
+    TYPE_REF?: true
+    TYPE_EVAPORATOR?: true
+    TYPE_RUNNING?: true
+    POWER_SUPPLY?: true
+    GENERATION?: true
+    NOMINAL_TON?: true
+    COOLING_CAPACITY?: true
+    COOLING_CAPACITY_RT?: true
+    HEATING_CAPACITY?: true
+    HEATING_CAPACITY_RT?: true
+    COOLING_INPUT_POWER?: true
+    HEATING_INPUT_POWER?: true
+    ESEER?: true
+    IPLV?: true
+    IPLV100?: true
+    IPLV075?: true
+    IPLV050?: true
+    IPLV025?: true
+    SEER?: true
+    SCOP?: true
+    OBSOLETE?: true
+    COOLING_SOUND_POWER?: true
+    HEATING_SOUND_POWER?: true
+    EVAPORATOR_EA?: true
+    COOLING_HEAD_LOSS?: true
+    HEATING_HEAD_LOSS?: true
+    COOLING_WATER_FLOW?: true
+    HEATING_WATER_FLOW?: true
+    WEIGHT?: true
+    WEIGHT_SHIPPING?: true
+    DIMENSION_W?: true
+    DIMENSION_H?: true
+    DIMENSION_D?: true
+    FOOTPRINT?: true
+    FAN_FLOW_RATE?: true
+    FAN_MOTOR_POWER?: true
+    MAX_CURRENT?: true
+    MIN_VOLTAGE?: true
+    MAX_VOLTAGE?: true
+    PHASE?: true
+    CIRCUIT?: true
+  }
+
+  export type T_NOISE_ISC_SPECSumAggregateInputType = {
+    ID?: true
+    TYPE_COOLED?: true
+    TYPE_REF?: true
+    TYPE_EVAPORATOR?: true
+    TYPE_RUNNING?: true
+    POWER_SUPPLY?: true
+    GENERATION?: true
+    NOMINAL_TON?: true
+    COOLING_CAPACITY?: true
+    COOLING_CAPACITY_RT?: true
+    HEATING_CAPACITY?: true
+    HEATING_CAPACITY_RT?: true
+    COOLING_INPUT_POWER?: true
+    HEATING_INPUT_POWER?: true
+    ESEER?: true
+    IPLV?: true
+    IPLV100?: true
+    IPLV075?: true
+    IPLV050?: true
+    IPLV025?: true
+    SEER?: true
+    SCOP?: true
+    OBSOLETE?: true
+    COOLING_SOUND_POWER?: true
+    HEATING_SOUND_POWER?: true
+    EVAPORATOR_EA?: true
+    COOLING_HEAD_LOSS?: true
+    HEATING_HEAD_LOSS?: true
+    COOLING_WATER_FLOW?: true
+    HEATING_WATER_FLOW?: true
+    WEIGHT?: true
+    WEIGHT_SHIPPING?: true
+    DIMENSION_W?: true
+    DIMENSION_H?: true
+    DIMENSION_D?: true
+    FOOTPRINT?: true
+    FAN_FLOW_RATE?: true
+    FAN_MOTOR_POWER?: true
+    MAX_CURRENT?: true
+    MIN_VOLTAGE?: true
+    MAX_VOLTAGE?: true
+    PHASE?: true
+    CIRCUIT?: true
+  }
+
+  export type T_NOISE_ISC_SPECMinAggregateInputType = {
+    ID?: true
+    MODEL?: true
+    TYPE_COOLED?: true
+    TYPE_REF?: true
+    TYPE_EVAPORATOR?: true
+    TYPE_RUNNING?: true
+    POWER_SUPPLY?: true
+    GENERATION?: true
+    NOMINAL_TON?: true
+    COOLING_CAPACITY?: true
+    COOLING_CAPACITY_RT?: true
+    HEATING_CAPACITY?: true
+    HEATING_CAPACITY_RT?: true
+    COOLING_INPUT_POWER?: true
+    HEATING_INPUT_POWER?: true
+    ESEER?: true
+    IPLV?: true
+    IPLV100?: true
+    IPLV075?: true
+    IPLV050?: true
+    IPLV025?: true
+    SEER?: true
+    SCOP?: true
+    DESCRIPTION?: true
+    LOCATION?: true
+    OBSOLETE?: true
+    SOUND_PRESSURE?: true
+    SOUND_PRESSURE_HEATING?: true
+    COOLING_SOUND_POWER?: true
+    HEATING_SOUND_POWER?: true
+    EVAPORATOR_EA?: true
+    COOLING_HEAD_LOSS?: true
+    HEATING_HEAD_LOSS?: true
+    COOLING_WATER_FLOW?: true
+    HEATING_WATER_FLOW?: true
+    WEIGHT?: true
+    WEIGHT_SHIPPING?: true
+    DIMENSION_W?: true
+    DIMENSION_H?: true
+    DIMENSION_D?: true
+    FOOTPRINT?: true
+    COMP_TYPE?: true
+    COMP_OILTYPE?: true
+    COMP_OILCHARGE?: true
+    COMP_HEATER?: true
+    REFRIGERANT?: true
+    REFRIGERANT_CHARGE?: true
+    COND_TYPE?: true
+    COND_MAX_PRESSURE?: true
+    DIAMETER?: true
+    FAN_TYPE?: true
+    FAN_VANE?: true
+    FAN_FLOW_RATE?: true
+    FAN_MOTOR_POWER?: true
+    MAX_CURRENT?: true
+    POWER_LINE?: true
+    REMOTE_CONTROL?: true
+    BREAKER?: true
+    IMAGE_DIMENSIONS?: true
+    IMAGE_INSTALLATION?: true
+    IMAGE_WIRING_M?: true
+    IMAGE_WIRING_S1?: true
+    IMAGE_WIRING_S2?: true
+    MCA?: true
+    MSC?: true
+    RLA?: true
+    MIN_VOLTAGE?: true
+    MAX_VOLTAGE?: true
+    VOLTAGE?: true
+    PHASE?: true
+    HZ?: true
+    CIRCUIT?: true
+  }
+
+  export type T_NOISE_ISC_SPECMaxAggregateInputType = {
+    ID?: true
+    MODEL?: true
+    TYPE_COOLED?: true
+    TYPE_REF?: true
+    TYPE_EVAPORATOR?: true
+    TYPE_RUNNING?: true
+    POWER_SUPPLY?: true
+    GENERATION?: true
+    NOMINAL_TON?: true
+    COOLING_CAPACITY?: true
+    COOLING_CAPACITY_RT?: true
+    HEATING_CAPACITY?: true
+    HEATING_CAPACITY_RT?: true
+    COOLING_INPUT_POWER?: true
+    HEATING_INPUT_POWER?: true
+    ESEER?: true
+    IPLV?: true
+    IPLV100?: true
+    IPLV075?: true
+    IPLV050?: true
+    IPLV025?: true
+    SEER?: true
+    SCOP?: true
+    DESCRIPTION?: true
+    LOCATION?: true
+    OBSOLETE?: true
+    SOUND_PRESSURE?: true
+    SOUND_PRESSURE_HEATING?: true
+    COOLING_SOUND_POWER?: true
+    HEATING_SOUND_POWER?: true
+    EVAPORATOR_EA?: true
+    COOLING_HEAD_LOSS?: true
+    HEATING_HEAD_LOSS?: true
+    COOLING_WATER_FLOW?: true
+    HEATING_WATER_FLOW?: true
+    WEIGHT?: true
+    WEIGHT_SHIPPING?: true
+    DIMENSION_W?: true
+    DIMENSION_H?: true
+    DIMENSION_D?: true
+    FOOTPRINT?: true
+    COMP_TYPE?: true
+    COMP_OILTYPE?: true
+    COMP_OILCHARGE?: true
+    COMP_HEATER?: true
+    REFRIGERANT?: true
+    REFRIGERANT_CHARGE?: true
+    COND_TYPE?: true
+    COND_MAX_PRESSURE?: true
+    DIAMETER?: true
+    FAN_TYPE?: true
+    FAN_VANE?: true
+    FAN_FLOW_RATE?: true
+    FAN_MOTOR_POWER?: true
+    MAX_CURRENT?: true
+    POWER_LINE?: true
+    REMOTE_CONTROL?: true
+    BREAKER?: true
+    IMAGE_DIMENSIONS?: true
+    IMAGE_INSTALLATION?: true
+    IMAGE_WIRING_M?: true
+    IMAGE_WIRING_S1?: true
+    IMAGE_WIRING_S2?: true
+    MCA?: true
+    MSC?: true
+    RLA?: true
+    MIN_VOLTAGE?: true
+    MAX_VOLTAGE?: true
+    VOLTAGE?: true
+    PHASE?: true
+    HZ?: true
+    CIRCUIT?: true
+  }
+
+  export type T_NOISE_ISC_SPECCountAggregateInputType = {
+    ID?: true
+    MODEL?: true
+    TYPE_COOLED?: true
+    TYPE_REF?: true
+    TYPE_EVAPORATOR?: true
+    TYPE_RUNNING?: true
+    POWER_SUPPLY?: true
+    GENERATION?: true
+    NOMINAL_TON?: true
+    COOLING_CAPACITY?: true
+    COOLING_CAPACITY_RT?: true
+    HEATING_CAPACITY?: true
+    HEATING_CAPACITY_RT?: true
+    COOLING_INPUT_POWER?: true
+    HEATING_INPUT_POWER?: true
+    ESEER?: true
+    IPLV?: true
+    IPLV100?: true
+    IPLV075?: true
+    IPLV050?: true
+    IPLV025?: true
+    SEER?: true
+    SCOP?: true
+    DESCRIPTION?: true
+    LOCATION?: true
+    OBSOLETE?: true
+    SOUND_PRESSURE?: true
+    SOUND_PRESSURE_HEATING?: true
+    COOLING_SOUND_POWER?: true
+    HEATING_SOUND_POWER?: true
+    EVAPORATOR_EA?: true
+    COOLING_HEAD_LOSS?: true
+    HEATING_HEAD_LOSS?: true
+    COOLING_WATER_FLOW?: true
+    HEATING_WATER_FLOW?: true
+    WEIGHT?: true
+    WEIGHT_SHIPPING?: true
+    DIMENSION_W?: true
+    DIMENSION_H?: true
+    DIMENSION_D?: true
+    FOOTPRINT?: true
+    COMP_TYPE?: true
+    COMP_OILTYPE?: true
+    COMP_OILCHARGE?: true
+    COMP_HEATER?: true
+    REFRIGERANT?: true
+    REFRIGERANT_CHARGE?: true
+    COND_TYPE?: true
+    COND_MAX_PRESSURE?: true
+    DIAMETER?: true
+    FAN_TYPE?: true
+    FAN_VANE?: true
+    FAN_FLOW_RATE?: true
+    FAN_MOTOR_POWER?: true
+    MAX_CURRENT?: true
+    POWER_LINE?: true
+    REMOTE_CONTROL?: true
+    BREAKER?: true
+    IMAGE_DIMENSIONS?: true
+    IMAGE_INSTALLATION?: true
+    IMAGE_WIRING_M?: true
+    IMAGE_WIRING_S1?: true
+    IMAGE_WIRING_S2?: true
+    MCA?: true
+    MSC?: true
+    RLA?: true
+    MIN_VOLTAGE?: true
+    MAX_VOLTAGE?: true
+    VOLTAGE?: true
+    PHASE?: true
+    HZ?: true
+    CIRCUIT?: true
+    _all?: true
+  }
+
+  export type T_NOISE_ISC_SPECAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_NOISE_ISC_SPEC to aggregate.
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_NOISE_ISC_SPECS to fetch.
+     */
+    orderBy?: T_NOISE_ISC_SPECOrderByWithRelationInput | T_NOISE_ISC_SPECOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: T_NOISE_ISC_SPECWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_NOISE_ISC_SPECS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_NOISE_ISC_SPECS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned T_NOISE_ISC_SPECS
+    **/
+    _count?: true | T_NOISE_ISC_SPECCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: T_NOISE_ISC_SPECAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: T_NOISE_ISC_SPECSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: T_NOISE_ISC_SPECMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: T_NOISE_ISC_SPECMaxAggregateInputType
+  }
+
+  export type GetT_NOISE_ISC_SPECAggregateType<T extends T_NOISE_ISC_SPECAggregateArgs> = {
+        [P in keyof T & keyof AggregateT_NOISE_ISC_SPEC]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateT_NOISE_ISC_SPEC[P]>
+      : GetScalarType<T[P], AggregateT_NOISE_ISC_SPEC[P]>
+  }
+
+
+
+
+  export type T_NOISE_ISC_SPECGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: T_NOISE_ISC_SPECWhereInput
+    orderBy?: T_NOISE_ISC_SPECOrderByWithAggregationInput | T_NOISE_ISC_SPECOrderByWithAggregationInput[]
+    by: T_NOISE_ISC_SPECScalarFieldEnum[] | T_NOISE_ISC_SPECScalarFieldEnum
+    having?: T_NOISE_ISC_SPECScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: T_NOISE_ISC_SPECCountAggregateInputType | true
+    _avg?: T_NOISE_ISC_SPECAvgAggregateInputType
+    _sum?: T_NOISE_ISC_SPECSumAggregateInputType
+    _min?: T_NOISE_ISC_SPECMinAggregateInputType
+    _max?: T_NOISE_ISC_SPECMaxAggregateInputType
+  }
+
+  export type T_NOISE_ISC_SPECGroupByOutputType = {
+    ID: number
+    MODEL: string | null
+    TYPE_COOLED: number | null
+    TYPE_REF: number | null
+    TYPE_EVAPORATOR: number | null
+    TYPE_RUNNING: number | null
+    POWER_SUPPLY: number | null
+    GENERATION: number | null
+    NOMINAL_TON: number | null
+    COOLING_CAPACITY: number | null
+    COOLING_CAPACITY_RT: Decimal | null
+    HEATING_CAPACITY: Decimal | null
+    HEATING_CAPACITY_RT: Decimal | null
+    COOLING_INPUT_POWER: Decimal | null
+    HEATING_INPUT_POWER: Decimal | null
+    ESEER: Decimal | null
+    IPLV: Decimal | null
+    IPLV100: Decimal | null
+    IPLV075: Decimal | null
+    IPLV050: Decimal | null
+    IPLV025: Decimal | null
+    SEER: Decimal | null
+    SCOP: Decimal | null
+    DESCRIPTION: string | null
+    LOCATION: string | null
+    OBSOLETE: number | null
+    SOUND_PRESSURE: string | null
+    SOUND_PRESSURE_HEATING: string | null
+    COOLING_SOUND_POWER: Decimal | null
+    HEATING_SOUND_POWER: Decimal | null
+    EVAPORATOR_EA: number | null
+    COOLING_HEAD_LOSS: Decimal | null
+    HEATING_HEAD_LOSS: Decimal | null
+    COOLING_WATER_FLOW: Decimal | null
+    HEATING_WATER_FLOW: Decimal | null
+    WEIGHT: number | null
+    WEIGHT_SHIPPING: number | null
+    DIMENSION_W: number | null
+    DIMENSION_H: number | null
+    DIMENSION_D: number | null
+    FOOTPRINT: Decimal | null
+    COMP_TYPE: string | null
+    COMP_OILTYPE: string | null
+    COMP_OILCHARGE: string | null
+    COMP_HEATER: string | null
+    REFRIGERANT: string | null
+    REFRIGERANT_CHARGE: string | null
+    COND_TYPE: string | null
+    COND_MAX_PRESSURE: string | null
+    DIAMETER: string | null
+    FAN_TYPE: string | null
+    FAN_VANE: string | null
+    FAN_FLOW_RATE: number | null
+    FAN_MOTOR_POWER: number | null
+    MAX_CURRENT: number | null
+    POWER_LINE: string | null
+    REMOTE_CONTROL: string | null
+    BREAKER: string | null
+    IMAGE_DIMENSIONS: string | null
+    IMAGE_INSTALLATION: string | null
+    IMAGE_WIRING_M: string | null
+    IMAGE_WIRING_S1: string | null
+    IMAGE_WIRING_S2: string | null
+    MCA: string | null
+    MSC: string | null
+    RLA: string | null
+    MIN_VOLTAGE: number | null
+    MAX_VOLTAGE: number | null
+    VOLTAGE: string | null
+    PHASE: number | null
+    HZ: string | null
+    CIRCUIT: number | null
+    _count: T_NOISE_ISC_SPECCountAggregateOutputType | null
+    _avg: T_NOISE_ISC_SPECAvgAggregateOutputType | null
+    _sum: T_NOISE_ISC_SPECSumAggregateOutputType | null
+    _min: T_NOISE_ISC_SPECMinAggregateOutputType | null
+    _max: T_NOISE_ISC_SPECMaxAggregateOutputType | null
+  }
+
+  type GetT_NOISE_ISC_SPECGroupByPayload<T extends T_NOISE_ISC_SPECGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<T_NOISE_ISC_SPECGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof T_NOISE_ISC_SPECGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], T_NOISE_ISC_SPECGroupByOutputType[P]>
+            : GetScalarType<T[P], T_NOISE_ISC_SPECGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type T_NOISE_ISC_SPECSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID?: boolean
+    MODEL?: boolean
+    TYPE_COOLED?: boolean
+    TYPE_REF?: boolean
+    TYPE_EVAPORATOR?: boolean
+    TYPE_RUNNING?: boolean
+    POWER_SUPPLY?: boolean
+    GENERATION?: boolean
+    NOMINAL_TON?: boolean
+    COOLING_CAPACITY?: boolean
+    COOLING_CAPACITY_RT?: boolean
+    HEATING_CAPACITY?: boolean
+    HEATING_CAPACITY_RT?: boolean
+    COOLING_INPUT_POWER?: boolean
+    HEATING_INPUT_POWER?: boolean
+    ESEER?: boolean
+    IPLV?: boolean
+    IPLV100?: boolean
+    IPLV075?: boolean
+    IPLV050?: boolean
+    IPLV025?: boolean
+    SEER?: boolean
+    SCOP?: boolean
+    DESCRIPTION?: boolean
+    LOCATION?: boolean
+    OBSOLETE?: boolean
+    SOUND_PRESSURE?: boolean
+    SOUND_PRESSURE_HEATING?: boolean
+    COOLING_SOUND_POWER?: boolean
+    HEATING_SOUND_POWER?: boolean
+    EVAPORATOR_EA?: boolean
+    COOLING_HEAD_LOSS?: boolean
+    HEATING_HEAD_LOSS?: boolean
+    COOLING_WATER_FLOW?: boolean
+    HEATING_WATER_FLOW?: boolean
+    WEIGHT?: boolean
+    WEIGHT_SHIPPING?: boolean
+    DIMENSION_W?: boolean
+    DIMENSION_H?: boolean
+    DIMENSION_D?: boolean
+    FOOTPRINT?: boolean
+    COMP_TYPE?: boolean
+    COMP_OILTYPE?: boolean
+    COMP_OILCHARGE?: boolean
+    COMP_HEATER?: boolean
+    REFRIGERANT?: boolean
+    REFRIGERANT_CHARGE?: boolean
+    COND_TYPE?: boolean
+    COND_MAX_PRESSURE?: boolean
+    DIAMETER?: boolean
+    FAN_TYPE?: boolean
+    FAN_VANE?: boolean
+    FAN_FLOW_RATE?: boolean
+    FAN_MOTOR_POWER?: boolean
+    MAX_CURRENT?: boolean
+    POWER_LINE?: boolean
+    REMOTE_CONTROL?: boolean
+    BREAKER?: boolean
+    IMAGE_DIMENSIONS?: boolean
+    IMAGE_INSTALLATION?: boolean
+    IMAGE_WIRING_M?: boolean
+    IMAGE_WIRING_S1?: boolean
+    IMAGE_WIRING_S2?: boolean
+    MCA?: boolean
+    MSC?: boolean
+    RLA?: boolean
+    MIN_VOLTAGE?: boolean
+    MAX_VOLTAGE?: boolean
+    VOLTAGE?: boolean
+    PHASE?: boolean
+    HZ?: boolean
+    CIRCUIT?: boolean
+  }, ExtArgs["result"]["t_NOISE_ISC_SPEC"]>
+
+  export type T_NOISE_ISC_SPECSelectScalar = {
+    ID?: boolean
+    MODEL?: boolean
+    TYPE_COOLED?: boolean
+    TYPE_REF?: boolean
+    TYPE_EVAPORATOR?: boolean
+    TYPE_RUNNING?: boolean
+    POWER_SUPPLY?: boolean
+    GENERATION?: boolean
+    NOMINAL_TON?: boolean
+    COOLING_CAPACITY?: boolean
+    COOLING_CAPACITY_RT?: boolean
+    HEATING_CAPACITY?: boolean
+    HEATING_CAPACITY_RT?: boolean
+    COOLING_INPUT_POWER?: boolean
+    HEATING_INPUT_POWER?: boolean
+    ESEER?: boolean
+    IPLV?: boolean
+    IPLV100?: boolean
+    IPLV075?: boolean
+    IPLV050?: boolean
+    IPLV025?: boolean
+    SEER?: boolean
+    SCOP?: boolean
+    DESCRIPTION?: boolean
+    LOCATION?: boolean
+    OBSOLETE?: boolean
+    SOUND_PRESSURE?: boolean
+    SOUND_PRESSURE_HEATING?: boolean
+    COOLING_SOUND_POWER?: boolean
+    HEATING_SOUND_POWER?: boolean
+    EVAPORATOR_EA?: boolean
+    COOLING_HEAD_LOSS?: boolean
+    HEATING_HEAD_LOSS?: boolean
+    COOLING_WATER_FLOW?: boolean
+    HEATING_WATER_FLOW?: boolean
+    WEIGHT?: boolean
+    WEIGHT_SHIPPING?: boolean
+    DIMENSION_W?: boolean
+    DIMENSION_H?: boolean
+    DIMENSION_D?: boolean
+    FOOTPRINT?: boolean
+    COMP_TYPE?: boolean
+    COMP_OILTYPE?: boolean
+    COMP_OILCHARGE?: boolean
+    COMP_HEATER?: boolean
+    REFRIGERANT?: boolean
+    REFRIGERANT_CHARGE?: boolean
+    COND_TYPE?: boolean
+    COND_MAX_PRESSURE?: boolean
+    DIAMETER?: boolean
+    FAN_TYPE?: boolean
+    FAN_VANE?: boolean
+    FAN_FLOW_RATE?: boolean
+    FAN_MOTOR_POWER?: boolean
+    MAX_CURRENT?: boolean
+    POWER_LINE?: boolean
+    REMOTE_CONTROL?: boolean
+    BREAKER?: boolean
+    IMAGE_DIMENSIONS?: boolean
+    IMAGE_INSTALLATION?: boolean
+    IMAGE_WIRING_M?: boolean
+    IMAGE_WIRING_S1?: boolean
+    IMAGE_WIRING_S2?: boolean
+    MCA?: boolean
+    MSC?: boolean
+    RLA?: boolean
+    MIN_VOLTAGE?: boolean
+    MAX_VOLTAGE?: boolean
+    VOLTAGE?: boolean
+    PHASE?: boolean
+    HZ?: boolean
+    CIRCUIT?: boolean
+  }
+
+
+  export type $T_NOISE_ISC_SPECPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "T_NOISE_ISC_SPEC"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      ID: number
+      MODEL: string | null
+      TYPE_COOLED: number | null
+      TYPE_REF: number | null
+      TYPE_EVAPORATOR: number | null
+      TYPE_RUNNING: number | null
+      POWER_SUPPLY: number | null
+      GENERATION: number | null
+      NOMINAL_TON: number | null
+      COOLING_CAPACITY: number | null
+      COOLING_CAPACITY_RT: Prisma.Decimal | null
+      HEATING_CAPACITY: Prisma.Decimal | null
+      HEATING_CAPACITY_RT: Prisma.Decimal | null
+      COOLING_INPUT_POWER: Prisma.Decimal | null
+      HEATING_INPUT_POWER: Prisma.Decimal | null
+      ESEER: Prisma.Decimal | null
+      IPLV: Prisma.Decimal | null
+      IPLV100: Prisma.Decimal | null
+      IPLV075: Prisma.Decimal | null
+      IPLV050: Prisma.Decimal | null
+      IPLV025: Prisma.Decimal | null
+      SEER: Prisma.Decimal | null
+      SCOP: Prisma.Decimal | null
+      DESCRIPTION: string | null
+      LOCATION: string | null
+      OBSOLETE: number | null
+      SOUND_PRESSURE: string | null
+      SOUND_PRESSURE_HEATING: string | null
+      COOLING_SOUND_POWER: Prisma.Decimal | null
+      HEATING_SOUND_POWER: Prisma.Decimal | null
+      EVAPORATOR_EA: number | null
+      COOLING_HEAD_LOSS: Prisma.Decimal | null
+      HEATING_HEAD_LOSS: Prisma.Decimal | null
+      COOLING_WATER_FLOW: Prisma.Decimal | null
+      HEATING_WATER_FLOW: Prisma.Decimal | null
+      WEIGHT: number | null
+      WEIGHT_SHIPPING: number | null
+      DIMENSION_W: number | null
+      DIMENSION_H: number | null
+      DIMENSION_D: number | null
+      FOOTPRINT: Prisma.Decimal | null
+      COMP_TYPE: string | null
+      COMP_OILTYPE: string | null
+      COMP_OILCHARGE: string | null
+      COMP_HEATER: string | null
+      REFRIGERANT: string | null
+      REFRIGERANT_CHARGE: string | null
+      COND_TYPE: string | null
+      COND_MAX_PRESSURE: string | null
+      DIAMETER: string | null
+      FAN_TYPE: string | null
+      FAN_VANE: string | null
+      FAN_FLOW_RATE: number | null
+      FAN_MOTOR_POWER: number | null
+      MAX_CURRENT: number | null
+      POWER_LINE: string | null
+      REMOTE_CONTROL: string | null
+      BREAKER: string | null
+      IMAGE_DIMENSIONS: string | null
+      IMAGE_INSTALLATION: string | null
+      IMAGE_WIRING_M: string | null
+      IMAGE_WIRING_S1: string | null
+      IMAGE_WIRING_S2: string | null
+      MCA: string | null
+      MSC: string | null
+      RLA: string | null
+      MIN_VOLTAGE: number | null
+      MAX_VOLTAGE: number | null
+      VOLTAGE: string | null
+      PHASE: number | null
+      HZ: string | null
+      CIRCUIT: number | null
+    }, ExtArgs["result"]["t_NOISE_ISC_SPEC"]>
+    composites: {}
+  }
+
+
+  type T_NOISE_ISC_SPECGetPayload<S extends boolean | null | undefined | T_NOISE_ISC_SPECDefaultArgs> = $Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload, S>
+
+  type T_NOISE_ISC_SPECCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<T_NOISE_ISC_SPECFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: T_NOISE_ISC_SPECCountAggregateInputType | true
+    }
+
+  export interface T_NOISE_ISC_SPECDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['T_NOISE_ISC_SPEC'], meta: { name: 'T_NOISE_ISC_SPEC' } }
+    /**
+     * Find zero or one T_NOISE_ISC_SPEC that matches the filter.
+     * @param {T_NOISE_ISC_SPECFindUniqueArgs} args - Arguments to find a T_NOISE_ISC_SPEC
+     * @example
+     * // Get one T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends T_NOISE_ISC_SPECFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECFindUniqueArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one T_NOISE_ISC_SPEC that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {T_NOISE_ISC_SPECFindUniqueOrThrowArgs} args - Arguments to find a T_NOISE_ISC_SPEC
+     * @example
+     * // Get one T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends T_NOISE_ISC_SPECFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first T_NOISE_ISC_SPEC that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECFindFirstArgs} args - Arguments to find a T_NOISE_ISC_SPEC
+     * @example
+     * // Get one T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends T_NOISE_ISC_SPECFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECFindFirstArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first T_NOISE_ISC_SPEC that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECFindFirstOrThrowArgs} args - Arguments to find a T_NOISE_ISC_SPEC
+     * @example
+     * // Get one T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends T_NOISE_ISC_SPECFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more T_NOISE_ISC_SPECS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all T_NOISE_ISC_SPECS
+     * const t_NOISE_ISC_SPECS = await prisma.t_NOISE_ISC_SPEC.findMany()
+     * 
+     * // Get first 10 T_NOISE_ISC_SPECS
+     * const t_NOISE_ISC_SPECS = await prisma.t_NOISE_ISC_SPEC.findMany({ take: 10 })
+     * 
+     * // Only select the `ID`
+     * const t_NOISE_ISC_SPECWithIDOnly = await prisma.t_NOISE_ISC_SPEC.findMany({ select: { ID: true } })
+     * 
+    **/
+    findMany<T extends T_NOISE_ISC_SPECFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a T_NOISE_ISC_SPEC.
+     * @param {T_NOISE_ISC_SPECCreateArgs} args - Arguments to create a T_NOISE_ISC_SPEC.
+     * @example
+     * // Create one T_NOISE_ISC_SPEC
+     * const T_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.create({
+     *   data: {
+     *     // ... data to create a T_NOISE_ISC_SPEC
+     *   }
+     * })
+     * 
+    **/
+    create<T extends T_NOISE_ISC_SPECCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECCreateArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many T_NOISE_ISC_SPECS.
+     *     @param {T_NOISE_ISC_SPECCreateManyArgs} args - Arguments to create many T_NOISE_ISC_SPECS.
+     *     @example
+     *     // Create many T_NOISE_ISC_SPECS
+     *     const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends T_NOISE_ISC_SPECCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a T_NOISE_ISC_SPEC.
+     * @param {T_NOISE_ISC_SPECDeleteArgs} args - Arguments to delete one T_NOISE_ISC_SPEC.
+     * @example
+     * // Delete one T_NOISE_ISC_SPEC
+     * const T_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.delete({
+     *   where: {
+     *     // ... filter to delete one T_NOISE_ISC_SPEC
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends T_NOISE_ISC_SPECDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECDeleteArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one T_NOISE_ISC_SPEC.
+     * @param {T_NOISE_ISC_SPECUpdateArgs} args - Arguments to update one T_NOISE_ISC_SPEC.
+     * @example
+     * // Update one T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends T_NOISE_ISC_SPECUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECUpdateArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more T_NOISE_ISC_SPECS.
+     * @param {T_NOISE_ISC_SPECDeleteManyArgs} args - Arguments to filter T_NOISE_ISC_SPECS to delete.
+     * @example
+     * // Delete a few T_NOISE_ISC_SPECS
+     * const { count } = await prisma.t_NOISE_ISC_SPEC.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends T_NOISE_ISC_SPECDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, T_NOISE_ISC_SPECDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more T_NOISE_ISC_SPECS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many T_NOISE_ISC_SPECS
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends T_NOISE_ISC_SPECUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one T_NOISE_ISC_SPEC.
+     * @param {T_NOISE_ISC_SPECUpsertArgs} args - Arguments to update or create a T_NOISE_ISC_SPEC.
+     * @example
+     * // Update or create a T_NOISE_ISC_SPEC
+     * const t_NOISE_ISC_SPEC = await prisma.t_NOISE_ISC_SPEC.upsert({
+     *   create: {
+     *     // ... data to create a T_NOISE_ISC_SPEC
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the T_NOISE_ISC_SPEC we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends T_NOISE_ISC_SPECUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, T_NOISE_ISC_SPECUpsertArgs<ExtArgs>>
+    ): Prisma__T_NOISE_ISC_SPECClient<$Result.GetResult<Prisma.$T_NOISE_ISC_SPECPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of T_NOISE_ISC_SPECS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECCountArgs} args - Arguments to filter T_NOISE_ISC_SPECS to count.
+     * @example
+     * // Count the number of T_NOISE_ISC_SPECS
+     * const count = await prisma.t_NOISE_ISC_SPEC.count({
+     *   where: {
+     *     // ... the filter for the T_NOISE_ISC_SPECS we want to count
+     *   }
+     * })
+    **/
+    count<T extends T_NOISE_ISC_SPECCountArgs>(
+      args?: Subset<T, T_NOISE_ISC_SPECCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], T_NOISE_ISC_SPECCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a T_NOISE_ISC_SPEC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends T_NOISE_ISC_SPECAggregateArgs>(args: Subset<T, T_NOISE_ISC_SPECAggregateArgs>): Prisma.PrismaPromise<GetT_NOISE_ISC_SPECAggregateType<T>>
+
+    /**
+     * Group by T_NOISE_ISC_SPEC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {T_NOISE_ISC_SPECGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends T_NOISE_ISC_SPECGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: T_NOISE_ISC_SPECGroupByArgs['orderBy'] }
+        : { orderBy?: T_NOISE_ISC_SPECGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, T_NOISE_ISC_SPECGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetT_NOISE_ISC_SPECGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the T_NOISE_ISC_SPEC model
+   */
+  readonly fields: T_NOISE_ISC_SPECFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for T_NOISE_ISC_SPEC.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__T_NOISE_ISC_SPECClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the T_NOISE_ISC_SPEC model
+   */ 
+  interface T_NOISE_ISC_SPECFieldRefs {
+    readonly ID: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly MODEL: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly TYPE_COOLED: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly TYPE_REF: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly TYPE_EVAPORATOR: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly TYPE_RUNNING: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly POWER_SUPPLY: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly GENERATION: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly NOMINAL_TON: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly COOLING_CAPACITY: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly COOLING_CAPACITY_RT: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_CAPACITY: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_CAPACITY_RT: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly COOLING_INPUT_POWER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_INPUT_POWER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly ESEER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly IPLV: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly IPLV100: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly IPLV075: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly IPLV050: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly IPLV025: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly SEER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly SCOP: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly DESCRIPTION: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly LOCATION: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly OBSOLETE: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly SOUND_PRESSURE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly SOUND_PRESSURE_HEATING: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COOLING_SOUND_POWER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_SOUND_POWER: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly EVAPORATOR_EA: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly COOLING_HEAD_LOSS: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_HEAD_LOSS: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly COOLING_WATER_FLOW: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly HEATING_WATER_FLOW: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly WEIGHT: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly WEIGHT_SHIPPING: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly DIMENSION_W: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly DIMENSION_H: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly DIMENSION_D: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly FOOTPRINT: FieldRef<"T_NOISE_ISC_SPEC", 'Decimal'>
+    readonly COMP_TYPE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COMP_OILTYPE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COMP_OILCHARGE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COMP_HEATER: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly REFRIGERANT: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly REFRIGERANT_CHARGE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COND_TYPE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly COND_MAX_PRESSURE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly DIAMETER: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly FAN_TYPE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly FAN_VANE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly FAN_FLOW_RATE: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly FAN_MOTOR_POWER: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly MAX_CURRENT: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly POWER_LINE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly REMOTE_CONTROL: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly BREAKER: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly IMAGE_DIMENSIONS: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly IMAGE_INSTALLATION: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly IMAGE_WIRING_M: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly IMAGE_WIRING_S1: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly IMAGE_WIRING_S2: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly MCA: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly MSC: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly RLA: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly MIN_VOLTAGE: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly MAX_VOLTAGE: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly VOLTAGE: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly PHASE: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+    readonly HZ: FieldRef<"T_NOISE_ISC_SPEC", 'String'>
+    readonly CIRCUIT: FieldRef<"T_NOISE_ISC_SPEC", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * T_NOISE_ISC_SPEC findUnique
+   */
+  export type T_NOISE_ISC_SPECFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter, which T_NOISE_ISC_SPEC to fetch.
+     */
+    where: T_NOISE_ISC_SPECWhereUniqueInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC findUniqueOrThrow
+   */
+  export type T_NOISE_ISC_SPECFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter, which T_NOISE_ISC_SPEC to fetch.
+     */
+    where: T_NOISE_ISC_SPECWhereUniqueInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC findFirst
+   */
+  export type T_NOISE_ISC_SPECFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter, which T_NOISE_ISC_SPEC to fetch.
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_NOISE_ISC_SPECS to fetch.
+     */
+    orderBy?: T_NOISE_ISC_SPECOrderByWithRelationInput | T_NOISE_ISC_SPECOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_NOISE_ISC_SPECS.
+     */
+    cursor?: T_NOISE_ISC_SPECWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_NOISE_ISC_SPECS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_NOISE_ISC_SPECS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_NOISE_ISC_SPECS.
+     */
+    distinct?: T_NOISE_ISC_SPECScalarFieldEnum | T_NOISE_ISC_SPECScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC findFirstOrThrow
+   */
+  export type T_NOISE_ISC_SPECFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter, which T_NOISE_ISC_SPEC to fetch.
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_NOISE_ISC_SPECS to fetch.
+     */
+    orderBy?: T_NOISE_ISC_SPECOrderByWithRelationInput | T_NOISE_ISC_SPECOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for T_NOISE_ISC_SPECS.
+     */
+    cursor?: T_NOISE_ISC_SPECWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_NOISE_ISC_SPECS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_NOISE_ISC_SPECS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of T_NOISE_ISC_SPECS.
+     */
+    distinct?: T_NOISE_ISC_SPECScalarFieldEnum | T_NOISE_ISC_SPECScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC findMany
+   */
+  export type T_NOISE_ISC_SPECFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter, which T_NOISE_ISC_SPECS to fetch.
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of T_NOISE_ISC_SPECS to fetch.
+     */
+    orderBy?: T_NOISE_ISC_SPECOrderByWithRelationInput | T_NOISE_ISC_SPECOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing T_NOISE_ISC_SPECS.
+     */
+    cursor?: T_NOISE_ISC_SPECWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` T_NOISE_ISC_SPECS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` T_NOISE_ISC_SPECS.
+     */
+    skip?: number
+    distinct?: T_NOISE_ISC_SPECScalarFieldEnum | T_NOISE_ISC_SPECScalarFieldEnum[]
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC create
+   */
+  export type T_NOISE_ISC_SPECCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * The data needed to create a T_NOISE_ISC_SPEC.
+     */
+    data: XOR<T_NOISE_ISC_SPECCreateInput, T_NOISE_ISC_SPECUncheckedCreateInput>
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC createMany
+   */
+  export type T_NOISE_ISC_SPECCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many T_NOISE_ISC_SPECS.
+     */
+    data: T_NOISE_ISC_SPECCreateManyInput | T_NOISE_ISC_SPECCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC update
+   */
+  export type T_NOISE_ISC_SPECUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * The data needed to update a T_NOISE_ISC_SPEC.
+     */
+    data: XOR<T_NOISE_ISC_SPECUpdateInput, T_NOISE_ISC_SPECUncheckedUpdateInput>
+    /**
+     * Choose, which T_NOISE_ISC_SPEC to update.
+     */
+    where: T_NOISE_ISC_SPECWhereUniqueInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC updateMany
+   */
+  export type T_NOISE_ISC_SPECUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update T_NOISE_ISC_SPECS.
+     */
+    data: XOR<T_NOISE_ISC_SPECUpdateManyMutationInput, T_NOISE_ISC_SPECUncheckedUpdateManyInput>
+    /**
+     * Filter which T_NOISE_ISC_SPECS to update
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC upsert
+   */
+  export type T_NOISE_ISC_SPECUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * The filter to search for the T_NOISE_ISC_SPEC to update in case it exists.
+     */
+    where: T_NOISE_ISC_SPECWhereUniqueInput
+    /**
+     * In case the T_NOISE_ISC_SPEC found by the `where` argument doesn't exist, create a new T_NOISE_ISC_SPEC with this data.
+     */
+    create: XOR<T_NOISE_ISC_SPECCreateInput, T_NOISE_ISC_SPECUncheckedCreateInput>
+    /**
+     * In case the T_NOISE_ISC_SPEC was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<T_NOISE_ISC_SPECUpdateInput, T_NOISE_ISC_SPECUncheckedUpdateInput>
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC delete
+   */
+  export type T_NOISE_ISC_SPECDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
+    /**
+     * Filter which T_NOISE_ISC_SPEC to delete.
+     */
+    where: T_NOISE_ISC_SPECWhereUniqueInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC deleteMany
+   */
+  export type T_NOISE_ISC_SPECDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which T_NOISE_ISC_SPECS to delete
+     */
+    where?: T_NOISE_ISC_SPECWhereInput
+  }
+
+
+  /**
+   * T_NOISE_ISC_SPEC without action
+   */
+  export type T_NOISE_ISC_SPECDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the T_NOISE_ISC_SPEC
+     */
+    select?: T_NOISE_ISC_SPECSelect<ExtArgs> | null
   }
 
 
@@ -11615,6 +13588,892 @@ export namespace Prisma {
 
 
   /**
+   * Model V_NOISE_ISC
+   */
+
+  export type AggregateV_NOISE_ISC = {
+    _count: V_NOISE_ISCCountAggregateOutputType | null
+    _avg: V_NOISE_ISCAvgAggregateOutputType | null
+    _sum: V_NOISE_ISCSumAggregateOutputType | null
+    _min: V_NOISE_ISCMinAggregateOutputType | null
+    _max: V_NOISE_ISCMaxAggregateOutputType | null
+  }
+
+  export type V_NOISE_ISCAvgAggregateOutputType = {
+    COOLING_CAPACITY: number | null
+    HEATING_CAPACITY: Decimal | null
+  }
+
+  export type V_NOISE_ISCSumAggregateOutputType = {
+    COOLING_CAPACITY: number | null
+    HEATING_CAPACITY: Decimal | null
+  }
+
+  export type V_NOISE_ISCMinAggregateOutputType = {
+    MODEL: string | null
+    COOLING_CAPACITY: number | null
+    HEATING_CAPACITY: Decimal | null
+  }
+
+  export type V_NOISE_ISCMaxAggregateOutputType = {
+    MODEL: string | null
+    COOLING_CAPACITY: number | null
+    HEATING_CAPACITY: Decimal | null
+  }
+
+  export type V_NOISE_ISCCountAggregateOutputType = {
+    MODEL: number
+    COOLING_CAPACITY: number
+    HEATING_CAPACITY: number
+    _all: number
+  }
+
+
+  export type V_NOISE_ISCAvgAggregateInputType = {
+    COOLING_CAPACITY?: true
+    HEATING_CAPACITY?: true
+  }
+
+  export type V_NOISE_ISCSumAggregateInputType = {
+    COOLING_CAPACITY?: true
+    HEATING_CAPACITY?: true
+  }
+
+  export type V_NOISE_ISCMinAggregateInputType = {
+    MODEL?: true
+    COOLING_CAPACITY?: true
+    HEATING_CAPACITY?: true
+  }
+
+  export type V_NOISE_ISCMaxAggregateInputType = {
+    MODEL?: true
+    COOLING_CAPACITY?: true
+    HEATING_CAPACITY?: true
+  }
+
+  export type V_NOISE_ISCCountAggregateInputType = {
+    MODEL?: true
+    COOLING_CAPACITY?: true
+    HEATING_CAPACITY?: true
+    _all?: true
+  }
+
+  export type V_NOISE_ISCAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_ISC to aggregate.
+     */
+    where?: V_NOISE_ISCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_ISCS to fetch.
+     */
+    orderBy?: V_NOISE_ISCOrderByWithRelationInput | V_NOISE_ISCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: V_NOISE_ISCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_ISCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_ISCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned V_NOISE_ISCS
+    **/
+    _count?: true | V_NOISE_ISCCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: V_NOISE_ISCAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: V_NOISE_ISCSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: V_NOISE_ISCMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: V_NOISE_ISCMaxAggregateInputType
+  }
+
+  export type GetV_NOISE_ISCAggregateType<T extends V_NOISE_ISCAggregateArgs> = {
+        [P in keyof T & keyof AggregateV_NOISE_ISC]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateV_NOISE_ISC[P]>
+      : GetScalarType<T[P], AggregateV_NOISE_ISC[P]>
+  }
+
+
+
+
+  export type V_NOISE_ISCGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: V_NOISE_ISCWhereInput
+    orderBy?: V_NOISE_ISCOrderByWithAggregationInput | V_NOISE_ISCOrderByWithAggregationInput[]
+    by: V_NOISE_ISCScalarFieldEnum[] | V_NOISE_ISCScalarFieldEnum
+    having?: V_NOISE_ISCScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: V_NOISE_ISCCountAggregateInputType | true
+    _avg?: V_NOISE_ISCAvgAggregateInputType
+    _sum?: V_NOISE_ISCSumAggregateInputType
+    _min?: V_NOISE_ISCMinAggregateInputType
+    _max?: V_NOISE_ISCMaxAggregateInputType
+  }
+
+  export type V_NOISE_ISCGroupByOutputType = {
+    MODEL: string
+    COOLING_CAPACITY: number | null
+    HEATING_CAPACITY: Decimal | null
+    _count: V_NOISE_ISCCountAggregateOutputType | null
+    _avg: V_NOISE_ISCAvgAggregateOutputType | null
+    _sum: V_NOISE_ISCSumAggregateOutputType | null
+    _min: V_NOISE_ISCMinAggregateOutputType | null
+    _max: V_NOISE_ISCMaxAggregateOutputType | null
+  }
+
+  type GetV_NOISE_ISCGroupByPayload<T extends V_NOISE_ISCGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<V_NOISE_ISCGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof V_NOISE_ISCGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], V_NOISE_ISCGroupByOutputType[P]>
+            : GetScalarType<T[P], V_NOISE_ISCGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type V_NOISE_ISCSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    MODEL?: boolean
+    COOLING_CAPACITY?: boolean
+    HEATING_CAPACITY?: boolean
+  }, ExtArgs["result"]["v_NOISE_ISC"]>
+
+  export type V_NOISE_ISCSelectScalar = {
+    MODEL?: boolean
+    COOLING_CAPACITY?: boolean
+    HEATING_CAPACITY?: boolean
+  }
+
+
+  export type $V_NOISE_ISCPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "V_NOISE_ISC"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      MODEL: string
+      COOLING_CAPACITY: number | null
+      HEATING_CAPACITY: Prisma.Decimal | null
+    }, ExtArgs["result"]["v_NOISE_ISC"]>
+    composites: {}
+  }
+
+
+  type V_NOISE_ISCGetPayload<S extends boolean | null | undefined | V_NOISE_ISCDefaultArgs> = $Result.GetResult<Prisma.$V_NOISE_ISCPayload, S>
+
+  type V_NOISE_ISCCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<V_NOISE_ISCFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: V_NOISE_ISCCountAggregateInputType | true
+    }
+
+  export interface V_NOISE_ISCDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['V_NOISE_ISC'], meta: { name: 'V_NOISE_ISC' } }
+    /**
+     * Find zero or one V_NOISE_ISC that matches the filter.
+     * @param {V_NOISE_ISCFindUniqueArgs} args - Arguments to find a V_NOISE_ISC
+     * @example
+     * // Get one V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends V_NOISE_ISCFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCFindUniqueArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one V_NOISE_ISC that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {V_NOISE_ISCFindUniqueOrThrowArgs} args - Arguments to find a V_NOISE_ISC
+     * @example
+     * // Get one V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends V_NOISE_ISCFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_ISC that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCFindFirstArgs} args - Arguments to find a V_NOISE_ISC
+     * @example
+     * // Get one V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends V_NOISE_ISCFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCFindFirstArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first V_NOISE_ISC that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCFindFirstOrThrowArgs} args - Arguments to find a V_NOISE_ISC
+     * @example
+     * // Get one V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends V_NOISE_ISCFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more V_NOISE_ISCS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all V_NOISE_ISCS
+     * const v_NOISE_ISCS = await prisma.v_NOISE_ISC.findMany()
+     * 
+     * // Get first 10 V_NOISE_ISCS
+     * const v_NOISE_ISCS = await prisma.v_NOISE_ISC.findMany({ take: 10 })
+     * 
+     * // Only select the `MODEL`
+     * const v_NOISE_ISCWithMODELOnly = await prisma.v_NOISE_ISC.findMany({ select: { MODEL: true } })
+     * 
+    **/
+    findMany<T extends V_NOISE_ISCFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a V_NOISE_ISC.
+     * @param {V_NOISE_ISCCreateArgs} args - Arguments to create a V_NOISE_ISC.
+     * @example
+     * // Create one V_NOISE_ISC
+     * const V_NOISE_ISC = await prisma.v_NOISE_ISC.create({
+     *   data: {
+     *     // ... data to create a V_NOISE_ISC
+     *   }
+     * })
+     * 
+    **/
+    create<T extends V_NOISE_ISCCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCCreateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many V_NOISE_ISCS.
+     *     @param {V_NOISE_ISCCreateManyArgs} args - Arguments to create many V_NOISE_ISCS.
+     *     @example
+     *     // Create many V_NOISE_ISCS
+     *     const v_NOISE_ISC = await prisma.v_NOISE_ISC.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends V_NOISE_ISCCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a V_NOISE_ISC.
+     * @param {V_NOISE_ISCDeleteArgs} args - Arguments to delete one V_NOISE_ISC.
+     * @example
+     * // Delete one V_NOISE_ISC
+     * const V_NOISE_ISC = await prisma.v_NOISE_ISC.delete({
+     *   where: {
+     *     // ... filter to delete one V_NOISE_ISC
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends V_NOISE_ISCDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCDeleteArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one V_NOISE_ISC.
+     * @param {V_NOISE_ISCUpdateArgs} args - Arguments to update one V_NOISE_ISC.
+     * @example
+     * // Update one V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends V_NOISE_ISCUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCUpdateArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more V_NOISE_ISCS.
+     * @param {V_NOISE_ISCDeleteManyArgs} args - Arguments to filter V_NOISE_ISCS to delete.
+     * @example
+     * // Delete a few V_NOISE_ISCS
+     * const { count } = await prisma.v_NOISE_ISC.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends V_NOISE_ISCDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, V_NOISE_ISCDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more V_NOISE_ISCS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many V_NOISE_ISCS
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends V_NOISE_ISCUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one V_NOISE_ISC.
+     * @param {V_NOISE_ISCUpsertArgs} args - Arguments to update or create a V_NOISE_ISC.
+     * @example
+     * // Update or create a V_NOISE_ISC
+     * const v_NOISE_ISC = await prisma.v_NOISE_ISC.upsert({
+     *   create: {
+     *     // ... data to create a V_NOISE_ISC
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the V_NOISE_ISC we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends V_NOISE_ISCUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, V_NOISE_ISCUpsertArgs<ExtArgs>>
+    ): Prisma__V_NOISE_ISCClient<$Result.GetResult<Prisma.$V_NOISE_ISCPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of V_NOISE_ISCS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCCountArgs} args - Arguments to filter V_NOISE_ISCS to count.
+     * @example
+     * // Count the number of V_NOISE_ISCS
+     * const count = await prisma.v_NOISE_ISC.count({
+     *   where: {
+     *     // ... the filter for the V_NOISE_ISCS we want to count
+     *   }
+     * })
+    **/
+    count<T extends V_NOISE_ISCCountArgs>(
+      args?: Subset<T, V_NOISE_ISCCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], V_NOISE_ISCCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a V_NOISE_ISC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends V_NOISE_ISCAggregateArgs>(args: Subset<T, V_NOISE_ISCAggregateArgs>): Prisma.PrismaPromise<GetV_NOISE_ISCAggregateType<T>>
+
+    /**
+     * Group by V_NOISE_ISC.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {V_NOISE_ISCGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends V_NOISE_ISCGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: V_NOISE_ISCGroupByArgs['orderBy'] }
+        : { orderBy?: V_NOISE_ISCGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, V_NOISE_ISCGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetV_NOISE_ISCGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the V_NOISE_ISC model
+   */
+  readonly fields: V_NOISE_ISCFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for V_NOISE_ISC.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__V_NOISE_ISCClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the V_NOISE_ISC model
+   */ 
+  interface V_NOISE_ISCFieldRefs {
+    readonly MODEL: FieldRef<"V_NOISE_ISC", 'String'>
+    readonly COOLING_CAPACITY: FieldRef<"V_NOISE_ISC", 'Int'>
+    readonly HEATING_CAPACITY: FieldRef<"V_NOISE_ISC", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * V_NOISE_ISC findUnique
+   */
+  export type V_NOISE_ISCFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_ISC to fetch.
+     */
+    where: V_NOISE_ISCWhereUniqueInput
+  }
+
+
+  /**
+   * V_NOISE_ISC findUniqueOrThrow
+   */
+  export type V_NOISE_ISCFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_ISC to fetch.
+     */
+    where: V_NOISE_ISCWhereUniqueInput
+  }
+
+
+  /**
+   * V_NOISE_ISC findFirst
+   */
+  export type V_NOISE_ISCFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_ISC to fetch.
+     */
+    where?: V_NOISE_ISCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_ISCS to fetch.
+     */
+    orderBy?: V_NOISE_ISCOrderByWithRelationInput | V_NOISE_ISCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_ISCS.
+     */
+    cursor?: V_NOISE_ISCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_ISCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_ISCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_ISCS.
+     */
+    distinct?: V_NOISE_ISCScalarFieldEnum | V_NOISE_ISCScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_NOISE_ISC findFirstOrThrow
+   */
+  export type V_NOISE_ISCFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_ISC to fetch.
+     */
+    where?: V_NOISE_ISCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_ISCS to fetch.
+     */
+    orderBy?: V_NOISE_ISCOrderByWithRelationInput | V_NOISE_ISCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for V_NOISE_ISCS.
+     */
+    cursor?: V_NOISE_ISCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_ISCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_ISCS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of V_NOISE_ISCS.
+     */
+    distinct?: V_NOISE_ISCScalarFieldEnum | V_NOISE_ISCScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_NOISE_ISC findMany
+   */
+  export type V_NOISE_ISCFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter, which V_NOISE_ISCS to fetch.
+     */
+    where?: V_NOISE_ISCWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of V_NOISE_ISCS to fetch.
+     */
+    orderBy?: V_NOISE_ISCOrderByWithRelationInput | V_NOISE_ISCOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing V_NOISE_ISCS.
+     */
+    cursor?: V_NOISE_ISCWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` V_NOISE_ISCS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` V_NOISE_ISCS.
+     */
+    skip?: number
+    distinct?: V_NOISE_ISCScalarFieldEnum | V_NOISE_ISCScalarFieldEnum[]
+  }
+
+
+  /**
+   * V_NOISE_ISC create
+   */
+  export type V_NOISE_ISCCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * The data needed to create a V_NOISE_ISC.
+     */
+    data: XOR<V_NOISE_ISCCreateInput, V_NOISE_ISCUncheckedCreateInput>
+  }
+
+
+  /**
+   * V_NOISE_ISC createMany
+   */
+  export type V_NOISE_ISCCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many V_NOISE_ISCS.
+     */
+    data: V_NOISE_ISCCreateManyInput | V_NOISE_ISCCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * V_NOISE_ISC update
+   */
+  export type V_NOISE_ISCUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * The data needed to update a V_NOISE_ISC.
+     */
+    data: XOR<V_NOISE_ISCUpdateInput, V_NOISE_ISCUncheckedUpdateInput>
+    /**
+     * Choose, which V_NOISE_ISC to update.
+     */
+    where: V_NOISE_ISCWhereUniqueInput
+  }
+
+
+  /**
+   * V_NOISE_ISC updateMany
+   */
+  export type V_NOISE_ISCUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update V_NOISE_ISCS.
+     */
+    data: XOR<V_NOISE_ISCUpdateManyMutationInput, V_NOISE_ISCUncheckedUpdateManyInput>
+    /**
+     * Filter which V_NOISE_ISCS to update
+     */
+    where?: V_NOISE_ISCWhereInput
+  }
+
+
+  /**
+   * V_NOISE_ISC upsert
+   */
+  export type V_NOISE_ISCUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * The filter to search for the V_NOISE_ISC to update in case it exists.
+     */
+    where: V_NOISE_ISCWhereUniqueInput
+    /**
+     * In case the V_NOISE_ISC found by the `where` argument doesn't exist, create a new V_NOISE_ISC with this data.
+     */
+    create: XOR<V_NOISE_ISCCreateInput, V_NOISE_ISCUncheckedCreateInput>
+    /**
+     * In case the V_NOISE_ISC was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<V_NOISE_ISCUpdateInput, V_NOISE_ISCUncheckedUpdateInput>
+  }
+
+
+  /**
+   * V_NOISE_ISC delete
+   */
+  export type V_NOISE_ISCDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+    /**
+     * Filter which V_NOISE_ISC to delete.
+     */
+    where: V_NOISE_ISCWhereUniqueInput
+  }
+
+
+  /**
+   * V_NOISE_ISC deleteMany
+   */
+  export type V_NOISE_ISCDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which V_NOISE_ISCS to delete
+     */
+    where?: V_NOISE_ISCWhereInput
+  }
+
+
+  /**
+   * V_NOISE_ISC without action
+   */
+  export type V_NOISE_ISCDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the V_NOISE_ISC
+     */
+    select?: V_NOISE_ISCSelect<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -11678,6 +14537,84 @@ export namespace Prisma {
   export type T_NOISE_PRODUCTTYPEScalarFieldEnum = (typeof T_NOISE_PRODUCTTYPEScalarFieldEnum)[keyof typeof T_NOISE_PRODUCTTYPEScalarFieldEnum]
 
 
+  export const T_NOISE_ISC_SPECScalarFieldEnum: {
+    ID: 'ID',
+    MODEL: 'MODEL',
+    TYPE_COOLED: 'TYPE_COOLED',
+    TYPE_REF: 'TYPE_REF',
+    TYPE_EVAPORATOR: 'TYPE_EVAPORATOR',
+    TYPE_RUNNING: 'TYPE_RUNNING',
+    POWER_SUPPLY: 'POWER_SUPPLY',
+    GENERATION: 'GENERATION',
+    NOMINAL_TON: 'NOMINAL_TON',
+    COOLING_CAPACITY: 'COOLING_CAPACITY',
+    COOLING_CAPACITY_RT: 'COOLING_CAPACITY_RT',
+    HEATING_CAPACITY: 'HEATING_CAPACITY',
+    HEATING_CAPACITY_RT: 'HEATING_CAPACITY_RT',
+    COOLING_INPUT_POWER: 'COOLING_INPUT_POWER',
+    HEATING_INPUT_POWER: 'HEATING_INPUT_POWER',
+    ESEER: 'ESEER',
+    IPLV: 'IPLV',
+    IPLV100: 'IPLV100',
+    IPLV075: 'IPLV075',
+    IPLV050: 'IPLV050',
+    IPLV025: 'IPLV025',
+    SEER: 'SEER',
+    SCOP: 'SCOP',
+    DESCRIPTION: 'DESCRIPTION',
+    LOCATION: 'LOCATION',
+    OBSOLETE: 'OBSOLETE',
+    SOUND_PRESSURE: 'SOUND_PRESSURE',
+    SOUND_PRESSURE_HEATING: 'SOUND_PRESSURE_HEATING',
+    COOLING_SOUND_POWER: 'COOLING_SOUND_POWER',
+    HEATING_SOUND_POWER: 'HEATING_SOUND_POWER',
+    EVAPORATOR_EA: 'EVAPORATOR_EA',
+    COOLING_HEAD_LOSS: 'COOLING_HEAD_LOSS',
+    HEATING_HEAD_LOSS: 'HEATING_HEAD_LOSS',
+    COOLING_WATER_FLOW: 'COOLING_WATER_FLOW',
+    HEATING_WATER_FLOW: 'HEATING_WATER_FLOW',
+    WEIGHT: 'WEIGHT',
+    WEIGHT_SHIPPING: 'WEIGHT_SHIPPING',
+    DIMENSION_W: 'DIMENSION_W',
+    DIMENSION_H: 'DIMENSION_H',
+    DIMENSION_D: 'DIMENSION_D',
+    FOOTPRINT: 'FOOTPRINT',
+    COMP_TYPE: 'COMP_TYPE',
+    COMP_OILTYPE: 'COMP_OILTYPE',
+    COMP_OILCHARGE: 'COMP_OILCHARGE',
+    COMP_HEATER: 'COMP_HEATER',
+    REFRIGERANT: 'REFRIGERANT',
+    REFRIGERANT_CHARGE: 'REFRIGERANT_CHARGE',
+    COND_TYPE: 'COND_TYPE',
+    COND_MAX_PRESSURE: 'COND_MAX_PRESSURE',
+    DIAMETER: 'DIAMETER',
+    FAN_TYPE: 'FAN_TYPE',
+    FAN_VANE: 'FAN_VANE',
+    FAN_FLOW_RATE: 'FAN_FLOW_RATE',
+    FAN_MOTOR_POWER: 'FAN_MOTOR_POWER',
+    MAX_CURRENT: 'MAX_CURRENT',
+    POWER_LINE: 'POWER_LINE',
+    REMOTE_CONTROL: 'REMOTE_CONTROL',
+    BREAKER: 'BREAKER',
+    IMAGE_DIMENSIONS: 'IMAGE_DIMENSIONS',
+    IMAGE_INSTALLATION: 'IMAGE_INSTALLATION',
+    IMAGE_WIRING_M: 'IMAGE_WIRING_M',
+    IMAGE_WIRING_S1: 'IMAGE_WIRING_S1',
+    IMAGE_WIRING_S2: 'IMAGE_WIRING_S2',
+    MCA: 'MCA',
+    MSC: 'MSC',
+    RLA: 'RLA',
+    MIN_VOLTAGE: 'MIN_VOLTAGE',
+    MAX_VOLTAGE: 'MAX_VOLTAGE',
+    VOLTAGE: 'VOLTAGE',
+    PHASE: 'PHASE',
+    HZ: 'HZ',
+    CIRCUIT: 'CIRCUIT'
+  };
+
+  export type T_NOISE_ISC_SPECScalarFieldEnum = (typeof T_NOISE_ISC_SPECScalarFieldEnum)[keyof typeof T_NOISE_ISC_SPECScalarFieldEnum]
+
+
   export const V_NOISE_MULTIV_IScalarFieldEnum: {
     BUYER_MODEL_NAME: 'BUYER_MODEL_NAME',
     T_HEAT_W: 'T_HEAT_W',
@@ -11739,6 +14676,15 @@ export namespace Prisma {
   };
 
   export type V_NOISE_AWHPScalarFieldEnum = (typeof V_NOISE_AWHPScalarFieldEnum)[keyof typeof V_NOISE_AWHPScalarFieldEnum]
+
+
+  export const V_NOISE_ISCScalarFieldEnum: {
+    MODEL: 'MODEL',
+    COOLING_CAPACITY: 'COOLING_CAPACITY',
+    HEATING_CAPACITY: 'HEATING_CAPACITY'
+  };
+
+  export type V_NOISE_ISCScalarFieldEnum = (typeof V_NOISE_ISCScalarFieldEnum)[keyof typeof V_NOISE_ISCScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -12037,6 +14983,395 @@ export namespace Prisma {
     PRODUCT_TYPE?: StringWithAggregatesFilter<"T_NOISE_PRODUCTTYPE"> | string
     VISIBLE?: IntWithAggregatesFilter<"T_NOISE_PRODUCTTYPE"> | number
     FUNCNAME_LIST?: StringNullableWithAggregatesFilter<"T_NOISE_PRODUCTTYPE"> | string | null
+  }
+
+  export type T_NOISE_ISC_SPECWhereInput = {
+    AND?: T_NOISE_ISC_SPECWhereInput | T_NOISE_ISC_SPECWhereInput[]
+    OR?: T_NOISE_ISC_SPECWhereInput[]
+    NOT?: T_NOISE_ISC_SPECWhereInput | T_NOISE_ISC_SPECWhereInput[]
+    ID?: IntFilter<"T_NOISE_ISC_SPEC"> | number
+    MODEL?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    TYPE_COOLED?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_REF?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_EVAPORATOR?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_RUNNING?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_SUPPLY?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    GENERATION?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    NOMINAL_TON?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY_RT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    ESEER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SEER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SCOP?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    LOCATION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    OBSOLETE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    SOUND_PRESSURE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    SOUND_PRESSURE_HEATING?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COOLING_SOUND_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_HEAD_LOSS?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    WEIGHT_SHIPPING?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_W?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_H?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_D?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FOOTPRINT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILTYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILCHARGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_HEATER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT_CHARGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_MAX_PRESSURE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    DIAMETER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_VANE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_FLOW_RATE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FAN_MOTOR_POWER?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_CURRENT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_LINE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REMOTE_CONTROL?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    BREAKER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_DIMENSIONS?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_INSTALLATION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_M?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S1?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S2?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MCA?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MSC?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    RLA?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MIN_VOLTAGE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_VOLTAGE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    VOLTAGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    PHASE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    HZ?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    CIRCUIT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+  }
+
+  export type T_NOISE_ISC_SPECOrderByWithRelationInput = {
+    ID?: SortOrder
+    MODEL?: SortOrderInput | SortOrder
+    TYPE_COOLED?: SortOrderInput | SortOrder
+    TYPE_REF?: SortOrderInput | SortOrder
+    TYPE_EVAPORATOR?: SortOrderInput | SortOrder
+    TYPE_RUNNING?: SortOrderInput | SortOrder
+    POWER_SUPPLY?: SortOrderInput | SortOrder
+    GENERATION?: SortOrderInput | SortOrder
+    NOMINAL_TON?: SortOrderInput | SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    COOLING_CAPACITY_RT?: SortOrderInput | SortOrder
+    HEATING_CAPACITY?: SortOrderInput | SortOrder
+    HEATING_CAPACITY_RT?: SortOrderInput | SortOrder
+    COOLING_INPUT_POWER?: SortOrderInput | SortOrder
+    HEATING_INPUT_POWER?: SortOrderInput | SortOrder
+    ESEER?: SortOrderInput | SortOrder
+    IPLV?: SortOrderInput | SortOrder
+    IPLV100?: SortOrderInput | SortOrder
+    IPLV075?: SortOrderInput | SortOrder
+    IPLV050?: SortOrderInput | SortOrder
+    IPLV025?: SortOrderInput | SortOrder
+    SEER?: SortOrderInput | SortOrder
+    SCOP?: SortOrderInput | SortOrder
+    DESCRIPTION?: SortOrderInput | SortOrder
+    LOCATION?: SortOrderInput | SortOrder
+    OBSOLETE?: SortOrderInput | SortOrder
+    SOUND_PRESSURE?: SortOrderInput | SortOrder
+    SOUND_PRESSURE_HEATING?: SortOrderInput | SortOrder
+    COOLING_SOUND_POWER?: SortOrderInput | SortOrder
+    HEATING_SOUND_POWER?: SortOrderInput | SortOrder
+    EVAPORATOR_EA?: SortOrderInput | SortOrder
+    COOLING_HEAD_LOSS?: SortOrderInput | SortOrder
+    HEATING_HEAD_LOSS?: SortOrderInput | SortOrder
+    COOLING_WATER_FLOW?: SortOrderInput | SortOrder
+    HEATING_WATER_FLOW?: SortOrderInput | SortOrder
+    WEIGHT?: SortOrderInput | SortOrder
+    WEIGHT_SHIPPING?: SortOrderInput | SortOrder
+    DIMENSION_W?: SortOrderInput | SortOrder
+    DIMENSION_H?: SortOrderInput | SortOrder
+    DIMENSION_D?: SortOrderInput | SortOrder
+    FOOTPRINT?: SortOrderInput | SortOrder
+    COMP_TYPE?: SortOrderInput | SortOrder
+    COMP_OILTYPE?: SortOrderInput | SortOrder
+    COMP_OILCHARGE?: SortOrderInput | SortOrder
+    COMP_HEATER?: SortOrderInput | SortOrder
+    REFRIGERANT?: SortOrderInput | SortOrder
+    REFRIGERANT_CHARGE?: SortOrderInput | SortOrder
+    COND_TYPE?: SortOrderInput | SortOrder
+    COND_MAX_PRESSURE?: SortOrderInput | SortOrder
+    DIAMETER?: SortOrderInput | SortOrder
+    FAN_TYPE?: SortOrderInput | SortOrder
+    FAN_VANE?: SortOrderInput | SortOrder
+    FAN_FLOW_RATE?: SortOrderInput | SortOrder
+    FAN_MOTOR_POWER?: SortOrderInput | SortOrder
+    MAX_CURRENT?: SortOrderInput | SortOrder
+    POWER_LINE?: SortOrderInput | SortOrder
+    REMOTE_CONTROL?: SortOrderInput | SortOrder
+    BREAKER?: SortOrderInput | SortOrder
+    IMAGE_DIMENSIONS?: SortOrderInput | SortOrder
+    IMAGE_INSTALLATION?: SortOrderInput | SortOrder
+    IMAGE_WIRING_M?: SortOrderInput | SortOrder
+    IMAGE_WIRING_S1?: SortOrderInput | SortOrder
+    IMAGE_WIRING_S2?: SortOrderInput | SortOrder
+    MCA?: SortOrderInput | SortOrder
+    MSC?: SortOrderInput | SortOrder
+    RLA?: SortOrderInput | SortOrder
+    MIN_VOLTAGE?: SortOrderInput | SortOrder
+    MAX_VOLTAGE?: SortOrderInput | SortOrder
+    VOLTAGE?: SortOrderInput | SortOrder
+    PHASE?: SortOrderInput | SortOrder
+    HZ?: SortOrderInput | SortOrder
+    CIRCUIT?: SortOrderInput | SortOrder
+  }
+
+  export type T_NOISE_ISC_SPECWhereUniqueInput = Prisma.AtLeast<{
+    ID?: number
+    AND?: T_NOISE_ISC_SPECWhereInput | T_NOISE_ISC_SPECWhereInput[]
+    OR?: T_NOISE_ISC_SPECWhereInput[]
+    NOT?: T_NOISE_ISC_SPECWhereInput | T_NOISE_ISC_SPECWhereInput[]
+    MODEL?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    TYPE_COOLED?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_REF?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_EVAPORATOR?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_RUNNING?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_SUPPLY?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    GENERATION?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    NOMINAL_TON?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY_RT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    ESEER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SEER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SCOP?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    LOCATION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    OBSOLETE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    SOUND_PRESSURE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    SOUND_PRESSURE_HEATING?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COOLING_SOUND_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_HEAD_LOSS?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    WEIGHT_SHIPPING?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_W?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_H?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_D?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FOOTPRINT?: DecimalNullableFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILTYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILCHARGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_HEATER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT_CHARGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_MAX_PRESSURE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    DIAMETER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_TYPE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_VANE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_FLOW_RATE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FAN_MOTOR_POWER?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_CURRENT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_LINE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REMOTE_CONTROL?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    BREAKER?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_DIMENSIONS?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_INSTALLATION?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_M?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S1?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S2?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MCA?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MSC?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    RLA?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MIN_VOLTAGE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_VOLTAGE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    VOLTAGE?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    PHASE?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+    HZ?: StringNullableFilter<"T_NOISE_ISC_SPEC"> | string | null
+    CIRCUIT?: IntNullableFilter<"T_NOISE_ISC_SPEC"> | number | null
+  }, "ID">
+
+  export type T_NOISE_ISC_SPECOrderByWithAggregationInput = {
+    ID?: SortOrder
+    MODEL?: SortOrderInput | SortOrder
+    TYPE_COOLED?: SortOrderInput | SortOrder
+    TYPE_REF?: SortOrderInput | SortOrder
+    TYPE_EVAPORATOR?: SortOrderInput | SortOrder
+    TYPE_RUNNING?: SortOrderInput | SortOrder
+    POWER_SUPPLY?: SortOrderInput | SortOrder
+    GENERATION?: SortOrderInput | SortOrder
+    NOMINAL_TON?: SortOrderInput | SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    COOLING_CAPACITY_RT?: SortOrderInput | SortOrder
+    HEATING_CAPACITY?: SortOrderInput | SortOrder
+    HEATING_CAPACITY_RT?: SortOrderInput | SortOrder
+    COOLING_INPUT_POWER?: SortOrderInput | SortOrder
+    HEATING_INPUT_POWER?: SortOrderInput | SortOrder
+    ESEER?: SortOrderInput | SortOrder
+    IPLV?: SortOrderInput | SortOrder
+    IPLV100?: SortOrderInput | SortOrder
+    IPLV075?: SortOrderInput | SortOrder
+    IPLV050?: SortOrderInput | SortOrder
+    IPLV025?: SortOrderInput | SortOrder
+    SEER?: SortOrderInput | SortOrder
+    SCOP?: SortOrderInput | SortOrder
+    DESCRIPTION?: SortOrderInput | SortOrder
+    LOCATION?: SortOrderInput | SortOrder
+    OBSOLETE?: SortOrderInput | SortOrder
+    SOUND_PRESSURE?: SortOrderInput | SortOrder
+    SOUND_PRESSURE_HEATING?: SortOrderInput | SortOrder
+    COOLING_SOUND_POWER?: SortOrderInput | SortOrder
+    HEATING_SOUND_POWER?: SortOrderInput | SortOrder
+    EVAPORATOR_EA?: SortOrderInput | SortOrder
+    COOLING_HEAD_LOSS?: SortOrderInput | SortOrder
+    HEATING_HEAD_LOSS?: SortOrderInput | SortOrder
+    COOLING_WATER_FLOW?: SortOrderInput | SortOrder
+    HEATING_WATER_FLOW?: SortOrderInput | SortOrder
+    WEIGHT?: SortOrderInput | SortOrder
+    WEIGHT_SHIPPING?: SortOrderInput | SortOrder
+    DIMENSION_W?: SortOrderInput | SortOrder
+    DIMENSION_H?: SortOrderInput | SortOrder
+    DIMENSION_D?: SortOrderInput | SortOrder
+    FOOTPRINT?: SortOrderInput | SortOrder
+    COMP_TYPE?: SortOrderInput | SortOrder
+    COMP_OILTYPE?: SortOrderInput | SortOrder
+    COMP_OILCHARGE?: SortOrderInput | SortOrder
+    COMP_HEATER?: SortOrderInput | SortOrder
+    REFRIGERANT?: SortOrderInput | SortOrder
+    REFRIGERANT_CHARGE?: SortOrderInput | SortOrder
+    COND_TYPE?: SortOrderInput | SortOrder
+    COND_MAX_PRESSURE?: SortOrderInput | SortOrder
+    DIAMETER?: SortOrderInput | SortOrder
+    FAN_TYPE?: SortOrderInput | SortOrder
+    FAN_VANE?: SortOrderInput | SortOrder
+    FAN_FLOW_RATE?: SortOrderInput | SortOrder
+    FAN_MOTOR_POWER?: SortOrderInput | SortOrder
+    MAX_CURRENT?: SortOrderInput | SortOrder
+    POWER_LINE?: SortOrderInput | SortOrder
+    REMOTE_CONTROL?: SortOrderInput | SortOrder
+    BREAKER?: SortOrderInput | SortOrder
+    IMAGE_DIMENSIONS?: SortOrderInput | SortOrder
+    IMAGE_INSTALLATION?: SortOrderInput | SortOrder
+    IMAGE_WIRING_M?: SortOrderInput | SortOrder
+    IMAGE_WIRING_S1?: SortOrderInput | SortOrder
+    IMAGE_WIRING_S2?: SortOrderInput | SortOrder
+    MCA?: SortOrderInput | SortOrder
+    MSC?: SortOrderInput | SortOrder
+    RLA?: SortOrderInput | SortOrder
+    MIN_VOLTAGE?: SortOrderInput | SortOrder
+    MAX_VOLTAGE?: SortOrderInput | SortOrder
+    VOLTAGE?: SortOrderInput | SortOrder
+    PHASE?: SortOrderInput | SortOrder
+    HZ?: SortOrderInput | SortOrder
+    CIRCUIT?: SortOrderInput | SortOrder
+    _count?: T_NOISE_ISC_SPECCountOrderByAggregateInput
+    _avg?: T_NOISE_ISC_SPECAvgOrderByAggregateInput
+    _max?: T_NOISE_ISC_SPECMaxOrderByAggregateInput
+    _min?: T_NOISE_ISC_SPECMinOrderByAggregateInput
+    _sum?: T_NOISE_ISC_SPECSumOrderByAggregateInput
+  }
+
+  export type T_NOISE_ISC_SPECScalarWhereWithAggregatesInput = {
+    AND?: T_NOISE_ISC_SPECScalarWhereWithAggregatesInput | T_NOISE_ISC_SPECScalarWhereWithAggregatesInput[]
+    OR?: T_NOISE_ISC_SPECScalarWhereWithAggregatesInput[]
+    NOT?: T_NOISE_ISC_SPECScalarWhereWithAggregatesInput | T_NOISE_ISC_SPECScalarWhereWithAggregatesInput[]
+    ID?: IntWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number
+    MODEL?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    TYPE_COOLED?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_REF?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_EVAPORATOR?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    TYPE_RUNNING?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_SUPPLY?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    GENERATION?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    NOMINAL_TON?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_CAPACITY_RT?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    ESEER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SEER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    SCOP?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    LOCATION?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    OBSOLETE?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    SOUND_PRESSURE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    SOUND_PRESSURE_HEATING?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COOLING_SOUND_POWER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    COOLING_HEAD_LOSS?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    WEIGHT_SHIPPING?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_W?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_H?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    DIMENSION_D?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FOOTPRINT?: DecimalNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILTYPE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_OILCHARGE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COMP_HEATER?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REFRIGERANT_CHARGE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_TYPE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    COND_MAX_PRESSURE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    DIAMETER?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_TYPE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_VANE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    FAN_FLOW_RATE?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    FAN_MOTOR_POWER?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_CURRENT?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    POWER_LINE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    REMOTE_CONTROL?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    BREAKER?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_DIMENSIONS?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_INSTALLATION?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_M?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S1?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    IMAGE_WIRING_S2?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MCA?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MSC?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    RLA?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    MIN_VOLTAGE?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    MAX_VOLTAGE?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    VOLTAGE?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    PHASE?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
+    HZ?: StringNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | string | null
+    CIRCUIT?: IntNullableWithAggregatesFilter<"T_NOISE_ISC_SPEC"> | number | null
   }
 
   export type V_NOISE_MULTIV_IWhereInput = {
@@ -12347,6 +15682,50 @@ export namespace Prisma {
     T_COOL_W?: DecimalNullableWithAggregatesFilter<"V_NOISE_AWHP"> | Decimal | DecimalJsLike | number | string | null
   }
 
+  export type V_NOISE_ISCWhereInput = {
+    AND?: V_NOISE_ISCWhereInput | V_NOISE_ISCWhereInput[]
+    OR?: V_NOISE_ISCWhereInput[]
+    NOT?: V_NOISE_ISCWhereInput | V_NOISE_ISCWhereInput[]
+    MODEL?: StringFilter<"V_NOISE_ISC"> | string
+    COOLING_CAPACITY?: IntNullableFilter<"V_NOISE_ISC"> | number | null
+    HEATING_CAPACITY?: DecimalNullableFilter<"V_NOISE_ISC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCOrderByWithRelationInput = {
+    MODEL?: SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    HEATING_CAPACITY?: SortOrderInput | SortOrder
+  }
+
+  export type V_NOISE_ISCWhereUniqueInput = Prisma.AtLeast<{
+    MODEL?: string
+    AND?: V_NOISE_ISCWhereInput | V_NOISE_ISCWhereInput[]
+    OR?: V_NOISE_ISCWhereInput[]
+    NOT?: V_NOISE_ISCWhereInput | V_NOISE_ISCWhereInput[]
+    COOLING_CAPACITY?: IntNullableFilter<"V_NOISE_ISC"> | number | null
+    HEATING_CAPACITY?: DecimalNullableFilter<"V_NOISE_ISC"> | Decimal | DecimalJsLike | number | string | null
+  }, "MODEL">
+
+  export type V_NOISE_ISCOrderByWithAggregationInput = {
+    MODEL?: SortOrder
+    COOLING_CAPACITY?: SortOrderInput | SortOrder
+    HEATING_CAPACITY?: SortOrderInput | SortOrder
+    _count?: V_NOISE_ISCCountOrderByAggregateInput
+    _avg?: V_NOISE_ISCAvgOrderByAggregateInput
+    _max?: V_NOISE_ISCMaxOrderByAggregateInput
+    _min?: V_NOISE_ISCMinOrderByAggregateInput
+    _sum?: V_NOISE_ISCSumOrderByAggregateInput
+  }
+
+  export type V_NOISE_ISCScalarWhereWithAggregatesInput = {
+    AND?: V_NOISE_ISCScalarWhereWithAggregatesInput | V_NOISE_ISCScalarWhereWithAggregatesInput[]
+    OR?: V_NOISE_ISCScalarWhereWithAggregatesInput[]
+    NOT?: V_NOISE_ISCScalarWhereWithAggregatesInput | V_NOISE_ISCScalarWhereWithAggregatesInput[]
+    MODEL?: StringWithAggregatesFilter<"V_NOISE_ISC"> | string
+    COOLING_CAPACITY?: IntNullableWithAggregatesFilter<"V_NOISE_ISC"> | number | null
+    HEATING_CAPACITY?: DecimalNullableWithAggregatesFilter<"V_NOISE_ISC"> | Decimal | DecimalJsLike | number | string | null
+  }
+
   export type T_NOISE_FUNCNAMECreateInput = {
     ID: number
     NAME: string
@@ -12611,6 +15990,531 @@ export namespace Prisma {
     PRODUCT_TYPE?: StringFieldUpdateOperationsInput | string
     VISIBLE?: IntFieldUpdateOperationsInput | number
     FUNCNAME_LIST?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type T_NOISE_ISC_SPECCreateInput = {
+    ID: number
+    MODEL?: string | null
+    TYPE_COOLED?: number | null
+    TYPE_REF?: number | null
+    TYPE_EVAPORATOR?: number | null
+    TYPE_RUNNING?: number | null
+    POWER_SUPPLY?: number | null
+    GENERATION?: number | null
+    NOMINAL_TON?: number | null
+    COOLING_CAPACITY?: number | null
+    COOLING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    ESEER?: Decimal | DecimalJsLike | number | string | null
+    IPLV?: Decimal | DecimalJsLike | number | string | null
+    IPLV100?: Decimal | DecimalJsLike | number | string | null
+    IPLV075?: Decimal | DecimalJsLike | number | string | null
+    IPLV050?: Decimal | DecimalJsLike | number | string | null
+    IPLV025?: Decimal | DecimalJsLike | number | string | null
+    SEER?: Decimal | DecimalJsLike | number | string | null
+    SCOP?: Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: string | null
+    LOCATION?: string | null
+    OBSOLETE?: number | null
+    SOUND_PRESSURE?: string | null
+    SOUND_PRESSURE_HEATING?: string | null
+    COOLING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: number | null
+    COOLING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: number | null
+    WEIGHT_SHIPPING?: number | null
+    DIMENSION_W?: number | null
+    DIMENSION_H?: number | null
+    DIMENSION_D?: number | null
+    FOOTPRINT?: Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: string | null
+    COMP_OILTYPE?: string | null
+    COMP_OILCHARGE?: string | null
+    COMP_HEATER?: string | null
+    REFRIGERANT?: string | null
+    REFRIGERANT_CHARGE?: string | null
+    COND_TYPE?: string | null
+    COND_MAX_PRESSURE?: string | null
+    DIAMETER?: string | null
+    FAN_TYPE?: string | null
+    FAN_VANE?: string | null
+    FAN_FLOW_RATE?: number | null
+    FAN_MOTOR_POWER?: number | null
+    MAX_CURRENT?: number | null
+    POWER_LINE?: string | null
+    REMOTE_CONTROL?: string | null
+    BREAKER?: string | null
+    IMAGE_DIMENSIONS?: string | null
+    IMAGE_INSTALLATION?: string | null
+    IMAGE_WIRING_M?: string | null
+    IMAGE_WIRING_S1?: string | null
+    IMAGE_WIRING_S2?: string | null
+    MCA?: string | null
+    MSC?: string | null
+    RLA?: string | null
+    MIN_VOLTAGE?: number | null
+    MAX_VOLTAGE?: number | null
+    VOLTAGE?: string | null
+    PHASE?: number | null
+    HZ?: string | null
+    CIRCUIT?: number | null
+  }
+
+  export type T_NOISE_ISC_SPECUncheckedCreateInput = {
+    ID: number
+    MODEL?: string | null
+    TYPE_COOLED?: number | null
+    TYPE_REF?: number | null
+    TYPE_EVAPORATOR?: number | null
+    TYPE_RUNNING?: number | null
+    POWER_SUPPLY?: number | null
+    GENERATION?: number | null
+    NOMINAL_TON?: number | null
+    COOLING_CAPACITY?: number | null
+    COOLING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    ESEER?: Decimal | DecimalJsLike | number | string | null
+    IPLV?: Decimal | DecimalJsLike | number | string | null
+    IPLV100?: Decimal | DecimalJsLike | number | string | null
+    IPLV075?: Decimal | DecimalJsLike | number | string | null
+    IPLV050?: Decimal | DecimalJsLike | number | string | null
+    IPLV025?: Decimal | DecimalJsLike | number | string | null
+    SEER?: Decimal | DecimalJsLike | number | string | null
+    SCOP?: Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: string | null
+    LOCATION?: string | null
+    OBSOLETE?: number | null
+    SOUND_PRESSURE?: string | null
+    SOUND_PRESSURE_HEATING?: string | null
+    COOLING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: number | null
+    COOLING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: number | null
+    WEIGHT_SHIPPING?: number | null
+    DIMENSION_W?: number | null
+    DIMENSION_H?: number | null
+    DIMENSION_D?: number | null
+    FOOTPRINT?: Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: string | null
+    COMP_OILTYPE?: string | null
+    COMP_OILCHARGE?: string | null
+    COMP_HEATER?: string | null
+    REFRIGERANT?: string | null
+    REFRIGERANT_CHARGE?: string | null
+    COND_TYPE?: string | null
+    COND_MAX_PRESSURE?: string | null
+    DIAMETER?: string | null
+    FAN_TYPE?: string | null
+    FAN_VANE?: string | null
+    FAN_FLOW_RATE?: number | null
+    FAN_MOTOR_POWER?: number | null
+    MAX_CURRENT?: number | null
+    POWER_LINE?: string | null
+    REMOTE_CONTROL?: string | null
+    BREAKER?: string | null
+    IMAGE_DIMENSIONS?: string | null
+    IMAGE_INSTALLATION?: string | null
+    IMAGE_WIRING_M?: string | null
+    IMAGE_WIRING_S1?: string | null
+    IMAGE_WIRING_S2?: string | null
+    MCA?: string | null
+    MSC?: string | null
+    RLA?: string | null
+    MIN_VOLTAGE?: number | null
+    MAX_VOLTAGE?: number | null
+    VOLTAGE?: string | null
+    PHASE?: number | null
+    HZ?: string | null
+    CIRCUIT?: number | null
+  }
+
+  export type T_NOISE_ISC_SPECUpdateInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    MODEL?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_COOLED?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_REF?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_EVAPORATOR?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_RUNNING?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_SUPPLY?: NullableIntFieldUpdateOperationsInput | number | null
+    GENERATION?: NullableIntFieldUpdateOperationsInput | number | null
+    NOMINAL_TON?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    ESEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SCOP?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    OBSOLETE?: NullableIntFieldUpdateOperationsInput | number | null
+    SOUND_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    SOUND_PRESSURE_HEATING?: NullableStringFieldUpdateOperationsInput | string | null
+    COOLING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: NullableIntFieldUpdateOperationsInput | number | null
+    WEIGHT_SHIPPING?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_W?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_H?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_D?: NullableIntFieldUpdateOperationsInput | number | null
+    FOOTPRINT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILTYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_HEATER?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT_CHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_MAX_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    DIAMETER?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_VANE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_FLOW_RATE?: NullableIntFieldUpdateOperationsInput | number | null
+    FAN_MOTOR_POWER?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_CURRENT?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_LINE?: NullableStringFieldUpdateOperationsInput | string | null
+    REMOTE_CONTROL?: NullableStringFieldUpdateOperationsInput | string | null
+    BREAKER?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_DIMENSIONS?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_INSTALLATION?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_M?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S1?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S2?: NullableStringFieldUpdateOperationsInput | string | null
+    MCA?: NullableStringFieldUpdateOperationsInput | string | null
+    MSC?: NullableStringFieldUpdateOperationsInput | string | null
+    RLA?: NullableStringFieldUpdateOperationsInput | string | null
+    MIN_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    VOLTAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    PHASE?: NullableIntFieldUpdateOperationsInput | number | null
+    HZ?: NullableStringFieldUpdateOperationsInput | string | null
+    CIRCUIT?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type T_NOISE_ISC_SPECUncheckedUpdateInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    MODEL?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_COOLED?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_REF?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_EVAPORATOR?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_RUNNING?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_SUPPLY?: NullableIntFieldUpdateOperationsInput | number | null
+    GENERATION?: NullableIntFieldUpdateOperationsInput | number | null
+    NOMINAL_TON?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    ESEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SCOP?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    OBSOLETE?: NullableIntFieldUpdateOperationsInput | number | null
+    SOUND_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    SOUND_PRESSURE_HEATING?: NullableStringFieldUpdateOperationsInput | string | null
+    COOLING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: NullableIntFieldUpdateOperationsInput | number | null
+    WEIGHT_SHIPPING?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_W?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_H?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_D?: NullableIntFieldUpdateOperationsInput | number | null
+    FOOTPRINT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILTYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_HEATER?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT_CHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_MAX_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    DIAMETER?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_VANE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_FLOW_RATE?: NullableIntFieldUpdateOperationsInput | number | null
+    FAN_MOTOR_POWER?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_CURRENT?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_LINE?: NullableStringFieldUpdateOperationsInput | string | null
+    REMOTE_CONTROL?: NullableStringFieldUpdateOperationsInput | string | null
+    BREAKER?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_DIMENSIONS?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_INSTALLATION?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_M?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S1?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S2?: NullableStringFieldUpdateOperationsInput | string | null
+    MCA?: NullableStringFieldUpdateOperationsInput | string | null
+    MSC?: NullableStringFieldUpdateOperationsInput | string | null
+    RLA?: NullableStringFieldUpdateOperationsInput | string | null
+    MIN_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    VOLTAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    PHASE?: NullableIntFieldUpdateOperationsInput | number | null
+    HZ?: NullableStringFieldUpdateOperationsInput | string | null
+    CIRCUIT?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type T_NOISE_ISC_SPECCreateManyInput = {
+    ID: number
+    MODEL?: string | null
+    TYPE_COOLED?: number | null
+    TYPE_REF?: number | null
+    TYPE_EVAPORATOR?: number | null
+    TYPE_RUNNING?: number | null
+    POWER_SUPPLY?: number | null
+    GENERATION?: number | null
+    NOMINAL_TON?: number | null
+    COOLING_CAPACITY?: number | null
+    COOLING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: Decimal | DecimalJsLike | number | string | null
+    ESEER?: Decimal | DecimalJsLike | number | string | null
+    IPLV?: Decimal | DecimalJsLike | number | string | null
+    IPLV100?: Decimal | DecimalJsLike | number | string | null
+    IPLV075?: Decimal | DecimalJsLike | number | string | null
+    IPLV050?: Decimal | DecimalJsLike | number | string | null
+    IPLV025?: Decimal | DecimalJsLike | number | string | null
+    SEER?: Decimal | DecimalJsLike | number | string | null
+    SCOP?: Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: string | null
+    LOCATION?: string | null
+    OBSOLETE?: number | null
+    SOUND_PRESSURE?: string | null
+    SOUND_PRESSURE_HEATING?: string | null
+    COOLING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: number | null
+    COOLING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: number | null
+    WEIGHT_SHIPPING?: number | null
+    DIMENSION_W?: number | null
+    DIMENSION_H?: number | null
+    DIMENSION_D?: number | null
+    FOOTPRINT?: Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: string | null
+    COMP_OILTYPE?: string | null
+    COMP_OILCHARGE?: string | null
+    COMP_HEATER?: string | null
+    REFRIGERANT?: string | null
+    REFRIGERANT_CHARGE?: string | null
+    COND_TYPE?: string | null
+    COND_MAX_PRESSURE?: string | null
+    DIAMETER?: string | null
+    FAN_TYPE?: string | null
+    FAN_VANE?: string | null
+    FAN_FLOW_RATE?: number | null
+    FAN_MOTOR_POWER?: number | null
+    MAX_CURRENT?: number | null
+    POWER_LINE?: string | null
+    REMOTE_CONTROL?: string | null
+    BREAKER?: string | null
+    IMAGE_DIMENSIONS?: string | null
+    IMAGE_INSTALLATION?: string | null
+    IMAGE_WIRING_M?: string | null
+    IMAGE_WIRING_S1?: string | null
+    IMAGE_WIRING_S2?: string | null
+    MCA?: string | null
+    MSC?: string | null
+    RLA?: string | null
+    MIN_VOLTAGE?: number | null
+    MAX_VOLTAGE?: number | null
+    VOLTAGE?: string | null
+    PHASE?: number | null
+    HZ?: string | null
+    CIRCUIT?: number | null
+  }
+
+  export type T_NOISE_ISC_SPECUpdateManyMutationInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    MODEL?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_COOLED?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_REF?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_EVAPORATOR?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_RUNNING?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_SUPPLY?: NullableIntFieldUpdateOperationsInput | number | null
+    GENERATION?: NullableIntFieldUpdateOperationsInput | number | null
+    NOMINAL_TON?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    ESEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SCOP?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    OBSOLETE?: NullableIntFieldUpdateOperationsInput | number | null
+    SOUND_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    SOUND_PRESSURE_HEATING?: NullableStringFieldUpdateOperationsInput | string | null
+    COOLING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: NullableIntFieldUpdateOperationsInput | number | null
+    WEIGHT_SHIPPING?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_W?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_H?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_D?: NullableIntFieldUpdateOperationsInput | number | null
+    FOOTPRINT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILTYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_HEATER?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT_CHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_MAX_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    DIAMETER?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_VANE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_FLOW_RATE?: NullableIntFieldUpdateOperationsInput | number | null
+    FAN_MOTOR_POWER?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_CURRENT?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_LINE?: NullableStringFieldUpdateOperationsInput | string | null
+    REMOTE_CONTROL?: NullableStringFieldUpdateOperationsInput | string | null
+    BREAKER?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_DIMENSIONS?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_INSTALLATION?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_M?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S1?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S2?: NullableStringFieldUpdateOperationsInput | string | null
+    MCA?: NullableStringFieldUpdateOperationsInput | string | null
+    MSC?: NullableStringFieldUpdateOperationsInput | string | null
+    RLA?: NullableStringFieldUpdateOperationsInput | string | null
+    MIN_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    VOLTAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    PHASE?: NullableIntFieldUpdateOperationsInput | number | null
+    HZ?: NullableStringFieldUpdateOperationsInput | string | null
+    CIRCUIT?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type T_NOISE_ISC_SPECUncheckedUpdateManyInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    MODEL?: NullableStringFieldUpdateOperationsInput | string | null
+    TYPE_COOLED?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_REF?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_EVAPORATOR?: NullableIntFieldUpdateOperationsInput | number | null
+    TYPE_RUNNING?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_SUPPLY?: NullableIntFieldUpdateOperationsInput | number | null
+    GENERATION?: NullableIntFieldUpdateOperationsInput | number | null
+    NOMINAL_TON?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_CAPACITY_RT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_INPUT_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    ESEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV100?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV075?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV050?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    IPLV025?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SEER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    SCOP?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    DESCRIPTION?: NullableStringFieldUpdateOperationsInput | string | null
+    LOCATION?: NullableStringFieldUpdateOperationsInput | string | null
+    OBSOLETE?: NullableIntFieldUpdateOperationsInput | number | null
+    SOUND_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    SOUND_PRESSURE_HEATING?: NullableStringFieldUpdateOperationsInput | string | null
+    COOLING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_SOUND_POWER?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    EVAPORATOR_EA?: NullableIntFieldUpdateOperationsInput | number | null
+    COOLING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_HEAD_LOSS?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COOLING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    HEATING_WATER_FLOW?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    WEIGHT?: NullableIntFieldUpdateOperationsInput | number | null
+    WEIGHT_SHIPPING?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_W?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_H?: NullableIntFieldUpdateOperationsInput | number | null
+    DIMENSION_D?: NullableIntFieldUpdateOperationsInput | number | null
+    FOOTPRINT?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    COMP_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILTYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_OILCHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COMP_HEATER?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT?: NullableStringFieldUpdateOperationsInput | string | null
+    REFRIGERANT_CHARGE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    COND_MAX_PRESSURE?: NullableStringFieldUpdateOperationsInput | string | null
+    DIAMETER?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_TYPE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_VANE?: NullableStringFieldUpdateOperationsInput | string | null
+    FAN_FLOW_RATE?: NullableIntFieldUpdateOperationsInput | number | null
+    FAN_MOTOR_POWER?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_CURRENT?: NullableIntFieldUpdateOperationsInput | number | null
+    POWER_LINE?: NullableStringFieldUpdateOperationsInput | string | null
+    REMOTE_CONTROL?: NullableStringFieldUpdateOperationsInput | string | null
+    BREAKER?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_DIMENSIONS?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_INSTALLATION?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_M?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S1?: NullableStringFieldUpdateOperationsInput | string | null
+    IMAGE_WIRING_S2?: NullableStringFieldUpdateOperationsInput | string | null
+    MCA?: NullableStringFieldUpdateOperationsInput | string | null
+    MSC?: NullableStringFieldUpdateOperationsInput | string | null
+    RLA?: NullableStringFieldUpdateOperationsInput | string | null
+    MIN_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    MAX_VOLTAGE?: NullableIntFieldUpdateOperationsInput | number | null
+    VOLTAGE?: NullableStringFieldUpdateOperationsInput | string | null
+    PHASE?: NullableIntFieldUpdateOperationsInput | number | null
+    HZ?: NullableStringFieldUpdateOperationsInput | string | null
+    CIRCUIT?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type V_NOISE_MULTIV_ICreateInput = {
@@ -12907,6 +16811,48 @@ export namespace Prisma {
     T_COOL_W?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
+  export type V_NOISE_ISCCreateInput = {
+    MODEL: string
+    COOLING_CAPACITY?: number | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCUncheckedCreateInput = {
+    MODEL: string
+    COOLING_CAPACITY?: number | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCUpdateInput = {
+    MODEL?: StringFieldUpdateOperationsInput | string
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCUncheckedUpdateInput = {
+    MODEL?: StringFieldUpdateOperationsInput | string
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCCreateManyInput = {
+    MODEL: string
+    COOLING_CAPACITY?: number | null
+    HEATING_CAPACITY?: Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCUpdateManyMutationInput = {
+    MODEL?: StringFieldUpdateOperationsInput | string
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type V_NOISE_ISCUncheckedUpdateManyInput = {
+    MODEL?: StringFieldUpdateOperationsInput | string
+    COOLING_CAPACITY?: NullableIntFieldUpdateOperationsInput | number | null
+    HEATING_CAPACITY?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -13196,6 +17142,350 @@ export namespace Prisma {
     VISIBLE?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type T_NOISE_ISC_SPECCountOrderByAggregateInput = {
+    ID?: SortOrder
+    MODEL?: SortOrder
+    TYPE_COOLED?: SortOrder
+    TYPE_REF?: SortOrder
+    TYPE_EVAPORATOR?: SortOrder
+    TYPE_RUNNING?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    GENERATION?: SortOrder
+    NOMINAL_TON?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    COOLING_CAPACITY_RT?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+    HEATING_CAPACITY_RT?: SortOrder
+    COOLING_INPUT_POWER?: SortOrder
+    HEATING_INPUT_POWER?: SortOrder
+    ESEER?: SortOrder
+    IPLV?: SortOrder
+    IPLV100?: SortOrder
+    IPLV075?: SortOrder
+    IPLV050?: SortOrder
+    IPLV025?: SortOrder
+    SEER?: SortOrder
+    SCOP?: SortOrder
+    DESCRIPTION?: SortOrder
+    LOCATION?: SortOrder
+    OBSOLETE?: SortOrder
+    SOUND_PRESSURE?: SortOrder
+    SOUND_PRESSURE_HEATING?: SortOrder
+    COOLING_SOUND_POWER?: SortOrder
+    HEATING_SOUND_POWER?: SortOrder
+    EVAPORATOR_EA?: SortOrder
+    COOLING_HEAD_LOSS?: SortOrder
+    HEATING_HEAD_LOSS?: SortOrder
+    COOLING_WATER_FLOW?: SortOrder
+    HEATING_WATER_FLOW?: SortOrder
+    WEIGHT?: SortOrder
+    WEIGHT_SHIPPING?: SortOrder
+    DIMENSION_W?: SortOrder
+    DIMENSION_H?: SortOrder
+    DIMENSION_D?: SortOrder
+    FOOTPRINT?: SortOrder
+    COMP_TYPE?: SortOrder
+    COMP_OILTYPE?: SortOrder
+    COMP_OILCHARGE?: SortOrder
+    COMP_HEATER?: SortOrder
+    REFRIGERANT?: SortOrder
+    REFRIGERANT_CHARGE?: SortOrder
+    COND_TYPE?: SortOrder
+    COND_MAX_PRESSURE?: SortOrder
+    DIAMETER?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_VANE?: SortOrder
+    FAN_FLOW_RATE?: SortOrder
+    FAN_MOTOR_POWER?: SortOrder
+    MAX_CURRENT?: SortOrder
+    POWER_LINE?: SortOrder
+    REMOTE_CONTROL?: SortOrder
+    BREAKER?: SortOrder
+    IMAGE_DIMENSIONS?: SortOrder
+    IMAGE_INSTALLATION?: SortOrder
+    IMAGE_WIRING_M?: SortOrder
+    IMAGE_WIRING_S1?: SortOrder
+    IMAGE_WIRING_S2?: SortOrder
+    MCA?: SortOrder
+    MSC?: SortOrder
+    RLA?: SortOrder
+    MIN_VOLTAGE?: SortOrder
+    MAX_VOLTAGE?: SortOrder
+    VOLTAGE?: SortOrder
+    PHASE?: SortOrder
+    HZ?: SortOrder
+    CIRCUIT?: SortOrder
+  }
+
+  export type T_NOISE_ISC_SPECAvgOrderByAggregateInput = {
+    ID?: SortOrder
+    TYPE_COOLED?: SortOrder
+    TYPE_REF?: SortOrder
+    TYPE_EVAPORATOR?: SortOrder
+    TYPE_RUNNING?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    GENERATION?: SortOrder
+    NOMINAL_TON?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    COOLING_CAPACITY_RT?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+    HEATING_CAPACITY_RT?: SortOrder
+    COOLING_INPUT_POWER?: SortOrder
+    HEATING_INPUT_POWER?: SortOrder
+    ESEER?: SortOrder
+    IPLV?: SortOrder
+    IPLV100?: SortOrder
+    IPLV075?: SortOrder
+    IPLV050?: SortOrder
+    IPLV025?: SortOrder
+    SEER?: SortOrder
+    SCOP?: SortOrder
+    OBSOLETE?: SortOrder
+    COOLING_SOUND_POWER?: SortOrder
+    HEATING_SOUND_POWER?: SortOrder
+    EVAPORATOR_EA?: SortOrder
+    COOLING_HEAD_LOSS?: SortOrder
+    HEATING_HEAD_LOSS?: SortOrder
+    COOLING_WATER_FLOW?: SortOrder
+    HEATING_WATER_FLOW?: SortOrder
+    WEIGHT?: SortOrder
+    WEIGHT_SHIPPING?: SortOrder
+    DIMENSION_W?: SortOrder
+    DIMENSION_H?: SortOrder
+    DIMENSION_D?: SortOrder
+    FOOTPRINT?: SortOrder
+    FAN_FLOW_RATE?: SortOrder
+    FAN_MOTOR_POWER?: SortOrder
+    MAX_CURRENT?: SortOrder
+    MIN_VOLTAGE?: SortOrder
+    MAX_VOLTAGE?: SortOrder
+    PHASE?: SortOrder
+    CIRCUIT?: SortOrder
+  }
+
+  export type T_NOISE_ISC_SPECMaxOrderByAggregateInput = {
+    ID?: SortOrder
+    MODEL?: SortOrder
+    TYPE_COOLED?: SortOrder
+    TYPE_REF?: SortOrder
+    TYPE_EVAPORATOR?: SortOrder
+    TYPE_RUNNING?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    GENERATION?: SortOrder
+    NOMINAL_TON?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    COOLING_CAPACITY_RT?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+    HEATING_CAPACITY_RT?: SortOrder
+    COOLING_INPUT_POWER?: SortOrder
+    HEATING_INPUT_POWER?: SortOrder
+    ESEER?: SortOrder
+    IPLV?: SortOrder
+    IPLV100?: SortOrder
+    IPLV075?: SortOrder
+    IPLV050?: SortOrder
+    IPLV025?: SortOrder
+    SEER?: SortOrder
+    SCOP?: SortOrder
+    DESCRIPTION?: SortOrder
+    LOCATION?: SortOrder
+    OBSOLETE?: SortOrder
+    SOUND_PRESSURE?: SortOrder
+    SOUND_PRESSURE_HEATING?: SortOrder
+    COOLING_SOUND_POWER?: SortOrder
+    HEATING_SOUND_POWER?: SortOrder
+    EVAPORATOR_EA?: SortOrder
+    COOLING_HEAD_LOSS?: SortOrder
+    HEATING_HEAD_LOSS?: SortOrder
+    COOLING_WATER_FLOW?: SortOrder
+    HEATING_WATER_FLOW?: SortOrder
+    WEIGHT?: SortOrder
+    WEIGHT_SHIPPING?: SortOrder
+    DIMENSION_W?: SortOrder
+    DIMENSION_H?: SortOrder
+    DIMENSION_D?: SortOrder
+    FOOTPRINT?: SortOrder
+    COMP_TYPE?: SortOrder
+    COMP_OILTYPE?: SortOrder
+    COMP_OILCHARGE?: SortOrder
+    COMP_HEATER?: SortOrder
+    REFRIGERANT?: SortOrder
+    REFRIGERANT_CHARGE?: SortOrder
+    COND_TYPE?: SortOrder
+    COND_MAX_PRESSURE?: SortOrder
+    DIAMETER?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_VANE?: SortOrder
+    FAN_FLOW_RATE?: SortOrder
+    FAN_MOTOR_POWER?: SortOrder
+    MAX_CURRENT?: SortOrder
+    POWER_LINE?: SortOrder
+    REMOTE_CONTROL?: SortOrder
+    BREAKER?: SortOrder
+    IMAGE_DIMENSIONS?: SortOrder
+    IMAGE_INSTALLATION?: SortOrder
+    IMAGE_WIRING_M?: SortOrder
+    IMAGE_WIRING_S1?: SortOrder
+    IMAGE_WIRING_S2?: SortOrder
+    MCA?: SortOrder
+    MSC?: SortOrder
+    RLA?: SortOrder
+    MIN_VOLTAGE?: SortOrder
+    MAX_VOLTAGE?: SortOrder
+    VOLTAGE?: SortOrder
+    PHASE?: SortOrder
+    HZ?: SortOrder
+    CIRCUIT?: SortOrder
+  }
+
+  export type T_NOISE_ISC_SPECMinOrderByAggregateInput = {
+    ID?: SortOrder
+    MODEL?: SortOrder
+    TYPE_COOLED?: SortOrder
+    TYPE_REF?: SortOrder
+    TYPE_EVAPORATOR?: SortOrder
+    TYPE_RUNNING?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    GENERATION?: SortOrder
+    NOMINAL_TON?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    COOLING_CAPACITY_RT?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+    HEATING_CAPACITY_RT?: SortOrder
+    COOLING_INPUT_POWER?: SortOrder
+    HEATING_INPUT_POWER?: SortOrder
+    ESEER?: SortOrder
+    IPLV?: SortOrder
+    IPLV100?: SortOrder
+    IPLV075?: SortOrder
+    IPLV050?: SortOrder
+    IPLV025?: SortOrder
+    SEER?: SortOrder
+    SCOP?: SortOrder
+    DESCRIPTION?: SortOrder
+    LOCATION?: SortOrder
+    OBSOLETE?: SortOrder
+    SOUND_PRESSURE?: SortOrder
+    SOUND_PRESSURE_HEATING?: SortOrder
+    COOLING_SOUND_POWER?: SortOrder
+    HEATING_SOUND_POWER?: SortOrder
+    EVAPORATOR_EA?: SortOrder
+    COOLING_HEAD_LOSS?: SortOrder
+    HEATING_HEAD_LOSS?: SortOrder
+    COOLING_WATER_FLOW?: SortOrder
+    HEATING_WATER_FLOW?: SortOrder
+    WEIGHT?: SortOrder
+    WEIGHT_SHIPPING?: SortOrder
+    DIMENSION_W?: SortOrder
+    DIMENSION_H?: SortOrder
+    DIMENSION_D?: SortOrder
+    FOOTPRINT?: SortOrder
+    COMP_TYPE?: SortOrder
+    COMP_OILTYPE?: SortOrder
+    COMP_OILCHARGE?: SortOrder
+    COMP_HEATER?: SortOrder
+    REFRIGERANT?: SortOrder
+    REFRIGERANT_CHARGE?: SortOrder
+    COND_TYPE?: SortOrder
+    COND_MAX_PRESSURE?: SortOrder
+    DIAMETER?: SortOrder
+    FAN_TYPE?: SortOrder
+    FAN_VANE?: SortOrder
+    FAN_FLOW_RATE?: SortOrder
+    FAN_MOTOR_POWER?: SortOrder
+    MAX_CURRENT?: SortOrder
+    POWER_LINE?: SortOrder
+    REMOTE_CONTROL?: SortOrder
+    BREAKER?: SortOrder
+    IMAGE_DIMENSIONS?: SortOrder
+    IMAGE_INSTALLATION?: SortOrder
+    IMAGE_WIRING_M?: SortOrder
+    IMAGE_WIRING_S1?: SortOrder
+    IMAGE_WIRING_S2?: SortOrder
+    MCA?: SortOrder
+    MSC?: SortOrder
+    RLA?: SortOrder
+    MIN_VOLTAGE?: SortOrder
+    MAX_VOLTAGE?: SortOrder
+    VOLTAGE?: SortOrder
+    PHASE?: SortOrder
+    HZ?: SortOrder
+    CIRCUIT?: SortOrder
+  }
+
+  export type T_NOISE_ISC_SPECSumOrderByAggregateInput = {
+    ID?: SortOrder
+    TYPE_COOLED?: SortOrder
+    TYPE_REF?: SortOrder
+    TYPE_EVAPORATOR?: SortOrder
+    TYPE_RUNNING?: SortOrder
+    POWER_SUPPLY?: SortOrder
+    GENERATION?: SortOrder
+    NOMINAL_TON?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    COOLING_CAPACITY_RT?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+    HEATING_CAPACITY_RT?: SortOrder
+    COOLING_INPUT_POWER?: SortOrder
+    HEATING_INPUT_POWER?: SortOrder
+    ESEER?: SortOrder
+    IPLV?: SortOrder
+    IPLV100?: SortOrder
+    IPLV075?: SortOrder
+    IPLV050?: SortOrder
+    IPLV025?: SortOrder
+    SEER?: SortOrder
+    SCOP?: SortOrder
+    OBSOLETE?: SortOrder
+    COOLING_SOUND_POWER?: SortOrder
+    HEATING_SOUND_POWER?: SortOrder
+    EVAPORATOR_EA?: SortOrder
+    COOLING_HEAD_LOSS?: SortOrder
+    HEATING_HEAD_LOSS?: SortOrder
+    COOLING_WATER_FLOW?: SortOrder
+    HEATING_WATER_FLOW?: SortOrder
+    WEIGHT?: SortOrder
+    WEIGHT_SHIPPING?: SortOrder
+    DIMENSION_W?: SortOrder
+    DIMENSION_H?: SortOrder
+    DIMENSION_D?: SortOrder
+    FOOTPRINT?: SortOrder
+    FAN_FLOW_RATE?: SortOrder
+    FAN_MOTOR_POWER?: SortOrder
+    MAX_CURRENT?: SortOrder
+    MIN_VOLTAGE?: SortOrder
+    MAX_VOLTAGE?: SortOrder
+    PHASE?: SortOrder
+    CIRCUIT?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type V_NOISE_MULTIV_ICountOrderByAggregateInput = {
     BUYER_MODEL_NAME?: SortOrder
     T_HEAT_W?: SortOrder
@@ -13392,6 +17682,34 @@ export namespace Prisma {
     T_COOL_W?: SortOrder
   }
 
+  export type V_NOISE_ISCCountOrderByAggregateInput = {
+    MODEL?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+  }
+
+  export type V_NOISE_ISCAvgOrderByAggregateInput = {
+    COOLING_CAPACITY?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+  }
+
+  export type V_NOISE_ISCMaxOrderByAggregateInput = {
+    MODEL?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+  }
+
+  export type V_NOISE_ISCMinOrderByAggregateInput = {
+    MODEL?: SortOrder
+    COOLING_CAPACITY?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+  }
+
+  export type V_NOISE_ISCSumOrderByAggregateInput = {
+    COOLING_CAPACITY?: SortOrder
+    HEATING_CAPACITY?: SortOrder
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -13414,6 +17732,14 @@ export namespace Prisma {
     decrement?: Decimal | DecimalJsLike | number | string
     multiply?: Decimal | DecimalJsLike | number | string
     divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -13554,6 +17880,33 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
 
 
   /**
@@ -13575,6 +17928,10 @@ export namespace Prisma {
      * @deprecated Use T_NOISE_PRODUCTTYPEDefaultArgs instead
      */
     export type T_NOISE_PRODUCTTYPEArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_NOISE_PRODUCTTYPEDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use T_NOISE_ISC_SPECDefaultArgs instead
+     */
+    export type T_NOISE_ISC_SPECArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = T_NOISE_ISC_SPECDefaultArgs<ExtArgs>
     /**
      * @deprecated Use V_NOISE_MULTIV_IDefaultArgs instead
      */
@@ -13603,6 +17960,10 @@ export namespace Prisma {
      * @deprecated Use V_NOISE_AWHPDefaultArgs instead
      */
     export type V_NOISE_AWHPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_AWHPDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use V_NOISE_ISCDefaultArgs instead
+     */
+    export type V_NOISE_ISCArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = V_NOISE_ISCDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

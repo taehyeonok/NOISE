@@ -62,6 +62,84 @@ model T_NOISE_PRODUCTTYPE {
   @@index([PRODUCT_TYPE(length: 1024)], map: "PRODUCT_TYPE")
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model T_NOISE_ISC_SPEC {
+  ID                     Int      @id
+  MODEL                  String?
+  TYPE_COOLED            Int?
+  TYPE_REF               Int?
+  TYPE_EVAPORATOR        Int?
+  TYPE_RUNNING           Int?
+  POWER_SUPPLY           Int?
+  GENERATION             Int?
+  NOMINAL_TON            Int?
+  COOLING_CAPACITY       Int?
+  COOLING_CAPACITY_RT    Decimal? @db.Decimal(20, 6)
+  HEATING_CAPACITY       Decimal? @db.Decimal(20, 6)
+  HEATING_CAPACITY_RT    Decimal? @db.Decimal(20, 6)
+  COOLING_INPUT_POWER    Decimal? @db.Decimal(20, 6)
+  HEATING_INPUT_POWER    Decimal? @db.Decimal(20, 6)
+  ESEER                  Decimal? @db.Decimal(20, 6)
+  IPLV                   Decimal? @db.Decimal(20, 6)
+  IPLV100                Decimal? @db.Decimal(20, 6)
+  IPLV075                Decimal? @db.Decimal(20, 6)
+  IPLV050                Decimal? @db.Decimal(20, 6)
+  IPLV025                Decimal? @db.Decimal(20, 6)
+  SEER                   Decimal? @db.Decimal(20, 6)
+  SCOP                   Decimal? @db.Decimal(20, 6)
+  DESCRIPTION            String?  @db.Text
+  LOCATION               String?  @db.Text
+  OBSOLETE               Int?
+  SOUND_PRESSURE         String?  @db.Text
+  SOUND_PRESSURE_HEATING String?  @db.Text
+  COOLING_SOUND_POWER    Decimal? @db.Decimal(20, 6)
+  HEATING_SOUND_POWER    Decimal? @db.Decimal(20, 6)
+  EVAPORATOR_EA          Int?
+  COOLING_HEAD_LOSS      Decimal? @db.Decimal(20, 14)
+  HEATING_HEAD_LOSS      Decimal? @db.Decimal(20, 14)
+  COOLING_WATER_FLOW     Decimal? @db.Decimal(20, 6)
+  HEATING_WATER_FLOW     Decimal? @db.Decimal(20, 6)
+  WEIGHT                 Int?
+  WEIGHT_SHIPPING        Int?
+  DIMENSION_W            Int?
+  DIMENSION_H            Int?
+  DIMENSION_D            Int?
+  FOOTPRINT              Decimal? @db.Decimal(20, 6)
+  COMP_TYPE              String?  @db.Text
+  COMP_OILTYPE           String?  @db.Text
+  COMP_OILCHARGE         String?  @db.Text
+  COMP_HEATER            String?  @db.Text
+  REFRIGERANT            String?  @db.Text
+  REFRIGERANT_CHARGE     String?  @db.Text
+  COND_TYPE              String?  @db.Text
+  COND_MAX_PRESSURE      String?  @db.Text
+  DIAMETER               String?  @db.Text
+  FAN_TYPE               String?  @db.Text
+  FAN_VANE               String?  @db.Text
+  FAN_FLOW_RATE          Int?
+  FAN_MOTOR_POWER        Int?
+  MAX_CURRENT            Int?
+  POWER_LINE             String?  @db.Text
+  REMOTE_CONTROL         String?  @db.Text
+  BREAKER                String?  @db.Text
+  IMAGE_DIMENSIONS       String?  @db.Text
+  IMAGE_INSTALLATION     String?  @db.Text
+  IMAGE_WIRING_M         String?  @db.Text
+  IMAGE_WIRING_S1        String?  @db.Text
+  IMAGE_WIRING_S2        String?  @db.Text
+  MCA                    String?  @db.Text
+  MSC                    String?  @db.Text
+  RLA                    String?  @db.Text
+  MIN_VOLTAGE            Int?
+  MAX_VOLTAGE            Int?
+  VOLTAGE                String?  @db.Text
+  PHASE                  Int?
+  HZ                     String?  @db.Text
+  CIRCUIT                Int?
+
+  @@index([ID], map: "ID")
+}
+
 /// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 view V_NOISE_MULTIV_I {
   BUYER_MODEL_NAME String   @unique
@@ -109,4 +187,11 @@ view V_NOISE_AWHP {
   BUYER_MODEL_NAME String   @unique
   T_HEAT_W         Decimal? @db.Decimal(30, 10)
   T_COOL_W         Decimal? @db.Decimal(30, 10)
+}
+
+/// The underlying view does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+view V_NOISE_ISC {
+  MODEL            String   @unique
+  COOLING_CAPACITY Int?
+  HEATING_CAPACITY Decimal? @db.Decimal(20, 6)
 }

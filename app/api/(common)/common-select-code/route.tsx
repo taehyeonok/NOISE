@@ -112,6 +112,18 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           data: result,
         });
+      } else if (data?.param.productTypeData === "ISC") {
+        const dataList = await client.v_NOISE_ISC.findMany({
+          select: {
+            MODEL: true,
+          },
+        });
+        const result = dataList.map((d: any) => {
+          return { title: d.MODEL, value: d.MODEL };
+        });
+        return NextResponse.json({
+          data: result,
+        });
       } else {
         const result = [{ title: "- Select Product Type -", value: "" }];
         return NextResponse.json({

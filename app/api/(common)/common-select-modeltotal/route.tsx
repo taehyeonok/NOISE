@@ -117,6 +117,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         data: result,
       });
+    } else if (data.productType === "ISC") {
+      const dataList = await client.v_NOISE_ISC.findMany({
+        select: {
+          MODEL: true,
+          COOLING_CAPACITY: true,
+          HEATING_CAPACITY: true,
+        },
+        where: {
+          MODEL: data.modelName,
+        },
+      });
+      const result = dataList.map((d: any) => {
+        return { t_cool_w: d.HEATING_CAPACITY * 100, t_heat_w: d.HEATING_CAPACITY * 100 };
+      });
+      return NextResponse.json({
+        data: result,
+      });
     } else {
       return NextResponse.json({
         data: [],
