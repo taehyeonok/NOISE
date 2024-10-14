@@ -8,9 +8,9 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import CSelect from "@/app/[lang]/components/_atoms/cSelect";
 import BarrierInformationTable from "@/app/[lang]/components/table/barrierInformationTable";
 import CTooltip from "@/app/[lang]/components/_atoms/cTooltip";
-import { cTooltipProps } from "@/@types/components";
 import { selectMaterialDummyData } from "../../constants/const";
 import { cloneObject } from "@/app/utils/utils";
+import CCheckBox from "../_atoms/cCheckBox";
 
 interface OutdoorSpaceItem {
   barrierInfoTableData: any;
@@ -39,6 +39,8 @@ interface OutdoorSpaceItem {
   setBarrierThickness: Function;
   backgroundNoise: number;
   setBackgroundNoise: Function;
+  barrierChecked: boolean;
+  setBarrierChecked: Function;
 }
 export default function OutdoorSpaceContent({
   barrierInfoTableData,
@@ -67,12 +69,20 @@ export default function OutdoorSpaceContent({
   setBarrierThickness,
   backgroundNoise,
   setBackgroundNoise,
+  barrierChecked,
+  setBarrierChecked,
 }: OutdoorSpaceItem) {
   const [isShowSelectBox, setIsShowSelectBox] = useState<string>("");
   const barrierInThePath = [
     { title: "O", value: "0" },
     { title: "X", value: "1" },
   ];
+
+  const handleTableChange = (isChecked: boolean) => {
+    setBarrierChecked(isChecked);
+    setBarrierEnable(isChecked);
+    setSelected(isChecked ? { title: "O", value: "0" } : { title: "X", value: "1" });
+  };
 
   const inputSelectStyle = `w-[18.438rem] mobile:w-[7.5rem]`;
 
@@ -111,6 +121,38 @@ export default function OutdoorSpaceContent({
           )}
         </ContainerBoxRow>
         {children}
+      </div>
+    );
+  };
+  const renderContainerBoxRowBarrier = (
+    children: React.ReactNode,
+    toolTipTitle?: string,
+    noToolTip?: boolean,
+    toolTipClassName?: string
+  ) => {
+    return (
+      <div className={"flex items-center mobile:justify-between mobile:relative mobile:w-full"}>
+        {/* 반응형 */}
+        <ContainerBoxRow
+          justifyContent={"start"}
+          alignItems={"center"}
+          classList={"!w-[14.063rem] mobile:!w-max"}
+        >
+          <div
+            className={"!font-LGSMHATSB !text-[0.875rem] !text-gray_400 mr-2 !leading-[0.976rem]"}
+          >
+            {children}
+          </div>
+          {!noToolTip && (
+            <CTooltip className={toolTipClassName ? toolTipClassName : ""}>
+              {toolTipTitle ? (
+                <p className={"cToolTipTitle"}>{toolTipTitle}</p>
+              ) : (
+                <Image src={IG_REFERENCE_COMMON_TABLE} alt={"Reference Common Table"} />
+              )}
+            </CTooltip>
+          )}
+        </ContainerBoxRow>
       </div>
     );
   };
@@ -219,24 +261,13 @@ export default function OutdoorSpaceContent({
       </ContainerBoxRow>
       {/* 반응형 */}
       <ContainerBoxRow justifyContent={"start"} alignItems={"center"}>
-        {renderContainerBoxRowItem(
-          t("NOISE_0059"),
-          <CSelect
+        {renderContainerBoxRowBarrier(
+          <CCheckBox
             name={"barrier_in_the_path"}
-            title={"O"}
-            value={selected.title == "O" ? "O" : "X"}
-            select={selected}
-            setSelect={setSelected}
-            className={`${inputSelectStyle} h-[2.25rem]`}
-            selectList={barrierInThePath}
-            onChange={(changeValue: { title: string; value: string }) => {
-              // setSelected(changeValue);
-              if (changeValue.title === "X") {
-                setBarrierEnable(false);
-              } else {
-                setBarrierEnable(true);
-              }
-            }}
+            id={"barrier_in_the_path"}
+            label={t("NOISE_0059")}
+            onChange={handleTableChange}
+            checked={barrierChecked}
           />,
           t("NOISE_0076"),
           false,

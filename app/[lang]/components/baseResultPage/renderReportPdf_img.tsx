@@ -804,8 +804,9 @@ const RenderReportPdfImage = ({
                   <div>
                     <div className="pdf-content-table-row">
                       <div className="td w-[29%]">{t("NOISE_0059")}</div>
-                      <div className="td w-[1%]">{inputData?.inputData?.isBarrier}</div>
-
+                      <div className="td w-[1%]">
+                        {inputData?.inputData?.isBarrier ? t("NOISE_0082") : t("NOISE_0083")}
+                      </div>
                       <div className="td w-[25%]"></div>
                       <div className="td w-[15%]"></div>
                       <div className="td w-[15%]"></div>
@@ -813,12 +814,12 @@ const RenderReportPdfImage = ({
                     <div className="pdf-content-table-row">
                       <div className="td w-[30%]">{t("NOISE_0060")}</div>
                       <div className="td w-[10%]">
-                        {inputData?.inputData?.isBarrier === "O" ? inputData?.inputData?.ODUs : "-"}
+                        {inputData?.inputData?.isBarrier ? inputData?.inputData?.ODUs : "-"}
                       </div>
                       <div className="td w-[10%]">{unitData?.length}</div>
                       <div className="td w-[25%]">{t("NOISE_0061")}</div>
                       <div className="td w-[15%]">
-                        {inputData?.inputData?.isBarrier === "O"
+                        {inputData?.inputData?.isBarrier
                           ? inputData?.inputData?.barrier_height
                           : "-"}
                       </div>
@@ -827,21 +828,19 @@ const RenderReportPdfImage = ({
                     <div className="pdf-content-table-row">
                       <div className="td w-[30%]">{t("VENT_57")}</div>
                       <div className="td w-[10%]">
-                        {inputData?.inputData?.isBarrier === "O"
+                        {inputData?.inputData?.isBarrier
                           ? inputData?.inputData?.material_thickness[0].split("(")[0]
                           : "-"}
                       </div>
                       <div className="td w-[10%]"></div>
                       <div className="td w-[25%]">{t("NOISE_0062")}</div>
                       <div className="td w-[15%]">
-                        {inputData?.inputData?.isBarrier === "O"
+                        {inputData?.inputData?.isBarrier
                           ? inputData?.inputData?.barrier_thickness
                           : "-"}
                       </div>
                       <div className="td w-[15%]">
-                        {inputData?.inputData?.isBarrier === "O"
-                          ? unitData?.length
-                          : unitData?.diameter}
+                        {inputData?.inputData?.isBarrier ? unitData?.length : unitData?.diameter}
                       </div>
                     </div>
                     <div className="grid grid-rows-1 grid-flow-col">
@@ -858,42 +857,42 @@ const RenderReportPdfImage = ({
                       </div>
                       <div className="col-span-4 flex flex-row items-center justify-center">
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[0]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[1]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[2]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[3]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[4]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[5]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[6]
                             : "-"}
                         </div>
                         <div className="td w-[15%]">
-                          {inputData?.inputData?.isBarrier === "O"
+                          {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[7]
                             : "-"}
                         </div>
@@ -925,7 +924,7 @@ const RenderReportPdfImage = ({
               )}
             </div>
           </div>
-          {/**결과창 */}
+          {/**결과창 Simulation Result*/}
           <div className="pdf-content mobile:w-full" ref={pdfContentResultRef}>
             <div className="pdf-page">
               <div className="pdf-content-header" ref={pdfContentHeaderRef}>
@@ -1056,82 +1055,122 @@ const RenderReportPdfImage = ({
                   <div className="td w-[20%]">{t("NOISE_0016")}</div>
                   <div className="td w-[8%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[0].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[0]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[0].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[0]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[8%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[1].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[1]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[1].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[1]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[8%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[2].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[2]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[2].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[2]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[8%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[3].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[3]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[3].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[3]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[8%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[4].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[4]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[4].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[4]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[10%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[5].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[5]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[5].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[5]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[10%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[6].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[6]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[6].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[6]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                   <div className="td w-[10%]">
                     {inputData?.inputData?.field_type === "Outdoor Space"
-                      ? Number(
-                          inputData.estimatedSoundData[7].content2 +
-                            inputData.DI -
-                            inputData.distance -
-                            inputData.data[7]
-                        ).toFixed(1)
+                      ? Math.max(
+                          Number(
+                            Number(
+                              inputData.estimatedSoundData[7].content2 +
+                                inputData.DI -
+                                inputData.distance -
+                                inputData.data[7]
+                            ).toFixed(1)
+                          ),
+                          0
+                        )
                       : "-"}
                   </div>
                 </div>

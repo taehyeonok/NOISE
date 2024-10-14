@@ -46,6 +46,7 @@ export default function Input() {
   const MIN_ROWS = 1;
   const [isLoading, setIsLoading] = useState(false);
   const [isManual, setIsManual] = useState(false);
+  const [barrierChecked, setBarrierChecked] = useState(false);
   const [productTableData, setProductTableData] = useState<ProductItem[]>(
     productInformationTableDummyData
   );
@@ -276,7 +277,7 @@ export default function Input() {
         //noisetool
         setHorizontalDistance(projectInfoData?.inputData?.horizontal);
         setBarrierEnable(projectInfoData?.inputData?.barrierSelected?.value == "0" ? true : false);
-
+        setBarrierChecked(projectInfoData?.inputData?.barrierChecked);
         //Barrier in the path == O 일 때
         if (projectInfoData?.inputData?.barrierSelected?.value == "0") {
           setOdus(projectInfoData?.inputData?.odus);
@@ -341,6 +342,7 @@ export default function Input() {
       barrierInfoTableData,
       barrierSelected,
       odus,
+      barrierChecked,
       barrierH,
       barrierThickness,
     };
@@ -366,6 +368,7 @@ export default function Input() {
     barrierInfoTableData,
     barrierSelected,
     odus,
+    barrierChecked,
     barrierH,
     barrierThickness,
     directDistance,
@@ -896,6 +899,8 @@ export default function Input() {
               setBarrierThickness={setBarrierThickness}
               backgroundNoise={backgroundNoise}
               setBackgroundNoise={setBackgroundNoise}
+              barrierChecked={barrierChecked}
+              setBarrierChecked={setBarrierChecked}
             />
           ) : (
             <EnclosedSpaceContent

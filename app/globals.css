@@ -801,3 +801,19 @@ body {
   .numbering-list.depth-3{
     @apply  ps-10
   }
+
+/* checkbox */
+.checkboxWrap {
+    @apply font-LGSMHATSB text-[0.875rem] text-gray_400 mr-2 leading-[0.976rem]
+  }
+  .checkboxWrap input[type="checkbox"] {
+    @apply w-[1.25rem] h-[1.25rem] appearance-none bg-checkBoxDefault bg-no-repeat bg-center bg-contain;
+  }
+  
+  .checkboxWrap input[type="checkbox"]:checked {
+    @apply bg-checkBoxBg;
+  }
+  
+  .checkboxWrap input[type="checkbox"]:disabled {
+    @apply bg-checkBoxDisabled;
+  }

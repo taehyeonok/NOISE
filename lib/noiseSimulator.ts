@@ -51,8 +51,7 @@ export async function noiseSimulator(
 
     //: Sound Source, Receiver, Barrier 조건에 따라 총 4가지 케이스로 분류
     if (field_type === "Outdoor Space") {
-      const isBarrier = formData.get("barrier_in_the_path_text");
-
+      const isBarrier = formData.get("barrier_in_the_path");
       const distance_from_ODUs = editUnit.GetTrans(
         EditUnitType.TYPE_UNIT_ELEVATION,
         Number(formData.get("distance_from_ODUs")),
@@ -70,16 +69,16 @@ export async function noiseSimulator(
       result.inputData.receiver = formData.get("elevation_of_receiver");
       result.inputData.horizontal_distance = formData.get("horizontal_distance");
       result.inputData.background_noise = formData.get("background_noise");
-      result.inputData.isBarrier = formData.get("barrier_in_the_path_text");
+      result.inputData.isBarrier = isBarrier;
       //Scene 1: Only propagation
-      if (isBarrier === "X") {
+      if (!isBarrier) {
         for (let i = 0; i < hz.length; i++) {
           const scene1 = estimatedSoundData[i].content2 + DI - sLine_distance_attenuation;
 
           result.data[i] =
             10 * Math.log10(10 ** (scene1 / 10) + 10 ** ((background_noise * ratio[i]!) / 10));
         }
-      } else if (isBarrier === "O") {
+      } else if (isBarrier) {
         //반사경로
         const reflectionPath = Math.sqrt(
           (height_of_sound_source + elevation_of_receiver) ** 2 + horizontal_distance ** 2

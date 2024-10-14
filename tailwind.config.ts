@@ -30,6 +30,8 @@ const config: Config = {
         mobileMainOverview: "url('./assets/images/ig_m_main.svg')",
         mainGradient: "linear-gradient(309deg, #AAC8DD 0%, #E4F4FF 100%)",
         checkBoxBg: "url('./assets/icons/ic_checked.svg')",
+        checkBoxDefault: "url('./assets/icons/ic_checkbox_default.svg')",
+        checkBoxDisabled: "url('./assets/icons/ic_checkbox_disabled.svg')",
       },
       screens: {
         mobile: { min: "320px", max: "1079px" },

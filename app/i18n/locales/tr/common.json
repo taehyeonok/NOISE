@@ -5229,5 +5229,7 @@
   "THERMAV_969": "There is no simulation ID.",
   "THERMAV_970": "Error",
   "RC_0368": "Input Volume",
-  "NOISE_0081": "Capacity values are not reflected for products entered as 'Manual'."
+  "NOISE_0081": "Capacity values are not reflected for products entered as 'Manual'.",
+  "NOISE_0082": "Presence",
+  "NOISE_0083": "Absence"
 }

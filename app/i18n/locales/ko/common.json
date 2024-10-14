@@ -5229,5 +5229,7 @@
   "THERMAV_969": "Simulation ID가 없습니다.",
   "THERMAV_970": "Error",
   "RC_0368": "입력 볼륨",
-  "NOISE_0081": "Manual로 입력한 제품의 능력은 반영되지 않습니다."
+  "NOISE_0081": "Manual로 입력한 제품의 능력은 반영되지 않습니다.",
+  "NOISE_0082": "Presence",
+  "NOISE_0083": "Absence"
 }

@@ -62,8 +62,13 @@ interface buttonProps {
 }
 
 interface checkBoxProps {
+  name: string;
+  id?: string;
   label: string;
-  value: any;
+  checked: boolean;
+  onChange?: (checked: boolean) => void;
+  defaultChecked?: boolean;
+  disabled?: boolean;
 }
 
 interface accordionBoxProps {
