@@ -746,8 +746,8 @@ body {
   .pdf-content-table-row{
     @apply  flex flex-row w-full  bg-[#fff] py-[1.5mm] border-b border-solid border-black border-collapse justify-between
   }
-  .pdf-content-table-row .td{
-    @apply  flex flex-col items-center
+  .pdf-content-table-row .td:not(:last-child){
+    @apply  flex flex-col items-center border-r border-solid border-black 
   }
   .pdf-content-table-th{
     @apply  w-full text-center text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black
@@ -772,7 +772,7 @@ body {
     width: 210mm;
     height: 297mm;
     page-break-after: always;
-    @apply py-[5mm] px-[5mm] mobile:w-full
+    @apply py-[5mm] px-[5mm] mobile:w-full  border-gray-300 border-4 border-solid
   }
   
   .pdf-content-table .chart{
@@ -790,7 +790,7 @@ body {
   }
 
   .numbering-list{
-    @apply flex flex-row gap-[0.3rem] mt-3 ps-3 text-left 
+    @apply flex flex-row gap-[0.3rem] mt-3 ps-3 text-left
   }
   .numbering-list.depth-1{
     @apply  ps-6
@@ -800,6 +800,9 @@ body {
   }
   .numbering-list.depth-3{
     @apply  ps-10
+  }
+  .numbering-list.depth-1 div{
+    @apply  text-[0.875rem]
   }
 
 /* checkbox */

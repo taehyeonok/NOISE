@@ -3,32 +3,25 @@ import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
 import SimulationResultTable from "@/app/[lang]/components/table/simulationResultTable";
-import IG_OCTAVE_BAND from "@/app/assets/images/ig_octave_band_graph.svg";
-import Image from "next/image";
 import CAccordionBox from "@/app/[lang]/components/_atoms/cAccordionBox";
 import {
   accordionDummyData,
   detailInformationDummyData,
-  pageIndex,
   soundPressureReceiverDummyData,
 } from "@/app/[lang]/constants/const";
 import { useContext, useEffect, useRef, useState } from "react";
-import IG_REPORT from "@/app/assets/images/ig_report.svg";
 import IC_BUTTON_LEFT_ARROW from "@/app/assets/icons/ic_button_left_arrow.png";
 import CButton from "@/app/[lang]/components/_atoms/cButton";
 import CImageButton from "@/app/[lang]/components/_atoms/cImageButton";
 import Link from "next/link";
-import CPopHeader from "@/app/[lang]/components/_atoms/cPopHeader";
-import CPopUp from "@/app/[lang]/components/_atoms/cPopup";
 import { cloneObject } from "@/app/utils/utils";
-import ResultChart from "../../components/chart/resultChart";
 import dynamic from "next/dynamic";
 import LoadingChart from "../../components/loadingSkeleton/loadingChart";
 import { useTranslation } from "react-i18next";
 import RenderReportPdfImage from "../../components/baseResultPage/renderReportPdf_img";
-import EditUnit, { EditUnitType } from "@/lib/editUnit";
+import EditUnit from "@/lib/editUnit";
 import { ProjectInfoContext } from "@/app/context/projectInfoContext";
-import CReportPopUp from "../../components/_atoms/cReportPopUp";
+import LoadingPage from "../../components/loadingSkeleton/loadingPage";
 
 export default function Result({ params: { lang } }: any) {
   const { t } = useTranslation(lang);
@@ -105,6 +98,7 @@ export default function Result({ params: { lang } }: any) {
 
   return (
     <main className={"container"}>
+      {isLoading && <LoadingPage />}
       {/* 반응형 */}
       <ContainerBox classList={"mt-6 mb-[3.125rem] mobile:mt-[0.625rem] mobile:mb-[2.5rem]"}>
         <ContainerBoxTitle title={t("NOISE_0010")} />
@@ -134,14 +128,7 @@ export default function Result({ params: { lang } }: any) {
             >
               {t("NOISE_0012")}
             </div>
-
             <ResultChart simulateData={octaveBand} t={t} chartDivRef={chartDivRef} />
-
-            {/* <Image
-              src={IG_OCTAVE_BAND}
-              alt={"octave band"}
-              className={"mt-[3.25rem] mobile:mt-[1.25rem] w-[29rem] h-[20rem] "}
-            /> */}
           </section>
         </ContainerBoxRow>
         <CAccordionBox

@@ -8,11 +8,8 @@ import jsPDF from "jspdf";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { useCookies } from "react-cookie";
 import dynamic from "next/dynamic";
-import LoadingPage from "../loadingSkeleton/loadingPage";
 import { toPng } from "html-to-image";
-import { ProductItem } from "@/@types/components";
 import { dBAF } from "../../constants/const";
 import CReportPopUp from "../_atoms/cReportPopUp";
 import Noisetools from "../noisetools/noisetools";
@@ -40,12 +37,6 @@ const RenderReportPdfImage = ({
   const pdfContentNoteRef = useRef<HTMLDivElement>(null);
   const reportPdfImgRef = useRef<HTMLDivElement>(null);
   const pdfContentHeaderRef = useRef<HTMLDivElement>(null);
-  const [cookies, setCookie, removeCookie] = useCookies([
-    "latsNoiseLogin",
-    "latsNoiseLoginInfo",
-    "ssolgenet",
-    "login_success",
-  ]);
   const [unitData, setUnitData] = useState<any>(null);
   const editUnit = new EditUnit();
   const pageWidth = 210;
@@ -447,12 +438,14 @@ const RenderReportPdfImage = ({
           </div>
         </div>
       </div>
-      <div
-        className={`flex flex-col gap-10 mobile:p-[1.25rem_1rem_2.5rem_1rem] mobile:gap-[1.875rem] `}
-      >
+      <div className={`flex flex-col mobile:p-[1.25rem_1rem_2.5rem_1rem]`}>
         {/* 리포트 커버 페이지 */}
         <div ref={reportPdfImgRef}>
-          <div id="pdfCover" className="w-[210mm] h-[297mm] m-auto mobile:w-full" ref={pdfCoverRef}>
+          <div
+            id="pdfCover"
+            className="border-gray-300 border-4 border-solid w-[210mm] h-[297mm] m-auto mobile:w-full"
+            ref={pdfCoverRef}
+          >
             <div className="pdf-cover-logo w-full ml-2">
               <Image src={IC_LG_LOGO} alt={"lg"} />
             </div>
@@ -476,7 +469,7 @@ const RenderReportPdfImage = ({
                 {t("NOISE_0020")}
               </div>
             </div>
-            <div className="pdf-cover-info">
+            <div className="pdf-cover-info bg-white">
               <p className="title">{t("RC_0170")}</p>
               <div className="flex gap-2">
                 <div>
@@ -493,7 +486,7 @@ const RenderReportPdfImage = ({
             </div>
           </div>
 
-          {/* System Information */}
+          {/* Input Condition */}
           <div className="pdf-content mobile:w-full " ref={pdfContentInputRef}>
             <div className="pdf-content-title">{t("RC_0174")}</div>
 
@@ -529,20 +522,18 @@ const RenderReportPdfImage = ({
                 <div className="td w-[30%]">
                   {inputData?.soundData?.totalCapacityTableData[0]["first"].split("k")[0]}
                 </div>
-                <div className="w-[10%]  text-left">kW</div>
-                <div className="td w-[20%]"></div>
-                <div className="td w-[10%]"></div>
+                <div className="w-[40%]  text-left ml-2 pl-2.5">kW</div>
               </div>
               <div className="pdf-content-table-row ">
                 <div className="td w-[30%]">{t("NOISE_0043")}</div>
                 <div className="td w-[30%]">
                   {inputData?.soundData?.totalCapacityTableData[1]["first"].split("k")[0]}
                 </div>
-                <div className="w-[10%] text-left">kW</div>
-                <div className="td w-[15%]">
-                  {inputData?.soundData?.totalCapacityTableData[1]["second"].split("%")[0]}
+                <div className="td w-[15%] text-left ml-2">kW</div>
+                <div className="td w-[25%]">
+                  {inputData?.soundData?.totalCapacityTableData[1]["second"].split("%")[0]} %
                 </div>
-                <div className="w-[15%] text-left">%</div>
+                {/* <div className="w-[15%] text-left ">%</div> */}
               </div>
             </div>
             {/**Sound Spec Data */}
@@ -656,9 +647,9 @@ const RenderReportPdfImage = ({
               <div className="pdf-content-table-td justify-center">
                 <div>{t("NOISE_0046")}</div>
               </div>
-              <div className="grid grid-rows-1 grid-flow-col">
+              <div className="grid grid-rows-1 grid-flow-col bg-white border-solid border-black border-b">
                 <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                <div className="my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
+                <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
                   <div className="td w-[15%]">63 Hz</div>
                   <div className="td w-[15%]">125 Hz</div>
                   <div className="td w-[15%]">250 Hz</div>
@@ -668,7 +659,7 @@ const RenderReportPdfImage = ({
                   <div className="td w-[15%]">4k Hz</div>
                   <div className="td w-[15%]">8k Hz</div>
                 </div>
-                <div className="col-span-4 flex flex-row items-center justify-center">
+                <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
                   <div className="td w-[15%]">
                     {Number(inputData?.soundData?.estimatedSoundData[0]["content2"]).toFixed(1)}
                   </div>
@@ -695,8 +686,7 @@ const RenderReportPdfImage = ({
                   </div>
                 </div>
               </div>
-              <div className="my-1 border-b border-solid border-black flex flex-row items-center justify-center" />
-              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center">
+              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center bg-white">
                 <div className="td w-[70%]">{t("NOISE_0018")} (dB(A)) </div>
                 <div className="td w-[30%]">
                   {Number(dBAF(inputData?.soundData?.estimatedSoundData, "content2")).toFixed(1)}
@@ -735,11 +725,9 @@ const RenderReportPdfImage = ({
               <div>
                 <div className="pdf-content-table-row">
                   <div className="td w-[30%]">{t("NOISE_0050")}</div>
-                  <div className="td w-[20%]">{inputData?.inputData?.field_type.split("(")[0]}</div>
-
-                  <div className="td w-[25%]"></div>
-                  <div className="td w-[15%]"></div>
-                  <div className="td w-[15%]"></div>
+                  <div className="td w-[70%] text-left ml-5 mr-3.5">
+                    {inputData?.inputData?.field_type.split("(")[0]}
+                  </div>
                 </div>
                 <div className="pdf-content-table-row">
                   <div className="td w-[30%]">
@@ -787,10 +775,7 @@ const RenderReportPdfImage = ({
                     <div className="pdf-content-table-row">
                       <div className="td w-[30%]">{t("NOISE_0055")}</div>
                       <div className="td w-[10%]">{inputData?.inputData?.background_noise}</div>
-                      <div className="td w-[10%]">dB(A)</div>
-                      <div className="td w-[25%]"></div>
-                      <div className="td w-[15%]"></div>
-                      <div className="td w-[15%]"></div>
+                      <div className="td w-[60%] text-left ml-5 mr-3.5">dB(A)</div>
                     </div>
                   </>
                 )}
@@ -804,12 +789,9 @@ const RenderReportPdfImage = ({
                   <div>
                     <div className="pdf-content-table-row">
                       <div className="td w-[29%]">{t("NOISE_0059")}</div>
-                      <div className="td w-[1%]">
+                      <div className="td w-[71%] text-left ml-3">
                         {inputData?.inputData?.isBarrier ? t("NOISE_0082") : t("NOISE_0083")}
                       </div>
-                      <div className="td w-[25%]"></div>
-                      <div className="td w-[15%]"></div>
-                      <div className="td w-[15%]"></div>
                     </div>
                     <div className="pdf-content-table-row">
                       <div className="td w-[30%]">{t("NOISE_0060")}</div>
@@ -827,12 +809,11 @@ const RenderReportPdfImage = ({
                     </div>
                     <div className="pdf-content-table-row">
                       <div className="td w-[30%]">{t("VENT_57")}</div>
-                      <div className="td w-[10%]">
+                      <div className="td w-[20%]">
                         {inputData?.inputData?.isBarrier
                           ? inputData?.inputData?.material_thickness[0].split("(")[0]
                           : "-"}
                       </div>
-                      <div className="td w-[10%]"></div>
                       <div className="td w-[25%]">{t("NOISE_0062")}</div>
                       <div className="td w-[15%]">
                         {inputData?.inputData?.isBarrier
@@ -843,9 +824,9 @@ const RenderReportPdfImage = ({
                         {inputData?.inputData?.isBarrier ? unitData?.length : unitData?.diameter}
                       </div>
                     </div>
-                    <div className="grid grid-rows-1 grid-flow-col">
+                    <div className="grid grid-rows-1 grid-flow-col border-solid border-black border-b bg-white">
                       <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                      <div className="my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
+                      <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
                         <div className="td w-[15%]">63 Hz</div>
                         <div className="td w-[15%]">125 Hz</div>
                         <div className="td w-[15%]">250 Hz</div>
@@ -855,7 +836,7 @@ const RenderReportPdfImage = ({
                         <div className="td w-[15%]">4k Hz</div>
                         <div className="td w-[15%]">8k Hz</div>
                       </div>
-                      <div className="col-span-4 flex flex-row items-center justify-center">
+                      <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
                         <div className="td w-[15%]">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[0]
@@ -898,7 +879,6 @@ const RenderReportPdfImage = ({
                         </div>
                       </div>
                     </div>
-                    <div className="mt-1 border-b border-solid border-black flex flex-row items-center justify-center" />
                   </div>
                   <div className="mt-5 pointer-events-none">
                     <Noisetools
@@ -1175,10 +1155,11 @@ const RenderReportPdfImage = ({
                   </div>
                 </div>
               </div>
+              {/**Sound Pressure Level (at receiver) */}
               <div className="pdf-content-table-th mt-5">{t("NOISE_0017")}</div>
-              <div className="grid grid-rows-1 grid-flow-col">
+              <div className="grid grid-rows-1 grid-flow-col  border-b border-solid border-black bg-white">
                 <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                <div className="my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
+                <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
                   <div className="td w-[15%]">63 Hz</div>
                   <div className="td w-[15%]">125 Hz</div>
                   <div className="td w-[15%]">250 Hz</div>
@@ -1188,7 +1169,7 @@ const RenderReportPdfImage = ({
                   <div className="td w-[15%]">4k Hz</div>
                   <div className="td w-[15%]">8k Hz</div>
                 </div>
-                <div className="col-span-4 flex flex-row items-center justify-center">
+                <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
                   <div className="td w-[15%]">{Number(inputData?.data[0]).toFixed(1)}</div>
                   <div className="td w-[15%]">{Number(inputData?.data[1]).toFixed(1)}</div>
                   <div className="td w-[15%]">{Number(inputData?.data[2]).toFixed(1)}</div>
@@ -1199,8 +1180,7 @@ const RenderReportPdfImage = ({
                   <div className="td w-[15%]">{Number(inputData?.data[7]).toFixed(1)}</div>
                 </div>
               </div>
-              <div className="border-b border-solid border-black flex flex-row items-center justify-center" />
-              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center">
+              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center bg-white">
                 <div className="td w-[70%]">{t("NOISE_0018")} (dB(A)) </div>
                 <div className="td w-[30%]">{Number(overalldBAF(inputData?.data)).toFixed(1)}</div>
               </div>
@@ -1324,8 +1304,8 @@ const RenderReportPdfImage = ({
             </div>
             <div>
               <div className="pdf-content-table-row">
-                <div className="td w-[20%]">Sound propagation</div>
-                <div className="td w-[45%]">𝐿𝑝=𝐿𝑤 - 20log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚)−11+𝐷𝐼</div>
+                <div className="td w-[20%] !border-0">Sound propagation</div>
+                <div className="td w-[45%] !border-0">𝐿𝑝=𝐿𝑤 - 20log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚)−11+𝐷𝐼</div>
                 <div className="td w-[35%]">where 𝐷𝐼 is directivity factor</div>
               </div>
 
@@ -1419,7 +1399,11 @@ const RenderReportPdfImage = ({
           />
         </div>
         {/* 반응형 */}
-        <div className={"hidden mobile:flex flex-col gap-3 mobile:w-full"}>
+        <div
+          className={
+            "sticky py-2 bottom-[-15px] bg-white hidden mobile:flex flex-col gap-3 mobile:w-full"
+          }
+        >
           <div className={"flex gap-3"}>
             {false && (
               <CButton
