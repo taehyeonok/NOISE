@@ -686,7 +686,7 @@ const RenderReportPdfImage = ({
                   </div>
                 </div>
               </div>
-              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center bg-white">
+              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center">
                 <div className="td w-[70%]">{t("NOISE_0018")} (dB(A)) </div>
                 <div className="td w-[30%]">
                   {Number(dBAF(inputData?.soundData?.estimatedSoundData, "content2")).toFixed(1)}
@@ -789,7 +789,7 @@ const RenderReportPdfImage = ({
                   <div>
                     <div className="pdf-content-table-row">
                       <div className="td w-[29%]">{t("NOISE_0059")}</div>
-                      <div className="td w-[71%] text-left ml-3">
+                      <div className="td w-[71%] text-left ml-3 pl-7">
                         {inputData?.inputData?.isBarrier ? t("NOISE_0082") : t("NOISE_0083")}
                       </div>
                     </div>
@@ -1180,7 +1180,7 @@ const RenderReportPdfImage = ({
                   <div className="td w-[15%]">{Number(inputData?.data[7]).toFixed(1)}</div>
                 </div>
               </div>
-              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center bg-white">
+              <div className="w-[33.4%] my-2 border-b border-solid border-black flex items-center justify-center">
                 <div className="td w-[70%]">{t("NOISE_0018")} (dB(A)) </div>
                 <div className="td w-[30%]">{Number(overalldBAF(inputData?.data)).toFixed(1)}</div>
               </div>
