@@ -810,6 +810,7 @@ export default function Input() {
             soundPowerLevel={soundPowerLevel}
             setSoundPowerLevel={setSoundPowerLevel}
             projectInfoData={projectInfoData}
+            isBackData={isBackData}
             t={t}
           />
           {/* 반응형 */}

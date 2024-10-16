@@ -6,16 +6,16 @@ export default function SoundSpecDataTable({
   soundPowerLevel,
   setSoundPowerLevel,
   projectInfoData,
+  isBackData,
   t,
 }: {
   soundPressureLevel: any;
   soundPowerLevel: any;
   setSoundPowerLevel: Function;
   projectInfoData: any;
+  isBackData: boolean;
   t: any;
 }) {
-  const isBack = typeof window !== "undefined" ? localStorage!.getItem("isBack") : undefined;
-
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
       <table>
@@ -56,7 +56,7 @@ export default function SoundSpecDataTable({
                     type="number"
                     classList={"tableTd w-full"}
                     value={
-                      isBack
+                      isBackData
                         ? projectInfoData.soundPowerLevel[index][productType]
                         : item[productType]
                     }
@@ -143,7 +143,7 @@ export default function SoundSpecDataTable({
                               type="number"
                               classList={"tableTd w-full"}
                               value={
-                                isBack
+                                isBackData
                                   ? projectInfoData.soundPowerLevel[index][productType]
                                   : item[productType]
                               }
@@ -185,7 +185,7 @@ export default function SoundSpecDataTable({
                                   type="number"
                                   classList={"tableTd w-full"}
                                   value={
-                                    isBack
+                                    isBackData
                                       ? projectInfoData.soundPowerLevel[index + 1][productType]
                                       : tempData[productType]
                                   }
