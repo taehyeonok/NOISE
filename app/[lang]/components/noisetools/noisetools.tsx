@@ -1358,7 +1358,7 @@ const Noisetools = forwardRef((props: any, ref) => {
   // https://noisetools.net/barriercalculator?source=[5.5]&receiver=[5.4,20]&barrier=[1,2.9,8.8]&walls=[1,1]&display=2
   // https://github.com/svgcamp/svg-arc/blob/master/index.js
   return (
-    <div className={"nts_svg_parent"} ref={parentRef}>
+    <div className={"nts_svg_parent mobile:nts_svg_parent_mobile"} ref={parentRef}>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -1678,7 +1678,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 strokeWidth={"1"}
               />
               <text
-                className={"nts_ruler_dist_s_to_r_text"}
+                className={"nts_ruler_dist_s_to_r_text mobile:nts_ruler_dist_s_to_r_text_mobile"}
                 x="0"
                 y="1"
                 textAnchor="middle"
@@ -1761,7 +1761,7 @@ const Noisetools = forwardRef((props: any, ref) => {
                 strokeWidth={"1"}
               />
               <text
-                className={"nts_ruler_dist_s_to_r_text"}
+                className={"nts_ruler_dist_s_to_r_text mobile:nts_ruler_dist_s_to_r_text_mobile"}
                 x={
                   (sourceDataRef.current.fromLeft -
                     distSourceFromWall -
