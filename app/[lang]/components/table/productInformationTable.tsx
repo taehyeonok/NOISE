@@ -320,9 +320,7 @@ export default function ProductInformationTable({
                       type={"text"}
                       placeholder={t("COMMON_509")}
                       value={item.modelName}
-                      classList={
-                        "!h-[1.75rem] p-[0_0.375rem_0_0.625rem] text-[0.75rem] mobile:w-[12.5rem] w-full"
-                      }
+                      classList={"!h-[1.75rem] !text-[1em] mobile:w-[12.5rem] w-full !pl-2.5"}
                       onChange={(changeValue: string) => {
                         data[index]!.modelName = changeValue;
                         setData([...data]);
