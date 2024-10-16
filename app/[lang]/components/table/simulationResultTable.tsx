@@ -115,6 +115,9 @@ export default function SimulationResultTable({ simulateData, detailData, t }: a
               })}
             </tr>
             <tr>
+              <td className="h-3" />
+            </tr>
+            <tr>
               <td className={"tableTd bg-gray_100 noLine font-bold"}>{t("NOISE_0018")} (dB(A))</td>
               <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
             </tr>
