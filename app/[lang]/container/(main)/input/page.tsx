@@ -536,27 +536,41 @@ export default function Input() {
     const copyEstimated = cloneObject(estimatedSoundData);
 
     const distance_attenuation = 11.0; //거리감쇠
-    let totalQty: number = 0;
+    let process: number = 0;
     let adjustment: number = 0;
     productTableData
       .filter(
         (arr, index, callback) =>
           index ===
           callback.findIndex((loc) => {
-            return loc.productType === arr.productType;
+            return loc.productType === arr.productType && loc.productType != "Manual";
           })
       )
       .map((item) => {
-        if (item.productType == "AWHP" || item.productType == "Manual") {
+        if (item.productType == "AWHP" || item.productType == "ISC") {
           adjustment += Number(item.qty) * 0;
-          totalQty += Number(item.qty);
-        } else {
+          process += Number(item.qty);
+        } else if (item.productType == "Multi V i") {
+          adjustment += Number(item.qty) * 3.7;
+          process += Number(item.qty);
+        } else if (item.productType == "Multi V 5") {
           adjustment += Number(item.qty) * 2.5;
-          totalQty += Number(item.qty);
+          process += Number(item.qty);
+        } else if (item.productType == "Multi V S") {
+          adjustment += Number(item.qty) * 8.4;
+          process += Number(item.qty);
+        } else if (item.productType == "SCAC") {
+          adjustment += Number(item.qty) * 4.2;
+          process += Number(item.qty);
+        } else if (item.productType == "Multi") {
+          adjustment += Number(item.qty) * 2.1;
+          process += Number(item.qty);
+        } else if (item.productType == "RAC") {
+          adjustment += Number(item.qty) * 2;
+          process += Number(item.qty);
         }
       });
-    const adjustmentData = adjustment / totalQty; //제품특성별 측정환경 보정
-
+    const adjustmentData = adjustment / process; //제품특성별 측정환경 보정
     const correction = [
       adjustmentData - 0.5,
       adjustmentData - 0.5,
@@ -698,7 +712,7 @@ export default function Input() {
                 {t("project_name")}
               </div>
               <CCustomInput
-                name={`Project Name`}
+                name={`projectName`}
                 type={"text"}
                 placeholder={t("project_name")}
                 value={projectName}
