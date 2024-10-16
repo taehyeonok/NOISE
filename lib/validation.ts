@@ -1,5 +1,6 @@
 import { ProductItem } from "@/@types/components";
 import "@/lib/utils";
+import { toast } from "react-toastify";
 
 /**
  * html invalid custom message
@@ -63,8 +64,18 @@ export const validateFormData = (
       const number_of_point_sound_sources_input = elements.namedItem(
         `productType_${index}_text`
       ) as HTMLInputElement;
-      number_of_point_sound_sources_input.setCustomValidity(trans("NOISE_0001"));
-      number_of_point_sound_sources_input.reportValidity();
+      number_of_point_sound_sources_input.scrollIntoView({ behavior: "smooth", block: "center" });
+      toast.warn(trans("NOISE_0001"), {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
       result = false;
     }
   }
