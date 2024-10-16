@@ -34,6 +34,8 @@ import { cloneObject } from "@/app/utils/utils";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import Noisetools from "@/app/[lang]/components/noisetools/noisetools";
 import { ProjectInfoContext } from "@/app/context/projectInfoContext";
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Input() {
   const searchParams = useSearchParams();
@@ -940,6 +942,19 @@ export default function Input() {
             </button>
             {/* </Link> */}
           </ContainerBoxRow>
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            transition={Bounce}
+            theme="light"
+          />
         </ContainerBox>
       </div>
     </form>

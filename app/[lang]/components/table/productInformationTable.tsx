@@ -256,203 +256,205 @@ export default function ProductInformationTable({
   return (
     <>
       {/* 반응형 */}
-      <table className={"mobile:hidden"}>
-        <thead>
-          <tr>
-            <th className={`tableTh w-10`}>No.</th>
-            <th className={`tableTh w-[17.5rem]`}>{t("product_type")}</th>
-            <th className={`tableTh w-[17.5rem]`}>{t("COMMON_509")}</th>
-            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_563")}(EA)</th>
-            <th className={`tableTh w-[12.5rem]`}>{t("NOISE_0041")}</th>
-            <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0005")}</th>
-            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_524")} (%)</th>
-            <th className={`tableTh w-10`}>Del</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.map((item, index) => {
-            return (
-              <tr key={item.id}>
-                <td className={"tableTd"}>{item.id}</td>
-                <td className={"tableTd"}>
-                  <CSelect
-                    key={`productType_${item.id}`}
-                    id={`productType_${item.id}`}
-                    code="productType"
-                    name={`productType_${item.id}`}
-                    title={item.productType}
-                    selected
-                    classList={"tableSelectStyle"}
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      data[index]!.productType = changedValue.title;
-                      data[index]!.modelName = "";
-                      data[index]!.qty = item.qty;
-                      data[index]!.function = "";
-                      data[index]!.step = "";
-                      data[index]!.capacity = item.productType === "Manual" ? "-%" : "%";
-                      setData([...data]);
-                      //Sound Spec Data reset
-                      soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
-                      soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
-
-                      if (item.productType != "Manual") {
-                        const copyProduct = cloneObject(productTypeData);
-                        copyProduct[item.id] = changedValue.title;
-                        setProductTypeData(copyProduct);
-
-                        const copyFunction = cloneObject(functionNoiseData);
-                        copyFunction[item.id] = changedValue.value.slice(1).split("/");
-                        projectInfoData.functionNoise = copyFunction;
-                        setFunctionNoiseData(copyFunction);
-                      }
-                    }}
-                    data={item.productType}
-                    number={item.id}
-                    validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
-                    required
-                  />
-                </td>
-                <td className={"tableTd"}>
-                  {item.productType === "Manual" ? (
-                    <CCustomInput
-                      name={`modelName`}
-                      key={`modelName_${item.id}`}
-                      type={"text"}
-                      placeholder={t("COMMON_509")}
-                      value={item.modelName}
-                      classList={"!h-[1.75rem] !text-[1em] w-full !pl-2.5"}
-                      onChange={(changeValue: string) => {
-                        data[index]!.modelName = changeValue;
+      {!isMobile && (
+        <table className={"mobile:hidden"}>
+          <thead>
+            <tr>
+              <th className={`tableTh w-10`}>No.</th>
+              <th className={`tableTh w-[17.5rem]`}>{t("product_type")}</th>
+              <th className={`tableTh w-[17.5rem]`}>{t("COMMON_509")}</th>
+              <th className={`tableTh w-[7.5rem]`}>{t("COMMON_563")}(EA)</th>
+              <th className={`tableTh w-[12.5rem]`}>{t("NOISE_0041")}</th>
+              <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0005")}</th>
+              <th className={`tableTh w-[7.5rem]`}>{t("COMMON_524")} (%)</th>
+              <th className={`tableTh w-10`}>Del</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <td className={"tableTd"}>{item.id}</td>
+                  <td className={"tableTd"}>
+                    <CSelect
+                      key={`productType_${item.id}`}
+                      id={`productType_${item.id}`}
+                      code="productType"
+                      name={`productType_${item.id}`}
+                      title={item.productType}
+                      selected
+                      classList={"tableSelectStyle mobile:hidden"}
+                      onChange={(changedValue: { title: string; value: string }) => {
+                        data[index]!.productType = changedValue.title;
+                        data[index]!.modelName = "";
+                        data[index]!.qty = item.qty;
+                        data[index]!.function = "";
+                        data[index]!.step = "";
+                        data[index]!.capacity = item.productType === "Manual" ? "-%" : "%";
                         setData([...data]);
+                        //Sound Spec Data reset
+                        soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                        soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+
+                        if (item.productType != "Manual") {
+                          const copyProduct = cloneObject(productTypeData);
+                          copyProduct[item.id] = changedValue.title;
+                          setProductTypeData(copyProduct);
+
+                          const copyFunction = cloneObject(functionNoiseData);
+                          copyFunction[item.id] = changedValue.value.slice(1).split("/");
+                          projectInfoData.functionNoise = copyFunction;
+                          setFunctionNoiseData(copyFunction);
+                        }
                       }}
-                      validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                      data={item.productType}
+                      number={item.id}
+                      validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
                       required
                     />
-                  ) : (
-                    <CSelect
-                      key={`modelName_${item.id}`}
-                      code="modelName"
-                      name={`modelName_${item.id}`}
-                      title={item.modelName}
-                      selected
-                      classList={"tableSelectStyle"}
-                      onChange={(changedValue: { title: string; value: string }) => {
-                        data[index]!.modelName = changedValue.title;
+                  </td>
+                  <td className={"tableTd"}>
+                    {item.productType === "Manual" ? (
+                      <CCustomInput
+                        name={`modelName`}
+                        key={`modelName_${item.id}`}
+                        type={"text"}
+                        placeholder={t("COMMON_509")}
+                        value={item.modelName}
+                        classList={"!h-[1.75rem] !text-[1em] w-full !pl-2.5"}
+                        onChange={(changeValue: string) => {
+                          data[index]!.modelName = changeValue;
+                          setData([...data]);
+                        }}
+                        validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                        required
+                      />
+                    ) : (
+                      <CSelect
+                        key={`modelName_${item.id}`}
+                        code="modelName"
+                        name={`modelName_${item.id}`}
+                        title={item.modelName}
+                        selected
+                        classList={"tableSelectStyle"}
+                        onChange={(changedValue: { title: string; value: string }) => {
+                          data[index]!.modelName = changedValue.title;
+                          setData([...data]);
+                        }}
+                        params={{ productTypeData: productTypeData[item.id] }}
+                        data={item.modelName}
+                        number={item.id}
+                        validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                        required
+                        // disabled={item.productType == "Manual" ? true : false}
+                      />
+                    )}
+                  </td>
+                  <td className={"tableTd"}>
+                    <CCustomInput
+                      key={`qty_${item.id}`}
+                      name={`qty_${item.id}`}
+                      type={"number"}
+                      placeholder={"0"}
+                      value={1}
+                      classList={"w-full px-3 !h-7"}
+                      onChange={(changedValue: string) => {
+                        data[index]!.qty = changedValue;
                         setData([...data]);
                       }}
-                      params={{ productTypeData: productTypeData[item.id] }}
-                      data={item.modelName}
-                      number={item.id}
-                      validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                      validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
                       required
                       // disabled={item.productType == "Manual" ? true : false}
                     />
-                  )}
-                </td>
-                <td className={"tableTd"}>
-                  <CCustomInput
-                    key={`qty_${item.id}`}
-                    name={`qty_${item.id}`}
-                    type={"number"}
-                    placeholder={"0"}
-                    value={1}
-                    classList={"w-full px-3 !h-7"}
-                    onChange={(changedValue: string) => {
-                      data[index]!.qty = changedValue;
-                      setData([...data]);
-                    }}
-                    validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0003")] }}
-                    required
-                    // disabled={item.productType == "Manual" ? true : false}
-                  />
-                </td>
-                <td className={"tableTd"}>
-                  <CSelect
-                    key={`functionNoise_${item.id}`}
-                    id={`functionNoise_${item.id}`}
-                    code="functionNoise"
-                    name={`functionNoise_${item.id}`}
-                    title={item.function}
-                    selected
-                    classList={"tableSelectStyle"}
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      //Sound Spec Data reset
-                      soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
-                      soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                  </td>
+                  <td className={"tableTd"}>
+                    <CSelect
+                      key={`functionNoise_${item.id}`}
+                      id={`functionNoise_${item.id}`}
+                      code="functionNoise"
+                      name={`functionNoise_${item.id}`}
+                      title={item.function}
+                      selected
+                      classList={"tableSelectStyle"}
+                      onChange={(changedValue: { title: string; value: string }) => {
+                        //Sound Spec Data reset
+                        soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
+                        soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
-                      data[index]!.function = changedValue.title;
-                      data[index]!.step = "";
-                      data[index]!.capacity = "%";
-                      setData([...data]);
+                        data[index]!.function = changedValue.title;
+                        data[index]!.step = "";
+                        data[index]!.capacity = "%";
+                        setData([...data]);
 
-                      const copyStep = cloneObject(stepData);
-                      copyStep[item.id] = changedValue.value.slice(1).split("/");
-                      setStepData(copyStep);
-                      projectInfoData.step = copyStep;
-                    }}
-                    data={item.function}
-                    params={{ functionData: functionNoiseData[item.id] }}
-                    number={item.id}
-                    validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
-                    required
-                    disabled={item.productType == "Manual" ? true : false}
-                  />
-                </td>
-                <td className={"tableTd"}>
-                  <CSelect
-                    key={`step_${item.id}`}
-                    id={`step_${item.id}`}
-                    code="step"
-                    name={`step_${item.id}`}
-                    title={item.step}
-                    selected
-                    classList={"tableSelectStyle"}
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      data[index]!.step = changedValue.title;
-                      setData([...data]);
-                    }}
-                    params={{ stepData: stepData[item.id] }}
-                    data={item.step}
-                    number={item.id}
-                    validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
-                    required
-                    disabled={item.productType == "Manual" ? true : false}
-                  />
-                </td>
-                <td className={"tableTd"}>
-                  <CCustomInput
-                    key={`capacity_${item.id}`}
-                    type={"text"}
-                    name={`capacity_${item.id}`}
-                    placeholder={"0"}
-                    value={item.capacity}
-                    classList={"w-full px-3 !h-7"}
-                    disabled
-                    onChange={(changedValue: { title: string; value: string }) => {
-                      data[index]!.capacity = changedValue.title;
-                      setData([...data]);
-                    }}
-                  />
-                </td>
-                <td className={"tableTd"}>
-                  {index !== 0 && (
-                    // 반응형
-                    <CImageButton
-                      classList={"mx-auto"}
-                      image={IC_ROUND_MINUS}
-                      title={"delete row"}
-                      titleHidden
-                      onClick={() => {
-                        removeTableRow(item.id);
+                        const copyStep = cloneObject(stepData);
+                        copyStep[item.id] = changedValue.value.slice(1).split("/");
+                        setStepData(copyStep);
+                        projectInfoData.step = copyStep;
+                      }}
+                      data={item.function}
+                      params={{ functionData: functionNoiseData[item.id] }}
+                      number={item.id}
+                      validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0004")] }}
+                      required
+                      disabled={item.productType == "Manual" ? true : false}
+                    />
+                  </td>
+                  <td className={"tableTd"}>
+                    <CSelect
+                      key={`step_${item.id}`}
+                      id={`step_${item.id}`}
+                      code="step"
+                      name={`step_${item.id}`}
+                      title={item.step}
+                      selected
+                      classList={"tableSelectStyle"}
+                      onChange={(changedValue: { title: string; value: string }) => {
+                        data[index]!.step = changedValue.title;
+                        setData([...data]);
+                      }}
+                      params={{ stepData: stepData[item.id] }}
+                      data={item.step}
+                      number={item.id}
+                      validMessage={{ message: t("RC_0060"), format: [t("NOISE_0005")] }}
+                      required
+                      disabled={item.productType == "Manual" ? true : false}
+                    />
+                  </td>
+                  <td className={"tableTd"}>
+                    <CCustomInput
+                      key={`capacity_${item.id}`}
+                      type={"text"}
+                      name={`capacity_${item.id}`}
+                      placeholder={"0"}
+                      value={item.capacity}
+                      classList={"w-full px-3 !h-7"}
+                      disabled
+                      onChange={(changedValue: { title: string; value: string }) => {
+                        data[index]!.capacity = changedValue.title;
+                        setData([...data]);
                       }}
                     />
-                  )}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                  </td>
+                  <td className={"tableTd"}>
+                    {index !== 0 && (
+                      // 반응형
+                      <CImageButton
+                        classList={"mx-auto"}
+                        image={IC_ROUND_MINUS}
+                        title={"delete row"}
+                        titleHidden
+                        onClick={() => {
+                          removeTableRow(item.id);
+                        }}
+                      />
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
       {/* 반응형 */}
       {isMobile && renderMobileProductInformationTable()}
     </>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { dBAF } from "../../constants/const";
 import CCustomInput from "../_atoms/cCustomInput";
 
@@ -16,6 +17,18 @@ export default function SoundSpecDataTable({
   isBackData: boolean;
   t: any;
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1080);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const renderTableBox = (data: any[], title: string, children: JSX.Element) => {
     return (
       <table>
@@ -237,76 +250,85 @@ export default function SoundSpecDataTable({
   return (
     <>
       {/* 반응형 */}
-      <div
-        className={"flex flex-col gap-[1.25rem] mobile:w-full mobile:gap-[0.938rem] mobile:hidden"}
-      >
-        {renderTableBox(
-          soundPressureLevel,
-          t("NOISE_0068"),
-          <>
-            {Object.keys(soundPressureLevel[0]).map((key, index) => {
-              if (index < Object.keys(soundPressureLevel[0]).length - 1) {
-                return renderTdItem(`Product ${key} / Type : SPL`, soundPressureLevel, key);
-              }
-            })}
-          </>
-        )}
-        {renderTableBox(
-          soundPowerLevel.filter((item: any, index: number) => index !== 9),
-          t("NOISE_0069"),
-          <>
-            {Object.keys(soundPowerLevel[0]).map((key, index) => {
-              if (index < Object.keys(soundPowerLevel[0]).length - 1) {
-                return renderTdItem(`Product ${key} / Type : PWL`, soundPowerLevel, key);
-              }
-            })}
-          </>
-        )}
-      </div>
-      <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>
-        {renderMobileTableBox(
-          t("NOISE_0068"),
-          <>
-            {Object.keys(soundPressureLevel[0]).map((key, index) => {
-              if (index < Object.keys(soundPressureLevel[0]).length - 1) {
-                return (
-                  <div key={index}>
-                    {renderMobileTableItem(`Product ${key} / Type : SPL`, soundPressureLevel, key)}
-                  </div>
-                );
-              }
-            })}
-            {/* {renderMobileTableItem("Product 1 / Type : SPL", soundPressureLevel, "product1")} */}
-            {/*
+      {!isMobile ? (
+        <div
+          className={
+            "flex flex-col gap-[1.25rem] mobile:w-full mobile:gap-[0.938rem] mobile:hidden"
+          }
+        >
+          {renderTableBox(
+            soundPressureLevel,
+            t("NOISE_0068"),
+            <>
+              {Object.keys(soundPressureLevel[0]).map((key, index) => {
+                if (index < Object.keys(soundPressureLevel[0]).length - 1) {
+                  return renderTdItem(`Product ${key} / Type : SPL`, soundPressureLevel, key);
+                }
+              })}
+            </>
+          )}
+          {renderTableBox(
+            soundPowerLevel.filter((item: any, index: number) => index !== 9),
+            t("NOISE_0069"),
+            <>
+              {Object.keys(soundPowerLevel[0]).map((key, index) => {
+                if (index < Object.keys(soundPowerLevel[0]).length - 1) {
+                  return renderTdItem(`Product ${key} / Type : PWL`, soundPowerLevel, key);
+                }
+              })}
+            </>
+          )}
+        </div>
+      ) : (
+        <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.875rem]"}>
+          {renderMobileTableBox(
+            t("NOISE_0068"),
+            <>
+              {Object.keys(soundPressureLevel[0]).map((key, index) => {
+                if (index < Object.keys(soundPressureLevel[0]).length - 1) {
+                  return (
+                    <div key={index}>
+                      {renderMobileTableItem(
+                        `Product ${key} / Type : SPL`,
+                        soundPressureLevel,
+                        key
+                      )}
+                    </div>
+                  );
+                }
+              })}
+              {/* {renderMobileTableItem("Product 1 / Type : SPL", soundPressureLevel, "product1")} */}
+              {/*
             {renderMobileTableItem(
               "Product 2 / Type : SPL",
               soundPressureLevel,
               "product2",
               soundPressureLevelData
             )} */}
-          </>
-        )}
-        {renderMobileTableBox(
-          t("NOISE_0069"),
-          <>
-            {Object.keys(soundPowerLevel[0]).map((key, index) => {
-              if (index < Object.keys(soundPowerLevel[0]).length - 1) {
-                return (
-                  <div key={index}>
-                    {renderMobileTableItem(`Product ${key} / Type : PWL`, soundPowerLevel, key)}
-                  </div>
-                );
-              }
-            })}
-            {/* {renderMobileTableItem(
+            </>
+          )}
+          {renderMobileTableBox(
+            t("NOISE_0069"),
+            <>
+              {Object.keys(soundPowerLevel[0]).map((key, index) => {
+                if (index < Object.keys(soundPowerLevel[0]).length - 1) {
+                  return (
+                    <div key={index}>
+                      {renderMobileTableItem(`Product ${key} / Type : PWL`, soundPowerLevel, key)}
+                    </div>
+                  );
+                }
+              })}
+              {/* {renderMobileTableItem(
               "Product 3 / Type : SPL",
               soundPowerLevelDummyData,
               "product3",
               soundPowerLevelData
             )} */}
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 }
