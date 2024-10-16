@@ -252,6 +252,7 @@ export default function Input() {
       const productType = projectInfoData?.productTable
         ? projectInfoData.productTable.map((k: any) => k.productType)
         : [];
+      productType.unshift("");
       setProductTypeData(productType);
       setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
       setStepData(projectInfoData?.step ? projectInfoData.step : []);
