@@ -47,7 +47,9 @@ export default function Result({ params: { lang } }: any) {
   const [resultData, setResultData] = useState();
   const handleReportPdfOpen = () => {
     setReportPdfOpen(true);
-    html2canvas(chartDivRef.current!).then((url) => {
+    html2canvas(chartDivRef.current!, {
+      logging: false,
+    }).then((url) => {
       if (imageUrl === "") setImageUrl(url.toDataURL());
     });
   };
