@@ -92,7 +92,7 @@ export default function ProductInformationTable({
                 )}
               </div>
               {renderTableItem(
-                t("product_type"),
+                t("NOISE_0084"),
                 <CSelect
                   key={`productType_${item.id}`}
                   id={`productType_${item.id}`}
@@ -126,25 +126,25 @@ export default function ProductInformationTable({
                   }}
                   data={item.productType}
                   number={item.id}
-                  validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
+                  validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0084")] }}
                   required
                 />
               )}
               {renderTableItem(
-                t("COMMON_509"),
+                t("NOISE_0085"),
                 item.productType === "Manual" ? (
                   <CCustomInput
                     name={`modelName`}
                     key={`modelName_${item.id}`}
                     type={"text"}
-                    placeholder={t("COMMON_509")}
+                    placeholder={t("NOISE_0085")}
                     value={item.modelName}
                     classList={"mobileTableSelectStyle"}
                     onChange={(changeValue: string) => {
                       data[index]!.modelName = changeValue;
                       setData([...data]);
                     }}
-                    validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                    validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0085")] }}
                     required
                   />
                 ) : (
@@ -162,14 +162,14 @@ export default function ProductInformationTable({
                     params={{ productTypeData: productTypeData[item.id] }}
                     data={item.modelName}
                     number={item.id}
-                    validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0085")] }}
                     required
                     // disabled={item.productType == "Manual" ? true : false}
                   />
                 )
               )}
               {renderTableItem(
-                t("COMMON_563") + " (EA)",
+                t("NOISE_0086") + " (EA)",
                 <CCustomInput
                   type={"number"}
                   placeholder={"0"}
@@ -238,7 +238,7 @@ export default function ProductInformationTable({
                 />
               )}
               {renderTableItem(
-                t("COMMON_524") + " (%)",
+                t("NOISE_0087") + " (%)",
                 <CCustomInput
                   type={"text"}
                   placeholder={"0"}
@@ -260,12 +260,12 @@ export default function ProductInformationTable({
         <thead>
           <tr>
             <th className={`tableTh w-10`}>No.</th>
-            <th className={`tableTh w-[17.5rem]`}>{t("product_type")}</th>
-            <th className={`tableTh w-[17.5rem]`}>{t("COMMON_509")}</th>
-            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_563")}(EA)</th>
+            <th className={`tableTh w-[17.5rem]`}>{t("NOISE_0084")}</th>
+            <th className={`tableTh w-[17.5rem]`}>{t("NOISE_0085")}</th>
+            <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0086")}(EA)</th>
             <th className={`tableTh w-[12.5rem]`}>{t("NOISE_0041")}</th>
             <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0005")}</th>
-            <th className={`tableTh w-[7.5rem]`}>{t("COMMON_524")} (%)</th>
+            <th className={`tableTh w-[7.5rem]`}>{t("NOISE_0087")} (%)</th>
             <th className={`tableTh w-10`}>Del</th>
           </tr>
         </thead>
@@ -308,7 +308,7 @@ export default function ProductInformationTable({
                     }}
                     data={item.productType}
                     number={item.id}
-                    validMessage={{ message: t("NOISE_0002"), format: [t("product_type")] }}
+                    validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0084")] }}
                     required
                   />
                 </td>
@@ -318,14 +318,14 @@ export default function ProductInformationTable({
                       name={`modelName`}
                       key={`modelName_${item.id}`}
                       type={"text"}
-                      placeholder={t("COMMON_509")}
+                      placeholder={t("NOISE_0085")}
                       value={item.modelName}
                       classList={"!h-[1.75rem] !text-[1em] w-full !pl-2.5"}
                       onChange={(changeValue: string) => {
                         data[index]!.modelName = changeValue;
                         setData([...data]);
                       }}
-                      validMessage={{ message: t("NOISE_0006"), format: [t("COMMON_509")] }}
+                      validMessage={{ message: t("NOISE_0006"), format: [t("NOISE_0085")] }}
                       required
                     />
                   ) : (
@@ -343,7 +343,7 @@ export default function ProductInformationTable({
                       params={{ productTypeData: productTypeData[item.id] }}
                       data={item.modelName}
                       number={item.id}
-                      validMessage={{ message: t("NOISE_0002"), format: [t("COMMON_509")] }}
+                      validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0085")] }}
                       required
                       // disabled={item.productType == "Manual" ? true : false}
                     />
