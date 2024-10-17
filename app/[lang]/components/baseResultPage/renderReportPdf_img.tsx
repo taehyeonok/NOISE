@@ -497,12 +497,12 @@ const RenderReportPdfImage = ({
               <div className="pdf-content-table-th">{t("NOISE_0040")}</div>
             </div>
             <div className="pdf-content-table-row">
-              <div className="td w-[15%]">{t("product_type")}</div>
-              <div className="td w-[27%]">{t("COMMON_509")}</div>
-              <div className="td w-[11%]">{t("COMMON_563")} (EA)</div>
+              <div className="td w-[15%]">{t("NOISE_0084")}</div>
+              <div className="td w-[27%]">{t("NOISE_0085")}</div>
+              <div className="td w-[11%]">{t("NOISE_0086")} (EA)</div>
               <div className="td w-[20%]">{t("NOISE_0041")}</div>
               <div className="td w-[15%]">{t("NOISE_0005")}</div>
-              <div className="td w-[12%]">{t("COMMON_524")} (%)</div>
+              <div className="td w-[12%]">{t("NOISE_0087")} (%)</div>
             </div>
             {inputData?.projectInfoData?.productTable.map((row: any, index: number) => (
               <div key={index} className="pdf-content-table-row">
