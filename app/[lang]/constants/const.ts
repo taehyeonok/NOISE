@@ -92,7 +92,7 @@ export const headerLanguage = [
     locale: "sp",
   },
   {
-    title: "Turkish",
+    title: "Türkiye",
     locale: "tr",
   },
 ];

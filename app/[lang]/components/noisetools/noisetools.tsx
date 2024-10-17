@@ -2006,7 +2006,8 @@ const Noisetools = forwardRef((props: any, ref) => {
             onMouseDown={onReceiverPickerMouseDown}
             transform={recvTransform.current}
           >
-            <polygon id="r_picker_arr_up" points="0, -7, 0, 7, 7, 0" />
+            {/* <polygon id="r_picker_arr_up" points="0, -7, 0, 7, 7, 0" /> */}
+            <circle id="source_picker_circle" cx="0" cy="0" r="7" strokeWidth="0" />
             <g id="r_lable">
               <rect x="-24" y="-32" width={72} height={20} rx="5" fill="#FFFFFF" />
               <text
