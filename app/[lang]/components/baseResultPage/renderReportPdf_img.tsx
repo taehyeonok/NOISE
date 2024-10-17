@@ -20,6 +20,7 @@ interface RenderReportPdfProps {
   handleSendEmailOpen: Function;
   inputData: any;
   octaveBand: any;
+  imageUrl: string;
 }
 const RenderReportPdfImage = ({
   setIsLoading,
@@ -27,6 +28,7 @@ const RenderReportPdfImage = ({
   handleSendEmailOpen,
   inputData,
   octaveBand,
+  imageUrl,
 }: RenderReportPdfProps) => {
   const param = useParams<{ lang: string }>();
   const { t } = useTranslation(param.lang);
@@ -443,7 +445,7 @@ const RenderReportPdfImage = ({
         <div ref={reportPdfImgRef}>
           <div
             id="pdfCover"
-            className="border-gray-300 border-4 border-solid w-[210mm] h-[297mm] m-auto mobile:w-full"
+            className="border-gray-300 border-4 border-t-0 border-solid w-[210mm] h-[297mm] m-auto mobile:w-full"
             ref={pdfCoverRef}
           >
             <div className="pdf-cover-logo w-full ml-2">
@@ -457,7 +459,7 @@ const RenderReportPdfImage = ({
               <p>LATS Noise</p>
               <p>{t("RC_0169")}</p>
             </div>
-            <div className={"w-full bg-white py-10 px-10 mobile:px-5 text-left"}>
+            <div className={"w-full  py-10 px-10 mobile:px-5 text-left "}>
               <div className={"font-LGSMHATSB text-base mobile:text-[0.75rem] mobile:leading-none"}>
                 {t("RC_0007")}
               </div>
@@ -469,7 +471,7 @@ const RenderReportPdfImage = ({
                 {t("NOISE_0020")}
               </div>
             </div>
-            <div className="pdf-cover-info bg-white">
+            <div className="pdf-cover-info ">
               <p className="title">{t("RC_0170")}</p>
               <div className="flex gap-2">
                 <div>
@@ -906,7 +908,7 @@ const RenderReportPdfImage = ({
           </div>
           {/**결과창 Simulation Result*/}
           <div className="pdf-content mobile:w-full" ref={pdfContentResultRef}>
-            <div className="pdf-page">
+            <div className="pdf-page bg-white">
               <div className="pdf-content-header" ref={pdfContentHeaderRef}>
                 <div className="pdf-content-header-top">
                   <div>
@@ -1185,13 +1187,14 @@ const RenderReportPdfImage = ({
                 <div className="td w-[30%]">{Number(overalldBAF(inputData?.data)).toFixed(1)}</div>
               </div>
               <div className="mt-5 pdf-content-table-th">{t("NOISE_0012")}</div>
-              <div className="flex justify-center items-center pointer-events-none">
-                <ResultChart
+              <div className="flex justify-center items-center pointer-events-none pt-8">
+                {/* <ResultChart
                   chartDivRef={chartDivRef}
                   // key={"reportImg"}
                   simulateData={octaveBand}
                   t={t}
-                />
+                /> */}
+                <img src={imageUrl} alt={"chart"} />
               </div>
             </div>
           </div>

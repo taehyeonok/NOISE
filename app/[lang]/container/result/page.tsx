@@ -22,6 +22,8 @@ import RenderReportPdfImage from "../../components/baseResultPage/renderReportPd
 import EditUnit from "@/lib/editUnit";
 import { ProjectInfoContext } from "@/app/context/projectInfoContext";
 import LoadingPage from "../../components/loadingSkeleton/loadingPage";
+import html2canvas from "html2canvas";
+import { toPng } from "html-to-image";
 
 export default function Result({ params: { lang } }: any) {
   const { t } = useTranslation(lang);
@@ -42,9 +44,13 @@ export default function Result({ params: { lang } }: any) {
     loading: () => <LoadingChart classList={"flex items-center justify-center h-72"} />,
   });
   const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
+  const [imageUrl, setImageUrl] = useState("");
   const [resultData, setResultData] = useState();
   const handleReportPdfOpen = () => {
     setReportPdfOpen(true);
+    html2canvas(chartDivRef.current!).then((url) => {
+      if (imageUrl === "") setImageUrl(url.toDataURL());
+    });
   };
   const handleReportPdfClose = () => {
     setReportPdfOpen(false);
@@ -184,6 +190,7 @@ export default function Result({ params: { lang } }: any) {
           handleSendEmailOpen={handleSendEmailOpen}
           inputData={resultData}
           octaveBand={octaveBand}
+          imageUrl={imageUrl}
         />
       )}
     </main>
