@@ -370,12 +370,12 @@ const RenderReportPdfImage = ({
           }
           accumulatedHeight += child.scrollHeight * 0.2645833333;
           if (index === 0) {
-            page = addPage(pdfContent, child);
+            // page = addPage(pdfContent, child);
             accumulatedHeight = 10 + child.scrollHeight * 0.2645833333; // 페이지 높이 리셋
           }
 
           if (accumulatedHeight >= pageHeight) {
-            page = addPage(pdfContent, child);
+            // page = addPage(pdfContent, child);
             accumulatedHeight = 10 + child.scrollHeight * 0.2645833333; // 페이지 높이 리셋
           } else {
             if (page) page.appendChild(child);

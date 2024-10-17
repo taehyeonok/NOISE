@@ -23,7 +23,6 @@ import EditUnit from "@/lib/editUnit";
 import { ProjectInfoContext } from "@/app/context/projectInfoContext";
 import LoadingPage from "../../components/loadingSkeleton/loadingPage";
 import html2canvas from "html2canvas";
-import { toPng } from "html-to-image";
 
 export default function Result({ params: { lang } }: any) {
   const { t } = useTranslation(lang);
