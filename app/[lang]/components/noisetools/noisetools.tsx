@@ -252,8 +252,8 @@ const Noisetools = forwardRef((props: any, ref) => {
         receiverDataRef.current.fromRight)
   );
 
-  const [leftWallState, setLeftWallState] = useState(1);
-  const [topWallState, setTopWallState] = useState(1);
+  const [leftWallState, setLeftWallState] = useState(0);
+  const [topWallState, setTopWallState] = useState(0);
 
   let distanceUnit = useRef(props.distanceUnit === undefined ? "m" : props.distanceUnit);
 

@@ -193,8 +193,8 @@ export default function Input() {
   const [horizontal, setHorizontal] = useState<number>(20);
   const [odus, setOdus] = useState<number>(10);
   const [barrierH, setBarrierH] = useState<number>(5);
-  const [leftWall, setLeftWall] = useState(1);
-  const [topWall, setTopWall] = useState(1);
+  const [leftWall, setLeftWall] = useState(0);
+  const [topWall, setTopWall] = useState(0);
   const [backgroundNoise, setBackgroundNoise] = useState(30);
 
   const notifyNtFactorChanged = (factorType: string, value1: number, value2?: number) => {
