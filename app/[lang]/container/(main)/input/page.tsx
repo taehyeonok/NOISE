@@ -240,6 +240,16 @@ export default function Input() {
     setUnitData(lats_unit[lats_unit.unitClss]);
     localStorage.removeItem("simulate");
     localStorage.removeItem("simulate2");
+    //엔터키 방지
+    formRef.current?.addEventListener(
+      "keypress",
+      function (event) {
+        if (event.code === "Enter") {
+          event.preventDefault();
+        }
+      },
+      true
+    );
 
     //뒤로가기 시 이전 data 세팅
     const isBack = localStorage.getItem("isBack");
