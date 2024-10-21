@@ -379,10 +379,15 @@ export default function OutdoorSpaceContent({
             )}
           </ContainerBoxRow>
           <ContainerBoxRow justifyContent={"center"} alignItems={"center"}>
-            <BarrierInformationTable
-              barrierInfoTableData={barrierInfoTableData}
-              setBarrierInfoTableData={setBarrierInfoTableData}
-            />
+            <div>
+              <p className="text-left mb-2 !font-LGSMHATSB !text-[0.875rem] !text-gray_400 !leading-[0.976rem]">
+                {t("NOISE_0088")}
+              </p>
+              <BarrierInformationTable
+                barrierInfoTableData={barrierInfoTableData}
+                setBarrierInfoTableData={setBarrierInfoTableData}
+              />
+            </div>
             {/* 반응형 */}
             <div
               className={"self-end font-LGSMHATR text-[0.625rem] text-gray_700 ml-1 mobile:hidden"}

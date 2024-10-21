@@ -5235,5 +5235,7 @@
   "NOISE_0084": "Product Type",
   "NOISE_0085": "Model Name",
   "NOISE_0086": "Qty",
-  "NOISE_0087": "Capacity Ratio"
+  "NOISE_0087": "Capacity Ratio",
+  "RC_0369": "Is human comfort applications?",
+  "NOISE_0088": "Transmission loss"
 }
