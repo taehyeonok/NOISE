@@ -247,7 +247,7 @@ export default function OutdoorSpaceContent({
             placeholder={"0"}
             value={backgroundNoise || ""}
             classList={`${inputSelectStyle}`}
-            unit={"db(A)"}
+            unit={"dB(A)"}
             onChange={(changeValue: number) => {
               setBackgroundNoise(changeValue);
             }}
