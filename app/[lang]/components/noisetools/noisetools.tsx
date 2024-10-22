@@ -208,6 +208,8 @@ const Noisetools = forwardRef((props: any, ref) => {
   type FIELD_OBJECT = (typeof FIELD_OBJECT)[keyof typeof FIELD_OBJECT];
 
   const [isLoading, setIsLoading] = useState(true);
+  const [isLeftHovered, setIsLeftHovered] = useState(false);
+  const [isTopHovered, setIsTopHovered] = useState(false);
   const [soundWaves, setSoundWaves] = useState<any[]>([]);
   const [rulerAreaHight, setRulerAreaHight] = useState(55);
   const [sourceData, setSourceData] = useState({ fromLeft: 4.5, height: props.sourceHeight });
@@ -1636,6 +1638,12 @@ const Noisetools = forwardRef((props: any, ref) => {
               className={`wall_btn ${leftWallState == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onLeftWallClick}
+              onMouseEnter={() => {
+                setIsLeftHovered(true);
+              }}
+              onMouseLeave={() => {
+                setIsLeftHovered(false);
+              }}
             >
               <rect
                 x="-25"
@@ -1657,6 +1665,17 @@ const Noisetools = forwardRef((props: any, ref) => {
               >
                 WALL+
               </text>
+              {isLeftHovered && (
+                <text
+                  x={90}
+                  y={65}
+                  textAnchor="middle"
+                  className="text-[0.875rem] fill-black"
+                  transform={`rotate(90)`}
+                >
+                  {props.t("NOISE_0091")}
+                </text>
+              )}
             </g>
             <g
               ref={leftWallRef}
@@ -1715,6 +1734,12 @@ const Noisetools = forwardRef((props: any, ref) => {
               className={`wall_btn ${topWallState == 1 ? "hide" : ""}`}
               strokeWidth="0"
               onClick={onTopWallClick}
+              onMouseEnter={() => {
+                setIsTopHovered(true);
+              }}
+              onMouseLeave={() => {
+                setIsTopHovered(false);
+              }}
             >
               <rect
                 x="-25"
@@ -1736,6 +1761,11 @@ const Noisetools = forwardRef((props: any, ref) => {
               >
                 WALL+
               </text>
+              {isTopHovered && (
+                <text x={80} y={30} textAnchor="middle" className="text-[0.875rem] fill-black">
+                  {props.t("NOISE_0091")}
+                </text>
+              )}
             </g>
             <g
               ref={topWallRef}

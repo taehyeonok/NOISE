@@ -896,6 +896,7 @@ export default function Input() {
                 distanceUnit={unitData?.length}
                 leftWall={leftWall}
                 topWall={topWall}
+                t={t}
               />
             )}
           </div>
