@@ -156,6 +156,10 @@ export default function OutdoorSpaceContent({
       </div>
     );
   };
+  const barrierData =
+    outdoorUnit + 1 < receiver
+      ? outdoorUnit + 1 + (odus * (receiver - (outdoorUnit + 1))) / horizontal
+      : receiver + ((horizontal - odus) * (outdoorUnit + 1 - receiver)) / horizontal;
   return (
     // 반응형
     <div className={"flex flex-col gap-[1.25rem] mobile:gap-[1rem]"}>
@@ -336,14 +340,39 @@ export default function OutdoorSpaceContent({
               />,
               t("NOISE_0078")
             )}
+            {barrierHeight < barrierData ? (
+              <span className="pc:hidden self-start text-[0.875rem] text-[#ff0000]">
+                {t("NOISE_0090")}
+              </span>
+            ) : (
+              ""
+            )}
           </ContainerBoxRow>
-          {odus < 5 ? (
-            <p className="mobile:hidden text-left text-[0.875rem] text-[#ff0000]">
-              {t("NOISE_0089")}
-            </p>
-          ) : (
-            ""
-          )}
+          <div className="flex justify-between">
+            {odus < 5 ? (
+              <span className="mobile:hidden text-[0.875rem] text-[#ff0000]">
+                {t("NOISE_0089")}
+              </span>
+            ) : (
+              ""
+            )}
+            {barrierHeight < barrierData ? (
+              odus < 5 ? (
+                <span className="mobile:hidden mr-[12.52rem] text-[0.875rem] text-[#ff0000]">
+                  {t("NOISE_0090")}
+                </span>
+              ) : (
+                <>
+                  <span></span>
+                  <span className="mobile:hidden mr-[12.52rem] text-[0.875rem] text-[#ff0000]">
+                    {t("NOISE_0090")}
+                  </span>
+                </>
+              )
+            ) : (
+              ""
+            )}
+          </div>
           {/* 반응형 */}
           <ContainerBoxRow
             justifyContent={"between"}
