@@ -209,7 +209,7 @@ export const soundPressureLevelDummyData = [
     dataType: "8000Hz",
   },
   {
-    dataType: "Overall (dB(A))",
+    dataType: "Overall",
   },
 ];
 
@@ -239,7 +239,7 @@ export const soundPowerLevelDummyData = [
     dataType: "8000Hz",
   },
   {
-    dataType: "Overall (dB(A))",
+    dataType: "Overall",
   },
   {
     dataType: "",
@@ -255,7 +255,7 @@ export const estimatedSoundDummyData = [
   { content1: "2000Hz", content2: "" },
   { content1: "4000Hz", content2: "" },
   { content1: "8000Hz", content2: "" },
-  { content1: "Overall (dB(A))", content2: "" },
+  { content1: "Overall", content2: "" },
 ];
 export const barrierInfoTableDummyData = [
   { content1: "63Hz", content2: 32 },

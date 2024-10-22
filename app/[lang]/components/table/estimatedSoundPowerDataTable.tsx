@@ -19,21 +19,25 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
   }, [estimatedSoundData]);
 
   const renderTdItem = (productType: keyof estimatedSoundProps) => {
-    return estimatedSoundData.map((item: estimatedSoundProps, index: number) => {
-      return (
-        // 반응형
-        <td
-          key={"estimatedSoundDummyData-" + index}
-          className={`tableTd w-[7.813rem] !h-[1.875rem] ${item.content1 ? "!font-LGSMHATSB" : ""}`}
-        >
-          {productType === "content1"
-            ? item.content1
-            : index === productType.length
-            ? Number(estimatedSoundDBA).toFixed(1)
-            : Number(item.content2).toFixed(1)}
-        </td>
-      );
-    });
+    return estimatedSoundData
+      .filter((data: any) => data.content1 != "Overall")
+      .map((item: estimatedSoundProps, index: number) => {
+        return (
+          // 반응형
+          <td
+            key={"estimatedSoundDummyData-" + index}
+            className={`tableTd w-[7.813rem] !h-[1.875rem] ${
+              item.content1 ? "!font-LGSMHATSB" : ""
+            }`}
+          >
+            {productType === "content1"
+              ? item.content1
+              : index === productType.length
+              ? ""
+              : Number(item.content2).toFixed(1)}
+          </td>
+        );
+      });
   };
 
   return (
@@ -41,14 +45,23 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
       {/* 반응형 */}
       <table className={"mobile:hidden"}>
         <caption className={"!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3"}>
-          Unit : dB
+          <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] mr-[5rem] !leading-3">
+            Unit : dB
+          </span>
+          <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3">
+            Unit : dB(A)
+          </span>
         </caption>
         <thead>
           <tr>
-            <th colSpan={10} className={"tableTh"}>
+            <th colSpan={9} className={"tableTh"}>
               <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem]"}>
                 {t("NOISE_0069")}
               </span>
+            </th>
+            <td className="w-5"> </td>
+            <th colSpan={1} className={"tableTh"}>
+              <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem]"}></span>
             </th>
           </tr>
         </thead>
@@ -58,8 +71,16 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
               {t("NOISE_0012")}
             </td>
             {renderTdItem("content1")}
+            <td className="w-5"> </td>
+            <td className="tableTd w-[7.813rem] !h-[1.875rem] !font-LGSMHATSB">Overall</td>
           </tr>
-          <tr>{renderTdItem("content2")}</tr>
+          <tr>
+            {renderTdItem("content2")}
+            <td className="w-5"> </td>
+            <td className="tableTd w-[7.813rem] !h-[1.875rem] !font-LGSMHATSB">
+              {Number(estimatedSoundDBA).toFixed(1)}
+            </td>
+          </tr>
           {/* <tr>
             <td className={"tableTd bg-gray_100 !h-[1.875rem]"}>{t("NOISE_0018")} (dB(A))</td>
             <td className={"tableTd !h-[1.875rem]"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
@@ -88,7 +109,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
             <table className={"table-fixed"}>
               <tbody>
                 {estimatedSoundData
-                  .filter((data: any) => data.content1 != "Overall (dB(A))")
+                  .filter((data: any) => data.content1 != "Overall")
                   .map((item: any, index: number) => {
                     if (index % 2 !== 0) {
                       return null;
@@ -112,11 +133,14 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
               </tbody>
             </table>
             <table className={"table-fixed "}>
+              <caption className={"!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3"}>
+                <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3">
+                  Unit : dB(A)
+                </span>
+              </caption>
               <tbody>
                 <tr>
-                  <th className={"tableTh !font-LGSMHATR !text-[#000]"}>
-                    {t("NOISE_0018")} (dB(A))
-                  </th>
+                  <th className={"tableTh !font-LGSMHATR !text-[#000]"}>{t("NOISE_0018")}</th>
                   <td className={"tableTd"}>{Number(estimatedSoundDBA).toFixed(1)}</td>
                 </tr>
               </tbody>

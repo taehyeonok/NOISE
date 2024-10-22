@@ -816,7 +816,12 @@ export default function Input() {
           <div
             className={"!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3 mobile:hidden"}
           >
-            Unit : dB
+            <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3 mobile:hidden mr-[5rem]">
+              Unit : dB
+            </span>
+            <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3 mobile:hidden">
+              Unit : dB(A)
+            </span>
           </div>
           <SoundSpecDataTable
             soundPressureLevel={soundPressureLevel}

@@ -34,18 +34,26 @@ export default function SoundSpecDataTable({
       <table>
         <thead>
           <tr>
-            <th colSpan={10} className={"tableTh"}>
+            <th colSpan={9} className={"tableTh"}>
               {/* Data(Octaved band) */}
               <span className={"text-[0.75rem] leading-[1.125rem] !font-LGSMHATR"}>{title}</span>
+            </th>
+            <th className="w-5"> </th>
+            <th className="tableTh">
+              <span className={"text-[0.75rem] leading-[1.125rem] !font-LGSMHATR"}></span>
             </th>
           </tr>
           <tr>
             <th className={"tableTh w-[12.5rem]"}>Data type</th>
-            {data.map((item, index: number) => (
-              <th className={`tableTh w-[7.813rem]`} key={index}>
-                {item.dataType}
-              </th>
-            ))}
+            {data
+              .filter((data: any) => data.dataType != "Overall")
+              .map((item, index: number) => (
+                <th className={`tableTh w-[7.813rem]`} key={index}>
+                  {item.dataType}
+                </th>
+              ))}
+            <th className="w-5"> </th>
+            <th className={"tableTh w-[7.813rem]"}>Overall</th>
           </tr>
         </thead>
         <tbody>{children}</tbody>
@@ -57,13 +65,13 @@ export default function SoundSpecDataTable({
       <tr className={"mobile:hidden"} key={title}>
         <td className={`tableTd bg-gray_100`}>{title}</td>
         {data
-          .filter((key, i) => i != 9)
+          .filter((key, i) => i != 9 && i != 8)
           .map((item, index: number) => (
             <td className={"tableTd"} key={`${item.dataType}-${index}`}>
               {title == `Product ${productType as any} / Type : PWL` &&
               data[9][productType] == "Manual" ? (
-                item.dataType == "Overall (dB(A))" ? (
-                  Number(Number(dBAF(soundPowerLevel, productType as string)).toFixed(1))
+                item.dataType == "Overall" ? (
+                  <td className="w-5"></td>
                 ) : (
                   <CCustomInput
                     type="number"
@@ -89,6 +97,19 @@ export default function SoundSpecDataTable({
               )}
             </td>
           ))}
+        <td className="w-5"> </td>
+        <td className="tableTd w-[7.813rem] !h-[1.875rem] !font-LGSMHATSB">
+          {Number(
+            Number(
+              dBAF(
+                title == `Product ${productType as string} / Type : SPL`
+                  ? soundPressureLevel
+                  : soundPowerLevel,
+                productType as string
+              )
+            ).toFixed(1)
+          )}
+        </td>
       </tr>
     );
   };
@@ -143,7 +164,7 @@ export default function SoundSpecDataTable({
                       <td className={`tableTd`}>
                         {title == `Product ${productType as any} / Type : PWL` &&
                         data[9][productType] == "Manual" ? (
-                          item.dataType == "Overall (dB(A))" ? (
+                          item.dataType == "Overall" ? (
                             data[0][productType] == "" ? (
                               0
                             ) : (
@@ -185,7 +206,7 @@ export default function SoundSpecDataTable({
                           <td className={`tableTd`}>
                             {title == `Product ${productType as any} / Type : PWL` &&
                             data[9][productType] == "Manual" ? (
-                              item.dataType == "Overall (dB(A))" ? (
+                              item.dataType == "Overall" ? (
                                 data[0][productType] == "" ? (
                                   0
                                 ) : (
@@ -231,6 +252,11 @@ export default function SoundSpecDataTable({
             </tbody>
           </table>
           <table className={"table-fixed "}>
+            <caption className={"!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3"}>
+              <span className="!text-right !mb-2 !font-LGSMHATR !text-[0.625rem] !leading-3">
+                Unit : dB(A)
+              </span>
+            </caption>
             <tbody>
               <tr>
                 <th className={"tableTh !font-LGSMHATR !text-[#000]"}>
