@@ -316,7 +316,7 @@ export default function OutdoorSpaceContent({
               t("NOISE_0077")
             )}
             {odus < 5 ? (
-              <p className="pc:hidden self-start text-[0.875rem] text-[#ff0000]">
+              <p className="pc:hidden tablet:hidden self-start text-[0.875rem] text-[#ff0000]">
                 {t("NOISE_0089")}
               </p>
             ) : (
@@ -341,7 +341,7 @@ export default function OutdoorSpaceContent({
               t("NOISE_0078")
             )}
             {barrierHeight < barrierData ? (
-              <span className="pc:hidden self-start text-[0.875rem] text-[#ff0000]">
+              <span className="pc:hidden tablet:hidden self-start text-[0.875rem] text-[#ff0000]">
                 {t("NOISE_0090")}
               </span>
             ) : (
