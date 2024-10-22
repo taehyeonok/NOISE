@@ -2,6 +2,7 @@
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
 import IC_TOOLTIP from "@/app/assets/icons/ic_tooltip.svg";
 import IG_REFERENCE_COMMON_TABLE from "@/app/assets/images/ig_reference_common_table.svg";
+import IG_HORIZONTAL_DISTANCE from "@/app/assets/images/ig_horizontal_distance.png";
 import Image from "next/image";
 import CCustomInput from "@/app/[lang]/components/_atoms/cCustomInput";
 import React, { Dispatch, SetStateAction, useState } from "react";
@@ -114,6 +115,15 @@ export default function OutdoorSpaceContent({
             <CTooltip className={toolTipClassName ? toolTipClassName : ""}>
               {toolTipTitle ? (
                 <p className={"cToolTipTitle"}>{toolTipTitle}</p>
+              ) : title == t("NOISE_0054") ? (
+                <>
+                  <p className={"cToolTipTitle"}>{t("NOISE_0075")}</p>
+                  <Image
+                    src={IG_HORIZONTAL_DISTANCE}
+                    className="w-[30rem]"
+                    alt={"horizontal distance"}
+                  />
+                </>
               ) : (
                 <Image src={IG_REFERENCE_COMMON_TABLE} alt={"Reference Common Table"} />
               )}
@@ -238,7 +248,9 @@ export default function OutdoorSpaceContent({
             required
             validMessage={{ message: t("RC_0061"), format: [t("NOISE_0054")] }}
           />,
-          t("NOISE_0075")
+          undefined,
+          false,
+          `${selected.value === "1" ? "bottom-[1.688rem] !top-auto mobile:bottom-[2.25rem]" : ""}`
         )}
       </ContainerBoxRow>
       {/* 반응형 */}
