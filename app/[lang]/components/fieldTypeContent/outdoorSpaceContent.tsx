@@ -311,6 +311,13 @@ export default function OutdoorSpaceContent({
               />,
               t("NOISE_0077")
             )}
+            {odus < 5 ? (
+              <p className="pc:hidden self-start text-[0.875rem] text-[#ff0000]">
+                {t("NOISE_0089")}
+              </p>
+            ) : (
+              ""
+            )}
             {renderContainerBoxRowItem(
               t("NOISE_0061"),
               <CCustomInput
@@ -330,6 +337,13 @@ export default function OutdoorSpaceContent({
               t("NOISE_0078")
             )}
           </ContainerBoxRow>
+          {odus < 5 ? (
+            <p className="mobile:hidden text-left text-[0.875rem] text-[#ff0000]">
+              {t("NOISE_0089")}
+            </p>
+          ) : (
+            ""
+          )}
           {/* 반응형 */}
           <ContainerBoxRow
             justifyContent={"between"}

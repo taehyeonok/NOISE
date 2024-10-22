@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Adet",
   "NOISE_0087": "Kapasite Oranı",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "iletim kaybı"
+  "NOISE_0088": "iletim kaybı",
+  "NOISE_0089": "Kısa mesafe ekstra yansımalara neden olabilir.",
+  "NOISE_0090": "Düşük yükseklik nedeniyle bariyer etkisi tam değildir",
+  "NOISE_0091": "3 m dahilinde yansıtıcı bir duvar olduğunda seçin"
 }

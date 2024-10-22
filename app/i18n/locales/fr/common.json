@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Qté",
   "NOISE_0087": "Rapport de capacité",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "perte de transmission"
+  "NOISE_0088": "perte de transmission",
+  "NOISE_0089": "Une courte distance peut entraîner des réflexions supplémentaires.",
+  "NOISE_0090": "L'effet barrière est incomplet en raison de la faible hauteur",
+  "NOISE_0091": "Sélectionnez lorsqu'il y a un mur réfléchissant à moins de 3 m"
 }

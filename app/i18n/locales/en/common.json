@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Qty",
   "NOISE_0087": "Capacity Ratio",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "Transmission loss"
+  "NOISE_0088": "Transmission loss",
+  "NOISE_0089": "Short distance may result in extra reflections.",
+  "NOISE_0090": "The barrier effect is incomplete due to the low height",
+  "NOISE_0091": "Select when there is a reflective wall within 3m"
 }

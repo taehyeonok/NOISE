@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Menge",
   "NOISE_0087": "Kapazitätsverhältnis",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "Übertragungsverlust"
+  "NOISE_0088": "Übertragungsverlust",
+  "NOISE_0089": "Bei geringer Entfernung kann es zu zusätzlichen Reflexionen kommen.",
+  "NOISE_0090": "Aufgrund der geringen Höhe ist die Barrierewirkung unvollständig",
+  "NOISE_0091": "Wählen Sie diese Option, wenn sich im Umkreis von 3 m eine reflektierende Wand befindet"
 }

@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Menny",
   "NOISE_0087": "Kapacitási arány",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "átviteli veszteség"
+  "NOISE_0088": "átviteli veszteség",
+  "NOISE_0089": "A rövid távolság extra visszaverődést eredményezhet.",
+  "NOISE_0090": "Az akadályhatás az alacsony magasság miatt hiányos",
+  "NOISE_0091": "Akkor válassza, ha 3 méteren belül van egy fényvisszaverő fal"
 }

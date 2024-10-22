@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Quantidade",
   "NOISE_0087": "Taxa de capacidade",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "perda de transmissão"
+  "NOISE_0088": "perda de transmissão",
+  "NOISE_0089": "Distâncias curtas podem resultar em reflexos extras.",
+  "NOISE_0090": "O efeito de barreira é incompleto devido à baixa altura",
+  "NOISE_0091": "Selecione quando houver uma parede reflexiva dentro de 3m"
 }

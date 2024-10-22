@@ -5237,5 +5237,8 @@
   "NOISE_0086": "Ilość",
   "NOISE_0087": "Współczynnik pojemności",
   "RC_0369": "Is human comfort applications?",
-  "NOISE_0088": "utrata transmisji"
+  "NOISE_0088": "utrata transmisji",
+  "NOISE_0089": "Mała odległość może powodować dodatkowe odbicia.",
+  "NOISE_0090": "Efekt bariery jest niepełny ze względu na małą wysokość",
+  "NOISE_0091": "Wybierz, gdy w odległości 3 m znajduje się odblaskowa ściana"
 }
