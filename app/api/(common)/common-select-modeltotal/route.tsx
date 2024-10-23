@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
         },
       });
       const result = dataList.map((d: any) => {
-        return { t_cool_w: d.HEATING_CAPACITY * 100, t_heat_w: d.HEATING_CAPACITY * 100 };
+        return { t_cool_w: d.HEATING_CAPACITY * 1000, t_heat_w: d.HEATING_CAPACITY * 1000 };
       });
       return NextResponse.json({
         data: result,
