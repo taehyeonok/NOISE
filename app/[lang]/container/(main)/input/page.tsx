@@ -244,7 +244,7 @@ export default function Input() {
     formRef.current?.addEventListener(
       "keypress",
       function (event) {
-        if (event.code === "Enter") {
+        if (event.code === "Enter" || event.code === "NumpadEnter") {
           event.preventDefault();
         }
       },
