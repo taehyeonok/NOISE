@@ -118,6 +118,7 @@ export default function OutdoorSpaceContent({
               ) : title == t("NOISE_0054") ? (
                 <>
                   <p className={"cToolTipTitle"}>{t("NOISE_0075")}</p>
+                  <p className={"cToolTipTitle mt-5"}>{"Guide image for center point"}</p>
                   <Image
                     src={IG_HORIZONTAL_DISTANCE}
                     className="w-[30rem]"
