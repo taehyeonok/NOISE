@@ -567,19 +567,19 @@ export default function Input() {
           adjustment += Number(item.qty) * 3.7;
           process += Number(item.qty);
         } else if (item.productType == "Multi V 5") {
-          adjustment += Number(item.qty) * 2.5;
+          adjustment += Number(item.qty) * 3.7;
           process += Number(item.qty);
         } else if (item.productType == "Multi V S") {
           adjustment += Number(item.qty) * 8.4;
           process += Number(item.qty);
         } else if (item.productType == "SCAC") {
-          adjustment += Number(item.qty) * 4.2;
+          adjustment += Number(item.qty) * 3.1;
           process += Number(item.qty);
         } else if (item.productType == "Multi") {
-          adjustment += Number(item.qty) * 2.1;
+          adjustment += Number(item.qty) * 3.1;
           process += Number(item.qty);
         } else if (item.productType == "RAC") {
-          adjustment += Number(item.qty) * 2;
+          adjustment += Number(item.qty) * 3.1;
           process += Number(item.qty);
         }
       });
