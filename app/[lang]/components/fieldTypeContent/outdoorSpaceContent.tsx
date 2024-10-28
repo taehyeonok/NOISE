@@ -351,7 +351,8 @@ export default function OutdoorSpaceContent({
                 required
                 validMessage={{ message: t("RC_0061"), format: [t("NOISE_0061")] }}
               />,
-              t("NOISE_0078")
+              undefined,
+              true
             )}
             {barrierHeight < barrierData ? (
               <span className="pc:hidden tablet:hidden self-start text-[0.875rem] text-[#ff0000]">
