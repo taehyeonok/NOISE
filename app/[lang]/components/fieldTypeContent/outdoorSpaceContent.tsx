@@ -325,7 +325,8 @@ export default function OutdoorSpaceContent({
                 required
                 validMessage={{ message: t("RC_0061"), format: [t("NOISE_0060")] }}
               />,
-              t("NOISE_0077")
+              undefined,
+              true
             )}
             {odus < 5 ? (
               <p className="pc:hidden tablet:hidden self-start text-[0.875rem] text-[#ff0000]">
