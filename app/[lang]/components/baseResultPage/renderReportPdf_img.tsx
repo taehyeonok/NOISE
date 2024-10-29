@@ -964,6 +964,9 @@ const RenderReportPdfImage = ({
               <div className="pdf-content-table">
                 <div className="pdf-content-table-th">{t("NOISE_0013")}</div>
               </div>
+              <div className="border-solid border-black border-b bg-white text-right pt-1">
+                <span className="!font-LGSMHATR !text-[0.625rem]">unit: dB</span>
+              </div>
               <div>
                 <div className="pdf-content-table-row">
                   <div className="td w-[202%]"></div>
