@@ -185,28 +185,28 @@ export const accordionDummyData = [
 
 export const soundPressureLevelDummyData = [
   {
-    dataType: "63Hz",
+    dataType: "63 Hz",
   },
   {
-    dataType: "125Hz",
+    dataType: "125 Hz",
   },
   {
-    dataType: "250Hz",
+    dataType: "250 Hz",
   },
   {
-    dataType: "500Hz",
+    dataType: "500 Hz",
   },
   {
-    dataType: "1000Hz",
+    dataType: "1k Hz",
   },
   {
-    dataType: "2000Hz",
+    dataType: "2k Hz",
   },
   {
-    dataType: "4000Hz",
+    dataType: "4k Hz",
   },
   {
-    dataType: "8000Hz",
+    dataType: "8k Hz",
   },
   {
     dataType: "Overall",
@@ -215,28 +215,28 @@ export const soundPressureLevelDummyData = [
 
 export const soundPowerLevelDummyData = [
   {
-    dataType: "63Hz",
+    dataType: "63 Hz",
   },
   {
-    dataType: "125Hz",
+    dataType: "125 Hz",
   },
   {
-    dataType: "250Hz",
+    dataType: "250 Hz",
   },
   {
-    dataType: "500Hz",
+    dataType: "500 Hz",
   },
   {
-    dataType: "1000Hz",
+    dataType: "1k Hz",
   },
   {
-    dataType: "2000Hz",
+    dataType: "2k Hz",
   },
   {
-    dataType: "4000Hz",
+    dataType: "4k Hz",
   },
   {
-    dataType: "8000Hz",
+    dataType: "8k Hz",
   },
   {
     dataType: "Overall",
@@ -247,25 +247,25 @@ export const soundPowerLevelDummyData = [
 ];
 
 export const estimatedSoundDummyData = [
-  { content1: "63Hz", content2: "" },
-  { content1: "125Hz", content2: "" },
-  { content1: "250Hz", content2: "" },
-  { content1: "500Hz", content2: "" },
-  { content1: "1000Hz", content2: "" },
-  { content1: "2000Hz", content2: "" },
-  { content1: "4000Hz", content2: "" },
-  { content1: "8000Hz", content2: "" },
+  { content1: "63 Hz", content2: "" },
+  { content1: "125 Hz", content2: "" },
+  { content1: "250 Hz", content2: "" },
+  { content1: "500 Hz", content2: "" },
+  { content1: "1k Hz", content2: "" },
+  { content1: "2k Hz", content2: "" },
+  { content1: "4k Hz", content2: "" },
+  { content1: "8k Hz", content2: "" },
   { content1: "Overall", content2: "" },
 ];
 export const barrierInfoTableDummyData = [
-  { content1: "63Hz", content2: 32 },
-  { content1: "125Hz", content2: 32 },
-  { content1: "250Hz", content2: 40 },
-  { content1: "500Hz", content2: 46 },
-  { content1: "1000Hz", content2: 53 },
-  { content1: "2000Hz", content2: 59 },
-  { content1: "4000Hz", content2: 64 },
-  { content1: "8000Hz", content2: 64 },
+  { content1: "63 Hz", content2: "" },
+  { content1: "125 Hz", content2: "" },
+  { content1: "250 Hz", content2: "" },
+  { content1: "500 Hz", content2: "" },
+  { content1: "1k Hz", content2: "" },
+  { content1: "2k Hz", content2: "" },
+  { content1: "4k Hz", content2: "" },
+  { content1: "8k Hz", content2: "" },
 ];
 export const howToUseDummyData = [
   { content1: "Write a project name and date of issue." },
@@ -302,14 +302,14 @@ export const ReferenceCommonDummyData = [
 }
 export const detailInformationDummyData = {
   headings: [
-    { content: "63Hz" },
-    { content: "125Hz" },
-    { content: "250Hz" },
-    { content: "500Hz" },
-    { content: "1000Hz" },
-    { content: "2000Hz" },
-    { content: "4000Hz" },
-    { content: "8000Hz", noLine: true },
+    { content: "63 Hz" },
+    { content: "125 Hz" },
+    { content: "250 Hz" },
+    { content: "500 Hz" },
+    { content: "1k Hz" },
+    { content: "2k Hz" },
+    { content: "4k Hz" },
+    { content: "8k Hz", noLine: true },
   ],
   data: [
     {
@@ -361,14 +361,14 @@ export const detailInformationDummyData = {
 }
 export const soundPressureReceiverDummyData = {
   headings: [
-    { content: "63Hz" },
-    { content: "125Hz" },
-    { content: "250Hz" },
-    { content: "500Hz" },
-    { content: "1000Hz" },
-    { content: "2000Hz" },
-    { content: "4000Hz" },
-    { content: "8000Hz", noLine: true },
+    { content: "63 Hz" },
+    { content: "125 Hz" },
+    { content: "250 Hz" },
+    { content: "500 Hz" },
+    { content: "1k Hz" },
+    { content: "2k Hz" },
+    { content: "4k Hz" },
+    { content: "8k Hz", noLine: true },
   ],
   data: [
     { content: "40.4", titleOfRow: false },
