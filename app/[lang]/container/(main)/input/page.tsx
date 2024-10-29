@@ -188,10 +188,10 @@ export default function Input() {
     );
   };
 
-  const [outdoorUnit, setOutdoorUnit] = useState<number>(4);
-  const [receiver, setReceiver] = useState<number>(2);
-  const [horizontal, setHorizontal] = useState<number>(20);
-  const [odus, setOdus] = useState<number>(10);
+  const [outdoorUnit, setOutdoorUnit] = useState<number>(0);
+  const [receiver, setReceiver] = useState<number>(1);
+  const [horizontal, setHorizontal] = useState<number>(10);
+  const [odus, setOdus] = useState<number>(5);
   const [barrierH, setBarrierH] = useState<number>(5);
   const [leftWall, setLeftWall] = useState(0);
   const [topWall, setTopWall] = useState(0);
