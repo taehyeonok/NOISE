@@ -756,16 +756,19 @@ body {
     @apply w-[40%] pt-[5mm]
   }
   .pdf-content-table-row{
-    @apply  flex flex-row w-full  bg-[#fff] py-[1.5mm] border-b border-solid border-black border-collapse justify-between
+    @apply  flex flex-row w-full  bg-[#fff] border-b border-solid border-black border-collapse justify-between
   }
   .pdf-content-table-row .td:not(:last-child){
-    @apply  flex flex-col items-center border-r border-solid border-black 
+    @apply  flex flex-col items-center py-[1.5mm] border-r border-solid border-black 
+  }
+  .pdf-content-table-row .td:last-child{
+    @apply  flex flex-col items-center py-[1.5mm]
   }
   .pdf-content-table-th{
     @apply  w-full text-center text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black
   }
   .pdf-content-table-td{
-    @apply  flex flex-row w-full  bg-[#fff] py-[0.3mm] border-b border-solid border-black border-collapse
+    @apply  flex flex-row w-full bg-[#fff] border-b border-solid border-black border-collapse
   }
   .pdf-content-table-td div{ 
     @apply text-center text-base w-1/2

@@ -524,9 +524,9 @@ const RenderReportPdfImage = ({
                 <div className="td w-[30%]">
                   {inputData?.soundData?.totalCapacityTableData[0]["first"].split("k")[0]}
                 </div>
-                <div className="w-[40%]  text-left ml-2 pl-2.5">kW</div>
+                <div className="w-[40%] text-left mt-1.5 ml-2 pl-2.5">kW</div>
               </div>
-              <div className="pdf-content-table-row ">
+              <div className="pdf-content-table-row">
                 <div className="td w-[30%]">{t("NOISE_0043")}</div>
                 <div className="td w-[30%]">
                   {inputData?.soundData?.totalCapacityTableData[1]["first"].split("k")[0]}
@@ -543,58 +543,58 @@ const RenderReportPdfImage = ({
               <div className="pdf-content-table-th">{t("NOISE_0044")} </div>
               <div className="pdf-content-table-td justify-between">
                 <span></span>
-                <span className="flex flex-auto bg-[#fff] ml-[5rem]">
-                  <span className="ml-auto pl-[4rem] py-[0.3mm] my-1">{t("NOISE_0045")}</span>
-                  <span className="ml-auto mr-1 self-end !font-LGSMHATR !text-[0.625rem] !leading-3">
+                <span className="flex flex-auto bg-[#fff] ml-[5rem] py-[0.3mm] my-1">
+                  <span className="ml-auto pl-[2rem]">{t("NOISE_0045")}</span>
+                  <span className="ml-auto mr-1 self-end !font-LGSMHATR !text-[0.625rem]">
                     unit: dB
                   </span>
                 </span>
-                <span className="self-end text-right !font-LGSMHATR !text-[0.625rem] !leading-3 w-[14%] border-l border-solid border-black">
+                <span className="flex justify-end items-end pb-[1.3mm] !font-LGSMHATR !text-[0.625rem] w-[10.2%] border-l border-solid border-black">
                   unit: dB(A)
                 </span>
               </div>
               <div className="pdf-content-table-row">
-                <div className="td w-[21%]">{t("NOISE_0047")}</div>
-                <div className="td w-[8%]">63 Hz</div>
-                <div className="td w-[8%]">125 Hz</div>
-                <div className="td w-[8%]">250 Hz</div>
-                <div className="td w-[8%]">500 Hz</div>
-                <div className="td w-[8%]">1k Hz</div>
-                <div className="td w-[8%]">2k Hz</div>
-                <div className="td w-[8%]">4k Hz</div>
+                <div className="td w-[18%]">{t("NOISE_0047")}</div>
+                <div className="td w-[9%]">63 Hz</div>
+                <div className="td w-[9%]">125 Hz</div>
+                <div className="td w-[9%]">250 Hz</div>
+                <div className="td w-[9%]">500 Hz</div>
+                <div className="td w-[9%]">1k Hz</div>
+                <div className="td w-[9%]">2k Hz</div>
+                <div className="td w-[9%]">4k Hz</div>
                 <div className="td w-[9%]">8k Hz</div>
-                <div className="td w-[14%]">{t("NOISE_0018")}</div>
+                <div className="td w-[10%]">{t("NOISE_0018")}</div>
               </div>
               {Object.keys(inputData?.soundData?.soundPressureLevel[0]).map((key, index) => {
                 if (index < Object.keys(inputData?.soundData?.soundPressureLevel[0]).length - 1) {
                   return (
                     <div key={index} className="pdf-content-table-row">
-                      <div className="td w-[21%]">{`Product ${key}`}</div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[18%]">{`Product ${key}`}</div>
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[0][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[1][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[2][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[3][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[4][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[5][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[6][key]).toFixed(1)}
                       </div>
                       <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPressureLevel[7][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[14%]">
+                      <div className="td w-[10%]">
                         {Number(inputData?.soundData?.soundPressureLevel[8][key]).toFixed(1)}
                       </div>
                     </div>
@@ -604,58 +604,58 @@ const RenderReportPdfImage = ({
               {/**Sound Power Level (dB) */}
               <div className="pdf-content-table-td justify-between">
                 <span></span>
-                <span className="flex flex-auto bg-[#fff] ml-[5rem]">
-                  <span className="ml-auto pl-[4rem] py-[0.3mm] my-1">{t("NOISE_0046")}</span>
-                  <span className="ml-auto mr-1 self-end  !font-LGSMHATR !text-[0.625rem] !leading-3">
+                <span className="flex flex-auto bg-[#fff] ml-[5rem] py-[0.3mm] my-1">
+                  <span className="ml-auto pl-[2rem]">{t("NOISE_0046")}</span>
+                  <span className="ml-auto mr-1 self-end !font-LGSMHATR !text-[0.625rem]">
                     unit: dB
                   </span>
                 </span>
-                <span className="self-end !text-right !font-LGSMHATR !text-[0.625rem] !leading-3 w-[14%] border-l border-solid border-black ">
+                <span className="flex justify-end items-end pb-[1.3mm] !font-LGSMHATR !text-[0.625rem] w-[10.2%] border-l border-solid border-black">
                   unit: dB(A)
                 </span>
               </div>
               <div className="pdf-content-table-row">
-                <div className="td w-[21%]">{t("NOISE_0047")}</div>
-                <div className="td w-[8%]">63 Hz</div>
-                <div className="td w-[8%]">125 Hz</div>
-                <div className="td w-[8%]">250 Hz</div>
-                <div className="td w-[8%]">500 Hz</div>
-                <div className="td w-[8%]">1k Hz</div>
-                <div className="td w-[8%]">2k Hz</div>
-                <div className="td w-[8%]">4k Hz</div>
+                <div className="td w-[18%]">{t("NOISE_0047")}</div>
+                <div className="td w-[9%]">63 Hz</div>
+                <div className="td w-[9%]">125 Hz</div>
+                <div className="td w-[9%]">250 Hz</div>
+                <div className="td w-[9%]">500 Hz</div>
+                <div className="td w-[9%]">1k Hz</div>
+                <div className="td w-[9%]">2k Hz</div>
+                <div className="td w-[9%]">4k Hz</div>
                 <div className="td w-[9%]">8k Hz</div>
-                <div className="td w-[14%]">{t("NOISE_0018")}</div>
+                <div className="td w-[10%]">{t("NOISE_0018")}</div>
               </div>
               {Object.keys(inputData?.soundData?.soundPowerLevel[0]).map((key, index) => {
                 if (index < Object.keys(inputData?.soundData?.soundPowerLevel[0]).length - 1) {
                   return (
                     <div key={index} className="pdf-content-table-row">
-                      <div className="td w-[21%]">{`Product ${key}`}</div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[18%]">{`Product ${key}`}</div>
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[0][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[1][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[2][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[3][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[4][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[5][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[8%]">
+                      <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[6][key]).toFixed(1)}
                       </div>
                       <div className="td w-[9%]">
                         {Number(inputData?.soundData?.soundPowerLevel[7][key]).toFixed(1)}
                       </div>
-                      <div className="td w-[14%]">
+                      <div className="td w-[10%]">
                         {Number(inputData?.soundData?.soundPowerLevel[8][key]).toFixed(1)}
                       </div>
                     </div>
@@ -664,59 +664,59 @@ const RenderReportPdfImage = ({
               })}
               {/**Estimated Sound Power Data */}
               <div className="pdf-content-table-th mt-0.5">{t("NOISE_0048")}</div>
-              <div className="pdf-content-table-td justify-around">
+              <div className="pdf-content-table-td justify-around py-[0.3mm]">
                 <div className="ml-auto pl-[2.5rem]">{t("NOISE_0046")}</div>
                 <span className="ml-auto self-end text-right !font-LGSMHATR !text-[0.625rem] !leading-3 ">
                   unit: dB
                 </span>
               </div>
-              <div className="grid grid-rows-1 grid-flow-col bg-white border-solid border-black border-b">
-                <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
-                  <div className="td w-[12.5%]">63 Hz</div>
-                  <div className="td w-[12.5%]">125 Hz</div>
-                  <div className="td w-[12.5%]">250 Hz</div>
-                  <div className="td w-[12.5%]">500 Hz</div>
-                  <div className="td w-[12.5%]">1k Hz</div>
-                  <div className="td w-[12.5%]">2k Hz</div>
-                  <div className="td w-[12.5%]">4k Hz</div>
-                  <div className="td w-[12.5%]">8k Hz</div>
+              <div className="grid grid-flow-col bg-white border-solid border-black border-b">
+                <div className="self-center td row-span-2">{t("NOISE_0012")}</div>
+                <div className="pdf-content-table-row col-span-4 border-b border-solid border-black">
+                  <div className="td w-full items-center">63 Hz</div>
+                  <div className="td w-full">125 Hz</div>
+                  <div className="td w-full">250 Hz</div>
+                  <div className="td w-full">500 Hz</div>
+                  <div className="td w-full">1k Hz</div>
+                  <div className="td w-full">2k Hz</div>
+                  <div className="td w-full">4k Hz</div>
+                  <div className="td w-full">8k Hz</div>
                 </div>
                 <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[0]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[1]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[2]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[3]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[4]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[5]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[6]["content2"]).toFixed(1)}
                   </div>
-                  <div className="td w-[12.5%]">
+                  <div className="td w-full">
                     {Number(inputData?.soundData?.estimatedSoundData[7]["content2"]).toFixed(1)}
                   </div>
                 </div>
               </div>
               <div className="flex flex-row">
-                <div className="flex w-[33.4%] my-2 border-b border-solid border-black items-center justify-center">
-                  <div className="td w-[70%]">{t("NOISE_0018")}</div>
-                  <div className="td w-[30%]">
+                <div className="flex w-[30%] my-2 border-b border-solid border-black items-center justify-center">
+                  <div className="td w-[65%] mb-1">{t("NOISE_0018")}</div>
+                  <div className="td w-[35%] mb-1">
                     {Number(dBAF(inputData?.soundData?.estimatedSoundData, "content2")).toFixed(1)}
                   </div>
                 </div>
-                <span className="!font-LGSMHATR !text-[0.625rem] !leading-3 mt-3 ml-1">
+                <span className="!font-LGSMHATR !text-[0.625rem] !leading-3 mt-4 ml-1">
                   unit: dB(A)
                 </span>
               </div>
@@ -752,8 +752,8 @@ const RenderReportPdfImage = ({
               </div>
               <div>
                 <div className="pdf-content-table-row">
-                  <div className="td w-[30%]">{t("NOISE_0050")}</div>
-                  <div className="td w-[70%] text-left ml-5 mr-3.5">
+                  <div className="td w-[28.6%]">{t("NOISE_0050")}</div>
+                  <div className="td w-[71.4%] !items-start pl-6">
                     {inputData?.inputData?.field_type.split("(")[0]}
                   </div>
                 </div>
@@ -801,9 +801,9 @@ const RenderReportPdfImage = ({
                       <div className="td w-[15%]">{unitData?.length}</div>
                     </div>
                     <div className="pdf-content-table-row">
-                      <div className="td w-[30%]">{t("NOISE_0055")}</div>
-                      <div className="td w-[10%]">{inputData?.inputData?.background_noise}</div>
-                      <div className="td w-[60%] text-left ml-5 mr-3.5">dB(A)</div>
+                      <div className="td w-[28.6%]">{t("NOISE_0055")}</div>
+                      <div className="td w-[9%]">{inputData?.inputData?.background_noise}</div>
+                      <div className="td w-[61.4%] !items-start pl-4">dB(A)</div>
                     </div>
                   </>
                 )}
@@ -816,8 +816,8 @@ const RenderReportPdfImage = ({
                   </div>
                   <div>
                     <div className="pdf-content-table-row">
-                      <div className="td w-[29%]">{t("NOISE_0059")}</div>
-                      <div className="td w-[71%] text-left ml-3 pl-7">
+                      <div className="td w-[28.6%]">{t("NOISE_0059")}</div>
+                      <div className="td w-[71.4%] !items-start pl-10">
                         {inputData?.inputData?.isBarrier ? t("NOISE_0082") : t("NOISE_0083")}
                       </div>
                     </div>
@@ -852,55 +852,58 @@ const RenderReportPdfImage = ({
                         {inputData?.inputData?.isBarrier ? unitData?.length : unitData?.diameter}
                       </div>
                     </div>
+                    <div className="border-solid border-black border-b bg-white text-right pt-1">
+                      <span className="!font-LGSMHATR !text-[0.625rem]">unit: dB</span>
+                    </div>
                     <div className="grid grid-rows-1 grid-flow-col border-solid border-black border-b bg-white">
-                      <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                      <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
-                        <div className="td w-[15%]">63 Hz</div>
-                        <div className="td w-[15%]">125 Hz</div>
-                        <div className="td w-[15%]">250 Hz</div>
-                        <div className="td w-[15%]">500 Hz</div>
-                        <div className="td w-[15%]">1k Hz</div>
-                        <div className="td w-[15%]">2k Hz</div>
-                        <div className="td w-[15%]">4k Hz</div>
-                        <div className="td w-[15%]">8k Hz</div>
+                      <div className="pl-[2rem] self-center td row-span-2">{t("NOISE_0012")}</div>
+                      <div className="pdf-content-table-row  col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
+                        <div className="td w-full">63 Hz</div>
+                        <div className="td w-full">125 Hz</div>
+                        <div className="td w-full">250 Hz</div>
+                        <div className="td w-full">500 Hz</div>
+                        <div className="td w-full">1k Hz</div>
+                        <div className="td w-full">2k Hz</div>
+                        <div className="td w-full">4k Hz</div>
+                        <div className="td w-full">8k Hz</div>
                       </div>
                       <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[0]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[1]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[2]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[3]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[4]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[5]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[6]
                             : "-"}
                         </div>
-                        <div className="td w-[15%]">
+                        <div className="td w-full">
                           {inputData?.inputData?.isBarrier
                             ? inputData?.inputData?.barrierInfoTableData[7]
                             : "-"}
@@ -963,105 +966,105 @@ const RenderReportPdfImage = ({
               </div>
               <div>
                 <div className="pdf-content-table-row">
-                  <div className="td w-[20%]"></div>
-                  <div className="td w-[8%]">63 Hz</div>
-                  <div className="td w-[8%]">125 Hz</div>
-                  <div className="td w-[8%]">250 Hz</div>
-                  <div className="td w-[8%]">500 Hz</div>
-                  <div className="td w-[8%]">1k Hz</div>
-                  <div className="td w-[10%]">2k Hz</div>
-                  <div className="td w-[10%]">4k Hz</div>
-                  <div className="td w-[10%]">8k Hz</div>
+                  <div className="td w-[202%]"></div>
+                  <div className="td w-full">63 Hz</div>
+                  <div className="td w-full">125 Hz</div>
+                  <div className="td w-full">250 Hz</div>
+                  <div className="td w-full">500 Hz</div>
+                  <div className="td w-full">1k Hz</div>
+                  <div className="td w-full">2k Hz</div>
+                  <div className="td w-full">4k Hz</div>
+                  <div className="td w-full">8k Hz</div>
                 </div>
                 <div className="pdf-content-table-row">
-                  <div className="td w-[20%]">{t("NOISE_0014")}</div>
-                  <div className="td w-[8%]">
+                  <div className="td w-[202%]">{t("NOISE_0014")}</div>
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.DI).toFixed(1)
                       : "-"}
                   </div>
                 </div>
                 <div className="pdf-content-table-row">
-                  <div className="td w-[20%]">{t("NOISE_0015")}</div>
-                  <div className="td w-[8%]">
+                  <div className="td w-[202%]">{t("NOISE_0015")}</div>
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[0]).toFixed(1)}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[1]).toFixed(1)}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[2]).toFixed(1)}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[3]).toFixed(1)}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[4]).toFixed(1)}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[5]).toFixed(1)}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[6]).toFixed(1)}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Number(inputData?.distance).toFixed(1)
                       : Number(inputData?.attenuation[7]).toFixed(1)}
                   </div>
                 </div>
                 <div className="pdf-content-table-row">
-                  <div className="td w-[20%]">{t("NOISE_0016")}</div>
-                  <div className="td w-[8%]">
+                  <div className="td w-[202%]">{t("NOISE_0016")}</div>
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1076,7 +1079,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1091,7 +1094,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1106,7 +1109,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1121,7 +1124,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[8%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1136,7 +1139,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1151,7 +1154,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1166,7 +1169,7 @@ const RenderReportPdfImage = ({
                         )
                       : "-"}
                   </div>
-                  <div className="td w-[10%]">
+                  <div className="td w-full">
                     {inputData?.inputData?.field_type === "Outdoor Space"
                       ? Math.max(
                           Number(
@@ -1185,37 +1188,40 @@ const RenderReportPdfImage = ({
               </div>
               {/**Sound Pressure Level (at receiver) */}
               <div className="pdf-content-table-th mt-5">{t("NOISE_0017")}</div>
-              <div className="grid grid-rows-1 grid-flow-col  border-b border-solid border-black bg-white">
-                <div className="self-center td row-span-2">{t("NOISE_0012")} (dB)</div>
-                <div className="pdf-content-table-row my-2 col-span-4 border-b border-solid border-black flex flex-row items-center justify-center">
-                  <div className="td w-[15%]">63 Hz</div>
-                  <div className="td w-[15%]">125 Hz</div>
-                  <div className="td w-[15%]">250 Hz</div>
-                  <div className="td w-[15%]">500 Hz</div>
-                  <div className="td w-[15%]">1k Hz</div>
-                  <div className="td w-[15%]">2k Hz</div>
-                  <div className="td w-[15%]">4k Hz</div>
-                  <div className="td w-[15%]">8k Hz</div>
+              <div className="border-solid border-black border-b bg-white text-right pt-1">
+                <span className="!font-LGSMHATR !text-[0.625rem]">unit: dB</span>
+              </div>
+              <div className="grid grid-flow-col bg-white border-solid border-black border-b">
+                <div className="self-center td row-span-2">{t("NOISE_0012")}</div>
+                <div className="pdf-content-table-row col-span-4 border-b border-solid border-black">
+                  <div className="td w-full">63 Hz</div>
+                  <div className="td w-full">125 Hz</div>
+                  <div className="td w-full">250 Hz</div>
+                  <div className="td w-full">500 Hz</div>
+                  <div className="td w-full">1k Hz</div>
+                  <div className="td w-full">2k Hz</div>
+                  <div className="td w-full">4k Hz</div>
+                  <div className="td w-full">8k Hz</div>
                 </div>
                 <div className="pdf-content-table-row !border-0 col-span-4 flex flex-row items-center justify-center">
-                  <div className="td w-[15%]">{Number(inputData?.data[0]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[1]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[2]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[3]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[4]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[5]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[6]).toFixed(1)}</div>
-                  <div className="td w-[15%]">{Number(inputData?.data[7]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[0]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[1]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[2]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[3]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[4]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[5]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[6]).toFixed(1)}</div>
+                  <div className="td w-full">{Number(inputData?.data[7]).toFixed(1)}</div>
                 </div>
               </div>
               <div className="flex flex-row">
-                <div className="flex w-[33.4%] my-2 border-b border-solid border-black items-center justify-center">
-                  <div className="td w-[70%]">{t("NOISE_0018")}</div>
-                  <div className="td w-[30%]">
+                <div className="flex w-[30.4%] my-2 border-b border-solid border-black items-center justify-center">
+                  <div className="td w-[63%] mb-1">{t("NOISE_0018")}</div>
+                  <div className="td w-[37%] mb-1">
                     {Number(overalldBAF(inputData?.data)).toFixed(1)}
                   </div>
                 </div>
-                <span className="!font-LGSMHATR !text-[0.625rem] !leading-3 mt-3 ml-1">
+                <span className="!font-LGSMHATR !text-[0.625rem] !leading-3 mt-4 ml-1">
                   unit: dB(A)
                 </span>
               </div>
