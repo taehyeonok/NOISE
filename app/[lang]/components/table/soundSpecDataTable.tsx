@@ -75,7 +75,7 @@ export default function SoundSpecDataTable({
                 ) : (
                   <CCustomInput
                     type="number"
-                    classList={"tableTd w-full"}
+                    classList={"tableTd w-full !text-[0.75rem]"}
                     value={
                       isBackData
                         ? projectInfoData.soundPowerLevel[index][productType]
@@ -100,15 +100,13 @@ export default function SoundSpecDataTable({
         <td className="w-5"> </td>
         <td className="tableTd w-[7.813rem] !h-[1.875rem] !font-LGSMHATSB">
           {Number(
-            Number(
-              dBAF(
-                title == `Product ${productType as string} / Type : SPL`
-                  ? soundPressureLevel
-                  : soundPowerLevel,
-                productType as string
-              )
-            ).toFixed(1)
-          )}
+            dBAF(
+              title == `Product ${productType as string} / Type : SPL`
+                ? soundPressureLevel
+                : soundPowerLevel,
+              productType as string
+            )
+          ).toFixed(1)}
         </td>
       </tr>
     );
