@@ -663,7 +663,7 @@ const RenderReportPdfImage = ({
                 }
               })}
               {/**Estimated Sound Power Data */}
-              <div className="pdf-content-table-th mt-0.5">{t("NOISE_0048")}</div>
+              <div className="pdf-content-table-th mt-6">{t("NOISE_0048")}</div>
               <div className="pdf-content-table-td justify-around py-[0.3mm]">
                 <div className="ml-auto pl-[2.5rem]">{t("NOISE_0046")}</div>
                 <span className="ml-auto self-end text-right !font-LGSMHATR !text-[0.625rem] !leading-3 ">
