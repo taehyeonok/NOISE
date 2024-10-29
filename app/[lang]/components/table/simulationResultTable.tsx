@@ -115,14 +115,21 @@ export default function SimulationResultTable({ simulateData, detailData, t }: a
               })}
             </tr>
             <tr>
-              <td className="h-3" />
-            </tr>
-            <tr>
-              <td className={"tableTd bg-gray_100 noLine font-bold"}>{t("NOISE_0018")}</td>
-              <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
-              <td className={"!pt-6  !pb-0 !pl-1 !border-0 !text-[0.625rem] !text-left"}>
+              <td colSpan={9} className={"pt-3 pb-1 pl-1 !border-0 !text-[0.625rem] !text-right"}>
                 Unit : dB(A)
               </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colSpan={2} className={"tableTd bg-gray_100 noLine font-bold "}>
+                {t("NOISE_0018")}
+              </td>
+              <td className={"tableTd"}>{Number(simulateOverallData).toFixed(1)}</td>
             </tr>
           </tbody>
         </table>
