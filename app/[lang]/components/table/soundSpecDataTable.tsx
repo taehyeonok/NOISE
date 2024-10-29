@@ -63,7 +63,7 @@ export default function SoundSpecDataTable({
   const renderTdItem = (title: string, data: any[], productType: keyof any) => {
     return (
       <tr className={"mobile:hidden"} key={title}>
-        <td className={`tableTd bg-gray_100`}>{title}</td>
+        <td className={`tableTd bg-gray_100`}>{title.split("/")[0]}</td>
         {data
           .filter((key, i) => i != 9 && i != 8)
           .map((item, index: number) => (
@@ -145,7 +145,7 @@ export default function SoundSpecDataTable({
     return (
       <div className={"pc:hidden tablet:hidden flex flex-col gap-[0.75rem]"}>
         <div className={`text-[0.875rem] leading-[1.125rem] font-LGSMHATB text-gray_700 text-left`}>
-          {title}
+          {title.split("/")[0]}
         </div>
         <div className={"flex flex-col gap-[1.5rem]"}>
           <table className={"table-fixed"}>

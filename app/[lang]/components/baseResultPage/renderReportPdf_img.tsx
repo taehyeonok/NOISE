@@ -549,7 +549,7 @@ const RenderReportPdfImage = ({
                     unit: dB
                   </span>
                 </span>
-                <span className="self-end !text-right !mb-0 !font-LGSMHATR !text-[0.625rem] !leading-3 w-[14%] border-l border-solid border-black ">
+                <span className="self-end text-right !font-LGSMHATR !text-[0.625rem] !leading-3 w-[14%] border-l border-solid border-black">
                   unit: dB(A)
                 </span>
               </div>
@@ -569,7 +569,7 @@ const RenderReportPdfImage = ({
                 if (index < Object.keys(inputData?.soundData?.soundPressureLevel[0]).length - 1) {
                   return (
                     <div key={index} className="pdf-content-table-row">
-                      <div className="td w-[21%]">{`Product ${key} / Type : SPL`}</div>
+                      <div className="td w-[21%]">{`Product ${key}`}</div>
                       <div className="td w-[8%]">
                         {Number(inputData?.soundData?.soundPressureLevel[0][key]).toFixed(1)}
                       </div>
@@ -630,7 +630,7 @@ const RenderReportPdfImage = ({
                 if (index < Object.keys(inputData?.soundData?.soundPowerLevel[0]).length - 1) {
                   return (
                     <div key={index} className="pdf-content-table-row">
-                      <div className="td w-[21%]">{`Product ${key} / Type : SPL`}</div>
+                      <div className="td w-[21%]">{`Product ${key}`}</div>
                       <div className="td w-[8%]">
                         {Number(inputData?.soundData?.soundPowerLevel[0][key]).toFixed(1)}
                       </div>
