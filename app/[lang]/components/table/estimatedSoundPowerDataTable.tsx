@@ -55,7 +55,7 @@ export default function EstimatedSoundPowerDataTable({ estimatedSoundData, t }: 
         <thead>
           <tr>
             <th colSpan={9} className={"tableTh"}>
-              <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem]"}>
+              <span className={"font-LGSMHATSB text-[0.75rem] leading-[1.125rem] pl-[8rem]"}>
                 {t("NOISE_0069")}
               </span>
             </th>

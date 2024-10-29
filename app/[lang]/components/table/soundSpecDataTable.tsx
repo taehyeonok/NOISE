@@ -36,7 +36,9 @@ export default function SoundSpecDataTable({
           <tr>
             <th colSpan={9} className={"tableTh"}>
               {/* Data(Octaved band) */}
-              <span className={"text-[0.75rem] leading-[1.125rem] !font-LGSMHATR"}>{title}</span>
+              <span className={"text-[0.75rem] leading-[1.125rem] !font-LGSMHATR pl-[8rem]"}>
+                {title}
+              </span>
             </th>
             <th className="w-5"> </th>
             <th className="tableTh">
