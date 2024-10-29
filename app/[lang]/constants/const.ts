@@ -258,14 +258,14 @@ export const estimatedSoundDummyData = [
   { content1: "Overall", content2: "" },
 ];
 export const barrierInfoTableDummyData = [
-  { content1: "63 Hz", content2: "" },
-  { content1: "125 Hz", content2: "" },
-  { content1: "250 Hz", content2: "" },
-  { content1: "500 Hz", content2: "" },
-  { content1: "1k Hz", content2: "" },
-  { content1: "2k Hz", content2: "" },
-  { content1: "4k Hz", content2: "" },
-  { content1: "8k Hz", content2: "" },
+  { content1: "63 Hz", content2: 32 },
+  { content1: "125 Hz", content2: 32 },
+  { content1: "250 Hz", content2: 40 },
+  { content1: "500 Hz", content2: 46 },
+  { content1: "1k Hz", content2: 53 },
+  { content1: "2k Hz", content2: 59 },
+  { content1: "4k Hz", content2: 64 },
+  { content1: "8k Hz", content2: 64 },
 ];
 export const howToUseDummyData = [
   { content1: "Write a project name and date of issue." },
