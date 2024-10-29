@@ -199,9 +199,15 @@ export default function ProductInformationTable({
                     soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
                     soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
-                    data[index]!.function = changedValue.title;
-                    data[index]!.step = "";
-                    data[index]!.capacity = "%";
+                    if (changedValue.title === "N/A" || changedValue.title === "DayMax") {
+                      data[index]!.function = changedValue.title;
+                      data[index]!.step = "N/A";
+                      data[index]!.capacity = "%";
+                    } else {
+                      data[index]!.function = changedValue.title;
+                      data[index]!.step = "";
+                      data[index]!.capacity = "%";
+                    }
                     setData([...data]);
 
                     const copyStep = cloneObject(stepData);
@@ -381,9 +387,15 @@ export default function ProductInformationTable({
                         soundPressureLevel.map((deleteItem: any) => delete deleteItem[item.id]);
                         soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
-                        data[index]!.function = changedValue.title;
-                        data[index]!.step = "";
-                        data[index]!.capacity = "%";
+                        if (changedValue.title === "N/A" || changedValue.title === "DayMax") {
+                          data[index]!.function = changedValue.title;
+                          data[index]!.step = "N/A";
+                          data[index]!.capacity = "%";
+                        } else {
+                          data[index]!.function = changedValue.title;
+                          data[index]!.step = "";
+                          data[index]!.capacity = "%";
+                        }
                         setData([...data]);
 
                         const copyStep = cloneObject(stepData);
