@@ -204,6 +204,7 @@ export default function OutdoorSpaceContent({
             placeholder={"0"}
             value={outdoorUnit + 1}
             classList={`${inputSelectStyle}`}
+            unit={unitData?.length}
             disabled={true}
           />,
           t("NOISE_0073")
@@ -429,8 +430,9 @@ export default function OutdoorSpaceContent({
                 type={"number"}
                 placeholder={"0"}
                 value={barrierThickness.value}
-                classList={`${inputSelectStyle} md:text-gray_400 bg-gray_100`}
-                readOnly={true}
+                classList={`${inputSelectStyle}`}
+                unit={unitData?.diameter}
+                disabled={true}
               />,
               undefined,
               true

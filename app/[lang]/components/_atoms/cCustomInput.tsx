@@ -120,7 +120,9 @@ export default function CCustomInput({
         onBlur={onBlurInput}
         ref={inputRef}
         style={{ paddingRight: unitPadding && `${unitPadding}px` }}
-        className={`${classList} ${disabled ? "!bg-EEF0F2 !text-gray_400 " : ""} customInput pl-3`}
+        className={`${classList} ${
+          disabled ? "!bg-gray_100 !text-gray_400 " : ""
+        } customInput pl-3`}
         disabled={disabled}
         required={required}
         onInvalid={(e: React.InvalidEvent<HTMLInputElement>) =>
