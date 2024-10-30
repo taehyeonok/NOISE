@@ -297,6 +297,12 @@ const Noisetools = forwardRef((props: any, ref) => {
     receiverHUpArrowPts.current = updateReceiverHUpArrowPts();
     receiverHDnArrowPts.current = updateReceiverHDnArrowPts();
 
+    topWallHUpArrowPts.current = updateTopWallUpArrowPts();
+    topWallHDnArrowPts.current = updateTopWallDnArrowPts();
+
+    leftWallLArrowPts.current = updateLeftWallLArrowPts();
+    leftWallRArrowPts.current = updateLeftWallRArrowPts();
+
     ba1Transform.current = updateBa1Transform();
 
     barrier1HArrowPts.current = updateBarrier1HArrowPts();
@@ -322,6 +328,43 @@ const Noisetools = forwardRef((props: any, ref) => {
   let sourceHDnArrowPts = useRef(updateSourceHightDnArrowPts());
   let receiverHUpArrowPts = useRef(updateReceiverHUpArrowPts());
   let receiverHDnArrowPts = useRef(updateReceiverHDnArrowPts());
+  let topWallHUpArrowPts = useRef(updateTopWallUpArrowPts());
+  let topWallHDnArrowPts = useRef(updateTopWallDnArrowPts());
+  let leftWallLArrowPts = useRef(updateLeftWallLArrowPts());
+  let leftWallRArrowPts = useRef(updateLeftWallRArrowPts());
+
+  function updateTopWallUpArrowPts() {
+    return `${sourceData.fromLeft * pxPerMeterX()}, ${getObjectCoord(FIELD_OBJECT.TopWall, "Y")}, 
+        ${sourceData.fromLeft * pxPerMeterX() - 5}, ${
+      getObjectCoord(FIELD_OBJECT.TopWall, "Y") + 5
+    }, 
+        ${sourceData.fromLeft * pxPerMeterX() + 5}, ${
+      getObjectCoord(FIELD_OBJECT.TopWall, "Y") + 5
+    }`;
+  }
+
+  function updateTopWallDnArrowPts() {
+    return `${sourceData.fromLeft * pxPerMeterX()}, ${getObjectCoord("TOP_WALL_DOWN", "Y")}, 
+        ${sourceData.fromLeft * pxPerMeterX() - 5}, ${getObjectCoord("TOP_WALL_DOWN", "Y") - 5}, 
+        ${sourceData.fromLeft * pxPerMeterX() + 5}, ${getObjectCoord("TOP_WALL_DOWN", "Y") - 5}`;
+  }
+
+  function updateLeftWallLArrowPts() {
+    return `${getObjectCoord("LEFT_WALL_L", "X")},  ${getObjectCoord("LEFT_WALL", "Y")}, ${
+      getObjectCoord("LEFT_WALL_L", "X") + 5
+    },  ${getObjectCoord("LEFT_WALL", "Y") - 5}, ${getObjectCoord("LEFT_WALL_L", "X") + 5}, ${
+      getObjectCoord("LEFT_WALL", "Y") + 5
+    }`;
+  }
+
+  function updateLeftWallRArrowPts() {
+    return `${getObjectCoord("LEFT_WALL_R", "X") + 5}, ${getObjectCoord(
+      "LEFT_WALL",
+      "Y"
+    )}, ${getObjectCoord("LEFT_WALL_R", "X")}, ${
+      getObjectCoord("LEFT_WALL", "Y") + 5
+    }, ${getObjectCoord("LEFT_WALL_R", "X")}, ${getObjectCoord("LEFT_WALL", "Y") - 5}`;
+  }
 
   function updateSourceArrowPts() {
     return `${getObjectCoord(FIELD_OBJECT.Source, "X")}, 5, ${
@@ -772,6 +815,10 @@ const Noisetools = forwardRef((props: any, ref) => {
 
     sourceHUpArrowPts.current = updateSourceHightUpArrowPts();
     sourceHDnArrowPts.current = updateSourceHightDnArrowPts();
+    topWallHUpArrowPts.current = updateTopWallUpArrowPts();
+    topWallHDnArrowPts.current = updateTopWallDnArrowPts();
+    leftWallLArrowPts.current = updateLeftWallLArrowPts();
+    leftWallRArrowPts.current = updateLeftWallRArrowPts();
 
     setLinePathSToR(
       `${getObjectCoord(FIELD_OBJECT.Source, "X")}, ${getObjectCoord(
@@ -983,6 +1030,33 @@ const Noisetools = forwardRef((props: any, ref) => {
         );
       case "RULER-BACKGROUND-Y":
         return fieldData.current.height - rulerAreaHight;
+      case "TOP_WALL-Y":
+        return (
+          fieldData.current.height -
+          rulerAreaHight -
+          sourceData.height * pxPerMeterY() -
+          (fieldData.current.height -
+            rulerAreaHight -
+            sourceData.height * pxPerMeterY() -
+            (getObjectCoord("SOURCE", "Y") -
+              pxPerMeterY() * (distSourceFromWall + wallThickness) +
+              1 -
+              (pxPerMeterX() - pxPerMeterY()) + //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+              pxPerMeterX() * 0.5) -
+            5)
+        );
+      case "TOP_WALL_DOWN-Y":
+        return fieldData.current.height - rulerAreaHight - sourceData.height * pxPerMeterY() - 25;
+      case "LEFT_WALL_L-X":
+        return (
+          (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) * pxPerMeterX() +
+          pxPerMeterX() * 0.5 +
+          10
+        );
+      case "LEFT_WALL_R-X":
+        return sourceData.fromLeft * pxPerMeterX() - 30;
+      case "LEFT_WALL-Y":
+        return fieldData.current.height - rulerAreaHight - sourceData.height * pxPerMeterY() - 25;
     }
   }
 
@@ -1714,6 +1788,80 @@ const Noisetools = forwardRef((props: any, ref) => {
               >
                 WALL+3dB
               </text>
+              <g id="ruler_leftwall_l_to_r" transform="matrix(1 0 0 1 0 35)">
+                <g className={"nts_ruler_line"} stroke="#FF0000" fill="#FF0000" strokeWidth="0">
+                  <polygon id="s_to_r_dist_st" points={leftWallLArrowPts.current} />
+                  <line
+                    id="l_to_r_leftwall"
+                    x1={
+                      (sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                        pxPerMeterX() +
+                      pxPerMeterX() * 0.5 +
+                      10
+                    }
+                    y1={
+                      fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY() -
+                      25
+                    }
+                    x2={sourceData.fromLeft * pxPerMeterX() - 30}
+                    y2={
+                      fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY() -
+                      25
+                    }
+                    strokeWidth="2"
+                  ></line>
+                  <polygon id="s_to_r_dist_ed" points={leftWallRArrowPts.current} />
+                  <rect
+                    x={
+                      ((sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                        pxPerMeterX() +
+                        pxPerMeterX() * 0.5 +
+                        10 +
+                        sourceData.fromLeft * pxPerMeterX() -
+                        30) /
+                        2 -
+                      30
+                    }
+                    y={
+                      fieldData.current.height - rulerAreaHight - sourceData.height * pxPerMeterY()
+                    }
+                    width="60"
+                    height="16"
+                    strokeWidth="0"
+                    fill="#ffffff"
+                    rx="5"
+                    fillOpacity="100%"
+                  ></rect>
+                  <text
+                    ref={sToRTextRef}
+                    id="src_to_recv_distance"
+                    className={"nts_ruler_dist_s_to_r_text"}
+                    x={
+                      ((sourceDataRef.current.fromLeft - distSourceFromWall - wallThickness) *
+                        pxPerMeterX() +
+                        pxPerMeterX() * 0.5 +
+                        10 +
+                        sourceData.fromLeft * pxPerMeterX() -
+                        30) /
+                      2
+                    }
+                    y={
+                      fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY() +
+                      8
+                    }
+                    textAnchor="middle"
+                    alignmentBaseline="middle"
+                  >
+                    {"Within 3m"}
+                  </text>
+                </g>
+              </g>
             </g>
           </g>
           <g id="wall_area_top">
@@ -1822,6 +1970,81 @@ const Noisetools = forwardRef((props: any, ref) => {
               >
                 WALL+3dB
               </text>
+              <g
+                id="t_height_ruler"
+                className={"nts_ruler_line"}
+                stroke="#ff0000"
+                fill="#ff0000"
+                strokeWidth="0"
+              >
+                <line
+                  id="topWall_ruler"
+                  x1={sourceData.fromLeft * pxPerMeterX()}
+                  y1={
+                    fieldData.current.height -
+                    rulerAreaHight -
+                    sourceData.height * pxPerMeterY() -
+                    (fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY() -
+                      (getObjectCoord("SOURCE", "Y") -
+                        pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                        1 -
+                        (pxPerMeterX() - pxPerMeterY()) + //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+                        pxPerMeterX() * 0.5) -
+                      5)
+                  }
+                  x2={sourceData.fromLeft * pxPerMeterX()}
+                  y2={
+                    fieldData.current.height -
+                    rulerAreaHight -
+                    sourceData.height * pxPerMeterY() -
+                    25
+                  }
+                  strokeWidth="1"
+                ></line>
+                <polygon id="top_wall_arr_up" points={topWallHUpArrowPts.current} />
+                <polygon id="top_wall_arr_dn" points={topWallHDnArrowPts.current} />
+                <rect
+                  x={sourceData.fromLeft * pxPerMeterX() - pxPerMeterX() / 2 + 50}
+                  y={
+                    (getObjectCoord("SOURCE", "Y") -
+                      pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                      1 -
+                      (pxPerMeterX() - pxPerMeterY()) + //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+                      pxPerMeterX() * 0.5 +
+                      fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY()) /
+                      2 -
+                    8
+                  }
+                  width={60}
+                  height={20}
+                  fill={heightBackgroundColor}
+                  rx="5"
+                ></rect>
+                <text
+                  className={"nts_ruler_dist_s_to_r_text"}
+                  x={sourceData.fromLeft * pxPerMeterX() - pxPerMeterX() / 2 + 80}
+                  y={
+                    (getObjectCoord("SOURCE", "Y") -
+                      pxPerMeterY() * (distSourceFromWall + wallThickness) +
+                      1 -
+                      (pxPerMeterX() - pxPerMeterY()) + //<= 좌측벽이랑 두께 동일하게 적용 불필요시 삭제
+                      pxPerMeterX() * 0.5 +
+                      fieldData.current.height -
+                      rulerAreaHight -
+                      sourceData.height * pxPerMeterY()) /
+                    2
+                  }
+                  textAnchor="middle"
+                  alignmentBaseline="middle"
+                  fill="#FF0000"
+                >
+                  {"Within 3m"}
+                </text>
+              </g>
             </g>
           </g>
         </g>
