@@ -8,7 +8,6 @@ import jsPDF from "jspdf";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import { toPng } from "html-to-image";
 import { dBAF } from "../../constants/const";
 import CReportPopUp from "../_atoms/cReportPopUp";
@@ -19,7 +18,6 @@ interface RenderReportPdfProps {
   handleReportPdfClose: Function;
   handleSendEmailOpen: Function;
   inputData: any;
-  octaveBand: any;
   imageUrl: string;
 }
 const RenderReportPdfImage = ({
@@ -27,7 +25,6 @@ const RenderReportPdfImage = ({
   handleReportPdfClose,
   handleSendEmailOpen,
   inputData,
-  octaveBand,
   imageUrl,
 }: RenderReportPdfProps) => {
   const param = useParams<{ lang: string }>();
@@ -43,11 +40,11 @@ const RenderReportPdfImage = ({
   const editUnit = new EditUnit();
   const pageWidth = 210;
   const pageHeight = 260;
-  const ResultChart = dynamic(() => import("@/app/[lang]/components/chart/resultChart"), {
-    ssr: false,
-    // loading: () => <LoadingPage />,
-  });
-  const chartDivRef = useRef<HTMLDivElement>(null);
+  // const ResultChart = dynamic(() => import("@/app/[lang]/components/chart/resultChart"), {
+  //   ssr: false,
+  //   // loading: () => <LoadingPage />,
+  // });
+  // const chartDivRef = useRef<HTMLDivElement>(null);
 
   const nowDate = Date.now();
   // Date 객체를 생성합니다.
@@ -370,12 +367,12 @@ const RenderReportPdfImage = ({
           }
           accumulatedHeight += child.scrollHeight * 0.2645833333;
           if (index === 0) {
-            // page = addPage(pdfContent, child);
+            page = addPage(pdfContent, child);
             accumulatedHeight = 10 + child.scrollHeight * 0.2645833333; // 페이지 높이 리셋
           }
 
           if (accumulatedHeight >= pageHeight) {
-            // page = addPage(pdfContent, child);
+            page = addPage(pdfContent, child);
             accumulatedHeight = 10 + child.scrollHeight * 0.2645833333; // 페이지 높이 리셋
           } else {
             if (page) page.appendChild(child);
@@ -665,7 +662,7 @@ const RenderReportPdfImage = ({
               {/**Estimated Sound Power Data */}
               <div className="pdf-content-table-th mt-6">{t("NOISE_0048")}</div>
               <div className="pdf-content-table-td justify-around py-[0.3mm]">
-                <div className="ml-auto pl-[2.5rem]">{t("NOISE_0046")}</div>
+                <div className="ml-auto pl-[2rem]">{t("NOISE_0046")}</div>
                 <span className="ml-auto self-end text-right !font-LGSMHATR !text-[0.625rem] !leading-3 ">
                   unit: dB
                 </span>
@@ -719,6 +716,9 @@ const RenderReportPdfImage = ({
                 <span className="!font-LGSMHATR !text-[0.625rem] !leading-3 mt-4 ml-1">
                   unit: dB(A)
                 </span>
+              </div>
+              <div>
+                <span className="!font-LGSMHATR absolute bottom-0">-1-</span>
               </div>
             </div>
           </div>
@@ -933,11 +933,14 @@ const RenderReportPdfImage = ({
                   </div>
                 </>
               )}
+              <div>
+                <span className="!font-LGSMHATR absolute bottom-0">-2-</span>
+              </div>
             </div>
           </div>
           {/**결과창 Simulation Result*/}
           <div className="pdf-content mobile:w-full" ref={pdfContentResultRef}>
-            <div className="pdf-page bg-white">
+            <div className="pdf-page">
               <div className="pdf-content-header" ref={pdfContentHeaderRef}>
                 <div className="pdf-content-header-top">
                   <div>
@@ -1230,189 +1233,180 @@ const RenderReportPdfImage = ({
               </div>
               <div className="mt-5 pdf-content-table-th">{t("NOISE_0012")}</div>
               <div className="flex justify-center items-center pointer-events-none pt-8">
-                {/* <ResultChart
-                  chartDivRef={chartDivRef}
-                  // key={"reportImg"}
-                  simulateData={octaveBand}
-                  t={t}
-                /> */}
                 <img src={imageUrl} alt={"chart"} />
+              </div>
+              <div>
+                <span className="!font-LGSMHATR absolute bottom-0">-3-</span>
               </div>
             </div>
           </div>
-        </div>
-        {/**Note */}
 
-        <div className="pdf-content mobile:w-full" ref={pdfContentNoteRef}>
-          <div className="pdf-page">
-            <div className="pdf-content-header" ref={pdfContentHeaderRef}>
-              <div className="pdf-content-header-top">
-                <div>
-                  <Image src={IC_LG_LOGO} alt={"lg"} />
-                </div>
-                <div>
-                  <span>LATS Noise Ver. </span>
-                  <span>{app_version}</span>
-                </div>
-              </div>
-              <div className="pdf-content-header-line"></div>
-              <div className="pdf-content-header-bottom">
-                <div>
-                  <span>{t("project_name")} : </span>
-                  <span>{inputData?.projectInfoData?.projectName}</span>
-                </div>
-                <div>
-                  <span>{formattedDate}</span>
-                </div>
-              </div>
-            </div>
-            <div className="pdf-content-title">{t("NOISE_0021")}</div>
-            <div className="h-[0.1mm] bg-gray-950 mt-[3.5mm] mb-[8.5mm] mx-[1mm]"></div>
-            <div className="whitespace-pre-wrap">
-              <div className="numbering-list depth-1">
-                <div>01{")"}</div>
-                <div>{t("NOISE_0022")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>02{")"}</div>
-                <div>{t("NOISE_0023")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>03{")"}</div>
-                <div>{t("NOISE_0024")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>04{")"}</div>
-                <div>{t("NOISE_0025")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>05{")"}</div>
-                <div className="">{t("NOISE_0026")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>06{")"}</div>
-                <div>{t("NOISE_0027")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>07{")"}</div>
-                <div>{t("NOISE_0028")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>09{")"}</div>
-                <div>{t("NOISE_0029")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>10{")"}</div>
-                <div>{t("NOISE_0030")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>10{")"}</div>
-                <div>{t("NOISE_0031")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>11{")"}</div>
-                <div>{t("NOISE_0032")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>12{")"}</div>
-                <div>{t("NOISE_0033")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>13{")"}</div>
-                <div>{t("NOISE_0034")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>14{")"}</div>
-                <div>{t("NOISE_0035")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>15{")"}</div>
-                <div dangerouslySetInnerHTML={{ __html: t("NOISE_0036") }} />
-              </div>
-              <div className="numbering-list depth-1">
-                <div>16{")"}</div>
-                <div>{t("NOISE_0037")}</div>
-              </div>
-              <div className="numbering-list depth-1">
-                <div>17{")"}</div>
-                <div>{t("NOISE_0038")}</div>
-              </div>
-            </div>
-
-            <div className="pdf-content-table">
-              <div className="flex flex-row text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black">
-                <div className="w-[70%]  text-left ml-2 font-bold">
-                  Noise calculation formular (Spherical field)
-                </div>
-                <div className="w-[30%] text-right font-bold">* SPL : Lp * PWL : Lw</div>
-              </div>
-            </div>
-            <div>
-              <div className="pdf-content-table-row">
-                <div className="td w-[20%] !border-0">Sound propagation</div>
-                <div className="td w-[45%] !border-0">𝐿𝑝=𝐿𝑤 - 20log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚)−11+𝐷𝐼</div>
-                <div className="td w-[35%]">where 𝐷𝐼 is directivity factor</div>
-              </div>
-
-              <div className="grid grid-rows-2 grid-flow-col bg-[#fff] py-[1.5mm] border-b border-solid border-black border-collapse justify-between">
-                <div className="self-center td row-span-2 ml-1">
-                  <div>Diffraction</div>
-                  <div>*N : Fresnel number</div>
-                  <div>*DL : Diffraction Loss</div>
-                </div>
-                <div className="my-2 col-span-6 border-b border-solid border-black flex flex-row items-center justify-center">
-                  <div className="td w-[45%] text-left ">N = 2 x d x f / 341</div>
-                  <div className="td w-[55%]">where 𝑓 is frequency</div>
-                </div>
-                <div className="col-span-4 flex flex-row items-center justify-center">
-                  <div className="w-[68%] text-left">
-                    <div className="td text-left">𝐷𝐿=20log [√2𝜋𝑁/(𝑡𝑎𝑛ℎ√2𝜋𝑁)]+5</div>
-                    <div className="td ml-5">=24</div>
+          {/**Note */}
+          <div className="pdf-content mobile:w-full" ref={pdfContentNoteRef}>
+            <div className="pdf-page">
+              <div className="pdf-content-header" ref={pdfContentHeaderRef}>
+                <div className="pdf-content-header-top">
+                  <div>
+                    <Image src={IC_LG_LOGO} alt={"lg"} />
                   </div>
-                  <div className="td w-[32%] ">
-                    <div className="td  ">{`(-0.2 < N < 12.5)`}</div>
-                    <div className="td ">{`(N > 12.5)`}</div>
+                  <div>
+                    <span>LATS Noise Ver. </span>
+                    <span>{app_version}</span>
+                  </div>
+                </div>
+                <div className="pdf-content-header-line"></div>
+                <div className="pdf-content-header-bottom">
+                  <div>
+                    <span>{t("project_name")} : </span>
+                    <span>{inputData?.projectInfoData?.projectName}</span>
+                  </div>
+                  <div>
+                    <span>{formattedDate}</span>
                   </div>
                 </div>
               </div>
-
-              <div className="pdf-content-table-row">
-                <div className="flex flex-col ml-5 w-[23%]  text-left">Noise summation</div>
-                <div className="flex flex-col w-[77%] text-left">
-                  𝐿𝑝,𝑠𝑢𝑚=10*log(10(𝐿1/10) + 10(𝐿2/10) + 10(𝐿3/10)… )
+              <div className="pdf-content-title">{t("NOISE_0021")}</div>
+              <div className="h-[0.1mm] bg-gray-950 mt-[3.5mm] mb-[8.5mm] mx-[1mm]"></div>
+              <div className="whitespace-pre-wrap">
+                <div className="numbering-list depth-1">
+                  <div>01{")"}</div>
+                  <div>{t("NOISE_0022")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>02{")"}</div>
+                  <div>{t("NOISE_0023")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>03{")"}</div>
+                  <div>{t("NOISE_0024")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>04{")"}</div>
+                  <div>{t("NOISE_0025")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>05{")"}</div>
+                  <div className="">{t("NOISE_0026")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>06{")"}</div>
+                  <div>{t("NOISE_0027")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>07{")"}</div>
+                  <div>{t("NOISE_0028")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>09{")"}</div>
+                  <div>{t("NOISE_0029")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>10{")"}</div>
+                  <div>{t("NOISE_0030")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>10{")"}</div>
+                  <div>{t("NOISE_0031")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>11{")"}</div>
+                  <div>{t("NOISE_0032")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>12{")"}</div>
+                  <div>{t("NOISE_0033")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>13{")"}</div>
+                  <div>{t("NOISE_0034")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>14{")"}</div>
+                  <div>{t("NOISE_0035")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>15{")"}</div>
+                  <div dangerouslySetInnerHTML={{ __html: t("NOISE_0036") }} />
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>16{")"}</div>
+                  <div>{t("NOISE_0037")}</div>
+                </div>
+                <div className="numbering-list depth-1">
+                  <div>17{")"}</div>
+                  <div>{t("NOISE_0038")}</div>
                 </div>
               </div>
 
-              {/* <div className="w-full h-full flex items-center justify-center mt-5">
+              <div className="pdf-content-table">
+                <div className="flex flex-row text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black">
+                  <div className="w-[70%]  text-left ml-2 font-bold">
+                    Noise calculation formular (Spherical field)
+                  </div>
+                  <div className="w-[30%] text-right font-bold">* SPL : Lp * PWL : Lw</div>
+                </div>
+              </div>
+              <div>
+                <div className="pdf-content-table-row">
+                  <div className="td w-[20%] !border-0">Sound propagation</div>
+                  <div className="td w-[45%] !border-0">𝐿𝑝=𝐿𝑤 - 20log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚)−11+𝐷𝐼</div>
+                  <div className="td w-[35%]">where 𝐷𝐼 is directivity factor</div>
+                </div>
+
+                <div className="grid grid-rows-2 grid-flow-col bg-[#fff] py-[1.5mm] border-b border-solid border-black border-collapse justify-between">
+                  <div className="self-center td row-span-2 ml-1">
+                    <div>Diffraction</div>
+                    <div>*N : Fresnel number</div>
+                    <div>*DL : Diffraction Loss</div>
+                  </div>
+                  <div className="my-2 col-span-6 border-b border-solid border-black flex flex-row items-center justify-center">
+                    <div className="td w-[45%] text-left ">N = 2 x d x f / 341</div>
+                    <div className="td w-[55%]">where 𝑓 is frequency</div>
+                  </div>
+                  <div className="col-span-4 flex flex-row items-center justify-center">
+                    <div className="w-[68%] text-left">
+                      <div className="td text-left">𝐷𝐿=20log [√2𝜋𝑁/(𝑡𝑎𝑛ℎ√2𝜋𝑁)]+5</div>
+                      <div className="td ml-5">=24</div>
+                    </div>
+                    <div className="td w-[32%] ">
+                      <div className="td  ">{`(-0.2 < N < 12.5)`}</div>
+                      <div className="td ">{`(N > 12.5)`}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pdf-content-table-row">
+                  <div className="flex flex-col ml-5 w-[23%]  text-left">Noise summation</div>
+                  <div className="flex flex-col w-[77%] text-left">
+                    𝐿𝑝,𝑠𝑢𝑚=10*log(10(𝐿1/10) + 10(𝐿2/10) + 10(𝐿3/10)… )
+                  </div>
+                </div>
+
+                {/* <div className="w-full h-full flex items-center justify-center mt-5">
                 <Image src={IG_NOTE_TABLE_ENCLOSED_SPACE} alt={"sound propagation"} />
               </div> */}
-            </div>
-            <div className="pdf-content-table">
-              <div className="flex flex-row text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black">
-                <div className="w-[70%]  text-left ml-2 font-bold">
-                  Noise calculation formula (Enclosed space)
-                </div>
-                <div className="w-[30%] text-right font-bold">* SPL : Lp * PWL : Lw</div>
               </div>
-            </div>
-            <div>
-              <div className="pdf-content-table-row">
-                <div className="w-[22%] flex flex-col ml-5 text-left">Sound propagation</div>
-                <div className="w-[78%] ">
-                  𝐿𝑝=𝐿𝑤 − 10log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚) -5log(volume,m<sup>3</sup> )-3log(𝑓𝑟𝑒𝑞𝑢𝑒𝑛𝑐𝑦) + 10
-                  log⁡(𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑠𝑜𝑢𝑟𝑐𝑒)+12
+              <div className="pdf-content-table">
+                <div className="flex flex-row text-base font-LGSMHATSB bg-[#d9d9d9] py-[0.5mm] border-y border-solid border-black">
+                  <div className="w-[70%]  text-left ml-2 font-bold">
+                    Noise calculation formula (Enclosed space)
+                  </div>
+                  <div className="w-[30%] text-right font-bold">* SPL : Lp * PWL : Lw</div>
                 </div>
               </div>
+              <div>
+                <div className="pdf-content-table-row">
+                  <div className="w-[22%] flex flex-col ml-5 text-left">Sound propagation</div>
+                  <div className="w-[78%] ">
+                    𝐿𝑝=𝐿𝑤 − 10log(𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒,𝑚) -5log(volume,m<sup>3</sup> )-3log(𝑓𝑟𝑒𝑞𝑢𝑒𝑛𝑐𝑦) + 10
+                    log⁡(𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑠𝑜𝑢𝑟𝑐𝑒)+12
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span className="!font-LGSMHATR absolute bottom-0">-4-</span>
+              </div>
             </div>
-            {/* <NotePage /> */}
-            {/* <CAccordionBox
-                title={accordionDummyData[1]!.title}
-                content={accordionDummyData[1]!.content}
-                isOpen={true}
-                setIsOpen={() => true}
-                image={accordionDummyData[1]!.image}
-                t={t}
-              /> */}
           </div>
           {/** */}
         </div>

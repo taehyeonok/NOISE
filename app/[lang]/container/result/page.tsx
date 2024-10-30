@@ -190,7 +190,6 @@ export default function Result({ params: { lang } }: any) {
           handleReportPdfClose={handleReportPdfClose}
           handleSendEmailOpen={handleSendEmailOpen}
           inputData={resultData}
-          octaveBand={octaveBand}
           imageUrl={imageUrl}
         />
       )}
