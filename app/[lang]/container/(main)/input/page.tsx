@@ -3,7 +3,7 @@
 import ContainerBox from "@/app/[lang]/components/containerBox/containerBox";
 import ContainerBoxTitle from "@/app/[lang]/components/containerBoxTitle/containerBoxTitle";
 import ContainerBoxRow from "@/app/[lang]/components/containerBoxRow/containerBoxRow";
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import CCalendar from "@/app/[lang]/components/_atoms/cCalendar";
 import IC_ROUND_PLUS from "@/app/assets/icons/ic_round_plus.svg";
 import Image from "next/image";
@@ -63,7 +63,6 @@ export default function Input() {
   const [totalCapacityTableData, setTotalCapacityTableData] = useState(totalCapacityTableDummyData);
   const [barrierInfoTableData, setBarrierInfoTableData] = useState(barrierInfoTableDummyData);
   const [unitData, setUnitData] = useState<any>(null);
-  const [productTypeData, setProductTypeData] = useState([]);
   const [functionNoiseData, setFunctionNoiseData] = useState<any>([]);
   const [stepData, setStepData] = useState([]);
   const [totalRatedData, setTotalRatedData] = useState(0);
@@ -81,13 +80,8 @@ export default function Input() {
   const { projectInfoData, setProjectInfoData } = useContext(ProjectInfoContext);
 
   const addTableRow = () => {
-    const existingIds = productTableData.map((row) => row.id);
-    let newId = 1;
-    while (existingIds.includes(newId)) {
-      newId++;
-    }
     const newRow: ProductItem = {
-      id: newId,
+      id: productTableData.length + 1,
       productType: "",
       modelName: "",
       qty: "1",
@@ -99,23 +93,45 @@ export default function Input() {
     setProductTableData([...productTableData, newRow]);
   };
 
-  const removeTableRow = useCallback(
-    (rowId: number) => {
-      if (productTableData.length > MIN_ROWS) {
-        const updatedTableRows = productTableData.filter((row) => row.id !== rowId);
+  const removeTableRow = (rowId: number) => {
+    if (productTableData.length > MIN_ROWS) {
+      const updatedTableRows = productTableData
+        .filter((row) => row.id !== rowId)
+        .map((item, index) => ({ ...item, id: index + 1 }));
 
-        soundPressureLevel.map((item: any) => delete item[rowId]);
+      const updatePressureTable = soundPressureLevel.map((item: any, index: number) => {
+        const newItem = {} as any;
 
-        soundPowerLevel.map((item: any) => delete item[rowId]);
-        delete productTypeData[rowId];
-        delete functionNoiseData[rowId];
-        delete stepData[rowId];
+        for (const [key, value] of Object.entries(item)) {
+          const newKey = Number(key) > rowId ? Number(key) - 1 : key;
+          newItem[newKey] = value;
+          if (Number(key) == rowId) {
+            delete newItem[rowId];
+          }
+        }
+        return newItem;
+      });
 
-        setProductTableData(updatedTableRows);
-      }
-    },
-    [productTableData, soundPressureLevel, soundPowerLevel]
-  );
+      const updatePowerTable = soundPowerLevel.map((item: any, index: number) => {
+        const newItem = {} as any;
+        for (const [key, value] of Object.entries(item)) {
+          const newKey = Number(key) > rowId ? Number(key) - 1 : key;
+          newItem[newKey] = value;
+          if (Number(key) == rowId) {
+            delete newItem[rowId];
+          }
+        }
+        return newItem;
+      });
+
+      functionNoiseData.splice(rowId, 1);
+      stepData.splice(rowId, 1);
+
+      setProductTableData(updatedTableRows);
+      setSoundPressureLevel(updatePressureTable);
+      setSoundPowerLevel(updatePowerTable);
+    }
+  };
 
   ////////////////////// Noisetools Component Test Code From //////////////////////
   //noisetools add
@@ -265,7 +281,6 @@ export default function Input() {
         ? projectInfoData.productTable.map((k: any) => k.productType)
         : [];
       productType.unshift("");
-      setProductTypeData(productType);
       setFunctionNoiseData(projectInfoData.functionNoise ? projectInfoData.functionNoise : []);
       setStepData(projectInfoData?.step ? projectInfoData.step : []);
       setSelectFieldType(
@@ -530,7 +545,8 @@ export default function Input() {
       setTotalSimulatedData(totalSimulated);
     };
     fetchData();
-  }, [productTableData, productTypeData]);
+  }, [productTableData]);
+
   //Total Capacity
   useEffect(() => {
     const copyTotal = cloneObject(totalCapacityTableData);
@@ -680,8 +696,6 @@ export default function Input() {
         setData={setProductTableData}
         removeTableRow={removeTableRow}
         t={t}
-        productTypeData={productTypeData}
-        setProductTypeData={setProductTypeData}
         functionNoiseData={functionNoiseData}
         setFunctionNoiseData={setFunctionNoiseData}
         stepData={stepData}
@@ -693,7 +707,6 @@ export default function Input() {
     );
   }, [
     productTableData,
-    productTypeData,
     functionNoiseData,
     stepData,
     soundPowerLevel,
@@ -777,8 +790,6 @@ export default function Input() {
             setData={setProductTableData}
             removeTableRow={removeTableRow}
             t={t}
-            productTypeData={productTypeData}
-            setProductTypeData={setProductTypeData}
             functionNoiseData={functionNoiseData}
             setFunctionNoiseData={setFunctionNoiseData}
             stepData={stepData}
@@ -867,9 +878,6 @@ export default function Input() {
               selectList={fieldTypeSelectBoxData}
               select={selectFieldType}
               setSelect={setSelectFieldType}
-              onChange={(changeValue: { title: string; value: string }) => {
-                setSelectFieldType(changeValue);
-              }}
             />
             {selectFieldType.value === "2" && (
               <p className="mobile:hidden ml-3 pt-1 text-[0.875rem] text-[#ff0000]">

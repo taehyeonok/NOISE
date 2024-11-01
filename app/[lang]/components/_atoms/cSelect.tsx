@@ -77,6 +77,9 @@ export default function CSelect({
     if (data && code) {
       setSelectText(data);
     } else {
+      if (code == "productType") {
+        setSelectText(data);
+      }
       if (code == "modelName") {
         setSelectText(data);
       }

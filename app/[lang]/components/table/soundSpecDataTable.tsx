@@ -174,11 +174,14 @@ export default function SoundSpecDataTable({
                             )
                           ) : (
                             <CCustomInput
+                              key={index}
                               type="number"
                               classList={"tableTd w-full"}
                               value={
                                 isBackData
                                   ? projectInfoData.soundPowerLevel[index][productType]
+                                  : item[productType] == ""
+                                  ? ""
                                   : item[productType]
                               }
                               onChange={(changeValue: any) => {

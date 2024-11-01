@@ -13,8 +13,6 @@ interface ProductInformationTableProps {
   setData: Function;
   removeTableRow: Function;
   t: any;
-  productTypeData: string[];
-  setProductTypeData: Function;
   functionNoiseData: string[];
   setFunctionNoiseData: Function;
   stepData: string[];
@@ -29,8 +27,6 @@ export default function ProductInformationTable({
   setData,
   removeTableRow,
   t,
-  productTypeData,
-  setProductTypeData,
   functionNoiseData,
   setFunctionNoiseData,
   stepData,
@@ -114,10 +110,6 @@ export default function ProductInformationTable({
                     soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                     if (item.productType != "Manual") {
-                      const copyProduct = cloneObject(productTypeData);
-                      copyProduct[item.id] = changedValue.title;
-                      setProductTypeData(copyProduct);
-
                       const copyFunction = cloneObject(functionNoiseData);
                       copyFunction[item.id] = changedValue.value.slice(1).split("/");
                       projectInfoData.functionNoise = copyFunction;
@@ -159,7 +151,7 @@ export default function ProductInformationTable({
                       data[index]!.modelName = changedValue.title;
                       setData([...data]);
                     }}
-                    params={{ productTypeData: productTypeData[item.id] }}
+                    params={{ productTypeData: item.productType }}
                     data={item.modelName}
                     number={item.id}
                     validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0085")] }}
@@ -303,10 +295,6 @@ export default function ProductInformationTable({
                         soundPowerLevel.map((deleteItem: any) => delete deleteItem[item.id]);
 
                         if (item.productType != "Manual") {
-                          const copyProduct = cloneObject(productTypeData);
-                          copyProduct[item.id] = changedValue.title;
-                          setProductTypeData(copyProduct);
-
                           const copyFunction = cloneObject(functionNoiseData);
                           copyFunction[item.id] = changedValue.value.slice(1).split("/");
                           projectInfoData.functionNoise = copyFunction;
@@ -347,7 +335,7 @@ export default function ProductInformationTable({
                           data[index]!.modelName = changedValue.title;
                           setData([...data]);
                         }}
-                        params={{ productTypeData: productTypeData[item.id] }}
+                        params={{ productTypeData: item.productType }}
                         data={item.modelName}
                         number={item.id}
                         validMessage={{ message: t("NOISE_0002"), format: [t("NOISE_0085")] }}
